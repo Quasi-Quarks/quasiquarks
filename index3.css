@@ -1,0 +1,350 @@
+/* =========================================
+   LAYERS
+   ========================================= */
+@layer reset, tokens, base, components, utilities;
+
+/* =========================================
+   RESET
+   ========================================= */
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+  html:focus-within { scroll-behavior: smooth; }
+  img, svg { display: block; max-width: 100%; height: auto; }
+  a { text-decoration: none; color: inherit; }
+}
+
+/* =========================================
+   TOKENS (OKLCH, scales, radii, etc.)
+   ========================================= */
+@layer tokens {
+  :root {
+    /* Base brand in OKLCH (vivid violet/indigo-ish) */
+    --brand: oklch(60% 0.18 280);
+    --bg-1: oklch(15% 0.03 260);
+    --bg-2: oklch(22% 0.04 260);
+    --ink: oklch(95% 0.02 260);
+
+    /* Derived palette (no hex “guessing”) */
+    --brand-strong: color-mix(in oklch, var(--brand) 85%, black);
+    --brand-soft:   color-mix(in oklch, var(--brand) 35%, white);
+    --ring:         color-mix(in oklch, var(--brand) 60%, white);
+
+    --radius: 18px;
+    --shadow-1: 0 8px 30px 0 oklch(0% 0 0 / 0.25);
+    --shadow-2: 0 12px 60px 0 oklch(0% 0 0 / 0.35);
+
+    --pad:  clamp(12px, 2cqi, 24px);
+    --gap:  clamp(12px, 3cqi, 28px);
+    --maxw: 1200px;
+
+    /* Typography scale */
+    --fs-xs: clamp(12px, 0.9rem, 14px);
+    --fs-sm: clamp(14px, 1rem, 16px);
+    --fs-md: clamp(16px, 1.125rem, 18px);
+    --fs-lg: clamp(28px, 6cqi, 38px);
+    --fs-xl: clamp(38px, 10cqi, 64px);
+
+    /* View-transition name to enable page-like transitions within this doc */
+    view-transition-name: page;
+
+    /* Scroll-driven animation timeline (progress of page) */
+    scroll-timeline-name: --doc;
+    scroll-timeline-axis: block;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg-1: oklch(97% 0.01 260);
+      --bg-2: oklch(94% 0.02 260);
+      --ink:  oklch(18% 0.03 260);
+    }
+  }
+}
+
+/* =========================================
+   BASE (global background, type, layout)
+   ========================================= */
+@layer base {
+  html, body { height: 100%; }
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+    background:
+      /* fancy layered background */
+      radial-gradient(1200px 600px at 10% -10%, color-mix(in oklch, var(--brand) 25%, transparent), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%,  color-mix(in oklch, var(--brand) 18%, transparent), transparent 60%),
+      conic-gradient(from 180deg at 70% 10%, color-mix(in oklch, var(--brand) 10%, transparent), transparent 20% 60%, color-mix(in oklch, var(--brand) 12%, transparent) 85%, transparent),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    min-height: 100dvh;
+    /* Subtle grain */
+    background-blend-mode: screen, screen, overlay, normal;
+  }
+
+  /* Site wrapper grid to demo subgrid later */
+  body {
+    display: grid;
+    grid-template-columns:
+      minmax(12px, 1fr)
+      minmax(0, var(--maxw))
+      minmax(12px, 1fr);
+    row-gap: clamp(20px, 6cqi, 48px);
+  }
+
+  /* Make sections participate in the page grid */
+  .section, .menuBar, footer {
+    grid-column: 2;
+  }
+
+  /* Global links hover underline (ink bleed) */
+  a {
+    position: relative;
+  }
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -2px; height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: var(--brand);
+    transition: transform .35s ease;
+  }
+  a:hover::after, a:focus-visible::after { transform: scaleX(1); }
+
+  /* Respect user motion prefs */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+/* =========================================
+   COMPONENTS
+   ========================================= */
+@layer components {
+  /* -------- NAV (glass + :has()) -------- */
+  .menuBar {
+    position: sticky; top: 0; z-index: 100;
+    margin-top: clamp(8px, 2cqi, 18px);
+    border-radius: calc(var(--radius) + 8px);
+    backdrop-filter: blur(10px) saturate(120%);
+    background: oklch(from var(--bg-1) l c h / 0.55);
+    box-shadow: var(--shadow-1);
+    padding: 10px;
+    container-type: inline-size;
+  }
+
+  .menuBar > div {
+    display: flex; gap: clamp(8px, 4cqi, 24px);
+    align-items: center; justify-content: center;
+    padding: 6px clamp(8px, 3cqi, 24px);
+    font-size: var(--fs-sm);
+  }
+
+  /* If any link is hovered/focused, subtly lift the whole bar */
+  .menuBar:has(a:is(:hover,:focus-visible)) {
+    background: oklch(from var(--bg-1) l c h / 0.75);
+    box-shadow: var(--shadow-2);
+  }
+
+  /* Container query tweaks (menu stacks at small widths) */
+  @container (max-width: 520px) {
+    .menuBar > div { flex-wrap: wrap; justify-content: space-between; }
+    .menuBar a { padding: 6px 10px; border-radius: 999px; background: oklch(from var(--bg-2) l c h / 0.35); }
+  }
+
+  /* -------- HERO (scroll-driven, masked gradient) -------- */
+  #heroSecton {
+    /* typofix-friendly: you used "heroSecton" — keeping it as-is */
+    position: relative;
+    min-height: 92dvh;
+    border-radius: calc(var(--radius) + 14px);
+    padding: clamp(24px, 8cqi, 64px);
+    overflow: clip;
+    display: grid; place-items: center;
+    /* fancy background layers */
+    background:
+      radial-gradient(80% 120% at 50% 0%,
+        color-mix(in oklch, var(--brand) 15%, transparent) 0%,
+        transparent 60%),
+      linear-gradient(180deg,
+        color-mix(in oklch, var(--bg-2) 100%, transparent),
+        color-mix(in oklch, var(--bg-1) 100%, transparent));
+    box-shadow: var(--shadow-2);
+    container-type: inline-size;
+  }
+
+  #heroSecton h1 {
+    font-size: var(--fs-xl);
+    letter-spacing: 0.5px;
+    line-height: 1.05;
+    text-align: center;
+    /* animated gradient fill */
+    background: conic-gradient(from 0deg, var(--ink), var(--brand) 30%, var(--ink) 60%, var(--brand) 85%, var(--ink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hue 12s linear infinite;
+  }
+
+  /* scroll-driven lift */
+  @supports (animation-timeline: scroll()) {
+    #heroSecton h1 {
+      animation-name: hue, rise;
+      animation-duration: 12s, 1s;
+      animation-timing-function: linear, ease-out;
+      animation-iteration-count: infinite, 1;
+      animation-timeline: auto, scroll();
+      animation-range: normal, 0 35%;
+    }
+  }
+
+  @keyframes hue { to { filter: hue-rotate(360deg); } }
+  @keyframes rise {
+    from { transform: translateY(24px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+
+  /* Decorative mask glow at bottom of hero */
+  #heroSecton::after {
+    content: "";
+    position: absolute; inset: auto 0 0 0; height: 120px;
+    background:
+      radial-gradient(60% 100% at 50% 120%,
+        color-mix(in oklch, var(--brand) 28%, transparent),
+        transparent 70%);
+    pointer-events: none;
+  }
+
+  /* -------- SECTION: Programming / Storage (subgrid + CQ) -------- */
+  .section {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: var(--gap);
+    padding: clamp(16px, 6cqi, 32px);
+    border-radius: var(--radius);
+    background: oklch(from var(--bg-2) l c h / 0.6);
+    box-shadow: var(--shadow-1);
+    container-type: inline-size;
+  }
+
+  .section h1 {
+    font-size: var(--fs-lg);
+    letter-spacing: .3px;
+    background: linear-gradient(90deg, var(--ink), var(--brand));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  /* Use a page grid (parent) and adopt track sizing via subgrid for inner wrappers */
+  .section_header_containers,
+  .programming_containers {
+    display: grid;
+    grid-template-columns: subgrid;     /* <-- subgrid magic */
+    grid-column: 1 / -1;
+  }
+
+  /* The parent grid (section) sets the columns; on larger containers we create 12 cols */
+  .section {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  .section h1 { grid-column: 1 / -1; }
+  .programming_containers {
+    grid-column: 1 / -1;
+    gap: var(--gap);
+    /* By default, cards auto-fit – works even if subgrid is not supported */
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  }
+
+  /* Container-query: when section is wide, use tidy 3–5 columns */
+  @container (min-width: 680px) {
+    .programming_containers { grid-template-columns: repeat(3, 1fr); }
+  }
+  @container (min-width: 980px) {
+    .programming_containers { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  /* -------- CARDS (icons + label) -------- */
+  .languagesicons_anchor {
+    --card-bg: oklch(from var(--bg-1) l c h / 0.6);
+    --card-ring: var(--ring);
+
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: center;
+    justify-items: center;
+    gap: 10px;
+    padding: clamp(14px, 4cqi, 20px);
+    border-radius: calc(var(--radius) - 6px);
+    background: radial-gradient(80% 120% at 50% -10%, color-mix(in oklch, var(--brand) 16%, transparent), transparent 60%), var(--card-bg);
+    outline: 1px solid oklch(from var(--bg-2) l c h / 0.4);
+    box-shadow: 0 1px 0 oklch(0% 0 0 / .2);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), outline-color .25s ease;
+    position: relative;
+  }
+  .languagesicons_anchor:hover,
+  .languagesicons_anchor:focus-visible {
+    transform: translateY(-4px);
+    outline-color: var(--card-ring);
+  }
+  .languagesicons_anchor:active { transform: translateY(-1px) scale(.995); }
+
+  .languagesicons {
+    width: clamp(34px, 8cqi, 60px);
+    aspect-ratio: 1;
+    filter: drop-shadow(0 4px 12px oklch(0% 0 0 / .35));
+  }
+
+  .languagesicons_anchor { font-size: var(--fs-sm); color: var(--ink); text-align: center; }
+
+  /* :has() — accent per-tech if icon matches */
+  .languagesicons_anchor:has(img[src*="react"]) { --card-bg: color-mix(in oklch, var(--brand) 22%, var(--bg-1)); }
+  .languagesicons_anchor:has(img[src*="node"])  { --card-bg: color-mix(in oklch, var(--brand) 18%, var(--bg-1)); }
+  .languagesicons_anchor:has(img[src*="css"])   { --card-bg: color-mix(in oklch, var(--brand) 26%, var(--bg-1)); }
+
+  /* Subtle in-view animation using the document scroll timeline */
+  @supports (animation-timeline: scroll()) {
+    .languagesicons_anchor {
+      opacity: 0; transform: translateY(16px);
+      animation: card-in .8s both;
+      animation-timeline: --doc;
+      animation-range: entry 20% cover 30%;
+    }
+    @keyframes card-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  /* -------- FOOTER -------- */
+  footer {
+    margin: clamp(30px, 10cqi, 60px) 0;
+    height: 80px;
+    border-radius: var(--radius);
+    background: oklch(from var(--bg-2) l c h / .7);
+    box-shadow: var(--shadow-1);
+  }
+}
+
+/* =========================================
+   UTILITIES
+   ========================================= */
+@layer utilities {
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+}
+
+/* =========================================
+   PROGRESSIVE ENHANCEMENT CORNER
+   - Scoping example to reduce selector weight
+   ========================================= */
+@supports selector(:scope) {
+  @scope (#section_programming) {
+    h1 { letter-spacing: .4px; }
+  }
+}
+
+/* Notes:
+   - We intentionally rely on container queries & dvh so mobile.css can stay tiny.
+   - All “fancy” bits degrade gracefully if a feature isn’t supported.
+*/

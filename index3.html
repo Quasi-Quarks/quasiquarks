@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dev Hub — Learn • Build • Ship</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Practical tutorials and tools for modern web development—HTML, CSS, JS, React Native, Node.js, SQL, and more." />
+    <meta name="theme-color" content="#5b62ff" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="homemobile.css" />
+    <link rel="icon" href="icons/html.png" />
+  </head>
+
+  <body>
+    <!-- Header / Navigation -->
+    <header class="menuBar" role="banner">
+      <nav aria-label="Primary">
+        <div>
+          <a href="#" aria-current="page">Home</a>
+          <a href="#section_programming">Tutorials</a>
+          <a href="#news">News</a>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="section" id="heroSecton" aria-labelledby="hero-title">
+      <h1 id="hero-title">Welcome</h1>
+      <p class="sr-only">A modern learning hub for web and app development.</p>
+      <div style="display:grid; gap:14px; place-items:center; margin-top:12px;">
+        <p style="text-align:center; max-width:60ch;">
+          Master front-end & back-end with hands-on, component-driven lessons.
+          Everything here adapts beautifully—from tiny cards to desktop dashboards.
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#section_programming" style="padding:.75rem 1rem; border-radius:999px; background:var(--brand); color:white;">Start Learning</a>
+          <a href="#section_storage" style="padding:.75rem 1rem; border-radius:999px; background:oklch(from var(--bg-2) l c h / .5);">Explore Databases</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programming -->
+    <section class="section" id="section_programming" aria-labelledby="prog-title">
+      <h1 id="prog-title">Programming</h1>
+
+      <p style="grid-column:1/-1; max-width:70ch;">
+        Learn by building. Each module includes interactive examples, accessibility notes,
+        performance tips, and progressive enhancement patterns—using container queries,
+        <code>:has()</code>, subgrid, modern color systems, and scroll-driven animations.
+      </p>
+
+      <div class="programming_containers" role="list">
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="HTML — semantic structure and accessibility">
+          <img class="languagesicons" src="icons/html.png" alt="HTML icon" />
+          <span><strong>HTML</strong><br /><small>Semantic structure, a11y patterns</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="CSS — modern layout and theming">
+          <img class="languagesicons" src="icons/css3.png" alt="CSS icon" />
+          <span><strong>CSS</strong><br /><small>Grid/subgrid, container queries, OKLCH</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="JavaScript — interactivity and performance">
+          <img class="languagesicons" src="icons/js.png" alt="JavaScript icon" />
+          <span><strong>JavaScript</strong><br /><small>Progressive UX, View Transitions</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="React Native — mobile apps">
+          <img class="languagesicons" src="icons/reactnative.png" alt="React Native icon" />
+          <span><strong>React&nbsp;Native</strong><br /><small>UI patterns, navigation, APIs</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="PHP — server rendering and forms">
+          <img class="languagesicons" src="icons/php.png" alt="PHP icon" />
+          <span><strong>PHP</strong><br /><small>Server templates, secure forms</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="Node.js — APIs and tooling">
+          <img class="languagesicons" src="icons/nodejs.png" alt="Node.js icon" />
+          <span><strong>Node.js</strong><br /><small>APIs, SSR, build pipelines</small></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Storage -->
+    <section class="section" id="section_storage" aria-labelledby="storage-title">
+      <h1 id="storage-title">Storage</h1>
+
+      <p style="grid-column:1/-1; max-width:70ch;">
+        Choose the right persistence for your app. Compare schemas, indexing,
+        and query patterns with side-by-side examples and performance notes.
+      </p>
+
+      <div class="programming_containers" role="list" aria-label="Relational and structured data">
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="SQL — relational databases">
+          <img class="languagesicons" src="icons/sql.png" alt="SQL icon" />
+          <span><strong>SQL</strong><br /><small>Joins, indexes, migrations</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="JSON — structured payloads">
+          <img class="languagesicons" src="icons/json.png" alt="JSON icon" />
+          <span><strong>JSON</strong><br /><small>Schemas, validation, streams</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="MySQL — popular RDBMS">
+          <img class="languagesicons" src="icons/mysql.png" alt="MySQL icon" />
+          <span><strong>MySQL</strong><br /><small>Query plans, replication</small></span>
+        </a>
+      </div>
+
+      <div class="section_header_containers" aria-hidden="true">
+        <h1>Coming soon</h1>
+      </div>
+
+      <div class="programming_containers" role="list" aria-label="Upcoming databases">
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="Firebase — realtime and auth">
+          <img class="languagesicons" src="icons/json.png" alt="Firebase icon" />
+          <span><strong>Firebase</strong><br /><small>Realtime DB, auth, rules</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="NoSQL — document and key-value">
+          <img class="languagesicons" src="icons/sql.png" alt="NoSQL icon" />
+          <span><strong>NoSQL</strong><br /><small>Aggregation, TTL, sharding</small></span>
+        </a>
+
+        <a class="languagesicons_anchor" href="#" role="listitem" aria-label="MongoDB — document database">
+          <img class="languagesicons" src="icons/mysql.png" alt="MongoDB icon" />
+          <span><strong>MongoDB</strong><br /><small>Indexes, pipelines, Atlas</small></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section class="section" id="news" aria-labelledby="news-title">
+      <h1 id="news-title">News</h1>
+      <p style="grid-column:1/-1; max-width:70ch;">
+        Fresh releases, specs, and best practices across the web platform. We track
+        Baseline support, browser flags, and progressive-enhancement strategies.
+      </p>
+      <div class="programming_containers" role="list">
+        <article class="languagesicons_anchor" role="listitem" aria-label="CSS container queries reach broad support">
+          <img class="languagesicons" src="icons/css3.png" alt="" />
+          <span><strong>Container Queries</strong><br /><small>Production-ready patterns</small></span>
+        </article>
+        <article class="languagesicons_anchor" role="listitem" aria-label="View Transitions for SPA and MPA">
+          <img class="languagesicons" src="icons/js.png" alt="" />
+          <span><strong>View Transitions</strong><br /><small>SPA + MPA page flows</small></span>
+        </article>
+        <article class="languagesicons_anchor" role="listitem" aria-label="OKLCH color systems">
+          <img class="languagesicons" src="icons/html.png" alt="" />
+          <span><strong>OKLCH</strong><br /><small>Accurate palettes & tints</small></span>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <h1 id="about-title">About Us</h1>
+      <p style="grid-column:1/-1; max-width:70ch;">
+        We’re a small team of developers and designers who love teaching practical,
+        modern web development. Our approach: build real components, ship tiny
+        enhancements, measure, and iterate—no heavy frameworks required.
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <h1 id="contact-title">Contact Us</h1>
+      <p style="grid-column:1/-1; max-width:70ch;">
+        Questions, suggestions, or collabs? Reach out any time.
+      </p>
+      <div class="programming_containers">
+        <a class="languagesicons_anchor" href="mailto:hello@example.com" aria-label="Email us">
+          <img class="languagesicons" src="icons/html.png" alt="" />
+          <span><strong>Email</strong><br /><small>hello@example.com</small></span>
+        </a>
+        <a class="languagesicons_anchor" href="#" aria-label="Join our community">
+          <img class="languagesicons" src="icons/js.png" alt="" />
+          <span><strong>Community</strong><br /><small>Join discussions & Q&amp;A</small></span>
+        </a>
+        <a class="languagesicons_anchor" href="#" aria-label="Read the docs">
+          <img class="languagesicons" src="icons/css3.png" alt="" />
+          <span><strong>Docs</strong><br /><small>Guides & patterns</small></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo" aria-label="Site footer">
+      <!-- Decorative / filled by CSS -->
+    </footer>
+
+    <!-- Optional: tiny enhancement for View Transitions on same-page nav (safe to keep) -->
+    <script>
+      if (document.startViewTransition) {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+          a.addEventListener('click', (e) => {
+            const id = a.getAttribute('href');
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            document.startViewTransition(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }));
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

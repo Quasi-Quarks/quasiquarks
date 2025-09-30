@@ -1,0 +1,245 @@
+/* =========================================================
+   Modern, Sleek, Connected Story — Desktop First
+   - Bright linear-gradient "colorgraphy" (flowing across sections)
+   - Smooth reveals using view-timeline (progressive)
+   - Glassy nav, bold type, calm spacing
+   - Sections visually connect via gradient seams & overlaps
+   ========================================================= */
+
+/* ---------- Tokens ---------- */
+:root{
+  /* Palette (OKLCH = consistent brightness across hues) */
+  --bg: oklch(13% 0.02 260);
+  --ink: oklch(97% 0.01 250);
+  --muted: oklch(90% 0.02 250);
+  --accent-a: oklch(78% 0.19 240);   /* azure */
+  --accent-b: oklch(76% 0.21 305);   /* violet-magenta */
+  --accent-c: oklch(82% 0.18 200);   /* cyan-teal */
+
+  /* Global gradient that "connects" the page (linear only) */
+  --flow: linear-gradient(100deg,
+    color-mix(in oklch, var(--accent-a) 60%, black) 0%,
+    color-mix(in oklch, var(--accent-b) 65%, black) 45%,
+    color-mix(in oklch, var(--accent-c) 60%, black) 100%
+  );
+
+  /* Sizing & rhythm */
+  --maxw: 1200px;
+  --pad-x: clamp(40px, 8vw, 100px);
+  --pad-y: clamp(80px, 16vh, 160px);
+  --r-lg: 28px;
+  --shadow-soft: 0 20px 60px oklch(0% 0 0 / .35);
+
+  /* Type scale (desktop first) */
+  --fs-hero: clamp(56px, 7vw, 92px);
+  --fs-h2: clamp(32px, 3.6vw, 56px);
+  --fs-h3: clamp(22px, 2vw, 28px);
+  --fs-p:  clamp(18px, 1.4vw, 22px);
+
+  color-scheme: dark;
+}
+
+/* ---------- Base reset ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:
+    linear-gradient(180deg, oklch(12% 0.02 260), oklch(10% 0.02 260)),
+    var(--flow);
+  background-blend-mode: overlay, normal;
+  background-size: 240% 240%, 240% 240%;
+  color: var(--ink);
+  line-height: 1.5;
+  overflow-x: hidden;
+  animation: bg-pan 30s linear infinite;
+}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+
+/* Subtle sitewide gradient drift */
+@keyframes bg-pan{
+  0% { background-position: 0% 50%, 100% 50%; }
+  50%{ background-position: 100% 50%, 0% 50%; }
+  100%{ background-position: 0% 50%, 100% 50%; }
+}
+
+/* ---------- Connected containers ---------- */
+.container{
+  width:min(var(--maxw), 100%);
+  margin-inline:auto;
+  padding-inline:var(--pad-x);
+}
+
+/* ---------- Navigation (soft glass) ---------- */
+.menuBar{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(14px) saturate(130%);
+  background: oklch(from var(--bg) l c h / .45);
+  border-bottom: 1px solid oklch(100% 0 0 / .06);
+}
+.menu{
+  display:flex; gap:32px; justify-content:center; align-items:center;
+  padding: 18px var(--pad-x);
+}
+.menu a{
+  font-weight:600; letter-spacing:.2px; color: var(--muted);
+  position:relative; padding: 6px 2px;
+}
+.menu a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+  transform: scaleX(0); transform-origin:left; transition: transform .35s ease;
+}
+.menu a:hover{ color: var(--ink) }
+.menu a:hover::after{ transform: scaleX(1) }
+
+/* Optional spacer under nav */
+.gap{ height: 16px }
+
+/* ---------- HERO (big type, connected seam) ---------- */
+#hero{
+  position: relative;
+  padding: var(--pad-y) 0;
+  text-align: center;
+}
+#hero .container{ padding-inline: var(--pad-x) }
+#hero h1{
+  font-size: var(--fs-hero);
+  line-height: 1.03;
+  letter-spacing: .2px;
+  margin: 0 0 12px 0;
+  background: linear-gradient(90deg, var(--ink), oklch(92% 0.02 250));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-wrap: balance;
+}
+#hero p{
+  font-size: var(--fs-p);
+  color: var(--muted);
+  max-width: 80ch; margin: 0 auto;
+}
+#hero a{ text-decoration: underline }
+
+/* Seam connecting hero → story */
+#hero::after{
+  content:""; position:absolute; left:0; right:0; bottom:-1px; height:120px;
+  background: linear-gradient(180deg, transparent, oklch(12% 0.02 260 / .25), transparent);
+  pointer-events:none;
+}
+
+/* ---------- STORY (three beats, one flow) ---------- */
+#story{
+  position:relative;
+  padding: calc(var(--pad-y) * .8) 0 var(--pad-y);
+}
+#story .container{ padding-inline: var(--pad-x) }
+
+#story h2{
+  font-size: var(--fs-h2); line-height:1.06; text-align:center; margin:0 0 28px 0;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+
+/* three beats aligned on a subtle line */
+#story article{
+  position:relative;
+  background: oklch(from var(--bg) l c h / .45);
+  backdrop-filter: blur(10px);
+  border: 1px solid oklch(100% 0 0 / .06);
+  border-radius: var(--r-lg);
+  padding: clamp(28px, 3vw, 42px);
+  box-shadow: var(--shadow-soft);
+  width: min(100%, 1000px);
+  margin: 24px auto;
+}
+#story article h3{
+  font-size: var(--fs-h3);
+  margin: 0 0 8px 0;
+  background: linear-gradient(90deg, var(--accent-b), var(--accent-c));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+#story article p{
+  font-size: var(--fs-p);
+  color: var(--muted);
+  margin: 0;
+}
+
+/* connective bar behind the cards */
+#story::before{
+  content:""; position:absolute; left:50%; top: calc(var(--pad-y) * .35);
+  transform: translateX(-50%);
+  width: min(1000px, 80cqi); height: 4px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b), var(--accent-c));
+  opacity: .35;
+}
+
+/* CTA inside story */
+#story button{
+  display:inline-flex; align-items:center; justify-content:center;
+  margin: 26px auto 0; padding: 14px 24px;
+  border-radius: 999px; border: 1px solid oklch(100% 0 0 / .12);
+  background: linear-gradient(90deg, var(--accent-b), var(--accent-c));
+  color: oklch(15% 0 0);
+  font-weight: 700; cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#story button:hover{ transform: translateY(-3px); box-shadow: 0 10px 28px oklch(0% 0 0 / .35) }
+
+/* ---------- CTA band (bridge into programming) ---------- */
+#cta{
+  position: relative;
+  padding: var(--pad-y) 0;
+  text-align: center;
+  background:
+    linear-gradient(180deg, oklch(12% 0.02 260 / 0), oklch(12% 0.02 260 / .28), oklch(12% 0.02 260 / 0));
+}
+#cta .container{ padding-inline: var(--pad-x) }
+#cta h2{
+  font-size: var(--fs-h2); line-height:1.06; margin:0 0 10px 0;
+  background: linear-gradient(90deg, var(--accent-c), var(--accent-a));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+#cta p{
+  font-size: var(--fs-p); color: var(--muted); margin: 0 auto 18px; max-width: 70ch;
+}
+#cta a[role="button"]{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding: 14px 24px; border-radius:999px; font-weight:700;
+  background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+  color: oklch(15% 0 0); border: 1px solid oklch(100% 0 0 / .1);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#cta a[role="button"]:hover{ transform: translateY(-3px); box-shadow: 0 10px 28px oklch(0% 0 0 / .35) }
+
+/* ---------- Footer ---------- */
+footer{
+  padding: 40px var(--pad-x);
+  text-align:center;
+  color: var(--muted);
+  border-top: 1px solid oklch(100% 0 0 / .06);
+  background: linear-gradient(180deg, oklch(12% 0.02 260 / 0), oklch(12% 0.02 260 / .25));
+}
+footer a{ text-decoration: underline }
+
+/* ---------- Smooth section reveals (progressive) ---------- */
+@supports (animation-timeline: view()){
+  #hero h1, #hero p,
+  #story h2, #story article, #story button,
+  #cta h2, #cta p, #cta [role="button"]{
+    opacity: 0; transform: translateY(16px);
+    animation: rise .8s both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 25%;
+  }
+  #story article:nth-of-type(2){ animation-delay: .05s }
+  #story article:nth-of-type(3){ animation-delay: .1s }
+  #story button{ animation-delay: .15s }
+  @keyframes rise{ to { opacity:1; transform:none } }
+}
+
+/* ---------- Desktop emphasis / gentle downscale below 900px ---------- */
+@media (max-width: 900px){
+  :root{ --pad-x: 28px; }
+  #story::before{ width: 90%; }
+}

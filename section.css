@@ -1,0 +1,290 @@
+/* =========================================================
+   Mission band — advanced, bold, all-CSS animations
+   Targets only: #mission-intro, #mission-easy, #mission-roadmaps,
+                 #mission-courses, #mission-contact
+   ========================================================= */
+@layer mission-reset, mission-tokens, mission-base, mission-sections, mission-anim;
+
+/* ---------------- RESET (local) ---------------- */
+@layer mission-reset {
+  /* Keep local so we don't fight your global reset */
+  #mission-intro, #mission-easy, #mission-roadmaps, #mission-courses, #mission-contact {
+    position: relative;
+    isolation: isolate;
+  }
+  #mission-intro h2, #mission-easy h2, #mission-roadmaps h2, #mission-courses h2, #mission-contact h2 {
+    margin: 0;
+  }
+  #mission-intro p, #mission-easy p, #mission-roadmaps p, #mission-courses p, #mission-contact p {
+    margin: 0.6em 0 0;
+  }
+  #mission-intro button, #mission-easy button, #mission-courses button, #mission-contact button {
+    all: unset;
+    display: inline-block;
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+/* ---------------- TOKENS ---------------- */
+@layer mission-tokens {
+  :root {
+    /* Calm dark canvas with a single cool accent family */
+    --m-ink: oklch(96% 0.01 260);
+    --m-muted: oklch(88% 0.02 260);
+    --m-bg: oklch(12% 0.02 260);
+
+    /* Accent ramp */
+    --m-cyan:  oklch(78% 0.18 220);
+    --m-blue:  oklch(75% 0.16 250);
+    --m-vio:   oklch(75% 0.20 300);
+    --m-mag:   oklch(73% 0.20 330);
+
+    /* Sizing */
+    --m-maxw: 1200px;
+    --m-pad: clamp(32px, 6vw, 96px);
+
+    /* Type scale (bold & editorial) */
+    --m-fs-hero: clamp(48px, 6vw, 92px);
+    --m-fs-h: clamp(30px, 3.6vw, 56px);
+    --m-fs-p: clamp(18px, 1.4vw, 22px);
+
+    /* Soft shadow/glass */
+    --m-shadow: 0 24px 80px oklch(0% 0 0 / .35);
+    --m-glass: oklch(20% 0.02 260 / .45);
+  }
+}
+
+/* ---------------- BASE (shared look) ---------------- */
+@layer mission-base {
+  /* Global band wrapper spacing (keeps rhythm if you have other sections) */
+  #mission-intro,
+  #mission-easy,
+  #mission-roadmaps,
+  #mission-courses,
+  #mission-contact {
+    color: var(--m-ink);
+    padding: clamp(72px, 18vh, 140px) var(--m-pad);
+    background: var(--m-bg);
+    overflow: clip;
+  }
+
+  /* Content container */
+  #mission-intro > *,
+  #mission-easy > *,
+  #mission-roadmaps > *,
+  #mission-courses > *,
+  #mission-contact > * {
+    max-width: var(--m-maxw);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  /* Headline + paragraph defaults */
+  #mission-intro h2,
+  #mission-easy h2,
+  #mission-roadmaps h2,
+  #mission-courses h2,
+  #mission-contact h2 {
+    font-size: var(--m-fs-h);
+    line-height: 1.06;
+    letter-spacing: .2px;
+  }
+  #mission-intro p,
+  #mission-easy p,
+  #mission-roadmaps p,
+  #mission-courses p,
+  #mission-contact p {
+    font-size: var(--m-fs-p);
+    color: var(--m-muted);
+    max-width: 72ch;
+    margin-inline: auto;
+  }
+
+  /* CTA buttons (shared) */
+  #mission-intro button,
+  #mission-easy button,
+  #mission-courses button,
+  #mission-contact button {
+    margin-top: 22px;
+    color: var(--m-ink);
+    background: linear-gradient(90deg, var(--m-blue), var(--m-vio));
+    border: 1px solid oklch(from var(--m-blue) l c h / .6);
+    box-shadow: 0 0 0 2px oklch(from var(--m-blue) l c h / .35) inset;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  }
+  #mission-intro button:hover,
+  #mission-easy button:hover,
+  #mission-courses button:hover,
+  #mission-contact button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 2px oklch(from var(--m-vio) l c h / .5) inset, 0 0 40px oklch(from var(--m-vio) l c h / .25);
+  }
+
+  /* Viewport-aware animations (progressive) */
+  @supports (animation-timeline: view()) {
+    #mission-intro > *,
+    #mission-easy > *,
+    #mission-roadmaps > *,
+    #mission-courses > *,
+    #mission-contact > * {
+      animation-timeline: view();
+      animation-range: entry 15% cover 30%;
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+/* ---------------- SECTIONS (distinct looks + motions) ---------------- */
+@layer mission-sections {
+  /* ========== 1) INTRO — big gradient headline + curtain reveal ========== */
+  #mission-intro {
+    background:
+      radial-gradient(1200px 600px at 10% -20%, oklch(from var(--m-blue) l c h / .18), transparent 60%),
+      radial-gradient(1200px 600px at 110% 0%, oklch(from var(--m-vio) l c h / .16), transparent 60%),
+      linear-gradient(180deg, oklch(13% 0.02 260), oklch(11% 0.02 260));
+  }
+  #mission-intro h2 {
+    font-size: var(--m-fs-hero);
+    background: linear-gradient(90deg, var(--m-ink), oklch(92% 0.01 260));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  #mission-intro::after {
+    /* curtain that lifts on scroll */
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, oklch(0% 0 0 / .35), transparent 40%, transparent 60%, oklch(0% 0 0 / .35));
+    pointer-events: none; mask: linear-gradient(#000, transparent 50%, transparent);
+  }
+  @supports (animation-timeline: view()) {
+    #mission-intro h2 { 
+      animation: m-clip 1s both; 
+    }
+    #mission-intro p {
+      animation: m-rise .9s both;
+      animation-delay: .08s;
+    }
+  }
+
+  /* ========== 2) EASY — soft glass panel + subtle parallax stripe ========== */
+  #mission-easy {
+    background:
+      linear-gradient(180deg, oklch(13% 0.02 260), oklch(12% 0.02 260)),
+      linear-gradient(90deg, oklch(from var(--m-blue) l c h / .20), oklch(from var(--m-vio) l c h / .20));
+    background-blend-mode: normal, overlay;
+  }
+  #mission-easy::before {
+    /* faint diagonal stripe sweeping behind content */
+    content: ""; position: absolute; inset: -20% -10% auto -10%; height: 45%;
+    transform: rotate(-6deg);
+    background: linear-gradient(90deg, oklch(from var(--m-cyan) l c h / .12), transparent 60%);
+    filter: blur(20px);
+  }
+  #mission-easy > * {
+    background: var(--m-glass);
+    border: 1px solid oklch(100% 0 0 / .06);
+    border-radius: 28px;
+    padding: clamp(28px, 3vw, 48px);
+    box-shadow: var(--m-shadow);
+  }
+  @supports (animation-timeline: view()) {
+    #mission-easy::before { animation: m-stripe 1.2s both; }
+    #mission-easy h2 { animation: m-rise .7s both; }
+    #mission-easy p  { animation: m-fade .9s both; }
+    #mission-easy button { animation: m-pop .6s both; animation-delay: .1s; }
+  }
+
+  /* ========== 3) ROADMAPS — marquee sparkle + card lift ========== */
+  #mission-roadmaps {
+    background:
+      linear-gradient(180deg, oklch(12% 0.02 260 / 0), oklch(12% 0.02 260 / .25) 50%, oklch(12% 0.02 260 / 0));
+  }
+  #mission-roadmaps h2 {
+    background: linear-gradient(90deg, var(--m-blue), var(--m-vio));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    position: relative;
+  }
+  #mission-roadmaps h2::after {
+    /* sparkle line passing through the title */
+    content: ""; position: absolute; left: -10%; right: -10%; height: 2px; top: 55%;
+    background: linear-gradient(90deg, transparent, oklch(from var(--m-ink) l c h / .6), transparent);
+    filter: blur(1px); opacity: .4;
+  }
+  @supports (animation-timeline: view()) {
+    #mission-roadmaps h2   { animation: m-rise .7s both; }
+    #mission-roadmaps p    { animation: m-fade .9s both; }
+    #mission-roadmaps h2::after { animation: m-glide 1.2s both; }
+  }
+
+  /* ========== 4) COURSES — split gradient + clip-reveal CTA ========== */
+  #mission-courses {
+    background:
+      linear-gradient(180deg, oklch(13% 0.02 260), oklch(12% 0.02 260)),
+      linear-gradient(90deg, oklch(from var(--m-vio) l c h / .18), oklch(from var(--m-mag) l c h / .18));
+    background-blend-mode: normal, overlay;
+  }
+  #mission-courses h2 {
+    background: linear-gradient(90deg, var(--m-ink), oklch(92% 0.02 260));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  #mission-courses button {
+    background: linear-gradient(90deg, var(--m-mag), var(--m-vio));
+    border-color: oklch(from var(--m-mag) l c h / .6);
+    clip-path: inset(0 100% 0 0 round 999px); /* hidden, then reveals */
+  }
+  @supports (animation-timeline: view()) {
+    #mission-courses h2    { animation: m-rise .7s both; }
+    #mission-courses p     { animation: m-fade .9s both; }
+    #mission-courses button{ animation: m-clip 1s both; animation-delay: .08s; }
+  }
+
+  /* ========== 5) CONTACT — spotlight mask + pulse CTA ========== */
+  #mission-contact {
+    /* dark with spotlight in center-bottom */
+    background:
+      radial-gradient(60% 80% at 50% 85%, oklch(from var(--m-blue) l c h / .12), transparent 60%),
+      linear-gradient(180deg, oklch(13% 0.02 260), oklch(11% 0.02 260));
+  }
+  #mission-contact h2 {
+    font-size: var(--m-fs-h);
+    background: linear-gradient(90deg, var(--m-ink), oklch(94% 0.02 260));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  #mission-contact button {
+    background: linear-gradient(90deg, var(--m-blue), var(--m-cyan));
+    border-color: oklch(from var(--m-cyan) l c h / .6);
+  }
+  @supports (animation-timeline: view()) {
+    #mission-contact h2 { animation: m-rise .7s both; }
+    #mission-contact p  { animation: m-fade .9s both; }
+    #mission-contact button { animation: m-pulse 1.2s both; }
+  }
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+@layer mission-anim {
+  @keyframes m-rise { from { opacity: 0; transform: translateY(16px) } to { opacity: 1; transform: none } }
+  @keyframes m-fade { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes m-pop  { from { opacity: 0; transform: translateY(8px) scale(.98) } to { opacity: 1; transform: none } }
+  @keyframes m-clip { from { clip-path: inset(0 100% 0 0 round 999px) } to { clip-path: inset(0 0 0 0 round 999px) } }
+  @keyframes m-glide{ from { transform: translateX(-20%); opacity:.0 } to { transform: translateX(20%); opacity:.4 } }
+  @keyframes m-stripe { from { transform: translateY(12%) rotate(-6deg); opacity:.0 } to { transform: translateY(0) rotate(-6deg); opacity: .8 } }
+  @keyframes m-pulse {
+    0% { box-shadow: 0 0 0 0 oklch(from var(--m-cyan) l c h / .0) }
+    60% { box-shadow: 0 0 0 12px oklch(from var(--m-cyan) l c h / .18) }
+    100% { box-shadow: 0 0 0 0 oklch(from var(--m-cyan) l c h / .0) }
+  }
+}
+
+/* ---------------- Optional: container polish ---------------- */
+@container (min-width: 980px) {
+  #mission-easy > *, #mission-courses > * {
+    /* a touch wider panel on large screens for luxurious feel */
+    max-width: calc(var(--m-maxw) + 120px);
+  }
+}

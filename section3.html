@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dev Hub — Learn • Build • Ship</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- New font: Inter (clean, modern) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Your stylesheets (keep using them) -->
+    <link rel="stylesheet" href="section3.css">
+    <link rel="stylesheet" href="homemobile.css">
+  </head>
+
+  <body style="font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;">
+    <!-- Header / Nav -->
+    <header class="menuBar">
+      <nav class="menu" aria-label="Primary">
+        <a href="#">Home</a>
+        <a href="#story">Tutorials</a>
+        <a href="#news">News</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section id="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Build Modern Web Experiences</h1>
+        <p>Simple, beautiful learning—so you can ship faster with confidence.</p>
+        <p><a href="#story">Why this exists ↓</a></p>
+      </section>
+
+      <!-- One continuous Story section (combines your previous 5 blocks) -->
+      <section id="story" aria-labelledby="story-title">
+        <h2 id="story-title">Our Story, In Three Beats</h2>
+
+        <article>
+          <h3>1) The Origin</h3>
+          <p>I started learning code frustrated with outdated guides—so I built the platform I wish had existed 8 years ago.</p>
+        </article>
+
+        <article>
+          <h3>2) The Promise</h3>
+          <p>We make learning to code easy and practical—whether you’re changing careers, freelancing, working remotely, or growing a business. Our courses cut the clutter so you can start building in days, not months.</p>
+        </article>
+
+        <article>
+          <h3>3) What’s Next</h3>
+          <p>Roadmaps are coming soon. We update daily and support you with guidance, applications, and networking—so you’re never learning alone.</p>
+        </article>
+
+        <p><button type="button">Start Learning</button></p>
+      </section>
+
+      <!-- Single CTA band that leads into your Programming section elsewhere -->
+      <section id="cta">
+        <h2>Ready to begin?</h2>
+        <p>Start with the foundations—HTML, CSS, JavaScript—and move into real projects.</p>
+        <p><a href="#section_programming" role="button">Explore Programming</a></p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" aria-label="Site footer">
+      <p>Questions or ideas? <a href="mailto:hello@example.com">hello@example.com</a></p>
+      <small>© <span id="year"></span> Dev Hub</small>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

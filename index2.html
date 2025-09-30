@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dev Hub — Learn • Build • Ship</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0f1a" />
+    <!-- CSS (coming next message) -->
+    <link rel="stylesheet" href="index2.css" />
+    <link rel="stylesheet" href="homemobile.css" />
+    <link rel="icon" href="icons/html.png" />
+  </head>
+
+  <body class="site">
+    <!-- ===== NAV: glass + neon underlines ===== -->
+    <header class="nav glass" role="banner">
+      <nav class="nav__rail" aria-label="Primary">
+        <a class="brand" href="#hero">Dev<span>Hub</span></a>
+        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu">
+          <span class="sr-only">Toggle menu</span>
+        </button>
+        <div id="nav-menu" class="nav__menu">
+          <a href="#section_programming">Tutorials</a>
+          <a href="#news">News</a>
+          <a href="#about">About</a>
+          <a href="#contact" class="btn btn--neon">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ===== HERO: full viewport, big headline + CTA ===== -->
+    <section id="hero" class="hero section--edge" aria-labelledby="hero-title">
+      <!-- parallax ribbons (decor only) -->
+      <div class="ribbon ribbon--a" aria-hidden="true"></div>
+      <div class="ribbon ribbon--b" aria-hidden="true"></div>
+      <div class="ribbon ribbon--c" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <h1 id="hero-title" class="hero__title">
+          Build Modern Web Experiences
+        </h1>
+        <p class="hero__lead">
+          Neon-smooth UI, glass surfaces, and scroll-linked motion.
+          Learn by doing—HTML, CSS, JS, React&nbsp;Native, Node, and data.
+        </p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="#section_programming">Start Learning</a>
+          <a class="btn btn--ghost" href="#section_storage">Explore Databases</a>
+        </div>
+
+        <!-- stat chips -->
+        <ul class="chips" role="list">
+          <li class="chip">Container Queries</li>
+          <li class="chip">Subgrid</li>
+          <li class="chip">OKLCH</li>
+          <li class="chip">View Transitions</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PROGRAMMING: wide grid, neon cards ===== -->
+    <section class="section section--edge" id="section_programming" aria-labelledby="prog-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 id="prog-title" class="section__title">Programming</h2>
+          <p class="section__desc">
+            Component-driven lessons with accessibility, performance, and progressive enhancement.
+          </p>
+        </header>
+
+        <div class="grid grid--tech" role="list">
+          <a class="card card--neon" href="#" role="listitem">
+            <img class="card__icon" src="icons/html.png" alt="" />
+            <h3 class="card__title">HTML</h3>
+            <p class="card__meta">Semantic structure • a11y</p>
+          </a>
+          <a class="card card--neon" href="#" role="listitem">
+            <img class="card__icon" src="icons/css3.png" alt="" />
+            <h3 class="card__title">CSS</h3>
+            <p class="card__meta">Grid/Subgrid • CQ • OKLCH</p>
+          </a>
+          <a class="card card--neon" href="#" role="listitem">
+            <img class="card__icon" src="icons/js.png" alt="" />
+            <h3 class="card__title">JavaScript</h3>
+            <p class="card__meta">Progressive UX • VT API</p>
+          </a>
+          <a class="card card--neon" href="#" role="listitem">
+            <img class="card__icon" src="icons/reactnative.png" alt="" />
+            <h3 class="card__title">React&nbsp;Native</h3>
+            <p class="card__meta">UI patterns • APIs</p>
+          </a>
+          <a class="card card--neon" href="#" role="listitem">
+            <img class="card__icon" src="icons/php.png" alt="" />
+            <h3 class="card__title">PHP</h3>
+            <p class="card__meta">Server templates • forms</p>
+          </a>
+          <a class="card card--neon" href="#" role="listitem">
+            <img class="card__icon" src="icons/nodejs.png" alt="" />
+            <h3 class="card__title">Node.js</h3>
+            <p class="card__meta">APIs • SSR • tooling</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STORAGE: frosted glass band ===== -->
+    <section class="section section--edge" id="section_storage" aria-labelledby="storage-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 id="storage-title" class="section__title">Storage</h2>
+          <p class="section__desc">
+            Pick the right persistence model—relational, document, or realtime—without the guesswork.
+          </p>
+        </header>
+
+        <div class="grid grid--tech" role="list">
+          <a class="card card--frost" href="#" role="listitem">
+            <img class="card__icon" src="icons/sql.png" alt="" />
+            <h3 class="card__title">SQL</h3>
+            <p class="card__meta">Joins • indexes • migrations</p>
+          </a>
+          <a class="card card--frost" href="#" role="listitem">
+            <img class="card__icon" src="icons/json.png" alt="" />
+            <h3 class="card__title">JSON</h3>
+            <p class="card__meta">Schemas • validation</p>
+          </a>
+          <a class="card card--frost" href="#" role="listitem">
+            <img class="card__icon" src="icons/mysql.png" alt="" />
+            <h3 class="card__title">MySQL</h3>
+            <p class="card__meta">Plans • replication</p>
+          </a>
+        </div>
+
+        <div class="subhead">
+          <h3 class="subhead__title">Coming soon</h3>
+        </div>
+
+        <div class="grid grid--tech" role="list" aria-label="Upcoming">
+          <a class="card card--frost" href="#" role="listitem">
+            <img class="card__icon" src="icons/json.png" alt="" />
+            <h3 class="card__title">Firebase</h3>
+            <p class="card__meta">Realtime DB • Auth</p>
+          </a>
+          <a class="card card--frost" href="#" role="listitem">
+            <img class="card__icon" src="icons/sql.png" alt="" />
+            <h3 class="card__title">NoSQL</h3>
+            <p class="card__meta">Aggregation • TTL</p>
+          </a>
+          <a class="card card--frost" href="#" role="listitem">
+            <img class="card__icon" src="icons/mysql.png" alt="" />
+            <h3 class="card__title">MongoDB</h3>
+            <p class="card__meta">Indexes • pipelines</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEWS: neon edge cards ===== -->
+    <section class="section section--edge" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 id="news-title" class="section__title">News</h2>
+          <p class="section__desc">
+            Fresh specs and Baseline support—container queries, view transitions, color systems, and more.
+          </p>
+        </header>
+
+        <div class="grid grid--news" role="list">
+          <article class="card card--neonEdge" role="listitem">
+            <h3 class="card__title">Container Queries</h3>
+            <p class="card__meta">Production patterns &amp; pitfalls</p>
+          </article>
+          <article class="card card--neonEdge" role="listitem">
+            <h3 class="card__title">View Transitions</h3>
+            <p class="card__meta">SPA + MPA flows with CSS</p>
+          </article>
+          <article class="card card--neonEdge" role="listitem">
+            <h3 class="card__title">OKLCH</h3>
+            <p class="card__meta">Accurate palettes &amp; tints</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section section--edge" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 id="about-title" class="section__title">About</h2>
+        </header>
+        <p class="prose">
+          We teach modern, pragmatic web development—ship tiny, measure, iterate.
+          No heavy frameworks required.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section section--edge" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section__head">
+          <h2 id="contact-title" class="section__title">Contact</h2>
+          <p class="section__desc">Questions or collabs? Say hello.</p>
+        </header>
+
+        <div class="grid grid--contact" role="list">
+          <a class="card card--glass" href="mailto:hello@example.com" role="listitem">
+            <h3 class="card__title">Email</h3>
+            <p class="card__meta">hello@example.com</p>
+          </a>
+          <a class="card card--glass" href="#" role="listitem">
+            <h3 class="card__title">Community</h3>
+            <p class="card__meta">Join the chat</p>
+          </a>
+          <a class="card card--glass" href="#" role="listitem">
+            <h3 class="card__title">Docs</h3>
+            <p class="card__meta">Guides &amp; patterns</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer section--edge" role="contentinfo">
+      <div class="container footer__inner">
+        <a class="brand" href="#hero">Dev<span>Hub</span></a>
+        <small>© <span id="year"></span> Dev Hub. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <!-- ===== Enhancements: menu toggle + view transitions for in-page ===== -->
+    <script>
+      // mobile menu toggle
+      const toggle = document.querySelector('.nav__toggle');
+      const menu = document.querySelector('#nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const open = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!open));
+          menu.toggleAttribute('data-open');
+        });
+      }
+
+      // view transitions for anchor jumps (nice on modern browsers)
+      if (document.startViewTransition) {
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+          a.addEventListener('click', e => {
+            const id = a.getAttribute('href');
+            const target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            document.startViewTransition(() =>
+              target.scrollIntoView({ behavior: 'instant', block: 'start' })
+            );
+          });
+        });
+      }
+
+      // year stamp
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Accessibility helper -->
+    <span class="sr-only" aria-hidden="true">.</span>
+  </body>
+</html>

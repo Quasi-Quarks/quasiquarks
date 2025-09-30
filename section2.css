@@ -1,0 +1,133 @@
+/* =========================================================
+   Bright Storytelling Sections – Desktop Only
+   ========================================================= */
+
+/* Base reset for this page */
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: #fff;
+  background: #111;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Navigation bar */
+.menuBar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  padding: 1rem 2rem;
+}
+.menuBar .menu {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.menuBar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+.menuBar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+.menuBar a:hover::after {
+  width: 100%;
+}
+
+/* Storytelling sections */
+section {
+  padding: 8rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Animated gradient backgrounds */
+#mission-intro {
+  background: linear-gradient(270deg, #ff0080, #7928ca, #2afadf);
+  background-size: 600% 600%;
+  animation: gradientFlow 18s ease infinite;
+}
+#mission-easy {
+  background: linear-gradient(270deg, #ff4e50, #f9d423, #1a2a6c);
+  background-size: 600% 600%;
+  animation: gradientFlow 22s ease infinite;
+}
+#mission-roadmaps {
+  background: linear-gradient(270deg, #00c6ff, #0072ff, #00f2fe);
+  background-size: 600% 600%;
+  animation: gradientFlow 26s ease infinite;
+}
+#mission-courses {
+  background: linear-gradient(270deg, #f7971e, #ffd200, #ff512f);
+  background-size: 600% 600%;
+  animation: gradientFlow 20s ease infinite;
+}
+#mission-contact {
+  background: linear-gradient(270deg, #8e2de2, #4a00e0, #00c9ff);
+  background-size: 600% 600%;
+  animation: gradientFlow 24s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Headings & paragraphs */
+section h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+section p {
+  font-size: 1.25rem;
+  max-width: 70ch;
+  margin: 0 auto 2rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Buttons */
+section button {
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+section button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Gap between nav and hero */
+.gap {
+  height: 2rem;
+}
+
+/* Desktop-only scope */
+@media (max-width: 767px) {
+  body {
+    background: #000;
+  }
+  section {
+    padding: 4rem 1rem;
+  }
+}
