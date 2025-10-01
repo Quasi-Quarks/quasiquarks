@@ -1,0 +1,218 @@
+/* Mobile-first (small phones like iPhone SE) */
+/* 20% white menu, 80% body */
+
+:root{
+  /* 18% content + 1% left pad + 1% right pad = 20% total */
+  --menu-content: 18vw;
+  --menu-pad: 1vw;
+  --menu-w: calc(var(--menu-content) + 2*var(--menu-pad));
+  --speed: 240ms;
+
+  --bg: #f7f7f8;
+  --text: #0f172a;
+  --muted: #475569;
+  --line: #e5e7eb;
+  --accent: #2563eb;
+}
+
+* {box-sizing: border-box;/* border: 2px solid red; */}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0b1222;
+  color: #e5e7eb;
+}
+
+/* Toggle button */
+#menudisplay{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1002;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ffffffc9;
+  background: #111827cc;
+  color: #fff;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(4px) saturate(120%);
+}
+
+/* White left menu */
+.menuBarstdy{
+  position: fixed;
+  inset: 0 auto 0 0;
+  /* top:0; right:auto; bottom:0; left:0 */
+  width: var(--menu-w);
+  /* padding: 10px var(--menu-pad); */
+  background: #FFC107;
+  color: var(--text);
+  /* border-right: 1px solid var(--line); */
+  overflow: hidden auto;
+  z-index: 1001;
+  transform: translateX(0);
+  transition: transform var(--speed), width var(--speed);
+}
+
+/* Main body (80%) */
+.mainbody{
+  min-height: 100%;
+  margin-left: var(--menu-w);
+  padding: 56px 10px 16px;
+  transition: margin-left var(--speed);
+  background:
+    linear-gradient(180deg, #0b1222, #0b132a 30%, #0e1733 100%);
+}
+
+/* Content card */
+.contentCard{
+  background: #ffffff0a;
+  border: 1px solid #ffffff22;
+  border-radius: 14px;
+  padding: 14px;
+  max-width: 900px;
+}
+
+/* 3 layout states on <body> */
+body.state-hidden .menuBarstdy{ transform: translateX(-100%); }
+body.state-hidden .mainbody{ margin-left: 0; }
+
+body.state-compact .menuBarstdy{
+  width: var(--menu-w);        /* 20% total */
+  transform: translateX(0);
+}
+body.state-compact .mainbody{
+  margin-left: 20%;  /* 80% body */
+  display: block;
+  /* border-color: #E91E63; */
+}
+
+body.state-full .menuBarstdy{
+  width: 100vw;                /* 100% menu */
+  transform: translateX(0);
+}
+body.state-full .mainbody{ display: none; }
+
+/* Menu header */
+.menuHeader{
+  padding: 6px 7px 10px;
+  margin: 0 2px 6px;
+  border-bottom: 1px solid var(--line);
+}
+.menuTitle{
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+/* Category containers */
+.menustudycategorycontainer{
+  border-bottom: 1px dashed var(--line);
+  padding: 4px 0px 10px;
+  width: 100%;
+  /* border-color: #8BC34A; */
+}
+
+/* Category row (button for a11y) */
+.menustudycategory{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0px;
+  padding: 8px 1px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.menustudycategory:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.menustudycategory:hover{
+  background: #f3f4f680;
+}
+
+.menustudytxtheader{
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.chev{
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  transform: rotate(-90deg);
+  transition: transform var(--speed);
+}
+.menustudycategorycontainer.open .chev{
+  transform: rotate(0deg);
+}
+
+/* Collapsible body */
+.menustudy{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--speed);
+  /* padding-left: 2px; */
+}
+.menustudycategorycontainer.open .menustudy{
+  max-height: 420px;
+}
+
+/* Links inside collapsible */
+.menustudytxt{
+  display: block;
+  padding: 8px 0px;
+  margin: 4px 0px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #111827;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  font-size: 13.7px;
+}
+.menustudytxt:active{ transform: translateY(1px); }
+.menustudytxt:hover{
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+/* Optional: slightly adjust on wider screens */
+@media (min-width: 640px){
+  :root{
+    --menu-content: 200px; /* cap content width */
+    --menu-pad: 8px;       /* fixed padding */
+    --menu-w: calc(var(--menu-content) + 2*var(--menu-pad));
+  }
+  #menudisplay{ top: 12px; left: 12px; }
+  .mainbody{ padding: 62px 16px 18px; }
+}
+
+
+nav.menuBarstdy {
+    min-width: 21vw;
+    width: 24vw;
+    /* border-color: green; */
+}
+
+.section_container {
+    /* background: #252525; */
+}
+
+.body_container_cover_section_cover {
+    border-radius: 10px;
+    background-color: #2b2b2b;
+    border: 2px solid white;
+    margin-bottom: 55px;
+}
+
+.body_container {
+    width: 100%;
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile First – 20% Menu / 80% Body</title>
+  <link rel="stylesheet" href="indexmobile2.css" />
+</head>
+<body class="state-compact">
+  <!-- 3-state toggle: Hidden → 20% → 100% -->
+  <button id="menudisplay" aria-label="Toggle menu">☰</button>
+
+  <!-- Left menu (white) -->
+  <nav class="menuBarstdy" aria-label="Study Menu">
+    <div class="menuHeader">
+      <div class="menuTitle">Study Menu</div>
+    </div>
+
+    <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Set up</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+        <a class="menustudytxt" href="#">Set up</a>
+        <a class="menustudytxt" href="#">Set up on desktop</a>
+        <a class="menustudytxt" href="#">Set up on android</a>
+        <a class="menustudytxt" href="#">Set up on iphone</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <button class="menustudycategory" aria-expanded="false">
+        <span class="menustudytxtheader">What is HTML?</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="What is HTML?">
+        <a class="menustudytxt" href="#">Overview</a>
+        <a class="menustudytxt" href="#">Elements & Tags</a>
+        <a class="menustudytxt" href="#">Attributes</a>
+        <a class="menustudytxt" href="#">Semantic HTML</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <button class="menustudycategory" aria-expanded="false">
+        <span class="menustudytxtheader">How to learn</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="How to learn">
+        <a class="menustudytxt" href="#">Roadmap</a>
+        <a class="menustudytxt" href="#">Practice</a>
+        <a class="menustudytxt" href="#">Projects</a>
+        <a class="menustudytxt" href="#">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content (80%) -->
+  <main class="mainbody" role="main">
+    <!-- <div class="contentCard">
+      <h1>Content</h1>
+      <p>Mobile-first layout. Menu is white and 20% width; content is 80%.</p>
+      <p>Tap ☰ to cycle: <strong>Hidden → 20% → 100%</strong>. Tap category rows to expand/collapse.</p>
+    </div> -->
+
+    <div class="body_container_cover">
+        <div class="body_container">
+            
+
+
+    <div class="body_container_cover_section_cover">
+            <div class="section_container">
+                <h1>We'll get right in to it</h1>
+                <p>This course is not designed to give you everything ,
+                    It's just enough to get you a job, (Work from home, or at a company),
+                    start a business, become a freelancer. But we will guide you
+                </p>
+            </div>
+
+    </div>
+
+    <div class="body_container_cover_section_cover">
+            <div class="section_container">
+                <h1>How to Study</h1>
+                <p>You will study by phone and laptops or PC
+                </p>
+                <p>You will need to study at least 4 to 5 hours a day to solidfy everything, and not everything is on this website,
+                    you need to access other website for research
+                </p>
+                <p>There will be time where you are 5 hours in a day...
+                </p>
+                <p>setting up, and figuring out
+                </p>
+                <p>Learning
+                </p>
+                <p>Practicing and Implementing
+                </p>
+                <p>Fixing one bug
+                </p>
+                <p>creating your own website
+                </p>
+                <p>creating your own full website in 5hrs
+                </p>
+            </div>
+
+    </div>
+
+    <div class="body_container_cover_section_cover">
+            <div class="section_container">
+                <h1>What you will need</h1>
+                <p>
+                    • laptop or PC
+                </p>
+                 <p>
+                    • Phone
+                </p>
+                 <p>
+                    • Desktop Applications
+                </p>
+                 <p>
+                    • Pencil & Eraser (To Sketch websites)
+                </p>
+ 
+                <p>
+                    • Pen & Notebook (to learn)
+                </p>
+                 <p>
+                    • Anwriter (for Android) to write code
+                </p>
+                  <p>
+                    • Koder (for IOS) to write code
+                </p>
+                  <p>
+                    • VS code (for windows) to write code
+                </p>
+                 <p>
+                    • Sololearn .com
+                </p>
+                <p>
+                    • Codeacademy.com
+                </p>
+                <p>
+                    • Freecodecamp.com
+                </p>
+                 <p>
+                    • You need to download pdfs
+                </p>
+                 <p>
+                    • Videos
+                </p>
+                <p>
+                    Access to other websites
+                </p>
+                 <p>
+                    • Github
+                </p>
+
+                <p>
+                    • Book (optional)
+                </p>
+                <p>
+                    • Online Free courses
+                </p>
+                <p>
+                    • Certificate (Recommended)
+                </p>
+            </div>
+
+    </div>
+
+    
+
+    </div>
+
+    </div>
+  </main>
+
+  <script>
+
+    // 3-state toggle (Hidden → 20% → 100%)
+(() => {
+  const body = document.body;
+  const btn = document.getElementById('menudisplay');
+  const states = ['hidden', 'compact', 'full'];
+
+  // determine initial index from class
+  const current = Array.from(body.classList).find(c => c.startsWith('state-')) || 'state-compact';
+  let idx = Math.max(0, states.indexOf(current.replace('state-', '')));
+  if (idx === -1) idx = 1;
+
+  const apply = () => {
+    states.forEach(s => body.classList.remove('state-' + s));
+    body.classList.add('state-' + states[idx]);
+    btn.setAttribute('aria-label', `Menu: ${states[idx]}. Tap to change`);
+    btn.title = `Menu: ${states[idx]}`;
+  };
+  apply();
+
+  btn.addEventListener('click', () => {
+    idx = (idx + 1) % states.length;
+    apply();
+  });
+
+  // Keyboard shortcut for users with keyboards: press "m"
+  window.addEventListener('keydown', (e) => {
+    if (!e.metaKey && !e.ctrlKey && !e.altKey && e.key.toLowerCase() === 'm') {
+      idx = (idx + 1) % states.length;
+      apply();
+    }
+  });
+})();
+
+// Collapsible categories
+(() => {
+  const groups = document.querySelectorAll('.menustudycategorycontainer');
+
+  groups.forEach(group => {
+    const headerBtn = group.querySelector('.menustudycategory');
+    const panel = group.querySelector('.menustudy');
+
+    const toggle = () => {
+      const isOpen = group.classList.toggle('open');
+      headerBtn.setAttribute('aria-expanded', String(isOpen));
+      // optional: focus first link when opening
+      if (isOpen) {
+        const firstLink = panel.querySelector('a');
+        if (firstLink) firstLink.focus({ preventScroll: true });
+      }
+    };
+
+    headerBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggle();
+    });
+
+    headerBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+})();
+
+  </script>
+</body>
+</html>

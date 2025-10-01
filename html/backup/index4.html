@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Khan-style Live Editor (Pause to Type)</title>
+<style>
+  :root{
+    --gap: 10px;
+    --panel: #0f172a;
+    --panel-2: #0b1324;
+    --line: #1f2a44;
+    --fg: #cbd5e1;
+    --accent: #3b82f6;
+    --radius: 12px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  }
+  *{ box-sizing: border-box; }
+  html, body{ height:100%; margin:0; background:#0b1222; color:#e5e7eb; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  .wrap{ max-width: 1100px; margin: 0 auto; padding: 14px; display: grid; gap: var(--gap); }
+  .controls{
+    display:flex; gap: var(--gap); align-items:center; flex-wrap: wrap;
+    background: var(--panel); border:1px solid var(--line); padding:8px 10px; border-radius: var(--radius);
+  }
+  .btn{
+    appearance:none; border:1px solid #ffffff33; background:#1f2937; color:#fff;
+    border-radius:10px; padding:8px 12px; font-size:.95rem; cursor:pointer;
+  }
+  .btn:hover{ filter: brightness(1.08); }
+  .btn:active{ transform: translateY(1px); }
+  .status{ margin-left:auto; font-size:.9rem; color:#a5b4fc; }
+  .speed{
+    display:flex; align-items:center; gap:8px; margin-left:auto;
+  }
+  .panes{
+    display:grid; gap: var(--gap);
+    grid-template-columns: 1fr;
+  }
+  .pane{
+    background: var(--panel); border:1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  }
+  .pane header{
+    padding:8px 10px; background: var(--panel-2); border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; color: var(--fg); font-size:.95rem;
+  }
+  textarea{
+    width:100%; min-height: 200px; border:0; outline:0; resize: vertical;
+    background: var(--panel); color:#e5e7eb; padding:10px; font-family: var(--mono); font-size:.95rem; line-height:1.45;
+  }
+  iframe{ display:block; width:100%; min-height: 260px; border:0; background:#fff; }
+  kbd{ background:#111827; border:1px solid #243142; padding:2px 5px; border-radius:6px; font-family: var(--mono); font-size:.85rem; color:#e5e7eb; }
+  @media (min-width: 900px){
+    .panes{ grid-template-columns: 1fr 1fr; }
+    .pane.preview{ grid-column: 1 / -1; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 style="margin:0 0 6px;">Khan-style Live Editor</h1>
+    <p style="margin:0 0 10px; color:#cbd5e1;">
+      Press <strong>Play</strong> to watch the code “type itself.” Press <strong>Pause</strong> and keep typing — the preview stays live. Press <strong>Resume</strong> and the lesson continues from where it left off. Tip: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to render.
+    </p>
+
+    <div class="controls">
+      <button id="playBtn" class="btn">Play ▶</button>
+      <button id="pauseBtn" class="btn">Pause ⏸</button>
+      <button id="resetBtn" class="btn">Reset ⟲</button>
+      <div class="speed">
+        <label for="speed">Speed</label>
+        <select id="speed" class="btn" style="padding:6px 8px;">
+          <option value="24">Realistic</option>
+          <option value="12">Fast</option>
+          <option value="6">Faster</option>
+          <option value="2">Insane</option>
+        </select>
+      </div>
+      <div id="status" class="status">Ready.</div>
+    </div>
+
+    <div class="panes">
+      <section class="pane">
+        <header><span>JavaScript (p5.js)</span><span><kbd>Ctrl</kbd>+<kbd>Enter</kbd> to run</span></header>
+        <textarea id="editor" spellcheck="false"></textarea>
+      </section>
+
+      <section class="pane">
+        <header><span>Extra CSS (optional)</span><span>Injected into preview</span></header>
+        <textarea id="css" spellcheck="false">body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }</textarea>
+      </section>
+
+      <section class="pane preview">
+        <header><span>Preview</span><span>Sandboxed</span></header>
+        <iframe id="preview" sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups allow-forms"></iframe>
+      </section>
+    </div>
+  </div>
+
+<script>
+/* --------------------------
+   Minimal “lesson typewriter”
+   -------------------------- */
+// A single string that the “teacher” will type live.
+// You can swap this with any lesson text — here’s a p5.js sketch.
+const lessonScript =
+`let x=50, y=50, vx=2.4, vy=2.0, r=22;
+
+function setup(){
+  createCanvas(320, 200);
+  noStroke();
+}
+
+function draw(){
+  background(245);
+  // walls
+  push();
+  stroke(220); noFill();
+  rect(0,0,width-1,height-1);
+  pop();
+
+  // ball
+  fill(59,130,246);
+  ellipse(x, y, r*2, r*2);
+
+  // move
+  x += vx; y += vy;
+
+  // bounce
+  if(x < r || x > width - r) vx *= -1;
+  if(y < r || y > height - r) vy *= -1;
+}
+
+// Try pausing and adding a second ball!
+// let x2=160,y2=100,vx2=-1.8,vy2=2.6;
+// ellipse(x2,y2,r*2,r*2);
+// x2+=vx2; y2+=vy2;
+// if(x2<r||x2>width-r)vx2*=-1;
+// if(y2<r||y2>height-r)vy2*=-1;
+`;
+
+const editor   = document.getElementById('editor');
+const cssInput = document.getElementById('css');
+const iframe   = document.getElementById('preview');
+const playBtn  = document.getElementById('playBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const resetBtn = document.getElementById('resetBtn');
+const speedSel = document.getElementById('speed');
+const statusEl = document.getElementById('status');
+
+let cursor = 0;        // where the teacher is in the script
+let timer  = null;     // typing interval
+let paused = true;
+
+// Initial contents (start empty so you see typing from the top)
+editor.value = ``;
+
+function buildDoc(jsCode, extraCSS){
+  // p5.js from CDN (requires internet when you run locally)
+  const p5Url = "https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js";
+  return `<!doctype html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{margin:0;padding:0}${extraCSS||''}</style>
+<script src="${p5Url}"></script>
+</head><body>
+<script>
+try{
+${jsCode}
+}catch(err){
+  document.body.innerHTML =
+    '<pre style="padding:12px;color:#b91c1c;background:#fff0f0;border:1px solid #fca5a5;border-radius:8px;white-space:pre-wrap;">'+
+    String(err).replace(/[&<>"']/g,s=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[s]))+
+    '</pre>';
+}
+</script>
+</body></html>`;
+}
+
+function render(){
+  iframe.srcdoc = buildDoc(editor.value, cssInput.value);
+  status(`Rendered at ${new Date().toLocaleTimeString()}`);
+}
+
+function status(msg){ statusEl.textContent = msg; }
+
+// Type next character from the script
+function step(){
+  if (cursor >= lessonScript.length){
+    stopTyping();
+    status("End of script. You can continue coding!");
+    return;
+  }
+  // Append next character at the current caret position (append to end)
+  const userCode = editor.value;
+  editor.value = userCode + lessonScript[cursor++];
+  // Keep caret at end
+  editor.selectionStart = editor.selectionEnd = editor.value.length;
+  // Re-render at a gentle cadence
+  if (cursor % 6 === 0) render();
+}
+
+// Start/stop the teacher typing
+function startTyping(){
+  if (timer) return;
+  paused = false;
+  playBtn.disabled = true;
+  pauseBtn.disabled = false;
+  const cps = Number(speedSel.value);        // chars per step
+  const delay = 40;                          // ms per tick
+  timer = setInterval(()=>{
+    for(let i=0;i<cps;i++) step();
+  }, delay);
+  status("Playing… (press Pause to type yourself)");
+}
+
+function stopTyping(){
+  if (timer){ clearInterval(timer); timer = null; }
+  paused = true;
+  playBtn.disabled = false;
+  pauseBtn.disabled = true;
+  status("Paused. Your typing is live.");
+}
+
+function resetAll(){
+  stopTyping();
+  cursor = 0;
+  editor.value = "";
+  render();
+  status("Reset.");
+}
+
+// Controls
+playBtn.addEventListener('click', startTyping);
+pauseBtn.addEventListener('click', stopTyping);
+resetBtn.addEventListener('click', resetAll);
+speedSel.addEventListener('change', ()=>{
+  if (!paused){ stopTyping(); startTyping(); }
+});
+
+// Render on manual edit (Ctrl+Enter)
+[editor, cssInput].forEach(el=>{
+  el.addEventListener('keydown', (e)=>{
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter'){
+      e.preventDefault();
+      render();
+    }
+  });
+  el.addEventListener('input', ()=>{
+    // User edits don’t break the lesson: we just keep appending remaining script on play.
+    // You can also auto-render here if you want:
+    // render();
+  });
+});
+
+// First render
+render();
+</script>
+</body>
+</html>

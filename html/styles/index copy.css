@@ -1,0 +1,82 @@
+/* *:not(html, script, style, head) {
+    
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: none;
+    border: 1px solid grey;
+    color: white;
+   }
+
+
+body {
+    background-color: grey;
+    }
+
+
+    /* menu */
+
+    .menuBar {
+
+
+        }
+
+        .menu_text {
+
+            
+        }
+
+        .menu_text a {
+
+            
+        }
+
+/* section */
+        #herosection {
+
+        }
+
+         #section {
+
+        }
+
+         #section_programming {
+
+        }
+
+         #section_storage {
+
+        }
+
+        .section_header_containers {
+
+
+        }
+
+
+        .programming_containers {
+
+        }
+
+        .languagesicons_anchor {
+
+
+        }
+
+        .languagesicons {
+            
+        }
+
+
+
+ */

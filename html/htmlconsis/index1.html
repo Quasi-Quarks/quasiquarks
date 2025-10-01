@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Interactive Coding Lesson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    /* Page basics (optional) */
+    :root { --maxw: 1100px; --radius: 12px; --bg: #0b1222; --fg:#e5e7eb; --muted:#a3b0c7; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 16px; }
+    h1 { margin: 8px 0 4px; font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+    p  { margin: 6px 0 14px; color: var(--muted); }
+
+    /* Responsive embed with aspect ratio (modern browsers) */
+    .embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;        /* auto height; change to 4/3 or 21/9 if you prefer */
+      background: #101826;
+      border: 1px solid #23324a;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .embed > iframe {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+
+    /* Fallback if aspect-ratio unsupported (older browsers) */
+    @supports not (aspect-ratio: 1) {
+      .embed { padding-top: 56.25%; }      /* 16:9 */
+      .embed > iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+    }
+
+    /* Optional: small caption under the player */
+    .caption { margin-top: 8px; font-size: .9rem; color: var(--muted); }
+    a { color: #8ab4ff; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Flexbox Basics – Interactive Lesson</h1>
+    <p>Press <strong>Play</strong> to watch. <strong>Pause</strong> to type in the editor. <strong>Resume</strong> to continue.</p>
+
+    <!-- ↓ Replace the src with your actual interactive lesson URL (e.g., Scrimba embed link) -->
+    <div class="embed">
+      <iframe
+        src="https://scrimba.com/your-lesson-id"  <!-- PUT YOUR LESSON URL HERE -->
+        title="Interactive coding lesson"
+        loading="lazy"
+        allow="clipboard-read; clipboard-write"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <p class="caption">
+      If the player doesn’t load, <a href="https://scrimba.com/your-lesson-id" target="_blank" rel="noopener">open the lesson in a new tab</a>.
+      <noscript>JavaScript is required to use the interactive editor.</noscript>
+    </p>
+
+    <!-- Optional: Add notes/tasks under the player -->
+    <section>
+      <h2 style="margin-top:18px;">Tasks</h2>
+      <ol>
+        <li>Pause at 02:15 and change the container to <code>display:flex</code>.</li>
+        <li>Add <code>gap: 12px;</code> and restart.</li>
+        <li>Try aligning the items with <code>align-items: center;</code>.</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

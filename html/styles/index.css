@@ -1,0 +1,333 @@
+*:not(html, script, style, head) {
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: none;
+    /* border: 1px solid #ff0101; */
+    color: white;
+   }
+
+
+body {
+    /* background-color: #122463; */
+    
+    }
+
+
+    body {
+  max-width: 100%;
+  /* height: 100vh; */ /* full screen height */
+  /* background: linear-gradient(
+    270deg,
+    #ff006ab8,
+    #ff7a00a3,
+    #ffd40094,
+    #00e1ffb5,
+    #7a5cffbd,
+    #ff00c3a3
+  ); */
+  /* background-size: 1200% 1200%; */ /* make the gradient stretch for animation */
+  /* animation: gradientFlow 30s ease infinite; */
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container fills viewport */
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 1012px; /* Full screen height */
+  overflow: hidden;
+}
+
+/* Background video */
+#bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -52%);
+  object-fit: cover;
+  filter: blur(1.3px); /* <-- blur strength (optional) */
+  z-index: -2;
+}
+
+/* Gradient overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  /* background: linear-gradient(
+    rgba(0,0,0,0.6), 
+    rgba(0,0,0,0.6)
+  ); */
+  z-index: -1;
+  background: linear-gradient(139deg, #002a7373, #0025038f);
+  /* background-size: 1200% 1200%; */ /* make the gradient stretch for animation */
+  /* animation: gradientFlow 30s ease infinite; */
+}
+ 
+    /* menu */
+
+    .menuBar {
+
+width: 100%;
+
+/* flex-direction: row; */
+
+}
+
+.menu {
+    flex-direction: row;
+    height: 82px;
+    width: 59%;
+}
+
+div#heroSecton {
+    margin-top: 2px;
+    /* background-image: url(../images/background1.jpg); */
+    height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+    background: url(../images/background.jpg) no-repeat center center, linear-gradient(to bottom, rgb(33 0 0), rgb(195 40 40 / 94%));
+    background-size: cover;
+    background-image: linear-gradient(25deg, rgb(0 8 35 / 82%), rgb(0 45 147 / 36%)), url(../../images/background2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+  .menuBar {position: fixed;top: 0px;left: 0px;width: 100%;}
+
+
+        .menu_text {
+
+            
+        }
+
+        .menu_text a {
+
+            
+        }
+
+/* section */
+        #herosection {
+
+        }
+
+         #section {
+
+        }
+
+        .hero_section_h1 {font-size: 6.3rem;font-weight: 500;line-height: 1.72;letter-spacing: .2px;background-clip: text;color: #ffffff;width: 89%;}
+
+        .hero_section_h2 {
+            margin-inline: auto;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            width: 65%;
+            font-weight: 400;
+        }
+
+       
+
+
+
+
+
+
+
+
+.menu a {
+    font-size: 1.3rem;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+img.languagesicons {
+    height: 2px;
+}
+
+.section.mission {
+    height: 424px;
+    width: 100%;
+    background: #0000ff00;
+    border-bottom: 1.6px solid;
+    /* justify-content: space-evenly; */
+    /* transform: skew(
+10deg, 10deg); */
+}
+
+h3.mission_section_h1 {
+    margin-inline: auto;
+    font-size: 2rem;
+    margin-bottom: 0px;
+    width: 61%;
+    font-weight: 400;
+    /* word-break: auto-phrase; */
+    margin-top: 13px;
+}
+
+h1.mission_section_h1 {
+    font-size: 4.2rem;
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: .2px;
+    background-clip: text;
+    color: #ffffff;
+    width: 83%;
+    text-shadow: 0px 0px 20px #aa1ab7;
+}
+
+div#section1 {
+    /* background: #2424a169; */
+}
+div#section2 {
+    background: #121212bd;
+    /* height: 486px; */
+}
+div#section3 {
+    /* background: #2fa93370; */
+}
+div#section4 {
+    background: #00256bc4;
+}
+div#section5 {
+    background: #1dd11cbd;
+}
+
+
+button.section_button {
+    /* height: 55px; */
+    padding: 14px 23px;
+    font-size: 1.8rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 11px;
+    /* line-height: 1.02; */
+    letter-spacing: .2px;
+    /* background-clip: text; */
+    color: #ffffff;
+    background-image: linear-gradient(45deg, #2196F3, #4CAF50);
+    margin-top: 20px;
+}
+
+
+
+h1 {}
+
+.Learningsection {
+    /* background-color: #002561; */
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 21px 47px; */
+    height: max-content;
+    min-height: 300vh;
+}
+
+img.learningicon {
+    width: 48px;
+    height: 48px;
+    opacity: .85;
+    margin-bottom: 14px;
+    background: white;
+    padding: 7px 8px;
+    border-radius: 17px;
+}
+
+p {}
+
+h1.icon_title {
+    font-size: 31px;
+    font-weight: 600;
+    line-height: 1.15;
+    margin-top: 0px;
+    margin-bottom: 11px;
+}
+
+.sectioncard {
+    padding: 21px 37px;
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 20%;
+    align-items: flex-start;
+    background: linear-gradient(270deg, #ff006ac2, #f3e144c7, #6eff00c2, #00e1ffd6, #7a5cffc7, #2a56b9d9);
+    background-size: 1200% 1200%;
+    /* animation: gradientFlow 10s 
+ease infinite; */
+    height: 145px;
+}
+
+.learningrow1 {
+    width: 84%;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    /* align-items: flex-end; */
+    height: 66vh;
+}
+
+.learning_title {
+    /* justify-content: flex-start; */
+    text-align: left;
+    /* align-items: flex-start; */
+    width: 100%;
+    height: 116px;
+    /* justify-content: space-around; */
+}
+
+.learningrow1_container {
+    width: 90%;
+    height: 77vh;
+    justify-content: space-evenly;
+    /* background: #000d33ed; */
+    border: 2px solid;
+    border-radius: 30px;
+    padding: 31px 14px;
+}
+
+h1.leaningh1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+p.leaningp {
+    width: 50%;
+    text-align: left;
+}
+
+.learningrow1_container.learning3row {
+    height: 89vh;
+    /* background: #dd4444e8; */
+    /* border: 2px solid; */
+    /* border-radius: 30px; */
+    margin: 0px 0px;
+    justify-content: space-evenly;
+}
+
+.learningrow1_container.learning1row {
+    height: 42vh;
+    /* background-color: #166518a8; */
+}
+
+.learningrow1_container.learning2row {
+    height: 73vh;
+}

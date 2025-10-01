@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Minimal Code Replay (CodeMirror 5)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- CodeMirror 5 (CDN) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+
+<style>
+  body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#0b1222; color:#e5e7eb; }
+  header { display:flex; gap:8px; align-items:center; padding:10px; border-bottom:1px solid #1f2a44; position:sticky; top:0; background:#0b1222; z-index:1;}
+  button, label { font-size:14px; }
+  button { background:#1f2937; color:#fff; border:1px solid #334155; border-radius:8px; padding:6px 10px; cursor:pointer; }
+  button:disabled{ opacity:.5; cursor:default; }
+  .wrap { display:grid; gap:10px; padding:10px; }
+  .grid { display:grid; gap:10px; grid-template-columns: 1fr; }
+  .pane { border:1px solid #1f2a44; border-radius:12px; overflow:hidden; background:#0f172a; }
+  .head { padding:8px 10px; border-bottom:1px solid #15203a; background:#0b1324; color:#cbd5e1; font-size:14px; }
+  .cm-wrap { height: 280px; }
+  .CodeMirror { height:100%; background:#0f172a; color:#e5e7eb; }
+  iframe { display:block; width:100%; height:260px; border:0; background:#fff; }
+  small.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; color:#9ca3af; }
+  .spacer { flex:1; }
+  .status { font-size:12px; color:#9ca3af; }
+  @media (min-width: 800px){ .grid { grid-template-columns: 1.1fr 0.9fr; } }
+</style>
+</head>
+<body>
+  <header>
+    <button id="btnFetch">Fetch recording.json</button>
+    <input id="fileInput" type="file" accept=".json" style="display:none">
+    <button id="btnLoad">Load JSON…</button>
+    <button id="btnPlay" disabled>Play ▶</button>
+    <button id="btnPause" disabled>Pause ❚❚</button>
+    <button id="btnReset" disabled>Reset ↺</button>
+    <label><input id="livePreview" type="checkbox" checked> Live preview</label>
+    <label><input id="speed" type="range" min="0.25" max="2" step="0.25" value="1"> <small>Speed ×<span id="speedVal">1</span></small></label>
+    <div class="spacer"></div>
+    <div class="status" id="status">No recording loaded.</div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <div class="pane">
+        <div class="head">Editor <small class="mono">(pause to type; resume overwrites)</small></div>
+        <div class="cm-wrap" id="editorHost"></div>
+      </div>
+      <div class="pane">
+        <div class="head">Preview</div>
+        <iframe id="preview" sandbox="allow-same-origin allow-forms allow-pointer-lock allow-popups allow-scripts"></iframe>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ---------- CodeMirror init ---------- */
+const editor = new CodeMirror(document.getElementById('editorHost'), {
+  value: "",
+  mode: "htmlmixed",
+  lineNumbers: true,
+  tabSize: 2,
+  indentUnit: 2
+  // theme: "default"   // (optional) explicitly set a theme
+});
+
+
+/* ---------- UI elements ---------- */
+const statusEl = document.getElementById('status');
+const iframe = document.getElementById('preview');
+const btnFetch = document.getElementById('btnFetch');
+const btnLoad = document.getElementById('btnLoad');
+const fileInput = document.getElementById('fileInput');
+const btnPlay = document.getElementById('btnPlay');
+const btnPause = document.getElementById('btnPause');
+const btnReset = document.getElementById('btnReset');
+const livePreview = document.getElementById('livePreview');
+const speedRange = document.getElementById('speed');
+const speedVal = document.getElementById('speedVal');
+
+/* ---------- State ---------- */
+let events = [];          // raw CodeMirror change events [{time, change:{from,to,text,removed,origin}}]
+let timer = null;         // current setTimeout
+let playing = false;
+let idx = 0;              // next event index to apply
+let speed = 1;
+
+/* ---------- Helpers ---------- */
+function joinLines(arr){ return (arr || []).join('\n'); }
+function updateStatus(msg){ statusEl.textContent = msg; }
+function updatePreview(){
+  if (!livePreview.checked) return;
+  iframe.srcdoc = editor.getValue();
+}
+function enableControls(loaded){
+  btnPlay.disabled = !loaded;
+  btnReset.disabled = !loaded;
+  btnPause.disabled = !loaded || !playing;
+}
+
+/* Apply a single raw CodeMirror change event to the editor */
+function applyEvent(ev){
+  const ch = ev.change;
+  const from = { line: ch.from.line, ch: ch.from.ch };
+  const to   = { line: ch.to.line,   ch: ch.to.ch };
+  const text = joinLines(ch.text);
+  editor.replaceRange(text, from, to, ch.origin || 'replay');
+}
+
+/* Schedule next event using delta time between consecutive events.time */
+function scheduleNext(){
+  if (idx >= events.length){
+    playing = false;
+    enableControls(true);
+    updateStatus('Done. Reached end of recording.');
+    return;
+  }
+  const prevTime = (idx === 0) ? 0 : events[idx-1].time;
+  const nextTime = events[idx].time;
+  const delta = Math.max(0, nextTime - prevTime);
+  timer = setTimeout(() => {
+    applyEvent(events[idx]);
+    idx++;
+    updatePreview();
+    scheduleNext();
+  }, delta / speed);
+}
+
+/* Controls */
+function play(){
+  if (!events.length) return;
+  if (playing) return;
+  playing = true;
+  enableControls(true);
+  updateStatus(`Playing from event ${idx+1}/${events.length}…`);
+  scheduleNext();
+}
+function pause(){
+  if (!playing) return;
+  playing = false;
+  if (timer){ clearTimeout(timer); timer = null; }
+  enableControls(true);
+  updateStatus('Paused. You can type now; Resume will overwrite your edits.');
+}
+function reset(){
+  pause();
+  editor.setValue('');
+  idx = 0;
+  updatePreview();
+  updateStatus('Reset to start of recording.');
+}
+
+/* Loaders */
+async function fetchRecordingJson(){
+  pause();
+  try{
+    const res = await fetch('recording.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    loadEvents(data);
+    updateStatus(`Loaded recording.json with ${events.length} events.`);
+  }catch(err){
+    updateStatus(`Could not fetch recording.json (${err.message}). Use “Load JSON…” instead.`);
+  }
+}
+function loadFromFile(file){
+  pause();
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const data = JSON.parse(reader.result);
+      loadEvents(data);
+      updateStatus(`Loaded ${file.name} with ${events.length} events.`);
+    }catch(e){
+      updateStatus('Invalid JSON file.');
+    }
+  };
+  reader.readAsText(file);
+}
+function loadEvents(data){
+  // Accept either raw array [{time, change:{...}}] or {events:[...], initial:"..."}
+  if (Array.isArray(data)){
+    events = data;
+    editor.setValue('');          // assume empty start
+  }else if (data && Array.isArray(data.events)){
+    events = data.events;
+    editor.setValue(data.initial || '');
+  }else{
+    events = [];
+  }
+  idx = 0;
+  updatePreview();
+  enableControls(!!events.length);
+}
+
+/* Live typing preview */
+editor.on('change', () => {
+  if (!playing) updatePreview();
+});
+
+/* Wire UI */
+btnFetch.addEventListener('click', fetchRecordingJson);
+btnLoad.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files && e.target.files[0]) loadFromFile(e.target.files[0]);
+});
+btnPlay.addEventListener('click', play);
+btnPause.addEventListener('click', pause);
+btnReset.addEventListener('click', reset);
+speedRange.addEventListener('input', () => {
+  speed = parseFloat(speedRange.value) || 1;
+  speedVal.textContent = speed;
+  if (playing){
+    // reschedule from current event with new speed
+    if (timer){ clearTimeout(timer); timer = null; }
+    scheduleNext();
+  }
+});
+
+/* Tip status */
+updateStatus('No recording loaded. Click “Fetch recording.json” or “Load JSON…”.');
+updatePreview();
+</script>
+</body>
+</html>

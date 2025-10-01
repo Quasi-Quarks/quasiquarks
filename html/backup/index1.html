@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Left Vertical Menu (3-state toggle)</title>
+
+<link rel="stylesheet" href="index1.css">
+
+</head>
+
+<body class="state-compact">
+  <!-- 3-state toggle button -->
+  <button id="menudisplay" aria-label="Toggle menu (three states)" title="Toggle menu">☰</button>
+
+  <!-- Left menu -->
+  <nav class="menuBarstdy" aria-label="Study Menu">
+    <div class="menuHeader">
+      <div class="menuLogo" aria-hidden="true"></div>
+      <div class="menuTitle">Study Navigator</div>
+    </div>
+
+    <div class="menustudycategorycontainer open">
+      <div class="menustudycategory" tabindex="0" role="button" aria-expanded="true">
+        <a class="menustudytxtheader" href="javascript:void(0)" tabindex="-1">Set up</a>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </div>
+      <div class="menustudy" role="region" aria-label="Set up">
+        <a class="menustudytxt" href="#">Set up</a>
+        <a class="menustudytxt" href="#">Set up on desktop</a>
+        <a class="menustudytxt" href="#">Set up on android</a>
+        <a class="menustudytxt" href="#">Set up on iphone</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <div class="menustudycategory" tabindex="0" role="button" aria-expanded="false">
+        <a class="menustudytxtheader" href="javascript:void(0)" tabindex="-1">What is HTML?</a>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </div>
+      <div class="menustudy" role="region" aria-label="What is HTML?">
+        <a class="menustudytxt" href="#">Overview</a>
+        <a class="menustudytxt" href="#">Elements & Tags</a>
+        <a class="menustudytxt" href="#">Attributes</a>
+        <a class="menustudytxt" href="#">Semantic HTML</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <div class="menustudycategory" tabindex="0" role="button" aria-expanded="false">
+        <a class="menustudytxtheader" href="javascript:void(0)" tabindex="-1">How to learn</a>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </div>
+      <div class="menustudy" role="region" aria-label="How to learn">
+        <a class="menustudytxt" href="#">Roadmap</a>
+        <a class="menustudytxt" href="#">Practice</a>
+        <a class="menustudytxt" href="#">Projects</a>
+        <a class="menustudytxt" href="#">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="mainbody">
+    <div class="contentCard">
+      <h1>Content Area</h1>
+      <p>
+        Use the ☰ button to cycle:
+        <strong>Hidden → 20% menu → 100% menu</strong>. Click category rows to expand/collapse.
+      </p>
+    </div>
+  </main>
+
+<script>
+// 3-state menu toggle
+(function(){
+  const body = document.body;
+  const states = ['hidden','compact','full'];
+  let idx = states.indexOf(
+    (Array.from(body.classList).find(c => c.startsWith('state-')) || 'state-compact').replace('state-','')
+  );
+  if (idx < 0) idx = 1;
+
+  const btn = document.getElementById('menudisplay');
+  const apply = () => {
+    states.forEach(s => body.classList.remove('state-' + s));
+    body.classList.add('state-' + states[idx]);
+  };
+  apply();
+
+  btn.addEventListener('click', () => {
+    idx = (idx + 1) % states.length;
+    apply();
+  });
+})();
+
+// Collapsible categories
+(function(){
+  const containers = document.querySelectorAll('.menustudycategorycontainer');
+  containers.forEach(container => {
+    const row = container.querySelector('.menustudycategory');
+    row.addEventListener('click', (e) => {
+      e.preventDefault();
+      container.classList.toggle('open');
+    });
+  });
+})();
+
+
+
+</script>
+</body>
+</html>

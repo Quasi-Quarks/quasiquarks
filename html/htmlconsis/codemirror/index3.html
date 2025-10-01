@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Code Replay (Read-only + Editable)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- CodeMirror 5 (CDN) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+
+<style>
+  :root{
+    --bg:#0b1222; --panel:#0f172a; --panel2:#091a2b; --border:#1f2a44; --head:#0b1324; --muted:#9ca3af; --text:#e5e7eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  header{display:flex;gap:8px;align-items:center;padding:10px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:1}
+  button,label{font-size:14px}
+  button{background:#1f2937;color:#fff;border:1px solid #334155;border-radius:8px;padding:6px 10px;cursor:pointer}
+  button:disabled{opacity:.5;cursor:default}
+  .wrap{display:grid;gap:10px;padding:10px}
+  .grid{display:grid;gap:10px;grid-template-columns:1fr}
+  .pane{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--panel)}
+  .pane.bottom{background:var(--panel2)}
+  .head{padding:8px 10px;border-bottom:1px solid var(--border);background:var(--head);color:#cbd5e1;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+  .cm-wrap{height:220px}
+  .CodeMirror{height:100%;background:transparent;color:var(--text)}
+  .cm-readonly .CodeMirror{background:#0f172a}
+  .cm-editable .CodeMirror{background:#0a1f33}
+  iframe{display:block;width:100%;height:260px;border:0;background:#fff}
+  small.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;color:var(--muted)}
+  .spacer{flex:1}
+  .status{font-size:12px;color:var(--muted)}
+  @media(min-width:900px){
+    .grid{grid-template-columns:1fr 1fr}
+    .preview-pane{grid-column:1 / span 2}
+  }
+</style>
+</head>
+<body>
+  <header>
+    <button id="btnFetch">Fetch recording.json</button>
+    <input id="fileInput" type="file" accept=".json" style="display:none">
+    <button id="btnLoad">Load JSON…</button>
+    <button id="btnPlay" disabled>Play ▶</button>
+    <button id="btnPause" disabled>Pause ❚❚</button>
+    <button id="btnReset" disabled>Reset ↺</button>
+    <label><input id="livePreview" type="checkbox" checked> Live preview</label>
+    <label><input id="speed" type="range" min="0.25" max="2" step="0.25" value="1"> <small>Speed ×<span id="speedVal">1</span></small></label>
+    <div class="spacer"></div>
+    <div class="status" id="status">No recording loaded.</div>
+  </header>
+
+  <div class="wrap">
+    <div class="grid">
+      <!-- TOP: Read-only, driven by recording -->
+      <div class="pane top cm-readonly">
+        <div class="head">
+          <span>Top (Read-only: timeline)</span>
+          <small class="mono">Overwrites the bottom on Pause/Play</small>
+        </div>
+        <div class="cm-wrap" id="editorTopHost"></div>
+      </div>
+
+      <!-- BOTTOM: Editable scratch area -->
+      <div class="pane bottom cm-editable">
+        <div class="head">
+          <span>Bottom (Editable)</span>
+          <small class="mono">While paused, type here (preview uses this)</small>
+        </div>
+        <div class="cm-wrap" id="editorBottomHost"></div>
+      </div>
+
+      <!-- Preview -->
+      <div class="pane preview-pane">
+        <div class="head"><span>Preview</span><small class="mono">(Top while playing, Bottom while paused)</small></div>
+        <iframe id="preview" sandbox="allow-scripts"></iframe>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* ---------- CodeMirror init ---------- */
+const editorTop = new CodeMirror(document.getElementById('editorTopHost'), {
+  value: "",
+  mode: "htmlmixed",
+  lineNumbers: true,
+  tabSize: 2,
+  indentUnit: 2,
+  readOnly: true
+});
+
+const editorBottom = new CodeMirror(document.getElementById('editorBottomHost'), {
+  value: "",
+  mode: "htmlmixed",
+  lineNumbers: true,
+  tabSize: 2,
+  indentUnit: 2,
+  readOnly: false
+});
+
+/* ---------- UI elements ---------- */
+const statusEl   = document.getElementById('status');
+const iframe     = document.getElementById('preview');
+const btnFetch   = document.getElementById('btnFetch');
+const btnLoad    = document.getElementById('btnLoad');
+const fileInput  = document.getElementById('fileInput');
+const btnPlay    = document.getElementById('btnPlay');
+const btnPause   = document.getElementById('btnPause');
+const btnReset   = document.getElementById('btnReset');
+const livePreview= document.getElementById('livePreview');
+const speedRange = document.getElementById('speed');
+const speedVal   = document.getElementById('speedVal');
+
+/* ---------- State ---------- */
+let events = [];         // [{time, change:{from,to,text,removed,origin}}]
+let timer  = null;
+let playing= false;
+let idx    = 0;
+let speed  = 1;
+
+/* ---------- Helpers ---------- */
+function joinLines(arr){ return (arr || []).join('\n'); }
+function updateStatus(msg){ statusEl.textContent = msg; }
+function setBottomEqualTop(){
+  editorBottom.setValue(editorTop.getValue());
+}
+function updatePreview(){
+  if (!livePreview.checked) return;
+  // Use top while playing, bottom while paused
+  const src = playing ? editorTop.getValue() : editorBottom.getValue();
+  iframe.srcdoc = src;
+}
+function enableControls(loaded){
+  btnPlay.disabled  = !loaded;
+  btnReset.disabled = !loaded;
+  btnPause.disabled = !loaded || !playing;
+}
+
+/* Apply a single raw CodeMirror change event to TOP editor */
+function applyEvent(ev){
+  const ch   = ev.change;
+  const from = { line: ch.from.line, ch: ch.from.ch };
+  const to   = { line: ch.to.line,   ch: ch.to.ch   };
+  const text = joinLines(ch.text);
+  editorTop.replaceRange(text, from, to, ch.origin || 'replay');
+}
+
+/* Playback scheduler */
+function scheduleNext(){
+  if (idx >= events.length){
+    playing = false;
+    enableControls(true);
+    updateStatus('Done. Reached end of recording.');
+    updatePreview();
+    return;
+  }
+  const prevTime = (idx === 0) ? 0 : events[idx-1].time;
+  const nextTime = events[idx].time;
+  const delta    = Math.max(0, nextTime - prevTime);
+  timer = setTimeout(() => {
+    applyEvent(events[idx]);
+    idx++;
+    // Keep bottom synced to top during playback start/resume moment only?
+    // Requirement: bottom must be overwritten on Play/Resume (done in play()).
+    // During playback we let bottom differ, but preview uses TOP.
+    updatePreview();
+    scheduleNext();
+  }, delta / speed);
+}
+
+/* Controls */
+function play(){
+  if (!events.length) return;
+  if (playing) return;
+  // Overwrite bottom at the moment of Play/Resume
+  setBottomEqualTop();
+  updatePreview();
+  playing = true;
+  enableControls(true);
+  updateStatus(`Playing from event ${idx+1}/${events.length}…`);
+  scheduleNext();
+}
+function pause(){
+  if (!playing) {
+    // Also overwrite bottom when pressing Pause even if already paused (per your rule)
+    setBottomEqualTop();
+    updatePreview();
+    updateStatus('Paused. Bottom synced to top; you can type now.');
+    return;
+  }
+  playing = false;
+  if (timer){ clearTimeout(timer); timer = null; }
+  // Overwrite bottom at the moment of Pause
+  setBottomEqualTop();
+  updatePreview();
+  enableControls(true);
+  updateStatus('Paused. Bottom synced to top; you can type now.');
+}
+function reset(){
+  if (timer){ clearTimeout(timer); timer = null; }
+  playing = false;
+  idx = 0;
+  editorTop.setValue('');
+  setBottomEqualTop();
+  updatePreview();
+  enableControls(!!events.length);
+  updateStatus('Reset to start of recording.');
+}
+
+/* Loaders */
+async function fetchRecordingJson(){
+  pause();
+  try{
+    const res = await fetch('recording.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    loadEvents(data);
+    updateStatus(`Loaded recording.json with ${events.length} events.`);
+  }catch(err){
+    updateStatus(`Could not fetch recording.json (${err.message}). Use “Load JSON…” instead.`);
+  }
+}
+function loadFromFile(file){
+  pause();
+  const reader = new FileReader();
+  reader.onload = () => {
+    try{
+      const data = JSON.parse(reader.result);
+      loadEvents(data);
+      updateStatus(`Loaded ${file.name} with ${events.length} events.`);
+    }catch(e){
+      updateStatus('Invalid JSON file.');
+    }
+  };
+  reader.readAsText(file);
+}
+function loadEvents(data){
+  // Accept either raw array or {events, initial}
+  if (Array.isArray(data)){
+    events = data;
+    editorTop.setValue('');
+  }else if (data && Array.isArray(data.events)){
+    events = data.events;
+    editorTop.setValue(data.initial || '');
+  }else{
+    events = [];
+  }
+  idx = 0;
+  setBottomEqualTop();
+  updatePreview();
+  enableControls(!!events.length);
+}
+
+/* Live typing in bottom while paused should update preview */
+editorBottom.on('change', () => {
+  if (!playing) updatePreview();
+});
+
+/* Wire UI */
+btnFetch.addEventListener('click', fetchRecordingJson);
+btnLoad.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', (e) => {
+  if (e.target.files && e.target.files[0]) loadFromFile(e.target.files[0]);
+});
+btnPlay.addEventListener('click', play);
+btnPause.addEventListener('click', pause);
+btnReset.addEventListener('click', reset);
+
+speedRange.addEventListener('input', () => {
+  speed = parseFloat(speedRange.value) || 1;
+  speedVal.textContent = speed;
+  if (playing){
+    if (timer){ clearTimeout(timer); timer = null; }
+    scheduleNext();
+  }
+});
+
+/* Initial status */
+updateStatus('No recording loaded. Click “Fetch recording.json” or “Load JSON…”.');
+updatePreview();
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CodeMirror Recorder</title>
+
+<link rel="stylesheet" href="https://unpkg.com/codemirror@5/lib/codemirror.css">
+<script src="https://unpkg.com/codemirror@5/lib/codemirror.js"></script>
+<script src="https://unpkg.com/codemirror@5/mode/xml/xml.js"></script>
+<script src="https://unpkg.com/codemirror@5/mode/javascript/javascript.js"></script>
+<script src="https://unpkg.com/codemirror@5/mode/css/css.js"></script>
+<script src="https://unpkg.com/codemirror@5/mode/htmlmixed/htmlmixed.js"></script>
+
+<style>
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; padding: 12px; background:#0b1222; color:#e5e7eb; }
+  .toolbar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+  button { padding:8px 10px; border-radius:8px; border:1px solid #334155; background:#1f2937; color:#fff; cursor:pointer; }
+  button:disabled { opacity:.6; cursor:not-allowed; }
+  #status { margin-left:auto; font-size:.9rem; opacity:.8; }
+  .CodeMirror { height: 70vh; border:1px solid #334155; border-radius:10px; background:#0f172a; color:#e5e7eb; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="startBtn">Start</button>
+  <button id="pauseBtn" disabled>Pause</button>
+  <button id="resumeBtn" disabled>Resume</button>
+  <button id="playBtn" disabled>Play</button>
+  <button id="exportBtn" disabled>Export JSON</button>
+  <label>
+    <input type="file" id="loadJson" accept="application/json" style="display:none;">
+    <button id="loadBtn">Load JSON</button>
+  </label>
+  <div id="status">Idle</div>
+</div>
+
+<textarea id="code"><!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <p>Edit me while recording.</p>
+  </body>
+</html></textarea>
+
+<script>
+  // --- Editor ---
+  const editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+    mode: 'htmlmixed',
+    lineNumbers: true,
+    tabSize: 2,
+    indentUnit: 2,
+  });
+
+  // --- Recorder state ---
+  let recording = false;
+  let paused = false;
+  let startTime = 0;
+  const timeline = { startedAt: null, events: [] };
+
+  // Capture changes
+  editor.on('change', (cm, change) => {
+    if (!recording || paused) return;
+    const now = performance.now();
+    timeline.events.push({
+      time: Math.round(now - startTime),
+      type: 'change',
+      change: {
+        from: change.from,       // {line, ch}
+        to: change.to,           // {line, ch}
+        text: change.text,       // array of lines inserted
+        removed: change.removed, // array of lines removed
+        origin: change.origin    // "+input", "paste", "+delete", etc.
+      }
+    });
+  });
+
+  // --- Controls ---
+  const $ = id => document.getElementById(id);
+  const setStatus = (msg) => { $('status').textContent = msg; };
+
+  $('startBtn').onclick = () => {
+    timeline.startedAt = new Date().toISOString();
+    timeline.events = [];
+    startTime = performance.now();
+    recording = true; paused = false;
+    $('startBtn').disabled = true;
+    $('pauseBtn').disabled = false;
+    $('resumeBtn').disabled = true;
+    $('exportBtn').disabled = false;
+    $('playBtn').disabled = false;
+    setStatus('Recording…');
+  };
+
+  $('pauseBtn').onclick = () => {
+    paused = true;
+    $('pauseBtn').disabled = true;
+    $('resumeBtn').disabled = false;
+    setStatus('Paused');
+  };
+
+  $('resumeBtn').onclick = () => {
+    paused = false;
+    $('pauseBtn').disabled = false;
+    $('resumeBtn').disabled = true;
+    setStatus('Recording…');
+  };
+
+  $('exportBtn').onclick = () => {
+    const blob = new Blob([JSON.stringify(timeline, null, 2)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.download = 'lesson.json';
+    a.href = url;
+    a.click();
+    URL.revokeObjectURL(url);
+    setStatus('Exported lesson.json');
+  };
+
+  $('loadBtn').onclick = () => $('loadJson').click();
+  $('loadJson').onchange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const text = await file.text();
+    loaded = JSON.parse(text);
+    setStatus('Loaded JSON with ' + loaded.events.length + ' events.');
+    $('playBtn').disabled = false;
+  };
+
+  // --- Playback (simple demo) ---
+  let loaded = null;
+  $('playBtn').onclick = async () => {
+    const data = loaded || timeline;
+    if (!data || !data.events.length) return;
+
+    // reset doc
+    editor.setValue('');
+    setStatus('Playing…');
+
+    // Apply CM5 changes as recorded
+    const applyChange = (c) => {
+      editor.replaceRange(c.text.join('\n'), c.from, c.to, 'replay');
+    };
+
+    let t0 = performance.now();
+    for (const ev of data.events) {
+      const wait = Math.max(0, ev.time - (performance.now() - t0));
+      await new Promise(r => setTimeout(r, wait));
+      if (ev.type === 'change') applyChange(ev.change);
+    }
+    setStatus('Playback finished.');
+  };
+</script>
+</body>
+</html>
