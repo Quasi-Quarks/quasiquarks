@@ -81,7 +81,7 @@ div#nav-list a {
   width: 100%;
   background-image:
     linear-gradient(rgba(0,0,0,.41), rgba(0,0,0,.49)),
-    url(../index2/images/background1.jpg);
+    url(images/background1.jpg);
 }
 
 h1#header {
@@ -322,6 +322,7 @@ button.explore_buttons {
   overflow: hidden;
   position: relative;
   /* box-shadow: 0 8px 24px rgba(0,0,0,.35); */
+  box-shadow: 2px 2px 16px 2px white;
 }
 .kc-footer__logo::before {
   /* content:""; */
@@ -423,7 +424,7 @@ span.kc-dot {
 /* --- Animated tagline for: <span class="kc-footer__tag">... */
 .kc-footer__tag {
   /* defeat your global *:not(...) flex/centering and allow effects */
-  display: inline-block;
+  display: none;
   text-align: left;
   position: relative;
 
@@ -443,8 +444,7 @@ span.kc-dot {
   /* color: transparent; */
   /* animation: kcTagShimmer 8s ease-in-out infinite; */
   text-decoration: none;
-
-   position: absolute;
+  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
