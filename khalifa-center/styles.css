@@ -154,7 +154,7 @@ button#button3 {
 /* ===== Domains / Pillars ===== */
 .domains_container {
   width: 100%;
-  height: 232vh;
+  height: 161vh;
   padding: 5vh 0;
   background-image: linear-gradient(45deg, #002d51, #000a43);
 }
@@ -196,7 +196,7 @@ section#process {
   /* original had both background-image and background:none; keeping intent of 'no bg' */
   background: none;
   width: 100%;
-  height: 200vh;
+  height: 150vh;
 }
 
 .container {
