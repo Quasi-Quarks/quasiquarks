@@ -1,354 +1,288 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Mobile First – 20% Menu / 80% Body + Mini Editor</title>
-  <link rel="stylesheet" href="index5.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="homemobile.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body class="state-compact">
-  <!-- 3-state toggle: Hidden → 20% → 100% -->
-  <button id="menudisplay" aria-label="Toggle menu">☰</button>
 
-  <!-- Left menu -->
-  <nav class="menuBarstdy" aria-label="Study Menu">
-    <div class="menuHeader">
-      <div class="menuTitle">Study Menu</div>
-    </div>
+<style>
 
-    <div class="menustudycategorycontainer open">
-      <button class="menustudycategory" aria-expanded="true">
-        <span class="menustudytxtheader">Set up</span>
-        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
-      </button>
-      <div class="menustudy" role="region" aria-label="Set up">
-        <a class="menustudytxt" href="#">Set up</a>
-        <a class="menustudytxt" href="#">Set up on desktop</a>
-        <a class="menustudytxt" href="#">Set up on android</a>
-        <a class="menustudytxt" href="#">Set up on iphone</a>
-      </div>
-    </div>
+    
+</style>
+    </head>
+ 
+    <body>
 
-    <div class="menustudycategorycontainer">
-      <button class="menustudycategory" aria-expanded="false">
-        <span class="menustudytxtheader">What is HTML?</span>
-        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
-      </button>
-      <div class="menustudy" role="region" aria-label="What is HTML?">
-        <a class="menustudytxt" href="#">Overview</a>
-        <a class="menustudytxt" href="#">Elements & Tags</a>
-        <a class="menustudytxt" href="#">Attributes</a>
-        <a class="menustudytxt" href="#">Semantic HTML</a>
-      </div>
-    </div>
-
-    <div class="menustudycategorycontainer">
-      <button class="menustudycategory" aria-expanded="false">
-        <span class="menustudytxtheader">How to learn</span>
-        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
-      </button>
-      <div class="menustudy" role="region" aria-label="How to learn">
-        <a class="menustudytxt" href="#">Roadmap</a>
-        <a class="menustudytxt" href="#">Practice</a>
-        <a class="menustudytxt" href="#">Projects</a>
-        <a class="menustudytxt" href="#">Resources</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main content (80%) -->
-  <main class="mainbody" role="main">
-    <div class="body_container_cover">
-      <div class="body_container">
-
-        <div class="body_container_cover_section_cover">
-          <div class="section_container">
-            <h1>We'll get right into it</h1>
-            <p>This course gives you enough to start working, freelancing, or building a business. We’ll guide you along the way.</p>
-          </div>
+        <div class="menuBar">
+           <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Tutrial</a>
+            <a href="#">News</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+           </div>
         </div>
 
-        <!-- ===== Minimal two-textarea editor block ===== -->
-        <div class="body_container_cover_section_cover menu_editor">
-          <h2>Mini Editor</h2>
 
-          <div class="editor_controls">
-            <button id="btnLoad">📂 Load JSON…</button>
-            <input id="fileJson" type="file" accept=".json,application/json" style="display:none">
-            <button id="btnPlay">▶ Play</button>
-            <button id="btnPause">❚❚ Pause</button>
-            <button id="btnReset">↺ Reset</button>
-            <span id="status" style="margin-left:auto;font-size:.9rem;opacity:.8">No JSON loaded.</span>
-          </div>
+    <div class="gap">
 
-          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play · pause · edit · output</div>
+</div>
 
-          <label>Read-only (timeline)</label>
-          <textarea id="txtReadonly" readonly></textarea>
-
-          <label>Editable (your scratch)</label>
-          <textarea id="txtEdit" class="editable"></textarea>
-
-          <div class="editor_output">
-            <iframe id="outputFrame" sandbox="allow-scripts"></iframe>
-          </div>
-        </div>
-
-        <div class="body_container_cover_section_cover">
-          <div class="section_container">
-            <h1>How to Study</h1>
-            <p>Study by phone and laptop/PC. Aim for 4–5 hours a day across setup, learning, practice, fixing bugs, and building small sites.</p>
-          </div>
-        </div>
-
-      </div>
+    <div class="section" id="heroSecton" style="">
+       
+        <h1 class="hero_section_h1">Build Modern Web <br> Experiences</h1>
+        <h3 class="hero_section_h2">Web Design, Web development, App development, Back End, Data Science, Machine learning, AI, Deep Learning, </h3>
+        
     </div>
-  </main>
+<div class="video-background" id="sectioncontainer">
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="images/nn1.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+ <div class="section mission" id="section1">
+  <h1 class="mission_section_h1">I started learning code frustrated with outdated guides</h1>
+  <h3 class="mission_section_h1">So I built the platform I wish had existed 8 years ago.</h3>
+</div>
 
-  <script>
-    /* ===== 3-state menu toggle (Hidden → 20% → 100%) ===== */
-    (() => {
-      const body = document.body;
-      const btn = document.getElementById('menudisplay');
-      const states = ['hidden','compact','full'];
+<div class="section mission" id="section2">
+  <h1 class="mission_section_h1">We wanted to make learning to code easy</h1>
+  <h3 class="mission_section_h1">
+    Whether you’re changing careers, building a business, freelancing, working remotely, 
+    or studying and researching — our goal is to support your journey.
+  </h3>
+  <button class="section_button">Start Learning</button>
+</div>
 
-      const current = Array.from(body.classList).find(c => c.startsWith('state-')) || 'state-compact';
-      let idx = Math.max(0, states.indexOf(current.replace('state-','')));
-      if (idx === -1) idx = 1;
+<div class="section mission" id="section3">
+  <h1 class="mission_section_h1">We have different roadmaps coming soon</h1>
+  <h3 class="mission_section_h1">Stay tuned — exciting new paths are on the way!</h3>
+</div>
 
-      const apply = () => {
-        states.forEach(s => body.classList.remove('state-' + s));
-        body.classList.add('state-' + states[idx]);
-        btn.setAttribute('aria-label', `Menu: ${states[idx]}. Tap to change`);
-        btn.title = `Menu: ${states[idx]}`;
-      };
-      apply();
+<div class="section mission" id="section4">
+  <h1 class="mission_section_h1">We design our courses to cut out the clutter</h1>
+  <h3 class="mission_section_h1">
+    Our lessons get straight to the point, so you can start building within days.
+  </h3>
+  <button class="section_button">See now</button>
+</div>
 
-      btn.addEventListener('click', () => {
-        idx = (idx + 1) % states.length;
-        apply();
-      });
+<div class="section mission" id="section5">
+  <h1 class="mission_section_h1">We care about your growth and update daily</h1>
+  <h3 class="mission_section_h1">Need help or guidance? Reach out anytime.</h3>
+  <button class="section_button">Contact Us</button>
+</div>
+</div>
+        
 
-      // Keyboard shortcuts: m to cycle, Esc to hide
-      window.addEventListener('keydown', (e) => {
-        if (!e.metaKey && !e.ctrlKey && !e.altKey) {
-          const k = e.key.toLowerCase();
-          if (k === 'm') { idx = (idx + 1) % states.length; apply(); }
-          if (k === 'escape') { idx = 0; apply(); }
-        }
-      });
-    })();
+<div class="Learningsection">
 
-    /* ===== Collapsible categories ===== */
-    (() => {
-      const groups = document.querySelectorAll('.menustudycategorycontainer');
-      groups.forEach(group => {
-        const headerBtn = group.querySelector('.menustudycategory');
-        const panel = group.querySelector('.menustudy');
 
-        const toggle = () => {
-          const isOpen = group.classList.toggle('open');
-          headerBtn.setAttribute('aria-expanded', String(isOpen));
-          if (isOpen) {
-            const firstLink = panel.querySelector('a');
-            if (firstLink) firstLink.focus({ preventScroll: true });
-          }
-        };
 
-        headerBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          toggle();
-        });
-        headerBtn.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggle();
-          }
-        });
-      });
-    })();
+  <div class="learningrow1_container learning3row">
+  <div class="learning_title">
+   <h1 class="leaningh1">
+    Programming
+   </h1>
+   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
 
-    /* ===== Minimal two-textarea editor + JSON playback ===== */
-    (() => {
-      const txtReadonly = document.getElementById("txtReadonly");
-      const txtEdit     = document.getElementById("txtEdit");
-      const frame       = document.getElementById("outputFrame");
+  </div>
+  
+  <div class="learningrow1">
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/html.png" >
+        <h1 class="icon_title">HTML</h1>
+        <p class="string_text">Web Development</p>
+      </div>
 
-      const btnLoad     = document.getElementById("btnLoad");
-      const fileJson    = document.getElementById("fileJson");
-      const btnPlay     = document.getElementById("btnPlay");
-      const btnPause    = document.getElementById("btnPause");
-      const btnReset    = document.getElementById("btnReset");
-      const statusEl    = document.getElementById("status");
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/css3.png" >
+        <h1 class="icon_title">CSS</h1>
+        <p class="string_text">Wed design language</p>
+      </div>
 
-      let playing   = false;
-      let timer     = null;
-      let events    = [];     // Array of { time, change: { from:{line,ch}, to:{line,ch}, text:[...], removed:[...] } }
-      let idx       = 0;      // next event index
-      let initial   = "";     // starting text from JSON (if any)
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/js.png" >
+        <h1 class="icon_title">JS</h1>
+        <p class="string_text">Web dynamics</p>
+      </div>
+  </div>
 
-      const setStatus = (msg) => statusEl.textContent = msg;
+    <div class="learningrow1">
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/react.png" >
+        <h1 class="icon_title">React.JS</h1>
+        <p class="string_text">Web FrameWork</p>
+      </div>
 
-      function render(src) {
-        frame.srcdoc = src || "";
-      }
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/reactnative.png" >
+        <h1 class="icon_title">React Native</h1>
+        <p class="string_text">Mobile App Development</p>
+      </div>
 
-      // Convert {line, ch} to flat string offset against current text
-      function posToOffset(text, pos) {
-        const lines = text.split("\n");
-        let offset = 0;
-        const L = Math.max(0, Math.min(pos.line, lines.length - 1));
-        for (let i = 0; i < L; i++) offset += lines[i].length + 1; // +1 for '\n'
-        const ch = Math.max(0, Math.min(pos.ch, (lines[L] || "").length));
-        return offset + ch;
-      }
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/php.png" >
+        <h1 class="icon_title">PHP</h1>
+        <p class="string_text">Semantic Structure</p>
+      </div>
+  </div>
 
-      // Apply a CodeMirror-style change object to a plain string
-      function applyChangeToText(text, chg) {
-        const from = posToOffset(text, chg.from || {line:0, ch:0});
-        const to   = posToOffset(text, chg.to   || {line:0, ch:0});
-        const insert = (chg.text || []).join("\n");
-        const a = text.slice(0, from);
-        const b = text.slice(to);
-        return a + insert + b;
-      }
 
-      // Playback loop
-      let currentTop = ""; // mirrors txtReadonly.value as we play
+  <div class="learningrow1">
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/nodejs.png" >
+        <h1 class="icon_title">nodejs</h1>
+        <p class="string_text">JS Backend</p>
+      </div>
 
-      function scheduleNext() {
-        if (idx >= events.length) {
-          playing = false;
-          setStatus("Done. Reached end of recording.");
-          render(currentTop);
-          return;
-        }
-        const prevTime = (idx === 0) ? 0 : (events[idx-1].time || 0);
-        const nextTime = (events[idx].time || 0);
-        const delta = Math.max(0, nextTime - prevTime);
+    
+  </div>
 
-        timer = setTimeout(() => {
-          const ev = events[idx];
-          currentTop = applyChangeToText(currentTop, ev.change || {});
-          txtReadonly.value = currentTop;
-          // while playing, preview follows the top
-          render(currentTop);
 
-          idx++;
-          scheduleNext();
-        }, delta);
-      }
+  </div>
 
-      function startFromBeginning() {
-        // set top to initial text (may be empty) and bottom synced
-        currentTop = initial || "";
-        txtReadonly.value = currentTop;
-        txtEdit.value = currentTop;
-        render(currentTop);
-        idx = 0;
-      }
 
-      function play() {
-        if (!events.length) {
-          setStatus("Load a JSON recording first.");
-          alert("Load a JSON recording first.");
-          return;
-        }
-        if (playing) return;
-        playing = true;
+  
 
-        // If starting fresh (idx==0 or editors empty), reset from beginning
-        if (idx === 0 || txtReadonly.value === "") {
-          startFromBeginning();
-        }
+<!-- row 2 -->
 
-        // On Play: bottom is overwritten by top (no branching)
-        txtEdit.value = txtReadonly.value;
-        render(txtReadonly.value);
-        setStatus(`Playing… (${idx}/${events.length})`);
-        scheduleNext();
-      }
+  <div class="learningrow1_container learning1row">
+  <div class="learning_title">
+   <h1 class="leaningh1">
+    Storage
+   </h1>
+   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
 
-      function pause() {
-        if (!playing) {
-          // still sync bottom to top on extra pause clicks
-          txtEdit.value = txtReadonly.value;
-          render(txtEdit.value);
-          setStatus("Paused.");
-          return;
-        }
-        playing = false;
-        if (timer) { clearTimeout(timer); timer = null; }
-        // sync bottom on pause
-        txtEdit.value = txtReadonly.value;
-        render(txtEdit.value);
-        setStatus("Paused.");
-      }
+  </div>
+  
+  <div class="learningrow1">
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/json.png" >
+        <h1 class="icon_title">JSON</h1>
+        <p class="string_text">Data Structure</p>
+      </div>
 
-      function reset() {
-        if (timer) { clearTimeout(timer); timer = null; }
-        playing = false;
-        idx = 0;
-        // empty both editors (per your request)
-        txtReadonly.value = "";
-        txtEdit.value = "";
-        render("");
-        setStatus(events.length ? "Reset. JSON loaded; press Play to start from the beginning." : "Reset. No JSON loaded.");
-      }
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/sql.png" >
+        <h1 class="icon_title">SQL + MYSQL</h1>
+        <p class="string_text">Using a database</p>
+      </div>
 
-      // Load JSON file (local)
-      btnLoad.addEventListener("click", () => fileJson.click());
-      fileJson.addEventListener("change", (e) => {
-        const file = e.target.files && e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = () => {
-          try {
-            const data = JSON.parse(reader.result);
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/server.png" >
+        <h1 class="icon_title">Web Host</h1>
+        <p class="string_text">Semantic Structure</p>
+      </div>
+  </div>
 
-            if (Array.isArray(data)) {
-              // raw CodeMirror change array
-              events = data;
-              initial = "";
-            } else if (data && Array.isArray(data.events)) {
-              events = data.events;
-              initial = data.initial || "";
-            } else {
-              throw new Error("Unsupported JSON format.");
-            }
+    
 
-            // after loading, reset editors to empty; playback will reconstruct on Play
-            idx = 0;
-            txtReadonly.value = "";
-            txtEdit.value = "";
-            render("");
-            setStatus(`Loaded "${file.name}" with ${events.length} events. Press Play.`);
-          } catch (err) {
-            console.error(err);
-            setStatus("Invalid JSON file.");
-            alert("Invalid JSON file.");
-          }
-        };
-        reader.readAsText(file);
-        // clear the input so re-selecting the same file will trigger change again
-        e.target.value = "";
-      });
 
-      // Buttons
-      btnPlay.addEventListener("click", play);
-      btnPause.addEventListener("click", pause);
-      btnReset.addEventListener("click", reset);
+  </div>
 
-      // Live preview while paused (editable textarea)
-      txtEdit.addEventListener("input", () => {
-        if (!playing) render(txtEdit.value);
-      });
 
-      // Initial state
-      render("");
-      setStatus("No JSON loaded.");
-    })();
-  </script>
+  
+
+
+<!-- Computer Architecture -->
+
+  <div class="learningrow1_container learning1row">
+  <div class="learning_title">
+   <h1 class="leaningh1">
+    Computer Architecture
+   </h1>
+   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
+
+  </div>
+  
+  <div class="learningrow1">
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/013-cpu.png" >
+        <h1 class="icon_title">Architecture</h1>
+        <p class="string_text">Semantic Structure</p>
+      </div>
+
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/015-internet-connection.png" >
+        <h1 class="icon_title">Networking</h1>
+        <p class="string_text">Semantic Structure</p>
+      </div>
+
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/020-cloud-1.png" >
+        <h1 class="icon_title">Cloud</h1>
+        <p class="string_text">Semantic Structure</p>
+      </div>
+  </div>
+
+  </div>
+
+
+  <!-- Computer Architecture -->
+
+  <div class="learningrow1_container learning2row">
+  <div class="learning_title">
+   <h1 class="leaningh1">
+    Data Science
+   </h1>
+   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
+
+  </div>
+  
+  <div class="learningrow1">
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/023-exploratory-analysis.png" >
+        <h1 class="icon_title">Data Analysis</h1>
+        <p class="string_text">Using computer to analyse data</p>
+      </div>
+
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/025-data-science.png" >
+        <h1 class="icon_title">Data Science</h1>
+        <p class="string_text">Making a computer predict</p>
+      </div>
+
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/029-microchip.png" >
+        <h1 class="icon_title">AI</h1>
+        <p class="string_text">Introduction to AI</p>
+      </div>
+  </div>
+
+  <div class="learningrow1">
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/024-brain.png" >
+        <h1 class="icon_title">Machine Learning</h1>
+        <p class="string_text">Using computer to analyse data</p>
+      </div>
+
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/028-deep-learning.png" >
+        <h1 class="icon_title">Deep Learning</h1>
+        <p class="string_text">Making a computer predict</p>
+      </div>
+
+      <div class="sectioncard">
+        <img class="learningicon" src="icons/030-chat-gpt.png" >
+        <h1 class="icon_title">Project and Research</h1>
+        <p class="string_text">Introduction to AI</p>
+      </div>
+  </div>
+
+  </div>
+
+  <!--  -->
+
+  
+
+
+</div>
+        
+    <script>
+
+    </script>
 </body>
+
 </html>
+
+
