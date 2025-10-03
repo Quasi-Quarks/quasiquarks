@@ -1,0 +1,94 @@
+@media only screen and (orientation: portrait) {
+  
+.menuBar {
+    font-size: 2px;
+}
+
+h1.hero_section_h1 {
+    font-size: 2.4rem;
+}
+
+h3.hero_section_h2 {
+    font-size: 1.4rem;
+    width: 80%;
+    margin-bottom: 0px;
+    margin-top: 42px;
+}
+
+.menu a {
+    font-size: 15.4px;
+}
+
+.menu {
+    width: 100%;
+}
+
+div#sectioncontainer {
+    height: 430vh;
+}
+
+h1.mission_section_h1 {
+    font-size: 2rem;
+}
+
+h3.mission_section_h1 {
+    font-size: 1.8rem;
+    width: 73%;
+}
+
+.section.mission {
+    height: 103vh;
+}
+
+div#section1 {}
+
+    
+.Learningsection {
+    height: 1116vh;
+}
+
+.learningrow1_container.learning3row {
+    height: 408vh;
+    flex-direction: column;
+}
+
+.learningrow1 {
+    flex-direction: column;
+    height: 107vh;
+    justify-content: space-around;
+    width: 91vw;
+}
+
+    
+.sectioncard {
+    width: 55vw;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+}
+
+.learning_title {height: 39vh;}
+
+.learningrow1_container.learning2row {height: 320vh;border: none;border-radius: 0px;}
+
+.learningrow1 {
+    height: 135vh;
+}
+
+.learningrow1_container.learning1row {
+    height: 160vh;
+    border-radius: 0px;
+    border: none;
+}
+}
+
+
+
+
+div#nodejs {
+    height: 212px;
+}
+
+h1.icon_title {
+    min-width: 255px;
+}

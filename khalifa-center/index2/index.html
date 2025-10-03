@@ -13,9 +13,11 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://khalifacenter.org/" />
   <meta property="og:site_name" content="Khalifa Center" />
-
-  <!-- Theme and color system -->
-  
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet"> <!-- Font Awesome (for social icons) --> 
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+<!-- Font Awesome (update to >= 6.4.2) -->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Organization Structured Data -->
   <script type="application/ld+json">
@@ -35,22 +37,13 @@
   }
   </script>
 
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- ================= Header ================= -->
   <header class="topbar">
     <div class="container wrap">
-      <a class="brand" href="#home" aria-label="Khalifa Center home">
-        <span class="logo" aria-hidden="true"></span>
-        <div>
-          
-          <small>Engineering Knowledge → Market</small>
-        </div>
-      </a>
-
       <nav aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" id="navToggle">☰</button>
         <div class="nav-list" id="nav-list">
           <a href="#pillars">Expertise</a>
           <a href="#process">Process</a>
@@ -62,151 +55,105 @@
     </div>
   </header>
 
-
-  <div class="herosection" style="background-image: url(../index2/images/background1.jpg);">
-       
-        <div class="herosectioncontainer" >
-        <h1>Khalifa Center</h1>
-  </div>
-  </div>
-
-  <!-- ================= Hero ================= -->
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <section>
-        <span class="pill tag" aria-label="Focus areas"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" opacity=".5"/></svg> Chemical • Physics • Electrical • Pharma • Renewable</span>
-        <h2>Transforming science into <span style="color:var(--accent-2)">deployable solutions</span> for Nigeria’s growth.</h2>
-        <p class="lead">We help researchers, engineers, and firms turn ideas into pilots, pilots into products, and products into impact — across plants, power, and pharmaceuticals.</p>
-        <div class="actions">
-          <a href="#contact" class="btn" aria-label="Book a consultation">Book a consultation</a>
-          <a href="#programs" class="btn alt" aria-label="Explore programs">Explore programs</a>
-        </div>
-
-        <div class="kpi" aria-label="Key figures">
-          <div class="card"><b>5</b><span>Domains of expertise</span></div>
-          <div class="card"><b>Lab → Market</b><span>Tech transfer & pilots</span></div>
-          <div class="card"><b>NG Focus</b><span>Nigeria-centric solutions</span></div>
-        </div>
-      </section>
-
-      <aside aria-label="Hero visual">
-        <div class="cta" role="img" aria-label="Abstract technical map of Nigeria with energy and industry nodes">
-          <h4 style="margin:.2rem 0">Nigeria Innovation Mesh</h4>
-          <p class="tag">Mapping opportunities across energy, pharma, and manufacturing.</p>
-          <svg viewBox="0 0 360 200" width="100%" height="auto" aria-hidden="true">
-            <defs>
-              <radialGradient id="g1" cx="50%" cy="50%" r="70%">
-                <stop offset="0%" stop-color="#19c37d" stop-opacity=".8"/>
-                <stop offset="100%" stop-color="#19c37d" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <rect width="360" height="200" rx="18" fill="#0a141d"/>
-            <g opacity=".8">
-              <!-- mesh -->
-              <g stroke="#17323f" stroke-width="1">
-                <!-- verticals -->
-                <path d="M30 20 v160 M60 20 v160 M90 20 v160 M120 20 v160 M150 20 v160 M180 20 v160 M210 20 v160 M240 20 v160 M270 20 v160 M300 20 v160 M330 20 v160" />
-                <!-- horizontals -->
-                <path d="M20 30 h320 M20 60 h320 M20 90 h320 M20 120 h320 M20 150 h320 M20 180 h320" />
-              </g>
-              <!-- hotspots -->
-              <circle cx="85" cy="60" r="8" fill="url(#g1)" />
-              <circle cx="210" cy="95" r="10" fill="url(#g1)" />
-              <circle cx="300" cy="140" r="7" fill="url(#g1)" />
-              <!-- links -->
-              <g stroke="#2dd4bf" stroke-opacity=".6">
-                <path d="M85 60 Q140 75 210 95" />
-                <path d="M210 95 T300 140" />
-                <path d="M85 60 Q120 120 300 140" />
-              </g>
-            </g>
-          </svg>
-        </div>
-      </aside>
+  <div class="herosection">
+    <div class="herosectioncontainer">
+      <h1 id="header">Khalifa Center</h1>
+      <h2>
+        Transforming science into <br />
+        deployable solutions <br />
+        for Nigeria’s growth.
+      </h2>
     </div>
-  </main>
+  </div>
 
-  <!-- ================= Pillars of Expertise ================= -->
-  <section id="pillars" class="section pillars">
-    <div class="container">
-      <h3>Five pillars of expertise</h3>
-      <div class="grid cols-2 cols-3">
-        <!-- Chemical Engineering -->
-        <article class="card">
-          <div class="head">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M7 3h10M9 3v5l-3 5v6h12v-6l-3-5V3"/></svg>
-            </span>
-            <h4 style="margin:0">Chemical Engineering</h4>
-          </div>
-          <p>Process design, scale-up, reaction engineering, separation, HAZOP, and waste valorization for local industries.</p>
-        </article>
-        <!-- Physics -->
-        <article class="card">
-          <div class="head">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><circle cx="12" cy="12" r="7"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg>
-            </span>
-            <h4 style="margin:0">Physics</h4>
-          </div>
-          <p>Instrumentation, materials, optics, and modeling that underpins energy systems, sensing, and advanced manufacturing.</p>
-        </article>
-        <!-- Electrical Engineering -->
-        <article class="card">
-          <div class="head">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M13 2l-7 12h6l-1 8 7-12h-6z"/></svg>
-            </span>
-            <h4 style="margin:0">Electrical Engineering</h4>
-          </div>
-          <p>Power systems, protection & control, microgrids, EV charging, industrial automation, and grid integration studies.</p>
-        </article>
-        <!-- Pharmaceuticals -->
-        <article class="card">
-          <div class="head">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M4 12a6 6 0 0 1 12 0v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6z"/><path d="M10 10h4"/></svg>
-            </span>
-            <h4 style="margin:0">Pharmaceuticals</h4>
-          </div>
-          <p>GMP-ready processes, QA/QC, formulation, scale-up, documentation, and regulatory pathways for African markets.</p>
-        </article>
-        <!-- Renewable Energy -->
-        <article class="card">
-          <div class="head">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/><circle cx="12" cy="12" r="5"/></svg>
-            </span>
-            <h4 style="margin:0">Renewable Energy</h4>
-          </div>
-          <p>Solar & storage modeling, wind siting, biomass-to-energy, mini-grids, and bankable techno‑economic analyses.</p>
-        </article>
+  <div class="section" id="section0">
+    <h1>
+      We help researchers, engineers, and firms turn ideas into pilots, pilots into products, and products into impact — across plants, power, and pharmaceuticals.
+    </h1>
+    <div class="buttonsection">
+      <button class="button" id="button1">Book Consultation</button>
+      <button class="button" id="button2">Explore Programs</button>
+      <button class="button" id="button3">Explore Projects</button>
+    </div>
+  </div>
+
+  <div class="domains_container">
+    <div class="domains">
+
+      <div class="domain_card">
+        <div class="cardheader_logo"></div>
+        <div class="cardheader">
+          <h1 class="cardheader_text">Chemical Engineering</h1>
+        </div>
+        <div class="cardbody">
+          Process design, scale-up, reaction engineering, separation, HAZOP, and waste valorization for local industries.
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ================= From Lab to Market (Process) ================= -->
+      <div class="domain_card">
+        <div class="cardheader_logo"></div>
+        <div class="cardheader">
+          <h1 class="cardheader_text">Physics</h1>
+        </div>
+        <div class="cardbody">
+          Instrumentation, materials, optics, and modeling that underpins energy systems, sensing, and advanced manufacturing.
+        </div>
+      </div>
+
+      <div class="domain_card">
+        <div class="cardheader_logo"></div>
+        <div class="cardheader">
+          <h1 class="cardheader_text">Electrical Engineering</h1>
+        </div>
+        <div class="cardbody">
+          Power systems, protection & control, microgrids, EV charging, industrial automation, and grid integration studies.
+        </div>
+      </div>
+
+      <div class="domain_card">
+        <div class="cardheader_logo"></div>
+        <div class="cardheader">
+          <h1 class="cardheader_text">Pharmaceuticals</h1>
+        </div>
+        <div class="cardbody">
+          GMP-ready processes, QA/QC, formulation, scale-up, documentation, and regulatory pathways for African markets.
+        </div>
+      </div>
+
+      <div class="domain_card">
+        <div class="cardheader_logo"></div>
+        <div class="cardheader">
+          <h1 class="cardheader_text">Renewable Energy</h1>
+        </div>
+        <div class="cardbody">
+          Solar & storage modeling, wind siting, biomass-to-energy, mini-grids, and bankable techno-economic analyses.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <section id="process" class="section process">
     <div class="container">
-      <h3>From lab to market — an end‑to‑end process</h3>
+      <h3>From lab to market — an end-to-end process</h3>
       <div class="grid cols-2 steps">
         <div class="step">
-          <h4 style="margin-top:0">1) Discover</h4>
+          <h4 style="margin-top:0">1. Discover</h4>
           <p class="tag">Opportunity scans • Feasibility • Standards</p>
           <p>We validate problem–solution fit, regulatory constraints, and local supply chains to de-risk early decisions.</p>
         </div>
         <div class="step">
-          <h4 style="margin-top:0">2) Design</h4>
+          <h4 style="margin-top:0">2. Design</h4>
           <p class="tag">Process & system design • Modeling</p>
-          <p>Detailed models, PFD/P&IDs, electrical one-lines, and physics‑based simulations to predict performance.</p>
+          <p>Detailed models, PFD/P&IDs, electrical one-lines, and physics-based simulations to predict performance.</p>
         </div>
         <div class="step">
-          <h4 style="margin-top:0">3) De‑risk</h4>
+          <h4 style="margin-top:0">3. De-risk</h4>
           <p class="tag">Pilots • Instrumentation • QA/QC</p>
-          <p>Pilot plants and testbeds generate real‑world data; we iterate toward spec, cost, safety, and reliability.</p>
+          <p>Pilot plants and testbeds generate real-world data; we iterate toward spec, cost, safety, and reliability.</p>
         </div>
         <div class="step">
-          <h4 style="margin-top:0">4) Deploy</h4>
+          <h4 style="margin-top:0">4. Deploy</h4>
           <p class="tag">Tech transfer • Training • Compliance</p>
           <p>We document SOPs, train teams, and support certification to move from prototype to production.</p>
         </div>
@@ -214,111 +161,70 @@
     </div>
   </section>
 
-  <!-- ================= Programs ================= -->
-  <section id="programs" class="section programs">
-    <div class="container">
-      <h3>Flagship programs</h3>
-      <div class="grid cols-2 cols-3">
-        <article class="card">
-          <h4 style="margin-top:0">Tech‑Transfer Clinic</h4>
-          <p>Rapid assessments to convert academic results into protectable IP and commercial pilots.</p>
-          <p class="tag">IP landscaping • TRL mapping • Road‑to‑market</p>
-        </article>
-        <article class="card">
-          <h4 style="margin-top:0">Grid & Energy Systems Lab</h4>
-          <p>Studies for solar, storage, and EV load integration with protection, reliability, and economics.</p>
-          <p class="tag">Load flow • Protection • LCOE • Interconnection</p>
-        </article>
-        <article class="card">
-          <h4 style="margin-top:0">GMP & Pharma Scale‑Up</h4>
-          <p>Formulation transfers, validation protocols, cleanroom workflows, and audit preparation.</p>
-          <p class="tag">GMP • QA/QC • Validation • Dossier</p>
-        </article>
-        <article class="card">
-          <h4 style="margin-top:0">Clean Process & Valorization</h4>
-          <p>Waste‑to‑value pathways for agro‑industrial streams: biogas, ethanol, fertilizers, and materials.</p>
-          <p class="tag">Mass & energy balance • TEA</p>
-        </article>
-        <article class="card">
-          <h4 style="margin-top:0">STEM Workforce & Training</h4>
-          <p>Industry‑ready curricula, labs in a box, and certification workshops for Nigerian universities and SMEs.</p>
-          <p class="tag">Hands‑on labs • Safety • SOPs</p>
-        </article>
-        <article class="card">
-          <h4 style="margin-top:0">Innovation Partnerships</h4>
-          <p>Joint development with manufacturers, utilities, and hospitals to localize resilient supply chains.</p>
-          <p class="tag">Co‑development • Pilots • Scale</p>
-        </article>
+  <div class="explore_section_container">
+    <h1 class="explore_h1">Explore with us</h1>
+    <h1 class="explore_h1">By bringing you ideas to life in Nigeria</h1>
+    <div class="explore_buttons_contn">
+      <button class="explore_buttons">Start a Project</button>
+      <button class="explore_buttons">Projects</button>
+    </div>
+  </div>
+
+  <footer class="kc-footer" aria-label="Site footer">
+  <!-- animated background layers -->
+  <div class="kc-footer__bg"></div>
+  <div class="kc-footer__stripes" aria-hidden="true"></div>
+
+  <div class="kc-footer__wrap">
+    <div class="kc-footer__brand">
+      
+      <div class="kc-footer__logo" style="background-image: url(logo2.png);" aria-hidden="true"></div>
+      <div class="kc-footer__title">
+     
+        <span class="kc-footer__tag">Engineering Knowledge → Market</span>
       </div>
     </div>
-  </section>
 
-  <!-- ================= Impact / Contact ================= -->
-  <section id="impact" class="section">
-    <div class="container">
-      <div class="cta">
-        <h3 style="margin-top:0">Bring your idea to life in Nigeria</h3>
-        <p class="tag">We prioritize projects with measurable health, energy, and industrial impact.</p>
-        <div class="actions" style="margin-top:.6rem; display:flex; gap:.6rem; flex-wrap:wrap">
-          <a href="#contact" class="btn" aria-label="Start a project">Start a project</a>
-          <a href="#pillars" class="btn alt" aria-label="See expertise">See expertise</a>
-        </div>
+    <nav class="kc-footer__links" aria-label="Footer navigation">
+      <div class="kc-footer__col">
+        <h3 class="kc-footer__coltitle">Explore</h3>
+        <a href="#pillars">Expertise</a>
+        <a href="#process">Process</a>
+        <a href="#programs">Programs</a>
+        <a href="#impact">Impact</a>
       </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container">
-      <h3>Contact</h3>
-      <div class="grid cols-2">
-        <div class="card">
-          <p><b>Email:</b> <a href="mailto:hello@khalifacenter.org">hello@khalifacenter.org</a></p>
-          <p><b>Focus:</b> Nigeria‑centric R&D, pilots, training, and tech transfer across five domains.</p>
-          <p class="tag">We typically respond within 2–3 business days.</p>
-        </div>
-        <form class="card" onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you.');" aria-label="Quick contact form">
-          <label>Full name<br><input required name="name" placeholder="Your name" /></label>
-          <label>Email<br><input required type="email" name="email" placeholder="you@example.com" /></label>
-          <label>What do you want to build?<br><textarea name="msg" rows="4" placeholder="Briefly describe your idea or need"></textarea></label>
-          <button class="btn" type="submit">Send</button>
-        </form>
+      <div class="kc-footer__col">
+        <h3 class="kc-footer__coltitle">Domains</h3>
+        <a href="#pillars">Chemical Engineering</a>
+        <a href="#pillars">Physics</a>
+        <a href="#pillars">Electrical</a>
+        <a href="#pillars">Pharma</a>
+        <a href="#pillars">Renewables</a>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= Footer ================= -->
-  <footer>
-    <div class="container ft">
-      <div>
-        <a class="brand" href="#home" aria-label="Back to top">
-          <span class="logo" aria-hidden="true"></span>
-          <div>
-            <strong>Khalifa Center</strong>
-            <small style="display:block;color:var(--muted)">khalifacenter.org</small>
-          </div>
-        </a>
+      <div class="kc-footer__col">
+        <h3 class="kc-footer__coltitle">Contact</h3>
+        <a href="mailto:hello@khalifacenter.org">hello@khalifacenter.org</a>
+        <a href="#contact">Book a Consultation</a>
       </div>
-      <div class="copyright">© <span id="year"></span> Khalifa Center. All rights reserved.</div>
-    </div>
-  </footer>
+    </nav>
 
-  <!-- Small enhancements -->
-  <style>
-    form input, form textarea { width:100%; margin:.3rem 0 .8rem; padding:.8rem .9rem; border-radius:12px; background:#0a1118; border:1px solid var(--border); color:var(--text); }
-    form input:focus, form textarea:focus { outline: 2px solid var(--ring); border-color: transparent; }
-  </style>
-  <script>
-    // Accessible mobile nav toggle
-    const navToggle = document.getElementById('navToggle');
-    const navList = document.getElementById('nav-list');
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        const open = document.body.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-    // Year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <div class="kc-footer__social" aria-label="Social links">
+      <a aria-label="Twitter" href="#" class="kc-social"><i class="fa-brands fa-x-twitter"></i></a>
+      <a aria-label="LinkedIn" href="#" class="kc-social"><i class="fa-brands fa-linkedin"></i></a>
+      <a aria-label="YouTube" href="#" class="kc-social"><i class="fa-brands fa-youtube"></i></a>
+      <a aria-label="GitHub" href="#" class="kc-social"><i class="fa-brands fa-github"></i></a>
+    </div>
+
+    <div class="kc-footer__legal">
+      <span>2025 © <br>Khalifa Center Privacy Terms</span>
+
+      <a href="#" class="kc-legal-link">Privacy</a>
+
+      <a href="#" class="kc-legal-link">Terms</a>
+    </div>
+  </div>
+</footer>
+
+
 </body>
 </html>

@@ -13,7 +13,7 @@
     font-family: system-ui;
     font-weight: 100;
     border: none;
-    border: 1px solid #ff0101;
+    /* border: 1px solid #ff0101; */
     color: white;
    }
 
@@ -101,13 +101,13 @@ width: 100%;
 
 div#heroSecton {
     margin-top: 2px;
-    background-image: url(../images/background1.jpg);
+    background-image: url(images/background1.jpg);
     height: 100vh;
     width: 100%;
     background-attachment: fixed;
     background: url(../images/background1.jpg) no-repeat center center, linear-gradient(to bottom, rgb(211 40 40), rgb(195 40 40 / 94%));
     background-size: cover;
-    background-image: linear-gradient(25deg, rgb(26 65 185 / 45%), rgb(181 39 39 / 60%)), url(../images/background1.jpg);
+    background-image: linear-gradient(25deg, rgb(26 65 185 / 45%), rgb(181 39 39 / 60%)), url(images/background1.jpg);
     background-size: cover;
     background-position: center;
 }

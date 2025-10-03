@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Code Highlight + Live Preview (Mobile-first)</title>
+
+  <!-- Prism (syntax highlighting) -->
+  <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.min.css">
+  <script src="https://unpkg.com/prismjs/components/prism-core.min.js" defer></script>
+  <script src="https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #11161e;
+      --muted: #8aa0b2;
+      --text: #e8eef5;
+      --brand: #3aa0ff;
+      --radius: 16px;
+      --gap: 12px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 80% -10%, #1a2330 0%, #0b0f14 60%);
+    }
+
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--gap);
+      padding: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #121a24, #0e141b);
+      border: 1px solid #233042;
+      border-radius: var(--radius);
+      overflow: clip;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid #1f2936;
+      background: #0f1720;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      appearance: none;
+      border: 1px solid #2a3a4f;
+      background: #141c26;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .05s ease;
+    }
+    .tab[aria-selected="true"] {
+      color: #081018;
+      background: linear-gradient(180deg, #52b4ff, #2796ff);
+      border-color: #2796ff;
+      font-weight: 600;
+    }
+    .tab:active { transform: translateY(1px); }
+
+    .body {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .pane {
+      display: none;
+      padding: 0;
+    }
+    .pane.active { display: block; }
+
+    /* Code panes */
+    pre {
+      margin: 0;
+      padding: 16px;
+      background: #0c131b;
+      border-top: 1px solid #1f2b3a;
+      overflow: auto;
+      max-height: 55vh;
+    }
+
+    /* Preview */
+    .preview-wrap {
+      display: grid;
+      gap: 0;
+    }
+    .controls {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      background: #0e151e;
+      border-top: 1px solid #1f2936;
+    }
+    .controls button {
+      border: 1px solid #29415b;
+      background: #132132;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .controls button.primary {
+      background: linear-gradient(180deg, #52b4ff, #2796ff);
+      color: #05101a;
+      border-color: #2796ff;
+      font-weight: 600;
+    }
+    iframe {
+      width: 100%;
+      height: 60vh;
+      border: 0;
+      background: white;
+      border-top: 1px solid #1f2936;
+    }
+
+    /* Copy buttons */
+    .copybar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 10px 12px;
+      background: #0e151e;
+      border-top: 1px solid #1f2936;
+    }
+    .copybar button {
+      border: 1px solid #29415b;
+      background: #132132;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Responsive: side-by-side on larger screens */
+    @media (min-width: 900px) {
+      .wrap {
+        grid-template-columns: 1.1fr .9fr;
+      }
+      .card.preview {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+      }
+      .card.code {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+      iframe { height: 70vh; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tab, .controls button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Code card -->
+    <section class="card code" aria-label="Code">
+      <div class="header">
+        <strong>Highlighted Code</strong>
+        <div class="tabs" role="tablist" aria-label="Code tabs">
+          <button class="tab" role="tab" id="tab-html" aria-selected="true" aria-controls="pane-html">HTML</button>
+          <button class="tab" role="tab" id="tab-css"  aria-selected="false" aria-controls="pane-css">CSS</button>
+        </div>
+      </div>
+
+      <div class="body">
+        <!-- HTML code pane -->
+        <div id="pane-html" class="pane active" role="tabpanel" aria-labelledby="tab-html">
+          <div class="copybar">
+            <button data-copy="#code-html">Copy HTML</button>
+          </div>
+          <pre><code id="code-html" class="language-markup">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+  &lt;title&gt;Hello World Page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <!-- CSS code pane -->
+        <div id="pane-css" class="pane" role="tabpanel" aria-labelledby="tab-css">
+          <div class="copybar">
+            <button data-copy="#code-css">Copy CSS</button>
+          </div>
+          <pre><code id="code-css" class="language-css">/* styles.css */
+:root {
+  --bg: #f0f0f0;
+  --text: #333;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: var(--text);
+  font-size: clamp(2rem, 8vw, 3rem);
+  text-align: center;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview card -->
+    <section class="card preview" aria-label="Live Preview">
+      <div class="header">
+        <strong>Live Preview</strong>
+      </div>
+      <div class="preview-wrap">
+        <div class="controls">
+          <button class="primary" id="run">Update Preview</button>
+          <button id="reset">Reset to Example</button>
+        </div>
+        <iframe id="frame" title="Preview"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Simple tabs (HTML / CSS)
+    const tabs = document.querySelectorAll('.tab');
+    const panes = document.querySelectorAll('.pane');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+        panes.forEach(p => p.classList.remove('active'));
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById(tab.getAttribute('aria-controls')).classList.add('active');
+      });
+    });
+
+    // Copy buttons
+    document.querySelectorAll('[data-copy]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const src = document.querySelector(btn.dataset.copy)?.innerText ?? '';
+        try {
+          await navigator.clipboard.writeText(src);
+          btn.textContent = 'Copied!';
+          setTimeout(() => (btn.textContent = btn.textContent.includes('HTML') ? 'Copy HTML' : 'Copy CSS'), 1200);
+        } catch {
+          alert('Copy failed');
+        }
+      });
+    });
+
+    // Example code (kept in JS so we can build the srcdoc)
+    const EX_HTML = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hello World Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Hello, World!</h1>
+</body>
+</html>`;
+
+    const EX_CSS = `:root {
+  --bg: #f0f0f0;
+  --text: #333;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  font-family: Arial, sans-serif;
+}
+h1 {
+  color: var(--text);
+  font-size: clamp(2rem, 8vw, 3rem);
+  text-align: center;
+}`;
+
+    // Build srcdoc from HTML + CSS
+    function buildSrcdoc(html, css) {
+      // If the HTML already links a CSS file, we still inject the CSS inline so it works in the iframe
+      return `
+${html.replace('</head>', `<style>${css}</style></head>`)}
+      `;
+    }
+
+    const frame = document.getElementById('frame');
+    const codeHTML = document.getElementById('code-html');
+    const codeCSS  = document.getElementById('code-css');
+
+    function setPreviewFromCurrent() {
+      const html = codeHTML.innerText;
+      const css  = codeCSS.innerText;
+      frame.srcdoc = buildSrcdoc(html, css);
+    }
+
+    // Buttons
+    document.getElementById('run').addEventListener('click', setPreviewFromCurrent);
+    document.getElementById('reset').addEventListener('click', () => {
+      // Reset the code blocks to the example (re-highlight after)
+      codeHTML.textContent = EX_HTML;
+      codeCSS.textContent = EX_CSS;
+      if (window.Prism) Prism.highlightAll();
+      setPreviewFromCurrent();
+    });
+
+    // Initial render
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.Prism) Prism.highlightAll();
+      setPreviewFromCurrent();
+    });
+  </script>
+</body>
+</html>
