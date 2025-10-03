@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Charging Station Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-blue': '#0055A4',
+              'brand-green': '#2ECC71',
+              'brand-yellow': '#F1C40F',
+              'brand-red': '#E74C3C',
+              'brand-gray': '#34495E',
+              'light-gray': '#ECF0F1',
+              'dark-navy': '#2C3E50',
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="bg-light-gray">
+    <div id="app"></div>
+
+    <script type="module">
+      // --- STATE AND CONSTANTS ---
+      const StationStatus = {
+        AVAILABLE: 'Available',
+        CHARGING: 'Charging',
+        MAINTENANCE: 'Maintenance',
+      };
+
+      const initialStations = [
+        { id: 1, name: 'Alpha-01', status: StationStatus.AVAILABLE, power: 0, connectorType: 'CCS', elapsedTime: 0 },
+        { id: 2, name: 'Alpha-02', status: StationStatus.CHARGING, power: 75.2, connectorType: 'CCS', elapsedTime: 923 },
+        { id: 3, name: 'Bravo-01', status: StationStatus.AVAILABLE, power: 0, connectorType: 'Type 2', elapsedTime: 0 },
+        { id: 4, name: 'Bravo-02', status: StationStatus.MAINTENANCE, power: 0, connectorType: 'Type 2', elapsedTime: 0 },
+        { id: 5, name: 'Charlie-01', status: StationStatus.CHARGING, power: 120.5, connectorType: 'CCS', elapsedTime: 451 },
+        { id: 6, name: 'Charlie-02', status: StationStatus.AVAILABLE, power: 0, connectorType: 'CHAdeMO', elapsedTime: 0 },
+        { id: 7, name: 'Delta-01', status: StationStatus.AVAILABLE, power: 0, connectorType: 'CCS', elapsedTime: 0 },
+        { id: 8, name: 'Delta-02', status: StationStatus.MAINTENANCE, power: 0, connectorType: 'CCS', elapsedTime: 0 },
+      ];
+
+      let stations = JSON.parse(JSON.stringify(initialStations));
+      let isLoading = false;
+      let lastUpdated = new Date();
+
+      // --- ICONS ---
+      const Icons = {
+        Zap: (className) => `<svg xmlns="http://www.w3.org/2000/svg" class="${className}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+        Power: (className) => `<svg xmlns="http://www.w3.org/2000/svg" class="${className}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>`,
+        Clock: (className) => `<svg xmlns="http://www.w3.org/2000/svg" class="${className}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+        WrenchScrewdriver: (className) => `<svg xmlns="http://www.w3.org/2000/svg" class="${className}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75a.75.75 0 01.75.75v5.25a.75.75 0 01-1.5 0v-5.25a.75.75 0 01.75-.75z" /></svg>`,
+        CheckCircle: (className) => `<svg xmlns="http://www.w3.org/2000/svg" class="${className}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
+        Refresh: (className) => `<svg xmlns="http://www.w3.org/2000/svg" class="${className}" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.899 2.166l-1.581 1.581A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm10 8a1 1 0 011-1v-2.101a7.002 7.002 0 01-11.899-2.166l1.581-1.581A5.002 5.002 0 0014.001 13H11a1 1 0 010-2h5a1 1 0 011 1v5a1 1 0 01-1 1z" clip-rule="evenodd" /></svg>`,
+        Spinner: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`
+      };
+
+      // --- HELPERS ---
+      const formatTime = (totalSeconds) => {
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      };
+
+      // --- TEMPLATING / RENDERING ---
+      const getStationCardHTML = (station) => {
+        const statusStyles = {
+          [StationStatus.AVAILABLE]: { bgColor: 'bg-green-100', textColor: 'text-green-800', borderColor: 'border-green-500', icon: Icons.CheckCircle("w-6 h-6") },
+          [StationStatus.CHARGING]: { bgColor: 'bg-blue-100', textColor: 'text-blue-800', borderColor: 'border-blue-500', icon: Icons.Zap("w-6 h-6 animate-pulse") },
+          [StationStatus.MAINTENANCE]: { bgColor: 'bg-red-100', textColor: 'text-red-800', borderColor: 'border-red-500', icon: Icons.WrenchScrewdriver("w-6 h-6") },
+        };
+        const styles = statusStyles[station.status];
+
+        const detailsHTML = station.status === StationStatus.CHARGING ? `
+          <div class="space-y-3">
+            <div class="flex items-center text-gray-700">
+              ${Icons.Power("w-5 h-5 mr-3 text-brand-yellow")}
+              <span class="font-semibold">Power:</span>
+              <span class="ml-auto text-lg font-bold text-dark-navy">${station.power} kW</span>
+            </div>
+            <div class="flex items-center text-gray-700">
+              ${Icons.Clock("w-5 h-5 mr-3 text-brand-blue")}
+              <span class="font-semibold">Time Elapsed:</span>
+              <span class="ml-auto text-lg font-bold text-dark-navy">${formatTime(station.elapsedTime)}</span>
+            </div>
+          </div>
+        ` : `
+          <div class="text-center py-6 text-gray-400">
+             <p>Station is currently idle.</p>
+          </div>
+        `;
+
+        return `
+          <div class="bg-white rounded-xl shadow-lg border-l-4 ${styles.borderColor} overflow-hidden transform hover:scale-105 hover:shadow-2xl transition-all duration-300">
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <h3 class="text-xl font-bold text-dark-navy">${station.name}</h3>
+                <div class="flex items-center gap-2 px-3 py-1 rounded-full text-sm font-semibold ${styles.bgColor} ${styles.textColor}">
+                  ${styles.icon}
+                  <span>${station.status}</span>
+                </div>
+              </div>
+              <p class="text-gray-500 text-sm mt-1">${station.connectorType} Connector</p>
+            </div>
+            <div class="px-5 pb-5 mt-2">
+              ${detailsHTML}
+            </div>
+          </div>
+        `;
+      };
+
+      const renderApp = () => {
+        const appElement = document.getElementById('app');
+        if (!appElement) return;
+        
+        const summary = {
+            available: stations.filter(s => s.status === StationStatus.AVAILABLE).length,
+            charging: stations.filter(s => s.status === StationStatus.CHARGING).length,
+            maintenance: stations.filter(s => s.status === StationStatus.MAINTENANCE).length,
+        };
+        
+        const buttonClass = isLoading 
+            ? 'bg-gray-400 cursor-not-allowed' 
+            : 'bg-brand-blue hover:bg-dark-navy transform hover:-translate-y-0.5';
+        const buttonIcon = isLoading ? Icons.Spinner("animate-spin -ml-1 mr-3 h-5 w-5 text-white") : Icons.Refresh("h-5 w-5");
+        const buttonText = isLoading ? 'Simulating...' : 'Simulate Activity';
+
+        const appHTML = `
+            <div class="min-h-screen text-brand-gray">
+              <header class="bg-dark-navy shadow-md">
+                <div class="container mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    ${Icons.Zap("w-8 h-8 text-brand-green")}
+                    <h1 class="text-2xl font-bold text-white tracking-wide">EV Power Station</h1>
+                  </div>
+                  <div class="text-sm text-gray-300">Real-time Dashboard</div>
+                </div>
+              </header>
+              <main class="container mx-auto p-4 md:p-8">
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-200">
+                  <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                      <h2 class="text-2xl font-bold text-dark-navy">Station Overview</h2>
+                      <p class="text-gray-500">Last updated: ${lastUpdated.toLocaleTimeString()}</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-center">
+                      <div class="p-3 rounded-lg bg-green-100 text-green-800"><p class="font-bold text-2xl">${summary.available}</p><p class="text-sm">Available</p></div>
+                      <div class="p-3 rounded-lg bg-blue-100 text-blue-800"><p class="font-bold text-2xl">${summary.charging}</p><p class="text-sm">Charging</p></div>
+                      <div class="p-3 rounded-lg bg-red-100 text-red-800"><p class="font-bold text-2xl">${summary.maintenance}</p><p class="text-sm">Maintenance</p></div>
+                    </div>
+                    <button id="simulate-btn" class="px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 shadow-md flex items-center gap-2 ${buttonClass}" ${isLoading ? 'disabled' : ''}>
+                      ${buttonIcon}
+                      ${buttonText}
+                    </button>
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  ${stations.map(getStationCardHTML).join('')}
+                </div>
+              </main>
+            </div>
+        `;
+        appElement.innerHTML = appHTML;
+
+        // Re-attach event listener after render
+        document.getElementById('simulate-btn').addEventListener('click', simulateActivity);
+      };
+
+      // --- LOGIC / ACTIONS ---
+      const simulateActivity = () => {
+        if (isLoading) return;
+        isLoading = true;
+        renderApp();
+
+        setTimeout(() => {
+          stations = stations.map(station => {
+            if (Math.random() < 0.2) { // 20% chance to change
+              const statuses = Object.values(StationStatus);
+              const newStatus = statuses[Math.floor(Math.random() * statuses.length)];
+              let newPower = 0;
+              let newElapsedTime = 0;
+              if (newStatus === StationStatus.CHARGING) {
+                newPower = parseFloat((Math.random() * (150 - 50) + 50).toFixed(1));
+              }
+              return { ...station, status: newStatus, power: newPower, elapsedTime: newElapsedTime };
+            }
+            return station;
+          });
+          lastUpdated = new Date();
+          isLoading = false;
+          renderApp();
+        }, 800);
+      };
+      
+      // --- INITIALIZATION ---
+      setInterval(() => {
+        let needsRender = false;
+        stations = stations.map(station => {
+          if (station.status === StationStatus.CHARGING) {
+            needsRender = true;
+            return { ...station, elapsedTime: station.elapsedTime + 1 };
+          }
+          return station;
+        });
+        
+        // Only re-render if time was updated
+        if(needsRender) {
+            lastUpdated = new Date();
+            renderApp();
+        }
+      }, 1000);
+
+      // Initial render
+      renderApp();
+    </script>
+  </body>
+</html>

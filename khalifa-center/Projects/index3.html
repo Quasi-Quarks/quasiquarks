@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khalifa Center — Projects</title>
+
+  <!-- Your global site styles (keeps your theme + tokens) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Optional fonts/icons already used across the site -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ===================== SCOPED RESET (overrides your *:not...) ===================== */
+    .kc-projects, .kc-projects * {
+      display: block; background: transparent; margin: 0; padding: 0; text-align: left; color: inherit; border: 0;
+      justify-content: initial; align-items: initial; flex-direction: initial;
+      background-size: initial; background-repeat: initial; background-position: initial;
+      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; font-weight: 400;
+    }
+    .kc-projects a, .kc-projects span, .kc-projects strong, .kc-projects em, .kc-projects small { display: inline; }
+    .kc-projects button { display: inline-flex; align-items: center; justify-content: center; }
+
+    /* ===================== PAGE THEME (inherits your CSS vars if present) ===================== */
+    .kc-projects {
+      --surface: var(--panel, #0f1620);
+      --ink: var(--text, #e9f1f7);
+      --muted: var(--muted, #a6b0bb);
+      --line: var(--border, #1f2a37);
+      --brand1: var(--accent, #15a34a);
+      --brand2: var(--accent-2, #f59e0b);
+      --shadow: var(--shadow, 0 10px 30px rgba(0,0,0,.45));
+
+      color: var(--ink);
+      background: var(--bg, #0b0f14);
+      min-height: 100vh;
+    }
+    .kc-wrap { width: min(100% - 2rem, 1100px); margin-inline: auto; }
+
+    /* ===================== HERO ===================== */
+    .projects-hero {
+      position: relative; overflow: hidden;
+      padding: clamp(2.4rem, 6vw + 1rem, 6rem) 0 2rem;
+      /* You can set a photo here later:  .kc-projects { --hero-bg: url(path.jpg); } */
+      background-image: var(--hero-bg, none);
+      background-size: cover; background-position: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .projects-hero .title {
+      font-family: "Playfair Display", serif; font-weight: 600;
+      font-size: clamp(1.8rem, 3.8vw + 1rem, 3rem);
+      line-height: 1.08; margin-bottom: .3rem;
+      text-shadow: 0 2px 16px rgba(0,0,0,.25);
+    }
+    .projects-hero .tagline {
+      display: inline-block;
+      font-weight: 600; letter-spacing: .2px;
+      font-size: clamp(1rem, 1.1vw + .9rem, 1.2rem);
+      padding: .25rem .55rem .4rem;
+      background: linear-gradient(90deg,#0ea5e9,#22d3ee,#10b981,#f59e0b,#0ea5e9);
+      background-size: 300% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: projTag 10s ease-in-out infinite;
+    }
+    @keyframes projTag {
+      0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
+    }
+    @media (prefers-reduced-motion: reduce){ .projects-hero .tagline{ animation:none } }
+
+    /* ===================== CONTROLS ===================== */
+    .projects-controls {
+      display: grid; gap: .75rem; padding: 1rem 0 1.2rem;
+    }
+    .filters { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .chip {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .55rem .8rem; border-radius: 999px;
+      background: rgba(255,255,255,.06); border: 1px solid var(--line);
+      color: var(--ink); font-weight: 600; font-size: .95rem;
+      box-shadow: var(--shadow);
+      cursor: pointer; user-select: none;
+    }
+    .chip.active { outline: 2px solid rgba(14,165,233,.45); }
+    .searchbar {
+      display: flex; gap: .5rem; align-items: center;
+      padding: .55rem .75rem; border-radius: 12px;
+      background: #0b121a; border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .searchbar input {
+      display: block; width: 100%; background: transparent; border: 0; color: inherit; font: inherit;
+      outline: none;
+    }
+
+    /* ===================== GRID ===================== */
+    .projects-grid { display: grid; gap: 1rem; }
+    @media (min-width: 760px){ .projects-grid{ grid-template-columns: repeat(2,1fr); } }
+    @media (min-width: 1100px){ .projects-grid{ grid-template-columns: repeat(3,1fr); } }
+
+    /* ===================== CARD ===================== */
+    .project-card {
+      border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+      background: var(--surface); box-shadow: var(--shadow);
+    }
+    .project-thumb {
+      /* Leave EMPTY background: you will set background-image inline or via CSS */
+      height: 160px; background: rgba(255,255,255,.04);
+      background-size: cover; background-position: center;
+    }
+    .project-body { padding: 1rem; display: grid; gap: .55rem; }
+    .project-title { font-weight: 700; font-size: 1.1rem; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .3rem .55rem; font-size: .8rem; border-radius: 8px;
+      background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.35); color: #86efac;
+    }
+    .tag {
+      display: inline-flex; align-items: center;
+      padding: .25rem .5rem; font-size: .78rem; border-radius: 999px;
+      background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--muted);
+    }
+    .project-desc { color: var(--muted); font-size: .98rem; line-height: 1.5; }
+
+    .project-actions { display: flex; gap: .5rem; margin-top: .2rem; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      padding: .6rem .8rem; border-radius: 12px; border: 1px solid var(--line);
+      background: #0a1118; color: var(--ink); font-weight: 700; cursor: pointer;
+    }
+    .btn.alt { background: linear-gradient(135deg,#34d399,#0ea5e9); color: #031b14; border-color: transparent; }
+
+    details.project-more {
+      margin-top: .4rem; border-top: 1px dashed var(--line); padding-top: .6rem;
+    }
+    details.project-more summary {
+      list-style: none; cursor: pointer; color: var(--muted); font-weight: 600;
+    }
+    details.project-more summary::-webkit-details-marker { display: none; }
+    .more-grid { display: grid; gap: .4rem; margin-top: .5rem; }
+    .more-item { font-size: .95rem; color: var(--ink); }
+    .more-item small { color: var(--muted); display: block; font-size: .85rem; }
+
+    /* ===================== BOTTOM CTA ===================== */
+    .projects-cta {
+      margin: 1.4rem 0 2rem; padding: 1rem; border-radius: 18px;
+      background: linear-gradient(135deg, rgba(14,165,233,.14), rgba(16,185,129,.14));
+      border: 1px solid var(--line); text-align: center;
+    }
+    .projects-cta .btn { background: linear-gradient(135deg,#0ea5e9,#22d3ee); color:#06121a; border-color: transparent; }
+
+    /* Prefer reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .chip.active { outline-width: 1px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="kc-projects">
+    <!-- ========== HERO ========== -->
+    <section class="projects-hero">
+      <div class="kc-wrap">
+        <h1 class="title">Projects</h1>
+        <div class="tagline">Engineering Knowledge → Market</div>
+
+        <div class="projects-controls">
+          <!-- Filter chips -->
+          <div class="filters" id="projFilters">
+            <button class="chip active" data-filter="all"><i class="fa-solid fa-layer-group"></i>&nbsp;All</button>
+            <button class="chip" data-filter="chemical">Chemical</button>
+            <button class="chip" data-filter="physics">Physics</button>
+            <button class="chip" data-filter="electrical">Electrical</button>
+            <button class="chip" data-filter="pharma">Pharma</button>
+            <button class="chip" data-filter="renewable">Renewable</button>
+          </div>
+
+          <!-- Optional search -->
+          <label class="searchbar" for="projSearch" aria-label="Search projects">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="projSearch" type="search" placeholder="Search projects… (title or text)">
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GRID ========== -->
+    <section class="kc-wrap" aria-label="Projects list">
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- ====== Project 1 ====== -->
+        <article class="project-card" data-tags="chemical completed">
+          <!-- Empty background — add your image later (CSS or inline style) -->
+          <div class="project-thumb" style="background-image: none;"></div>
+
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+              <span class="tag">Chemical Engineering</span>
+            </div>
+            <h3 class="project-title">Project Title One</h3>
+            <p class="project-desc">Write your description here. Keep it to 2–3 lines about objectives, methods, and outcomes.</p>
+
+            <div class="project-actions">
+              <a class="btn" href="#" role="button">Case Study</a>
+              <a class="btn alt" href="#" role="button">Contact About This</a>
+            </div>
+
+            <details class="project-more">
+              <summary>View details</summary>
+              <div class="more-grid">
+                <div class="more-item"><small>Objectives</small>Short bullet or sentence about goals.</div>
+                <div class="more-item"><small>Methods</small>Short bullet about approach/tools.</div>
+                <div class="more-item"><small>Outcomes</small>Quantified result or impact.</div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ====== Project 2 ====== -->
+        <article class="project-card" data-tags="physics completed">
+          <div class="project-thumb" style="background-image: none;"></div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+              <span class="tag">Physics</span>
+            </div>
+            <h3 class="project-title">Project Title Two</h3>
+            <p class="project-desc">Write your description here.</p>
+            <div class="project-actions">
+              <a class="btn" href="#" role="button">Case Study</a>
+              <a class="btn alt" href="#" role="button">Contact About This</a>
+            </div>
+            <details class="project-more">
+              <summary>View details</summary>
+              <div class="more-grid">
+                <div class="more-item"><small>Objectives</small>…</div>
+                <div class="more-item"><small>Methods</small>…</div>
+                <div class="more-item"><small>Outcomes</small>…</div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ====== Project 3 ====== -->
+        <article class="project-card" data-tags="electrical completed">
+          <div class="project-thumb" style="background-image: none;"></div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+              <span class="tag">Electrical</span>
+            </div>
+            <h3 class="project-title">Project Title Three</h3>
+            <p class="project-desc">Write your description here.</p>
+            <div class="project-actions">
+              <a class="btn" href="#" role="button">Case Study</a>
+              <a class="btn alt" href="#" role="button">Contact About This</a>
+            </div>
+            <details class="project-more">
+              <summary>View details</summary>
+              <div class="more-grid">
+                <div class="more-item"><small>Objectives</small>…</div>
+                <div class="more-item"><small>Methods</small>…</div>
+                <div class="more-item"><small>Outcomes</small>…</div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ====== Project 4 ====== -->
+        <article class="project-card" data-tags="pharma completed">
+          <div class="project-thumb" style="background-image: none;"></div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+              <span class="tag">Pharma</span>
+            </div>
+            <h3 class="project-title">Project Title Four</h3>
+            <p class="project-desc">Write your description here.</p>
+            <div class="project-actions">
+              <a class="btn" href="#" role="button">Case Study</a>
+              <a class="btn alt" href="#" role="button">Contact About This</a>
+            </div>
+            <details class="project-more">
+              <summary>View details</summary>
+              <div class="more-grid">
+                <div class="more-item"><small>Objectives</small>…</div>
+                <div class="more-item"><small>Methods</small>…</div>
+                <div class="more-item"><small>Outcomes</small>…</div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ====== Project 5 ====== -->
+        <article class="project-card" data-tags="renewable completed">
+          <div class="project-thumb" style="background-image: none;"></div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+              <span class="tag">Renewable</span>
+            </div>
+            <h3 class="project-title">Project Title Five</h3>
+            <p class="project-desc">Write your description here.</p>
+            <div class="project-actions">
+              <a class="btn" href="#" role="button">Case Study</a>
+              <a class="btn alt" href="#" role="button">Contact About This</a>
+            </div>
+            <details class="project-more">
+              <summary>View details</summary>
+              <div class="more-grid">
+                <div class="more-item"><small>Objectives</small>…</div>
+                <div class="more-item"><small>Methods</small>…</div>
+                <div class="more-item"><small>Outcomes</small>…</div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ====== Project 6 ====== -->
+        <article class="project-card" data-tags="physics completed">
+          <div class="project-thumb" style="background-image: none;"></div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+              <span class="tag">Physics</span>
+            </div>
+            <h3 class="project-title">Project Title Six</h3>
+            <p class="project-desc">Write your description here.</p>
+            <div class="project-actions">
+              <a class="btn" href="#" role="button">Case Study</a>
+              <a class="btn alt" href="#" role="button">Contact About This</a>
+            </div>
+            <details class="project-more">
+              <summary>View details</summary>
+              <div class="more-grid">
+                <div class="more-item"><small>Objectives</small>…</div>
+                <div class="more-item"><small>Methods</small>…</div>
+                <div class="more-item"><small>Outcomes</small>…</div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="projects-cta" aria-label="Work with us">
+        <h3 style="margin:0 0 .4rem; font-weight:700;">Have a project in mind?</h3>
+        <p style="margin:0 0 .7rem; color:var(--muted);">Let’s turn your idea into a deployable solution.</p>
+        <a class="btn" href="#contact"><i class="fa-solid fa-paper-plane"></i>&nbsp;Start a project</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // ========== Simple filter/search (no framework) ==========
+    (function(){
+      const grid = document.getElementById('projectsGrid');
+      const cards = Array.from(grid.querySelectorAll('.project-card'));
+      const filters = document.getElementById('projFilters');
+      const search = document.getElementById('projSearch');
+
+      function apply() {
+        const active = filters.querySelector('.chip.active')?.dataset.filter || 'all';
+        const term = (search.value || '').trim().toLowerCase();
+
+        cards.forEach(card => {
+          const tags = card.dataset.tags || '';
+          const text = (card.innerText || '').toLowerCase();
+          const passFilter = (active === 'all') || tags.includes(active);
+          const passSearch = term === '' || text.includes(term);
+          card.style.display = (passFilter && passSearch) ? '' : 'none';
+        });
+      }
+
+      filters.addEventListener('click', (e) => {
+        const b = e.target.closest('.chip'); if(!b) return;
+        filters.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        b.classList.add('active'); apply();
+      });
+
+      search.addEventListener('input', apply);
+    })();
+  </script>
+</body>
+</html>

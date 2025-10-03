@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khalifa Center — Projects</title>
+
+ 
+
+  <!-- Optional fonts/icons already used across the site -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link rel="stylesheet" href="index.css">
+  
+</head>
+<body>
+
+   <header class="topbar">
+    <div class="container wrap">
+      <nav aria-label="Primary">
+        <div class="nav-list" id="nav-list">
+          <a href="../index.html">Home</a>
+          <a href="index.html">Projects</a>
+          <a href="#programs">About Us</a>
+          <a href="#impact">Contact Us</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="kc-projects">
+    <!-- ========== HERO ========== -->
+    <section class="projects-hero">
+      <div class="kc-wrap">
+        <h1 class="title">Projects</h1>
+        <div class="tagline">Engineering Knowledge → Market</div>
+
+        <div class="projects-controls">
+          <!-- Filter chips -->
+          <div class="filters" id="projFilters">
+            <button class="chip active" data-filter="all"><i class="fa-solid fa-layer-group"></i>&nbsp;All</button>
+            <button class="chip" data-filter="chemical">Chemical</button>
+            <button class="chip" data-filter="physics">Physics</button>
+            <button class="chip" data-filter="electrical">Electrical</button>
+            <button class="chip" data-filter="pharma">Pharma</button>
+            <button class="chip" data-filter="renewable">Renewable</button>
+          </div>
+
+          <!-- Optional search -->
+          <label class="searchbar" for="projSearch" aria-label="Search projects">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="projSearch" type="search" placeholder="Search projects… (title or text)">
+          </label>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== GRID ========== -->
+    <section class="kc-wrap" aria-label="Projects list">
+      <div class="projects-grid" id="projectsGrid">
+<!-- ====== Project 1 ====== -->
+<article class="project-card" data-tags="renewable completed">
+  <!-- Empty background — add your image later -->
+   <a href="solarpowercalculator/index.html">
+  <div class="project-thumb" style="background-image: url(solarpowercalculatorpic.PNG)"></div>
+    </a>
+  <div class="project-body">
+    <div class="project-meta">
+      <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+      <span class="tag">Renewable</span>
+    </div>
+
+    <h3 class="project-title">
+      <a href="solarpowercalculator/index.html">Solar Power Calculator</a>
+    </h3>
+    <p class="project-desc">
+      Mobile-friendly tool to estimate household energy demand and size a solar PV system—panels, inverter, and battery.
+      Add appliances, set wattage and daily hours; it totals Wh/day and peak load, then suggests kWp, kVA, and battery capacity.
+    </p>
+
+    <div class="project-actions">
+      <a class="btn" href="solarpowercalculator/index.html" role="button">Case Study</a>
+      <a class="btn alt" href="#contact" role="button">Contact About This</a>
+    </div>
+
+    <details class="project-more">
+      <summary>View details</summary>
+      <div class="more-grid">
+        <div class="more-item"><small>Objectives</small>Quickly size residential/off-grid PV without spreadsheets.</div>
+        <div class="more-item"><small>Methods</small>Summation of appliance loads → daily energy (Wh), peak kW, recommendations for PV kWp, inverter kVA, and battery Ah.</div>
+        <div class="more-item"><small>Outcomes</small>Preliminary bill-of-materials baseline that reduces over/under-sizing and speeds proposals.</div>
+      </div>
+    </details>
+  </div>
+</article>
+
+<!-- ====== Project 2 ====== -->
+<article class="project-card" data-tags="electrical renewable completed">
+  <a href="evchargingpoints/index.html">
+  <div class="project-thumb" style="background-image: url(evchargingpointspic.PNG);"></div></a>
+</a>
+
+  <div class="project-body">
+    <div class="project-meta">
+      <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+      <span class="tag">Electrical</span>
+    </div>
+
+    <a href="evchargingpoints/index.html"><h3 class="project-title">EV Charging Map</h3></a>
+    <p class="project-desc">
+      Interactive map that locates nearby EV charge points and shows network, connector type, and rated power.
+      Search any place, pan the map, and load stations around your view.
+    </p>
+
+    <div class="project-actions">
+      <a class="btn" href="evchargingpoints/index.html" role="button">Case Study</a>
+      <a class="btn alt" href="#contact" role="button">Contact About This</a>
+    </div>
+
+    <details class="project-more">
+      <summary>View details</summary>
+      <div class="more-grid">
+        <div class="more-item"><small>Features</small>Live map with search & recenter, marker clustering, basic filters.</div>
+        <div class="more-item"><small>Data</small>Shows provider, connectors, and power where available.</div>
+        <div class="more-item"><small>Outcome</small>Faster planning of routes and charging stops.</div>
+      </div>
+    </details>
+  </div>
+</article>
+
+<!-- ====== Project 3 ====== -->
+<article class="project-card" data-tags="electrical renewable completed">
+  <a href="chargingevtamplate/index.html" target="_blank">
+  <div class="project-thumb" style="background-image: url(chargingevtamplatepix.PNG)"></div>
+</a>
+  <div class="project-body">
+    <div class="project-meta">
+      <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+      <span class="tag">Electrical</span>
+    </div>
+   <a href="chargingevtamplate/index.html" target="_blank">
+    <h3 class="project-title">EV Charging Status Monitor</h3></a>
+    <p class="project-desc">
+      Status overlay for EV stations that surfaces plug availability—available, in-use, or out-of-service—when providers expose live data.
+      Includes quick filters for connector type and power level.
+    </p>
+
+    <div class="project-actions">
+      <a class="btn" href="chargingevtamplate/index.html" target="_blank" role="button">Case Study</a>
+      <a class="btn alt" href="#contact" role="button">Contact About This</a>
+    </div>
+
+    <details class="project-more">
+      <summary>View details</summary>
+      <div class="more-grid">
+        <div class="more-item"><small>Objectives</small>Give drivers live insight into charger availability at a glance.</div>
+        <div class="more-item"><small>Methods</small>Polling/refresh of station metadata; icon and color states for status.</div>
+        <div class="more-item"><small>Outcomes</small>Reduced wait times and improved route confidence.</div>
+      </div>
+    </details>
+  </div>
+</article>
+
+<!-- ====== Project 4 ====== -->
+<article class="project-card" data-tags="physics completed">
+  <a href="refractiongraph/index.html">
+  <div class="project-thumb" style="background-image: url(refractiongraphpic.PNG)"></div></a>
+
+  <div class="project-body">
+    <div class="project-meta">
+      <span class="badge"><i class="fa-solid fa-circle-check"></i> Completed</span>
+      <span class="tag">Physics</span>
+    </div>
+  <a href="refractiongraph/index.html">
+    <h3 class="project-title">Interactive Refraction Graph</h3></a>
+    <p class="project-desc">
+      Touch-friendly refraction simulator. Drag the incident ray or use sliders to change angles and refractive indices—
+      the graph updates in real time to visualize Snell’s Law.
+    </p>
+
+    <div class="project-actions">
+      <a class="btn" href="refractiongraph/index.html" role="button">Case Study</a>
+      <a class="btn alt" href="#contact" role="button">Contact About This</a>
+    </div>
+
+    <details class="project-more">
+      <summary>View details</summary>
+      <div class="more-grid">
+        <div class="more-item"><small>Objectives</small>Make optics concepts intuitive for students and engineers.</div>
+        <div class="more-item"><small>Methods</small>Canvas + touch gestures with clamped decimals; live recomputation of θi/θt.</div>
+        <div class="more-item"><small>Outcomes</small>Improved understanding of interface behavior and material choice.</div>
+      </div>
+    </details>
+  </div>
+</article>
+
+
+      </div>
+
+
+       <!-- Bottom CTA -->
+      <div class="projects-cta" aria-label="Work with us">
+        <h3 style="margin:0 0 .4rem; font-weight:700;">Have a project in mind?</h3>
+        <!-- <p style="margin:0 0 .7rem; color:var(--muted);">Let’s turn your idea into a deployable solution.</p> -->
+        <a class="btn" href="#contact"></i>Start a project</a> 
+      </div>
+    </section>
+  </main>
+
+  <footer class="kc-footer" aria-label="Site footer">
+  <!-- animated background layers -->
+  <div class="kc-footer__bg"></div>
+  <div class="kc-footer__stripes" aria-hidden="true"></div>
+
+  <div class="kc-footer__wrap">
+    <div class="kc-footer__brand">
+      
+      <div class="kc-footer__logo" style="background-image: url(../logo2.png);" aria-hidden="true"></div>
+      <div class="kc-footer__title">
+     
+        <span class="kc-footer__tag">Engineering Knowledge → Market</span>
+      </div>
+    </div>
+
+    <nav class="kc-footer__links" aria-label="Footer navigation">
+      <div class="kc-footer__col">
+        <h3 class="kc-footer__coltitle">Explore</h3>
+        <a href="#pillars">Expertise</a>
+        <a href="#process">Process</a>
+        <a href="#programs">Programs</a>
+        <a href="#impact">Impact</a>
+      </div>
+      <div class="kc-footer__col">
+        <h3 class="kc-footer__coltitle">Domains</h3>
+        <a href="#pillars">Chemical Engineering</a>
+        <a href="#pillars">Physics</a>
+        <a href="#pillars">Electrical</a>
+        <a href="#pillars">Pharma</a>
+        <a href="#pillars">Renewables</a>
+      </div>
+      <div class="kc-footer__col">
+        <h3 class="kc-footer__coltitle">Contact</h3>
+        <a href="mailto:hello@khalifacenter.org">hello@khalifacenter.org</a>
+        <a href="#contact">Book a Consultation</a>
+      </div>
+    </nav>
+
+    <div class="kc-footer__social" aria-label="Social links">
+      <a aria-label="Twitter" href="#" class="kc-social"><i class="fa-brands fa-x-twitter"></i></a>
+      <a aria-label="LinkedIn" href="#" class="kc-social"><i class="fa-brands fa-linkedin"></i></a>
+      <a aria-label="YouTube" href="#" class="kc-social"><i class="fa-brands fa-youtube"></i></a>
+      <a aria-label="GitHub" href="#" class="kc-social"><i class="fa-brands fa-github"></i></a>
+    </div>
+
+    <div class="kc-footer__legal">
+      <span>2025 © <br>Khalifa Center Privacy Terms</span>
+
+      <a href="#" class="kc-legal-link">Privacy</a>
+
+      <a href="#" class="kc-legal-link">Terms</a>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    // ========== Simple filter/search (no framework) ==========
+    (function(){
+      const grid = document.getElementById('projectsGrid');
+      const cards = Array.from(grid.querySelectorAll('.project-card'));
+      const filters = document.getElementById('projFilters');
+      const search = document.getElementById('projSearch');
+
+      function apply() {
+        const active = filters.querySelector('.chip.active')?.dataset.filter || 'all';
+        const term = (search.value || '').trim().toLowerCase();
+
+        cards.forEach(card => {
+          const tags = card.dataset.tags || '';
+          const text = (card.innerText || '').toLowerCase();
+          const passFilter = (active === 'all') || tags.includes(active);
+          const passSearch = term === '' || text.includes(term);
+          card.style.display = (passFilter && passSearch) ? '' : 'none';
+        });
+      }
+
+      filters.addEventListener('click', (e) => {
+        const b = e.target.closest('.chip'); if(!b) return;
+        filters.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        b.classList.add('active'); apply();
+      });
+
+      search.addEventListener('input', apply);
+    })();
+  </script>
+</body>
+</html>

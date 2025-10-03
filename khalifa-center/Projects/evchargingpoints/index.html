@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>KhalifaEV — Search → Auto-Fetch EV (Fixed)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{--ink:#0b1020;--muted:#64748b}
+    body{font-family:system-ui,Roboto,Arial,sans-serif;margin:0;color:var(--ink)}
+    #topbar{display:flex;gap:8px;align-items:center;padding:8px;border-bottom:1px solid #eee}
+    #pac{flex:1;max-width:720px}
+    button,input{padding:8px 10px;border:1px solid #d1d5db;border-radius:8px;background:#fff}
+    #map{height:60vh;width:100%}
+    .wrap{padding:12px}
+    pre{background:#0b1020;color:#cde3ff;padding:10px;border-radius:8px;white-space:pre-wrap;word-wrap:break-word;max-height:28vh;overflow:auto}
+    .muted{color:var(--muted)}
+    label{display:flex;align-items:center;gap:6px}
+    input[type="number"]{width:80px}
+  </style>
+  <script>
+    // ====== CONFIG ======
+    const WORKER_BASE = 'https://ancient-cherry-3e32.kiteqio-business.workers.dev/ocm';
+    const OCM_KEY = '45f31f74-f3b2-435f-8985-91f4738198bd'; // study/demo; set '' if Worker injects key
+    const DEFAULT_CENTER = { lat: 9.0820, lng: 8.6753 }; // Nigeria-ish centroid
+    const DEFAULT_ZOOM = 5;
+    const RADIUS_STEPS_KM = [50, 200, 500]; // progressive fallback
+
+    // ====== STATE ======
+    let map, advMarkers = [];
+    let lastSelected = null; // {lat,lng,name}
+
+    // ====== LOGGER ======
+    const $ = (id)=>document.getElementById(id);
+    function logLine(...a){
+      console.log(...a);
+      const s = a.map(x => typeof x==='object' ? JSON.stringify(x) : String(x)).join(' ');
+      const el = $('log'); el.textContent += s + '\n'; el.scrollTop = el.scrollHeight;
+    }
+
+    // --- normalize Autocomplete events across variants
+    async function handlePlaceEvent(evt){
+      try{
+        // Try all known shapes:
+        let place = evt?.place
+                 || evt?.detail?.place
+                 || evt?.placePrediction?.toPlace?.()
+                 || evt?.detail?.placePrediction?.toPlace?.();
+
+        // If we got a prediction object, convert to Place
+        if (!place && (evt?.placePrediction || evt?.detail?.placePrediction)) {
+          const prediction = evt.placePrediction || evt.detail.placePrediction;
+          place = prediction?.toPlace?.();
+        }
+
+        if (!place) {
+          logLine('WARN: Autocomplete event had no place object');
+          return;
+        }
+
+        // Ensure geometry is loaded
+        if (!place.location) {
+          await place.fetchFields?.({ fields: ['location','displayName','formattedAddress'] });
+        }
+
+        if (!place.location) {
+          logLine('WARN: place has no geometry after fetchFields');
+          return;
+        }
+
+        // Update map + state
+        const lat = typeof place.location.lat === 'function' ? place.location.lat() : place.location.lat;
+        const lng = typeof place.location.lng === 'function' ? place.location.lng() : place.location.lng;
+        const name = place.displayName || place.formattedAddress || '(selected)';
+        lastSelected = { lat, lng, name };
+        map.setCenter({lat, lng});
+        map.setZoom(12);
+        logLine('selected:', name, `[${lat}, ${lng}]`);
+
+        // Auto-fetch
+        await autoFetchNearby();
+      }catch(err){
+        logLine('placeselect ERROR →', err.message || err);
+      }
+    }
+
+    // ====== MAP + AUTOCOMPLETE (NEW) ======
+    function initMap(){
+      logLine('initMap: start');
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: DEFAULT_CENTER,
+        zoom: DEFAULT_ZOOM,
+        mapId: 'DEMO_MAP_ID'
+      });
+      logLine('map: ready');
+
+      // Places (New) Autocomplete widget
+      const pac = new google.maps.places.PlaceAutocompleteElement();
+      pac.id = 'pac';
+      pac.placeholder = 'Search places…';
+      document.getElementById('topbar').prepend(pac);
+      logLine('autocomplete: ready');
+
+      // Listen to BOTH event names to cover all builds
+      pac.addEventListener('gmp-placeselect', handlePlaceEvent);
+      pac.addEventListener('gmp-select', handlePlaceEvent);
+
+      logLine('mode: ready — pick a place or press "Fetch & Plot EV"');
+    }
+
+    // ====== OCM HELPERS ======
+    function buildQuery(params){
+      const usp = new URLSearchParams();
+      Object.entries(params).forEach(([k,v])=>usp.set(k,String(v)));
+      return usp.toString();
+    }
+
+    async function fetchOCMNearby(lat, lng, maxresults, distanceKm){
+      const params = {
+        output:'json', latitude:lat, longitude:lng,
+        distance:distanceKm, distanceunit:'KM',
+        maxresults, compact:true, verbose:false
+      };
+      if (OCM_KEY) params.key = OCM_KEY;
+      const url = WORKER_BASE + '?' + buildQuery(params);
+      logLine('OCM: nearby fetch →', url);
+      const t0 = performance.now();
+      const resp = await fetch(url, {cache:'no-cache'});
+      logLine('OCM: status =', resp.status);
+      if(!resp.ok) throw new Error('HTTP '+resp.status);
+      const data = await resp.json();
+      logLine('OCM: items =', (data||[]).length, `in ${(performance.now()-t0|0)}ms`);
+      return (data||[]).map(d=>({
+        id:d.ID,
+        title:d?.AddressInfo?.Title || 'EV Charger',
+        lat:d?.AddressInfo?.Latitude,
+        lng:d?.AddressInfo?.Longitude
+      })).filter(p=>typeof p.lat==='number' && typeof p.lng==='number');
+    }
+
+    // progressive nearby fetch (50 → 200 → 500 km)
+    async function autoFetchNearby(){
+      $('log').textContent = '';
+      $('out').textContent = 'loading…';
+
+      const max = Math.min(Math.max(+($('max').value)||30,1),200);
+      // If no selection yet, use the CURRENT MAP CENTER (not Nigeria fallback)
+      const center = map.getCenter();
+      const start = lastSelected || { lat: center.lat(), lng: center.lng(), name: '(map center)' };
+
+      let pts = [];
+      for (const r of RADIUS_STEPS_KM){
+        logLine(`mode: nearby — ${start.lat.toFixed(4)}, ${start.lng.toFixed(4)} — radius ${r} km`);
+        pts = await fetchOCMNearby(start.lat, start.lng, max, r);
+        if (pts.length){ logLine('nearby: got results with radius', r, 'km'); break; }
+        else logLine('nearby: no results at', r, 'km');
+      }
+
+      logLine('Parsed points =', pts.length);
+      $('out').textContent = JSON.stringify(pts, null, 2);
+      plotPoints(pts);
+    }
+
+    // ====== PLOTTING ======
+    function clearMarkers(){
+      advMarkers.forEach(m => m.map = null);
+      advMarkers = [];
+    }
+
+    function plotPoints(points){
+      clearMarkers();
+      logLine('plot: points =', points.length);
+      const bounds = new google.maps.LatLngBounds();
+      points.forEach((p,i)=>{
+        const pos = {lat:p.lat, lng:p.lng};
+        const m = new google.maps.marker.AdvancedMarkerElement({
+          map, position: pos, title: p.title
+        });
+        advMarkers.push(m);
+        bounds.extend(pos);
+        if (i < 3 || i === points.length-1) {
+          logLine(`marker ${i+1}/${points.length}:`, p.title, `[${p.lat}, ${p.lng}]`);
+        }
+      });
+      if (points.length === 1){
+        map.setCenter({lat:points[0].lat, lng:points[0].lng});
+        map.setZoom(15);
+      } else if (points.length > 1){
+        map.fitBounds(bounds, 40);
+      }
+      logLine('plot: done');
+    }
+
+    // ====== BUTTONS ======
+    async function onFetchClick(){
+      await autoFetchNearby(); // uses lastSelected if present, else map center
+    }
+    function onClearClick(){
+      $('out').textContent = '';
+      clearMarkers();
+      logLine('cleared markers');
+    }
+  </script>
+</head>
+<body>
+  <div id="topbar">
+    <label>Max:
+      <input id="max" type="number" value="30" min="1" max="200" />
+    </label>
+    <button onclick="onFetchClick()">Fetch & Plot EV</button>
+    <button onclick="onClearClick()">Clear</button>
+    <span class="muted">Pick a place → auto-fetch; or press Fetch to use the current map center.</span>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="wrap">
+    <h3 style="margin:8px 0">Debug</h3>
+    <pre id="log"></pre>
+    <pre id="out"></pre>
+  </div>
+
+  <!-- Maps JS with Places + Marker libraries; best practice: loading=async + callback -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ4iCMXOtJMatgcXfoG8RFdw7WZfJwa6Y&libraries=places,marker&callback=initMap&loading=async"
+    async
+  ></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Refraction (Snell’s Law) — Dynamic Touch Graph</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Mobile-first styles (you’ll add this next if you want) -->
+  <link rel="stylesheet" href="mobile.css" />
+</head>
+<body>
+  <main id="app" aria-label="Refraction graph — dynamic and mobile-first">
+    <header class="topbar">
+      <h1>Refraction — θ₂ vs θ₁</h1>
+      <p class="sub">Interactive Snell’s law with touch/drag & synced sliders/inputs (5-decimal precision)</p>
+    </header>
+
+    <!-- ====================== GRAPH ====================== -->
+    <section class="card" aria-labelledby="graph-title">
+      <h2 id="graph-title">Graph</h2>
+
+      <div class="canvas-wrap">
+        <canvas
+          id="snell_canvas"
+          width="320"
+          height="220"
+          aria-label="Refraction θ₂ vs θ₁ graph"
+          data-xlabel="θ₁ (deg)"
+          data-ylabel="θ₂ (deg)"
+        ></canvas>
+      </div>
+
+      <!-- Drag mode controls (no JS required to exist; JS will wire up) -->
+      <fieldset class="drag-modes" aria-labelledby="drag-mode-title">
+        <legend id="drag-mode-title">Drag behavior</legend>
+        <div class="segmented">
+          <label>
+            <input type="radio" name="drag_mode" id="drag_mode_marker" value="marker" checked />
+            <span>Move marker (θ₁)</span>
+          </label>
+          <label>
+            <input type="radio" name="drag_mode" id="drag_mode_n2" value="n2" />
+            <span>Bend line (adjust n₂)</span>
+          </label>
+          <label>
+            <input type="radio" name="drag_mode" id="drag_mode_n1" value="n1" />
+            <span>Bend line (adjust n₁)</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Live readouts and status -->
+      <div class="status">
+        <div class="status-item">
+          <span class="label">Marker</span>
+          <output id="marker_out">(θ₁, θ₂) = (—, —)</output>
+        </div>
+        <div class="status-item">
+          <span class="label">Critical angle</span>
+          <output id="crit_out">—</output>
+        </div>
+        <div class="status-item">
+          <span class="label">Mode</span>
+          <output id="mode_out">Drag to set θ₁</output>
+        </div>
+      </div>
+
+      <div class="note" id="warn_note" role="status" aria-live="polite"></div>
+
+      <div class="helper">
+        <p><strong>Touch/drag on the graph.</strong> In “Move marker” mode, dragging sets <em>θ₁</em> and computes <em>θ₂</em>. In “Bend line” modes, dragging on the curve changes the chosen index (<em>n₁</em> or <em>n₂</em>) so the line passes through the point you drag. Values are rounded to <strong>5 decimals</strong>. If refraction is not possible (total internal reflection), we’ll clamp to the valid region and warn you.</p>
+      </div>
+    </section>
+
+    <!-- ====================== CONTROLS ====================== -->
+    <section class="card" aria-labelledby="controls-title">
+      <h2 id="controls-title">Controls</h2>
+
+      <div class="controls">
+        <!-- n1 -->
+        <label class="ctrl">
+          <div class="ctrl-head">
+            <span>Index n₁ (incident medium)</span>
+            <output id="n1_out">1.00000</output>
+          </div>
+          <input
+            id="n1_slider"
+            type="range"
+            min="1.00000"
+            max="2.50000"
+            step="0.00001"
+            value="1.00000"
+            aria-label="n1 slider"
+          />
+          <div class="pair">
+            <input
+              id="n1_input"
+              type="number"
+              inputmode="decimal"
+              step="0.00001"
+              min="1.00000"
+              max="2.50000"
+              value="1.00000"
+              aria-label="n1 value"
+            />
+            <small>—</small>
+          </div>
+        </label>
+
+        <!-- n2 -->
+        <label class="ctrl">
+          <div class="ctrl-head">
+            <span>Index n₂ (refracting medium)</span>
+            <output id="n2_out">1.50000</output>
+          </div>
+          <input
+            id="n2_slider"
+            type="range"
+            min="1.00000"
+            max="2.50000"
+            step="0.00001"
+            value="1.50000"
+            aria-label="n2 slider"
+          />
+          <div class="pair">
+            <input
+              id="n2_input"
+              type="number"
+              inputmode="decimal"
+              step="0.00001"
+              min="1.00000"
+              max="2.50000"
+              value="1.50000"
+              aria-label="n2 value"
+            />
+            <small>—</small>
+          </div>
+        </label>
+
+        <!-- theta1 -->
+        <label class="ctrl">
+          <div class="ctrl-head">
+            <span>θ₁ (incident angle)</span>
+            <output id="t1_out">0.00000°</output>
+          </div>
+          <input
+            id="t1_slider"
+            type="range"
+            min="0.00000"
+            max="89.99999"
+            step="0.00001"
+            value="0.00000"
+            aria-label="θ1 slider"
+          />
+          <div class="pair">
+            <input
+              id="t1_input"
+              type="number"
+              inputmode="decimal"
+              step="0.00001"
+              min="0.00000"
+              max="89.99999"
+              value="0.00000"
+              aria-label="θ1 value"
+            />
+            <small>°</small>
+          </div>
+        </label>
+
+        <!-- theta2 -->
+        <label class="ctrl">
+          <div class="ctrl-head">
+            <span>θ₂ (refracted angle)</span>
+            <output id="t2_out">0.00000°</output>
+          </div>
+          <input
+            id="t2_slider"
+            type="range"
+            min="0.00000"
+            max="89.99999"
+            step="0.00001"
+            value="0.00000"
+            aria-label="θ2 slider"
+          />
+          <div class="pair">
+            <input
+              id="t2_input"
+              type="number"
+              inputmode="decimal"
+              step="0.00001"
+              min="0.00000"
+              max="89.99999"
+              value="0.00000"
+              aria-label="θ2 value"
+            />
+            <small>°</small>
+          </div>
+        </label>
+
+        <!-- Graph X-axis max (zoom) -->
+        <label class="ctrl">
+          <div class="ctrl-head">
+            <span>θ₁ axis max (zoom)</span>
+            <output id="t1max_out">80.00000°</output>
+          </div>
+          <input
+            id="t1max_slider"
+            type="range"
+            min="10.00000"
+            max="89.99999"
+            step="0.00001"
+            value="80.00000"
+            aria-label="θ1 axis max slider"
+          />
+          <div class="pair">
+            <input
+              id="t1max_input"
+              type="number"
+              inputmode="decimal"
+              step="0.00001"
+              min="10.00000"
+              max="89.99999"
+              value="80.00000"
+              aria-label="θ1 axis max value"
+            />
+            <small>°</small>
+          </div>
+        </label>
+      </div>
+
+      <div class="btns">
+        <button type="button" id="reset_btn" class="primary">Reset</button>
+        <button type="button" id="clear_btn" class="ghost">Clear values</button>
+      </div>
+    </section>
+
+    <!-- ====================== EXPLANATION ====================== -->
+    <section class="card" aria-labelledby="how-title">
+      <h2 id="how-title">How this graph works</h2>
+      <div class="explain">
+        <p>
+          This tool visualizes <strong>Snell’s law</strong>:
+          <code>n₁ · sin(θ₁) = n₂ · sin(θ₂)</code>, which relates the incident angle <code>θ₁</code> in a medium with
+          refractive index <code>n₁</code> to the refracted angle <code>θ₂</code> in a second medium <code>n₂</code>.
+          Angles are measured from the normal (perpendicular) to the interface.
+        </p>
+        <ul>
+          <li><strong>Move marker (θ₁):</strong> Drag anywhere on the graph to set <code>θ₁</code>. The app computes <code>θ₂</code> and keeps everything in sync.</li>
+          <li><strong>Bend line:</strong> Choose “adjust n₂” or “adjust n₁” to drag the line itself. While you drag on the curve, we update the chosen index so the line passes through the dragged point.</li>
+          <li>All values are rounded to <strong>5 decimals</strong> to keep the math and drawing stable.</li>
+          <li>If <code>n₁ &gt; n₂</code>, a <strong>critical angle</strong> appears: <code>θc = asin(n₂/n₁)</code>. For <code>θ₁ &gt; θc</code>, refraction is not possible (total internal reflection); the app limits angles and shows a warning.</li>
+        </ul>
+        <p>
+          Explore how changing media (air ↔ water ↔ glass) and angles affect refraction. Use the zoom control to
+          adjust the θ₁-axis range for fine work near the critical angle.
+        </p>
+      </div>
+    </section>
+
+    <noscript>
+      <p style="padding:12px">This page requires JavaScript (app.js) to render the interactive graph.</p>
+    </noscript>
+  </main>
+
+  <!-- Logic goes here (you’ll add this in the next message) -->
+  <script src="app.js" defer></script>
+</body>
+</html>
