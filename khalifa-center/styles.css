@@ -107,7 +107,7 @@ span { color: #fff; }
 /* ===== Section 0 (animated gradient band) ===== */
 div#section0 {
   width: 100%;
-  height: 94vh;
+  height: 72vh;
   justify-content: space-evenly;
   background: linear-gradient(270deg,
     #CDDC39, #FFC107, #2196F3, #00e1ffd6, #8BC34A, #FF5722);
