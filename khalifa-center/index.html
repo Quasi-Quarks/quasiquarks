@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khalifa Center — Engineering Knowledge to Market</title>
+  <meta name="description" content="Khalifa Center transforms expertise in chemical engineering, physics, electrical engineering, pharmaceuticals, and renewable energy into market-ready innovation for Nigeria." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Khalifa Center — Engineering Knowledge to Market" />
+  <meta property="og:description" content="From lab to market: chemical engineering, physics, electrical engineering, pharmaceuticals, and renewable energy for Nigeria's growth." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://khalifacenter.org/" />
+  <meta property="og:site_name" content="Khalifa Center" />
+
+  <!-- Theme and color system -->
+  <style>
+    :root {
+      --bg: #0b0f14;          /* deep ink */
+      --panel: #0f1620;       /* gunmetal */
+      --muted: #a6b0bb;       /* cool gray */
+      --text: #e9f1f7;        /* near-white */
+      --accent: #15a34a;      /* Nigeria green */
+      --accent-2: #f59e0b;    /* gold */
+      --ring: rgba(21, 163, 74, 0.45);
+      --card: #101924;
+      --border: #1f2a37;
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+      --maxw: 1200px;
+    }
+
+    /* CSS Reset (lightweight) */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(21,163,74,.18), transparent 60%),
+                  radial-gradient(1000px 800px at -10% 10%, rgba(245,158,11,.14), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; color: inherit; }
+
+    /* Utilities */
+    .container { width: min(100% - 2rem, var(--maxw)); margin-inline: auto; }
+    .pill { display:inline-flex; gap:.5rem; align-items:center; padding:.4rem .8rem; border-radius:999px; border:1px solid var(--border); background: rgba(255,255,255,.04); }
+    .tag { font-size:.8rem; color: var(--muted); }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+      padding:.9rem 1.1rem; border:1px solid color-mix(in oklab, var(--accent) 40%, #ffffff 0%);
+      border-radius: 14px; background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 20%, #000 0%), #0a1510);
+      color:#e7ffe8; font-weight: 600; box-shadow: var(--shadow);
+    }
+    .btn:hover { outline: 2px solid var(--ring); }
+    .btn.alt { background: linear-gradient(180deg, color-mix(in oklab, var(--accent-2) 20%, #000 0%), #141008); border-color: color-mix(in oklab, var(--accent-2) 40%, #fff 0%); color: #fff6e6; }
+
+    /* Header */
+    .topbar { border-bottom:1px solid var(--border); background: rgba(16,25,36,.5); backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 50; }
+    .topbar .wrap { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.75rem 0; }
+    .brand { display:flex; align-items:center; gap:.75rem; }
+    .logo {
+      width: 42px; height: 42px; border-radius: 12px; background:
+        conic-gradient(from 0deg, rgba(21,163,74,.9), rgba(245,158,11,.9), rgba(21,163,74,.9));
+      position: relative; box-shadow: 0 6px 22px rgba(21,163,74,.35);
+    }
+    .logo::after { content:""; position:absolute; inset:6px; border-radius:10px; background: radial-gradient(circle at 30% 30%, #1a2f22, #0d1a13 60%); border:1px solid #1c2a22; }
+    .brand h1 { font-size: 1.05rem; margin: 0; letter-spacing:.2px; }
+    .brand small { display:block; color: var(--muted); font-weight:500; margin-top:-2px; }
+
+    /* Nav */
+    nav[aria-label="Primary"] { display:flex; align-items:center; gap:.6rem; }
+    .nav-toggle { display:inline-flex; border:1px solid var(--border); background:#0a111a; padding:.6rem .7rem; border-radius:12px; }
+    .nav-list { display:none; position:fixed; inset:60px 0 auto 0; background:#0b121a; border-top:1px solid var(--border); padding:1rem; }
+    .nav-list a { display:block; padding:.8rem .9rem; border-radius:10px; color: var(--muted); }
+    .nav-list a:hover { background:#0f1823; color: var(--text); }
+    .nav-open .nav-list { display:block; }
+
+    /* Hero */
+    .hero { padding: clamp(2.5rem, 4vw + 1rem, 5rem) 0 2.5rem; position: relative; }
+    .hero-grid { display:grid; gap:1.2rem; }
+    .hero h2 { font-size: clamp(1.6rem, 2.4vw + 1.2rem, 3rem); line-height: 1.1; margin:.2rem 0 .6rem; }
+    .hero p.lead { color: var(--muted); font-size: 1.05rem; }
+    .hero .actions { display:flex; gap:.8rem; flex-wrap: wrap; margin-top: 1rem; }
+
+    .kpi { display:grid; grid-template-columns: repeat(3,1fr); gap:.6rem; margin-top:1.2rem; }
+    .kpi .card { padding: .9rem; border-radius: 14px; border:1px solid var(--border); background: #0c1520; text-align:center; }
+    .kpi .card b { font-size:1.2rem; display:block; }
+    .kpi .card span { color: var(--muted); font-size:.85rem; }
+
+    /* Pillars */
+    .section { padding: 2.5rem 0; }
+    .section h3 { font-size: 1.3rem; margin:.2rem 0 1rem; }
+    .grid { display:grid; gap: 1rem; }
+    .pillars .card { background: var(--card); border:1px solid var(--border); border-radius: var(--radius-lg); padding: 1.1rem; box-shadow: var(--shadow); }
+    .card .head { display:flex; align-items:center; gap:.8rem; margin-bottom:.5rem; }
+    .icon { width: 34px; height:34px; border-radius: 10px; display:grid; place-items:center; background: #0a1a12; border:1px solid #133522; }
+    .card p { color: var(--muted); margin:.4rem 0 0; }
+
+    /* Process */
+    .process { background: linear-gradient(180deg, rgba(14,30,23,.6), rgba(14,20,27,.6)); border-block:1px solid var(--border); }
+    .steps { counter-reset: step; }
+    .steps .step { background: #0c141d; border:1px solid var(--border); border-radius: var(--radius-lg); padding:1rem; position:relative; }
+    .steps .step::before { counter-increment: step; content: counter(step); position:absolute; top:-12px; left:-12px; width:36px; height:36px; border-radius:12px; display:grid; place-items:center; background: #11221a; border:1px solid #183b28; font-weight:700; color:#9ef3b5; box-shadow: var(--shadow); }
+
+    /* Programs */
+    .programs .card { background: linear-gradient(180deg, #0e1822, #0b131c); border:1px solid var(--border); border-radius: var(--radius-lg); padding:1rem; }
+
+    /* CTA band */
+    .cta { background: linear-gradient(90deg, rgba(21,163,74,.12), rgba(245,158,11,.10)); border:1px solid var(--border); border-radius: var(--radius-xl); padding:1.2rem; box-shadow: var(--shadow); }
+
+    /* Footer */
+    footer { border-top:1px solid var(--border); background:#0a1118; padding:2rem 0; margin-top:2rem; }
+    .ft { display:grid; gap:1rem; }
+    .copyright { color: var(--muted); font-size:.9rem; }
+
+    /* Responsive */
+    @media (min-width: 680px) {
+      .hero-grid { grid-template-columns: 1.3fr 1fr; align-items:center; }
+      .kpi { gap:1rem; }
+      .grid.cols-2 { grid-template-columns: repeat(2,1fr); }
+      .grid.cols-3 { grid-template-columns: repeat(3,1fr); }
+      nav[aria-label="Primary"] .nav-list { position: static; display:flex; gap:.4rem; background: transparent; border: none; padding: 0; }
+      .nav-toggle { display:none; }
+      .nav-list a { padding:.6rem .8rem; }
+    }
+    @media (min-width: 1000px) {
+      .grid.cols-4 { grid-template-columns: repeat(4,1fr); }
+    }
+  </style>
+
+  <!-- Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Khalifa Center",
+    "url": "https://khalifacenter.org/",
+    "logo": "https://khalifacenter.org/logo.png",
+    "sameAs": [],
+    "description": "Engineering knowledge to market for Nigeria across chemical engineering, physics, electrical engineering, pharmaceuticals, and renewable energy.",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@khalifacenter.org"
+    }]
+  }
+  </script>
+</head>
+<body>
+  <!-- ================= Header ================= -->
+  <header class="topbar">
+    <div class="container wrap">
+      <a class="brand" href="#home" aria-label="Khalifa Center home">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <h1>Khalifa Center</h1>
+          <small>Engineering Knowledge → Market</small>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" id="navToggle">☰</button>
+        <div class="nav-list" id="nav-list">
+          <a href="#pillars">Expertise</a>
+          <a href="#process">Process</a>
+          <a href="#programs">Programs</a>
+          <a href="#impact">Impact</a>
+          <a href="#contact" class="pill">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= Hero ================= -->
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <section>
+        <span class="pill tag" aria-label="Focus areas"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" opacity=".5"/></svg> Chemical • Physics • Electrical • Pharma • Renewable</span>
+        <h2>Transforming science into <span style="color:var(--accent-2)">deployable solutions</span> for Nigeria’s growth.</h2>
+        <p class="lead">We help researchers, engineers, and firms turn ideas into pilots, pilots into products, and products into impact — across plants, power, and pharmaceuticals.</p>
+        <div class="actions">
+          <a href="#contact" class="btn" aria-label="Book a consultation">Book a consultation</a>
+          <a href="#programs" class="btn alt" aria-label="Explore programs">Explore programs</a>
+        </div>
+
+        <div class="kpi" aria-label="Key figures">
+          <div class="card"><b>5</b><span>Domains of expertise</span></div>
+          <div class="card"><b>Lab → Market</b><span>Tech transfer & pilots</span></div>
+          <div class="card"><b>NG Focus</b><span>Nigeria-centric solutions</span></div>
+        </div>
+      </section>
+
+      <aside aria-label="Hero visual">
+        <div class="cta" role="img" aria-label="Abstract technical map of Nigeria with energy and industry nodes">
+          <h4 style="margin:.2rem 0">Nigeria Innovation Mesh</h4>
+          <p class="tag">Mapping opportunities across energy, pharma, and manufacturing.</p>
+          <svg viewBox="0 0 360 200" width="100%" height="auto" aria-hidden="true">
+            <defs>
+              <radialGradient id="g1" cx="50%" cy="50%" r="70%">
+                <stop offset="0%" stop-color="#19c37d" stop-opacity=".8"/>
+                <stop offset="100%" stop-color="#19c37d" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="360" height="200" rx="18" fill="#0a141d"/>
+            <g opacity=".8">
+              <!-- mesh -->
+              <g stroke="#17323f" stroke-width="1">
+                <!-- verticals -->
+                <path d="M30 20 v160 M60 20 v160 M90 20 v160 M120 20 v160 M150 20 v160 M180 20 v160 M210 20 v160 M240 20 v160 M270 20 v160 M300 20 v160 M330 20 v160" />
+                <!-- horizontals -->
+                <path d="M20 30 h320 M20 60 h320 M20 90 h320 M20 120 h320 M20 150 h320 M20 180 h320" />
+              </g>
+              <!-- hotspots -->
+              <circle cx="85" cy="60" r="8" fill="url(#g1)" />
+              <circle cx="210" cy="95" r="10" fill="url(#g1)" />
+              <circle cx="300" cy="140" r="7" fill="url(#g1)" />
+              <!-- links -->
+              <g stroke="#2dd4bf" stroke-opacity=".6">
+                <path d="M85 60 Q140 75 210 95" />
+                <path d="M210 95 T300 140" />
+                <path d="M85 60 Q120 120 300 140" />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ================= Pillars of Expertise ================= -->
+  <section id="pillars" class="section pillars">
+    <div class="container">
+      <h3>Five pillars of expertise</h3>
+      <div class="grid cols-2 cols-3">
+        <!-- Chemical Engineering -->
+        <article class="card">
+          <div class="head">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M7 3h10M9 3v5l-3 5v6h12v-6l-3-5V3"/></svg>
+            </span>
+            <h4 style="margin:0">Chemical Engineering</h4>
+          </div>
+          <p>Process design, scale-up, reaction engineering, separation, HAZOP, and waste valorization for local industries.</p>
+        </article>
+        <!-- Physics -->
+        <article class="card">
+          <div class="head">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><circle cx="12" cy="12" r="7"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/></svg>
+            </span>
+            <h4 style="margin:0">Physics</h4>
+          </div>
+          <p>Instrumentation, materials, optics, and modeling that underpins energy systems, sensing, and advanced manufacturing.</p>
+        </article>
+        <!-- Electrical Engineering -->
+        <article class="card">
+          <div class="head">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M13 2l-7 12h6l-1 8 7-12h-6z"/></svg>
+            </span>
+            <h4 style="margin:0">Electrical Engineering</h4>
+          </div>
+          <p>Power systems, protection & control, microgrids, EV charging, industrial automation, and grid integration studies.</p>
+        </article>
+        <!-- Pharmaceuticals -->
+        <article class="card">
+          <div class="head">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M4 12a6 6 0 0 1 12 0v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6z"/><path d="M10 10h4"/></svg>
+            </span>
+            <h4 style="margin:0">Pharmaceuticals</h4>
+          </div>
+          <p>GMP-ready processes, QA/QC, formulation, scale-up, documentation, and regulatory pathways for African markets.</p>
+        </article>
+        <!-- Renewable Energy -->
+        <article class="card">
+          <div class="head">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#8ef5a9"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/><circle cx="12" cy="12" r="5"/></svg>
+            </span>
+            <h4 style="margin:0">Renewable Energy</h4>
+          </div>
+          <p>Solar & storage modeling, wind siting, biomass-to-energy, mini-grids, and bankable techno‑economic analyses.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= From Lab to Market (Process) ================= -->
+  <section id="process" class="section process">
+    <div class="container">
+      <h3>From lab to market — an end‑to‑end process</h3>
+      <div class="grid cols-2 steps">
+        <div class="step">
+          <h4 style="margin-top:0">1) Discover</h4>
+          <p class="tag">Opportunity scans • Feasibility • Standards</p>
+          <p>We validate problem–solution fit, regulatory constraints, and local supply chains to de-risk early decisions.</p>
+        </div>
+        <div class="step">
+          <h4 style="margin-top:0">2) Design</h4>
+          <p class="tag">Process & system design • Modeling</p>
+          <p>Detailed models, PFD/P&IDs, electrical one-lines, and physics‑based simulations to predict performance.</p>
+        </div>
+        <div class="step">
+          <h4 style="margin-top:0">3) De‑risk</h4>
+          <p class="tag">Pilots • Instrumentation • QA/QC</p>
+          <p>Pilot plants and testbeds generate real‑world data; we iterate toward spec, cost, safety, and reliability.</p>
+        </div>
+        <div class="step">
+          <h4 style="margin-top:0">4) Deploy</h4>
+          <p class="tag">Tech transfer • Training • Compliance</p>
+          <p>We document SOPs, train teams, and support certification to move from prototype to production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Programs ================= -->
+  <section id="programs" class="section programs">
+    <div class="container">
+      <h3>Flagship programs</h3>
+      <div class="grid cols-2 cols-3">
+        <article class="card">
+          <h4 style="margin-top:0">Tech‑Transfer Clinic</h4>
+          <p>Rapid assessments to convert academic results into protectable IP and commercial pilots.</p>
+          <p class="tag">IP landscaping • TRL mapping • Road‑to‑market</p>
+        </article>
+        <article class="card">
+          <h4 style="margin-top:0">Grid & Energy Systems Lab</h4>
+          <p>Studies for solar, storage, and EV load integration with protection, reliability, and economics.</p>
+          <p class="tag">Load flow • Protection • LCOE • Interconnection</p>
+        </article>
+        <article class="card">
+          <h4 style="margin-top:0">GMP & Pharma Scale‑Up</h4>
+          <p>Formulation transfers, validation protocols, cleanroom workflows, and audit preparation.</p>
+          <p class="tag">GMP • QA/QC • Validation • Dossier</p>
+        </article>
+        <article class="card">
+          <h4 style="margin-top:0">Clean Process & Valorization</h4>
+          <p>Waste‑to‑value pathways for agro‑industrial streams: biogas, ethanol, fertilizers, and materials.</p>
+          <p class="tag">Mass & energy balance • TEA</p>
+        </article>
+        <article class="card">
+          <h4 style="margin-top:0">STEM Workforce & Training</h4>
+          <p>Industry‑ready curricula, labs in a box, and certification workshops for Nigerian universities and SMEs.</p>
+          <p class="tag">Hands‑on labs • Safety • SOPs</p>
+        </article>
+        <article class="card">
+          <h4 style="margin-top:0">Innovation Partnerships</h4>
+          <p>Joint development with manufacturers, utilities, and hospitals to localize resilient supply chains.</p>
+          <p class="tag">Co‑development • Pilots • Scale</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Impact / Contact ================= -->
+  <section id="impact" class="section">
+    <div class="container">
+      <div class="cta">
+        <h3 style="margin-top:0">Bring your idea to life in Nigeria</h3>
+        <p class="tag">We prioritize projects with measurable health, energy, and industrial impact.</p>
+        <div class="actions" style="margin-top:.6rem; display:flex; gap:.6rem; flex-wrap:wrap">
+          <a href="#contact" class="btn" aria-label="Start a project">Start a project</a>
+          <a href="#pillars" class="btn alt" aria-label="See expertise">See expertise</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h3>Contact</h3>
+      <div class="grid cols-2">
+        <div class="card">
+          <p><b>Email:</b> <a href="mailto:hello@khalifacenter.org">hello@khalifacenter.org</a></p>
+          <p><b>Focus:</b> Nigeria‑centric R&D, pilots, training, and tech transfer across five domains.</p>
+          <p class="tag">We typically respond within 2–3 business days.</p>
+        </div>
+        <form class="card" onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you.');" aria-label="Quick contact form">
+          <label>Full name<br><input required name="name" placeholder="Your name" /></label>
+          <label>Email<br><input required type="email" name="email" placeholder="you@example.com" /></label>
+          <label>What do you want to build?<br><textarea name="msg" rows="4" placeholder="Briefly describe your idea or need"></textarea></label>
+          <button class="btn" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer>
+    <div class="container ft">
+      <div>
+        <a class="brand" href="#home" aria-label="Back to top">
+          <span class="logo" aria-hidden="true"></span>
+          <div>
+            <strong>Khalifa Center</strong>
+            <small style="display:block;color:var(--muted)">khalifacenter.org</small>
+          </div>
+        </a>
+      </div>
+      <div class="copyright">© <span id="year"></span> Khalifa Center. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Small enhancements -->
+  <style>
+    form input, form textarea { width:100%; margin:.3rem 0 .8rem; padding:.8rem .9rem; border-radius:12px; background:#0a1118; border:1px solid var(--border); color:var(--text); }
+    form input:focus, form textarea:focus { outline: 2px solid var(--ring); border-color: transparent; }
+  </style>
+  <script>
+    // Accessible mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navList = document.getElementById('nav-list');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        const open = document.body.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
