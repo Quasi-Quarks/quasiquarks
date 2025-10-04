@@ -277,12 +277,13 @@ linear infinite; */
 
 .kc-footer__logo {
     width: 126px;
-    height: 100px;
+    height: 143px;
     border-radius: 14px;
     overflow: hidden;
     position: relative;
     /* box-shadow: 0 8px 24px rgba(0, 0, 0, .35); */
     box-shadow: 2px 2px 16px 2px white;
+    background-size: 100% 100%;
 }
 
 .kc-footer__title {
@@ -371,6 +372,7 @@ ease-in-out infinite;
 
 .kc-social i {
     font-size: 18px;
+    color: white;
 }
 
 .fa-brands, .fab {
