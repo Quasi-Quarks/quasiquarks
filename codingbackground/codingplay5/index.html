@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mobile – Multi Mini Editors (Video + Timeline)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index5.css" />
+</head>
+<body class="state-compact">
+
+  <!-- your menu/header etc above ... -->
+
+  <main class="mainbody" role="main">
+    <div class="body_container_cover">
+      <div class="body_container">
+           <button id="menudisplay" aria-label="Toggle menu">☰</button>
+
+  <!-- Left menu -->
+  <nav class="menuBarstdy" aria-label="Study Menu">
+    <div class="menuHeader">
+      <div class="menuTitle">Study Menu</div>
+    </div>
+
+    <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Set up</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+        <a class="menustudytxt" href="#">Set up</a>
+        <a class="menustudytxt" href="#">Set up on desktop</a>
+        <a class="menustudytxt" href="#">Set up on android</a>
+        <a class="menustudytxt" href="#">Set up on iphone</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <button class="menustudycategory" aria-expanded="false">
+        <span class="menustudytxtheader">What is HTML?</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="What is HTML?">
+        <a class="menustudytxt" href="#">Overview</a>
+        <a class="menustudytxt" href="#">Elements & Tags</a>
+        <a class="menustudytxt" href="#">Attributes</a>
+        <a class="menustudytxt" href="#">Semantic HTML</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <button class="menustudycategory" aria-expanded="false">
+        <span class="menustudytxtheader">How to learn</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="How to learn">
+        <a class="menustudytxt" href="#">Roadmap</a>
+        <a class="menustudytxt" href="#">Practice</a>
+        <a class="menustudytxt" href="#">Projects</a>
+        <a class="menustudytxt" href="#">Resources</a>
+      </div>
+    </div>
+  </nav>
+        <!-- ========== MINI EDITOR #1 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor A</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+        <!-- ========== MINI EDITOR #2 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor B</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    /* ========= Autoload mapping =========
+       [ recordingSrc, nodeIndex (1-based), optionalVideoSrc ]
+       Adjust to your files (use .json). Video is optional.
+    */
+    const AUTO_MAP = [
+      ["recording1.json", 1, "video5.mp4"],
+      ["recording2.json", 2, "video5.mp4"],
+      ["recording3.json", 3] // example for a third editor if you add one
+    ];
+
+    /* ========= Utilities ========= */
+    const fmt = (ms) => {
+      const s = Math.max(0, Math.floor(ms/1000));
+      const m = Math.floor(s/60);
+      const r = s % 60;
+      return `${String(m).padStart(2,'0')}:${String(r).padStart(2,'0')}`;
+    };
+
+    // Turn {line,ch} into offset in a string
+    function posToOffset(text, pos) {
+      const lines = text.split("\n");
+      let off = 0;
+      const L = Math.max(0, Math.min((pos?.line ?? 0), lines.length - 1));
+      for (let i = 0; i < L; i++) off += lines[i].length + 1;
+      const ch = Math.max(0, Math.min((pos?.ch ?? 0), (lines[L]||"").length));
+      return off + ch;
+    }
+    // Apply CodeMirror-style change to plain string
+    function applyChangeToText(text, chg) {
+      const from = posToOffset(text, chg?.from || {line:0, ch:0});
+      const to   = posToOffset(text, chg?.to   || {line:0, ch:0});
+      const ins  = (chg?.text || []).join("\n");
+      return text.slice(0, from) + ins + text.slice(to);
+    }
+
+    /* ========= Player factory (per .menu_editor) ========= */
+    function createMiniPlayer(root){
+      // Elements inside this editor block
+      const btnLoad   = root.querySelector('.btnLoad');
+      const fileJson  = root.querySelector('.fileJson');
+      const btnToggle = root.querySelector('.btnToggle');
+      const btnReset  = root.querySelector('.btnReset');
+      const seek      = root.querySelector('.seek');
+      const timeLabel = root.querySelector('.timeLabel');
+      const statusEl  = root.querySelector('.status');
+
+      const video     = root.querySelector('.editorVideo');
+      const roWrap    = root.querySelector('.roWrap');
+      const editWrap  = root.querySelector('.editWrap');
+      const txtRO     = root.querySelector('.txtReadonly');
+      const txtEdit   = root.querySelector('.txtEdit');
+      const frame     = root.querySelector('.outputFrame');
+
+      // State
+      let events      = [];       // [{time, change:{...}}]
+      let initial     = "";
+      let durationMs  = 0;        // timeline duration (fallback if no video)
+      let appliedIdx  = 0;        // next event to apply
+      let appliedTime = 0;        // last applied time in ms
+      let topCode     = "";       // canonical (readonly)
+      let playing     = false;
+      let rafId       = null;     // for no-video clock
+      let offsetMs    = 0;        // seek base when no video is used
+      let startTs     = 0;        // perf.now() at play when no video
+
+      // Helpers
+      const setStatus = (m) => statusEl.textContent = m || '';
+      const showRO = () => { roWrap.style.display = "";  editWrap.style.display = "none"; };
+      const showED = () => { roWrap.style.display = "none"; editWrap.style.display = "";  };
+      const render = (src) => { frame.srcdoc = src || ""; };
+
+      function recalcDuration(){
+        const lastEventTime = events.length ? (events[events.length-1].time || 0) : 0;
+        const vidMs = isFinite(video?.duration) ? (video.duration * 1000) : 0;
+        durationMs = vidMs || lastEventTime;
+        seek.max = String(Math.max(durationMs, lastEventTime));
+        updateTimeLabel(seek.value);
+      }
+
+      function updateTimeLabel(v){
+        const cur = Number(v||0);
+        const total = Number(seek.max||0);
+        timeLabel.textContent = `${fmt(cur)} / ${fmt(total)}`;
+      }
+
+      function resetEditorsEmpty(){
+        txtRO.value = "";
+        txtEdit.value = "";
+        render("");
+        showED();
+        appliedIdx = 0;
+        appliedTime = 0;
+        topCode = "";
+        seek.value = "0";
+        updateTimeLabel(seek.value);
+        btnToggle.textContent = "▶ Play";
+      }
+
+      function applyForwardUntil(targetMs){
+        // If seeking backwards, rebuild from scratch
+        if (targetMs < appliedTime - 1){
+          appliedIdx  = 0;
+          appliedTime = 0;
+          topCode     = initial || "";
+        }
+        // Apply forward
+        while (appliedIdx < events.length && (events[appliedIdx].time || 0) <= targetMs){
+          topCode = applyChangeToText(topCode, events[appliedIdx].change || {});
+          appliedIdx++;
+        }
+        appliedTime = targetMs;
+        txtRO.value = topCode;
+      }
+
+      function syncPreview(){
+        if (playing){ render(txtRO.value); }
+        else        { render(txtEdit.value); }
+      }
+
+      // --- Playback control ---
+      function play(){
+        if (!events.length){
+          setStatus("Load a JSON recording first.");
+          alert("Load a JSON recording first.");
+          return;
+        }
+        if (playing) return;
+        playing = true;
+        btnToggle.textContent = "❚❚ Pause";
+
+        // When (re)starting, align to current seek time
+        const targetMs = Number(seek.value || 0);
+        applyForwardUntil(targetMs);
+        txtEdit.value = txtRO.value; // sync once (no branching)
+        showRO();                    // readonly visible while playing
+        syncPreview();
+
+        if (video && isFinite(video.duration)){
+          // Use the video as master clock
+          video.currentTime = targetMs / 1000;
+          video.play();
+        } else {
+          // Synthetic clock via RAF
+          offsetMs = targetMs;
+          startTs  = performance.now();
+          const tick = () => {
+            const now = performance.now();
+            const cur = offsetMs + (now - startTs);
+            const capped = Math.min(cur, durationMs);
+            seek.value = String(capped);
+            applyForwardUntil(capped);
+            updateTimeLabel(seek.value);
+            syncPreview();
+            if (playing && capped < durationMs){
+              rafId = requestAnimationFrame(tick);
+            } else {
+              pause(true); // reach end → pause (silent)
+            }
+          };
+          rafId = requestAnimationFrame(tick);
+        }
+      }
+
+      function pause(silent=false){
+        if (!playing && !silent){
+          // even if already paused, keep UX consistent
+          txtEdit.value = txtRO.value;
+          showED();
+          syncPreview();
+          setStatus("Paused.");
+          return;
+        }
+        playing = false;
+        btnToggle.textContent = "▶ Play";
+        if (video) video.pause();
+        if (rafId){ cancelAnimationFrame(rafId); rafId = null; }
+        // On pause: show editable, sync once, preview from editable
+        txtEdit.value = txtRO.value;
+        showED();
+        syncPreview();
+        if (!silent) setStatus("Paused.");
+      }
+
+      function resetKeepJson(){
+        if (video){ video.pause(); video.currentTime = 0; }
+        if (rafId){ cancelAnimationFrame(rafId); rafId = null; }
+        playing = false;
+        appliedIdx = 0;
+        appliedTime = 0;
+        topCode = "";
+        txtRO.value = "";
+        txtEdit.value = "";
+        seek.value = "0";
+        updateTimeLabel(seek.value);
+        showED();
+        render("");
+        btnToggle.textContent = "▶ Play";
+        setStatus(events.length ? "Reset. JSON loaded; press Play to start." : "Reset. No JSON loaded.");
+      }
+
+      // --- Seek handling ---
+      function seekTo(ms){
+        ms = Math.max(0, Math.min(ms, Number(seek.max||0)));
+        seek.value = String(ms);
+        if (video && isFinite(video.duration)){
+          video.currentTime = ms / 1000;
+        }
+        applyForwardUntil(ms);
+        if (!playing){ // paused: preview follows editable
+          txtEdit.value = txtRO.value;
+        }
+        updateTimeLabel(seek.value);
+        syncPreview();
+      }
+
+      // --- JSON loading ---
+      function loadData(data){
+        if (Array.isArray(data)){
+          events = data; initial = "";
+        } else if (data && Array.isArray(data.events)){
+          events = data.events; initial = data.initial || "";
+        } else {
+          throw new Error("Unsupported JSON format.");
+        }
+        // Reset internal state but keep JSON
+        appliedIdx = 0; appliedTime = 0; topCode = initial || "";
+        txtRO.value = ""; txtEdit.value = "";
+        seek.value = "0";
+        recalcDuration();
+        updateTimeLabel(seek.value);
+        render("");
+        showED();
+        setStatus(`Loaded ${events.length} events. Press Play.`);
+      }
+
+      async function fetchJson(url){
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+      }
+
+      // --- Wire UI ---
+      btnLoad.addEventListener('click', () => fileJson.click());
+      fileJson.addEventListener('change', (e) => {
+        const f = e.target.files?.[0];
+        if (!f) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const data = JSON.parse(reader.result);
+            loadData(data);
+          } catch (err){
+            console.error(err);
+            alert("Invalid JSON file.");
+            setStatus("Invalid JSON file.");
+          }
+        };
+        reader.readAsText(f);
+        e.target.value = "";
+      });
+
+      btnToggle.addEventListener('click', () => {
+        if (playing) pause(); else play();
+      });
+
+      btnReset.addEventListener('click', resetKeepJson);
+
+      seek.addEventListener('input', (e) => {
+        const v = Number(e.target.value || 0);
+        seekTo(v);
+      });
+
+      if (video){
+        // Update duration when metadata available
+        video.addEventListener('loadedmetadata', () => {
+          recalcDuration();
+        });
+        // Keep slider in sync with video as master clock during play
+        video.addEventListener('timeupdate', () => {
+          if (!isFinite(video.duration)) return;
+          const ms = video.currentTime * 1000;
+          if (playing){
+            seek.value = String(ms);
+            applyForwardUntil(ms);
+            updateTimeLabel(ms);
+            syncPreview();
+          }
+        });
+        video.addEventListener('ended', () => {
+          pause(true); // silent pause at end
+          seekTo(durationMs);
+        });
+      }
+
+      // Expose a couple helpers to the outside if needed
+      return {
+        loadFromUrl: async (url) => {
+          try{
+            const data = await fetchJson(url);
+            loadData(data);
+          }catch(err){
+            setStatus(`Auto-load failed (${err.message}). Use “Load JSON…”.`);
+          }
+        },
+        setVideoSrc: (src) => { if (video && src) { video.src = src; } },
+        seekTo
+      };
+    }
+
+    /* ========= Instantiate players for each .menu_editor ========= */
+    const editors = Array.from(document.querySelectorAll('.menu_editor')).map(el => createMiniPlayer(el));
+
+    /* ========= Autoload per mapping (1-based index) ========= */
+    (async function autoAttach(){
+      for (const entry of AUTO_MAP){
+        const [recSrc, nodeIndex, vidSrc] = entry;
+        const idx = Number(nodeIndex) - 1;
+        if (!editors[idx]) continue;
+        if (vidSrc) editors[idx].setVideoSrc(vidSrc);
+        // Try to load; if fails (e.g., file://), status will advise manual load
+        editors[idx].loadFromUrl(recSrc);
+      }
+    })();
+  </script>
+</body>
+</html>

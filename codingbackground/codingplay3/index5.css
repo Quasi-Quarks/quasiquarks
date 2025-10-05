@@ -156,7 +156,10 @@
 
     /* ============ Minimal two-textarea editor ============ */
     .menu_editor{
-      background: #1e1e1e; border-color: #333; color: #fff;
+      background: #1e1e1e;
+      border-color: #333;
+      color: #fff;
+      height: 200vh;
     }
     .menu_editor h2{
       margin: 0 0 10px; font-size: 1.1rem; color: #ffd54f;
@@ -184,8 +187,12 @@
     }
     .editor_output{ margin-top: 12px; }
     .editor_output iframe{
-      width: 100%; min-height: 160px;
-      border: 1px solid #555; border-radius: 6px; background: #fff;
+      width: 100%;
+      min-height: 160px;
+      border: 1px solid #555;
+      border-radius: 6px;
+      background: #fff;
+      height: 33vh;
     }
 
     /* ============ Wider phones and up ============ */

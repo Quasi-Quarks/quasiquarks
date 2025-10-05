@@ -349,6 +349,63 @@
       render("");
       setStatus("No JSON loaded.");
     })();
+
+
+     /* ===== 3-state menu toggle (Hidden → 20% → 100%) ===== */
+    (() => {
+      const body = document.body;
+      const btn = document.getElementById('menudisplay');
+      const states = ['hidden','compact','full'];
+
+      const current = Array.from(body.classList).find(c => c.startsWith('state-')) || 'state-compact';
+      let idx = Math.max(0, states.indexOf(current.replace('state-','')));
+      if (idx === -1) idx = 1;
+
+      const apply = () => {
+        states.forEach(s => body.classList.remove('state-' + s));
+        body.classList.add('state-' + states[idx]);
+        btn.setAttribute('aria-label', `Menu: ${states[idx]}. Tap to change`);
+        btn.title = `Menu: ${states[idx]}`;
+      };
+      apply();
+
+      btn.addEventListener('click', () => {
+        idx = (idx + 1) % states.length;
+        apply();
+      });
+
+      // Keyboard: M to cycle, Esc to hide
+      window.addEventListener('keydown', (e) => {
+        if (!e.metaKey && !e.ctrlKey && !e.altKey) {
+          const k = e.key.toLowerCase();
+          if (k === 'm') { idx = (idx + 1) % states.length; apply(); }
+          if (k === 'escape') { idx = 0; apply(); }
+        }
+      });
+    })();
+
+    /* ===== Collapsible categories ===== */
+    (() => {
+      const groups = document.querySelectorAll('.menustudycategorycontainer');
+      groups.forEach(group => {
+        const headerBtn = group.querySelector('.menustudycategory');
+        const panel = group.querySelector('.menustudy');
+
+        const toggle = () => {
+          const isOpen = group.classList.toggle('open');
+          headerBtn.setAttribute('aria-expanded', String(isOpen));
+          if (isOpen) {
+            const firstLink = panel.querySelector('a');
+            if (firstLink) firstLink.focus({ preventScroll: true });
+          }
+        };
+
+        headerBtn.addEventListener('click', (e) => { e.preventDefault(); toggle(); });
+        headerBtn.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+        });
+      });
+    })();
   </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <title>Mobile First – 20% Menu / 80% Body + Mini Editor</title>
   <link rel="stylesheet" href="index5.css" />
+  <link rel="stylesheet" href="mobile.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
@@ -83,7 +84,7 @@
           </div>
 
           <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play · pause · edit · output</div>
-
+          <video>
           <!-- Readonly wrapper (shown only while playing) -->
           <div id="roWrap">
             <label>Read-only (timeline)</label>
@@ -91,13 +92,13 @@
           </div>
 
           <!-- Editable wrapper (shown only while paused) -->
-          <div id="editWrap">
+          <div class="editwrap" id="editWrap">
             <label>Editable (your scratch)</label>
             <textarea id="txtEdit" class="editable"></textarea>
           </div>
 
           <div class="editor_output">
-            <iframe id="outputFrame" sandbox="allow-scripts"></iframe>
+            <iframe class="outputFrame" id="outputFrame" sandbox="allow-scripts"></iframe>
           </div>
         </div>
 
