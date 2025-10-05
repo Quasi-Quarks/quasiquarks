@@ -205,3 +205,22 @@
       #menudisplay{ top: 12px; left: 12px; right: auto; }
       .mainbody{ padding: 62px 16px 18px; }
     }
+
+    /* before */
+body.state-full .menuBarstdy{ width: 100vw; transform: translateX(0); }
+body.state-full .mainbody{ display: none; }
+
+/* after */
+body.state-full .menuBarstdy{
+  width: 100vw;
+  transform: translateX(0);
+  position: fixed;      /* already fixed in your styles; keep it overlay */
+  left: 0; top: 0; right: 0; bottom: 0;
+  z-index: 1001;        /* stays under the ☰ button (which is 1002) */
+}
+body.state-full .mainbody{
+  display: block;       /* keep it visible and alive */
+  margin-left: 0;       /* don’t push layout while overlay is open */
+}
+/* Optional: stop background scroll while overlay is open */
+body.state-full{ overflow: hidden; }
