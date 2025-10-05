@@ -5,8 +5,8 @@
 // ===================== CONFIG: autoload map =====================
 // Each entry: [ recordingJsonUrl, nodeIndex (1-based in .menu_editor list), optionalVideoUrl ]
 const AUTO_MAP = [
-   ["recording1.json", 1, "video5.mp4"],
-  ["recording2.json", 2, "video6.mp4"],
+   ["recording1.json", 2, "video5.mp4"],
+  ["recording2.json", 1, "video6.mp4"],
 ];
 
 // ===================== Utilities =====================
