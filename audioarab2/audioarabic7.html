@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>translate_tts Audio Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <h1>Google translate_tts – Unofficial Audio Demo</h1>
+
+  <label for="lang">Language code (e.g., ar, en, fr, es):</label><br>
+  <input id="lang" type="text" value="ar" style="width:140px;" />
+  <small>Default is Arabic (ar)</small>
+  <br><br>
+
+  <label for="text">Text to speak</label><br>
+  <textarea id="text" rows="5" style="width:100%;">السلام عليكم ورحمة الله وبركاته</textarea>
+  <br><br>
+
+  <button id="enable">🔓 Enable Audio (tap once)</button>
+  <button id="play">🔊 Play</button>
+  <button id="stop">⏹ Stop</button>
+  <span id="status" aria-live="polite" style="margin-left:8px;"></span>
+
+  <div style="margin-top:10px;">
+    <audio id="audio" controls playsinline style="width:100%;"></audio>
+  </div>
+  <p>
+    If playback is blocked, press ▶️ on the player or
+    <a id="openTab" href="#" target="_blank" rel="noopener">open audio in a new tab</a>.
+  </p>
+
+  <details>
+    <summary>Notes & limits</summary>
+    <ul>
+      <li>Unofficial endpoint: <code>https://translate.googleapis.com/translate_tts</code></li>
+      <li>Rough length limit ~200 characters per request. This demo auto-chunks long text.</li>
+      <li>Mobile browsers require a user gesture before audio can play (use “Enable Audio”).</li>
+    </ul>
+  </details>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const langEl = $('#lang');
+  const textEl = $('#text');
+  const enableBtn = $('#enable');
+  const playBtn = $('#play');
+  const stopBtn = $('#stop');
+  const audio = $('#audio');
+  const statusEl = $('#status');
+  const openTab = $('#openTab');
+
+  let audioUnlocked = false;
+
+  function setStatus(msg) { statusEl.textContent = msg || ''; }
+
+  function buildTTSUrl(q, tl) {
+    const params = new URLSearchParams({
+      ie: 'UTF-8',
+      q,
+      tl,           // language code, e.g. ar, en, fr...
+      client: 'gtx' // unofficial web client
+    });
+    return 'https://translate.googleapis.com/translate_tts?' + params.toString();
+  }
+
+  // Simple chunking to stay under ~200 chars (tries to break on spaces)
+  function chunkText(text, maxLen = 180) {
+    const chunks = [];
+    let remaining = text.trim();
+    while (remaining.length > maxLen) {
+      let cut = remaining.lastIndexOf(' ', maxLen);
+      if (cut === -1) cut = maxLen;
+      chunks.push(remaining.slice(0, cut));
+      remaining = remaining.slice(cut).trim();
+    }
+    if (remaining) chunks.push(remaining);
+    return chunks;
+  }
+
+  // Unlock audio on mobile (one gesture)
+  enableBtn.addEventListener('click', async () => {
+    try {
+      audio.muted = true;
+      audio.src = 'data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA'; // tiny silent-ish data
+      await audio.play().catch(()=>{});
+      audio.pause();
+      audio.currentTime = 0;
+      audio.muted = false;
+      audioUnlocked = true;
+      setStatus('Audio enabled.');
+    } catch {
+      audioUnlocked = true;
+      setStatus('Audio enabled (fallback).');
+    }
+  });
+
+  async function playSequence(urls) {
+    for (let i = 0; i < urls.length; i++) {
+      audio.src = urls[i];
+      openTab.href = urls[i];
+      try {
+        // Attempt immediate play within the same click gesture.
+        // If blocked, user can press ▶️ or open in new tab.
+        await audio.play();
+        setStatus(`Playing ${i+1}/${urls.length}…`);
+        await new Promise((res, rej) => {
+          const onEnd = () => { cleanup(); res(); };
+          const onErr = e => { cleanup(); rej(e); };
+          const cleanup = () => {
+            audio.removeEventListener('ended', onEnd);
+            audio.removeEventListener('error', onErr);
+          };
+          audio.addEventListener('ended', onEnd, { once: true });
+          audio.addEventListener('error', onErr, { once: true });
+        });
+      } catch (e) {
+        console.warn('Play blocked or failed:', e);
+        setStatus('Autoplay blocked; press ▶️ or open audio in new tab.');
+        // Stop the sequence; user can manually continue with controls if desired.
+        return;
+      }
+    }
+    setStatus('Done.');
+  }
+
+  playBtn.addEventListener('click', async () => {
+    const tl = (langEl.value || 'ar').trim();
+    const text = textEl.value.trim();
+    if (!text) { setStatus('Enter some text.'); return; }
+
+    const parts = chunkText(text);
+    const urls = parts.map(p => buildTTSUrl(p, tl));
+    openTab.href = urls[0];
+
+    if (!audioUnlocked) {
+      // Even without Enable Audio, attempting play inside this click may still work
+      // due to the user gesture. If it fails, UI tells the user what to do.
+    }
+    audio.pause();
+    audio.currentTime = 0;
+
+    try {
+      await playSequence(urls);
+    } catch (e) {
+      console.error(e);
+      setStatus('Playback error. Try pressing ▶️ on the player or open in new tab.');
+    }
+  });
+
+  stopBtn.addEventListener('click', () => {
+    audio.pause();
+    setStatus('Stopped.');
+  });
+})();
+</script>
+</body>
+</html>
