@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>translate_tts – One-Click Play (Hosted-safe)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <h1>Unofficial translate_tts Audio – One-Click Play</h1>
+
+  <label for="lang">Language code (e.g., ar, en, fr):</label><br>
+  <input id="lang" type="text" value="ar" style="width:140px;" />
+  <small>Default Arabic (ar)</small>
+  <br><br>
+
+  <label for="text">Text to speak</label><br>
+  <textarea id="text" rows="5" style="width:100%;">السلام عليكم ورحمة الله وبركاته</textarea>
+  <br><br>
+
+  <button id="play">🔊 Play Arabic</button>
+  <button id="stop">⏹ Stop</button>
+  <span id="status" aria-live="polite" style="margin-left:8px;"></span>
+
+  <div style="margin-top:10px;">
+    <audio id="audio" playsinline controls style="width:100%;"></audio>
+  </div>
+  <p>
+    If playback is blocked, press ▶️ on the player or
+    <a id="openTab" href="#" target="_blank" rel="noopener">open audio in a new tab</a>.
+  </p>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const langEl = $('#lang');
+  const textEl = $('#text');
+  const playBtn = $('#play');
+  const stopBtn = $('#stop');
+  const audio = $('#audio');
+  const statusEl = $('#status');
+  const openTab = $('#openTab');
+
+  let unlocked = false;
+  let ac = null; // AudioContext
+
+  function setStatus(m){ statusEl.textContent = m || ''; }
+
+  // ---- Utilities ----
+  function buildTTSUrl(q, tl) {
+    const params = new URLSearchParams({
+      ie: 'UTF-8',
+      q,
+      tl,
+      client: 'gtx' // unofficial
+    });
+    return 'https://translate.googleapis.com/translate_tts?' + params.toString();
+  }
+
+  // Chunk ~<=180 chars so translate_tts doesn’t reject long strings
+  function chunkText(text, maxLen = 180) {
+    const parts = [];
+    let remaining = text.trim();
+    while (remaining.length > maxLen) {
+      let cut = remaining.lastIndexOf(' ', maxLen);
+      if (cut === -1) cut = maxLen;
+      parts.push(remaining.slice(0, cut));
+      remaining = remaining.slice(cut).trim();
+    }
+    if (remaining) parts.push(remaining);
+    return parts;
+  }
+
+  // Unlock audio using both strategies in the SAME click:
+  // 1) WebAudio: resume() a context and play a 10ms silent buffer
+  // 2) <audio> trick: play a tiny muted data URI and immediately pause
+  async function unlockAudioOnceInThisGesture() {
+    if (unlocked) return;
+
+    // 1) WebAudio
+    try {
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      if (ac.state === 'suspended') await ac.resume();
+      const buffer = ac.createBuffer(1, 1, 44100);
+      const src = ac.createBufferSource();
+      src.buffer = buffer;
+      src.connect(ac.destination);
+      src.start(0);
+    } catch {}
+
+    // 2) <audio> muted trick
+    try {
+      audio.muted = true;
+      audio.src = 'data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA'; // tiny silent-ish
+      await audio.play().catch(()=>{});
+      audio.pause();
+      audio.currentTime = 0;
+      audio.muted = false;
+    } catch {}
+
+    unlocked = true;
+    setStatus('Audio unlocked.');
+  }
+
+  // Play a sequence of URLs one after the other
+  async function playSequence(urls) {
+    for (let i = 0; i < urls.length; i++) {
+      audio.src = urls[i];
+      openTab.href = urls[i];
+
+      // Important: try to start playback immediately while we're still
+      // in the same user gesture chain (click handler).
+      try {
+        await audio.play();
+        setStatus(`Playing ${i+1}/${urls.length}…`);
+      } catch (e) {
+        console.warn('Immediate play() rejected:', e);
+        setStatus('Autoplay blocked; press ▶️ or open in new tab.');
+        return; // stop the chain; user can press play manually
+      }
+
+      // Wait for this part to finish before continuing
+      await new Promise((resolve, reject) => {
+        const onEnd = () => { cleanup(); resolve(); };
+        const onErr = (err) => { cleanup(); reject(err); };
+        const cleanup = () => {
+          audio.removeEventListener('ended', onEnd);
+          audio.removeEventListener('error', onErr);
+        };
+        audio.addEventListener('ended', onEnd, { once: true });
+        audio.addEventListener('error', onErr, { once: true });
+      });
+    }
+    setStatus('Done.');
+  }
+
+  playBtn.addEventListener('click', async () => {
+    const tl = (langEl.value || 'ar').trim();
+    const text = textEl.value.trim();
+    if (!text) { setStatus('Enter some text.'); return; }
+
+    // Merge unlock + play into THIS click:
+    await unlockAudioOnceInThisGesture();
+
+    const parts = chunkText(text);
+    const urls = parts.map(p => buildTTSUrl(p, tl));
+    openTab.href = urls[0];
+
+    // Start sequence; if Chrome still blocks, user sees fallback message.
+    try {
+      await playSequence(urls);
+    } catch (e) {
+      console.error(e);
+      setStatus('Playback error. Press ▶️ on the player or open audio in new tab.');
+    }
+  });
+
+  stopBtn.addEventListener('click', () => {
+    audio.pause();
+    setStatus('Stopped.');
+  });
+})();
+</script>
+</body>
+</html>
