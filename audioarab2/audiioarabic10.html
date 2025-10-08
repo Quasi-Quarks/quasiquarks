@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>translate_tts — “Feels Local” Short Fix</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+<h1>Unofficial translate_tts – Local-like Playback</h1>
+
+<label for="lang">Language (ar, en, fr…)</label><br>
+<input id="lang" value="ar" style="width:120px" />
+<br><br>
+
+<label for="text">Text</label><br>
+<textarea id="text" rows="5" style="width:100%;">السلام عليكم ورحمة الله وبركاته</textarea>
+<br><br>
+
+<button id="play">🔊 Play</button>
+<button id="stop">⏹ Stop</button>
+<span id="status" aria-live="polite" style="margin-left:8px;"></span>
+
+<div style="margin-top:10px;">
+  <audio id="audio" playsinline preload="auto" controls style="width:100%;" crossorigin="anonymous"></audio>
+</div>
+
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const langEl = $('#lang');
+  const textEl = $('#text');
+  const playBtn = $('#play');
+  const stopBtn = $('#stop');
+  const audio = $('#audio');
+  const statusEl = $('#status');
+
+  let unlocked = false;
+  let ac = null;
+
+  function setStatus(t){ statusEl.textContent = t || ''; }
+
+  // ---- Helpers
+  function chunkText(text, max = 180){
+    const out=[], s=text.trim();
+    let i=0, t=s;
+    while (t.length>max){
+      let cut=t.lastIndexOf(' ', max); if(cut<0) cut=max;
+      out.push(t.slice(0,cut)); t=t.slice(cut).trim();
+    }
+    if(t) out.push(t);
+    return out;
+  }
+
+  function buildUrl(q, tl, client='gtx'){
+    const u = new URL('https://translate.googleapis.com/translate_tts');
+    u.searchParams.set('ie','UTF-8');
+    u.searchParams.set('q', q);
+    u.searchParams.set('tl', tl);
+    u.searchParams.set('client', client);
+    u.searchParams.set('_', Date.now().toString()); // cache-bust
+    return u.toString();
+  }
+
+  async function unlockAudioOnce(){
+    if (unlocked) return;
+    try {
+      ac = ac || new (window.AudioContext||window.webkitAudioContext)();
+      if (ac.state==='suspended') await ac.resume();
+      const b = ac.createBuffer(1,1,44100), s = ac.createBufferSource();
+      s.buffer = b; s.connect(ac.destination); s.start(0);
+    } catch {}
+    try {
+      audio.muted = true;
+      audio.src = 'data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA';
+      await audio.play().catch(()=>{});
+      audio.pause(); audio.currentTime=0; audio.muted=false;
+    } catch {}
+    unlocked = true;
+    setStatus('Audio unlocked.');
+  }
+
+  function waitForCanPlay(el, ms=2500){
+    return new Promise((res, rej)=>{
+      const to = setTimeout(()=>{cleanup(); rej(new Error('canplay timeout'))}, ms);
+      const ok = ()=>{cleanup(); res();};
+      const er = (e)=>{cleanup(); rej(e||new Error('audio error'));};
+      function cleanup(){ clearTimeout(to); el.removeEventListener('canplay', ok); el.removeEventListener('error', er); }
+      el.addEventListener('canplay', ok, {once:true});
+      el.addEventListener('error', er, {once:true});
+      try { el.load(); } catch {}
+    });
+  }
+
+  async function tryDirect(url){
+    audio.pause(); audio.removeAttribute('src');
+    audio.src = url;
+    await waitForCanPlay(audio);
+    await audio.play();
+  }
+
+  async function tryBlob(url){
+    const res = await fetch(url, { referrerPolicy: 'no-referrer' });
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    const blob = await res.blob(); // audio/mpeg
+    const obj = URL.createObjectURL(blob);
+    audio.pause(); audio.removeAttribute('src');
+    audio.src = obj;
+    await waitForCanPlay(audio);
+    await audio.play();
+    audio.addEventListener('ended', ()=> URL.revokeObjectURL(obj), {once:true});
+  }
+
+  async function blobToDataURL(url){
+    const res = await fetch(url, { referrerPolicy: 'no-referrer' });
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    const blob = await res.blob();
+    const dataUrl = await new Promise((resolve, reject)=>{
+      const fr = new FileReader();
+      fr.onerror = reject;
+      fr.onload = ()=> resolve(fr.result);
+      fr.readAsDataURL(blob);
+    });
+    audio.pause(); audio.removeAttribute('src');
+    audio.src = dataUrl;  // behaves very "local"
+    await waitForCanPlay(audio);
+    await audio.play();
+  }
+
+  async function playOneChunk(text, tl){
+    const variants = [
+      buildUrl(text, tl, 'gtx'),
+      buildUrl(text, tl, 'tw-ob'),
+    ];
+
+    // 1) Direct URL tries
+    for (const u of variants){
+      try { await tryDirect(u); return; } catch(e){}
+    }
+    // 2) Blob URL tries
+    for (const u of variants){
+      try { await tryBlob(u); return; } catch(e){}
+    }
+    // 3) Data URL (most “local-like”)
+    for (const u of variants){
+      try { await blobToDataURL(u); return; } catch(e){}
+    }
+
+    // 4) Last resort: force a new tab so the user can hit ▶️
+    const u = variants[0];
+    window.open(u, '_blank', 'noopener');
+    throw new Error('Opened in new tab fallback.');
+  }
+
+  async function playSequence(parts, tl){
+    for (let i=0;i<parts.length;i++){
+      setStatus(`Loading ${i+1}/${parts.length}…`);
+      try {
+        await playOneChunk(parts[i], tl);
+        setStatus(`Playing ${i+1}/${parts.length}…`);
+        await new Promise((resolve, reject)=>{
+          const end=()=>{cleanup(); resolve();};
+          const err=(e)=>{cleanup(); reject(e||new Error('audio error'));};
+          function cleanup(){ audio.removeEventListener('ended', end); audio.removeEventListener('error', err); }
+          audio.addEventListener('ended', end, {once:true});
+          audio.addEventListener('error', err, {once:true});
+        });
+      } catch (e) {
+        setStatus('Playback blocked or failed. Use the player ▶️ or the new tab.');
+        return;
+      }
+    }
+    setStatus('Done.');
+  }
+
+  playBtn.addEventListener('click', async ()=>{
+    const tl = (langEl.value||'ar').trim();
+    const text = textEl.value.trim();
+    if (!text){ setStatus('Enter some text.'); return; }
+
+    await unlockAudioOnce(); // merge unlock+play into same gesture
+
+    const parts = chunkText(text);
+    try { await playSequence(parts, tl); }
+    catch(e){ console.warn(e); setStatus('Fallback used.'); }
+  });
+
+  stopBtn.addEventListener('click', ()=>{ audio.pause(); setStatus('Stopped.'); });
+})();
+</script>
+</body>
+</html>
