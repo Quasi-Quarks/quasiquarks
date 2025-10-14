@@ -1,0 +1,2342 @@
+
+
+[
+  {
+    "base_verb": { "en": "pass", "ar": "يَمُرُّ", "ar_tr": "yamurru" },
+    "third_person_singular": { "en": "passes", "ar": "يَمُرُّ", "ar_tr": "yamurru" },
+    "present_participle": { "en": "passing", "ar": "يَمُرُّ", "ar_tr": "yamurru" },
+    "past_tense": { "en": "passed", "ar": "مَرَّ", "ar_tr": "marra" },
+    "related_noun": { "en": "pass", "ar": "تَمْرِيرَة", "ar_tr": "tamrīrah" },
+    "related_adjective": { "en": "passing", "ar": "عَابِر", "ar_tr": "ʿābir" },
+    "tags": ["intransitive","action_physical","dynamic","process","(can_be_transitive_in_sports)"]
+  },
+  {
+    "base_verb": { "en": "change", "ar": "يُغَيِّرُ", "ar_tr": "yughayyiru" },
+    "third_person_singular": { "en": "changes", "ar": "يُغَيِّرُ", "ar_tr": "yughayyiru" },
+    "present_participle": { "en": "changing", "ar": "يُغَيِّرُ", "ar_tr": "yughayyiru" },
+    "past_tense": { "en": "changed", "ar": "غَيَّرَ", "ar_tr": "ghayyara" },
+    "related_noun": { "en": "change", "ar": "تَغْيِير", "ar_tr": "taghyīr" },
+    "related_adjective": { "en": "changed", "ar": "مُتَغَيِّر", "ar_tr": "mutaghayyir" },
+    "tags": ["transitive","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "visit", "ar": "يَزُورُ", "ar_tr": "yazūru" },
+    "third_person_singular": { "en": "visits", "ar": "يَزُورُ", "ar_tr": "yazūru" },
+    "present_participle": { "en": "visiting", "ar": "يَزُورُ", "ar_tr": "yazūru" },
+    "past_tense": { "en": "visited", "ar": "زَارَ", "ar_tr": "zāra" },
+    "related_noun": { "en": "visit", "ar": "زِيَارَة", "ar_tr": "ziyārah" },
+    "related_adjective": { "en": "visiting", "ar": "زَائِر", "ar_tr": "zāʾir" },
+    "tags": ["transitive","action_physical","dynamic","social"]
+  },
+  {
+    "base_verb": { "en": "leave", "ar": "يُغَادِرُ", "ar_tr": "yughādiru" },
+    "third_person_singular": { "en": "leaves", "ar": "يُغَادِرُ", "ar_tr": "yughādiru" },
+    "present_participle": { "en": "leaving", "ar": "يُغَادِرُ", "ar_tr": "yughādiru" },
+    "past_tense": { "en": "left", "ar": "غَادَرَ", "ar_tr": "ghādara" },
+    "related_noun": { "en": "leave", "ar": "مُغَادَرَة", "ar_tr": "mughādarah" },
+    "related_adjective": { "en": "left", "ar": "مُغَادِر", "ar_tr": "mughādir" },
+    "tags": ["transitive","intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "play", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "third_person_singular": { "en": "plays", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "present_participle": { "en": "playing", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "past_tense": { "en": "played", "ar": "لَعِبَ", "ar_tr": "laʿiba" },
+    "related_noun": { "en": "player", "ar": "لاَعِب", "ar_tr": "lāʿib" },
+    "related_adjective": { "en": "playing", "ar": "لاَعِب", "ar_tr": "lāʿib" },
+    "tags": ["intransitive","action_physical","dynamic","recreation"]
+  },
+  {
+    "base_verb": { "en": "pull", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "third_person_singular": { "en": "pulls", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "present_participle": { "en": "pulling", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "past_tense": { "en": "pulled", "ar": "سَحَبَ", "ar_tr": "saḥaba" },
+    "related_noun": { "en": "pull", "ar": "سَحْب", "ar_tr": "saḥb" },
+    "related_adjective": { "en": "pulled", "ar": "مَسْحُوب", "ar_tr": "masḥūb" },
+    "tags": ["transitive","action_physical","dynamic","force"]
+  },
+  {
+    "base_verb": { "en": "hope", "ar": "يَأْمُلُ", "ar_tr": "yaʾmulu" },
+    "third_person_singular": { "en": "hopes", "ar": "يَأْمُلُ", "ar_tr": "yaʾmulu" },
+    "present_participle": { "en": "hoping", "ar": "يَأْمُلُ", "ar_tr": "yaʾmulu" },
+    "past_tense": { "en": "hoped", "ar": "أَمَلَ", "ar_tr": "ʾamala" },
+    "related_noun": { "en": "hope", "ar": "أَمَل", "ar_tr": "ʾamal" },
+    "related_adjective": { "en": "hopeful", "ar": "مُتَفَائِل", "ar_tr": "mutafāʾil" },
+    "tags": ["action_mental","intransitive","stative_dynamic_mixed","emotion"]
+  },
+  {
+    "base_verb": { "en": "do", "ar": "يَفْعَلُ", "ar_tr": "yafʿalu" },
+    "third_person_singular": { "en": "does", "ar": "يَفْعَلُ", "ar_tr": "yafʿalu" },
+    "present_participle": { "en": "doing", "ar": "يَفْعَلُ", "ar_tr": "yafʿalu" },
+    "past_tense": { "en": "did", "ar": "فَعَلَ", "ar_tr": "faʿala" },
+    "related_noun": { "en": "deed", "ar": "فِعْل", "ar_tr": "fiʿl" },
+    "related_adjective": { "en": "done", "ar": "مَفْعُول", "ar_tr": "mafʿūl" },
+    "tags": ["transitive","intransitive","dynamic","light_verb"]
+  },
+  {
+    "base_verb": { "en": "reach", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "third_person_singular": { "en": "reaches", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "present_participle": { "en": "reaching", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "past_tense": { "en": "reached", "ar": "وَصَلَ", "ar_tr": "waṣala" },
+    "related_noun": { "en": "reach", "ar": "وُصُول", "ar_tr": "wuṣūl" },
+    "related_adjective": { "en": "reachable", "ar": "يُمْكِنُ الوُصُولُ إِلَيْهِ", "ar_tr": "yumkinu l-wuṣūlu ilayh" },
+    "tags": ["intransitive","dynamic","goal_directed"]
+  },
+  {
+    "base_verb": { "en": "go", "ar": "يَذْهَبُ", "ar_tr": "yadhhabu" },
+    "third_person_singular": { "en": "goes", "ar": "يَذْهَبُ", "ar_tr": "yadhhabu" },
+    "present_participle": { "en": "going", "ar": "يَذْهَبُ", "ar_tr": "yadhhabu" },
+    "past_tense": { "en": "went", "ar": "ذَهَبَ", "ar_tr": "dhahaba" },
+    "related_noun": { "en": "going", "ar": "ذَهَاب", "ar_tr": "dhahāb" },
+    "related_adjective": { "en": "gone", "ar": "ذَاهِب", "ar_tr": "dhāhib" },
+    "tags": ["intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "can", "ar": "يَسْتَطِيعُ", "ar_tr": "yastaṭīʿu" },
+    "third_person_singular": { "en": "can", "ar": "يَسْتَطِيعُ", "ar_tr": "yastaṭīʿu" },
+    "present_participle": null,
+    "past_tense": { "en": "could", "ar": "اِسْتَطَاعَ", "ar_tr": "istaṭāʿa" },
+    "related_noun": { "en": "ability", "ar": "قُدْرَة", "ar_tr": "qudra" },
+    "related_adjective": { "en": "able", "ar": "قَادِر", "ar_tr": "qādir" },
+    "tags": ["modal","stative","ability"]
+  },
+  {
+    "base_verb": { "en": "fold", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "third_person_singular": { "en": "folds", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "present_participle": { "en": "folding", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "past_tense": { "en": "folded", "ar": "طَوَى", "ar_tr": "ṭawā" },
+    "related_noun": { "en": "fold", "ar": "طَيَّة", "ar_tr": "ṭayyah" },
+    "related_adjective": { "en": "folded", "ar": "مَطْوِيّ", "ar_tr": "maṭwiyy" },
+    "tags": ["transitive","action_physical","dynamic","manipulation"]
+  },
+  {
+    "base_verb": { "en": "like", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "third_person_singular": { "en": "likes", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "present_participle": { "en": "liking", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "past_tense": { "en": "liked", "ar": "أَحَبَّ", "ar_tr": "aḥabba" },
+    "related_noun": { "en": "liking", "ar": "مَحَبَّة", "ar_tr": "maḥabbah" },
+    "related_adjective": { "en": "liked", "ar": "مَحْبُوب", "ar_tr": "maḥbūb" },
+    "tags": ["action_mental","transitive","stative"]
+  },
+  {
+    "base_verb": { "en": "pour", "ar": "يَصُبُّ", "ar_tr": "yaṣubbu" },
+    "third_person_singular": { "en": "pours", "ar": "يَصُبُّ", "ar_tr": "yaṣubbu" },
+    "present_participle": { "en": "pouring", "ar": "يَصُبُّ", "ar_tr": "yaṣubbu" },
+    "past_tense": { "en": "poured", "ar": "صَبَّ", "ar_tr": "ṣabba" },
+    "related_noun": { "en": "pour", "ar": "صَبّ", "ar_tr": "ṣabb" },
+    "related_adjective": { "en": "poured", "ar": "مَصْبُوب", "ar_tr": "maṣbūb" },
+    "tags": ["transitive","action_physical","dynamic","liquid"]
+  },
+  {
+    "base_verb": { "en": "squeeze", "ar": "يَعْصِرُ", "ar_tr": "yaʿṣiru" },
+    "third_person_singular": { "en": "squeezes", "ar": "يَعْصِرُ", "ar_tr": "yaʿṣiru" },
+    "present_participle": { "en": "squeezing", "ar": "يَعْصِرُ", "ar_tr": "yaʿṣiru" },
+    "past_tense": { "en": "squeezed", "ar": "عَصَرَ", "ar_tr": "ʿaṣara" },
+    "related_noun": { "en": "squeeze", "ar": "عَصْر", "ar_tr": "ʿaṣr" },
+    "related_adjective": { "en": "squeezed", "ar": "مَعْصُور", "ar_tr": "maʿṣūr" },
+    "tags": ["transitive","action_physical","dynamic","manipulation"]
+  },
+  {
+    "base_verb": { "en": "hit", "ar": "يَضْرِبُ", "ar_tr": "yaḍribu" },
+    "third_person_singular": { "en": "hits", "ar": "يَضْرِبُ", "ar_tr": "yaḍribu" },
+    "present_participle": { "en": "hitting", "ar": "يَضْرِبُ", "ar_tr": "yaḍribu" },
+    "past_tense": { "en": "hit", "ar": "ضَرَبَ", "ar_tr": "ḍaraba" },
+    "related_noun": { "en": "hit", "ar": "ضَرْبَة", "ar_tr": "ḍarbah" },
+    "related_adjective": { "en": "hit", "ar": "مَضْرُوب", "ar_tr": "maḍrūb" },
+    "tags": ["transitive","intransitive","action_physical","dynamic","impact"]
+  },
+  {
+    "base_verb": { "en": "blow", "ar": "يَنْفُخُ", "ar_tr": "yanfukhu" },
+    "third_person_singular": { "en": "blows", "ar": "يَنْفُخُ", "ar_tr": "yanfukhu" },
+    "present_participle": { "en": "blowing", "ar": "يَنْفُخُ", "ar_tr": "yanfukhu" },
+    "past_tense": { "en": "blew", "ar": "نَفَخَ", "ar_tr": "nafakha" },
+    "related_noun": { "en": "blow", "ar": "نَفْخَة", "ar_tr": "nafkha" },
+    "related_adjective": { "en": "blown", "ar": "مَنْفُوخ", "ar_tr": "manfūkh" },
+    "tags": ["intransitive","transitive","action_physical","dynamic","air"]
+  },
+  {
+    "base_verb": { "en": "paintbrush", "ar": "يَرْسُمُ بِالفُرْشَاة", "ar_tr": "yarsumu bil-furshāh" },
+    "third_person_singular": { "en": "paintbrushes", "ar": "يَرْسُمُ بِالفُرْشَاة", "ar_tr": "yarsumu bil-furshāh" },
+    "present_participle": { "en": "paintbrushing", "ar": "يَرْسُمُ بِالفُرْشَاة", "ar_tr": "yarsumu bil-furshāh" },
+    "past_tense": { "en": "paintbrushed", "ar": "رَسَمَ بِالفُرْشَاة", "ar_tr": "rasama bil-furshāh" },
+    "related_noun": { "en": "paintbrush", "ar": "فُرْشَاة رَسْم", "ar_tr": "furshāt rasm" },
+    "related_adjective": { "en": "painted", "ar": "مَرْسُوم", "ar_tr": "marsūm" },
+    "tags": ["transitive","action_physical","dynamic","tool_use","(nonstandard_verb_phrase)"]
+  },
+  {
+    "base_verb": { "en": "speak", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "third_person_singular": { "en": "speaks", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "present_participle": { "en": "speaking", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "past_tense": { "en": "spoke", "ar": "تَحَدَّثَ", "ar_tr": "taḥaddatha" },
+    "related_noun": { "en": "speaker", "ar": "مُتَحَدِّث", "ar_tr": "mutaḥaddith" },
+    "related_adjective": { "en": "spoken", "ar": "مَنْطُوق", "ar_tr": "manṭūq" },
+    "tags": ["intransitive","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "resume", "ar": "يَسْتَأْنِفُ", "ar_tr": "yastaʾnifu" },
+    "third_person_singular": { "en": "resumes", "ar": "يَسْتَأْنِفُ", "ar_tr": "yastaʾnifu" },
+    "present_participle": { "en": "resuming", "ar": "يَسْتَأْنِفُ", "ar_tr": "yastaʾnifu" },
+    "past_tense": { "en": "resumed", "ar": "اِسْتَأْنَفَ", "ar_tr": "istaʾnafa" },
+    "related_noun": { "en": "resumption", "ar": "اِسْتِئْنَاف", "ar_tr": "istiʾnāf" },
+    "related_adjective": { "en": "resumed", "ar": "مُسْتَأْنَف", "ar_tr": "mustaʾnaf" },
+    "tags": ["transitive","dynamic","process_restart"]
+  },
+  {
+    "base_verb": { "en": "progress", "ar": "يَتَقَدَّمُ", "ar_tr": "yataqaddamu" },
+    "third_person_singular": { "en": "progresses", "ar": "يَتَقَدَّمُ", "ar_tr": "yataqaddamu" },
+    "present_participle": { "en": "progressing", "ar": "يَتَقَدَّمُ", "ar_tr": "yataqaddamu" },
+    "past_tense": { "en": "progressed", "ar": "تَقَدَّمَ", "ar_tr": "taqaddama" },
+    "related_noun": { "en": "progress", "ar": "تَقَدُّم", "ar_tr": "taqaddum" },
+    "related_adjective": { "en": "progressive", "ar": "تَقَدُّمِيّ", "ar_tr": "taqaddumiyy" },
+    "tags": ["intransitive","dynamic","process","improvement"]
+  },
+  {
+    "base_verb": { "en": "connect", "ar": "يَتَّصِلُ", "ar_tr": "yattaṣilu" },
+    "third_person_singular": { "en": "connects", "ar": "يَتَّصِلُ", "ar_tr": "yattaṣilu" },
+    "present_participle": { "en": "connecting", "ar": "يَتَّصِلُ", "ar_tr": "yattaṣilu" },
+    "past_tense": { "en": "connected", "ar": "اِتَّصَلَ", "ar_tr": "ittaṣala" },
+    "related_noun": { "en": "connection", "ar": "اِتِّصَال", "ar_tr": "ittiṣāl" },
+    "related_adjective": { "en": "connected", "ar": "مُتَّصِل", "ar_tr": "muttaṣil" },
+    "tags": ["intransitive","relational","dynamic","linking"]
+  },
+  {
+    "base_verb": { "en": "cause", "ar": "يُسَبِّبُ", "ar_tr": "yusabbibu" },
+    "third_person_singular": { "en": "causes", "ar": "يُسَبِّبُ", "ar_tr": "yusabbibu" },
+    "present_participle": { "en": "causing", "ar": "يُسَبِّبُ", "ar_tr": "yusabbibu" },
+    "past_tense": { "en": "caused", "ar": "سَبَّبَ", "ar_tr": "sabbaba" },
+    "related_noun": { "en": "cause", "ar": "سَبَب", "ar_tr": "sabab" },
+    "related_adjective": { "en": "caused", "ar": "مُسَبَّب", "ar_tr": "musabbab" },
+    "tags": ["transitive","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "enjoy", "ar": "يَسْتَمْتِعُ", "ar_tr": "yastamtiʿu" },
+    "third_person_singular": { "en": "enjoys", "ar": "يَسْتَمْتِعُ", "ar_tr": "yastamtiʿu" },
+    "present_participle": { "en": "enjoying", "ar": "يَسْتَمْتِعُ", "ar_tr": "yastamtiʿu" },
+    "past_tense": { "en": "enjoyed", "ar": "اِسْتَمْتَعَ", "ar_tr": "istamtaʿa" },
+    "related_noun": { "en": "enjoyment", "ar": "مُتْعَة", "ar_tr": "mutʿah" },
+    "related_adjective": { "en": "enjoyable", "ar": "مُمْتِع", "ar_tr": "mumtiʿ" },
+    "tags": ["action_mental","transitive","stative_dynamic_mixed","emotion"]
+  },
+  {
+    "base_verb": { "en": "catch", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "third_person_singular": { "en": "catches", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "present_participle": { "en": "catching", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "past_tense": { "en": "caught", "ar": "أَمْسَكَ", "ar_tr": "amsaka" },
+    "related_noun": { "en": "catch", "ar": "إمْسَاك", "ar_tr": "imsāk" },
+    "related_adjective": { "en": "caught", "ar": "مُمْسَك", "ar_tr": "mumsak" },
+    "tags": ["transitive","action_physical","dynamic","capture"]
+  },
+  {
+    "base_verb": { "en": "protect", "ar": "يَحْمِي", "ar_tr": "yaḥmī" },
+    "third_person_singular": { "en": "protects", "ar": "يَحْمِي", "ar_tr": "yaḥmī" },
+    "present_participle": { "en": "protecting", "ar": "يَحْمِي", "ar_tr": "yaḥmī" },
+    "past_tense": { "en": "protected", "ar": "حَمَى", "ar_tr": "ḥamā" },
+    "related_noun": { "en": "protection", "ar": "حِمَايَة", "ar_tr": "ḥimāyah" },
+    "related_adjective": { "en": "protected", "ar": "مَحْمِيّ", "ar_tr": "maḥmiyy" },
+    "tags": ["transitive","action_physical","dynamic","defense"]
+  },
+  {
+    "base_verb": { "en": "look", "ar": "يَنْظُرُ", "ar_tr": "yanẓuru" },
+    "third_person_singular": { "en": "looks", "ar": "يَنْظُرُ", "ar_tr": "yanẓuru" },
+    "present_participle": { "en": "looking", "ar": "يَنْظُرُ", "ar_tr": "yanẓuru" },
+    "past_tense": { "en": "looked", "ar": "نَظَرَ", "ar_tr": "naẓara" },
+    "related_noun": { "en": "look", "ar": "نَظْرَة", "ar_tr": "naẓrah" },
+    "related_adjective": { "en": "looking", "ar": "نَاظِر", "ar_tr": "nāẓir" },
+    "tags": ["intransitive","perception","stative_dynamic_mixed"]
+  },
+  {
+    "base_verb": { "en": "work", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "third_person_singular": { "en": "works", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "present_participle": { "en": "working", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "past_tense": { "en": "worked", "ar": "عَمِلَ", "ar_tr": "ʿamila" },
+    "related_noun": { "en": "work", "ar": "عَمَل", "ar_tr": "ʿamal" },
+    "related_adjective": { "en": "working", "ar": "عَامِل", "ar_tr": "ʿāmil" },
+    "tags": ["intransitive","dynamic","process","employment"]
+  },
+  {
+    "base_verb": { "en": "put", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "third_person_singular": { "en": "puts", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "present_participle": { "en": "putting", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "past_tense": { "en": "put", "ar": "وَضَعَ", "ar_tr": "waḍaʿa" },
+    "related_noun": { "en": "placement", "ar": "وَضْع", "ar_tr": "waḍʿ" },
+    "related_adjective": { "en": "put", "ar": "مَوْضُوع", "ar_tr": "mawḍūʿ" },
+    "tags": ["transitive","action_physical","dynamic","placement"]
+  }
+]
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1
+[
+  {
+    "base_verb": { "en": "ride", "ar": "يَرْكَبُ" },
+    "third_person_singular": { "en": "rides", "ar": "يَرْكَبُ" },
+    "present_participle": { "en": "riding", "ar": "يَرْكَبُ" },
+    "past_tense": { "en": "rode", "ar": "رَكِبَ" },
+    "related_noun": { "en": "ride", "ar": "رُكُوب" },
+    "related_adjective": { "en": "ridden", "ar": "مَرْكُوب" }
+  },
+  {
+    "base_verb": { "en": "come", "ar": "يَأْتِي" },
+    "third_person_singular": { "en": "comes", "ar": "يَأْتِي" },
+    "present_participle": { "en": "coming", "ar": "يَأْتِي" },
+    "past_tense": { "en": "came", "ar": "أَتَى" },
+    "related_noun": { "en": "coming", "ar": "مَجِيء" },
+    "related_adjective": { "en": "coming", "ar": "قَادِم" }
+  },
+  {
+    "base_verb": { "en": "take", "ar": "يَأْخُذُ" },
+    "third_person_singular": { "en": "takes", "ar": "يَأْخُذُ" },
+    "present_participle": { "en": "taking", "ar": "يَأْخُذُ" },
+    "past_tense": { "en": "took", "ar": "أَخَذَ" },
+    "related_noun": { "en": "take", "ar": "أَخْذ" },
+    "related_adjective": { "en": "taken", "ar": "مَأْخُوذ" }
+  },
+  {
+    "base_verb": { "en": "dry", "ar": "يُجَفِّفُ" },
+    "third_person_singular": { "en": "dries", "ar": "يُجَفِّفُ" },
+    "present_participle": { "en": "drying", "ar": "يُجَفِّفُ" },
+    "past_tense": { "en": "dried", "ar": "جَفَّفَ" },
+    "related_noun": { "en": "dryness", "ar": "جَفَاف" },
+    "related_adjective": { "en": "dry", "ar": "جَافّ" }
+  },
+  {
+    "base_verb": { "en": "apply", "ar": "يُطَبِّقُ" },
+    "third_person_singular": { "en": "applies", "ar": "يُطَبِّقُ" },
+    "present_participle": { "en": "applying", "ar": "يُطَبِّقُ" },
+    "past_tense": { "en": "applied", "ar": "طَبَّقَ" },
+    "related_noun": { "en": "application", "ar": "تَطْبِيق" },
+    "related_adjective": { "en": "applied", "ar": "مُطَبَّق" }
+  },
+  {
+    "base_verb": { "en": "jump", "ar": "يَقْفِزُ" },
+    "third_person_singular": { "en": "jumps", "ar": "يَقْفِزُ" },
+    "present_participle": { "en": "jumping", "ar": "يَقْفِزُ" },
+    "past_tense": { "en": "jumped", "ar": "قَفَزَ" },
+    "related_noun": { "en": "jump", "ar": "قَفْزَة" },
+    "related_adjective": { "en": "jumping", "ar": "قَافِز" }
+  },
+  {
+    "base_verb": { "en": "crowd", "ar": "يَحْتَشِدُ" },
+    "third_person_singular": { "en": "crowds", "ar": "يَحْتَشِدُ" },
+    "present_participle": { "en": "crowding", "ar": "يَحْتَشِدُ" },
+    "past_tense": { "en": "crowded", "ar": "اِحْتَشَدَ" },
+    "related_noun": { "en": "crowd", "ar": "حَشْد" },
+    "related_adjective": { "en": "crowded", "ar": "مُزْدَحِم" }
+  },
+  {
+    "base_verb": { "en": "answer", "ar": "يُجِيبُ" },
+    "third_person_singular": { "en": "answers", "ar": "يُجِيبُ" },
+    "present_participle": { "en": "answering", "ar": "يُجِيبُ" },
+    "past_tense": { "en": "answered", "ar": "أَجَابَ" },
+    "related_noun": { "en": "answer", "ar": "إِجَابَة" },
+    "related_adjective": { "en": "answered", "ar": "مُجَاب" }
+  },
+  {
+    "base_verb": { "en": "teach", "ar": "يُعَلِّمُ" },
+    "third_person_singular": { "en": "teaches", "ar": "يُعَلِّمُ" },
+    "present_participle": { "en": "teaching", "ar": "يُعَلِّمُ" },
+    "past_tense": { "en": "taught", "ar": "عَلَّمَ" },
+    "related_noun": { "en": "teacher", "ar": "مُعَلِّم" },
+    "related_adjective": { "en": "taught", "ar": "مُدَرَّس" }
+  },
+  {
+    "base_verb": { "en": "receive", "ar": "يَسْتَلِمُ" },
+    "third_person_singular": { "en": "receives", "ar": "يَسْتَلِمُ" },
+    "present_participle": { "en": "receiving", "ar": "يَسْتَلِمُ" },
+    "past_tense": { "en": "received", "ar": "اِسْتَلَمَ" },
+    "related_noun": { "en": "receipt", "ar": "اِسْتِلاَم" },
+    "related_adjective": { "en": "received", "ar": "مُسْتَلَم" }
+  },
+  {
+    "base_verb": { "en": "hear", "ar": "يَسْمَعُ" },
+    "third_person_singular": { "en": "hears", "ar": "يَسْمَعُ" },
+    "present_participle": { "en": "hearing", "ar": "يَسْمَعُ" },
+    "past_tense": { "en": "heard", "ar": "سَمِعَ" },
+    "related_noun": { "en": "hearing", "ar": "سَمْع" },
+    "related_adjective": { "en": "heard", "ar": "مَسْمُوع" }
+  },
+  {
+    "base_verb": { "en": "listen", "ar": "يَسْتَمِعُ" },
+    "third_person_singular": { "en": "listens", "ar": "يَسْتَمِعُ" },
+    "present_participle": { "en": "listening", "ar": "يَسْتَمِعُ" },
+    "past_tense": { "en": "listened", "ar": "اِسْتَمَعَ" },
+    "related_noun": { "en": "listener", "ar": "مُسْتَمِع" },
+    "related_adjective": { "en": "listening", "ar": "مُصْغٍ" }
+  },
+  {
+    "base_verb": { "en": "believe", "ar": "يُؤْمِنُ" },
+    "third_person_singular": { "en": "believes", "ar": "يُؤْمِنُ" },
+    "present_participle": { "en": "believing", "ar": "يُؤْمِنُ" },
+    "past_tense": { "en": "believed", "ar": "آمَنَ" },
+    "related_noun": { "en": "believer", "ar": "مُؤْمِن" },
+    "related_adjective": { "en": "believable", "ar": "مُصَدَّق" }
+  },
+  {
+    "base_verb": { "en": "request", "ar": "يَطْلُبُ" },
+    "third_person_singular": { "en": "requests", "ar": "يَطْلُبُ" },
+    "present_participle": { "en": "requesting", "ar": "يَطْلُبُ" },
+    "past_tense": { "en": "requested", "ar": "طَلَبَ" },
+    "related_noun": { "en": "request", "ar": "طَلَب" },
+    "related_adjective": { "en": "requested", "ar": "مَطْلُوب" }
+  },
+  {
+    "base_verb": { "en": "search", "ar": "يَبْحَثُ" },
+    "third_person_singular": { "en": "searches", "ar": "يَبْحَثُ" },
+    "present_participle": { "en": "searching", "ar": "يَبْحَثُ" },
+    "past_tense": { "en": "searched", "ar": "بَحَثَ" },
+    "related_noun": { "en": "search", "ar": "بَحْث" },
+    "related_adjective": { "en": "searched", "ar": "مَبْحُوث" }
+  },
+  {
+    "base_verb": { "en": "pick up", "ar": "يَلْتَقِطُ" },
+    "third_person_singular": { "en": "picks up", "ar": "يَلْتَقِطُ" },
+    "present_participle": { "en": "picking up", "ar": "يَلْتَقِطُ" },
+    "past_tense": { "en": "picked up", "ar": "اِلْتَقَطَ" },
+    "related_noun": { "en": "pickup", "ar": "اِلْتِقَاط" },
+    "related_adjective": { "en": "picked up", "ar": "مُلْتَقَط" }
+  },
+  {
+    "base_verb": { "en": "convert", "ar": "يُحَوِّلُ" },
+    "third_person_singular": { "en": "converts", "ar": "يُحَوِّلُ" },
+    "present_participle": { "en": "converting", "ar": "يُحَوِّلُ" },
+    "past_tense": { "en": "converted", "ar": "حَوَّلَ" },
+    "related_noun": { "en": "conversion", "ar": "تَحْوِيل" },
+    "related_adjective": { "en": "converted", "ar": "مُحَوَّل" }
+  },
+  {
+    "base_verb": { "en": "dig", "ar": "يَحْفِرُ" },
+    "third_person_singular": { "en": "digs", "ar": "يَحْفِرُ" },
+    "present_participle": { "en": "digging", "ar": "يَحْفِرُ" },
+    "past_tense": { "en": "dug", "ar": "حَفَرَ" },
+    "related_noun": { "en": "dig", "ar": "حَفْر" },
+    "related_adjective": { "en": "dug", "ar": "مَحْفُور" }
+  },
+  {
+    "base_verb": { "en": "push", "ar": "يَدْفَعُ" },
+    "third_person_singular": { "en": "pushes", "ar": "يَدْفَعُ" },
+    "present_participle": { "en": "pushing", "ar": "يَدْفَعُ" },
+    "past_tense": { "en": "pushed", "ar": "دَفَعَ" },
+    "related_noun": { "en": "push", "ar": "دَفْع" },
+    "related_adjective": { "en": "pushed", "ar": "مَدْفُوع" }
+  },
+  {
+    "base_verb": { "en": "put", "ar": "يَضَعُ" },
+    "third_person_singular": { "en": "puts", "ar": "يَضَعُ" },
+    "present_participle": { "en": "putting", "ar": "يَضَعُ" },
+    "past_tense": { "en": "put", "ar": "وَضَعَ" },
+    "related_noun": { "en": "placement", "ar": "وَضْع" },
+    "related_adjective": { "en": "put", "ar": "مَوْضُوع" }
+  },
+  {
+    "base_verb": { "en": "climb", "ar": "يَتَسَلَّقُ" },
+    "third_person_singular": { "en": "climbs", "ar": "يَتَسَلَّقُ" },
+    "present_participle": { "en": "climbing", "ar": "يَتَسَلَّقُ" },
+    "past_tense": { "en": "climbed", "ar": "تَسَلَّقَ" },
+    "related_noun": { "en": "climb", "ar": "تَسَلُّق" },
+    "related_adjective": { "en": "climbing", "ar": "مُتَسَلِّق" }
+  },
+  {
+    "base_verb": { "en": "use", "ar": "يَسْتَخْدِمُ" },
+    "third_person_singular": { "en": "uses", "ar": "يَسْتَخْدِمُ" },
+    "present_participle": { "en": "using", "ar": "يَسْتَخْدِمُ" },
+    "past_tense": { "en": "used", "ar": "اِسْتَخْدَمَ" },
+    "related_noun": { "en": "use", "ar": "اِسْتِخْدَام" },
+    "related_adjective": { "en": "used", "ar": "مُسْتَخْدَم" }
+  },
+  {
+    "base_verb": { "en": "raise", "ar": "يَرْفَعُ" },
+    "third_person_singular": { "en": "raises", "ar": "يَرْفَعُ" },
+    "present_participle": { "en": "raising", "ar": "يَرْفَعُ" },
+    "past_tense": { "en": "raised", "ar": "رَفَعَ" },
+    "related_noun": { "en": "raise", "ar": "رَفْع" },
+    "related_adjective": { "en": "raised", "ar": "مَرْفُوع" }
+  },
+  {
+    "base_verb": { "en": "fly", "ar": "يَطِيرُ" },
+    "third_person_singular": { "en": "flies", "ar": "يَطِيرُ" },
+    "present_participle": { "en": "flying", "ar": "يَطِيرُ" },
+    "past_tense": { "en": "flew", "ar": "طَارَ" },
+    "related_noun": { "en": "flight", "ar": "طَيَرَان" },
+    "related_adjective": { "en": "flying", "ar": "طَائِر" }
+  },
+  {
+    "base_verb": { "en": "work", "ar": "يَعْمَلُ" },
+    "third_person_singular": { "en": "works", "ar": "يَعْمَلُ" },
+    "present_participle": { "en": "working", "ar": "يَعْمَلُ" },
+    "past_tense": { "en": "worked", "ar": "عَمِلَ" },
+    "related_noun": { "en": "work", "ar": "عَمَل" },
+    "related_adjective": { "en": "working", "ar": "عَامِل" }
+  }
+]
+
+
+
+// 2
+
+-------------------------------------------------
+[
+  {
+    "base_verb": { "en": "get up", "ar": "يَنْهَضُ" },
+    "third_person_singular": { "en": "gets up", "ar": "يَنْهَضُ" },
+    "present_participle": { "en": "getting up", "ar": "يَنْهَضُ" },
+    "past_tense": { "en": "got up", "ar": "نَهَضَ" },
+    "related_noun": { "en": "uprising", "ar": "نُهُوض" },
+    "related_adjective": { "en": "awake", "ar": "مُسْتَيْقِظ" }
+  },
+  {
+    "base_verb": { "en": "carry", "ar": "يَحْمِلُ" },
+    "third_person_singular": { "en": "carries", "ar": "يَحْمِلُ" },
+    "present_participle": { "en": "carrying", "ar": "يَحْمِلُ" },
+    "past_tense": { "en": "carried", "ar": "حَمَلَ" },
+    "related_noun": { "en": "load", "ar": "حَمْل" },
+    "related_adjective": { "en": "carried", "ar": "مَحْمُول" }
+  },
+  {
+    "base_verb": { "en": "play", "ar": "يَلْعَبُ" },
+    "third_person_singular": { "en": "plays", "ar": "يَلْعَبُ" },
+    "present_participle": { "en": "playing", "ar": "يَلْعَبُ" },
+    "past_tense": { "en": "played", "ar": "لَعِبَ" },
+    "related_noun": { "en": "game", "ar": "لَعِب" },
+    "related_adjective": { "en": "played", "ar": "مَلْعُوب" }
+  },
+  {
+    "base_verb": { "en": "read", "ar": "يَقْرَأُ" },
+    "third_person_singular": { "en": "reads", "ar": "يَقْرَأُ" },
+    "present_participle": { "en": "reading", "ar": "يَقْرَأُ" },
+    "past_tense": { "en": "read", "ar": "قَرَأَ" },
+    "related_noun": { "en": "reading", "ar": "قِرَاءَة" },
+    "related_adjective": { "en": "read", "ar": "مَقْرُوء" }
+  },
+  {
+    "base_verb": { "en": "come", "ar": "يَأْتِي" },
+    "third_person_singular": { "en": "comes", "ar": "يَأْتِي" },
+    "present_participle": { "en": "coming", "ar": "يَأْتِي" },
+    "past_tense": { "en": "came", "ar": "أَتَى" },
+    "related_noun": { "en": "arrival", "ar": "مَجِيء" },
+    "related_adjective": { "en": "coming", "ar": "قَادِم" }
+  },
+  {
+    "base_verb": { "en": "sit", "ar": "يَجْلِسُ" },
+    "third_person_singular": { "en": "sits", "ar": "يَجْلِسُ" },
+    "present_participle": { "en": "sitting", "ar": "يَجْلِسُ" },
+    "past_tense": { "en": "sat", "ar": "جَلَسَ" },
+    "related_noun": { "en": "seat", "ar": "مَجْلِس" },
+    "related_adjective": { "en": "seated", "ar": "جَالِس" }
+  },
+  {
+    "base_verb": { "en": "clear", "ar": "يُنَظِّفُ" },
+    "third_person_singular": { "en": "clears", "ar": "يُنَظِّفُ" },
+    "present_participle": { "en": "clearing", "ar": "يُنَظِّفُ" },
+    "past_tense": { "en": "cleared", "ar": "نَظَّفَ" },
+    "related_noun": { "en": "clarity", "ar": "وُضُوح" },
+    "related_adjective": { "en": "clear", "ar": "وَاضِح" }
+  },
+  {
+    "base_verb": { "en": "wake up", "ar": "يَسْتَيْقِظُ" },
+    "third_person_singular": { "en": "wakes up", "ar": "يَسْتَيْقِظُ" },
+    "present_participle": { "en": "waking up", "ar": "يَسْتَيْقِظُ" },
+    "past_tense": { "en": "woke up", "ar": "اِسْتَيْقَظَ" },
+    "related_noun": { "en": "awakening", "ar": "اِسْتِيقَاظ" },
+    "related_adjective": { "en": "awake", "ar": "مُسْتَيْقِظ" }
+  },
+  {
+    "base_verb": { "en": "turn", "ar": "يَدُورُ" },
+    "third_person_singular": { "en": "turns", "ar": "يَدُورُ" },
+    "present_participle": { "en": "turning", "ar": "يَدُورُ" },
+    "past_tense": { "en": "turned", "ar": "دَارَ" },
+    "related_noun": { "en": "turn", "ar": "دَوْر" },
+    "related_adjective": { "en": "turned", "ar": "مُدَار" }
+  },
+  {
+    "base_verb": { "en": "draw", "ar": "يَرْسُمُ" },
+    "third_person_singular": { "en": "draws", "ar": "يَرْسُمُ" },
+    "present_participle": { "en": "drawing", "ar": "يَرْسُمُ" },
+    "past_tense": { "en": "drew", "ar": "رَسَمَ" },
+    "related_noun": { "en": "drawing", "ar": "رَسْم" },
+    "related_adjective": { "en": "drawn", "ar": "مَرْسُوم" }
+  },
+  {
+    "base_verb": { "en": "write", "ar": "يَكْتُبُ" },
+    "third_person_singular": { "en": "writes", "ar": "يَكْتُبُ" },
+    "present_participle": { "en": "writing", "ar": "يَكْتُبُ" },
+    "past_tense": { "en": "wrote", "ar": "كَتَبَ" },
+    "related_noun": { "en": "writing", "ar": "كِتَابَة" },
+    "related_adjective": { "en": "written", "ar": "مَكْتُوب" }
+  },
+  {
+    "base_verb": { "en": "arrive", "ar": "يَصِلُ" },
+    "third_person_singular": { "en": "arrives", "ar": "يَصِلُ" },
+    "present_participle": { "en": "arriving", "ar": "يَصِلُ" },
+    "past_tense": { "en": "arrived", "ar": "وَصَلَ" },
+    "related_noun": { "en": "arrival", "ar": "وُصُول" },
+    "related_adjective": { "en": "arrived", "ar": "وَاصِل" }
+  },
+  {
+    "base_verb": { "en": "eat", "ar": "يَأْكُلُ" },
+    "third_person_singular": { "en": "eats", "ar": "يَأْكُلُ" },
+    "present_participle": { "en": "eating", "ar": "يَأْكُلُ" },
+    "past_tense": { "en": "ate", "ar": "أَكَلَ" },
+    "related_noun": { "en": "food", "ar": "أَكْل" },
+    "related_adjective": { "en": "eaten", "ar": "مَأْكُول" }
+  },
+  {
+    "base_verb": { "en": "open", "ar": "يَفْتَحُ" },
+    "third_person_singular": { "en": "opens", "ar": "يَفْتَحُ" },
+    "present_participle": { "en": "opening", "ar": "يَفْتَحُ" },
+    "past_tense": { "en": "opened", "ar": "فَتَحَ" },
+    "related_noun": { "en": "opener", "ar": "فَتَّاحَة" },
+    "related_adjective": { "en": "open", "ar": "مَفْتُوح" }
+  },
+  {
+    "base_verb": { "en": "order", "ar": "يَطْلُبُ" },
+    "third_person_singular": { "en": "orders", "ar": "يَطْلُبُ" },
+    "present_participle": { "en": "ordering", "ar": "يَطْلُبُ" },
+    "past_tense": { "en": "ordered", "ar": "طَلَبَ" },
+    "related_noun": { "en": "order", "ar": "طَلَب" },
+    "related_adjective": { "en": "ordered", "ar": "مَطْلُوب" }
+  },
+  {
+    "base_verb": { "en": "confirm", "ar": "يُؤَكِّدُ" },
+    "third_person_singular": { "en": "confirms", "ar": "يُؤَكِّدُ" },
+    "present_participle": { "en": "confirming", "ar": "يُؤَكِّدُ" },
+    "past_tense": { "en": "confirmed", "ar": "أَكَّدَ" },
+    "related_noun": { "en": "confirmation", "ar": "تَأْكِيد" },
+    "related_adjective": { "en": "confirmed", "ar": "مُؤَكَّد" }
+  },
+  {
+    "base_verb": { "en": "break", "ar": "يَكْسِرُ" },
+    "third_person_singular": { "en": "breaks", "ar": "يَكْسِرُ" },
+    "present_participle": { "en": "breaking", "ar": "يَكْسِرُ" },
+    "past_tense": { "en": "broke", "ar": "كَسَرَ" },
+    "related_noun": { "en": "break", "ar": "كَسْر" },
+    "related_adjective": { "en": "broken", "ar": "مَكْسُور" }
+  },
+  {
+    "base_verb": { "en": "smoke", "ar": "يُدَخِّنُ" },
+    "third_person_singular": { "en": "smokes", "ar": "يُدَخِّنُ" },
+    "present_participle": { "en": "smoking", "ar": "يُدَخِّنُ" },
+    "past_tense": { "en": "smoked", "ar": "دَخَّنَ" },
+    "related_noun": { "en": "smoke", "ar": "دُخَان" },
+    "related_adjective": { "en": "smoked", "ar": "مُدَخَّن" }
+  },
+  {
+    "base_verb": { "en": "wash", "ar": "يَغْسِلُ" },
+    "third_person_singular": { "en": "washes", "ar": "يَغْسِلُ" },
+    "present_participle": { "en": "washing", "ar": "يَغْسِلُ" },
+    "past_tense": { "en": "washed", "ar": "غَسَلَ" },
+    "related_noun": { "en": "washing", "ar": "غَسْل" },
+    "related_adjective": { "en": "washed", "ar": "مَغْسُول" }
+  },
+  {
+    "base_verb": { "en": "speak", "ar": "يَتَكَلَّمُ" },
+    "third_person_singular": { "en": "speaks", "ar": "يَتَكَلَّمُ" },
+    "present_participle": { "en": "speaking", "ar": "يَتَكَلَّمُ" },
+    "past_tense": { "en": "spoke", "ar": "تَكَلَّمَ" },
+    "related_noun": { "en": "speech", "ar": "كَلاَم" },
+    "related_adjective": { "en": "spoken", "ar": "مَنْطُوق" }
+  },
+  {
+    "base_verb": { "en": "find", "ar": "يَجِدُ" },
+    "third_person_singular": { "en": "finds", "ar": "يَجِدُ" },
+    "present_participle": { "en": "finding", "ar": "يَجِدُ" },
+    "past_tense": { "en": "found", "ar": "وَجَدَ" },
+    "related_noun": { "en": "discovery", "ar": "اِكْتِشَاف" },
+    "related_adjective": { "en": "found", "ar": "مَوْجُود" }
+  },
+  {
+    "base_verb": { "en": "give", "ar": "يُعْطِي" },
+    "third_person_singular": { "en": "gives", "ar": "يُعْطِي" },
+    "present_participle": { "en": "giving", "ar": "يُعْطِي" },
+    "past_tense": { "en": "gave", "ar": "أَعْطَى" },
+    "related_noun": { "en": "gift", "ar": "عَطَاء" },
+    "related_adjective": { "en": "given", "ar": "مُعْطَى" }
+  },
+  {
+    "base_verb": { "en": "fly", "ar": "يَطِيرُ" },
+    "third_person_singular": { "en": "flies", "ar": "يَطِيرُ" },
+    "present_participle": { "en": "flying", "ar": "يَطِيرُ" },
+    "past_tense": { "en": "flew", "ar": "طَارَ" },
+    "related_noun": { "en": "flight", "ar": "طَيَرَان" },
+    "related_adjective": { "en": "flying", "ar": "طَائِر" }
+  },
+  {
+    "base_verb": { "en": "catch", "ar": "يُمْسِكُ" },
+    "third_person_singular": { "en": "catches", "ar": "يُمْسِكُ" },
+    "present_participle": { "en": "catching", "ar": "يُمْسِكُ" },
+    "past_tense": { "en": "caught", "ar": "أَمْسَكَ" },
+    "related_noun": { "en": "catch", "ar": "إمْسَاك" },
+    "related_adjective": { "en": "caught", "ar": "مُمْسَك" }
+  }
+]
+
+-----------------------------------------------------------------
+
+
+-------------------------------------------------------------------------
+
+3
+Of course. Here is the next part of the list, converted into the same JSON structure with Arabic translations.
+
+```json
+[
+  {
+    "base_verb": { "en": "twist", "ar": "يَلْوِي" },
+    "third_person_singular": { "en": "twists", "ar": "يَلْوِي" },
+    "present_participle": { "en": "twisting", "ar": "يَلْوِي" },
+    "past_tense": { "en": "twisted", "ar": "لَوَى" },
+    "related_noun": { "en": "twist", "ar": "لَيَّة" },
+    "related_adjective": { "en": "twisted", "ar": "مَلْوِيّ" }
+  },
+  {
+    "base_verb": { "en": "enter", "ar": "يَدْخُلُ" },
+    "third_person_singular": { "en": "enters", "ar": "يَدْخُلُ" },
+    "present_participle": { "en": "entering", "ar": "يَدْخُلُ" },
+    "past_tense": { "en": "entered", "ar": "دَخَلَ" },
+    "related_noun": { "en": "entrance", "ar": "دُخُول" },
+    "related_adjective": { "en": "entered", "ar": "مَدْخُول" }
+  },
+  {
+    "base_verb": { "en": "miss", "ar": "يَفُوتُ" },
+    "third_person_singular": { "en": "misses", "ar": "يَفُوتُ" },
+    "present_participle": { "en": "missing", "ar": "يَفُوتُ" },
+    "past_tense": { "en": "missed", "ar": "فَاتَ" },
+    "related_noun": { "en": "miss", "ar": "فَقْد" },
+    "related_adjective": { "en": "missing", "ar": "مَفْقُود" }
+  },
+  {
+    "base_verb": { "en": "see", "ar": "يَرَى" },
+    "third_person_singular": { "en": "sees", "ar": "يَرَى" },
+    "present_participle": { "en": "seeing", "ar": "يَرَى" },
+    "past_tense": { "en": "saw", "ar": "رَأَى" },
+    "related_noun": { "en": "sight", "ar": "رُؤْيَة" },
+    "related_adjective": { "en": "seen", "ar": "مَرْئِيّ" }
+  },
+  {
+    "base_verb": { "en": "taste", "ar": "يَتَذَوَّقُ" },
+    "third_person_singular": { "en": "tastes", "ar": "يَتَذَوَّقُ" },
+    "present_participle": { "en": "tasting", "ar": "يَتَذَوَّقُ" },
+    "past_tense": { "en": "tasted", "ar": "تَذَوَّقَ" },
+    "related_noun": { "en": "taste", "ar": "مَذَاق" },
+    "related_adjective": { "en": "tasted", "ar": "مُتَذَوَق" }
+  },
+  {
+    "base_verb": { "en": "revise", "ar": "يُرَاجِعُ" },
+    "third_person_singular": { "en": "revises", "ar": "يُرَاجِعُ" },
+    "present_participle": { "en": "revising", "ar": "يُرَاجِعُ" },
+    "past_tense": { "en": "revised", "ar": "رَاجَعَ" },
+    "related_noun": { "en": "revision", "ar": "مُرَاجَعَة" },
+    "related_adjective": { "en": "revised", "ar": "مُرَاجَع" }
+  },
+  {
+    "base_verb": { "en": "run", "ar": "يَرْكُضُ" },
+    "third_person_singular": { "en": "runs", "ar": "يَرْكُضُ" },
+    "present_participle": { "en": "running", "ar": "يَرْكُضُ" },
+    "past_tense": { "en": "ran", "ar": "رَكَضَ" },
+    "related_noun": { "en": "runner", "ar": "عَدَّاء" },
+    "related_adjective": { "en": "running", "ar": "جَارٍ" }
+  },
+  {
+    "base_verb": { "en": "study", "ar": "يَدْرُسُ" },
+    "third_person_singular": { "en": "studies", "ar": "يَدْرُسُ" },
+    "present_participle": { "en": "studying", "ar": "يَدْرُسُ" },
+    "past_tense": { "en": "studied", "ar": "دَرَسَ" },
+    "related_noun": { "en": "study", "ar": "دِرَاسَة" },
+    "related_adjective": { "en": "studied", "ar": "مَدْرُوس" }
+  },
+  {
+    "base_verb": { "en": "talk", "ar": "يَتَحَدَّثُ" },
+    "third_person_singular": { "en": "talks", "ar": "يَتَحَدَّثُ" },
+    "present_participle": { "en": "talking", "ar": "يَتَحَدَّثُ" },
+    "past_tense": { "en": "talked", "ar": "تَحَدَّثَ" },
+    "related_noun": { "en": "talk", "ar": "حَدِيث" },
+    "related_adjective": { "en": "talking", "ar": "مُتَحَدِّث" }
+  },
+  {
+    "base_verb": { "en": "lose", "ar": "يَخْسَرُ" },
+    "third_person_singular": { "en": "loses", "ar": "يَخْسَرُ" },
+    "present_participle": { "en": "losing", "ar": "يَخْسَرُ" },
+    "past_tense": { "en": "lost", "ar": "خَسِرَ" },
+    "related_noun": { "en": "loss", "ar": "خَسَارَة" },
+    "related_adjective": { "en": "lost", "ar": "مَفْقُود" }
+  },
+  {
+    "base_verb": { "en": "move", "ar": "يَتَحَرَّكُ" },
+    "third_person_singular": { "en": "moves", "ar": "يَتَحَرَّكُ" },
+    "present_participle": { "en": "moving", "ar": "يَتَحَرَّكُ" },
+    "past_tense": { "en": "moved", "ar": "تَحَرَّكَ" },
+    "related_noun": { "en": "movement", "ar": "حَرَكَة" },
+    "related_adjective": { "en": "moving", "ar": "مُتَحَرِّك" }
+  },
+  {
+    "base_verb": { "en": "swim", "ar": "يَسْبَحُ" },
+    "third_person_singular": { "en": "swims", "ar": "يَسْبَحُ" },
+    "present_participle": { "en": "swimming", "ar": "يَسْبَحُ" },
+    "past_tense": { "en": "swam", "ar": "سَبَحَ" },
+    "related_noun": { "en": "swimming", "ar": "سِبَاحَة" },
+    "related_adjective": { "en": "swimming", "ar": "سَابِح" }
+  },
+  {
+    "base_verb": { "en": "turn", "ar": "يَلْتَفِتُ" },
+    "third_person_singular": { "en": "turns", "ar": "يَلْتَفِتُ" },
+    "present_participle": { "en": "turning", "ar": "يَلْتَفِتُ" },
+    "past_tense": { "en": "turned", "ar": "اِلْتَفَتَ" },
+    "related_noun": { "en": "turn", "ar": "اِلْتِفَاتَة" },
+    "related_adjective": { "en": "turned", "ar": "مُلْتَفَت" }
+  },
+  {
+    "base_verb": { "en": "become", "ar": "يُصْبِحُ" },
+    "third_person_singular": { "en": "becomes", "ar": "يُصْبِحُ" },
+    "present_participle": { "en": "becoming", "ar": "يُصْبِحُ" },
+    "past_tense": { "en": "became", "ar": "أَصْبَحَ" },
+    "related_noun": { "en": "becoming", "ar": "تَحَوُّل" },
+    "related_adjective": { "en": "becoming", "ar": "مُلائِم" }
+  },
+  {
+    "base_verb": { "en": "soil", "ar": "يُوَسِّخُ" },
+    "third_person_singular": { "en": "soils", "ar": "يُوَسِّخُ" },
+    "present_participle": { "en": "soiling", "ar": "يُوَسِّخُ" },
+    "past_tense": { "en": "soiled", "ar": "وَسَّخَ" },
+    "related_noun": { "en": "soil", "ar": "تُرْبَة" },
+    "related_adjective": { "en": "soiled", "ar": "مُتَّسِخ" }
+  },
+  {
+    "base_verb": { "en": "place", "ar": "يَضَعُ" },
+    "third_person_singular": { "en": "places", "ar": "يَضَعُ" },
+    "present_participle": { "en": "placing", "ar": "يَضَعُ" },
+    "past_tense": { "en": "placed", "ar": "وَضَعَ" },
+    "related_noun": { "en": "place", "ar": "مَكَان" },
+    "related_adjective": { "en": "placed", "ar": "مَوْضُوع" }
+  },
+  {
+    "base_verb": { "en": "pollute", "ar": "يُلَوِّثُ" },
+    "third_person_singular": { "en": "pollutes", "ar": "يُلَوِّثُ" },
+    "present_participle": { "en": "polluting", "ar": "يُلَوِّثُ" },
+    "past_tense": { "en": "polluted", "ar": "لَوَّثَ" },
+    "related_noun": { "en": "pollution", "ar": "تَلَوُّث" },
+    "related_adjective": { "en": "polluted", "ar": "مُلَوَّث" }
+  },
+  {
+    "base_verb": { "en": "rain", "ar": "تُمْطِرُ" },
+    "third_person_singular": { "en": "rains", "ar": "تُمْطِرُ" },
+    "present_participle": { "en": "raining", "ar": "تُمْطِرُ" },
+    "past_tense": { "en": "rained", "ar": "أَمْطَرَتْ" },
+    "related_noun": { "en": "rain", "ar": "مَطَر" },
+    "related_adjective": { "en": "rainy", "ar": "مُمْطِر" }
+  },
+  {
+    "base_verb": { "en": "vacate", "ar": "يُخْلِي" },
+    "third_person_singular": { "en": "vacates", "ar": "يُخْلِي" },
+    "present_participle": { "en": "vacating", "ar": "يُخْلِي" },
+    "past_tense": { "en": "vacated", "ar": "أَخْلَى" },
+    "related_noun": { "en": "vacation", "ar": "إِجَازَة" },
+    "related_adjective": { "en": "vacant", "ar": "شَاغِر" }
+  },
+  {
+    "base_verb": { "en": "rent", "ar": "يَسْتَأْجِرُ" },
+    "third_person_singular": { "en": "rents", "ar": "يَسْتَأْجِرُ" },
+    "present_participle": { "en": "renting", "ar": "يَسْتَأْجِرُ" },
+    "past_tense": { "en": "rented", "ar": "اِسْتَأْجَرَ" },
+    "related_noun": { "en": "rent", "ar": "إِيجَار" },
+    "related_adjective": { "en": "rented", "ar": "مُسْتَأْجَر" }
+  },
+  {
+    "base_verb": { "en": "flood", "ar": "يَفِيضُ" },
+    "third_person_singular": { "en": "floods", "ar": "يَفِيضُ" },
+    "present_participle": { "en": "flooding", "ar": "يَفِيضُ" },
+    "past_tense": { "en": "flooded", "ar": "فَاضَ" },
+    "related_noun": { "en": "flood", "ar": "فَيَضَان" },
+    "related_adjective": { "en": "flooded", "ar": "غَارِق" }
+  },
+  {
+    "base_verb": { "en": "fold", "ar": "يَطْوِي" },
+    "third_person_singular": { "en": "folds", "ar": "يَطْوِي" },
+    "present_participle": { "en": "folding", "ar": "يَطْوِي" },
+    "past_tense": { "en": "folded", "ar": "طَوَى" },
+    "related_noun": { "en": "fold", "ar": "طَيَّة" },
+    "related_adjective": { "en": "folded", "ar": "مَطْوِيّ" }
+  }
+]
+
+
+---------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------
+
+
+
+4
+
+Of course. I will continue with the new list you've provided, following the same structure and providing the Arabic translations.
+
+Here is the next set of verbs converted to JSON:
+
+```json
+[
+  {
+    "base_verb": { "en": "corner", "ar": "يَحْشُرُ" },
+    "third_person_singular": { "en": "corners", "ar": "يَحْشُرُ" },
+    "present_participle": { "en": "cornering", "ar": "يَحْشُرُ" },
+    "past_tense": { "en": "cornered", "ar": "حَشَرَ" },
+    "related_noun": { "en": "corner", "ar": "زَاوِيَة" },
+    "related_adjective": { "en": "cornered", "ar": "مَحْشُور" }
+  },
+  {
+    "base_verb": { "en": "bill", "ar": "يُفَوِّرُ" },
+    "third_person_singular": { "en": "bills", "ar": "يُفَوِّرُ" },
+    "present_participle": { "en": "billing", "ar": "يُفَوِّرُ" },
+    "past_tense": { "en": "billed", "ar": "فَوَّرَ" },
+    "related_noun": { "en": "bill", "ar": "فَاتُورَة" },
+    "related_adjective": { "en": "billed", "ar": "مُفَوَّر" }
+  },
+  {
+    "base_verb": { "en": "cost", "ar": "يُكَلِّفُ" },
+    "third_person_singular": { "en": "costs", "ar": "يُكَلِّفُ" },
+    "present_participle": { "en": "costing", "ar": "يُكَلِّفُ" },
+    "past_tense": { "en": "cost", "ar": "كَلَّفَ" },
+    "related_noun": { "en": "cost", "ar": "تَكْلُفَة" },
+    "related_adjective": { "en": "costly", "ar": "مُكْلِف" }
+  },
+  {
+    "base_verb": { "en": "smoke", "ar": "يُدَخِّنُ" },
+    "third_person_singular": { "en": "smokes", "ar": "يُدَخِّنُ" },
+    "present_participle": { "en": "smoking", "ar": "يُدَخِّنُ" },
+    "past_tense": { "en": "smoked", "ar": "دَخَّنَ" },
+    "related_noun": { "en": "smoke", "ar": "دُخَان" },
+    "related_adjective": { "en": "smoked", "ar": "مُدَخَّن" }
+  },
+  {
+    "base_verb": { "en": "close", "ar": "يُغْلِقُ" },
+    "third_person_singular": { "en": "closes", "ar": "يُغْلِقُ" },
+    "present_participle": { "en": "closing", "ar": "يُغْلِقُ" },
+    "past_tense": { "en": "closed", "ar": "أَغْلَقَ" },
+    "related_noun": { "en": "closure", "ar": "إِغْلاَق" },
+    "related_adjective": { "en": "close", "ar": "قَرِيب" }
+  },
+  {
+    "base_verb": { "en": "brighten", "ar": "يُشْرِقُ" },
+    "third_person_singular": { "en": "brightens", "ar": "يُشْرِقُ" },
+    "present_participle": { "en": "brightening", "ar": "يُشْرِقُ" },
+    "past_tense": { "en": "brightened", "ar": "أَشْرَقَ" },
+    "related_noun": { "en": "brightness", "ar": "إِشْرَاق" },
+    "related_adjective": { "en": "bright", "ar": "مُشْرِق" }
+  },
+  {
+    "base_verb": { "en": "calculate", "ar": "يَحْسِبُ" },
+    "third_person_singular": { "en": "calculates", "ar": "يَحْسِبُ" },
+    "present_participle": { "en": "calculating", "ar": "يَحْسِبُ" },
+    "past_tense": { "en": "calculated", "ar": "حَسَبَ" },
+    "related_noun": { "en": "calculator", "ar": "آلَة حَاسِبَة" },
+    "related_adjective": { "en": "calculated", "ar": "مَحْسُوب" }
+  },
+  {
+    "base_verb": { "en": "cash", "ar": "يَصْرِفُ" },
+    "third_person_singular": { "en": "cashes", "ar": "يَصْرِفُ" },
+    "present_participle": { "en": "cashing", "ar": "يَصْرِفُ" },
+    "past_tense": { "en": "cashed", "ar": "صَرَفَ" },
+    "related_noun": { "en": "cash", "ar": "نَقْد" },
+    "related_adjective": { "en": "cashed", "ar": "مَصْرُوف" }
+  },
+  {
+    "base_verb": { "en": "toy", "ar": "يَلْهُو" },
+    "third_person_singular": { "en": "toys", "ar": "يَلْهُو" },
+    "present_participle": { "en": "toying", "ar": "يَلْهُو" },
+    "past_tense": { "en": "toyed", "ar": "لَهَا" },
+    "related_noun": { "en": "toy", "ar": "لُعْبَة" },
+    "related_adjective": { "en": "playful", "ar": "لَعُوب" }
+  },
+  {
+    "base_verb": { "en": "stare", "ar": "يُحَدِّقُ" },
+    "third_person_singular": { "en": "stares", "ar": "يُحَدِّقُ" },
+    "present_participle": { "en": "staring", "ar": "يُحَدِّقُ" },
+    "past_tense": { "en": "stared", "ar": "حَدَّقَ" },
+    "related_noun": { "en": "stare", "ar": "تَحْدِيق" },
+    "related_adjective": { "en": "staring", "ar": "مُحَدِّق" }
+  },
+  {
+    "base_verb": { "en": "rub", "ar": "يَفْرُكُ" },
+    "third_person_singular": { "en": "rubs", "ar": "يَفْرُكُ" },
+    "present_participle": { "en": "rubbing", "ar": "يَفْرُكُ" },
+    "past_tense": { "en": "rubbed", "ar": "فَرَكَ" },
+    "related_noun": { "en": "rub", "ar": "فَرْك" },
+    "related_adjective": { "en": "rubbed", "ar": "مَفْرُوك" }
+  },
+  {
+    "base_verb": { "en": "seat", "ar": "يُجْلِسُ" },
+    "third_person_singular": { "en": "seats", "ar": "يُجْلِسُ" },
+    "present_participle": { "en": "seating", "ar": "يُجْلِسُ" },
+    "past_tense": { "en": "seated", "ar": "أَجْلَسَ" },
+    "related_noun": { "en": "seat", "ar": "مَقْعَد" },
+    "related_adjective": { "en": "seated", "ar": "جَالِس" }
+  },
+  {
+    "base_verb": { "en": "drink", "ar": "يَشْرَبُ" },
+    "third_person_singular": { "en": "drinks", "ar": "يَشْرَبُ" },
+    "present_participle": { "en": "drinking", "ar": "يَشْرَبُ" },
+    "past_tense": { "en": "drank", "ar": "شَرِبَ" },
+    "related_noun": { "en": "drink", "ar": "شَرَاب" },
+    "related_adjective": { "en": "drunk", "ar": "مَشْرُوب" }
+  },
+  {
+    "base_verb": { "en": "microwave", "ar": "يُسَخِّنُ بِالمِيكْرُوويف" },
+    "third_person_singular": { "en": "microwaves", "ar": "يُسَخِّنُ بِالمِيكْرُوويف" },
+    "present_participle": { "en": "microwaving", "ar": "يُسَخِّنُ بِالمِيكْرُوويف" },
+    "past_tense": { "en": "microwaved", "ar": "سَخَّنَ بِالمِيكْرُوويف" },
+    "related_noun": { "en": "microwave", "ar": "مِيكْرُوويف" },
+    "related_adjective": { "en": "microwaved", "ar": "مُسَخَّن" }
+  },
+  {
+    "base_verb": { "en": "refrigerate", "ar": "يُبَرِّدُ" },
+    "third_person_singular": { "en": "refrigerates", "ar": "يُبَرِّدُ" },
+    "present_participle": { "en": "refrigerating", "ar": "يُبَرِّدُ" },
+    "past_tense": { "en": "refrigerated", "ar": "بَرَّدَ" },
+    "related_noun": { "en": "refrigerator", "ar": "ثَلاَّجَة" },
+    "related_adjective": { "en": "refrigerated", "ar": "مُبَرَّد" }
+  },
+  {
+    "base_verb": { "en": "bandage", "ar": "يُضَمِّدُ" },
+    "third_person_singular": { "en": "bandages", "ar": "يُضَمِّدُ" },
+    "present_participle": { "en": "bandaging", "ar": "يُضَمِّدُ" },
+    "past_tense": { "en": "bandaged", "ar": "ضَمَّدَ" },
+    "related_noun": { "en": "bandage", "ar": "ضِمَاد" },
+    "related_adjective": { "en": "bandaged", "ar": "مُضَمَّد" }
+  },
+  {
+    "base_verb": { "en": "compute", "ar": "يَحْسِبُ" },
+    "third_person_singular": { "en": "computes", "ar": "يَحْسِبُ" },
+    "present_participle": { "en": "computing", "ar": "يَحْسِبُ" },
+    "past_tense": { "en": "computed", "ar": "حَسَبَ" },
+    "related_noun": { "en": "computer", "ar": "حَاسُوب" },
+    "related_adjective": { "en": "computed", "ar": "مَحْسُوب" }
+  },
+  {
+    "base_verb": { "en": "air condition", "ar": "يُكَيِّفُ الهَوَاء" },
+    "third_person_singular": { "en": "air conditions", "ar": "يُكَيِّفُ الهَوَاء" },
+    "present_participle": { "en": "air conditioning", "ar": "يُكَيِّفُ الهَوَاء" },
+    "past_tense": { "en": "air conditioned", "ar": "كَيَّفَ الهَوَاء" },
+    "related_noun": { "en": "air conditioner", "ar": "مُكَيِّف هَوَاء" },
+    "related_adjective": { "en": "air-conditioned", "ar": "مُكَيَّف" }
+  },
+  {
+    "base_verb": { "en": "tape", "ar": "يُلْصِقُ بِشَرِيط" },
+    "third_person_singular": { "en": "tapes", "ar": "يُلْصِقُ بِشَرِيط" },
+    "present_participle": { "en": "taping", "ar": "يُلْصِقُ بِشَرِيط" },
+    "past_tense": { "en": "taped", "ar": "أَلْصَقَ بِشَرِيط" },
+    "related_noun": { "en": "tape", "ar": "شَرِيط لاَصِق" },
+    "related_adjective": { "en": "taped", "ar": "مُلْصَق" }
+  },
+  {
+    "base_verb": { "en": "shave", "ar": "يَحْلِقُ" },
+    "third_person_singular": { "en": "shaves", "ar": "يَحْلِقُ" },
+    "present_participle": { "en": "shaving", "ar": "يَحْلِقُ" },
+    "past_tense": { "en": "shaved", "ar": "حَلَقَ" },
+    "related_noun": { "en": "shave", "ar": "حِلاَقَة" },
+    "related_adjective": { "en": "shaved", "ar": "مَحْلُوق" }
+  },
+  {
+    "base_verb": { "en": "toothbrush", "ar": "يُنَظِّفُ الأَسْنَان" },
+    "third_person_singular": { "en": "toothbrushes", "ar": "يُنَظِّفُ الأَسْنَان" },
+    "present_participle": { "en": "toothbrushing", "ar": "يُنَظِّفُ الأَسْنَان" },
+    "past_tense": { "en": "toothbrushed", "ar": "نَظَّفَ الأَسْنَان" },
+    "related_noun": { "en": "toothbrush", "ar": "فُرْشَاة أَسْنَان" },
+    "related_adjective": { "en": "brushed", "ar": "مُنَظَّف" }
+  },
+  {
+    "base_verb": { "en": "condition", "ar": "يُكَيِّفُ" },
+    "third_person_singular": { "en": "conditions", "ar": "يُكَيِّفُ" },
+    "present_participle": { "en": "conditioning", "ar": "يُكَيِّفُ" },
+    "past_tense": { "en": "conditioned", "ar": "كَيَّفَ" },
+    "related_noun": { "en": "conditioner", "ar": "مُكَيِّف" },
+    "related_adjective": { "en": "conditioned", "ar": "مُكَيَّف" }
+  },
+  {
+    "base_verb": { "en": "whiteboard", "ar": "يَكْتُبُ عَلَى السَّبُّورَة" },
+    "third_person_singular": { "en": "whiteboards", "ar": "يَكْتُبُ عَلَى السَّبُّورَة" },
+    "present_participle": { "en": "whiteboarding", "ar": "يَكْتُبُ عَلَى السَّبُّورَة" },
+    "past_tense": { "en": "whiteboarded", "ar": "كَتَبَ عَلَى السَّبُّورَة" },
+    "related_noun": { "en": "whiteboard", "ar": "سَبُّورَة بَيْضَاء" },
+    "related_adjective": { "en": "written", "ar": "مَكْتُوب" }
+  },
+  {
+    "base_verb": { "en": "book", "ar": "يَحْجِزُ" },
+    "third_person_singular": { "en": "books", "ar": "يَحْجِزُ" },
+    "present_participle": { "en": "booking", "ar": "يَحْجِزُ" },
+    "past_tense": { "en": "booked", "ar": "حَجَزَ" },
+    "related_noun": { "en": "book", "ar": "كِتَاب" },
+    "related_adjective": { "en": "booked", "ar": "مَحْجُوز" }
+  },
+  {
+    "base_verb": { "en": "erase", "ar": "يَمْحُو" },
+    "third_person_singular": { "en": "erases", "ar": "يَمْحُو" },
+    "present_participle": { "en": "erasing", "ar": "يَمْحُو" },
+    "past_tense": { "en": "erased", "ar": "مَحَا" },
+    "related_noun": { "en": "eraser", "ar": "مِمْحَاة" },
+    "related_adjective": { "en": "erased", "ar": "مَمْحُوّ" }
+  }
+]
+
+---------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+
+5
+
+
+You're welcome. Continuing with the new list, here it is converted into the same JSON structure with Arabic translations.
+
+```json
+[
+  {
+    "base_verb": { "en": "mailbox", "ar": "يَضَعُ فِي البَرِيد" },
+    "third_person_singular": { "en": "mailboxes", "ar": "يَضَعُ فِي البَرِيد" },
+    "present_participle": { "en": "smailing", "ar": "يَضَعُ فِي البَرِيد" },
+    "past_tense": { "en": "mailboxed", "ar": "وَضَعَ فِي البَرِيد" },
+    "related_noun": { "en": "mailbox", "ar": "صُنْدُوق بَرِيد" },
+    "related_adjective": { "en": "mailed", "ar": "مُرْسَل" }
+  },
+  {
+    "base_verb": { "en": "inform", "ar": "يُبْلِغُ" },
+    "third_person_singular": { "en": "informs", "ar": "يُبْلِغُ" },
+    "present_participle": { "en": "informing", "ar": "يُبْلِغُ" },
+    "past_tense": { "en": "informed", "ar": "أَبْلَغَ" },
+    "related_noun": { "en": "informer", "ar": "مُخْبِر" },
+    "related_adjective": { "en": "informed", "ar": "مُطَّلِع" }
+  },
+  {
+    "base_verb": { "en": "scissor", "ar": "يَقُصُّ" },
+    "third_person_singular": { "en": "scissors", "ar": "يَقُصُّ" },
+    "present_participle": { "en": "scissoring", "ar": "يَقُصُّ" },
+    "past_tense": { "en": "scissored", "ar": "قَصَّ" },
+    "related_noun": { "en": "scissors", "ar": "مِقَصّ" },
+    "related_adjective": { "en": "cut", "ar": "مَقْصُوص" }
+  },
+  {
+    "base_verb": { "en": "rule", "ar": "يَحْكُمُ" },
+    "third_person_singular": { "en": "rules", "ar": "يَحْكُمُ" },
+    "present_participle": { "en": "ruling", "ar": "يَحْكُمُ" },
+    "past_tense": { "en": "ruled", "ar": "حَكَمَ" },
+    "related_noun": { "en": "ruler", "ar": "حَاكِم" },
+    "related_adjective": { "en": "ruled", "ar": "مَحْكُوم" }
+  },
+  {
+    "base_verb": { "en": "glue", "ar": "يُلْصِقُ" },
+    "third_person_singular": { "en": "glues", "ar": "يُلْصِقُ" },
+    "present_participle": { "en": "gluing", "ar": "يُلْصِقُ" },
+    "past_tense": { "en": "glued", "ar": "أَلْصَقَ" },
+    "related_noun": { "en": "glue", "ar": "صَمْغ" },
+    "related_adjective": { "en": "glued", "ar": "مُلْصَق" }
+  },
+  {
+    "base_verb": { "en": "ring", "ar": "يَرِنُّ" },
+    "third_person_singular": { "en": "rings", "ar": "يَرِنُّ" },
+    "present_participle": { "en": "ringing", "ar": "يَرِنُّ" },
+    "past_tense": { "en": "rang", "ar": "رَنَّ" },
+    "related_noun": { "en": "ring", "ar": "خَاتَم" },
+    "related_adjective": { "en": "ringing", "ar": "رَنَّان" }
+  },
+  {
+    "base_verb": { "en": "remote control", "ar": "يَتَحَكَّمُ عَنْ بُعْد" },
+    "third_person_singular": { "en": "remote controls", "ar": "يَتَحَكَّمُ عَنْ بُعْد" },
+    "present_participle": { "en": "remote controlling", "ar": "يَتَحَكَّمُ عَنْ بُعْد" },
+    "past_tense": { "en": "remote controlled", "ar": "تَحَكَّمَ عَنْ بُعْد" },
+    "related_noun": { "en": "remote control", "ar": "جِهَاز تَحَكُّم" },
+    "related_adjective": { "en": "remote-controlled", "ar": "مُتَحَكَّم فِيهِ عَنْ بُعْد" }
+  },
+  {
+    "base_verb": { "en": "duck", "ar": "يَنْحَنِي" },
+    "third_person_singular": { "en": "ducks", "ar": "يَنْحَنِي" },
+    "present_participle": { "en": "ducking", "ar": "يَنْحَنِي" },
+    "past_tense": { "en": "ducked", "ar": "اِنْحَنَى" },
+    "related_noun": { "en": "duck", "ar": "بَطَّة" },
+    "related_adjective": { "en": "ducking", "ar": "مُنْحَنٍ" }
+  },
+  {
+    "base_verb": { "en": "mirror", "ar": "يَعْكِسُ" },
+    "third_person_singular": { "en": "mirrors", "ar": "يَعْكِسُ" },
+    "present_participle": { "en": "mirroring", "ar": "يَعْكِسُ" },
+    "past_tense": { "en": "mirrored", "ar": "عَكَسَ" },
+    "related_noun": { "en": "mirror", "ar": "مِرْآة" },
+    "related_adjective": { "en": "mirrored", "ar": "مَعْكُوس" }
+  },
+  {
+    "base_verb": { "en": "print", "ar": "يَطْبَعُ" },
+    "third_person_singular": { "en": "prints", "ar": "يَطْبَعُ" },
+    "present_participle": { "en": "printing", "ar": "يَطْبَعُ" },
+    "past_tense": { "en": "printed", "ar": "طَبَعَ" },
+    "related_noun": { "en": "printer", "ar": "طَابِعَة" },
+    "related_adjective": { "en": "printed", "ar": "مَطْبُوع" }
+  },
+  {
+    "base_verb": { "en": "teach", "ar": "يُدَرِّسُ" },
+    "third_person_singular": { "en": "teaches", "ar": "يُدَرِّسُ" },
+    "present_participle": { "en": "teaching", "ar": "يُدَرِّسُ" },
+    "past_tense": { "en": "taught", "ar": "دَرَّسَ" },
+    "related_noun": { "en": "teacher", "ar": "مُدَرِّس" },
+    "related_adjective": { "en": "taught", "ar": "مُدَرَّس" }
+  },
+  {
+    "base_verb": { "en": "garden", "ar": "يَعْتَنِي بِالحَدِيقَة" },
+    "third_person_singular": { "en": "gardens", "ar": "يَعْتَنِي بِالحَدِيقَة" },
+    "present_participle": { "en": "gardening", "ar": "يَعْتَنِي بِالحَدِيقَة" },
+    "past_tense": { "en": "gardened", "ar": "اِعْتَنَى بِالحَدِيقَة" },
+    "related_noun": { "en": "gardener", "ar": "بُسْتَانِيّ" },
+    "related_adjective": { "en": "gardened", "ar": "مُعْتَنَى بِهِ" }
+  },
+  {
+    "base_verb": { "en": "program", "ar": "يُبَرْمِجُ" },
+    "third_person_singular": { "en": "programs", "ar": "يُبَرْمِجُ" },
+    "present_participle": { "en": "programming", "ar": "يُبَرْمِجُ" },
+    "past_tense": { "en": "programmed", "ar": "بَرْمَجَ" },
+    "related_noun": { "en": "programmer", "ar": "مُبَرْمِج" },
+    "related_adjective": { "en": "programmed", "ar": "مُبَرْمَج" }
+  },
+  {
+    "base_verb": { "en": "migrate", "ar": "يُهَاجِرُ" },
+    "third_person_singular": { "en": "migrates", "ar": "يُهَاجِرُ" },
+    "present_participle": { "en": "migrating", "ar": "يُهَاجِرُ" },
+    "past_tense": { "en": "migrated", "ar": "هَاجَرَ" },
+    "related_noun": { "en": "migrant", "ar": "مُهَاجِر" },
+    "related_adjective": { "en": "migratory", "ar": "مُهَاجِر" }
+  },
+  {
+    "base_verb": { "en": "occupy", "ar": "يَحْتَلُّ" },
+    "third_person_singular": { "en": "occupies", "ar": "يَحْتَلُّ" },
+    "present_participle": { "en": "occupying", "ar": "يَحْتَلُّ" },
+    "past_tense": { "en": "occupied", "ar": "اِحْتَلَّ" },
+    "related_noun": { "en": "occupation", "ar": "اِحْتِلال" },
+    "related_adjective": { "en": "occupied", "ar": "مُحْتَلّ" }
+  },
+  {
+    "base_verb": { "en": "sing", "ar": "يُغَنِّي" },
+    "third_person_singular": { "en": "sings", "ar": "يُغَنِّي" },
+    "present_participle": { "en": "singing", "ar": "يُغَنِّي" },
+    "past_tense": { "en": "sang", "ar": "غَنَّى" },
+    "related_noun": { "en": "singer", "ar": "مُغَنٍّ" },
+    "related_adjective": { "en": "sung", "ar": "مُغَنَّى" }
+  },
+  {
+    "base_verb": { "en": "account", "ar": "يُحَاسِبُ" },
+    "third_person_singular": { "en": "accounts", "ar": "يُحَاسِبُ" },
+    "present_participle": { "en": "accounting", "ar": "يُحَاسِبُ" },
+    "past_tense": { "en": "accounted", "ar": "حَاسَبَ" },
+    "related_noun": { "en": "accountant", "ar": "مُحَاسِب" },
+    "related_adjective": { "en": "accountable", "ar": "مَسْؤُول" }
+  },
+  {
+    "base_verb": { "en": "farm", "ar": "يَزْرَعُ" },
+    "third_person_singular": { "en": "farms", "ar": "يَزْرَعُ" },
+    "present_participle": { "en": "farming", "ar": "يَزْرَعُ" },
+    "past_tense": { "en": "farmed", "ar": "زَرَعَ" },
+    "related_noun": { "en": "farmer", "ar": "مُزَارِع" },
+    "related_adjective": { "en": "farmed", "ar": "مَزْرُوع" }
+  },
+  {
+    "base_verb": { "en": "manage", "ar": "يُدِيرُ" },
+    "third_person_singular": { "en": "manages", "ar": "يُدِيرُ" },
+    "present_participle": { "en": "managing", "ar": "يُدِيرُ" },
+    "past_tense": { "en": "managed", "ar": "أَدَارَ" },
+    "related_noun": { "en": "manager", "ar": "مُدِير" },
+    "related_adjective": { "en": "managed", "ar": "مُدَار" }
+  }
+]
+
+
+----------------------------------------------------------------
+
+
+
+
+----------------------------------------------------------------
+
+6
+
+
+Of course. I will continue with the new list, converting it into the same JSON format with Arabic translations.
+
+```json
+[
+  {
+    "base_verb": { "en": "drive", "ar": "يَقُودُ" },
+    "third_person_singular": { "en": "drives", "ar": "يَقُودُ" },
+    "present_participle": { "en": "driving", "ar": "يَقُودُ" },
+    "past_tense": { "en": "drove", "ar": "قَادَ" },
+    "related_noun": { "en": "driver", "ar": "سَائِق" },
+    "related_adjective": { "en": "driven", "ar": "مَقُود" }
+  },
+  {
+    "base_verb": { "en": "group", "ar": "يُجَمِّعُ" },
+    "third_person_singular": { "en": "groups", "ar": "يُجَمِّعُ" },
+    "present_participle": { "en": "grouping", "ar": "يُجَمِّعُ" },
+    "past_tense": { "en": "grouped", "ar": "جَمَّعَ" },
+    "related_noun": { "en": "group", "ar": "مَجْمُوعَة" },
+    "related_adjective": { "en": "grouped", "ar": "مُجَمَّع" }
+  },
+  {
+    "base_verb": { "en": "throw", "ar": "يَرْمِي" },
+    "third_person_singular": { "en": "throws", "ar": "يَرْمِي" },
+    "present_participle": { "en": "throwing", "ar": "يَرْمِي" },
+    "past_tense": { "en": "threw", "ar": "رَمَى" },
+    "related_noun": { "en": "throw", "ar": "رَمْيَة" },
+    "related_adjective": { "en": "thrown", "ar": "مَرْمِيّ" }
+  },
+  {
+    "base_verb": { "en": "withdraw", "ar": "يَسْحَبُ" },
+    "third_person_singular": { "en": "withdraws", "ar": "يَسْحَبُ" },
+    "present_participle": { "en": "withdrawing", "ar": "يَسْحَبُ" },
+    "past_tense": { "en": "withdrew", "ar": "سَحَبَ" },
+    "related_noun": { "en": "withdrawal", "ar": "سَحْب" },
+    "related_adjective": { "en": "withdrawn", "ar": "مَسْحُوب" }
+  },
+  {
+    "base_verb": { "en": "finish", "ar": "يُنْهِي" },
+    "third_person_singular": { "en": "finishes", "ar": "يُنْهِي" },
+    "present_participle": { "en": "finishing", "ar": "يُنْهِي" },
+    "past_tense": { "en": "finished", "ar": "أَنْهَى" },
+    "related_noun": { "en": "finish", "ar": "نِهَايَة" },
+    "related_adjective": { "en": "finished", "ar": "مُنْتَهٍ" }
+  },
+  {
+    "base_verb": { "en": "relax", "ar": "يَسْتَرْخِي" },
+    "third_person_singular": { "en": "relaxes", "ar": "يَسْتَرْخِي" },
+    "present_participle": { "en": "relaxing", "ar": "يَسْتَرْخِي" },
+    "past_tense": { "en": "relaxed", "ar": "اِسْتَرْخَى" },
+    "related_noun": { "en": "relaxation", "ar": "اِسْتِرْخَاء" },
+    "related_adjective": { "en": "relaxed", "ar": "مُسْتَرْخٍ" }
+  },
+  {
+    "base_verb": { "en": "cook", "ar": "يَطْبُخُ" },
+    "third_person_singular": { "en": "cooks", "ar": "يَطْبُخُ" },
+    "present_participle": { "en": "cooking", "ar": "يَطْبُخُ" },
+    "past_tense": { "en": "cooked", "ar": "طَبَخَ" },
+    "related_noun": { "en": "cook", "ar": "طَبَّاخ" },
+    "related_adjective": { "en": "cooked", "ar": "مَطْبُوخ" }
+  },
+  {
+    "base_verb": { "en": "exercise", "ar": "يَتَمَرَّنُ" },
+    "third_person_singular": { "en": "exercises", "ar": "يَتَمَرَّنُ" },
+    "present_participle": { "en": "exercising", "ar": "يَتَمَرَّنُ" },
+    "past_tense": { "en": "exercised", "ar": "تَمَرَّنَ" },
+    "related_noun": { "en": "exercise", "ar": "تَمْرِين" },
+    "related_adjective": { "en": "exercised", "ar": "مُمَرَّن" }
+  },
+  {
+    "base_verb": { "en": "die", "ar": "يَمُوتُ" },
+    "third_person_singular": { "en": "dies", "ar": "يَمُوتُ" },
+    "present_participle": { "en": "dying", "ar": "يَمُوتُ" },
+    "past_tense": { "en": "died", "ar": "مَاتَ" },
+    "related_noun": { "en": "death", "ar": "مَوْت" },
+    "related_adjective": { "en": "dead", "ar": "مَيِّت" }
+  },
+  {
+    "base_verb": { "en": "attend", "ar": "يَحْضُرُ" },
+    "third_person_singular": { "en": "attends", "ar": "يَحْضُرُ" },
+    "present_participle": { "en": "attending", "ar": "يَحْضُرُ" },
+    "past_tense": { "en": "attended", "ar": "حَضَرَ" },
+    "related_noun": { "en": "attendance", "ar": "حُضُور" },
+    "related_adjective": { "en": "attending", "ar": "حَاضِر" }
+  },
+  {
+    "base_verb": { "en": "say", "ar": "يَقُولُ" },
+    "third_person_singular": { "en": "says", "ar": "يَقُولُ" },
+    "present_participle": { "en": "saying", "ar": "يَقُولُ" },
+    "past_tense": { "en": "said", "ar": "قَالَ" },
+    "related_noun": { "en": "saying", "ar": "قَوْل" },
+    "related_adjective": { "en": "said", "ar": "مَقُول" }
+  },
+  {
+    "base_verb": { "en": "call", "ar": "يُنَادِي" },
+    "third_person_singular": { "en": "calls", "ar": "يُنَادِي" },
+    "present_participle": { "en": "calling", "ar": "يُنَادِي" },
+    "past_tense": { "en": "called", "ar": "نَادَى" },
+    "related_noun": { "en": "caller", "ar": "مُنَادٍ" },
+    "related_adjective": { "en": "called", "ar": "مُنَادَى" }
+  },
+  {
+    "base_verb": { "en": "cough", "ar": "يَسْعُلُ" },
+    "third_person_singular": { "en": "coughs", "ar": "يَسْعُلُ" },
+    "present_participle": { "en": "coughing", "ar": "يَسْعُلُ" },
+    "past_tense": { "en": "coughed", "ar": "سَعَلَ" },
+    "related_noun": { "en": "cough", "ar": "سُعَال" },
+    "related_adjective": { "en": "coughing", "ar": "سَاعِل" }
+  },
+  {
+    "base_verb": { "en": "reserve", "ar": "يَحْجِزُ" },
+    "third_person_singular": { "en": "reserves", "ar": "يَحْجِزُ" },
+    "present_participle": { "en": "reserving", "ar": "يَحْجِزُ" },
+    "past_tense": { "en": "reserved", "ar": "حَجَزَ" },
+    "related_noun": { "en": "reservation", "ar": "حَجْز" },
+    "related_adjective": { "en": "reserved", "ar": "مَحْجُوز" }
+  },
+  {
+    "base_verb": { "en": "marry", "ar": "يَتَزَوَّجُ" },
+    "third_person_singular": { "en": "marries", "ar": "يَتَزَوَّجُ" },
+    "present_participle": { "en": "marrying", "ar": "يَتَزَوَّجُ" },
+    "past_tense": { "en": "married", "ar": "تَزَوَّجَ" },
+    "related_noun": { "en": "marriage", "ar": "زَوَاج" },
+    "related_adjective": { "en": "married", "ar": "مُتَزَوِّج" }
+  },
+  {
+    "base_verb": { "en": "participate", "ar": "يُشَارِكُ" },
+    "third_person_singular": { "en": "participates", "ar": "يُشَارِكُ" },
+    "present_participle": { "en": "participating", "ar": "يُشَارِكُ" },
+    "past_tense": { "en": "participated", "ar": "شَارَكَ" },
+    "related_noun": { "en": "participation", "ar": "مُشَارَكَة" },
+    "related_adjective": { "en": "participating", "ar": "مُشَارِك" }
+  },
+  {
+    "base_verb": { "en": "engage", "ar": "يُشَارِكُ" },
+    "third_person_singular": { "en": "engages", "ar": "يُشَارِكُ" },
+    "present_participle": { "en": "engaging", "ar": "يُشَارِكُ" },
+    "past_tense": { "en": "engaged", "ar": "شَارَكَ" },
+    "related_noun": { "en": "engagement", "ar": "مُشَارَكَة" },
+    "related_adjective": { "en": "engaging", "ar": "جَذَّاب" }
+  },
+  {
+    "base_verb": { "en": "cheer", "ar": "يُهَلِّلُ" },
+    "third_person_singular": { "en": "cheers", "ar": "يُهَلِّلُ" },
+    "present_participle": { "en": "cheering", "ar": "يُهَلِّلُ" },
+    "past_tense": { "en": "cheered", "ar": "هَلَّلَ" },
+    "related_noun": { "en": "cheer", "ar": "هُتَاف" },
+    "related_adjective": { "en": "cheerful", "ar": "مُبْتَهِج" }
+  },
+  {
+    "base_verb": { "en": "park", "ar": "يُوقِفُ السَّيَّارَة" },
+    "third_person_singular": { "en": "parks", "ar": "يُوقِفُ السَّيَّارَة" },
+    "present_participle": { "en": "parking", "ar": "يُوقِفُ السَّيَّارَة" },
+    "past_tense": { "en": "parked", "ar": "أَوْقَفَ السَّيَّارَة" },
+    "related_noun": { "en": "park", "ar": "مُنْتَزَه" },
+    "related_adjective": { "en": "parked", "ar": "مُتَوَقِّف" }
+  },
+  {
+    "base_verb": { "en": "export", "ar": "يُصَدِّرُ" },
+    "third_person_singular": { "en": "exports", "ar": "يُصَدِّرُ" },
+    "present_participle": { "en": "exporting", "ar": "يُصَدِّرُ" },
+    "past_tense": { "en": "exported", "ar": "صَدَّرَ" },
+    "related_noun": { "en": "export", "ar": "تَصْدِير" },
+    "related_adjective": { "en": "exported", "ar": "مُصَدَّر" }
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "dizziness", "ar": "دُوَار" },
+    "related_adjective": { "en": "dizzy", "ar": "دَائِخ" }
+  },
+  {
+    "base_verb": { "en": "skip", "ar": "يَتَخَطَّى" },
+    "third_person_singular": { "en": "skips", "ar": "يَتَخَطَّى" },
+    "present_participle": { "en": "skipping", "ar": "يَتَخَطَّى" },
+    "past_tense": { "en": "skipped", "ar": "تَخَطَّى" },
+    "related_noun": { "en": "skip", "ar": "تَخَطٍّ" },
+    "related_adjective": { "en": "skipped", "ar": "مُتَخَطَّى" }
+  }
+]
+
+-------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------
+
+
+7
+
+Excellent. Here is the continuation with the new list, processed into the same JSON format with Arabic translations.
+
+```json
+[
+  {
+    "base_verb": { "en": "burn", "ar": "يَحْرِقُ" },
+    "third_person_singular": { "en": "burns", "ar": "يَحْرِقُ" },
+    "present_participle": { "en": "burning", "ar": "يَحْرِقُ" },
+    "past_tense": { "en": "burned", "ar": "حَرَقَ" },
+    "related_noun": { "en": "burn", "ar": "حَرْق" },
+    "related_adjective": { "en": "burnt", "ar": "مَحْرُوق" }
+  },
+  {
+    "base_verb": { "en": "sell", "ar": "يَبِيعُ" },
+    "third_person_singular": { "en": "sells", "ar": "يَبِيعُ" },
+    "present_participle": { "en": "selling", "ar": "يَبِيعُ" },
+    "past_tense": { "en": "sold", "ar": "بَاعَ" },
+    "related_noun": { "en": "sale", "ar": "بَيْع" },
+    "related_adjective": { "en": "sold", "ar": "مَبِيع" }
+  },
+  {
+    "base_verb": { "en": "mix", "ar": "يَخْلِطُ" },
+    "third_person_singular": { "en": "mixes", "ar": "يَخْلِطُ" },
+    "present_participle": { "en": "mixing", "ar": "يَخْلِطُ" },
+    "past_tense": { "en": "mixed", "ar": "خَلَطَ" },
+    "related_noun": { "en": "mixture", "ar": "خَلِيط" },
+    "related_adjective": { "en": "mixed", "ar": "مَخْلُوط" }
+  },
+  {
+    "base_verb": { "en": "help", "ar": "يُسَاعِدُ" },
+    "third_person_singular": { "en": "helps", "ar": "يُسَاعِدُ" },
+    "present_participle": { "en": "helping", "ar": "يُسَاعِدُ" },
+    "past_tense": { "en": "helped", "ar": "سَاعَدَ" },
+    "related_noun": { "en": "help", "ar": "مُسَاعَدَة" },
+    "related_adjective": { "en": "helpful", "ar": "مُفِيد" }
+  },
+  {
+    "base_verb": { "en": "start", "ar": "يَبْدَأُ" },
+    "third_person_singular": { "en": "starts", "ar": "يَبْدَأُ" },
+    "present_participle": { "en": "starting", "ar": "يَبْدَأُ" },
+    "past_tense": { "en": "started", "ar": "بَدَأَ" },
+    "related_noun": { "en": "start", "ar": "بِدَايَة" },
+    "related_adjective": { "en": "starting", "ar": "مُبْتَدِئ" }
+  },
+  {
+    "base_verb": { "en": "welcome", "ar": "يُرَحِّبُ" },
+    "third_person_singular": { "en": "welcomes", "ar": "يُرَحِّبُ" },
+    "present_participle": { "en": "welcoming", "ar": "يُرَحِّبُ" },
+    "past_tense": { "en": "welcomed", "ar": "رَحَّبَ" },
+    "related_noun": { "en": "welcome", "ar": "تَرْحِيب" },
+    "related_adjective": { "en": "welcome", "ar": "مُرَحَّب بِهِ" }
+  },
+  {
+    "base_verb": { "en": "import", "ar": "يَسْتَوْرِدُ" },
+    "third_person_singular": { "en": "imports", "ar": "يَسْتَوْرِدُ" },
+    "present_participle": { "en": "importing", "ar": "يَسْتَوْرِدُ" },
+    "past_tense": { "en": "imported", "ar": "اِسْتَوْرَدَ" },
+    "related_noun": { "en": "import", "ar": "اِسْتِيرَاد" },
+    "related_adjective": { "en": "imported", "ar": "مُسْتَوْرَد" }
+  },
+  {
+    "base_verb": { "en": "hiccup", "ar": "يُفَوِّقُ" },
+    "third_person_singular": { "en": "hiccups", "ar": "يُفَوِّقُ" },
+    "present_participle": { "en": "hiccuping", "ar": "يُفَوِّقُ" },
+    "past_tense": { "en": "hiccuped", "ar": "فَوَّقَ" },
+    "related_noun": { "en": "hiccup", "ar": "فُوَاق" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "serve", "ar": "يَخْدِمُ" },
+    "third_person_singular": { "en": "serves", "ar": "يَخْدِمُ" },
+    "present_participle": { "en": "serving", "ar": "يَخْدِمُ" },
+    "past_tense": { "en": "served", "ar": "خَدَمَ" },
+    "related_noun": { "en": "service", "ar": "خِدْمَة" },
+    "related_adjective": { "en": "served", "ar": "مَخْدُوم" }
+  },
+  {
+    "base_verb": { "en": "cut", "ar": "يَقْطَعُ" },
+    "third_person_singular": { "en": "cuts", "ar": "يَقْطَعُ" },
+    "present_participle": { "en": "cutting", "ar": "يَقْطَعُ" },
+    "past_tense": { "en": "cut", "ar": "قَطَعَ" },
+    "related_noun": { "en": "cut", "ar": "قَطْع" },
+    "related_adjective": { "en": "cut", "ar": "مَقْطُوع" }
+  },
+  {
+    "base_verb": { "en": "frustrate", "ar": "يُحْبِطُ" },
+    "third_person_singular": { "en": "frustrates", "ar": "يُحْبِطُ" },
+    "present_participle": { "en": "frustrating", "ar": "يُحْبِطُ" },
+    "past_tense": { "en": "frustrated", "ar": "أَحْبَطَ" },
+    "related_noun": { "en": "frustration", "ar": "إِحْبَاط" },
+    "related_adjective": { "en": "frustrated", "ar": "مُحْبَط" }
+  },
+  {
+    "base_verb": { "en": "ask", "ar": "يَسْأَلُ" },
+    "third_person_singular": { "en": "asks", "ar": "يَسْأَلُ" },
+    "present_participle": { "en": "asking", "ar": "يَسْأَلُ" },
+    "past_tense": { "en": "asked", "ar": "سَأَلَ" },
+    "related_noun": { "en": "question", "ar": "سُؤَال" },
+    "related_adjective": { "en": "asked", "ar": "مَسْؤُول" }
+  },
+  {
+    "base_verb": { "en": "injure", "ar": "يُصِيبُ" },
+    "third_person_singular": { "en": "injures", "ar": "يُصِيبُ" },
+    "present_participle": { "en": "injuring", "ar": "يُصِيبُ" },
+    "past_tense": { "en": "injured", "ar": "أَصَابَ" },
+    "related_noun": { "en": "injury", "ar": "إِصَابَة" },
+    "related_adjective": { "en": "injured", "ar": "مُصَاب" }
+  },
+  {
+    "base_verb": { "en": "fight", "ar": "يُقَاتِلُ" },
+    "third_person_singular": { "en": "fights", "ar": "يُقَاتِلُ" },
+    "present_participle": { "en": "fighting", "ar": "يُقَاتِلُ" },
+    "past_tense": { "en": "fought", "ar": "قَاتَلَ" },
+    "related_noun": { "en": "fight", "ar": "قِتَال" },
+    "related_adjective": { "en": "fighting", "ar": "مُقَاتِل" }
+  },
+  {
+    "base_verb": { "en": "upset", "ar": "يُزْعِجُ" },
+    "third_person_singular": { "en": "upsets", "ar": "يُزْعِجُ" },
+    "present_participle": { "en": "upsetting", "ar": "يُزْعِجُ" },
+    "past_tense": { "en": "upset", "ar": "أَزْعَجَ" },
+    "related_noun": { "en": "upset", "ar": "اِنْزِعَاج" },
+    "related_adjective": { "en": "upset", "ar": "مُنْزَعِج" }
+  },
+  {
+    "base_verb": { "en": "worry", "ar": "يَقْلَقُ" },
+    "third_person_singular": { "en": "worries", "ar": "يَقْلَقُ" },
+    "present_participle": { "en": "worrying", "ar": "يَقْلَقُ" },
+    "past_tense": { "en": "worried", "ar": "قَلِقَ" },
+    "related_noun": { "en": "worry", "ar": "قَلَق" },
+    "related_adjective": { "en": "worried", "ar": "قَلِق" }
+  },
+  {
+    "base_verb": { "en": "drive", "ar": "يَقُودُ" },
+    "third_person_singular": { "en": "drives", "ar": "يَقُودُ" },
+    "present_participle": { "en": "driving", "ar": "يَقُودُ" },
+    "past_tense": { "en": "drove", "ar": "قَادَ" },
+    "related_noun": { "en": "driver", "ar": "سَائِق" },
+    "related_adjective": { "en": "driven", "ar": "مَقُود" }
+  },
+  {
+    "base_verb": { "en": "land", "ar": "يَهْبِطُ" },
+    "third_person_singular": { "en": "lands", "ar": "يَهْبِطُ" },
+    "present_participle": { "en": "landing", "ar": "يَهْبِطُ" },
+    "past_tense": { "en": "landed", "ar": "هَبَطَ" },
+    "related_noun": { "en": "land", "ar": "أَرْض" },
+    "related_adjective": { "en": "landed", "ar": "هَابِط" }
+  },
+  {
+    "base_verb": { "en": "confiscate", "ar": "يُصَادِرُ" },
+    "third_person_singular": { "en": "confiscates", "ar": "يُصَادِرُ" },
+    "present_participle": { "en": "confiscating", "ar": "يُصَادِرُ" },
+    "past_tense": { "en": "confiscated", "ar": "صَادَرَ" },
+    "related_noun": { "en": "confiscation", "ar": "مُصَادَرَة" },
+    "related_adjective": { "en": "confiscated", "ar": "مُصَادَر" }
+  },
+  {
+    "base_verb": { "en": "declare", "ar": "يُعْلِنُ" },
+    "third_person_singular": { "en": "declares", "ar": "يُعْلِنُ" },
+    "present_participle": { "en": "declaring", "ar": "يُعْلِنُ" },
+    "past_tense": { "en": "declared", "ar": "أَعْلَنَ" },
+    "related_noun": { "en": "declaration", "ar": "إِعْلاَن" },
+    "related_adjective": { "en": "declared", "ar": "مُعْلَن" }
+  },
+  {
+    "base_verb": { "en": "commute", "ar": "يَتَنَقَّلُ" },
+    "third_person_singular": { "en": "commutes", "ar": "يَتَنَقَّلُ" },
+    "present_participle": { "en": "commuting", "ar": "يَتَنَقَّلُ" },
+    "past_tense": { "en": "commuted", "ar": "تَنَقَّلَ" },
+    "related_noun": { "en": "commute", "ar": "تَنَقُّل" },
+    "related_adjective": { "en": "commuting", "ar": "مُتَنَقِّل" }
+  }
+]
+
+
+-------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------
+
+
+8
+
+Excellent. Here is the next section, converted into the JSON format with Arabic translations as requested.
+
+```json
+[
+  {
+    "base_verb": { "en": "sign", "ar": "يُوَقِّعُ" },
+    "third_person_singular": { "en": "signs", "ar": "يُوَقِّعُ" },
+    "present_participle": { "en": "signing", "ar": "يُوَقِّعُ" },
+    "past_tense": { "en": "signed", "ar": "وَقَّعَ" },
+    "related_noun": { "en": "sign", "ar": "لاَفِتَة" },
+    "related_adjective": { "en": "signed", "ar": "مُوَقَّع" }
+  },
+  {
+    "base_verb": { "en": "respect", "ar": "يَحْتَرِمُ" },
+    "third_person_singular": { "en": "respects", "ar": "يَحْتَرِمُ" },
+    "present_participle": { "en": "respecting", "ar": "يَحْتَرِمُ" },
+    "past_tense": { "en": "respected", "ar": "اِحْتَرَمَ" },
+    "related_noun": { "en": "respect", "ar": "اِحْتِرَام" },
+    "related_adjective": { "en": "respected", "ar": "مُحْتَرَم" }
+  },
+  {
+    "base_verb": { "en": "thank", "ar": "يَشْكُرُ" },
+    "third_person_singular": { "en": "thanks", "ar": "يَشْكُرُ" },
+    "present_participle": { "en": "thanking", "ar": "يَشْكُرُ" },
+    "past_tense": { "en": "thanked", "ar": "شَكَرَ" },
+    "related_noun": { "en": "thanks", "ar": "شُكْر" },
+    "related_adjective": { "en": "thankful", "ar": "شَاكِر" }
+  },
+  {
+    "base_verb": { "en": "love", "ar": "يُحِبُّ" },
+    "third_person_singular": { "en": "loves", "ar": "يُحِبُّ" },
+    "present_participle": { "en": "loving", "ar": "يُحِبُّ" },
+    "past_tense": { "en": "loved", "ar": "أَحَبَّ" },
+    "related_noun": { "en": "love", "ar": "حُبّ" },
+    "related_adjective": { "en": "loved", "ar": "مَحْبُوب" }
+  },
+  {
+    "base_verb": { "en": "sneeze", "ar": "يَعْطِسُ" },
+    "third_person_singular": { "en": "sneezes", "ar": "يَعْطِسُ" },
+    "present_participle": { "en": "sneezing", "ar": "يَعْطِسُ" },
+    "past_tense": { "en": "sneezed", "ar": "عَطَسَ" },
+    "related_noun": { "en": "sneeze", "ar": "عَطْسَة" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "knock", "ar": "يَطْرُقُ" },
+    "third_person_singular": { "en": "knocks", "ar": "يَطْرُقُ" },
+    "present_participle": { "en": "knocking", "ar": "يَطْرُقُ" },
+    "past_tense": { "en": "knocked", "ar": "طَرَقَ" },
+    "related_noun": { "en": "knock", "ar": "طَرْقَة" },
+    "related_adjective": { "en": "knocked", "ar": "مَطْرُوق" }
+  },
+  {
+    "base_verb": { "en": "explain", "ar": "يَشْرَحُ" },
+    "third_person_singular": { "en": "explains", "ar": "يَشْرَحُ" },
+    "present_participle": { "en": "explaining", "ar": "يَشْرَحُ" },
+    "past_tense": { "en": "explained", "ar": "شَرَحَ" },
+    "related_noun": { "en": "explanation", "ar": "شَرْح" },
+    "related_adjective": { "en": "explained", "ar": "مَشْرُوح" }
+  },
+  {
+    "base_verb": { "en": "plan", "ar": "يُخَطِّطُ" },
+    "third_person_singular": { "en": "plans", "ar": "يُخَطِّطُ" },
+    "present_participle": { "en": "planning", "ar": "يُخَطِّطُ" },
+    "past_tense": { "en": "planned", "ar": "خَطَّطَ" },
+    "related_noun": { "en": "plan", "ar": "خُطَّة" },
+    "related_adjective": { "en": "planned", "ar": "مُخَطَّط" }
+  },
+  {
+    "base_verb": { "en": "repeat", "ar": "يُكَرِّرُ" },
+    "third_person_singular": { "en": "repeats", "ar": "يُكَرِّرُ" },
+    "present_participle": { "en": "repeating", "ar": "يُكَرِّرُ" },
+    "past_tense": { "en": "repeated", "ar": "كَرَّرَ" },
+    "related_noun": { "en": "repetition", "ar": "تِكْرَار" },
+    "related_adjective": { "en": "repeated", "ar": "مُكَرَّر" }
+  },
+  {
+    "base_verb": { "en": "recycle", "ar": "يُعِيدُ تَدْوِير" },
+    "third_person_singular": { "en": "recycles", "ar": "يُعِيدُ تَدْوِير" },
+    "present_participle": { "en": "recycling", "ar": "يُعِيدُ تَدْوِير" },
+    "past_tense": { "en": "recycled", "ar": "أَعَادَ تَدْوِير" },
+    "related_noun": { "en": "recycling", "ar": "إِعَادَة تَدْوِير" },
+    "related_adjective": { "en": "recycled", "ar": "مُعَاد تَدْوِيرُهُ" }
+  },
+  {
+    "base_verb": { "en": "defecate", "ar": "يَتَغَوَّطُ" },
+    "third_person_singular": { "en": "defecates", "ar": "يَتَغَوَّطُ" },
+    "present_participle": { "en": "defecating", "ar": "يَتَغَوَّطُ" },
+    "past_tense": { "en": "defecated", "ar": "تَغَوَّطَ" },
+    "related_noun": { "en": "defecation", "ar": "تَغَوُّط" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "graduate", "ar": "يَتَخَرَّجُ" },
+    "third_person_singular": { "en": "graduates", "ar": "يَتَخَرَّجُ" },
+    "present_participle": { "en": "graduating", "ar": "يَتَخَرَّجُ" },
+    "past_tense": { "en": "graduated", "ar": "تَخَرَّجَ" },
+    "related_noun": { "en": "graduate", "ar": "خِرِّيج" },
+    "related_adjective": { "en": "graduated", "ar": "مُتَخَرِّج" }
+  },
+  {
+    "base_verb": { "en": "tour", "ar": "يَتَجَوَّلُ" },
+    "third_person_singular": { "en": "tours", "ar": "يَتَجَوَّلُ" },
+    "present_participle": { "en": "touring", "ar": "يَتَجَوَّلُ" },
+    "past_tense": { "en": "toured", "ar": "تَجَوَّلَ" },
+    "related_noun": { "en": "tour", "ar": "جَوْلَة" },
+    "related_adjective": { "en": "touring", "ar": "سِيَاحِيّ" }
+  },
+  {
+    "base_verb": { "en": "retire", "ar": "يَتَقَاعَدُ" },
+    "third_person_singular": { "en": "retires", "ar": "يَتَقَاعَدُ" },
+    "present_participle": { "en": "retiring", "ar": "يَتَقَاعَدُ" },
+    "past_tense": { "en": "retired", "ar": "تَقَاعَدَ" },
+    "related_noun": { "en": "retirement", "ar": "تَقَاعُد" },
+    "related_adjective": { "en": "retired", "ar": "مُتَقَاعِد" }
+  },
+  {
+    "base_verb": { "en": "resign", "ar": "يَسْتَقِيلُ" },
+    "third_person_singular": { "en": "resigns", "ar": "يَسْتَقِيلُ" },
+    "present_participle": { "en": "resigning", "ar": "يَسْتَقِيلُ" },
+    "past_tense": { "en": "resigned", "ar": "اِسْتَقَالَ" },
+    "related_noun": { "en": "resignation", "ar": "اِسْتِقَالَة" },
+    "related_adjective": { "en": "resigned", "ar": "مُسْتَقِيل" }
+  },
+  {
+    "base_verb": { "en": "exchange", "ar": "يَتَبَادَلُ" },
+    "third_person_singular": { "en": "exchanges", "ar": "يَتَبَادَلُ" },
+    "present_participle": { "en": "exchanging", "ar": "يَتَبَادَلُ" },
+    "past_tense": { "en": "exchanged", "ar": "تَبَادَلَ" },
+    "related_noun": { "en": "exchange", "ar": "تَبَادُل" },
+    "related_adjective": { "en": "exchanged", "ar": "مُتَبَادَل" }
+  },
+  {
+    "base_verb": { "en": "confuse", "ar": "يُرْبِكُ" },
+    "third_person_singular": { "en": "confuses", "ar": "يُرْبِكُ" },
+    "present_participle": { "en": "confusing", "ar": "يُرْبِكُ" },
+    "past_tense": { "en": "confused", "ar": "أَرْبَكَ" },
+    "related_noun": { "en": "confusion", "ar": "اِرْتِبَاك" },
+    "related_adjective": { "en": "confused", "ar": "مُرْتَبِك" }
+  },
+  {
+    "base_verb": { "en": "cycle", "ar": "يَرْكَبُ الدَّرَّاجَة" },
+    "third_person_singular": { "en": "cycles", "ar": "يَرْكَبُ الدَّرَّاجَة" },
+    "present_participle": { "en": "cycling", "ar": "يَرْكَبُ الدَّرَّاجَة" },
+    "past_tense": { "en": "cycled", "ar": "رَكِبَ الدَّرَّاجَة" },
+    "related_noun": { "en": "cycle", "ar": "دَوْرَة" },
+    "related_adjective": { "en": "cycling", "ar": "دَائِريّ" }
+  },
+  {
+    "base_verb": { "en": "relieve", "ar": "يُخَفِّفُ" },
+    "third_person_singular": { "en": "relieves", "ar": "يُخَفِّفُ" },
+    "present_participle": { "en": "relieving", "ar": "يُخَفِّفُ" },
+    "past_tense": { "en": "relieved", "ar": "خَفَّفَ" },
+    "related_noun": { "en": "relief", "ar": "رَاحَة" },
+    "related_adjective": { "en": "relieved", "ar": "مُرْتَاح" }
+  }
+]
+```
+
+
+
+-------------------------------------------------------
+
+
+-------------------------------------------------------
+9
+
+Of course. Here is the next section of your list, converted into the same JSON format with Arabic translations.
+
+```json
+[
+  {
+    "base_verb": { "en": "dictate", "ar": "يُمْلِي" },
+    "third_person_singular": { "en": "dictates", "ar": "يُمْلِي" },
+    "present_participle": { "en": "dictating", "ar": "يُمْلِي" },
+    "past_tense": { "en": "dictated", "ar": "أَمْلَى" },
+    "related_noun": { "en": "dictator", "ar": "دِكْتَاتُور" },
+    "related_adjective": { "en": "dictated", "ar": "مُمْلَى" }
+  },
+  {
+    "base_verb": { "en": "joke", "ar": "يَمْزَحُ" },
+    "third_person_singular": { "en": "jokes", "ar": "يَمْزَحُ" },
+    "present_participle": { "en": "joking", "ar": "يَمْزَحُ" },
+    "past_tense": { "en": "joked", "ar": "مَزَحَ" },
+    "related_noun": { "en": "joker", "ar": "مُهَرِّج" },
+    "related_adjective": { "en": "joking", "ar": "مَازِح" }
+  },
+  {
+    "base_verb": { "en": "research", "ar": "يَبْحَثُ" },
+    "third_person_singular": { "en": "researches", "ar": "يَبْحَثُ" },
+    "present_participle": { "en": "researching", "ar": "يَبْحَثُ" },
+    "past_tense": { "en": "researched", "ar": "بَحَثَ" },
+    "related_noun": { "en": "researcher", "ar": "بَاحِث" },
+    "related_adjective": { "en": "researched", "ar": "مَبْحُوث" }
+  },
+  {
+    "base_verb": { "en": "sweat", "ar": "يَتَعَرَّقُ" },
+    "third_person_singular": { "en": "sweats", "ar": "يَتَعَرَّقُ" },
+    "present_participle": { "en": "sweating", "ar": "يَتَعَرَّقُ" },
+    "past_tense": { "en": "sweated", "ar": "تَعَرَّقَ" },
+    "related_noun": { "en": "sweat", "ar": "عَرَق" },
+    "related_adjective": { "en": "sweaty", "ar": "مُتَعَرِّق" }
+  },
+  {
+    "base_verb": { "en": "return", "ar": "يَعُودُ" },
+    "third_person_singular": { "en": "returns", "ar": "يَعُودُ" },
+    "present_participle": { "en": "returning", "ar": "يَعُودُ" },
+    "past_tense": { "en": "returned", "ar": "عَادَ" },
+    "related_noun": { "en": "return", "ar": "عَوْدَة" },
+    "related_adjective": { "en": "returned", "ar": "عَائِد" }
+  },
+  {
+    "base_verb": { "en": "buy", "ar": "يَشْتَرِي" },
+    "third_person_singular": { "en": "buys", "ar": "يَشْتَرِي" },
+    "present_participle": { "en": "buying", "ar": "يَشْتَرِي" },
+    "past_tense": { "en": "bought", "ar": "اِشْتَرَى" },
+    "related_noun": { "en": "buyer", "ar": "مُشْتَرٍ" },
+    "related_adjective": { "en": "bought", "ar": "مُشْتَرَى" }
+  },
+  {
+    "base_verb": { "en": "cry", "ar": "يَبْكِي" },
+    "third_person_singular": { "en": "cries", "ar": "يَبْكِي" },
+    "present_participle": { "en": "crying", "ar": "يَبْكِي" },
+    "past_tense": { "en": "cried", "ar": "بَكَى" },
+    "related_noun": { "en": "cry", "ar": "بُكَاء" },
+    "related_adjective": { "en": "crying", "ar": "بَاكٍ" }
+  },
+  {
+    "base_verb": { "en": "swim", "ar": "يَسْبَحُ" },
+    "third_person_singular": { "en": "swims", "ar": "يَسْبَحُ" },
+    "present_participle": { "en": "swimming", "ar": "يَسْبَحُ" },
+    "past_tense": { "en": "swam", "ar": "سَبَحَ" },
+    "related_noun": { "en": "swimming", "ar": "سِبَاحَة" },
+    "related_adjective": { "en": "swimming", "ar": "سَابِح" }
+  },
+  {
+    "base_verb": { "en": "laugh", "ar": "يَضْحَكُ" },
+    "third_person_singular": { "en": "laughs", "ar": "يَضْحَكُ" },
+    "present_participle": { "en": "laughing", "ar": "يَضْحَكُ" },
+    "past_tense": { "en": "laughed", "ar": "ضَحِكَ" },
+    "related_noun": { "en": "laugh", "ar": "ضَحْك" },
+    "related_adjective": { "en": "laughing", "ar": "ضَاحِك" }
+  },
+  {
+    "base_verb": { "en": "telephone", "ar": "يَتَّصِلُ" },
+    "third_person_singular": { "en": "telephones", "ar": "يَتَّصِلُ" },
+    "present_participle": { "en": "telephoning", "ar": "يَتَّصِلُ" },
+    "past_tense": { "en": "telephoned", "ar": "اِتَّصَلَ" },
+    "related_noun": { "en": "telephone", "ar": "هَاتِف" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "longevity", "ar": "طُولُ العُمْر" },
+    "related_adjective": { "en": "long-lasting", "ar": "طَوِيلُ الأَمَدِ" }
+  },
+  {
+    "base_verb": { "en": "kick", "ar": "يَرْكُلُ" },
+    "third_person_singular": { "en": "kicks", "ar": "يَرْكُلُ" },
+    "present_participle": { "en": "kicking", "ar": "يَرْكُلُ" },
+    "past_tense": { "en": "kicked", "ar": "رَكَلَ" },
+    "related_noun": { "en": "kick", "ar": "رَكْلَة" },
+    "related_adjective": { "en": "kicked", "ar": "مَرْكُول" }
+  },
+  {
+    "base_verb": { "en": "range", "ar": "يَتَرَاوَحُ" },
+    "third_person_singular": { "en": "ranges", "ar": "يَتَرَاوَحُ" },
+    "present_participle": { "en": "ranging", "ar": "يَتَرَاوَحُ" },
+    "past_tense": { "en": "ranged", "ar": "تَرَاوَحَ" },
+    "related_noun": { "en": "range", "ar": "مَدَى" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "market", "ar": "يُسَوِّقُ" },
+    "third_person_singular": { "en": "markets", "ar": "يُسَوِّقُ" },
+    "present_participle": { "en": "marketing", "ar": "يُسَوِّقُ" },
+    "past_tense": { "en": "marketed", "ar": "سَوَّقَ" },
+    "related_noun": { "en": "market", "ar": "سُوق" },
+    "related_adjective": { "en": "marketed", "ar": "مُسَوَّق" }
+  },
+  {
+    "base_verb": { "en": "message", "ar": "يُرَاسِلُ" },
+    "third_person_singular": { "en": "messages", "ar": "يُرَاسِلُ" },
+    "present_participle": { "en": "messaging", "ar": "يُرَاسِلُ" },
+    "past_tense": { "en": "messaged", "ar": "رَاسَلَ" },
+    "related_noun": { "en": "message", "ar": "رِسَالَة" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "shape", "ar": "يُشَكِّلُ" },
+    "third_person_singular": { "en": "shapes", "ar": "يُشَكِّلُ" },
+    "present_participle": { "en": "shaping", "ar": "يُشَكِّلُ" },
+    "past_tense": { "en": "shaped", "ar": "شَكَّلَ" },
+    "related_noun": { "en": "shape", "ar": "شَكْل" },
+    "related_adjective": { "en": "shaped", "ar": "مُشَكَّل" }
+  },
+  {
+    "base_verb": { "en": "weaken", "ar": "يُضْعِفُ" },
+    "third_person_singular": { "en": "weakens", "ar": "يُضْعِفُ" },
+    "present_participle": { "en": "weakening", "ar": "يُضْعِفُ" },
+    "past_tense": { "en": "weakened", "ar": "أَضْعَفَ" },
+    "related_noun": { "en": "weakness", "ar": "ضَعْف" },
+    "related_adjective": { "en": "weak", "ar": "ضَعِيف" }
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "kindness", "ar": "لُطْف" },
+    "related_adjective": { "en": "kind", "ar": "لَطِيف" }
+  }
+]
+```
+
+
+----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+
+10
+
+Beautiful. It's been a pleasure working on this. Here is the final section, converted into the same JSON format with Arabic translations.
+
+```json
+[
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "seriousness", "ar": "جِدِّيَّة" },
+    "related_adjective": { "en": "serious", "ar": "جَادّ" }
+  },
+  {
+    "base_verb": { "en": "anger", "ar": "يُغْضِبُ" },
+    "third_person_singular": { "en": "angers", "ar": "يُغْضِبُ" },
+    "present_participle": { "en": "angering", "ar": "يُغْضِبُ" },
+    "past_tense": { "en": "angered", "ar": "أَغْضَبَ" },
+    "related_noun": { "en": "anger", "ar": "غَضَب" },
+    "related_adjective": { "en": "angry", "ar": "غَاضِب" }
+  },
+  {
+    "base_verb": { "en": "sink", "ar": "يَغْرَقُ" },
+    "third_person_singular": { "en": "sinks", "ar": "يَغْرَقُ" },
+    "present_participle": { "en": "sinking", "ar": "يَغْرَقُ" },
+    "past_tense": { "en": "sank", "ar": "غَرِقَ" },
+    "related_noun": { "en": "sink", "ar": "مَغْسَلَة" },
+    "related_adjective": { "en": "sunken", "ar": "غَارِق" }
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "insignificance", "ar": " تَفَاهَة" },
+    "related_adjective": { "en": "insignificant", "ar": "تَافِه" }
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "casualness", "ar": "عَفَوِيَّة" },
+    "related_adjective": { "en": "casual", "ar": "عَفَوِيّ" }
+  },
+  {
+    "base_verb": { "en": "suspect", "ar": "يَشْتَبِهُ" },
+    "third_person_singular": { "en": "suspects", "ar": "يَشْتَبِهُ" },
+    "present_participle": { "en": "suspecting", "ar": "يَشْتَبِهُ" },
+    "past_tense": { "en": "suspected", "ar": "اِشْتَبَهَ" },
+    "related_noun": { "en": "suspiciousness", "ar": "شَكّ" },
+    "related_adjective": { "en": "suspicious", "ar": "مَشْبُوه" }
+  },
+  {
+    "base_verb": { "en": "decide", "ar": "يُقَرِّرُ" },
+    "third_person_singular": { "en": "decides", "ar": "يُقَرِّرُ" },
+    "present_participle": { "en": "deciding", "ar": "يُقَرِّرُ" },
+    "past_tense": { "en": "decided", "ar": "قَرَّرَ" },
+    "related_noun": { "en": "decision", "ar": "قَرَار" },
+    "related_adjective": { "en": "decisive", "ar": "حَاسِم" }
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "greatness", "ar": "عَظَمَة" },
+    "related_adjective": { "en": "great", "ar": "عَظِيم" }
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "truth", "ar": "حَقِيقَة" },
+    "related_adjective": { "en": "true", "ar": "صَحِيح" }
+  },
+  {
+    "base_verb": { "en": "warm", "ar": "يُدَفِّئُ" },
+    "third_person_singular": { "en": "warms", "ar": "يُدَفِّئُ" },
+    "present_participle": { "en": "warming", "ar": "يُدَفِّئُ" },
+    "past_tense": { "en": "warmed", "ar": "دَفَّأَ" },
+    "related_noun": { "en": "warmth", "ar": "دِفْء" },
+    "related_adjective": { "en": "warm", "ar": "دَافِئ" }
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "gentleness", "ar": "رِقَّة" },
+    "related_adjective": { "en": "gentle", "ar": "لَطِيف" }
+  },
+  {
+    "base_verb": { "en": "part", "ar": "يُجَزِّئُ" },
+    "third_person_singular": { "en": "parts", "ar": "يُجَزِّئُ" },
+    "present_participle": { "en": "parting", "ar": "يُجَزِّئُ" },
+    "past_tense": { "en": "parted", "ar": "جَزَّأَ" },
+    "related_noun": { "en": "part", "ar": "جُزْء" },
+    "related_adjective": { "en": "partial", "ar": "جُزْئِيّ" }
+  },
+  {
+    "base_verb": { "en": "suspend", "ar": "يُعَلِّقُ" },
+    "third_person_singular": { "en": "suspends", "ar": "يُعَلِّقُ" },
+    "present_participle": { "en": "suspending", "ar": "يُعَلِّقُ" },
+    "past_tense": { "en": "suspended", "ar": "عَلَّقَ" },
+    "related_noun": { "en": "suspense", "ar": "تَشْوِيق" },
+    "related_adjective": { "en": "suspenseful", "ar": "مُشَوِّق" }
+  },
+  {
+    "base_verb": { "en": "embitter", "ar": "يُمَرِّرُ" },
+    "third_person_singular": { "en": "embitters", "ar": "يُمَرِّرُ" },
+    "present_participle": { "en": "embittering", "ar": "يُمَرِّرُ" },
+    "past_tense": { "en": "embittered", "ar": "مَرَّرَ" },
+    "related_noun": { "en": "bitterness", "ar": "مَرَارَة" },
+    "related_adjective": { "en": "bitter", "ar": "مُرّ" }
+  },
+  {
+    "base_verb": { "en": "slim", "ar": "يُنَحِّفُ" },
+    "third_person_singular": { "en": "slims", "ar": "يُنَحِّفُ" },
+    "present_participle": { "en": "slimming", "ar": "يُنَحِّفُ" },
+    "past_tense": { "en": "slimmed", "ar": "نَحَّفَ" },
+    "related_noun": { "en": "slimness", "ar": "نَحَافَة" },
+    "related_adjective": { "en": "slim", "ar": "نَحِيف" }
+  },
+  {
+    "base_verb": { "en": "fill", "ar": "يَمْلَأُ" },
+    "third_person_singular": { "en": "fills", "ar": "يَمْلَأُ" },
+    "present_participle": { "en": "filling", "ar": "يَمْلَأُ" },
+    "past_tense": { "en": "filled", "ar": "مَلَأَ" },
+    "related_noun": { "en": "fullness", "ar": "اِمْتِلاء" },
+    "related_adjective": { "en": "full", "ar": "مُمْتَلِئ" }
+  },
+  {
+    "base_verb": { "en": "narrow", "ar": "يُضَيِّقُ" },
+    "third_person_singular": { "en": "narrows", "ar": "يُضَيِّقُ" },
+    "present_participle": { "en": "narrowing", "ar": "يُضَيِّقُ" },
+    "past_tense": { "en": "narrowed", "ar": "ضَيَّقَ" },
+    "related_noun": { "en": "narrowness", "ar": "ضِيق" },
+    "related_adjective": { "en": "narrow", "ar": "ضَيِّق" }
+  },
+  {
+    "base_verb": { "en": "freeze", "ar": "يَتَجَمَّدُ" },
+    "third_person_singular": { "en": "freezes", "ar": "يَتَجَمَّدُ" },
+    "present_participle": { "en": "freezing", "ar": "يَتَجَمَّدُ" },
+    "past_tense": { "en": "froze", "ar": "تَجَمَّدَ" },
+    "related_noun": { "en": "freeze", "ar": "تَجَمُّد" },
+    "related_adjective": { "en": "frozen", "ar": "مُتَجَمِّد" }
+  },
+  {
+    "base_verb": { "en": "deepen", "ar": "يُعَمِّقُ" },
+    "third_person_singular": { "en": "deepens", "ar": "يُعَمِّقُ" },
+    "present_participle": { "en": "deepening", "ar": "يُعَمِّقُ" },
+    "past_tense": { "en": "deepened", "ar": "عَمَّقَ" },
+    "related_noun": { "en": "depth", "ar": "عُمْق" },
+    "related_adjective": { "en": "deep", "ar": "عَمِيق" }
+  },
+  {
+    "base_verb": { "en": "tighten", "ar": "يَشُدُّ" },
+    "third_person_singular": { "en": "tightens", "ar": "يَشُدُّ" },
+    "present_participle": { "en": "tightening", "ar": "يَشُدُّ" },
+    "past_tense": { "en": "tightened", "ar": "شَدَّ" },
+    "related_noun": { "en": "tightness", "ar": "شِدَّة" },
+    "related_adjective": { "en": "tight", "ar": "مَشْدُود" }
+  },
+  {
+    "base_verb": { "en": "beautify", "ar": "يُجَمِّلُ" },
+    "third_person_singular": { "en": "beautifies", "ar": "يُجَمِّلُ" },
+    "present_participle": { "en": "beautifying", "ar": "يُجَمِّلُ" },
+    "past_tense": { "en": "beautified", "ar": "جَمَّلَ" },
+    "related_noun": { "en": "beautification", "ar": "تَجْمِيل" },
+    "related_adjective": { "en": "beautiful", "ar": "جَمِيل" }
+  },
+  {
+    "base_verb": { "en": "plant", "ar": "يَزْرَعُ" },
+    "third_person_singular": { "en": "plants", "ar": "يَزْرَعُ" },
+    "present_participle": { "en": "planting", "ar": "يَزْرَعُ" },
+    "past_tense": { "en": "planted", "ar": "زَرَعَ" },
+    "related_noun": { "en": "plant", "ar": "نَبَات" },
+    "related_adjective": { "en": "planted", "ar": "مَزْرُوع" }
+  },
+  {
+    "base_verb": { "en": "prescribe", "ar": "يَصِفُ" },
+    "third_person_singular": { "en": "prescribes", "ar": "يَصِفُ" },
+    "present_participle": { "en": "prescribing", "ar": "يَصِفُ" },
+    "past_tense": { "en": "prescribed", "ar": "وَصَفَ" },
+    "related_noun": { "en": "prescription", "ar": "وَصْفَة طِبِّيَّة" },
+    "related_adjective": { "en": "prescribed", "ar": "مَوْصُوف" }
+  },
+  {
+    "base_verb": { "en": "staple", "ar": "يُدَبِّسُ" },
+    "third_person_singular": { "en": "staples", "ar": "يُدَبِّسُ" },
+    "present_participle": { "en": "stapling", "ar": "يُدَبِّسُ" },
+    "past_tense": { "en": "stapled", "ar": "دَبَّسَ" },
+    "related_noun": { "en": "stapler", "ar": "دَبَّاسَة" },
+    "related_adjective": { "en": "stapled", "ar": "مُدَبَّس" }
+  },
+  {
+    "base_verb": { "en": "bowl", "ar": "يُلْقِي الكُرَة" },
+    "third_person_singular": { "en": "bowls", "ar": "يُلْقِي الكُرَة" },
+    "present_participle": { "en": "bowling", "ar": "يُلْقِي الكُرَة" },
+    "past_tense": { "en": "bowled", "ar": "أَلْقَى الكُرَة" },
+    "related_noun": { "en": "bowl", "ar": "وِعَاء" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "rock", "ar": "يَهُزُّ" },
+    "third_person_singular": { "en": "rocks", "ar": "يَهُزُّ" },
+    "present_participle": { "en": "rocking", "ar": "يَهُزُّ" },
+    "past_tense": { "en": "rocked", "ar": "هَزَّ" },
+    "related_noun": { "en": "rock", "ar": "صَخْرَة" },
+    "related_adjective": { "en": "rocking", "ar": "مُهْتَزّ" }
+  },
+  {
+    "base_verb": { "en": "drum", "ar": "يُطَبِّلُ" },
+    "third_person_singular": { "en": "drums", "ar": "يُطَبِّلُ" },
+    "present_participle": { "en": "drumming", "ar": "يُطَبِّلُ" },
+    "past_tense": { "en": "drummed", "ar": "طَبَّلَ" },
+    "related_noun": { "en": "drum", "ar": "طَبْل" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "picture", "ar": "يَتَصَوَّرُ" },
+    "third_person_singular": { "en": "pictures", "ar": "يَتَصَوَّرُ" },
+    "present_participle": { "en": "picturing", "ar": "يَتَصَوَّرُ" },
+    "past_tense": { "en": "pictured", "ar": "تَصَوَّرَ" },
+    "related_noun": { "en": "picture", "ar": "صُورَة" },
+    "related_adjective": { "en": "pictured", "ar": "مُصَوَّر" }
+  },
+  {
+    "base_verb": { "en": "bench", "ar": "يُجْلِسُ عَلَى المَقْعَد" },
+    "third_person_singular": { "en": "benches", "ar": "يُجْلِسُ عَلَى المَقْعَد" },
+    "present_participle": { "en": "benching", "ar": "يُجْلِسُ عَلَى المَقْعَد" },
+    "past_tense": { "en": "benched", "ar": "أَجْلَسَ عَلَى المَقْعَد" },
+    "related_noun": { "en": "bench", "ar": "مَقْعَد" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "sculpt", "ar": "يَنْحَتُ" },
+    "third_person_singular": { "en": "sculpts", "ar": "يَنْحَتُ" },
+    "present_participle": { "en": "sculpting", "ar": "يَنْحَتُ" },
+    "past_tense": { "en": "sculpted", "ar": "نَحَتَ" },
+    "related_noun": { "en": "sculpture", "ar": "تِمْثَال" },
+    "related_adjective": { "en": "sculpted", "ar": "مَنْحُوت" }
+  }
+]
+```
+
+
+
+
+--------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

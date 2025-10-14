@@ -1,0 +1,1630 @@
+[
+  {
+    "word": "book",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "book",
+      "plural": "books",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "book",
+      "third_person_singular": "books",
+      "present_participle": "booking",
+      "past_tense": "booked"
+    },
+    "translations": {
+      "ja": "hon",
+      "ar_noun": "كِتَاب",
+      "ar_verb": "يَحْجِزُ"
+    }
+  },
+  {
+    "word": "tissue",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "tissue",
+      "plural": "tissues",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "Soshiki",
+      "ar_noun": "مِنْدِيل وَرَقِي"
+    }
+  },
+  {
+    "word": "door",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "door",
+      "plural": "doors",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "doa",
+      "ar_noun": "بَاب"
+    }
+  },
+  {
+    "word": "roof",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "roof",
+      "plural": "roofs",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "roof",
+      "third_person_singular": "roofs",
+      "present_participle": "roofing",
+      "past_tense": "roofed"
+    },
+    "translations": {
+      "ja": "yane",
+      "ar_noun": "سَقْف",
+      "ar_verb": "يُسَقِّفُ"
+    }
+  },
+  {
+    "word": "bookcase",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "bookcase",
+      "plural": "bookcases",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "hondana",
+      "ar_noun": "خِزَانَة كُتُب"
+    }
+  },
+  {
+    "word": "calculator",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "calculator",
+      "plural": "calculators",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "dentaku",
+      "ar_noun": "آلَة حَاسِبَة"
+    }
+  },
+  {
+    "word": "cigar",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "cigar",
+      "plural": "cigars",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "Hamaki",
+      "ar_noun": "سِيجَار"
+    }
+  },
+  {
+    "word": "kettle",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "kettle",
+      "plural": "kettles",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "yakan",
+      "ar_noun": "غَلاَّيَة"
+    }
+  },
+  {
+    "word": "rose",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "rose",
+      "plural": "roses",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "bara",
+      "ar_noun": "وَرْدَة"
+    }
+  },
+  {
+    "word": "plant",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "plant",
+      "plural": "plants",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "plant",
+      "third_person_singular": "plants",
+      "present_participle": "planting",
+      "past_tense": "planted"
+    },
+    "translations": {
+      "ja": "shokubutsu",
+      "ar_noun": "نَبَات",
+      "ar_verb": "يَزْرَعُ"
+    }
+  },
+  {
+    "word": "luggage",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "luggage",
+      "plural": "luggage",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "nimotsu",
+      "ar_noun": "أَمْتِعَة"
+    }
+  },
+  {
+    "word": "wood",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "wood",
+      "plural": "woods",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "mokuzai",
+      "ar_noun": "خَشَب"
+    }
+  },
+  {
+    "word": "tool",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "tool",
+      "plural": "tools",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "tool",
+      "third_person_singular": "tools",
+      "present_participle": "tooling",
+      "past_tense": "tooled"
+    },
+    "translations": {
+      "ja": "Dōgu",
+      "ar_noun": "أَدَاة",
+      "ar_verb": "يُصَنِّعُ"
+    }
+  },
+  {
+    "word": "rock",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "rock",
+      "plural": "rocks",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "rock",
+      "third_person_singular": "rocks",
+      "present_participle": "rocking",
+      "past_tense": "rocked"
+    },
+    "translations": {
+      "ja": "ishi",
+      "ar_noun": "صَخْرَة",
+      "ar_verb": "يَهُزُّ"
+    }
+  },
+  {
+    "word": "medicine",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "medicine",
+      "plural": "medicines",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kusuri",
+      "ar_noun": "دَوَاء"
+    }
+  },
+  {
+    "word": "fence",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "fence",
+      "plural": "fences",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "fence",
+      "third_person_singular": "fences",
+      "present_participle": "fencing",
+      "past_tense": "fenced"
+    },
+    "translations": {
+      "ja": "saku",
+      "ar_noun": "سِيَاج",
+      "ar_verb": "يُسَيِّجُ"
+    }
+  },
+  {
+    "word": "picture",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "picture",
+      "plural": "pictures",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "picture",
+      "third_person_singular": "pictures",
+      "present_participle": "picturing",
+      "past_tense": "pictured"
+    },
+    "translations": {
+      "ja": "shashin",
+      "ar_noun": "صُورَة",
+      "ar_verb": "يَتَصَوَّرُ"
+    }
+  },
+  {
+    "word": "paintbrush",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "paintbrush",
+      "plural": "paintbrushes",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "efude",
+      "ar_noun": "فُرْشَاة رَسْم"
+    }
+  },
+  {
+    "word": "dictionary",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "dictionary",
+      "plural": "dictionaries",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "jisho",
+      "ar_noun": "قَامُوس"
+    }
+  },
+  {
+    "word": "cash",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "cash",
+      "plural": "cash",
+      "countable": false
+    },
+    "verb_forms": {
+      "base_verb": "cash",
+      "third_person_singular": "cashes",
+      "present_participle": "cashing",
+      "past_tense": "cashed"
+    },
+    "translations": {
+      "ja": "genkin",
+      "ar_noun": "نَقْد",
+      "ar_verb": "يَصْرِفُ"
+    }
+  },
+  {
+    "word": "toy",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "toy",
+      "plural": "toys",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "toy",
+      "third_person_singular": "toys",
+      "present_participle": "toying",
+      "past_tense": "toyed"
+    },
+    "translations": {
+      "ja": "omocha",
+      "ar_noun": "لُعْبَة",
+      "ar_verb": "يَلْهُو"
+    }
+  },
+  {
+    "word": "stairs",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "stair",
+      "plural": "stairs",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kaidan",
+      "ar_noun": "سَلالِم"
+    }
+  },
+  {
+    "word": "stone",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "stone",
+      "plural": "stones",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "stone",
+      "third_person_singular": "stones",
+      "present_participle": "stoning",
+      "past_tense": "stoned"
+    },
+    "translations": {
+      "ja": "ishi",
+      "ar_noun": "حَجَر",
+      "ar_verb": "يَرْجُمُ"
+    }
+  },
+  {
+    "word": "petal",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "petal",
+      "plural": "petals",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "hanabira",
+      "ar_noun": "بَتَلَة"
+    }
+  },
+  {
+    "word": "rubber",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "rubber",
+      "plural": "rubbers",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "gomu",
+      "ar_noun": "مَطَّاط"
+    }
+  },
+  {
+    "word": "ice",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "ice",
+      "plural": "ices",
+      "countable": false
+    },
+    "verb_forms": {
+      "base_verb": "ice",
+      "third_person_singular": "ices",
+      "present_participle": "icing",
+      "past_tense": "iced"
+    },
+    "translations": {
+      "ja": "kori",
+      "ar_noun": "جَلِيد",
+      "ar_verb": "يُثَلِّجُ"
+    }
+  },
+  {
+    "word": "chopsticks",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "chopstick",
+      "plural": "chopsticks",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "hashi",
+      "ar_noun": "عِيدَان طَعَام"
+    }
+  },
+  {
+    "word": "bandage",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "bandage",
+      "plural": "bandages",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "bandage",
+      "third_person_singular": "bandages",
+      "present_participle": "bandaging",
+      "past_tense": "bandaged"
+    },
+    "translations": {
+      "ja": "hotai",
+      "ar_noun": "ضِمَاد",
+      "ar_verb": "يُضَمِّدُ"
+    }
+  },
+  {
+    "word": "smoke",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "smoke",
+      "plural": "smokes",
+      "countable": false
+    },
+    "verb_forms": {
+      "base_verb": "smoke",
+      "third_person_singular": "smokes",
+      "present_participle": "smoking",
+      "past_tense": "smoked"
+    },
+    "translations": {
+      "ja": "kemuri",
+      "ar_noun": "دُخَان",
+      "ar_verb": "يُدَخِّنُ"
+    }
+  },
+  {
+    "word": "Japanese",
+    "type": "Noun/Adjective",
+    "noun_forms": {
+      "singular": "Japanese",
+      "plural": "Japanese",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "Nihongo",
+      "ar_noun": "يَابَانِيّ"
+    }
+  },
+  {
+    "word": "pencil",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "pencil",
+      "plural": "pencils",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "pencil",
+      "third_person_singular": "pencils",
+      "present_participle": "penciling",
+      "past_tense": "penciled"
+    },
+    "translations": {
+      "ja": "enpitsu",
+      "ar_noun": "قَلَم رَصَاص",
+      "ar_verb": "يَكْتُبُ بِقَلَمِ الرَّصَاص"
+    }
+  },
+  {
+    "word": "eraser",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "eraser",
+      "plural": "erasers",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "keshigomu",
+      "ar_noun": "مِمْحَاة"
+    }
+  },
+  {
+    "word": "homework",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "homework",
+      "plural": "homework",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "shukudai",
+      "ar_noun": "وَاجِب مَنْزِلِيّ"
+    }
+  },
+  {
+    "word": "key",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "key",
+      "plural": "keys",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "key",
+      "third_person_singular": "keys",
+      "present_participle": "keying",
+      "past_tense": "keyed"
+    },
+    "translations": {
+      "ja": "kagi",
+      "ar_noun": "مِفْتَاح",
+      "ar_verb": "يُدْخِلُ"
+    }
+  },
+  {
+    "word": "window",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "window",
+      "plural": "windows",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "mado",
+      "ar_noun": "نَافِذَة"
+    }
+  },
+  {
+    "word": "battery",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "battery",
+      "plural": "batteries",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "denchi",
+      "ar_noun": "بَطَّارِيَّة"
+    }
+  },
+  {
+    "word": "television",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "television",
+      "plural": "televisions",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "terebi",
+      "ar_noun": "تِلِفِزْيُون"
+    }
+  },
+  {
+    "word": "lamp",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "lamp",
+      "plural": "lamps",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "shomei",
+      "ar_noun": "مِصْبَاح"
+    }
+  },
+  {
+    "word": "chair",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "chair",
+      "plural": "chairs",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "chair",
+      "third_person_singular": "chairs",
+      "present_participle": "chairing",
+      "past_tense": "chaired"
+    },
+    "translations": {
+      "ja": "isu",
+      "ar_noun": "كُرْسِيّ",
+      "ar_verb": "يَتَرَأَّسُ"
+    }
+  },
+  {
+    "word": "toothbrush",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "toothbrush",
+      "plural": "toothbrushes",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "toothbrush",
+      "third_person_singular": "toothbrushes",
+      "present_participle": "toothbrushing",
+      "past_tense": "toothbrushed"
+    },
+    "translations": {
+      "ja": "haburashi",
+      "ar_noun": "فُرْشَاة أَسْنَان",
+      "ar_verb": "يُنَظِّفُ الأَسْنَان"
+    }
+  },
+  {
+    "word": "wall",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "wall",
+      "plural": "walls",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "wall",
+      "third_person_singular": "walls",
+      "present_participle": "walling",
+      "past_tense": "walled"
+    },
+    "translations": {
+      "ja": "kabe",
+      "ar_noun": "جِدَار",
+      "ar_verb": "يُحِيطُ بِجِدَار"
+    }
+  },
+  {
+    "word": "bridge",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "bridge",
+      "plural": "bridges",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "bridge",
+      "third_person_singular": "bridges",
+      "present_participle": "bridging",
+      "past_tense": "bridged"
+    },
+    "translations": {
+      "ja": "hashi",
+      "ar_noun": "جِسْر",
+      "ar_verb": "يُجَسِّرُ"
+    }
+  },
+  {
+    "word": "blanket",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "blanket",
+      "plural": "blankets",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "mofu",
+      "ar_noun": "بَطَّانِيَّة"
+    }
+  },
+  {
+    "word": "textbook",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "textbook",
+      "plural": "textbooks",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kyokasho",
+      "ar_noun": "كِتَاب مَدْرَسِيّ"
+    }
+  },
+  {
+    "word": "information",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "information",
+      "plural": "information",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "joho",
+      "ar_noun": "مَعْلُومَات"
+    }
+  },
+  {
+    "word": "pillow",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "pillow",
+      "plural": "pillows",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "makura",
+      "ar_noun": "وِسَادَة"
+    }
+  },
+  {
+    "word": "machine",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "machine",
+      "plural": "machines",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kikai",
+      "ar_noun": "آلَة"
+    }
+  },
+  {
+    "word": "scissors",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "scissor",
+      "plural": "scissors",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "scissor",
+      "third_person_singular": "scissors",
+      "present_participle": "scissoring",
+      "past_tense": "scissored"
+    },
+    "translations": {
+      "ja": "hasami",
+      "ar_noun": "مِقَصّ",
+      "ar_verb": "يَقُصُّ"
+    }
+  },
+  {
+    "word": "table",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "table",
+      "plural": "tables",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "table",
+      "third_person_singular": "tables",
+      "present_participle": "tabling",
+      "past_tense": "tabled"
+    },
+    "translations": {
+      "ja": "teburu",
+      "ar_noun": "طَاوِلَة",
+      "ar_verb": "يُؤَجِّلُ"
+    }
+  },
+  {
+    "word": "paper",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "paper",
+      "plural": "papers",
+      "countable": false
+    },
+    "verb_forms": {
+      "base_verb": "paper",
+      "third_person_singular": "papers",
+      "present_participle": "papering",
+      "past_tense": "papered"
+    },
+    "translations": {
+      "ja": "kami",
+      "ar_noun": "وَرَق",
+      "ar_verb": "يُغَطِّي بِالوَرَق"
+    }
+  },
+  {
+    "word": "map",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "map",
+      "plural": "maps",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "map",
+      "third_person_singular": "maps",
+      "present_participle": "mapping",
+      "past_tense": "mapped"
+    },
+    "translations": {
+      "ja": "chizu",
+      "ar_noun": "خَرِيطَة",
+      "ar_verb": "يَرْسُمُ خَرِيطَة"
+    }
+  },
+  {
+    "word": "backpack",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "backpack",
+      "plural": "backpacks",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "ryukku",
+      "ar_noun": "حَقِيبَة ظَهْر"
+    }
+  },
+  {
+    "word": "ruler",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "ruler",
+      "plural": "rulers",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "jogi",
+      "ar_noun": "مِسْطَرَة"
+    }
+  },
+  {
+    "word": "money",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "money",
+      "plural": "monies",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "okane",
+      "ar_noun": "مَال"
+    }
+  },
+  {
+    "word": "scarf",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "scarf",
+      "plural": "scarves",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "mafura",
+      "ar_noun": "وِشَاح"
+    }
+  },
+  {
+    "word": "shoe",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "shoe",
+      "plural": "shoes",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kutsu",
+      "ar_noun": "حِذَاء"
+    }
+  },
+  {
+    "word": "food",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "food",
+      "plural": "foods",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "tabemono",
+      "ar_noun": "طَعَام"
+    }
+  },
+  {
+    "word": "hat",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "hat",
+      "plural": "hats",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "boshi",
+      "ar_noun": "قُبَّعَة"
+    }
+  },
+  {
+    "word": "gloves",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "glove",
+      "plural": "gloves",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "glove",
+      "third_person_singular": "gloves",
+      "present_participle": "gloving",
+      "past_tense": "gloved"
+    },
+    "translations": {
+      "ja": "tebukuro",
+      "ar_noun": "قُفَّازَات",
+      "ar_verb": "يَرْتَدِي القُفَّاز"
+    }
+  },
+  {
+    "word": "wallet",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "wallet",
+      "plural": "wallets",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "saifu",
+      "ar_noun": "مِحْفَظَة"
+    }
+  },
+  {
+    "word": "ring",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "ring",
+      "plural": "rings",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "ring",
+      "third_person_singular": "rings",
+      "present_participle": "ringing",
+      "past_tense": "rang"
+    },
+    "translations": {
+      "ja": "yubiwa",
+      "ar_noun": "خَاتَم",
+      "ar_verb": "يَرِنُّ"
+    }
+  },
+  {
+    "word": "bag",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "bag",
+      "plural": "bags",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "bag",
+      "third_person_singular": "bags",
+      "present_participle": "bagging",
+      "past_tense": "bagged"
+    },
+    "translations": {
+      "ja": "kaban",
+      "ar_noun": "حَقِيبَة",
+      "ar_verb": "يَضَعُ فِي حَقِيبَة"
+    }
+  },
+  {
+    "word": "fire",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "fire",
+      "plural": "fires",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "fire",
+      "third_person_singular": "fires",
+      "present_participle": "firing",
+      "past_tense": "fired"
+    },
+    "translations": {
+      "ja": "kaji",
+      "ar_noun": "نَار",
+      "ar_verb": "يَطْرُدُ"
+    }
+  },
+  {
+    "word": "glasses",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "glass",
+      "plural": "glasses",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "megane",
+      "ar_noun": "نَظَّارَات"
+    }
+  },
+  {
+    "word": "drawer",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "drawer",
+      "plural": "drawers",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "hikidashi",
+      "ar_noun": "دُرْج"
+    }
+  },
+  {
+    "word": "clock",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "clock",
+      "plural": "clocks",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "clock",
+      "third_person_singular": "clocks",
+      "present_participle": "clocking",
+      "past_tense": "clocked"
+    },
+    "translations": {
+      "ja": "tokei",
+      "ar_noun": "سَاعَة حَائِط",
+      "ar_verb": "يُسَجِّلُ الوَقْت"
+    }
+  },
+  {
+    "word": "clothes",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "cloth",
+      "plural": "clothes",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "fuku",
+      "ar_noun": "مَلاَبِس"
+    }
+  },
+  {
+    "word": "turtle",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "turtle",
+      "plural": "turtles",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kame",
+      "ar_noun": "سُلَحْفَاة"
+    }
+  },
+  {
+    "word": "sunflower",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "sunflower",
+      "plural": "sunflowers",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "himawari",
+      "ar_noun": "دَوَّار الشَّمْس"
+    }
+  },
+  {
+    "word": "paint",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "paint",
+      "plural": "paints",
+      "countable": false
+    },
+    "verb_forms": {
+      "base_verb": "paint",
+      "third_person_singular": "paints",
+      "present_participle": "painting",
+      "past_tense": "painted"
+    },
+    "translations": {
+      "ja": "enogu",
+      "ar_noun": "طِلاَء",
+      "ar_verb": "يَطْلِي"
+    }
+  },
+  {
+    "word": "mirror",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "mirror",
+      "plural": "mirrors",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "mirror",
+      "third_person_singular": "mirrors",
+      "present_participle": "mirroring",
+      "past_tense": "mirrored"
+    },
+    "translations": {
+      "ja": "kagami",
+      "ar_noun": "مِرْآة",
+      "ar_verb": "يَعْكِسُ"
+    }
+  },
+  {
+    "word": "diary",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "diary",
+      "plural": "diaries",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "nikki",
+      "ar_noun": "يَوْمِيَّات"
+    }
+  },
+  {
+    "word": "ink",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "ink",
+      "plural": "inks",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "sumi",
+      "ar_noun": "حِبْر"
+    }
+  },
+  {
+    "word": "cotton",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "cotton",
+      "plural": "cottons",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "men",
+      "ar_noun": "قُطْن"
+    }
+  },
+  {
+    "word": "bleach",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "bleach",
+      "plural": "bleaches",
+      "countable": false
+    },
+    "verb_forms": {
+      "base_verb": "bleach",
+      "third_person_singular": "bleaches",
+      "present_participle": "bleaching",
+      "past_tense": "bleached"
+    },
+    "translations": {
+      "ja": "hyohakuzai",
+      "ar_noun": "مُبَيِّض",
+      "ar_verb": "يُبَيِّضُ"
+    }
+  },
+  {
+    "word": "aluminium foil",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "aluminium foil",
+      "plural": "aluminium foil",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": null,
+      "ar_noun": "وَرَقُ الأَلُومِنْيُوم"
+    }
+  },
+  {
+    "word": "microscope",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "microscope",
+      "plural": "microscopes",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kenbikyo",
+      "ar_noun": "مِجْهَر"
+    }
+  },
+  {
+    "word": "prescription",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "prescription",
+      "plural": "prescriptions",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "shohosen",
+      "ar_noun": "وَصْفَة طِبِّيَّة"
+    }
+  },
+  {
+    "word": "rubber band",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "rubber band",
+      "plural": "rubber bands",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "gomubando",
+      "ar_noun": "شَرِيط مَطَّاطِيّ"
+    }
+  },
+  {
+    "word": "speaker",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "speaker",
+      "plural": "speakers",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "supika",
+      "ar_noun": "مُكَبِّر صَوْت"
+    }
+  },
+  {
+    "word": "seaweed",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "seaweed",
+      "plural": "seaweeds",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "kaiso",
+      "ar_noun": "أَعْشَاب بَحْرِيَّة"
+    }
+  },
+  {
+    "word": "stapler",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "stapler",
+      "plural": "staplers",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "hotchikisu",
+      "ar_noun": "دَبَّاسَة"
+    }
+  },
+  {
+    "word": "bowl",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "bowl",
+      "plural": "bowls",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "bowl",
+      "third_person_singular": "bowls",
+      "present_participle": "bowling",
+      "past_tense": "bowled"
+    },
+    "translations": {
+      "ja": "boru",
+      "ar_noun": "وِعَاء",
+      "ar_verb": "يُلْقِي الكُرَة"
+    }
+  },
+  {
+    "word": "pot",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "pot",
+      "plural": "pots",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "pot",
+      "third_person_singular": "pots",
+      "present_participle": "potting",
+      "past_tense": "potted"
+    },
+    "translations": {
+      "ja": "nabe",
+      "ar_noun": "قِدْر",
+      "ar_verb": "يَضَعُ فِي قِدْر"
+    }
+  },
+  {
+    "word": "guidebook",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "guidebook",
+      "plural": "guidebooks",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "ryoko gaidobukku",
+      "ar_noun": "كِتَاب إِرْشَادِيّ"
+    }
+  },
+  {
+    "word": "souvenir",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "souvenir",
+      "plural": "souvenirs",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "o-miyage",
+      "ar_noun": "هَدِيَّة تِذْكَارِيَّة"
+    }
+  },
+  {
+    "word": "stove",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "stove",
+      "plural": "stoves",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "konro",
+      "ar_noun": "مَوْقِد"
+    }
+  },
+  {
+    "word": "musical instrument",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "musical instrument",
+      "plural": "musical instruments",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "gakki",
+      "ar_noun": "آلَة مُوسِيقِيَّة"
+    }
+  },
+  {
+    "word": "purse",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "purse",
+      "plural": "purses",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "handobaggu",
+      "ar_noun": "مِحْفَظَة نِسَائِيَّة"
+    }
+  },
+  {
+    "word": "jewelry",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "jewelry",
+      "plural": "jewelry",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "hoseki",
+      "ar_noun": "مُجَوْهَرَات"
+    }
+  },
+  {
+    "word": "football",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "football",
+      "plural": "footballs",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "futtoboru",
+      "ar_noun": "كُرَة القَدَم"
+    }
+  },
+  {
+    "word": "paper clip",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "paper clip",
+      "plural": "paper clips",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "pepe kurippu",
+      "ar_noun": "مِشْبَك وَرَق"
+    }
+  },
+  {
+    "word": "dishwasher",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "dishwasher",
+      "plural": "dishwashers",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "shokkiaraiki",
+      "ar_noun": "غَسَّالَة صُحُون"
+    }
+  },
+  {
+    "word": "drums",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "drum",
+      "plural": "drums",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "drum",
+      "third_person_singular": "drums",
+      "present_participle": "drumming",
+      "past_tense": "drummed"
+    },
+    "translations": {
+      "ja": "doramu",
+      "ar_noun": "طُبُول",
+      "ar_verb": "يُطَبِّلُ"
+    }
+  },
+  {
+    "word": "bottle",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "bottle",
+      "plural": "bottles",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "bottle",
+      "third_person_singular": "bottles",
+      "present_participle": "bottling",
+      "past_tense": "bottled"
+    },
+    "translations": {
+      "ja": "bin",
+      "ar_noun": "زُجَاجَة",
+      "ar_verb": "يُعَبِّئُ فِي زُجَاجَات"
+    }
+  },
+  {
+    "word": "plastic",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "plastic",
+      "plural": "plastics",
+      "countable": false
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "purasutikku",
+      "ar_noun": "بِلاَسْتِيك"
+    }
+  },
+  {
+    "word": "bench",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "bench",
+      "plural": "benches",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "bench",
+      "third_person_singular": "benches",
+      "present_participle": "benching",
+      "past_tense": "benched"
+    },
+    "translations": {
+      "ja": "benchi",
+      "ar_noun": "مَقْعَد",
+      "ar_verb": "يُجْلِسُ عَلَى المَقْعَد"
+    }
+  },
+  {
+    "word": "sculpture",
+    "type": "Noun",
+    "noun_forms": {
+      "singular": "sculpture",
+      "plural": "sculptures",
+      "countable": true
+    },
+    "verb_forms": null,
+    "translations": {
+      "ja": "chokoku",
+      "ar_noun": "تِمْثَال"
+    }
+  },
+  {
+    "word": "resume",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "resume",
+      "plural": "resumes",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "resume",
+      "third_person_singular": "resumes",
+      "present_participle": "resuming",
+      "past_tense": "resumed"
+    },
+    "translations": {
+      "ja": "rireski-sho",
+      "ar_noun": "سِيرَة ذَاتِيَّة",
+      "ar_verb": "يَسْتَأْنِفُ"
+    }
+  },
+  {
+    "word": "mug",
+    "type": "Noun/Verb",
+    "noun_forms": {
+      "singular": "mug",
+      "plural": "mugs",
+      "countable": true
+    },
+    "verb_forms": {
+      "base_verb": "mug",
+      "third_person_singular": "mugs",
+      "present_participle": "mugging",
+      "past_tense": "mugged"
+    },
+    "translations": {
+      "ja": "magukappu",
+      "ar_noun": "كُوب كَبِير",
+      "ar_verb": "يَسْطُو عَلَى"
+    }
+  }
+]

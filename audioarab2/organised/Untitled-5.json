@@ -1,0 +1,404 @@
+[{
+    "en": "book",
+    "ar": "كتاب"
+  },
+  {
+    "en": "tissue",
+    "ar": "منديل ورقي"
+  },
+  {
+    "en": "door",
+    "ar": "باب"
+  },
+  {
+    "en": "roof",
+    "ar": "سقف"
+  },
+  {
+    "en": "bookcase",
+    "ar": "خزانة كتب"
+  },
+  {
+    "en": "calculator",
+    "ar": "آلة حاسبة"
+  },
+  {
+    "en": "cigar",
+    "ar": "سيجار"
+  },
+  {
+    "en": "kettle",
+    "ar": "غلاية"
+  },
+  {
+    "en": "rose",
+    "ar": "وردة"
+  },
+  {
+    "en": "plant",
+    "ar": "نبات"
+  },
+  {
+    "en": "luggage",
+    "ar": "أمتعة"
+  },
+  {
+    "en": "wood",
+    "ar": "خشب"
+  },
+  {
+    "en": "tool",
+    "ar": "أداة"
+  },
+  {
+    "en": "rock",
+    "ar": "صخرة"
+  },
+  {
+    "en": "medicine",
+    "ar": "دواء"
+  },
+  {
+    "en": "fence",
+    "ar": "سياج"
+  },
+  {
+    "en": "picture",
+    "ar": "صورة"
+  },
+  {
+    "en": "paintbrush",
+    "ar": "فرشاة رسم"
+  },
+  {
+    "en": "dictionary",
+    "ar": "قاموس"
+  },
+  {
+    "en": "cash",
+    "ar": "نقد"
+  },
+  {
+    "en": "toy",
+    "ar": "لعبة"
+  },
+  {
+    "en": "stairs",
+    "ar": "سلالم"
+  },
+  {
+    "en": "stone",
+    "ar": "حجر"
+  },
+  {
+    "en": "petal",
+    "ar": "بتلة"
+  },
+  {
+    "en": "rubber",
+    "ar": "مطاط"
+  },
+  {
+    "en": "ice",
+    "ar": "ثلج"
+  },
+  {
+    "en": "chopsticks",
+    "ar": "عيدان طعام"
+  },
+  {
+    "en": "bandage",
+    "ar": "ضمادة"
+  },
+  {
+    "en": "smoke",
+    "ar": "دخان"
+  },
+  {
+    "en": "japanese",
+    "ar": "ياباني"
+  },
+  {
+    "en": "pencil",
+    "ar": "قلم رصاص"
+  },
+  {
+    "en": "eraser",
+    "ar": "ممحاة"
+  },
+  {
+    "en": "homework",
+    "ar": "واجب منزلي"
+  },
+  {
+    "en": "key",
+    "ar": "مفتاح"
+  },
+  {
+    "en": "window",
+    "ar": "نافذة"
+  },
+  {
+    "en": "battery",
+    "ar": "بطارية"
+  },
+  {
+    "en": "television",
+    "ar": "تلفزيون"
+  },
+  {
+    "en": "lamp",
+    "ar": "مصباح"
+  },
+  {
+    "en": "chair",
+    "ar": "كرسي"
+  },
+  {
+    "en": "toothbrush",
+    "ar": "فرشاة أسنان"
+  },
+  {
+    "en": "wall",
+    "ar": "جدار"
+  },
+  {
+    "en": "bridge",
+    "ar": "جسر"
+  },
+  {
+    "en": "blanket",
+    "ar": "بطانية"
+  },
+  {
+    "en": "textbook",
+    "ar": "كتاب مدرسي"
+  },
+  {
+    "en": "information",
+    "ar": "معلومات"
+  },
+  {
+    "en": "pillow",
+    "ar": "وسادة"
+  },
+  {
+    "en": "machine",
+    "ar": "آلة"
+  },
+  {
+    "en": "scissors",
+    "ar": "مقص"
+  },
+  {
+    "en": "table",
+    "ar": "طاولة"
+  },
+  {
+    "en": "paper",
+    "ar": "ورق"
+  },
+  {
+    "en": "map",
+    "ar": "خريطة"
+  },
+  {
+    "en": "backpack",
+    "ar": "حقيبة ظهر"
+  },
+  {
+    "en": "ruler",
+    "ar": "مسطرة"
+  },
+  {
+    "en": "money",
+    "ar": "مال"
+  },
+  {
+    "en": "scarf",
+    "ar": "وشاح"
+  },
+  {
+    "en": "shoe",
+    "ar": "حذاء"
+  },
+  {
+    "en": "food",
+    "ar": "طعام"
+  },
+  {
+    "en": "hat",
+    "ar": "قبعة"
+  },
+]
+
+[
+  {
+    "en": "gloves",
+    "ar": "قفازات"
+  },
+  {
+    "en": "wallet",
+    "ar": "محفظة"
+  },
+  {
+    "en": "ring",
+    "ar": "خاتم"
+  },
+  {
+    "en": "bag",
+    "ar": "حقيبة"
+  },
+  {
+    "en": "fire",
+    "ar": "نار"
+  },
+  {
+    "en": "glasses",
+    "ar": "نظارات"
+  },
+  {
+    "en": "drawer",
+    "ar": "درج"
+  },
+  {
+    "en": "clock",
+    "ar": "ساعة"
+  },
+  {
+    "en": "clothes",
+    "ar": "ملابس"
+  },
+  {
+    "en": "turtle",
+    "ar": "سلحفاة"
+  },
+  {
+    "en": "sunflower",
+    "ar": "عباد الشمس"
+  },
+  {
+    "en": "paint",
+    "ar": "طلاء"
+  },
+  {
+    "en": "mirror",
+    "ar": "مرآة"
+  },
+  {
+    "en": "diary",
+    "ar": "يوميات"
+  },
+  {
+    "en": "ink",
+    "ar": "حبر"
+  },
+  {
+    "en": "cotton",
+    "ar": "قطن"
+  },
+  {
+    "en": "bleach",
+    "ar": "مبيض"
+  },
+  {
+    "en": "aluminium foil",
+    "ar": "ورق ألومنيوم"
+  },
+  {
+    "en": "microscope",
+    "ar": "مجهر"
+  },
+  {
+    "en": "prescription",
+    "ar": "وصفة طبية"
+  },
+  {
+    "en": "rubber band",
+    "ar": "شريط مطاطي"
+  },
+  {
+    "en": "speaker",
+    "ar": "مكبر صوت"
+  },
+  {
+    "en": "seaweed",
+    "ar": "أعشاب بحرية"
+  },
+  {
+    "en": "stapler",
+    "ar": "دباسة"
+  },
+  {
+    "en": "bowl",
+    "ar": "وعاء"
+  },
+  {
+    "en": "pot",
+    "ar": "قدر"
+  },
+  {
+    "en": "guidebook",
+    "ar": "كتيب إرشادي"
+  },
+  {
+    "en": "souvenir",
+    "ar": "هدية تذكارية"
+  },
+  {
+    "en": "stove",
+    "ar": "موقد"
+  },
+  {
+    "en": "musical instrument",
+    "ar": "آلة موسيقية"
+  },
+  {
+    "en": "purse",
+    "ar": "محفظة نسائية"
+  },
+  {
+    "en": "jewelry",
+    "ar": "مجوهرات"
+  },
+  {
+    "en": "football",
+    "ar": "كرة القدم"
+  },
+  {
+    "en": "paper clip",
+    "ar": "مشبك ورق"
+  },
+  {
+    "en": "dishwasher",
+    "ar": "غسالة صحون"
+  },
+  {
+    "en": "drums",
+    "ar": "طبول"
+  },
+  {
+    "en": "bottle",
+    "ar": "زجاجة"
+  },
+  {
+    "en": "plastic",
+    "ar": "بلاستيك"
+  },
+  {
+    "en": "bench",
+    "ar": "مقعد"
+  },
+  {
+    "en": "sculpture",
+    "ar": "تمثال"
+  },
+  {
+    "en": "resume",
+    "ar": "سيرة ذاتية"
+  },
+  {
+    "en": "mug",
+    "ar": "كوب كبير"
+  }
+]

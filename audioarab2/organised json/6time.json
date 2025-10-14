@@ -1,0 +1,171 @@
+
+
+
+[
+  {
+    "en": "afternoon",
+    "ar": "بَعْدَ الظُّهْر",
+    "tr": "baʿda al-ẓuhr"
+  },
+  {
+    "en": "sunrise",
+    "ar": "شُرُوقُ الشَّمْس",
+    "tr": "shurūq al-shams"
+  },
+  {
+    "en": "sunset",
+    "ar": "غُرُوبُ الشَّمْس",
+    "tr": "ghurūb al-shams"
+  },
+  {
+    "en": "time",
+    "ar": "وَقْت",
+    "tr": "waqt"
+  },
+  {
+    "en": "morning",
+    "ar": "صَبَاح",
+    "tr": "ṣabāḥ"
+  },
+  {
+    "en": "always",
+    "ar": "دَائِمًا",
+    "tr": "dāʾiman"
+  },
+  {
+    "en": "often",
+    "ar": "غَالِبًا",
+    "tr": "ghāliban"
+  },
+  {
+    "en": "usually",
+    "ar": "عَادَةً",
+    "tr": "ʿādatan"
+  },
+  {
+    "en": "date",
+    "ar": "تَارِيخ",
+    "tr": "tārīkh"
+  },
+  {
+    "en": "night",
+    "ar": "لَيْل",
+    "tr": "layl"
+  },
+  {
+    "en": "soon",
+    "ar": "قَرِيبًا",
+    "tr": "qarīban"
+  },
+  {
+    "en": "later",
+    "ar": "لَاحِقًا",
+    "tr": "lāḥiqan"
+  },
+  {
+    "en": "month",
+    "ar": "شَهْر",
+    "tr": "shahr"
+  },
+  {
+    "en": "weekend",
+    "ar": "عُطْلَةُ نِهَايَةِ الْأُسْبُوع",
+    "tr": "ʿuṭlat nihāyat al-ʾusbūʿ"
+  },
+  {
+    "en": "semester",
+    "ar": "فَصْلٌ دِرَاسِيّ",
+    "tr": "faṣlun dirāsiyy"
+  },
+  {
+    "en": "week",
+    "ar": "أُسْبُوع",
+    "tr": "ʾusbūʿ"
+  },
+  {
+    "en": "year",
+    "ar": "سَنَة",
+    "tr": "sanah"
+  },
+  {
+    "en": "second",
+    "ar": "ثَانِيَة",
+    "tr": "thāniyah"
+  },
+  {
+    "en": "hour",
+    "ar": "سَاعَة",
+    "tr": "sāʿah"
+  },
+  {
+    "en": "minute",
+    "ar": "دَقِيقَة",
+    "tr": "daqīqah"
+  },
+  {
+    "en": "noon",
+    "ar": "ظُهْر",
+    "tr": "ẓuhr"
+  },
+  {
+    "en": "midnight",
+    "ar": "مُنْتَصَفُ اللَّيْل",
+    "tr": "muntaṣaf al-layl"
+  },
+  {
+    "en": "evening",
+    "ar": "مَسَاء",
+    "tr": "masāʾ"
+  },
+  {
+    "en": "sometimes",
+    "ar": "أَحْيَانًا",
+    "tr": "ʾaḥyānan"
+  },
+  {
+    "en": "never",
+    "ar": "أَبَدًا",
+    "tr": "ʾabadan"
+  },
+  {
+    "en": "now",
+    "ar": "الْآن",
+    "tr": "al-ʾān"
+  },
+  {
+    "en": "today",
+    "ar": "الْيَوْم",
+    "tr": "al-yawm"
+  },
+  {
+    "en": "tomorrow",
+    "ar": "غَدًا",
+    "tr": "ghadan"
+  },
+  {
+    "en": "yesterday",
+    "ar": "أَمْس",
+    "tr": "ʾams"
+  },
+  {
+    "en": "past",
+    "ar": "مَاضٍ",
+    "tr": "māḍin"
+  },
+  {
+    "en": "future",
+    "ar": "مُسْتَقْبَل",
+    "tr": "mustaqbal"
+  },
+  {
+    "en": "departure",
+    "ar": "مُغَادَرَة",
+    "tr": "mughādarah"
+  },
+  {
+    "en": "during",
+    "ar": "أَثْنَاء",
+    "tr": "ʾathnāʾ"
+  }
+]
+

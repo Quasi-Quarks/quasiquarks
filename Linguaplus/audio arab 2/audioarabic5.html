@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EN → AR Translator (Arabic Audio AutFallback)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+<body>
+  <h1>English → Arabic Translator</h1>
+
+  <label for="text">English text</label><br>
+  <textarea id="text" rows="6" style="width:100%;">this is a fish from the market</textarea><br><br>
+
+  <button id="translate">Translate to Arabic</button>
+  <button id="copyTrans">Copy Arabic</button>
+  <span id="status" aria-live="polite"></span>
+
+  <h2>Arabic Output</h2>
+  <div id="translation">—</div>
+
+  <h3>Transliteration (optional)</h3>
+  <div id="transliteration">—</div>
+
+  <details>
+    <summary>Raw JSON (debug)</summary>
+    <pre id="raw" style="white-space:pre-wrap;word-break:break-word;">—</pre>
+  </details>
+
+  <h2>Pronunciation (Arabic)</h2>
+  <div id="voiceContainer" style="display:none;">
+    <label for="voiceAr">Arabic voice (Web Speech)</label><br>
+    <select id="voiceAr"></select>
+  </div>
+  <div style="margin-top:8px;">
+    <button id="speakAr">🔊 Speak Arabic</button>
+    <button id="stopSpeakAr">⏹ Stop</button>
+    <button id="mp3Ar" style="display:none;">MP3 Fallback</button>
+  </div>
+  <audio id="audioAr" controls style="width:100%;margin-top:8px;"></audio>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+
+  const textEl = $('#text');
+  const btnTranslate = $('#translate');
+  const btnCopyTrans = $('#copyTrans');
+  const statusEl = $('#status');
+
+  const outTranslation = $('#translation');
+  const outTranslit = $('#transliteration');
+  const outRaw = $('#raw');
+
+  const voiceContainer = $('#voiceContainer');
+  const voiceArSel = $('#voiceAr');
+  const speakArBtn = $('#speakAr');
+  const stopArBtn = $('#stopSpeakAr');
+  const mp3ArBtn = $('#mp3Ar');
+  const audioAr = $('#audioAr');
+
+  let voices = [];
+  let arabicVoices = [];
+  let webSpeechAvailable = 'speechSynthesis' in window;
+  let useMp3Only = false; // toggled if no Arabic voices found
+
+  function setStatus(m){ statusEl.textContent = m || ''; }
+
+  // ---------- Translation (unofficial JSON) ----------
+  async function gtxTranslateENtoAR(text) {
+    const params = new URLSearchParams({
+      client: 'gtx',
+      sl: 'en', tl: 'ar', hl: 'en', dj: '1',
+      ie: 'UTF-8', oe: 'UTF-8', source: 'input', q: text
+    });
+    params.append('dt','t');
+    params.append('dt','rm');
+    const url = 'https://translate.googleapis.com/translate_a/single?' + params.toString();
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  }
+
+  function parseResult(data){
+    const s = data?.sentences || [];
+    return {
+      translation: s.map(x=>x.trans || '').join(''),
+      transliteration: s.map(x=>x.translit || x.src_translit || '').filter(Boolean).join(' ').trim(),
+      raw: data
+    };
+  }
+
+  async function doTranslate(){
+    const text = textEl.value.trim();
+    if (!text) { setStatus('Please enter English text.'); return; }
+    btnTranslate.disabled = true; setStatus('Translating…');
+    try {
+      const data = await gtxTranslateENtoAR(text);
+      const { translation, transliteration, raw } = parseResult(data);
+      outTranslation.textContent = translation || '—';
+      outTranslit.textContent = transliteration || '—';
+      outRaw.textContent = JSON.stringify(raw, null, 2);
+      setStatus('Done.');
+    } catch (e) {
+      console.error(e);
+      setStatus('Error: ' + (e?.message || 'Translation failed.'));
+    } finally {
+      btnTranslate.disabled = false;
+    }
+  }
+
+  btnTranslate.addEventListener('click', doTranslate);
+
+  // Copy
+  btnCopyTrans.addEventListener('click', async ()=>{
+    const t = outTranslation.textContent.trim();
+    if (!t || t === '—') { setStatus('Nothing to copy.'); return; }
+    try { await navigator.clipboard.writeText(t); setStatus('Arabic text copied.'); }
+    catch { setStatus('Copy failed.'); }
+  });
+
+  // ---------- Speech: Web Speech + MP3 fallback ----------
+  function refreshVoices(){
+    voices = window.speechSynthesis.getVoices();
+    arabicVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('ar'));
+    voiceArSel.innerHTML = '';
+    if (arabicVoices.length) {
+      // show voice picker and Web Speech mode
+      voiceContainer.style.display = '';
+      mp3ArBtn.style.display = 'none';
+      useMp3Only = false;
+      arabicVoices.forEach(v => {
+        const o = document.createElement('option');
+        o.value = v.voiceURI;
+        o.textContent = `${v.name} — ${v.lang}${v.default ? ' (default)' : ''}`;
+        voiceArSel.appendChild(o);
+      });
+      speakArBtn.textContent = '🔊 Speak Arabic (Web Speech)';
+      setStatus('Arabic voice(s) available via Web Speech.');
+    } else {
+      // no Arabic voices → fallback mode
+      voiceContainer.style.display = 'none';
+      mp3ArBtn.style.display = '';
+      useMp3Only = true;
+      speakArBtn.textContent = '🔊 Speak Arabic (MP3 fallback)';
+      setStatus('No Arabic system voices found. Using MP3 fallback.');
+    }
+  }
+
+  if (webSpeechAvailable) {
+    window.speechSynthesis.onvoiceschanged = refreshVoices;
+    // Some Androids need a small timeout to populate voices list
+    setTimeout(refreshVoices, 250);
+  } else {
+    // No Web Speech at all → MP3 only
+    useMp3Only = true;
+    voiceContainer.style.display = 'none';
+    mp3ArBtn.style.display = '';
+    speakArBtn.textContent = '🔊 Speak Arabic (MP3 fallback)';
+  }
+
+  function speakArabicWebSpeech(text){
+    if (!webSpeechAvailable) return;
+    if (!text) { setStatus('Nothing to speak.'); return; }
+    const u = new SpeechSynthesisUtterance(text);
+    const v = voices.find(v => v.voiceURI === voiceArSel.value);
+    if (v) u.voice = v;
+    u.lang = 'ar'; // force Arabic
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+  }
+
+  function buildTTSUrlArabic(q){
+    const params = new URLSearchParams({ ie:'UTF-8', q, tl:'ar', client:'gtx' });
+    return 'https://translate.googleapis.com/translate_tts?' + params.toString();
+  }
+
+  function speakArabicMp3(text){
+    if (!text) { setStatus('Nothing to speak.'); return; }
+    audioAr.src = buildTTSUrlArabic(text);
+    audioAr.play().catch(()=> setStatus('Autoplay blocked; press play.'));
+  }
+
+  speakArBtn.addEventListener('click', ()=>{
+    const ar = outTranslation.textContent.trim();
+    if (useMp3Only) speakArabicMp3(ar);
+    else speakArabicWebSpeech(ar);
+  });
+
+  stopArBtn.addEventListener('click', ()=>{
+    if (webSpeechAvailable) window.speechSynthesis.cancel();
+    audioAr.pause(); // stop MP3 if playing
+  });
+
+  mp3ArBtn.addEventListener('click', ()=>{
+    const ar = outTranslation.textContent.trim();
+    speakArabicMp3(ar);
+  });
+
+  // First run
+  doTranslate();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>English to Romaji Converter</title>
+</head>
+<body>
+  <h1>English to Romaji Converter</h1>
+  <label for="englishInput">Enter English Text:</label>
+  <input type="text" id="englishInput" placeholder="hello">
+  <button onclick="convertToRomaji()">Convert</button>
+  <h2>Result:</h2>
+  <p id="result"></p>
+
+  <script>
+    function convertToRomaji() {
+      // Get user's input from the text field
+      const text = document.getElementById("englishInput").value;
+      const encodedText = encodeURIComponent(text);
+      
+      // API URL:
+      // sl=en: source language is English
+      // tl=ja-Latn: target language is Japanese in Latin (romanized) script
+      // dt=t and dt=rm: request both translation and romanization data
+     // const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ja-Latn&dt=t&dt=rm&q=${encodedText}`;
+      //
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ar&dt=t&dt=rm&q=${encodedText}`;
+
+      // Fetch the data from the API
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          // Log the full JSON response in the browser console
+          console.log("Full JSON response:", data);
+
+          // Extract the romanized text.
+          // For an English input like "hello", the JSON response structure typically places the romanization at data[0][1][2]
+          const romaji = data[0][1][2];
+          console.log("Romanized:", romaji);
+          
+          // Display the romanized text on the page
+          document.getElementById("result").innerText = `Romanized: ${romaji}`;
+        })
+        .catch(error => console.error("Error fetching data:", error));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,2770 @@
+
+[
+  [{"en_singular": "book", "ar_singular": "كِتَاب", "ar_tr_singular": "kitāb"}, {"en_plural": "books", "ar_plural": "كُتُب", "ar_tr_plural": "kutub"}],
+  [{"en_singular": "tissue", "ar_singular": "مِنْدِيل", "ar_tr_singular": "mindīl"}, {"en_plural": "tissues", "ar_plural": "مَنَادِيل", "ar_tr_plural": "manādīl"}],
+  [{"en_singular": "door", "ar_singular": "بَاب", "ar_tr_singular": "bāb"}, {"en_plural": "doors", "ar_plural": "أَبْوَاب", "ar_tr_plural": "ʾabwāb"}],
+  [{"en_singular": "roof", "ar_singular": "سَقْف", "ar_tr_singular": "saqf"}, {"en_plural": "roofs", "ar_plural": "أَسْقُف", "ar_tr_plural": "ʾasquf"}],
+  [{"en_singular": "bookcase", "ar_singular": "خِزَانَةُ كُتُب", "ar_tr_singular": "khizānat kutub"}, {"en_plural": "bookcases", "ar_plural": "خَزَائِنُ كُتُب", "ar_tr_plural": "khazāʾin kutub"}],
+  [{"en_singular": "calculator", "ar_singular": "آلَة حَاسِبَة", "ar_tr_singular": "ʾālah ḥāsibah"}, {"en_plural": "calculators", "ar_plural": "آلَات حَاسِبَة", "ar_tr_plural": "ʾālāt ḥāsibah"}],
+  [{"en_singular": "cigar", "ar_singular": "سِيجَار", "ar_tr_singular": "sījār"}, {"en_plural": "cigars", "ar_plural": "سَجَائِر", "ar_tr_plural": "sajāʾir"}],
+  [{"en_singular": "kettle", "ar_singular": "غَلَّايَة", "ar_tr_singular": "ghallāyah"}, {"en_plural": "kettles", "ar_plural": "غَلَّايَات", "ar_tr_plural": "ghallāyāt"}],
+  [{"en_singular": "rose", "ar_singular": "وَرْدَة", "ar_tr_singular": "wardah"}, {"en_plural": "roses", "ar_plural": "وُرُود", "ar_tr_plural": "wurūd"}],
+  [{"en_singular": "plant", "ar_singular": "نَبَات", "ar_tr_singular": "nabāt"}, {"en_plural": "plants", "ar_plural": "نَبَاتَات", "ar_tr_plural": "nabātāt"}],
+  [{"en_singular": "luggage", "ar_singular": "أَمْتِعَة", "ar_tr_singular": "ʾamtiʿah"}, {"en_plural": "luggage", "ar_plural": "أَمْتِعَة", "ar_tr_plural": "ʾamtiʿah"}],
+  [{"en_singular": "wood", "ar_singular": "خَشَب", "ar_tr_singular": "khashab"}, {"en_plural": "wood", "ar_plural": "أَخْشَاب", "ar_tr_plural": "ʾakhshāb"}],
+  [{"en_singular": "tool", "ar_singular": "أَدَاة", "ar_tr_singular": "ʾadāh"}, {"en_plural": "tools", "ar_plural": "أَدَوَات", "ar_tr_plural": "ʾadawāt"}],
+  [{"en_singular": "rock", "ar_singular": "صَخْرَة", "ar_tr_singular": "ṣakhrah"}, {"en_plural": "rocks", "ar_plural": "صُخُور", "ar_tr_plural": "ṣukhūr"}],
+  [{"en_singular": "medicine", "ar_singular": "دَوَاء", "ar_tr_singular": "dawāʾ"}, {"en_plural": "medicines", "ar_plural": "أَدْوِيَة", "ar_tr_plural": "ʾadwiyah"}],
+  [{"en_singular": "fence", "ar_singular": "سِيَاج", "ar_tr_singular": "siyāj"}, {"en_plural": "fences", "ar_plural": "أَسْيِجَة", "ar_tr_plural": "ʾasyijah"}],
+  [{"en_singular": "picture", "ar_singular": "صُورَة", "ar_tr_singular": "ṣūrah"}, {"en_plural": "pictures", "ar_plural": "صُوَر", "ar_tr_plural": "ṣuwar"}],
+  [{"en_singular": "paintbrush", "ar_singular": "فُرْشَاةُ رَسْم", "ar_tr_singular": "furshāt rasm"}, {"en_plural": "paintbrushes", "ar_plural": "فَرَاشِي رَسْم", "ar_tr_plural": "farāshī rasm"}],
+  [{"en_singular": "dictionary", "ar_singular": "قَامُوس", "ar_tr_singular": "qāmūs"}, {"en_plural": "dictionaries", "ar_plural": "قَوَامِيس", "ar_tr_plural": "qawāmīs"}],
+  [{"en_singular": "cash", "ar_singular": "نَقْد", "ar_tr_singular": "naqd"}, {"en_plural": "cash", "ar_plural": "نُقُود", "ar_tr_plural": "nuqūd"}],
+  [{"en_singular": "toy", "ar_singular": "لُعْبَة", "ar_tr_singular": "luʿbah"}, {"en_plural": "toys", "ar_plural": "أَلْعَاب", "ar_tr_plural": "ʾalʿāb"}],
+  [{"en_singular": "stair", "ar_singular": "دَرَجَة", "ar_tr_singular": "darajah"}, {"en_plural": "stairs", "ar_plural": "دَرَج", "ar_tr_plural": "daraj"}],
+  [{"en_singular": "stone", "ar_singular": "حَجَر", "ar_tr_singular": "ḥajar"}, {"en_plural": "stones", "ar_plural": "أَحْجَار", "ar_tr_plural": "ʾaḥjār"}],
+  [{"en_singular": "petal", "ar_singular": "بَتَلَة", "ar_tr_singular": "batalah"}, {"en_plural": "petals", "ar_plural": "بَتَلَات", "ar_tr_plural": "batalāt"}],
+  [{"en_singular": "rubber", "ar_singular": "مَطَّاط", "ar_tr_singular": "maṭṭāṭ"}, {"en_plural": "rubbers", "ar_plural": "مَطَّاط", "ar_tr_plural": "maṭṭāṭ"}],
+  [{"en_singular": "ice", "ar_singular": "ثَلْج", "ar_tr_singular": "thalj"}, {"en_plural": "ice", "ar_plural": "ثُلُوج", "ar_tr_plural": "thulūj"}],
+  [{"en_singular": "chopstick", "ar_singular": "عُودُ طَعَام", "ar_tr_singular": "ʿūd ṭaʿām"}, {"en_plural": "chopsticks", "ar_plural": "عِيدَانُ طَعَام", "ar_tr_plural": "ʿīdān ṭaʿām"}],
+  [{"en_singular": "bandage", "ar_singular": "ضِمَادَة", "ar_tr_singular": "ḍimādah"}, {"en_plural": "bandages", "ar_plural": "ضِمَادَات", "ar_tr_plural": "ḍimādāt"}],
+  [{"en_singular": "smoke", "ar_singular": "دُخَان", "ar_tr_singular": "dukhān"}, {"en_plural": "smoke", "ar_plural": "دُخَان", "ar_tr_plural": "dukhān"}],
+  [{"en_singular": "Japanese person", "ar_singular": "يَابَانِيّ", "ar_tr_singular": "yābāniyy"}, {"en_plural": "Japanese people", "ar_plural": "يَابَانِيُّون", "ar_tr_plural": "yābāniyyūn"}],
+  [{"en_singular": "pencil", "ar_singular": "قَلَمُ رَصَاص", "ar_tr_singular": "qalam raṣāṣ"}, {"en_plural": "pencils", "ar_plural": "أَقْلَامُ رَصَاص", "ar_tr_plural": "ʾaqlām raṣāṣ"}],
+  [{"en_singular": "eraser", "ar_singular": "مِمْحَاة", "ar_tr_singular": "mimḥāh"}, {"en_plural": "erasers", "ar_plural": "مَمَاحٍ", "ar_tr_plural": "mamāḥin"}],
+  [{"en_singular": "homework", "ar_singular": "وَاجِبٌ مَنْزِلِيّ", "ar_tr_singular": "wājib manziliyy"}, {"en_plural": "homework assignments", "ar_plural": "وَاجِبَاتٌ مَنْزِلِيَّة", "ar_tr_plural": "wājibāt manziliyyah"}],
+  [{"en_singular": "key", "ar_singular": "مِفْتَاح", "ar_tr_singular": "miftāḥ"}, {"en_plural": "keys", "ar_plural": "مَفَاتِيح", "ar_tr_plural": "mafātīḥ"}],
+  [{"en_singular": "window", "ar_singular": "نَافِذَة", "ar_tr_singular": "nāfidhah"}, {"en_plural": "windows", "ar_plural": "نَوَافِذ", "ar_tr_plural": "nawāfidh"}],
+  [{"en_singular": "battery", "ar_singular": "بَطَّارِيَّة", "ar_tr_singular": "baṭṭāriyyah"}, {"en_plural": "batteries", "ar_plural": "بَطَّارِيَّات", "ar_tr_plural": "baṭṭāriyyāt"}],
+  [{"en_singular": "television", "ar_singular": "تِلْفَاز", "ar_tr_singular": "tilfāz"}, {"en_plural": "televisions", "ar_plural": "تِلْفَازَات", "ar_tr_plural": "tilfāzāt"}],
+  [{"en_singular": "lamp", "ar_singular": "مِصْبَاح", "ar_tr_singular": "miṣbāḥ"}, {"en_plural": "lamps", "ar_plural": "مَصَابِيح", "ar_tr_plural": "maṣābīḥ"}],
+  [{"en_singular": "chair", "ar_singular": "كُرْسِيّ", "ar_tr_singular": "kursiyy"}, {"en_plural": "chairs", "ar_plural": "كَرَاسِيّ", "ar_tr_plural": "karāsiyy"}],
+  [{"en_singular": "toothbrush", "ar_singular": "فُرْشَاةُ أَسْنَان", "ar_tr_singular": "furshāt ʾasnān"}, {"en_plural": "toothbrushes", "ar_plural": "فَرَاشِي أَسْنَان", "ar_tr_plural": "farāshī ʾasnān"}],
+  [{"en_singular": "wall", "ar_singular": "جِدَار", "ar_tr_singular": "jidār"}, {"en_plural": "walls", "ar_plural": "جُدْرَان", "ar_tr_plural": "judrān"}],
+  [{"en_singular": "bridge", "ar_singular": "جِسْر", "ar_tr_singular": "jisr"}, {"en_plural": "bridges", "ar_plural": "جُسُور", "ar_tr_plural": "jusūr"}],
+  [{"en_singular": "blanket", "ar_singular": "بَطَّانِيَّة", "ar_tr_singular": "baṭṭāniyyah"}, {"en_plural": "blankets", "ar_plural": "بَطَّانِيَّات", "ar_tr_plural": "baṭṭāniyyāt"}],
+  [{"en_singular": "textbook", "ar_singular": "كِتَابٌ مَدْرَسِيّ", "ar_tr_singular": "kitāb madrasiyy"}, {"en_plural": "textbooks", "ar_plural": "كُتُبٌ مَدْرَسِيَّة", "ar_tr_plural": "kutub madrasiyyah"}],
+  [{"en_singular": "information", "ar_singular": "مَعْلُومَة", "ar_tr_singular": "maʿlūmah"}, {"en_plural": "information", "ar_plural": "مَعْلُومَات", "ar_tr_plural": "maʿlūmāt"}],
+  [{"en_singular": "pillow", "ar_singular": "وِسَادَة", "ar_tr_singular": "wisādah"}, {"en_plural": "pillows", "ar_plural": "وَسَائِد", "ar_tr_plural": "wasāʾid"}],
+  [{"en_singular": "machine", "ar_singular": "آلَة", "ar_tr_singular": "ʾālah"}, {"en_plural": "machines", "ar_plural": "آلَات", "ar_tr_plural": "ʾālāt"}],
+  [{"en_singular": "pair of scissors", "ar_singular": "مِقَصّ", "ar_tr_singular": "miqaṣṣ"}, {"en_plural": "scissors", "ar_plural": "مِقَصَّات", "ar_tr_plural": "miqaṣṣāt"}],
+  [{"en_singular": "table", "ar_singular": "طَاوِلَة", "ar_tr_singular": "ṭāwilah"}, {"en_plural": "tables", "ar_plural": "طَاوِلَات", "ar_tr_plural": "ṭāwilāt"}],
+  [{"en_singular": "paper", "ar_singular": "وَرَقَة", "ar_tr_singular": "waraqah"}, {"en_plural": "paper", "ar_plural": "وَرَق", "ar_tr_plural": "waraq"}],
+  [{"en_singular": "map", "ar_singular": "خَرِيطَة", "ar_tr_singular": "kharīṭah"}, {"en_plural": "maps", "ar_plural": "خَرَائِط", "ar_tr_plural": "kharāʾiṭ"}],
+  [{"en_singular": "backpack", "ar_singular": "حَقِيبَةُ ظَهْر", "ar_tr_singular": "ḥaqībat ẓahr"}, {"en_plural": "backpacks", "ar_plural": "حَقَائِبُ ظَهْر", "ar_tr_plural": "ḥaqāʾib ẓahr"}],
+  [{"en_singular": "ruler", "ar_singular": "مِسْطَرَة", "ar_tr_singular": "misṭarah"}, {"en_plural": "rulers", "ar_plural": "مَسَاطِر", "ar_tr_plural": "masāṭir"}],
+  [{"en_singular": "money", "ar_singular": "مَال", "ar_tr_singular": "māl"}, {"en_plural": "money", "ar_plural": "أَمْوَال", "ar_tr_plural": "ʾamwāl"}],
+  [{"en_singular": "scarf", "ar_singular": "وِشَاح", "ar_tr_singular": "wishāḥ"}, {"en_plural": "scarves", "ar_plural": "أَوْشِحَة", "ar_tr_plural": "ʾawshiḥah"}],
+  [{"en_singular": "shoe", "ar_singular": "حِذَاء", "ar_tr_singular": "ḥidhāʾ"}, {"en_plural": "shoes", "ar_plural": "أَحْذِيَة", "ar_tr_plural": "ʾaḥdhiyah"}],
+  [{"en_singular": "food", "ar_singular": "طَعَام", "ar_tr_singular": "ṭaʿām"}, {"en_plural": "foods", "ar_plural": "أَطْعِمَة", "ar_tr_plural": "ʾaṭʿimah"}],
+  [{"en_singular": "hat", "ar_singular": "قُبَّعَة", "ar_tr_singular": "qubbaʿah"}, {"en_plural": "hats", "ar_plural": "قُبَّعَات", "ar_tr_plural": "qubbaʿāt"}]
+]
+```
+
+[
+  [{"en_singular": "glove", "ar_singular": "قُفَّاز", "ar_tr_singular": "quffāz"}, {"en_plural": "gloves", "ar_plural": "قَفَازَات", "ar_tr_plural": "qafāzāt"}],
+  [{"en_singular": "wallet", "ar_singular": "مِحْفَظَة", "ar_tr_singular": "miḥfaẓah"}, {"en_plural": "wallets", "ar_plural": "مَحَافِظ", "ar_tr_plural": "maḥāfiẓ"}],
+  [{"en_singular": "ring", "ar_singular": "خَاتَم", "ar_tr_singular": "khātam"}, {"en_plural": "rings", "ar_plural": "خَوَاتِم", "ar_tr_plural": "khawātim"}],
+  [{"en_singular": "bag", "ar_singular": "حَقِيبَة", "ar_tr_singular": "ḥaqībah"}, {"en_plural": "bags", "ar_plural": "حَقَائِب", "ar_tr_plural": "ḥaqāʾib"}],
+  [{"en_singular": "fire", "ar_singular": "نَار", "ar_tr_singular": "nār"}, {"en_plural": "fires", "ar_plural": "نِيرَان", "ar_tr_plural": "nīrān"}],
+  [{"en_singular": "pair of glasses", "ar_singular": "نَظَّارَة", "ar_tr_singular": "naẓẓārah"}, {"en_plural": "glasses", "ar_plural": "نَظَّارَات", "ar_tr_plural": "naẓẓārāt"}],
+  [{"en_singular": "drawer", "ar_singular": "دُرْج", "ar_tr_singular": "durj"}, {"en_plural": "drawers", "ar_plural": "أَدْرَاج", "ar_tr_plural": "ʾadrāj"}],
+  [{"en_singular": "clock", "ar_singular": "سَاعَة", "ar_tr_singular": "sāʿah"}, {"en_plural": "clocks", "ar_plural": "سَاعَات", "ar_tr_plural": "sāʿāt"}],
+  [{"en_singular": "item of clothing", "ar_singular": "ثَوْب", "ar_tr_singular": "thawb"}, {"en_plural": "clothes", "ar_plural": "مَلَابِس", "ar_tr_plural": "malābis"}],
+  [{"en_singular": "turtle", "ar_singular": "سُلَحْفَاة", "ar_tr_singular": "sulaḥfāh"}, {"en_plural": "turtles", "ar_plural": "سَلَاحِف", "ar_tr_plural": "salāḥif"}],
+  [{"en_singular": "sunflower", "ar_singular": "دَوَّارُ الشَّمْس", "ar_tr_singular": "dawwār al-shams"}, {"en_plural": "sunflowers", "ar_plural": "دَوَّارُ الشَّمْس", "ar_tr_plural": "dawwār al-shams"}],
+  [{"en_singular": "paint", "ar_singular": "طِلَاء", "ar_tr_singular": "ṭilāʾ"}, {"en_plural": "paints", "ar_plural": "طِلَاءَات", "ar_tr_plural": "ṭilāʾāt"}],
+  [{"en_singular": "mirror", "ar_singular": "مِرْآة", "ar_tr_singular": "mirʾāh"}, {"en_plural": "mirrors", "ar_plural": "مَرَايَا", "ar_tr_plural": "marāyā"}],
+  [{"en_singular": "diary", "ar_singular": "يَوْمِيَّة", "ar_tr_singular": "yawmiyyah"}, {"en_plural": "diaries", "ar_plural": "يَوْمِيَّات", "ar_tr_plural": "yawmiyyāt"}],
+  [{"en_singular": "ink", "ar_singular": "حِبْر", "ar_tr_singular": "ḥibr"}, {"en_plural": "inks", "ar_plural": "أَحْبَار", "ar_tr_plural": "ʾaḥbār"}],
+  [{"en_singular": "cotton", "ar_singular": "قُطْن", "ar_tr_singular": "quṭn"}, {"en_plural": "cottons", "ar_plural": "أَقْطَان", "ar_tr_plural": "ʾaqṭān"}],
+  [{"en_singular": "bleach", "ar_singular": "مُبَيِّض", "ar_tr_singular": "mubayyiḍ"}, {"en_plural": "bleaches", "ar_plural": "مُبَيِّضَات", "ar_tr_plural": "mubayyiḍāt"}],
+  [{"en_singular": "aluminium foil", "ar_singular": "وَرَقُ أَلُومِنْيُوم", "ar_tr_singular": "waraq ʾalūminyūm"}, {"en_plural": "aluminium foil", "ar_plural": "وَرَقُ أَلُومِنْيُوم", "ar_tr_plural": "waraq ʾalūminyūm"}],
+  [{"en_singular": "microscope", "ar_singular": "مِجْهَر", "ar_tr_singular": "mijhar"}, {"en_plural": "microscopes", "ar_plural": "مَجَاهِر", "ar_tr_plural": "majāhir"}],
+  [{"en_singular": "prescription", "ar_singular": "وَصْفَةٌ طِبِّيَّة", "ar_tr_singular": "waṣfah ṭibbiyyah"}, {"en_plural": "prescriptions", "ar_plural": "وَصْفَاتٌ طِبِّيَّة", "ar_tr_plural": "waṣfāt ṭibbiyyah"}],
+  [{"en_singular": "rubber band", "ar_singular": "شَرِيطٌ مَطَّاطِيّ", "ar_tr_singular": "sharīṭ maṭṭāṭiyy"}, {"en_plural": "rubber bands", "ar_plural": "أَشْرِطَةٌ مَطَّاطِيَّة", "ar_tr_plural": "ʾashriṭah maṭṭāṭiyyah"}],
+  [{"en_singular": "speaker", "ar_singular": "مُكَبِّرُ صَوْت", "ar_tr_singular": "mukabbir ṣawt"}, {"en_plural": "speakers", "ar_plural": "مُكَبِّرَاتُ صَوْت", "ar_tr_plural": "mukabbirāt ṣawt"}],
+  [{"en_singular": "seaweed", "ar_singular": "عُشْبٌ بَحْرِيّ", "ar_tr_singular": "ʿushb baḥriyy"}, {"en_plural": "seaweed", "ar_plural": "أَعْشَابٌ بَحْرِيَّة", "ar_tr_plural": "ʾaʿshāb baḥriyyah"}],
+  [{"en_singular": "stapler", "ar_singular": "دَبَّاسَة", "ar_tr_singular": "dabbāsah"}, {"en_plural": "staplers", "ar_plural": "دَبَّاسَات", "ar_tr_plural": "dabbāsāt"}],
+  [{"en_singular": "bowl", "ar_singular": "وِعَاء", "ar_tr_singular": "wiʿāʾ"}, {"en_plural": "bowls", "ar_plural": "أَوْعِيَة", "ar_tr_plural": "ʾawʿiyah"}],
+  [{"en_singular": "pot", "ar_singular": "قِدْر", "ar_tr_singular": "qidr"}, {"en_plural": "pots", "ar_plural": "قُدُور", "ar_tr_plural": "qudūr"}],
+  [{"en_singular": "guidebook", "ar_singular": "كُتَيِّبٌ إِرْشَادِيّ", "ar_tr_singular": "kutayyib ʾirshādiyy"}, {"en_plural": "guidebooks", "ar_plural": "كُتَيِّبَاتٌ إِرْشَادِيَّة", "ar_tr_plural": "kutayyibāt ʾirshādiyyah"}],
+  [{"en_singular": "souvenir", "ar_singular": "هِدِيَّةٌ تَذْكَارِيَّة", "ar_tr_singular": "hidiyyah tadhkāriyyah"}, {"en_plural": "souvenirs", "ar_plural": "هَدَايَا تَذْكَارِيَّة", "ar_tr_plural": "hadāyā tadhkāriyyah"}],
+  [{"en_singular": "stove", "ar_singular": "مَوْقِد", "ar_tr_singular": "mawqid"}, {"en_plural": "stoves", "ar_plural": "مَوَاقِد", "ar_tr_plural": "mawāqid"}],
+  [{"en_singular": "musical instrument", "ar_singular": "آلَةٌ مُوسِيقِيَّة", "ar_tr_singular": "ʾālah mūsīqiyyah"}, {"en_plural": "musical instruments", "ar_plural": "آلَاتٌ مُوسِيقِيَّة", "ar_tr_plural": "ʾālāt mūsīqiyyah"}],
+  [{"en_singular": "purse", "ar_singular": "مِحْفَظَةٌ نِسَائِيَّة", "ar_tr_singular": "miḥfaẓah nisāʾiyyah"}, {"en_plural": "purses", "ar_plural": "مَحَافِظُ نِسَائِيَّة", "ar_tr_plural": "maḥāfiẓ nisāʾiyyah"}],
+  [{"en_singular": "piece of jewelry", "ar_singular": "مُجَوْهَرَة", "ar_tr_singular": "mujawharah"}, {"en_plural": "jewelry", "ar_plural": "مُجَوْهَرَات", "ar_tr_plural": "mujawharāt"}],
+  [{"en_singular": "football", "ar_singular": "كُرَةُ الْقَدَم", "ar_tr_singular": "kurah al-qadam"}, {"en_plural": "footballs", "ar_plural": "كُرَاتُ الْقَدَم", "ar_tr_plural": "kurāt al-qadam"}],
+  [{"en_singular": "paper clip", "ar_singular": "مِشْبَكُ وَرَق", "ar_tr_singular": "mishbak waraq"}, {"en_plural": "paper clips", "ar_plural": "مَشَابِكُ وَرَق", "ar_tr_plural": "mashābik waraq"}],
+  [{"en_singular": "dishwasher", "ar_singular": "غَسَّالَةُ صُحُون", "ar_tr_singular": "ghassālat ṣuḥūn"}, {"en_plural": "dishwashers", "ar_plural": "غَسَّالَاتُ صُحُون", "ar_tr_plural": "ghassālāt ṣuḥūn"}],
+  [{"en_singular": "drum", "ar_singular": "طَبْل", "ar_tr_singular": "ṭabl"}, {"en_plural": "drums", "ar_plural": "طُبُول", "ar_tr_plural": "ṭubūl"}],
+  [{"en_singular": "bottle", "ar_singular": "زُجَاجَة", "ar_tr_singular": "zujājah"}, {"en_plural": "bottles", "ar_plural": "زُجَاجَات", "ar_tr_plural": "zujājāt"}],
+  [{"en_singular": "plastic", "ar_singular": "بِلَاسْتِيك", "ar_tr_singular": "bilāstīk"}, {"en_plural": "plastics", "ar_plural": "لَدَائِن", "ar_tr_plural": "ladāʾin"}],
+  [{"en_singular": "bench", "ar_singular": "مَقْعَد", "ar_tr_singular": "maqʿad"}, {"en_plural": "benches", "ar_plural": "مَقَاعِد", "ar_tr_plural": "maqāʿid"}],
+  [{"en_singular": "sculpture", "ar_singular": "تِمْثَال", "ar_tr_singular": "timthāl"}, {"en_plural": "sculptures", "ar_plural": "تَمَاثِيل", "ar_tr_plural": "tamāthīl"}],
+  [{"en_singular": "resume", "ar_singular": "سِيرَةٌ ذَاتِيَّة", "ar_tr_singular": "sīrah dhātiyyah"}, {"en_plural": "resumes", "ar_plural": "سِيَرٌ ذَاتِيَّة", "ar_tr_plural": "siyar dhātiyyah"}],
+  [{"en_singular": "mug", "ar_singular": "كُوبٌ كَبِير", "ar_tr_singular": "kūb kabīr"}, {"en_plural": "mugs", "ar_plural": "أَكْوَابٌ كَبِيرَة", "ar_tr_plural": "ʾakwāb kabīrah"}]
+]
+
+[
+  [{"en_singular": "volleyball", "ar_singular": "كُرَةُ الطَّائِرَة", "ar_tr_singular": "kurah al-ṭāʾirah"}, {"en_plural": "volleyballs", "ar_plural": "كُرَاتُ الطَّائِرَة", "ar_tr_plural": "kurāt al-ṭāʾirah"}],
+  [{"en_singular": "passport", "ar_singular": "جَوَازُ سَفَر", "ar_tr_singular": "jawāz safar"}, {"en_plural": "passports", "ar_plural": "جَوَازَاتُ سَفَر", "ar_tr_plural": "jawāzāt safar"}],
+  [{"en_singular": "plastic wrapper", "ar_singular": "غِلَافٌ بِلَاسْتِيكِيّ", "ar_tr_singular": "ghilāf bilāstīkiyy"}, {"en_plural": "plastic wrappers", "ar_plural": "أَغْلِفَةٌ بِلَاسْتِيكِيَّة", "ar_tr_plural": "ʾaghlifah bilāstīkiyyah"}],
+  [{"en_singular": "board game", "ar_singular": "لُعْبَةُ طَاوِلَة", "ar_tr_singular": "luʿbat ṭāwilah"}, {"en_plural": "board games", "ar_plural": "أَلْعَابُ طَاوِلَة", "ar_tr_plural": "ʾalʿāb ṭāwilah"}],
+  [{"en_singular": "compass", "ar_singular": "بُوصَلَة", "ar_tr_singular": "būṣalah"}, {"en_plural": "compasses", "ar_plural": "بُوصَلَات", "ar_tr_plural": "būṣalāt"}],
+  [{"en_singular": "trashcan", "ar_singular": "سَلَّةُ مُهْمَلَات", "ar_tr_singular": "sallat muhmalāt"}, {"en_plural": "trashcans", "ar_plural": "سَلَّاتُ مُهْمَلَات", "ar_tr_plural": "sallāt muhmalāt"}],
+  [{"en_singular": "card", "ar_singular": "بِطَاقَة", "ar_tr_singular": "biṭāqah"}, {"en_plural": "cards", "ar_plural": "بِطَاقَات", "ar_tr_plural": "biṭāqāt"}],
+  [{"en_singular": "seat", "ar_singular": "مَقْعَد", "ar_tr_singular": "maqʿad"}, {"en_plural": "seats", "ar_plural": "مَقَاعِد", "ar_tr_plural": "maqāʿid"}],
+  [{"en_singular": "spoon", "ar_singular": "مِلْعَقَة", "ar_tr_singular": "milʿaqah"}, {"en_plural": "spoons", "ar_plural": "مَلَاعِق", "ar_tr_plural": "malāʿiq"}],
+  [{"en_singular": "fork", "ar_singular": "شَوْكَة", "ar_tr_singular": "shawkah"}, {"en_plural": "forks", "ar_plural": "شَوْكَات", "ar_tr_plural": "shawkāt"}],
+  [{"en_singular": "knife", "ar_singular": "سِكِّين", "ar_tr_singular": "sikkīn"}, {"en_plural": "knives", "ar_plural": "سَكَاكِين", "ar_tr_plural": "sakākīn"}],
+  [{"en_singular": "plate", "ar_singular": "طَبَق", "ar_tr_singular": "ṭabaq"}, {"en_plural": "plates", "ar_plural": "أَطْبَاق", "ar_tr_plural": "ʾaṭbāq"}],
+  [{"en_singular": "cup", "ar_singular": "كُوب", "ar_tr_singular": "kūb"}, {"en_plural": "cups", "ar_plural": "أَكْوَاب", "ar_tr_plural": "ʾakwāb"}],
+  [{"en_singular": "drinking glass", "ar_singular": "كَأْس", "ar_tr_singular": "kaʾs"}, {"en_plural": "drinking glasses", "ar_plural": "كُؤُوس", "ar_tr_plural": "kuʾūs"}],
+  [{"en_singular": "microwave oven", "ar_singular": "فُرْنُ مِيكْرُوويف", "ar_tr_singular": "furn mīkrūwīf"}, {"en_plural": "microwave ovens", "ar_plural": "أَفْرَانُ مِيكْرُوويف", "ar_tr_plural": "ʾafrān mīkrūwīf"}],
+  [{"en_singular": "photo", "ar_singular": "صُورَة", "ar_tr_singular": "ṣūrah"}, {"en_plural": "photos", "ar_plural": "صُوَر", "ar_tr_plural": "ṣuwar"}],
+  [{"en_singular": "refrigerator", "ar_singular": "ثَلَّاجَة", "ar_tr_singular": "thallājah"}, {"en_plural": "refrigerators", "ar_plural": "ثَلَّاجَات", "ar_tr_plural": "thallājāt"}],
+  [{"en_singular": "computer", "ar_singular": "حَاسُوب", "ar_tr_singular": "ḥāsūb"}, {"en_plural": "computers", "ar_plural": "حَوَاسِيب", "ar_tr_plural": "ḥawāsīb"}],
+  [{"en_singular": "air conditioner", "ar_singular": "مُكَيِّفُ هَوَاء", "ar_tr_singular": "mukayyif hawāʾ"}, {"en_plural": "air conditioners", "ar_plural": "مُكَيِّفَاتُ هَوَاء", "ar_tr_plural": "mukayyifāt hawāʾ"}],
+  [{"en_singular": "desk", "ar_singular": "مَكْتَب", "ar_tr_singular": "maktab"}, {"en_plural": "desks", "ar_plural": "مَكَاتِب", "ar_tr_plural": "makātib"}],
+  [{"en_singular": "laptop", "ar_singular": "حَاسُوبٌ مَحْمُول", "ar_tr_singular": "ḥāsūb maḥmūl"}, {"en_plural": "laptops", "ar_plural": "حَوَاسِيبُ مَحْمُولَة", "ar_tr_plural": "ḥawāsīb maḥmūlah"}],
+  [{"en_singular": "carpet", "ar_singular": "سَجَّادَة", "ar_tr_singular": "sajjādah"}, {"en_plural": "carpets", "ar_plural": "سَجَّاد", "ar_tr_plural": "sajjād"}],
+  [{"en_singular": "mat", "ar_singular": "حَصِيرَة", "ar_tr_singular": "ḥaṣīrah"}, {"en_plural": "mats", "ar_plural": "حَصَائِر", "ar_tr_plural": "ḥaṣāʾir"}],
+  [{"en_singular": "piece of furniture", "ar_singular": "قِطْعَةُ أَثَاث", "ar_tr_singular": "qiṭʿat ʾathāth"}, {"en_plural": "furniture", "ar_plural": "أَثَاث", "ar_tr_plural": "ʾathāth"}],
+  [{"en_singular": "bed", "ar_singular": "سَرِير", "ar_tr_singular": "sarīr"}, {"en_plural": "beds", "ar_plural": "أَسِرَّة", "ar_tr_plural": "ʾasirrah"}],
+  [{"en_singular": "electric plug", "ar_singular": "قَابِسٌ كَهْرَبَائِيّ", "ar_tr_singular": "qābis kahrabāʾiyy"}, {"en_plural": "electric plugs", "ar_plural": "قَوَابِسُ كَهْرَبَائِيَّة", "ar_tr_plural": "qawābis kahrabāʾiyyah"}],
+  [{"en_singular": "radio", "ar_singular": "رَادْيُو", "ar_tr_singular": "rādyū"}, {"en_plural": "radios", "ar_plural": "رَادْيُوهَات", "ar_tr_plural": "rādyūhāt"}],
+  [{"en_singular": "sofa", "ar_singular": "أَرِيكَة", "ar_tr_singular": "ʾarīkah"}, {"en_plural": "sofas", "ar_plural": "أَرَائِك", "ar_tr_plural": "ʾarāʾik"}],
+  [{"en_singular": "curtain", "ar_singular": "سِتَارَة", "ar_tr_singular": "sitārah"}, {"en_plural": "curtains", "ar_plural": "سَتَائِر", "ar_tr_plural": "satāʾir"}],
+  [{"en_singular": "tape", "ar_singular": "شَرِيطٌ لَاصِق", "ar_tr_singular": "sharīṭ lāṣiq"}, {"en_plural": "tapes", "ar_plural": "أَشْرِطَةٌ لَاصِقَة", "ar_tr_plural": "ʾashriṭah lāṣiqah"}],
+  [{"en_singular": "makeup", "ar_singular": "مَكْيَاج", "ar_tr_singular": "makyāj"}, {"en_plural": "makeup", "ar_plural": "مَكْيَاج", "ar_tr_plural": "makyāj"}],
+  [{"en_singular": "shaving razor", "ar_singular": "شَفْرَةُ حِلَاقَة", "ar_tr_singular": "shafrat ḥilāqah"}, {"en_plural": "shaving razors", "ar_plural": "شَفَرَاتُ حِلَاقَة", "ar_tr_plural": "shafarāt ḥilāqah"}],
+  [{"en_singular": "towel", "ar_singular": "مِنْشَفَة", "ar_tr_singular": "minshafah"}, {"en_plural": "towels", "ar_plural": "مَنَاشِف", "ar_tr_plural": "manāshif"}],
+  [{"en_singular": "soap", "ar_singular": "صَابُون", "ar_tr_singular": "ṣābūn"}, {"en_plural": "soaps", "ar_plural": "صَابُون", "ar_tr_plural": "ṣābūn"}],
+  [{"en_singular": "toothpaste", "ar_singular": "مَعْجُونُ أَسْنَان", "ar_tr_singular": "maʿjūn ʾasnān"}, {"en_plural": "toothpastes", "ar_plural": "مَعَاجِينُ أَسْنَان", "ar_tr_plural": "maʿājīn ʾasnān"}],
+  [{"en_singular": "shampoo", "ar_singular": "شَامْبُو", "ar_tr_singular": "shāmbū"}, {"en_plural": "shampoos", "ar_plural": "شَامْبُوهَات", "ar_tr_plural": "shāmbūhāt"}],
+  [{"en_singular": "conditioner", "ar_singular": "بَلْسَم", "ar_tr_singular": "balsam"}, {"en_plural": "conditioners", "ar_plural": "بَلَاسِم", "ar_tr_plural": "balāsim"}],
+  [{"en_singular": "deodorant", "ar_singular": "مُزِيلُ العَرَق", "ar_tr_singular": "muzīl al-ʿaraq"}, {"en_plural": "deodorants", "ar_plural": "مُزِيلَاتُ العَرَق", "ar_tr_plural": "muzīlāt al-ʿaraq"}],
+  [{"en_singular": "whiteboard", "ar_singular": "سَبُّورَةٌ بَيْضَاء", "ar_tr_singular": "sabbūrah bayḍāʾ"}, {"en_plural": "whiteboards", "ar_plural": "سَبُّورَاتٌ بَيْضَاء", "ar_tr_plural": "sabbūrāt bayḍāʾ"}],
+  [{"en_singular": "pen", "ar_singular": "قَلَم", "ar_tr_singular": "qalam"}, {"en_plural": "pens", "ar_plural": "أَقْلَام", "ar_tr_plural": "ʾaqlām"}],
+  [{"en_singular": "notebook", "ar_singular": "دَفْتَر", "ar_tr_singular": "daftar"}, {"en_plural": "notebooks", "ar_plural": "دَفَاتِر", "ar_tr_plural": "dafātir"}],
+  [{"en_singular": "letter", "ar_singular": "حَرْف", "ar_tr_singular": "ḥarf"}, {"en_plural": "letters", "ar_plural": "حُرُوف", "ar_tr_plural": "ḥurūf"}],
+  [{"en_singular": "mailbox", "ar_singular": "صُنْدُوقُ بَرِيد", "ar_tr_singular": "ṣundūq barīd"}, {"en_plural": "mailboxes", "ar_plural": "صَنَادِيقُ بَرِيد", "ar_tr_plural": "ṣanādīq barīd"}],
+  [{"en_singular": "menu", "ar_singular": "قَائِمَةُ طَعَام", "ar_tr_singular": "qāʾimat ṭaʿām"}, {"en_plural": "menus", "ar_plural": "قَوَائِمُ طَعَام", "ar_tr_plural": "qawāʾim ṭaʿām"}],
+  [{"en_singular": "glue", "ar_singular": "صَمْغ", "ar_tr_singular": "ṣamgh"}, {"en_plural": "glues", "ar_plural": "صَمْغ", "ar_tr_plural": "ṣamgh"}],
+  [{"en_singular": "chalk", "ar_singular": "طَبْشُورَة", "ar_tr_singular": "ṭabshūrah"}, {"en_plural": "chalks", "ar_plural": "طَبَاشِير", "ar_tr_plural": "ṭabāshīr"}],
+  [{"en_singular": "phone number", "ar_singular": "رَقْمُ هَاتِف", "ar_tr_singular": "raqm hātif"}, {"en_plural": "phone numbers", "ar_plural": "أَرْقَامُ هَوَاتِف", "ar_tr_plural": "ʾarqām hawātif"}],
+  [{"en_singular": "ticket", "ar_singular": "تَذْكِرَة", "ar_tr_singular": "tadhkirah"}, {"en_plural": "tickets", "ar_plural": "تَذَاكِر", "ar_tr_plural": "tadhākir"}],
+  [{"en_singular": "suitcase", "ar_singular": "حَقِيبَةُ سَفَر", "ar_tr_singular": "ḥaqībat safar"}, {"en_plural": "suitcases", "ar_plural": "حَقَائِبُ سَفَر", "ar_tr_plural": "ḥaqāʾib safar"}],
+  [{"en_singular": "coin", "ar_singular": "عُمْلَةٌ مَعْدَنِيَّة", "ar_tr_singular": "ʿumlah maʿdiniyyah"}, {"en_plural": "coins", "ar_plural": "عُمْلَاتٌ مَعْدَنِيَّة", "ar_tr_plural": "ʿumlāt maʿdiniyyah"}],
+  [{"en_singular": "sandal", "ar_singular": "صَنْدَل", "ar_tr_singular": "ṣandal"}, {"en_plural": "sandals", "ar_plural": "صَنَادِل", "ar_tr_plural": "ṣanādil"}],
+  [{"en_singular": "trunk", "ar_singular": "صُنْدُوق", "ar_tr_singular": "ṣundūq"}, {"en_plural": "trunks", "ar_plural": "صَنَادِيق", "ar_tr_plural": "ṣanādīq"}],
+  [{"en_singular": "umbrella", "ar_singular": "مِظَلَّة", "ar_tr_singular": "miẓallah"}, {"en_plural": "umbrellas", "ar_plural": "مِظَلَّات", "ar_tr_plural": "miẓallāt"}],
+  [{"en_singular": "cutting board", "ar_singular": "لَوْحُ تَقْطِيع", "ar_tr_singular": "lawḥ taqṭīʿ"}, {"en_plural": "cutting boards", "ar_plural": "أَلْوَاحُ تَقْطِيع", "ar_tr_plural": "ʾalwāḥ taqṭīʿ"}],
+  [{"en_singular": "medicine", "ar_singular": "دَوَاء", "ar_tr_singular": "dawāʾ"}, {"en_plural": "medicines", "ar_plural": "أَدْوِيَة", "ar_tr_plural": "ʾadwiyah"}],
+  [{"en_singular": "mattress", "ar_singular": "مَرْتَبَة", "ar_tr_singular": "martabah"}, {"en_plural": "mattresses", "ar_plural": "مَرَاتِب", "ar_tr_plural": "marātib"}],
+  [{"en_singular": "calendar", "ar_singular": "تَقْوِيم", "ar_tr_singular": "taqwīm"}, {"en_plural": "calendars", "ar_plural": "تَقَاوِيم", "ar_tr_plural": "taqāwīm"}],
+  [{"en_singular": "camera", "ar_singular": "كَامِيرَا", "ar_tr_singular": "kāmīrā"}, {"en_plural": "cameras", "ar_plural": "كَامِيرَات", "ar_tr_plural": "kāmīrāt"}],
+  [{"en_singular": "remote control", "ar_singular": "جِهَازُ تَحَكُّمٍ عَنْ بُعْد", "ar_tr_singular": "jihāz taḥakkum ʿan buʿd"}, {"en_plural": "remote controls", "ar_plural": "أَجْهِزَةُ تَحَكُّمٍ عَنْ بُعْد", "ar_tr_plural": "ʾajhizat taḥakkum ʿan buʿd"}],
+  [{"en_singular": "gasoline", "ar_singular": "بِنْزِين", "ar_tr_singular": "binzīn"}, {"en_plural": "gasoline", "ar_plural": "بِنْزِين", "ar_tr_plural": "binzīn"}],
+  [{"en_singular": "silk", "ar_singular": "حَرِير", "ar_tr_singular": "ḥarīr"}, {"en_plural": "silks", "ar_plural": "حَرَائِر", "ar_tr_plural": "ḥarāʾir"}],
+  [{"en_singular": "alligator", "ar_singular": "تِمْسَاح", "ar_tr_singular": "timsāḥ"}, {"en_plural": "alligators", "ar_plural": "تَمَاسِيح", "ar_tr_plural": "tamāsīḥ"}],
+  [{"en_singular": "cobra", "ar_singular": "كُوبْرَا", "ar_tr_singular": "kūbrā"}, {"en_plural": "cobras", "ar_plural": "كُوبْرَات", "ar_tr_plural": "kūbrāt"}],
+  [{"en_singular": "parrot", "ar_singular": "بَبَّغَاء", "ar_tr_singular": "babbaghāʾ"}, {"en_plural": "parrots", "ar_plural": "بَبَّغَاوَات", "ar_tr_plural": "babbaghāwāt"}],
+  [{"en_singular": "quail", "ar_singular": "سُمَانَى", "ar_tr_singular": "sumānā"}, {"en_plural": "quails", "ar_plural": "سُمَانَى", "ar_tr_plural": "sumānā"}],
+  [{"en_singular": "duck", "ar_singular": "بَطَّة", "ar_tr_singular": "baṭṭah"}, {"en_plural": "ducks", "ar_plural": "بَطّ", "ar_tr_plural": "baṭṭ"}],
+  [{"en_singular": "peacock", "ar_singular": "طَاوُوس", "ar_tr_singular": "ṭāwūs"}, {"en_plural": "peacocks", "ar_plural": "طَوَاوِيس", "ar_tr_plural": "ṭawāwīs"}],
+  [{"en_singular": "falcon", "ar_singular": "صَقْر", "ar_tr_singular": "ṣaqr"}, {"en_plural": "falcons", "ar_plural": "صُقُور", "ar_tr_plural": "ṣuqūr"}],
+  [{"en_singular": "shirt", "ar_singular": "قَمِيص", "ar_tr_singular": "qamīṣ"}, {"en_plural": "shirts", "ar_plural": "قُمْصَان", "ar_tr_plural": "qumṣān"}],
+  [{"en_singular": "swan", "ar_singular": "بَجَعَة", "ar_tr_singular": "bajaʿah"}, {"en_plural": "swans", "ar_plural": "بَجَع", "ar_tr_plural": "bajaʿ"}],
+  [{"en_singular": "owl", "ar_singular": "بُومَة", "ar_tr_singular": "būmah"}, {"en_plural": "owls", "ar_plural": "بُوم", "ar_tr_plural": "būm"}],
+  [{"en_singular": "penguin", "ar_singular": "بِطْرِيق", "ar_tr_singular": "biṭrīq"}, {"en_plural": "penguins", "ar_plural": "بَطَارِيق", "ar_tr_plural": "baṭārīq"}],
+  [{"en_singular": "dandelion", "ar_singular": "هِنْدِبَاء", "ar_tr_singular": "hindibāʾ"}, {"en_plural": "dandelions", "ar_plural": "هِنْدِبَاء", "ar_tr_plural": "hindibāʾ"}],
+  [{"en_singular": "tulip", "ar_singular": "زَهْرَةُ التُولِيب", "ar_tr_singular": "zahrat al-tūlīb"}, {"en_plural": "tulips", "ar_plural": "زُهُورُ التُولِيب", "ar_tr_plural": "zuhūr al-tūlīb"}],
+  [{"en_singular": "lily", "ar_singular": "زَنْبَقَة", "ar_tr_singular": "zanbaqah"}, {"en_plural": "lilies", "ar_plural": "زَنَابِق", "ar_tr_plural": "zanābiq"}],
+  [{"en_singular": "lavender", "ar_singular": "خُزَامَى", "ar_tr_singular": "khuzāmā"}, {"en_plural": "lavenders", "ar_plural": "خُزَامَى", "ar_tr_plural": "khuzāmā"}],
+  [{"en_singular": "handball", "ar_singular": "كُرَةُ الْيَد", "ar_tr_singular": "kurah al-yad"}, {"en_plural": "handballs", "ar_plural": "كُرَاتُ الْيَد", "ar_tr_plural": "kurāt al-yad"}],
+  [{"en_singular": "blackboard", "ar_singular": "سَبُّورَة", "ar_tr_singular": "sabbūrah"}, {"en_plural": "blackboards", "ar_plural": "سَبُّورَات", "ar_tr_plural": "sabbūrāt"}],
+  [{"en_singular": "rope", "ar_singular": "حَبْل", "ar_tr_singular": "ḥabl"}, {"en_plural": "ropes", "ar_plural": "حِبَال", "ar_tr_plural": "ḥibāl"}],
+  [{"en_singular": "ball", "ar_singular": "كُرَة", "ar_tr_singular": "kurah"}, {"en_plural": "balls", "ar_plural": "كُرَات", "ar_tr_plural": "kurāt"}],
+  [{"en_singular": "ribbon", "ar_singular": "شَرِيط", "ar_tr_singular": "sharīṭ"}, {"en_plural": "ribbons", "ar_plural": "شَرَائِط", "ar_tr_plural": "sharāʾiṭ"}],
+  [{"en_singular": "keyboard", "ar_singular": "لَوْحَةُ مَفَاتِيح", "ar_tr_singular": "lawḥat mafātīḥ"}, {"en_plural": "keyboards", "ar_plural": "لَوْحَاتُ مَفَاتِيح", "ar_tr_plural": "lawḥāt mafātīḥ"}],
+  [{"en_singular": "printer", "ar_singular": "طَابِعَة", "ar_tr_singular": "ṭābiʿah"}, {"en_plural": "printers", "ar_plural": "طَابِعَات", "ar_tr_plural": "ṭābiʿāt"}]
+]
+
+
+
+
+
+professions
+
+[
+  [{"en_singular": "teacher", "ar_singular": "مُعَلِّم", "ar_tr_singular": "muʿallim"}, {"en_plural": "teachers", "ar_plural": "مُعَلِّمُون", "ar_tr_plural": "muʿallimūn"}],
+  [{"en_singular": "astronaut", "ar_singular": "رَائِدُ فَضَاء", "ar_tr_singular": "rāʾid faḍāʾ"}, {"en_plural": "astronauts", "ar_plural": "رُوَّادُ فَضَاء", "ar_tr_plural": "ruwwād faḍāʾ"}],
+  [{"en_singular": "mayor", "ar_singular": "عُمْدَة", "ar_tr_singular": "ʿumdah"}, {"en_plural": "mayors", "ar_plural": "عُمَد", "ar_tr_plural": "ʿumad"}],
+  [{"en_singular": "gardener", "ar_singular": "بُسْتَانِيّ", "ar_tr_singular": "bustāniyy"}, {"en_plural": "gardeners", "ar_plural": "بُسْتَانِيُّون", "ar_tr_plural": "bustāniyyūn"}],
+  [{"en_singular": "principal", "ar_singular": "مُدِيرُ مَدْرَسَة", "ar_tr_singular": "mudīr madrasah"}, {"en_plural": "principals", "ar_plural": "مُدَرَاءُ مَدَارِس", "ar_tr_plural": "mudarāʾ madāris"}],
+  [{"en_singular": "programmer", "ar_singular": "مُبَرْمِج", "ar_tr_singular": "mubelmij"}, {"en_plural": "programmers", "ar_plural": "مُبَرْمِجُون", "ar_tr_plural": "mubelmijūn"}],
+  [{"en_singular": "veterinarian", "ar_singular": "طَبِيبٌ بَيْطَرِيّ", "ar_tr_singular": "ṭabīb bayṭariyy"}, {"en_plural": "veterinarians", "ar_plural": "أَطِبَّاءُ بَيْطَرِيُّون", "ar_tr_plural": "ʾaṭibbāʾ bayṭariyyūn"}],
+  [{"en_singular": "soldier", "ar_singular": "جُنْدِيّ", "ar_tr_singular": "jundiyy"}, {"en_plural": "soldiers", "ar_plural": "جُنُود", "ar_tr_plural": "junūd"}],
+  [{"en_singular": "scientist", "ar_singular": "عَالِم", "ar_tr_singular": "ʿālim"}, {"en_plural": "scientists", "ar_plural": "عُلَمَاء", "ar_tr_plural": "ʿulamāʾ"}],
+  [{"en_singular": "construction worker", "ar_singular": "عَامِلُ بِنَاء", "ar_tr_singular": "ʿāmil bināʾ"}, {"en_plural": "construction workers", "ar_plural": "عُمَّالُ بِنَاء", "ar_tr_plural": "ʿummāl bināʾ"}],
+  [{"en_singular": "entrepreneur", "ar_singular": "رَائِدُ أَعْمَال", "ar_tr_singular": "rāʾid ʾaʿmāl"}, {"en_plural": "entrepreneurs", "ar_plural": "رُوَّادُ أَعْمَال", "ar_tr_plural": "ruwwād ʾaʿmāl"}],
+  [{"en_singular": "boy", "ar_singular": "وَلَد", "ar_tr_singular": "walad"}, {"en_plural": "boys", "ar_plural": "أَوْلَاد", "ar_tr_plural": "ʾawlād"}],
+  [{"en_singular": "waiter", "ar_singular": "نَادِل", "ar_tr_singular": "nādil"}, {"en_plural": "waiters", "ar_plural": "نُدُل", "ar_tr_plural": "nudul"}],
+  [{"en_singular": "customer", "ar_singular": "عَمِيل", "ar_tr_singular": "ʿamīl"}, {"en_plural": "customers", "ar_plural": "عُمَلَاء", "ar_tr_plural": "ʿumalāʾ"}],
+  [{"en_singular": "employee", "ar_singular": "مُوَظَّف", "ar_tr_singular": "muwaẓẓaf"}, {"en_plural": "employees", "ar_plural": "مُوَظَّفُون", "ar_tr_plural": "muwaẓẓafūn"}],
+  [{"en_singular": "team", "ar_singular": "فَرِيق", "ar_tr_singular": "farīq"}, {"en_plural": "teams", "ar_plural": "فِرَق", "ar_tr_plural": "firaq"}],
+  [{"en_singular": "she", "ar_singular": "هِيَ", "ar_tr_singular": "hiya"}, {"en_plural": "they (feminine)", "ar_plural": "هُنَّ", "ar_tr_plural": "hunna"}],
+  [{"en_singular": "athlete", "ar_singular": "رِيَاضِيّ", "ar_tr_singular": "riyāḍiyy"}, {"en_plural": "athletes", "ar_plural": "رِيَاضِيُّون", "ar_tr_plural": "riyāḍiyyūn"}],
+  [{"en_singular": "vegetarian", "ar_singular": "نَبَاتِيّ", "ar_tr_singular": "nabātiyy"}, {"en_plural": "vegetarians", "ar_plural": "نَبَاتِيُّون", "ar_tr_plural": "nabātiyyūn"}],
+  [{"en_singular": "player", "ar_singular": "لَاعِب", "ar_tr_singular": "lāʿib"}, {"en_plural": "players", "ar_plural": "لَاعِبُون", "ar_tr_plural": "lāʿibūn"}],
+  [{"en_singular": "guest", "ar_singular": "ضَيْف", "ar_tr_singular": "ḍayf"}, {"en_plural": "guests", "ar_plural": "ضُيُوف", "ar_tr_plural": "ḍuyūf"}],
+  [{"en_singular": "prime minister", "ar_singular": "رَئِيسُ الْوُزَرَاء", "ar_tr_singular": "raʾīs al-wuzarāʾ"}, {"en_plural": "prime ministers", "ar_plural": "رُؤَسَاءُ الْوُزَرَاء", "ar_tr_plural": "ruʾasāʾ al-wuzarāʾ"}],
+  [{"en_singular": "immigrant", "ar_singular": "مُهَاجِر", "ar_tr_singular": "muhājir"}, {"en_plural": "immigrants", "ar_plural": "مُهَاجِرُون", "ar_tr_plural": "muhājirūn"}],
+  [{"en_singular": "occupation", "ar_singular": "مِهْنَة", "ar_tr_singular": "mihnah"}, {"en_plural": "occupations", "ar_plural": "مِهَن", "ar_tr_plural": "mihan"}],
+  [{"en_singular": "empress", "ar_singular": "إِمْبَرَاطُورَة", "ar_tr_singular": "ʾimbarāṭūrah"}, {"en_plural": "empresses", "ar_plural": "إِمْبَرَاطُورَات", "ar_tr_plural": "ʾimbarāṭūrāt"}],
+  [{"en_singular": "youth", "ar_singular": "شَابّ", "ar_tr_singular": "shābb"}, {"en_plural": "youth", "ar_plural": "شَبَاب", "ar_tr_plural": "shabāb"}],
+  [{"en_singular": "career", "ar_singular": "مِهْنَة", "ar_tr_singular": "mihnah"}, {"en_plural": "careers", "ar_plural": "مِهَن", "ar_tr_plural": "mihan"}],
+  [{"en_singular": "pastor", "ar_singular": "قَسّ", "ar_tr_singular": "qass"}, {"en_plural": "pastors", "ar_plural": "قُسُوس", "ar_tr_plural": "qusūs"}],
+  [{"en_singular": "emperor", "ar_singular": "إِمْبَرَاطُور", "ar_tr_singular": "ʾimbarāṭūr"}, {"en_plural": "emperors", "ar_plural": "أَبَاطِرَة", "ar_tr_plural": "ʾabāṭirah"}],
+  [{"en_singular": "carpenter", "ar_singular": "نَجَّار", "ar_tr_singular": "najjār"}, {"en_plural": "carpenters", "ar_plural": "نَجَّارُون", "ar_tr_plural": "najjārūn"}],
+  [{"en_singular": "salesperson", "ar_singular": "بَائِع", "ar_tr_singular": "bāʾiʿ"}, {"en_plural": "salespeople", "ar_plural": "بَائِعُون", "ar_tr_plural": "bāʾiʿūn"}],
+  [{"en_singular": "king", "ar_singular": "مَلِك", "ar_tr_singular": "malik"}, {"en_plural": "kings", "ar_plural": "مُلُوك", "ar_tr_plural": "mulūk"}],
+  [{"en_singular": "prince", "ar_singular": "أَمِير", "ar_tr_singular": "ʾamīr"}, {"en_plural": "princes", "ar_plural": "أُمَرَاء", "ar_tr_plural": "ʾumarāʾ"}],
+  [{"en_singular": "princess", "ar_singular": "أَمِيرَة", "ar_tr_singular": "ʾamīrah"}, {"en_plural": "princesses", "ar_plural": "أَمِيرَات", "ar_tr_plural": "ʾamīrāt"}],
+  [{"en_singular": "undergraduate", "ar_singular": "طَالِبٌ جَامِعِيّ", "ar_tr_singular": "ṭālib jāmiʿiyy"}, {"en_plural": "undergraduates", "ar_plural": "طُلَّابٌ جَامِعِيُّون", "ar_tr_plural": "ṭullāb jāmiʿiyyūn"}],
+  [{"en_singular": "postgraduate", "ar_singular": "طَالِبُ دِرَاسَاتٍ عُلْيَا", "ar_tr_singular": "ṭālib dirāsāt ʿulyā"}, {"en_plural": "postgraduates", "ar_plural": "طُلَّابُ دِرَاسَاتٍ عُلْيَا", "ar_tr_plural": "ṭullāb dirāsāt ʿulyā"}],
+  [{"en_singular": "queen", "ar_singular": "مَلِكَة", "ar_tr_singular": "malikah"}, {"en_plural": "queens", "ar_plural": "مَلِكَات", "ar_tr_plural": "malikāt"}],
+  [{"en_singular": "friend", "ar_singular": "صَدِيق", "ar_tr_singular": "ṣadīq"}, {"en_plural": "friends", "ar_plural": "أَصْدِقَاء", "ar_tr_plural": "ʾaṣdiqāʾ"}],
+  [{"en_singular": "girl", "ar_singular": "فَتَاة", "ar_tr_singular": "fatāh"}, {"en_plural": "girls", "ar_plural": "فَتَيَات", "ar_tr_plural": "fatayāt"}],
+  [{"en_singular": "dentist", "ar_singular": "طَبِيبُ أَسْنَان", "ar_tr_singular": "ṭabīb ʾasnān"}, {"en_plural": "dentists", "ar_plural": "أَطِبَّاءُ أَسْنَان", "ar_tr_plural": "ʾaṭibbāʾ ʾasnān"}],
+  [{"en_singular": "they (singular)", "ar_singular": "هُمْ", "ar_tr_singular": "hum"}, {"en_plural": "they (plural)", "ar_plural": "هُمْ", "ar_tr_plural": "hum"}],
+  [{"en_singular": "monk", "ar_singular": "رَاهِب", "ar_tr_singular": "rāhib"}, {"en_plural": "monks", "ar_plural": "رُهْبَان", "ar_tr_plural": "ruhbān"}],
+  [{"en_singular": "together", "ar_singular": "مَعًا", "ar_tr_singular": "maʿan"}, {"en_plural": null, "ar_plural": null, "ar_tr_plural": null}],
+  [{"en_singular": "teenager", "ar_singular": "مُرَاهِق", "ar_tr_singular": "murāhiq"}, {"en_plural": "teenagers", "ar_plural": "مُرَاهِقُون", "ar_tr_plural": "murāhiqūn"}],
+  [{"en_singular": "grandmother", "ar_singular": "جَدَّة", "ar_tr_singular": "jaddah"}, {"en_plural": "grandmothers", "ar_plural": "جَدَّات", "ar_tr_plural": "jaddāt"}],
+  [{"en_singular": "businessperson", "ar_singular": "رَجُلُ أَعْمَال", "ar_tr_singular": "rajul ʾaʿmāl"}, {"en_plural": "businesspeople", "ar_plural": "رِجَالُ أَعْمَال", "ar_tr_plural": "rijāl ʾaʿmāl"}],
+  [{"en_singular": "priest", "ar_singular": "كَاهِن", "ar_tr_singular": "kāhin"}, {"en_plural": "priests", "ar_plural": "كَهَنَة", "ar_tr_plural": "kahanah"}],
+  [{"en_singular": "uncle", "ar_singular": "عَمّ / خَال", "ar_tr_singular": "ʿamm / khāl"}, {"en_plural": "uncles", "ar_plural": "أَعْمَام / أَخْوَال", "ar_tr_plural": "ʾaʿmām / ʾakhwāl"}],
+  [{"en_singular": "singer", "ar_singular": "مُغَنٍّ", "ar_tr_singular": "mughannin"}, {"en_plural": "singers", "ar_plural": "مُغَنُّونَ", "ar_tr_plural": "mughannūn"}],
+  [{"en_singular": "mother", "ar_singular": "أُمّ", "ar_tr_singular": "ʾumm"}, {"en_plural": "mothers", "ar_plural": "أُمَّهَات", "ar_tr_plural": "ʾummahāt"}],
+  [{"en_singular": "father", "ar_singular": "أَب", "ar_tr_singular": "ʾab"}, {"en_plural": "fathers", "ar_plural": "آبَاء", "ar_tr_plural": "ʾābāʾ"}],
+  [{"en_singular": "grandfather", "ar_singular": "جَدّ", "ar_tr_singular": "jadd"}, {"en_plural": "grandfathers", "ar_plural": "أَجْدَاد", "ar_tr_plural": "ʾajdād"}],
+  [{"en_singular": "husband", "ar_singular": "زَوْج", "ar_tr_singular": "zawj"}, {"en_plural": "husbands", "ar_plural": "أَزْوَاج", "ar_tr_plural": "ʾazwāj"}],
+  [{"en_singular": "wife", "ar_singular": "زَوْجَة", "ar_tr_singular": "zawjah"}, {"en_plural": "wives", "ar_plural": "زَوْجَات", "ar_tr_plural": "zawjāt"}],
+  [{"en_singular": "son", "ar_singular": "اِبْن", "ar_tr_singular": "ibn"}, {"en_plural": "sons", "ar_plural": "أَبْنَاء", "ar_tr_plural": "ʾabnāʾ"}],
+  [{"en_singular": "daughter", "ar_singular": "اِبْنَة", "ar_tr_singular": "ibnah"}, {"en_plural": "daughters", "ar_plural": "بَنَات", "ar_tr_plural": "banāt"}],
+  [{"en_singular": "spouse", "ar_singular": "زَوْج / زَوْجَة", "ar_tr_singular": "zawj / zawjah"}, {"en_plural": "spouses", "ar_plural": "أَزْوَاج", "ar_tr_plural": "ʾazwāj"}],
+  [{"en_singular": "family", "ar_singular": "عَائِلَة", "ar_tr_singular": "ʿāʾilah"}, {"en_plural": "families", "ar_plural": "عَائِلَات", "ar_tr_plural": "ʿāʾilāt"}],
+  [{"en_singular": "flight attendant", "ar_singular": "مُضِيفُ طَيَرَان", "ar_tr_singular": "muḍīf ṭayarān"}, {"en_plural": "flight attendants", "ar_plural": "مُضِيفُو طَيَرَان", "ar_tr_plural": "muḍīfū ṭayarān"}],
+  [{"en_singular": "nurse", "ar_singular": "مُمَرِّض", "ar_tr_singular": "mumarriḍ"}, {"en_plural": "nurses", "ar_plural": "مُمَرِّضُون", "ar_tr_plural": "mumarriḍūn"}],
+  [{"en_singular": "doctor", "ar_singular": "طَبِيب", "ar_tr_singular": "ṭabīb"}, {"en_plural": "doctors", "ar_plural": "أَطِبَّاء", "ar_tr_plural": "ʾaṭibbāʾ"}],
+  [{"en_singular": "mailman", "ar_singular": "سَاعِي الْبَرِيد", "ar_tr_singular": "sāʿī al-barīd"}, {"en_plural": "mailmen", "ar_plural": "سُعَاةُ الْبَرِيد", "ar_tr_plural": "suʿāt al-barīd"}],
+  [{"en_singular": "recipient", "ar_singular": "مُسْتَلِم", "ar_tr_singular": "mustalim"}, {"en_plural": "recipients", "ar_plural": "مُسْتَلِمُون", "ar_tr_plural": "mustalimūn"}],
+  [{"en_singular": "interpreter", "ar_singular": "مُتَرْجِمٌ فَوْرِيّ", "ar_tr_singular": "mutarjim fawriyy"}, {"en_plural": "interpreters", "ar_plural": "مُتَرْجِمُونَ فَوْرِيُّونَ", "ar_tr_plural": "mutarjimūn fawriyyūn"}],
+  [{"en_singular": "translator", "ar_singular": "مُتَرْجِم", "ar_tr_singular": "mutarjim"}, {"en_plural": "translators", "ar_plural": "مُتَرْجِمُون", "ar_tr_plural": "mutarjimūn"}],
+  [{"en_singular": "accountant", "ar_singular": "مُحَاسِب", "ar_tr_singular": "muḥāsib"}, {"en_plural": "accountants", "ar_plural": "مُحَاسِبُون", "ar_tr_plural": "muḥāsibūn"}],
+  [{"en_singular": "lawyer", "ar_singular": "مُحَامٍ", "ar_tr_singular": "muḥāmin"}, {"en_plural": "lawyers", "ar_plural": "مُحَامُون", "ar_tr_plural": "muḥāmūn"}],
+  [{"en_singular": "boss", "ar_singular": "رَئِيس", "ar_tr_singular": "raʾīs"}, {"en_plural": "bosses", "ar_plural": "رُؤَسَاء", "ar_tr_plural": "ruʾasāʾ"}],
+  [{"en_singular": "coworker", "ar_singular": "زَمِيلُ عَمَل", "ar_tr_singular": "zamīl ʿamal"}, {"en_plural": "coworkers", "ar_plural": "زُمَلَاءُ عَمَل", "ar_tr_plural": "zumalāʾ ʿamal"}],
+  [{"en_singular": "woman", "ar_singular": "اِمْرَأَة", "ar_tr_singular": "imraʾah"}, {"en_plural": "women", "ar_plural": "نِسَاء", "ar_tr_plural": "nisāʾ"}],
+  [{"en_singular": "man", "ar_singular": "رَجُل", "ar_tr_singular": "rajul"}, {"en_plural": "men", "ar_plural": "رِجَال", "ar_tr_plural": "rijāl"}],
+  [{"en_singular": "girlfriend", "ar_singular": "صَدِيقَة", "ar_tr_singular": "ṣadīqah"}, {"en_plural": "girlfriends", "ar_plural": "صَدِيقَات", "ar_tr_plural": "ṣadīqāt"}],
+  [{"en_singular": "boyfriend", "ar_singular": "صَدِيق", "ar_tr_singular": "ṣadīq"}, {"en_plural": "boyfriends", "ar_plural": "أَصْدِقَاء", "ar_tr_plural": "ʾaṣdiqāʾ"}],
+  [{"en_singular": "clerk", "ar_singular": "كَاتِب", "ar_tr_singular": "kātib"}, {"en_plural": "clerks", "ar_plural": "كَتَبَة", "ar_tr_plural": "katabah"}],
+  [{"en_singular": "child", "ar_singular": "طِفْل", "ar_tr_singular": "ṭifl"}, {"en_plural": "children", "ar_plural": "أَطْفَال", "ar_tr_plural": "ʾaṭfāl"}],
+  [{"en_singular": "neighbor", "ar_singular": "جَار", "ar_tr_singular": "jār"}, {"en_plural": "neighbors", "ar_plural": "جِيرَان", "ar_tr_plural": "jīrān"}],
+  [{"en_singular": "police officer", "ar_singular": "ضَابِطُ شُرْطَة", "ar_tr_singular": "ḍābiṭ shurṭah"}, {"en_plural": "police officers", "ar_plural": "ضُبَّاطُ شُرْطَة", "ar_tr_plural": "ḍubbāṭ shurṭah"}],
+  [{"en_singular": "office worker", "ar_singular": "مُوَظَّفُ مَكْتَب", "ar_tr_singular": "muwaẓẓaf maktab"}, {"en_plural": "office workers", "ar_plural": "مُوَظَّفُو مَكَاتِب", "ar_tr_plural": "muwaẓẓafū makātib"}],
+  [{"en_singular": "farmer", "ar_singular": "مُزَارِع", "ar_tr_singular": "muzāriʿ"}, {"en_plural": "farmers", "ar_plural": "مُزَارِعُون", "ar_tr_plural": "muzāriʿūn"}],
+  [{"en_singular": "housewife", "ar_singular": "رَبَّةُ بَيْت", "ar_tr_singular": "rabbat bayt"}, {"en_plural": "housewives", "ar_plural": "رَبَّاتُ بُيُوت", "ar_tr_plural": "rabbāt buyūt"}],
+  [{"en_singular": "factory worker", "ar_singular": "عَامِلُ مَصْنَع", "ar_tr_singular": "ʿāmil maṣnaʿ"}, {"en_plural": "factory workers", "ar_plural": "عُمَّالُ مَصَانِع", "ar_tr_plural": "ʿummāl maṣāniʿ"}],
+  [{"en_singular": "engineer", "ar_singular": "مُهَنْدِس", "ar_tr_singular": "muhandis"}, {"en_plural": "engineers", "ar_plural": "مُهَنْدِسُون", "ar_tr_plural": "muhandisūn"}],
+  [{"en_singular": "president", "ar_singular": "رَئِيس", "ar_tr_singular": "raʾīs"}, {"en_plural": "presidents", "ar_plural": "رُؤَسَاء", "ar_tr_plural": "ruʾasāʾ"}],
+  [{"en_singular": "firefighter", "ar_singular": "رَجُلُ إِطْفَاء", "ar_tr_singular": "rajul ʾiṭfāʾ"}, {"en_plural": "firefighters", "ar_plural": "رِجَالُ إِطْفَاء", "ar_tr_plural": "rijāl ʾiṭfāʾ"}],
+  [{"en_singular": "secretary", "ar_singular": "سِكْرِتِير", "ar_tr_singular": "sikritīr"}, {"en_plural": "secretaries", "ar_plural": "سِكْرِتِيرُون", "ar_tr_plural": "sikritīrūn"}],
+  [{"en_singular": "manager", "ar_singular": "مُدِير", "ar_tr_singular": "mudīr"}, {"en_plural": "managers", "ar_plural": "مُدَرَاء", "ar_tr_plural": "mudarāʾ"}],
+  [{"en_singular": "her", "ar_singular": "هَا", "ar_tr_singular": "hā"}, {"en_plural": "their (feminine)", "ar_plural": "هُنَّ", "ar_tr_plural": "hunna"}],
+  [{"en_singular": "relative", "ar_singular": "قَرِيب", "ar_tr_singular": "qarīb"}, {"en_plural": "relatives", "ar_plural": "أَقَارِب", "ar_tr_plural": "ʾaqārib"}],
+  [{"en_singular": "aunt", "ar_singular": "عَمَّة / خَالَة", "ar_tr_singular": "ʿammah / khālah"}, {"en_plural": "aunts", "ar_plural": "عَمَّات / خَالَات", "ar_tr_plural": "ʿammāt / khālāt"}],
+  [{"en_singular": "driver", "ar_singular": "سَائِق", "ar_tr_singular": "sāʾiq"}, {"en_plural": "drivers", "ar_plural": "سَائِقُون", "ar_tr_plural": "sāʾiqūn"}],
+  [{"en_singular": "chef", "ar_singular": "طَاهٍ", "ar_tr_singular": "ṭāhin"}, {"en_plural": "chefs", "ar_plural": "طُهَاة", "ar_tr_plural": "ṭuhāh"}],
+  [{"en_singular": "student", "ar_singular": "طَالِب", "ar_tr_singular": "ṭālib"}, {"en_plural": "students", "ar_plural": "طُلَّاب", "ar_tr_plural": "ṭullāb"}],
+  [{"en_singular": "professor", "ar_singular": "أُسْتَاذ", "ar_tr_singular": "ʾustādh"}, {"en_plural": "professors", "ar_plural": "أَسَاتِذَة", "ar_tr_plural": "ʾasātidhah"}],
+  [{"en_singular": "library", "ar_singular": "مَكْتَبَة", "ar_tr_singular": "maktabah"}, {"en_plural": "libraries", "ar_plural": "مَكْتَبَات", "ar_tr_plural": "maktabāt"}],
+  [{"en_singular": "conductor", "ar_singular": "قَائِدُ أُورْكِسْتْرَا", "ar_tr_singular": "qāʾid ʾūrkistrā"}, {"en_plural": "conductors", "ar_plural": "قَادَةُ أُورْكِسْتْرَا", "ar_tr_plural": "qādat ʾūrkistrā"}],
+  [{"en_singular": "group", "ar_singular": "مَجْمُوعَة", "ar_tr_singular": "majmūʿah"}, {"en_plural": "groups", "ar_plural": "مَجْمُوعَات", "ar_tr_plural": "majmūʿāt"}],
+  [{"en_singular": "tourist", "ar_singular": "سَائِح", "ar_tr_singular": "sāʾiḥ"}, {"en_plural": "tourists", "ar_plural": "سُيّاح", "ar_tr_plural": "suyaḥ"}],
+  [{"en_singular": "reporter", "ar_singular": "صَحَفِيّ", "ar_tr_singular": "ṣaḥafiyy"}, {"en_plural": "reporters", "ar_plural": "صَحَفِيُّون", "ar_tr_plural": "ṣaḥafiyyūn"}],
+  [{"en_singular": "pilot", "ar_singular": "طَيَّار", "ar_tr_singular": "ṭayyār"}, {"en_plural": "pilots", "ar_plural": "طَيَّارُون", "ar_tr_plural": "ṭayyārūn"}],
+  [{"en_singular": "person", "ar_singular": "شَخْص", "ar_tr_singular": "shakhṣ"}, {"en_plural": "people", "ar_plural": "أَشْخَاص", "ar_tr_plural": "ʾashkhāṣ"}],
+  [{"en_singular": "adult", "ar_singular": "بَالِغ", "ar_tr_singular": "bāligh"}, {"en_plural": "adults", "ar_plural": "بَالِغُون", "ar_tr_plural": "bālighūn"}],
+  [{"en_singular": "baby", "ar_singular": "رَضِيع", "ar_tr_singular": "raḍīʿ"}, {"en_plural": "babies", "ar_plural": "رُضَّع", "ar_tr_plural": "ruḍḍaʿ"}],
+  [{"en_singular": "innocent person", "ar_singular": "بَرِيء", "ar_tr_singular": "barīʾ"}, {"en_plural": "innocent people", "ar_plural": "أَبْرِيَاء", "ar_tr_plural": "ʾabriyāʾ"}],
+  [{"en_singular": "kindergarten", "ar_singular": "رَوْضَةُ أَطْفَال", "ar_tr_singular": "rawḍat ʾaṭfāl"}, {"en_plural": "kindergartens", "ar_plural": "رِيَاضُ أَطْفَال", "ar_tr_plural": "riyāḍ ʾaṭfāl"}],
+  [{"en_singular": "doctorate", "ar_singular": "دُكْتُورَاه", "ar_tr_singular": "duktūrāh"}, {"en_plural": "doctorates", "ar_plural": "دُكْتُورَاهَات", "ar_tr_plural": "duktūrāhāt"}],
+  [{"en_singular": "painter", "ar_singular": "رَسَّام", "ar_tr_singular": "rassām"}, {"en_plural": "painters", "ar_plural": "رَسَّامُون", "ar_tr_plural": "rassāmūn"}],
+  [{"en_singular": "politician", "ar_singular": "سِيَاسِيّ", "ar_tr_singular": "siyāsiyy"}, {"en_plural": "politicians", "ar_plural": "سِيَاسِيُّون", "ar_tr_plural": "siyāsiyyūn"}],
+  [{"en_singular": "musician", "ar_singular": "مُوسِيقَار", "ar_tr_singular": "mūsīqār"}, {"en_plural": "musicians", "ar_plural": "مُوسِيقَارُونَ", "ar_tr_plural": "mūsīqārūn"}],
+  [{"en_singular": "judge", "ar_singular": "قَاضٍ", "ar_tr_singular": "qāḍin"}, {"en_plural": "judges", "ar_plural": "قُضَاة", "ar_tr_plural": "quḍāh"}],
+  [{"en_singular": "investigation", "ar_singular": "تَحْقِيق", "ar_tr_singular": "taḥqīq"}, {"en_plural": "investigations", "ar_plural": "تَحْقِيقَات", "ar_tr_plural": "taḥqīqāt"}]
+]
+
+
+
+Envrionment
+
+[
+  [{"en_singular": "toilet", "ar_singular": "مِرْحَاض", "ar_tr_singular": "mirḥāḍ"}, {"en_plural": "toilets", "ar_plural": "مَرَاحِيض", "ar_tr_plural": "marāḥīḍ"}],
+  [{"en_singular": "room", "ar_singular": "غُرْفَة", "ar_tr_singular": "ghurfah"}, {"en_plural": "rooms", "ar_plural": "غُرَف", "ar_tr_plural": "ghuraf"}],
+  [{"en_singular": "house", "ar_singular": "مَنْزِل", "ar_tr_singular": "manzil"}, {"en_plural": "houses", "ar_plural": "مَنَازِل", "ar_tr_plural": "manāzil"}],
+  [{"en_singular": "park", "ar_singular": "مُنْتَزَه", "ar_tr_singular": "muntazah"}, {"en_plural": "parks", "ar_plural": "مُنْتَزَهَات", "ar_tr_plural": "muntazahāt"}],
+  [{"en_singular": "city", "ar_singular": "مَدِينَة", "ar_tr_singular": "madīnah"}, {"en_plural": "cities", "ar_plural": "مُدُن", "ar_tr_plural": "mudun"}],
+  [{"en_singular": "floor", "ar_singular": "أَرْضِيَّة", "ar_tr_singular": "ʾarḍiyyah"}, {"en_plural": "floors", "ar_plural": "أَرْضِيَّات", "ar_tr_plural": "ʾarḍiyyāt"}],
+  [{"en_singular": "marketing", "ar_singular": "تَسْوِيق", "ar_tr_singular": "taswīq"}, {"en_plural": "marketing", "ar_plural": "تَسْوِيق", "ar_tr_plural": "taswīq"}],
+  [{"en_singular": "museum", "ar_singular": "مَتْحَف", "ar_tr_singular": "matḥaf"}, {"en_plural": "museums", "ar_plural": "مَتَاحِف", "ar_tr_plural": "matāḥif"}],
+  [{"en_singular": "aquarium", "ar_singular": "مَرْبَى مَائِي", "ar_tr_singular": "marbā māʾī"}, {"en_plural": "aquariums", "ar_plural": "مَرَابٍ مَائِيَّة", "ar_tr_plural": "marābin māʾiyyah"}],
+  [{"en_singular": "sale", "ar_singular": "تَخْفِيض", "ar_tr_singular": "takhfīḍ"}, {"en_plural": "sales", "ar_plural": "تَخْفِيضَات", "ar_tr_plural": "takhfīḍāt"}],
+  [{"en_singular": "thunderstorm", "ar_singular": "عَاصِفَةٌ رَعْدِيَّة", "ar_tr_singular": "ʿāṣifah raʿdiyyah"}, {"en_plural": "thunderstorms", "ar_plural": "عَوَاصِفُ رَعْدِيَّة", "ar_tr_plural": "ʿawāṣif raʿdiyyah"}],
+  [{"en_singular": "golf", "ar_singular": "جُولْف", "ar_tr_singular": "jūlf"}, {"en_plural": "golf", "ar_plural": "جُولْف", "ar_tr_plural": "jūlf"}],
+  [{"en_singular": "camping", "ar_singular": "تَخْيِيم", "ar_tr_singular": "takhyīm"}, {"en_plural": "camping", "ar_plural": "تَخْيِيم", "ar_tr_plural": "takhyīm"}],
+  [{"en_singular": "farm", "ar_singular": "مَزْرَعَة", "ar_tr_singular": "mazraʿah"}, {"en_plural": "farms", "ar_plural": "مَزَارِع", "ar_tr_plural": "mazāriʿ"}],
+  [{"en_singular": "country", "ar_singular": "بَلَد", "ar_tr_singular": "balad"}, {"en_plural": "countries", "ar_plural": "بُلْدَان", "ar_tr_plural": "buldān"}],
+  [{"en_singular": "soil", "ar_singular": "تُرْبَة", "ar_tr_singular": "turbah"}, {"en_plural": "soils", "ar_plural": "تُرَب", "ar_tr_plural": "turab"}],
+  [{"en_singular": "sunrise", "ar_singular": "شُرُوقُ الشَّمْس", "ar_tr_singular": "shurūq al-shams"}, {"en_plural": "sunrises", "ar_plural": "شُرُوقُ الشَّمْس", "ar_tr_plural": "shurūq al-shams"}],
+  [{"en_singular": "sunset", "ar_singular": "غُرُوبُ الشَّمْس", "ar_tr_singular": "ghurūb al-shams"}, {"en_plural": "sunsets", "ar_plural": "غُرُوبُ الشَّمْس", "ar_tr_plural": "ghurūb al-shams"}],
+  [{"en_singular": "land", "ar_singular": "أَرْض", "ar_tr_singular": "ʾarḍ"}, {"en_plural": "lands", "ar_plural": "أَرَاضٍ", "ar_tr_plural": "ʾarāḍin"}],
+  [{"en_singular": "stadium", "ar_singular": "مَلْعَب", "ar_tr_singular": "malʿab"}, {"en_plural": "stadiums", "ar_plural": "مَلَاعِب", "ar_tr_plural": "malāʿib"}],
+  [{"en_singular": "home", "ar_singular": "بَيْت", "ar_tr_singular": "bayt"}, {"en_plural": "homes", "ar_plural": "بُيُوت", "ar_tr_plural": "buyūt"}],
+  [{"en_singular": "place", "ar_singular": "مَكَان", "ar_tr_singular": "makān"}, {"en_plural": "places", "ar_plural": "أَمَاكِن", "ar_tr_plural": "ʾamākin"}],
+  [{"en_singular": "nature", "ar_singular": "طَبِيعَة", "ar_tr_singular": "ṭabīʿah"}, {"en_plural": "nature", "ar_plural": "طَبِيعَة", "ar_tr_plural": "ṭabīʿah"}],
+  [{"en_singular": "environment", "ar_singular": "بِيئَة", "ar_tr_singular": "bīʾah"}, {"en_plural": "environments", "ar_plural": "بِيئَات", "ar_tr_plural": "bīʾāt"}],
+  [{"en_singular": "countryside", "ar_singular": "رِيف", "ar_tr_singular": "rīf"}, {"en_plural": "countrysides", "ar_plural": "أَرْيَاف", "ar_tr_plural": "ʾaryāf"}],
+  [{"en_singular": "castle", "ar_singular": "قَلْعَة", "ar_tr_singular": "qalʿah"}, {"en_plural": "castles", "ar_plural": "قِلَاع", "ar_tr_plural": "qilāʿ"}],
+  [{"en_singular": "garbage", "ar_singular": "قُمَامَة", "ar_tr_singular": "qumāmah"}, {"en_plural": "garbage", "ar_plural": "قُمَامَات", "ar_tr_plural": "qumāmāt"}],
+  [{"en_singular": "sand", "ar_singular": "رَمْل", "ar_tr_singular": "raml"}, {"en_plural": "sands", "ar_plural": "رِمَال", "ar_tr_plural": "rimāl"}],
+  [{"en_singular": "garage", "ar_singular": "مَرْأَب", "ar_tr_singular": "marʾab"}, {"en_plural": "garages", "ar_plural": "مَرَائِب", "ar_tr_plural": "marāʾib"}],
+  [{"en_singular": "disaster", "ar_singular": "كَارِثَة", "ar_tr_singular": "kārithah"}, {"en_plural": "disasters", "ar_plural": "كَوَارِث", "ar_tr_plural": "kawārith"}],
+  [{"en_singular": "pollution", "ar_singular": "تَلَوُّث", "ar_tr_singular": "talawwuth"}, {"en_plural": "pollution", "ar_plural": "تَلَوُّث", "ar_tr_plural": "talawwuth"}],
+  [{"en_singular": "rain", "ar_singular": "مَطَر", "ar_tr_singular": "maṭar"}, {"en_plural": "rains", "ar_plural": "أَمْطَار", "ar_tr_plural": "ʾamṭār"}],
+  [{"en_singular": "pyramid", "ar_singular": "هَرَم", "ar_tr_singular": "haram"}, {"en_plural": "pyramids", "ar_plural": "أَهْرَامَات", "ar_tr_plural": "ʾahrāmāt"}],
+  [{"en_singular": "habitat", "ar_singular": "مَوْطِن", "ar_tr_singular": "mawṭin"}, {"en_plural": "habitats", "ar_plural": "مَوَاطِن", "ar_tr_plural": "mawāṭin"}],
+  [{"en_singular": "air", "ar_singular": "هَوَاء", "ar_tr_singular": "hawāʾ"}, {"en_plural": "air", "ar_plural": "هَوَاء", "ar_tr_plural": "hawāʾ"}],
+  [{"en_singular": "moon", "ar_singular": "قَمَر", "ar_tr_singular": "qamar"}, {"en_plural": "moons", "ar_plural": "أَقْمَار", "ar_tr_plural": "ʾaqmār"}],
+  [{"en_singular": "hill", "ar_singular": "تَلّ", "ar_tr_singular": "tall"}, {"en_plural": "hills", "ar_plural": "تِلَال", "ar_tr_plural": "tilāl"}],
+  [{"en_singular": "mainland", "ar_singular": "بَرٌّ رَئِيسِيّ", "ar_tr_singular": "barr raʾīsiyy"}, {"en_plural": "mainlands", "ar_plural": "بَرٌّ رَئِيسِيّ", "ar_tr_plural": "barr raʾīsiyy"}],
+  [{"en_singular": "mountain", "ar_singular": "جَبَل", "ar_tr_singular": "jabal"}, {"en_plural": "mountains", "ar_plural": "جِبَال", "ar_tr_plural": "jibāl"}],
+  [{"en_singular": "beach", "ar_singular": "شَاطِئ", "ar_tr_singular": "shāṭiʾ"}, {"en_plural": "beaches", "ar_plural": "شَوَاطِئ", "ar_tr_plural": "shawāṭiʾ"}],
+  [{"en_singular": "island", "ar_singular": "جَزِيرَة", "ar_tr_singular": "jazīrah"}, {"en_plural": "islands", "ar_plural": "جُزُر", "ar_tr_plural": "juzur"}],
+  [{"en_singular": "forest", "ar_singular": "غَابَة", "ar_tr_singular": "ghābah"}, {"en_plural": "forests", "ar_plural": "غَابَات", "ar_tr_plural": "ghābāt"}],
+  [{"en_singular": "river", "ar_singular": "نَهْر", "ar_tr_singular": "nahr"}, {"en_plural": "rivers", "ar_plural": "أَنْهَار", "ar_tr_plural": "ʾanhār"}],
+  [{"en_singular": "ocean", "ar_singular": "مُحِيط", "ar_tr_singular": "muḥīṭ"}, {"en_plural": "oceans", "ar_plural": "مُحِيطَات", "ar_tr_plural": "muḥīṭāt"}],
+  [{"en_singular": "lake", "ar_singular": "بُحَيْرَة", "ar_tr_singular": "buḥayrah"}, {"en_plural": "lakes", "ar_plural": "بُحَيْرَات", "ar_tr_plural": "buḥayrāt"}],
+  [{"en_singular": "living room", "ar_singular": "غُرْفَةُ مَعِيشَة", "ar_tr_singular": "ghurfat maʿīshah"}, {"en_plural": "living rooms", "ar_plural": "غُرَفُ مَعِيشَة", "ar_tr_plural": "ghuraf maʿīshah"}],
+  [{"en_singular": "dining room", "ar_singular": "غُرْفَةُ طَعَام", "ar_tr_singular": "ghurfat ṭaʿām"}, {"en_plural": "dining rooms", "ar_plural": "غُرَفُ طَعَام", "ar_tr_plural": "ghuraf ṭaʿām"}],
+  [{"en_singular": "hallway", "ar_singular": "رَوْق", "ar_tr_singular": "rawq"}, {"en_plural": "hallways", "ar_plural": "أَرْوَاق", "ar_tr_plural": "ʾarwāq"}],
+  [{"en_singular": "backyard", "ar_singular": "فِنَاءٌ خَلْفِيّ", "ar_tr_singular": "fināʾ khalfiyy"}, {"en_plural": "backyards", "ar_plural": "أَفْنِيَةٌ خَلْفِيَّة", "ar_tr_plural": "ʾafniyah khalfiyyah"}],
+  [{"en_singular": "room", "ar_singular": "غُرْفَة", "ar_tr_singular": "ghurfah"}, {"en_plural": "rooms", "ar_plural": "غُرَف", "ar_tr_plural": "ghuraf"}],
+  [{"en_singular": "emergency room", "ar_singular": "غُرْفَةُ طَوَارِئ", "ar_tr_singular": "ghurfat ṭawāriʾ"}, {"en_plural": "emergency rooms", "ar_plural": "غُرَفُ طَوَارِئ", "ar_tr_plural": "ghuraf ṭawāriʾ"}],
+  [{"en_singular": "insurance", "ar_singular": "تَأْمِين", "ar_tr_singular": "taʾmīn"}, {"en_plural": "insurance policies", "ar_plural": "بَوَالِصُ تَأْمِين", "ar_tr_plural": "bawāliṣ taʾmīn"}],
+  [{"en_singular": "lobby", "ar_singular": "رَدْهَة", "ar_tr_singular": "radhah"}, {"en_plural": "lobbies", "ar_plural": "رَدَهَات", "ar_tr_plural": "radahāt"}],
+  [{"en_singular": "post office", "ar_singular": "مَكْتَبُ بَرِيد", "ar_tr_singular": "maktab barīd"}, {"en_plural": "post offices", "ar_plural": "مَكَاتِبُ بَرِيد", "ar_tr_plural": "makātib barīd"}],
+  [{"en_singular": "leaf", "ar_singular": "وَرَقَة", "ar_tr_singular": "waraqah"}, {"en_plural": "leaves", "ar_plural": "أَوْرَاق", "ar_tr_plural": "ʾawrāq"}],
+  [{"en_singular": "tree", "ar_singular": "شَجَرَة", "ar_tr_singular": "shajarah"}, {"en_plural": "trees", "ar_plural": "أَشْجَار", "ar_tr_plural": "ʾashjār"}],
+  [{"en_singular": "grass", "ar_singular": "عُشْب", "ar_tr_singular": "ʿushb"}, {"en_plural": "grasses", "ar_plural": "أَعْشَاب", "ar_tr_plural": "ʾaʿshāb"}],
+  [{"en_singular": "flower", "ar_singular": "زَهْرَة", "ar_tr_singular": "zahrah"}, {"en_plural": "flowers", "ar_plural": "زُهُور", "ar_tr_plural": "zuhūr"}],
+  [{"en_singular": "bush", "ar_singular": "شُجَيْرَة", "ar_tr_singular": "shujayrah"}, {"en_plural": "bushes", "ar_plural": "شُجَيْرَات", "ar_tr_plural": "shujayrāt"}],
+  [{"en_singular": "elementary school", "ar_singular": "مَدْرَسَةٌ اِبْتِدَائِيَّة", "ar_tr_singular": "madrasah ibtidāʾiyyah"}, {"en_plural": "elementary schools", "ar_plural": "مَدَارِسُ اِبْتِدَائِيَّة", "ar_tr_plural": "madāris ibtidāʾiyyah"}],
+  [{"en_singular": "middle school", "ar_singular": "مَدْرَسَةٌ إِعْدَادِيَّة", "ar_tr_singular": "madrasah ʾiʿdādiyyah"}, {"en_plural": "middle schools", "ar_plural": "مَدَارِسُ إِعْدَادِيَّة", "ar_tr_plural": "madāris ʾiʿdādiyyah"}],
+  [{"en_singular": "high school", "ar_singular": "مَدْرَسَةٌ ثَانَوِيَّة", "ar_tr_singular": "madrasah thānawiyyah"}, {"en_plural": "high schools", "ar_plural": "مَدَارِسُ ثَانَوِيَّة", "ar_tr_plural": "madāris thānawiyyah"}],
+  [{"en_singular": "university", "ar_singular": "جَامِعَة", "ar_tr_singular": "jāmiʿah"}, {"en_plural": "universities", "ar_plural": "جَامِعَات", "ar_tr_plural": "jāmiʿāt"}],
+  [{"en_singular": "college", "ar_singular": "كُلِّيَّة", "ar_tr_singular": "kulliyyah"}, {"en_plural": "colleges", "ar_plural": "كُلِّيَّات", "ar_tr_plural": "kulliyyāt"}],
+  [{"en_singular": "apartment", "ar_singular": "شُقَّة", "ar_tr_singular": "shuqqah"}, {"en_plural": "apartments", "ar_plural": "شُقَق", "ar_tr_plural": "shuqaq"}],
+  [{"en_singular": "gym", "ar_singular": "صَالَةٌ رِيَاضِيَّة", "ar_tr_singular": "ṣālah riyāḍiyyah"}, {"en_plural": "gyms", "ar_plural": "صَالَاتٌ رِيَاضِيَّة", "ar_tr_plural": "ṣālāt riyāḍiyyah"}],
+  [{"en_singular": "vacation", "ar_singular": "إِجَازَة", "ar_tr_singular": "ʾijāzah"}, {"en_plural": "vacations", "ar_plural": "إِجَازَات", "ar_tr_plural": "ʾijāzāt"}],
+  [{"en_singular": "winter", "ar_singular": "شِتَاء", "ar_tr_singular": "shitāʾ"}, {"en_plural": "winters", "ar_plural": "شِتَاءَات", "ar_tr_plural": "shitāʾāt"}],
+  [{"en_singular": "summer", "ar_singular": "صَيْف", "ar_tr_singular": "ṣayf"}, {"en_plural": "summers", "ar_plural": "أَصْيَاف", "ar_tr_plural": "ʾaṣyāf"}],
+  [{"en_singular": "spring", "ar_singular": "رَبِيع", "ar_tr_singular": "rabīʿ"}, {"en_plural": "springs", "ar_plural": "رَبِيعَات", "ar_tr_plural": "rabīʿāt"}],
+  [{"en_singular": "birthday", "ar_singular": "عِيدُ مِيلَاد", "ar_tr_singular": "ʿīd mīlād"}, {"en_plural": "birthdays", "ar_plural": "أَعْيَادُ مِيلَاد", "ar_tr_plural": "ʾaʿyād mīlād"}],
+  [{"en_singular": "festival", "ar_singular": "مِهْرَجَان", "ar_tr_singular": "mihrajān"}, {"en_plural": "festivals", "ar_plural": "مِهْرَجَانَات", "ar_tr_plural": "mihrajānāt"}],
+  [{"en_singular": "mall", "ar_singular": "مَرْكَزُ تَسَوُّق", "ar_tr_singular": "markaz tasawwuq"}, {"en_plural": "malls", "ar_plural": "مَرَاكِزُ تَسَوُّق", "ar_tr_plural": "marākiz tasawwuq"}],
+  [{"en_singular": "marathon", "ar_singular": "مَارَاثُون", "ar_tr_singular": "mārāthūn"}, {"en_plural": "marathons", "ar_plural": "مَارَاثُونَات", "ar_tr_plural": "mārāthūnāt"}],
+  [{"en_singular": "soccer", "ar_singular": "كُرَةُ الْقَدَم", "ar_tr_singular": "kurah al-qadam"}, {"en_plural": "soccer", "ar_plural": "كُرَةُ الْقَدَم", "ar_tr_plural": "kurah al-qadam"}],
+  [{"en_singular": "basketball", "ar_singular": "كُرَةُ السَّلَّة", "ar_tr_singular": "kurah al-sallah"}, {"en_plural": "basketball", "ar_plural": "كُرَةُ السَّلَّة", "ar_tr_plural": "kurah al-sallah"}],
+  [{"en_singular": "tower", "ar_singular": "بُرْج", "ar_tr_singular": "burj"}, {"en_plural": "towers", "ar_plural": "أَبْرَاج", "ar_tr_plural": "ʾabrāj"}],
+  [{"en_singular": "road", "ar_singular": "طَرِيق", "ar_tr_singular": "ṭarīq"}, {"en_plural": "roads", "ar_plural": "طُرُق", "ar_tr_plural": "ṭuruq"}],
+  [{"en_singular": "traffic jam", "ar_singular": "اِزْدِحَامٌ مُرُورِيّ", "ar_tr_singular": "izdiḥām murūriyy"}, {"en_plural": "traffic jams", "ar_plural": "اِزْدِحَامَاتٌ مُرُورِيَّة", "ar_tr_plural": "izdiḥāmāt murūriyyah"}]
+]
+
+[
+  [{"en_singular": "house", "ar_singular": "مَنْزِل", "ar_tr_singular": "manzil"}, {"en_plural": "houses", "ar_plural": "مَنَازِل", "ar_tr_plural": "manāzil"}],
+  [{"en_singular": "building", "ar_singular": "مَبْنَى", "ar_tr_singular": "mabnā"}, {"en_plural": "buildings", "ar_plural": "مَبَانٍ", "ar_tr_plural": "mabānin"}],
+  [{"en_singular": "lesson", "ar_singular": "دَرْس", "ar_tr_singular": "dars"}, {"en_plural": "lessons", "ar_plural": "دُرُوس", "ar_tr_plural": "durūs"}],
+  [{"en_singular": "rent", "ar_singular": "إِيجَار", "ar_tr_singular": "ʾījār"}, {"en_plural": "rents", "ar_plural": "إِيجَارَات", "ar_tr_plural": "ʾījārāt"}],
+  [{"en_singular": "subway", "ar_singular": "مِتْرُو أَنْفَاق", "ar_tr_singular": "mitrū ʾanfāq"}, {"en_plural": "subways", "ar_plural": "مِتْرُو أَنْفَاق", "ar_tr_plural": "mitrū ʾanfāq"}],
+  [{"en_singular": "escalator", "ar_singular": "سُلَّمٌ كَهْرَبَائِيّ", "ar_tr_singular": "sullam kahrabāʾiyy"}, {"en_plural": "escalators", "ar_plural": "سَلَالِمُ كَهْرَبَائِيَّة", "ar_tr_plural": "salālim kahrabāʾiyyah"}],
+  [{"en_singular": "timetable", "ar_singular": "جَدْوَلٌ زَمَنِيّ", "ar_tr_singular": "jadwal zamaniyy"}, {"en_plural": "timetables", "ar_plural": "جَدَاوِلُ زَمَنِيَّة", "ar_tr_plural": "jadāwil zamaniyyah"}],
+  [{"en_singular": "bank", "ar_singular": "بَنْك", "ar_tr_singular": "bank"}, {"en_plural": "banks", "ar_plural": "بُنُوك", "ar_tr_plural": "bunūk"}],
+  [{"en_singular": "rain", "ar_singular": "مَطَر", "ar_tr_singular": "maṭar"}, {"en_plural": "rains", "ar_plural": "أَمْطَار", "ar_tr_plural": "ʾamṭār"}],
+  [{"en_singular": "snow", "ar_singular": "ثَلْج", "ar_tr_singular": "thalj"}, {"en_plural": "snows", "ar_plural": "ثُلُوج", "ar_tr_plural": "thulūj"}],
+  [{"en_singular": "cloud", "ar_singular": "سَحَابَة", "ar_tr_singular": "saḥābah"}, {"en_plural": "clouds", "ar_plural": "سُحُب", "ar_tr_plural": "suḥub"}],
+  [{"en_singular": "flood", "ar_singular": "فَيَضَان", "ar_tr_singular": "fayaḍān"}, {"en_plural": "floods", "ar_plural": "فَيَضَانَات", "ar_tr_plural": "fayaḍānāt"}],
+  [{"en_singular": "typhoon", "ar_singular": "إِعْصَار", "ar_tr_singular": "ʾiʿṣār"}, {"en_plural": "typhoons", "ar_plural": "أَعَاصِير", "ar_tr_plural": "ʾaʿāṣīr"}],
+  [{"en_singular": "weather report", "ar_singular": "نَشْرَةُ الْأَحْوَالِ الْجَوِّيَّة", "ar_tr_singular": "nashrat al-ʾaḥwāl al-jawwiyyah"}, {"en_plural": "weather reports", "ar_plural": "نَشَرَاتُ الْأَحْوَالِ الْجَوِّيَّة", "ar_tr_plural": "nasharāt al-ʾaḥwāl al-jawwiyyah"}],
+  [{"en_singular": "sky", "ar_singular": "سَمَاء", "ar_tr_singular": "samāʾ"}, {"en_plural": "skies", "ar_plural": "سَمَاوَات", "ar_tr_plural": "samāwāt"}],
+  [{"en_singular": "sunny weather", "ar_singular": "طَقْسٌ مُشْمِس", "ar_tr_singular": "ṭaqsun mushmis"}, {"en_plural": null, "ar_plural": null, "ar_tr_plural": null}],
+  [{"en_singular": "rainbow", "ar_singular": "قَوْسُ قُزَح", "ar_tr_singular": "qaws quzaḥ"}, {"en_plural": "rainbows", "ar_plural": "أَقْوَاسُ قُزَح", "ar_tr_plural": "ʾaqwās quzaḥ"}],
+  [{"en_singular": "temperature", "ar_singular": "دَرَجَةُ حَرَارَة", "ar_tr_singular": "darajat ḥarārah"}, {"en_plural": "temperatures", "ar_plural": "دَرَجَاتُ حَرَارَة", "ar_tr_plural": "darajāt ḥarārah"}],
+  [{"en_singular": "humid weather", "ar_singular": "طَقْسٌ رَطِب", "ar_tr_singular": "ṭaqsun raṭib"}, {"en_plural": null, "ar_plural": null, "ar_tr_plural": null}],
+  [{"en_singular": "windy weather", "ar_singular": "طَقْسٌ عَاصِف", "ar_tr_singular": "ṭaqsun ʿāṣif"}, {"en_plural": null, "ar_plural": null, "ar_tr_plural": null}],
+  [{"en_singular": "fog", "ar_singular": "ضَبَاب", "ar_tr_singular": "ḍabāb"}, {"en_plural": "fogs", "ar_plural": "ضَبَاب", "ar_tr_plural": "ḍabāb"}],
+  [{"en_singular": "hurricane", "ar_singular": "إِعْصَار", "ar_tr_singular": "ʾiʿṣār"}, {"en_plural": "hurricanes", "ar_plural": "أَعَاصِير", "ar_tr_plural": "ʾaʿāṣīr"}],
+  [{"en_singular": "company", "ar_singular": "شَرِكَة", "ar_tr_singular": "sharikah"}, {"en_plural": "companies", "ar_plural": "شَرِكَات", "ar_tr_plural": "sharikāt"}],
+  [{"en_singular": "tornado", "ar_singular": "إِعْصَارٌ قُمْعِيّ", "ar_tr_singular": "ʾiʿṣārun qumʿiyy"}, {"en_plural": "tornadoes", "ar_plural": "أَعَاصِيرُ قُمْعِيَّة", "ar_tr_plural": "ʾaʿāṣīr qumʿiyyah"}],
+  [{"en_singular": "office", "ar_singular": "مَكْتَب", "ar_tr_singular": "maktab"}, {"en_plural": "offices", "ar_plural": "مَكَاتِب", "ar_tr_plural": "makātib"}],
+  [{"en_singular": "earth", "ar_singular": "أَرْض", "ar_tr_singular": "ʾarḍ"}, {"en_plural": "earths", "ar_plural": "أَرَاضٍ", "ar_tr_plural": "ʾarāḍin"}],
+  [{"en_singular": "temple", "ar_singular": "مَعْبَد", "ar_tr_singular": "maʿbad"}, {"en_plural": "temples", "ar_plural": "مَعَابِد", "ar_tr_plural": "maʿābid"}],
+  [{"en_singular": "mosque", "ar_singular": "مَسْجِد", "ar_tr_singular": "masjid"}, {"en_plural": "mosques", "ar_plural": "مَسَاجِد", "ar_tr_plural": "masājid"}],
+  [{"en_singular": "church", "ar_singular": "كَنِيسَة", "ar_tr_singular": "kanīsah"}, {"en_plural": "churches", "ar_plural": "كَنَائِس", "ar_tr_plural": "kanāʾis"}],
+  [{"en_singular": "statue", "ar_singular": "تِمْثَال", "ar_tr_singular": "timthāl"}, {"en_plural": "statues", "ar_plural": "تَمَاثِيل", "ar_tr_plural": "tamāthīl"}],
+  [{"en_singular": "waterfall", "ar_singular": "شَلَّال", "ar_tr_singular": "shallāl"}, {"en_plural": "waterfalls", "ar_plural": "شَلَّالَات", "ar_tr_plural": "shallālāt"}],
+  [{"en_singular": "palace", "ar_singular": "قَصْر", "ar_tr_singular": "qaṣr"}, {"en_plural": "palaces", "ar_plural": "قُصُور", "ar_tr_plural": "quṣūr"}],
+  [{"en_singular": "garden", "ar_singular": "حَدِيقَة", "ar_tr_singular": "ḥadīqah"}, {"en_plural": "gardens", "ar_plural": "حَدَائِق", "ar_tr_plural": "ḥadāʾiq"}],
+  [{"en_singular": "economics", "ar_singular": "عِلْمُ الِاقْتِصَاد", "ar_tr_singular": "ʿilm al-iqtiṣād"}, {"en_plural": "economics", "ar_plural": "عِلْمُ الِاقْتِصَاد", "ar_tr_plural": "ʿilm al-iqtiṣād"}],
+  [{"en_singular": "education", "ar_singular": "تَعْلِيم", "ar_tr_singular": "taʿlīm"}, {"en_plural": "education", "ar_plural": "تَعْلِيم", "ar_tr_plural": "taʿlīm"}],
+  [{"en_singular": "party", "ar_singular": "حَفْلَة", "ar_tr_singular": "ḥaflah"}, {"en_plural": "parties", "ar_plural": "حَفَلَات", "ar_tr_plural": "ḥafalāt"}],
+  [{"en_singular": "funeral", "ar_singular": "جَنَازَة", "ar_tr_singular": "janāzah"}, {"en_plural": "funerals", "ar_plural": "جَنَازَات", "ar_tr_plural": "janāzāt"}],
+  [{"en_singular": "store", "ar_singular": "مَتْجَر", "ar_tr_singular": "matjar"}, {"en_plural": "stores", "ar_plural": "مَتَاجِر", "ar_tr_plural": "matājir"}],
+  [{"en_singular": "weather", "ar_singular": "طَقْس", "ar_tr_singular": "ṭaqs"}, {"en_plural": "weather", "ar_plural": "طَقْس", "ar_tr_plural": "ṭaqs"}],
+  [{"en_singular": "restaurant", "ar_singular": "مَطْعَم", "ar_tr_singular": "maṭʿam"}, {"en_plural": "restaurants", "ar_plural": "مَطَاعِم", "ar_tr_plural": "maṭāʿim"}],
+  [{"en_singular": "bar", "ar_singular": "حَانَة", "ar_tr_singular": "ḥānah"}, {"en_plural": "bars", "ar_plural": "حَانَات", "ar_tr_plural": "ḥānāt"}],
+  [{"en_singular": "drought", "ar_singular": "جَفَاف", "ar_tr_singular": "jafāf"}, {"en_plural": "droughts", "ar_plural": "جَفَافَات", "ar_tr_plural": "jafāfāt"}],
+  [{"en_singular": "hospital", "ar_singular": "مُسْتَشْفَى", "ar_tr_singular": "mustashfā"}, {"en_plural": "hospitals", "ar_plural": "مُسْتَشْفَيَات", "ar_tr_plural": "mustashfayāt"}],
+  [{"en_singular": "pharmacy", "ar_singular": "صَيْدَلِيَّة", "ar_tr_singular": "ṣaydaliyyah"}, {"en_plural": "pharmacies", "ar_plural": "صَيْدَلِيَّات", "ar_tr_plural": "ṣaydaliyyāt"}],
+  [{"en_singular": "police station", "ar_singular": "مَرْكَزُ شُرْطَة", "ar_tr_singular": "markaz shurṭah"}, {"en_plural": "police stations", "ar_plural": "مَرَاكِزُ شُرْطَة", "ar_tr_plural": "marākiz shurṭah"}],
+  [{"en_singular": "danger", "ar_singular": "خَطَر", "ar_tr_singular": "khaṭar"}, {"en_plural": "dangers", "ar_plural": "أَخْطَار", "ar_tr_plural": "ʾakhṭār"}],
+  [{"en_singular": "classroom", "ar_singular": "فَصْلٌ دِرَاسِيّ", "ar_tr_singular": "faṣlun dirāsiyy"}, {"en_plural": "classrooms", "ar_plural": "فُصُولٌ دِرَاسِيَّة", "ar_tr_plural": "fuṣūlun dirāsiyyah"}],
+  [{"en_singular": "sun", "ar_singular": "شَمْس", "ar_tr_singular": "shams"}, {"en_plural": "suns", "ar_plural": "شُمُوس", "ar_tr_plural": "shumūs"}],
+  [{"en_singular": "planet", "ar_singular": "كَوْكَب", "ar_tr_singular": "kawkab"}, {"en_plural": "planets", "ar_plural": "كَوَاكِب", "ar_tr_plural": "kawākib"}],
+  [{"en_singular": "amusement park", "ar_singular": "مَدِينَةُ مَلَاهٍ", "ar_tr_singular": "madīnat malāhin"}, {"en_plural": "amusement parks", "ar_plural": "مُدُنُ مَلَاهٍ", "ar_tr_plural": "mudun malāhin"}],
+  [{"en_singular": "zoo", "ar_singular": "حَدِيقَةُ حَيَوَان", "ar_tr_singular": "ḥadīqat ḥayawān"}, {"en_plural": "zoos", "ar_plural": "حَدَائِقُ حَيَوَان", "ar_tr_plural": "ḥadāʾiq ḥayawān"}],
+  [{"en_singular": "fountain", "ar_singular": "نَافُورَة", "ar_tr_singular": "nāfūrah"}, {"en_plural": "fountains", "ar_plural": "نَافُورَات", "ar_tr_plural": "nāfūrāt"}],
+  [{"en_singular": "pool", "ar_singular": "مَسْبَح", "ar_tr_singular": "masbaḥ"}, {"en_plural": "pools", "ar_plural": "مَسَابِح", "ar_tr_plural": "masābiḥ"}],
+  [{"en_singular": "hot spring", "ar_singular": "يَنْبُوعٌ حَارّ", "ar_tr_singular": "yanbūʿ ḥārr"}, {"en_plural": "hot springs", "ar_plural": "يَنَابِيعُ حَارَّة", "ar_tr_plural": "yanābīʿ ḥārrah"}],
+  [{"en_singular": "aquarium", "ar_singular": "مَرْبَى مَائِي", "ar_tr_singular": "marbā māʾī"}, {"en_plural": "aquariums", "ar_plural": "مَرَابٍ مَائِيَّة", "ar_tr_plural": "marābin māʾiyyah"}],
+  [{"en_singular": "picnic", "ar_singular": "نُزْهَة", "ar_tr_singular": "nuzhah"}, {"en_plural": "picnics", "ar_plural": "نُزَهَات", "ar_tr_plural": "nuzahāt"}],
+  [{"en_singular": "sport", "ar_singular": "رِيَاضَة", "ar_tr_singular": "riyāḍah"}, {"en_plural": "sports", "ar_plural": "رِيَاضَات", "ar_tr_plural": "riyāḍāt"}],
+  [{"en_singular": "diving", "ar_singular": "غَوْص", "ar_tr_singular": "ghawṣ"}, {"en_plural": "diving", "ar_plural": "غَوْص", "ar_tr_plural": "ghawṣ"}],
+  [{"en_singular": "boxing", "ar_singular": "مُلَاكَمَة", "ar_tr_singular": "mulākamah"}, {"en_plural": "boxing", "ar_plural": "مُلَاكَمَة", "ar_tr_plural": "mulākamah"}],
+  [{"en_singular": "softball", "ar_singular": "سُوفْتْبُول", "ar_tr_singular": "sūftbūl"}, {"en_plural": "softball", "ar_plural": "سُوفْتْبُول", "ar_tr_plural": "sūftbūl"}],
+  [{"en_singular": "racing", "ar_singular": "سِبَاق", "ar_tr_singular": "sibāq"}, {"en_plural": "racing", "ar_plural": "سِبَاقَات", "ar_tr_plural": "sibāqāt"}],
+  [{"en_singular": "movie theater", "ar_singular": "دَارُ سِينَمَا", "ar_tr_singular": "dār sīnamā"}, {"en_plural": "movie theaters", "ar_plural": "دُورُ سِينَمَا", "ar_tr_plural": "dūr sīnamā"}],
+  [{"en_singular": "karaoke", "ar_singular": "كَارَاوكِي", "ar_tr_singular": "kārāwkī"}, {"en_plural": "karaoke", "ar_plural": "كَارَاوكِي", "ar_tr_plural": "kārāwkī"}],
+  [{"en_singular": "music", "ar_singular": "مُوسِيقَى", "ar_tr_singular": "mūsīqā"}, {"en_plural": "music", "ar_plural": "مُوسِيقَى", "ar_tr_plural": "mūsīqā"}],
+  [{"en_singular": "literature", "ar_singular": "أَدَب", "ar_tr_singular": "ʾadab"}, {"en_plural": "literatures", "ar_plural": "آدَاب", "ar_tr_plural": "ʾādāb"}],
+  [{"en_singular": "school", "ar_singular": "مَدْرَسَة", "ar_tr_singular": "madrasah"}, {"en_plural": "schools", "ar_plural": "مَدَارِس", "ar_tr_plural": "madāris"}],
+  [{"en_singular": "exhibition", "ar_singular": "مَعْرِض", "ar_tr_singular": "maʿriḍ"}, {"en_plural": "exhibitions", "ar_plural": "مَعَارِض", "ar_tr_plural": "maʿāriḍ"}],
+  [{"en_singular": "government", "ar_singular": "حُكُومَة", "ar_tr_singular": "ḥukūmah"}, {"en_plural": "governments", "ar_plural": "حُكُومَات", "ar_tr_plural": "ḥukūmāt"}],
+  [{"en_singular": "arithmetic", "ar_singular": "عِلْمُ الْحِسَاب", "ar_tr_singular": "ʿilm al-ḥisāb"}, {"en_plural": "arithmetic", "ar_plural": "عِلْمُ الْحِسَاب", "ar_tr_plural": "ʿilm al-ḥisāb"}],
+  [{"en_singular": "physics", "ar_singular": "فِيزِيَاء", "ar_tr_singular": "fīziyāʾ"}, {"en_plural": "physics", "ar_plural": "فِيزِيَاء", "ar_tr_plural": "fīziyāʾ"}],
+  [{"en_singular": "biology", "ar_singular": "عِلْمُ الْأَحْيَاء", "ar_tr_singular": "ʿilm al-ʾaḥyāʾ"}, {"en_plural": "biology", "ar_plural": "عِلْمُ الْأَحْيَاء", "ar_tr_plural": "ʿilm al-ʾaḥyāʾ"}],
+  [{"en_singular": "history", "ar_singular": "تَارِيخ", "ar_tr_singular": "tārīkh"}, {"en_plural": "histories", "ar_plural": "تَوَارِيخ", "ar_tr_plural": "tawārīkh"}],
+  [{"en_singular": "physical education", "ar_singular": "تَرْبِيَةٌ بَدَنِيَّة", "ar_tr_singular": "tarbiyah badaniyyah"}, {"en_plural": "physical education", "ar_plural": "تَرْبِيَةٌ بَدَنِيَّة", "ar_tr_plural": "tarbiyah badaniyyah"}],
+  [{"en_singular": "philosophy", "ar_singular": "فَلْسَفَة", "ar_tr_singular": "falsafah"}, {"en_plural": "philosophies", "ar_plural": "فَلْسَفَات", "ar_tr_plural": "falsafāt"}],
+  [{"en_singular": "psychology", "ar_singular": "عِلْمُ النَّفْس", "ar_tr_singular": "ʿilm al-nafs"}, {"en_plural": "psychology", "ar_plural": "عِلْمُ النَّفْس", "ar_tr_plural": "ʿilm al-nafs"}],
+  [{"en_singular": "sociology", "ar_singular": "عِلْمُ الِاجْتِمَاع", "ar_tr_singular": "ʿilm al-ijtimāʿ"}, {"en_plural": "sociology", "ar_plural": "عِلْمُ الِاجْتِمَاع", "ar_tr_plural": "ʿilm al-ijtimāʿ"}],
+  [{"en_singular": "biotechnology", "ar_singular": "تِقْنِيَةٌ حَيَوِيَّة", "ar_tr_singular": "tiqniyah ḥayawiyyah"}, {"en_plural": "biotechnology", "ar_plural": "تِقْنِيَةٌ حَيَوِيَّة", "ar_tr_plural": "tiqniyah ḥayawiyyah"}],
+  [{"en_singular": "Taoism", "ar_singular": "طَاوِيَّة", "ar_tr_singular": "ṭāwiyyah"}, {"en_plural": "Taoism", "ar_plural": "طَاوِيَّة", "ar_tr_plural": "ṭāwiyyah"}],
+  [{"en_singular": "cancellation", "ar_singular": "إِلْغَاء", "ar_tr_singular": "ʾilghāʾ"}, {"en_plural": "cancellations", "ar_plural": "إِلْغَاءَات", "ar_tr_plural": "ʾilghāʾāt"}],
+  [{"en_singular": "election", "ar_singular": "اِنْتِخَاب", "ar_tr_singular": "intikhāb"}, {"en_plural": "elections", "ar_plural": "اِنْتِخَابَات", "ar_tr_plural": "intikhābāt"}]
+]
+
+
+
+position
+
+[
+  {
+    "en": "here",
+    "ar": "هُنَا",
+    "tr": "hunā"
+  },
+  {
+    "en": "there",
+    "ar": "هُنَاك",
+    "tr": "hunāk"
+  },
+  {
+    "en": "under",
+    "ar": "تَحْت",
+    "tr": "taḥt"
+  },
+  {
+    "en": "near",
+    "ar": "قَرِيب",
+    "tr": "qarīb"
+  },
+  {
+    "en": "high",
+    "ar": "عَالٍ",
+    "tr": "ʿālin"
+  },
+  {
+    "en": "low",
+    "ar": "مُنْخَفِض",
+    "tr": "munkhafiḍ"
+  },
+  {
+    "en": "middle",
+    "ar": "مُنْتَصَف",
+    "tr": "muntaṣaf"
+  },
+  {
+    "en": "up",
+    "ar": "فَوْق",
+    "tr": "fawq"
+  },
+  {
+    "en": "top",
+    "ar": "قِمَّة",
+    "tr": "qimmah"
+  },
+  {
+    "en": "down",
+    "ar": "أَسْفَل",
+    "tr": "ʾasfal"
+  },
+  {
+    "en": "far",
+    "ar": "بَعِيد",
+    "tr": "baʿīd"
+  },
+  {
+    "en": "that",
+    "ar": "ذَلِكَ",
+    "tr": "dhālika"
+  },
+  {
+    "en": "corner",
+    "ar": "زَاوِيَة",
+    "tr": "zāwiyah"
+  },
+  {
+    "en": "abroad",
+    "ar": "فِي الْخَارِج",
+    "tr": "fī al-khārij"
+  },
+  {
+    "en": "address",
+    "ar": "عُنْوَان",
+    "tr": "ʿunwān"
+  },
+  {
+    "en": "front",
+    "ar": "أَمَام",
+    "tr": "ʾamām"
+  },
+  {
+    "en": "side",
+    "ar": "جَانِب",
+    "tr": "jānib"
+  },
+  {
+    "en": "east",
+    "ar": "شَرْق",
+    "tr": "sharq"
+  },
+  {
+    "en": "west",
+    "ar": "غَرْب",
+    "tr": "gharb"
+  },
+  {
+    "en": "north",
+    "ar": "شَمَال",
+    "tr": "shamāl"
+  },
+  {
+    "en": "south",
+    "ar": "جَنُوب",
+    "tr": "janūb"
+  },
+  {
+    "en": "outside",
+    "ar": "خَارِج",
+    "tr": "khārij"
+  },
+  {
+    "en": "inside",
+    "ar": "دَاخِل",
+    "tr": "dākhil"
+  },
+  {
+    "en": "towards",
+    "ar": "نَحْوَ",
+    "tr": "naḥwa"
+  },
+  {
+    "en": "close",
+    "ar": "قَرِيب",
+    "tr": "qarīb"
+  },
+  {
+    "en": "before",
+    "ar": "قَبْل",
+    "tr": "qabl"
+  },
+  {
+    "en": "after",
+    "ar": "بَعْد",
+    "tr": "baʿd"
+  },
+  {
+    "en": "sidewalk",
+    "ar": "رَصِيف",
+    "tr": "raṣīf"
+  },
+  {
+    "en": "intersection",
+    "ar": "تَقَاطُع",
+    "tr": "taqāṭuʿ"
+  },
+  {
+    "en": "entrance",
+    "ar": "مَدْخَل",
+    "tr": "madkhal"
+  },
+  {
+    "en": "direction",
+    "ar": "اِتِّجَاه",
+    "tr": "ittijāh"
+  },
+  {
+    "en": "guide",
+    "ar": "دَلِيل",
+    "tr": "dalīl"
+  },
+  {
+    "en": "exit",
+    "ar": "مَخْرَج",
+    "tr": "makhraj"
+  },
+  {
+    "en": "left",
+    "ar": "يَسَار",
+    "tr": "yasār"
+  }
+]
+
+
+time
+
+```json
+[
+  {
+    "en": "afternoon",
+    "ar": "بَعْدَ الظُّهْر",
+    "tr": "baʿda al-ẓuhr"
+  },
+  {
+    "en": "sunrise",
+    "ar": "شُرُوقُ الشَّمْس",
+    "tr": "shurūq al-shams"
+  },
+  {
+    "en": "sunset",
+    "ar": "غُرُوبُ الشَّمْس",
+    "tr": "ghurūb al-shams"
+  },
+  {
+    "en": "time",
+    "ar": "وَقْت",
+    "tr": "waqt"
+  },
+  {
+    "en": "morning",
+    "ar": "صَبَاح",
+    "tr": "ṣabāḥ"
+  },
+  {
+    "en": "always",
+    "ar": "دَائِمًا",
+    "tr": "dāʾiman"
+  },
+  {
+    "en": "often",
+    "ar": "غَالِبًا",
+    "tr": "ghāliban"
+  },
+  {
+    "en": "usually",
+    "ar": "عَادَةً",
+    "tr": "ʿādatan"
+  },
+  {
+    "en": "date",
+    "ar": "تَارِيخ",
+    "tr": "tārīkh"
+  },
+  {
+    "en": "night",
+    "ar": "لَيْل",
+    "tr": "layl"
+  },
+  {
+    "en": "soon",
+    "ar": "قَرِيبًا",
+    "tr": "qarīban"
+  },
+  {
+    "en": "later",
+    "ar": "لَاحِقًا",
+    "tr": "lāḥiqan"
+  },
+  {
+    "en": "month",
+    "ar": "شَهْر",
+    "tr": "shahr"
+  },
+  {
+    "en": "weekend",
+    "ar": "عُطْلَةُ نِهَايَةِ الْأُسْبُوع",
+    "tr": "ʿuṭlat nihāyat al-ʾusbūʿ"
+  },
+  {
+    "en": "semester",
+    "ar": "فَصْلٌ دِرَاسِيّ",
+    "tr": "faṣlun dirāsiyy"
+  },
+  {
+    "en": "week",
+    "ar": "أُسْبُوع",
+    "tr": "ʾusbūʿ"
+  },
+  {
+    "en": "year",
+    "ar": "سَنَة",
+    "tr": "sanah"
+  },
+  {
+    "en": "second",
+    "ar": "ثَانِيَة",
+    "tr": "thāniyah"
+  },
+  {
+    "en": "hour",
+    "ar": "سَاعَة",
+    "tr": "sāʿah"
+  },
+  {
+    "en": "minute",
+    "ar": "دَقِيقَة",
+    "tr": "daqīqah"
+  },
+  {
+    "en": "noon",
+    "ar": "ظُهْر",
+    "tr": "ẓuhr"
+  },
+  {
+    "en": "midnight",
+    "ar": "مُنْتَصَفُ اللَّيْل",
+    "tr": "muntaṣaf al-layl"
+  },
+  {
+    "en": "evening",
+    "ar": "مَسَاء",
+    "tr": "masāʾ"
+  },
+  {
+    "en": "sometimes",
+    "ar": "أَحْيَانًا",
+    "tr": "ʾaḥyānan"
+  },
+  {
+    "en": "never",
+    "ar": "أَبَدًا",
+    "tr": "ʾabadan"
+  },
+  {
+    "en": "now",
+    "ar": "الْآن",
+    "tr": "al-ʾān"
+  },
+  {
+    "en": "today",
+    "ar": "الْيَوْم",
+    "tr": "al-yawm"
+  },
+  {
+    "en": "tomorrow",
+    "ar": "غَدًا",
+    "tr": "ghadan"
+  },
+  {
+    "en": "yesterday",
+    "ar": "أَمْس",
+    "tr": "ʾams"
+  },
+  {
+    "en": "past",
+    "ar": "مَاضٍ",
+    "tr": "māḍin"
+  },
+  {
+    "en": "future",
+    "ar": "مُسْتَقْبَل",
+    "tr": "mustaqbal"
+  },
+  {
+    "en": "departure",
+    "ar": "مُغَادَرَة",
+    "tr": "mughādarah"
+  },
+  {
+    "en": "during",
+    "ar": "أَثْنَاء",
+    "tr": "ʾathnāʾ"
+  }
+]
+```
+
+
+
+stuff
+
+
+[
+  [{"en_singular": "bill", "ar_singular": "فَاتُورَة", "ar_tr_singular": "fātūrah"}, {"en_plural": "bills", "ar_plural": "فَوَاتِير", "ar_tr_plural": "fawātīr"}],
+  [{"en_singular": "price", "ar_singular": "سِعْر", "ar_tr_singular": "siʿr"}, {"en_plural": "prices", "ar_plural": "أَسْعَار", "ar_tr_plural": "ʾasʿār"}],
+  [{"en_singular": "cost", "ar_singular": "تَكْلُفَة", "ar_tr_singular": "taklufah"}, {"en_plural": "costs", "ar_plural": "تَكَالِيف", "ar_tr_plural": "takālīf"}],
+  [{"en_singular": "birth", "ar_singular": "وِلَادَة", "ar_tr_singular": "wilādah"}, {"en_plural": "births", "ar_plural": "وِلَادَات", "ar_tr_plural": "wilādāt"}],
+  [{"en_singular": "calorie", "ar_singular": "سُعْرَةٌ حَرَارِيَّة", "ar_tr_singular": "suʿrah ḥarāriyyah"}, {"en_plural": "calories", "ar_plural": "سُعْرَاتٌ حَرَارِيَّة", "ar_tr_plural": "suʿrāt ḥarāriyyah"}],
+  [{"en_singular": "energy", "ar_singular": "طَاقَة", "ar_tr_singular": "ṭāqah"}, {"en_plural": "energies", "ar_plural": "طَاقَات", "ar_tr_plural": "ṭāqāt"}],
+  [{"en_singular": "carbohydrate", "ar_singular": "كَرْبُوهِيدْرَات", "ar_tr_singular": "karbūhīdrāt"}, {"en_plural": "carbohydrates", "ar_plural": "كَرْبُوهِيدْرَات", "ar_tr_plural": "karbūhīdrāt"}],
+  [{"en_singular": "smoke", "ar_singular": "دُخَان", "ar_tr_singular": "dukhān"}, {"en_plural": "smoke", "ar_plural": "دُخَان", "ar_tr_plural": "dukhān"}],
+  [{"en_singular": "geography", "ar_singular": "جُغْرَافِيَا", "ar_tr_singular": "jughrāfiyā"}, {"en_plural": "geography", "ar_plural": "جُغْرَافِيَا", "ar_tr_plural": "jughrāfiyā"}],
+  [{"en_singular": "chemistry", "ar_singular": "كِيمِيَاء", "ar_tr_singular": "kīmiyāʾ"}, {"en_plural": "chemistry", "ar_plural": "كِيمِيَاء", "ar_tr_plural": "kīmiyāʾ"}],
+  [{"en_singular": "math", "ar_singular": "رِيَاضِيَّات", "ar_tr_singular": "riyāḍiyyāt"}, {"en_plural": "math", "ar_plural": "رِيَاضِيَّات", "ar_tr_plural": "riyāḍiyyāt"}],
+  [{"en_singular": "economy", "ar_singular": "اِقْتِصَاد", "ar_tr_singular": "iqtiṣād"}, {"en_plural": "economies", "ar_plural": "اِقْتِصَادَات", "ar_tr_plural": "iqtiṣādāt"}],
+  [{"en_singular": "art", "ar_singular": "فَنّ", "ar_tr_singular": "fann"}, {"en_plural": "arts", "ar_plural": "فُنُون", "ar_tr_plural": "funūn"}],
+  [{"en_singular": "bath", "ar_singular": "حَمَّام", "ar_tr_singular": "ḥammām"}, {"en_plural": "baths", "ar_plural": "حَمَّامَات", "ar_tr_plural": "ḥammāmāt"}],
+  [{"en_singular": "name", "ar_singular": "اِسْم", "ar_tr_singular": "ism"}, {"en_plural": "names", "ar_plural": "أَسْمَاء", "ar_tr_plural": "ʾasmāʾ"}],
+  [{"en_singular": "price", "ar_singular": "ثَمَن", "ar_tr_singular": "thaman"}, {"en_plural": "prices", "ar_plural": "أَثْمَان", "ar_tr_plural": "ʾathmān"}],
+  [{"en_singular": "meal", "ar_singular": "وَجْبَة", "ar_tr_singular": "wajbah"}, {"en_plural": "meals", "ar_plural": "وَجَبَات", "ar_tr_plural": "wajabāt"}],
+  [{"en_singular": "shower", "ar_singular": "دُشّ", "ar_tr_singular": "dushsh"}, {"en_plural": "showers", "ar_plural": "دُشُوش", "ar_tr_plural": "dushūsh"}],
+  [{"en_singular": "world", "ar_singular": "عَالَم", "ar_tr_singular": "ʿālam"}, {"en_plural": "worlds", "ar_plural": "عَوَالِم", "ar_tr_plural": "ʿawālim"}],
+  [{"en_singular": "rectangle", "ar_singular": "مُسْتَطِيل", "ar_tr_singular": "musṭaṭīl"}, {"en_plural": "rectangles", "ar_plural": "مُسْتَطِيلَات", "ar_tr_plural": "musṭaṭīlāt"}],
+  [{"en_singular": "dirt", "ar_singular": "وَسَخ", "ar_tr_singular": "wasakh"}, {"en_plural": "dirt", "ar_plural": "أَوْسَاخ", "ar_tr_plural": "ʾawsākh"}],
+  [{"en_singular": "mail", "ar_singular": "بَرِيد", "ar_tr_singular": "barīd"}, {"en_plural": "mail", "ar_plural": "بَرِيد", "ar_tr_plural": "barīd"}],
+  [{"en_singular": "square", "ar_singular": "مُرَبَّع", "ar_tr_singular": "murabbaʿ"}, {"en_plural": "squares", "ar_plural": "مُرَبَّعَات", "ar_tr_plural": "murabbaʿāt"}],
+  [{"en_singular": "agenda", "ar_singular": "جَدْوَلُ أَعْمَال", "ar_tr_singular": "jadwal ʾaʿmāl"}, {"en_plural": "agendas", "ar_plural": "جَدَاوِلُ أَعْمَال", "ar_tr_plural": "jadāwil ʾaʿmāl"}],
+  [{"en_singular": "word", "ar_singular": "كَلِمَة", "ar_tr_singular": "kalimah"}, {"en_plural": "words", "ar_plural": "كَلِمَات", "ar_tr_plural": "kalimāt"}],
+  [{"en_singular": "sound", "ar_singular": "صَوْت", "ar_tr_singular": "ṣawt"}, {"en_plural": "sounds", "ar_plural": "أَصْوَات", "ar_tr_plural": "ʾaṣwāt"}],
+  [{"en_singular": "energy", "ar_singular": "طَاقَة", "ar_tr_singular": "ṭāqah"}, {"en_plural": "energies", "ar_plural": "طَاقَات", "ar_tr_plural": "ṭāqāt"}],
+  [{"en_singular": "reason", "ar_singular": "سَبَب", "ar_tr_singular": "sabab"}, {"en_plural": "reasons", "ar_plural": "أَسْبَاب", "ar_tr_plural": "ʾasbāb"}],
+  [{"en_singular": "thing", "ar_singular": "شَيْء", "ar_tr_singular": "shayʾ"}, {"en_plural": "things", "ar_plural": "أَشْيَاء", "ar_tr_plural": "ʾashyāʾ"}],
+  [{"en_singular": "circle", "ar_singular": "دَائِرَة", "ar_tr_singular": "dāʾirah"}, {"en_plural": "circles", "ar_plural": "دَوَائِر", "ar_tr_plural": "dawāʾir"}],
+  [{"en_singular": "gallery", "ar_singular": "مَعْرِض", "ar_tr_singular": "maʿriḍ"}, {"en_plural": "galleries", "ar_plural": "مَعَارِض", "ar_tr_plural": "maʿāriḍ"}],
+  [{"en_singular": "noise", "ar_singular": "ضَوْضَاء", "ar_tr_singular": "ḍawḍāʾ"}, {"en_plural": "noises", "ar_plural": "ضَوْضَاءَات", "ar_tr_plural": "ḍawḍāʾāt"}],
+  [{"en_singular": "game", "ar_singular": "لُعْبَة", "ar_tr_singular": "luʿbah"}, {"en_plural": "games", "ar_plural": "أَلْعَاب", "ar_tr_plural": "ʾalʿāb"}],
+  [{"en_singular": "science", "ar_singular": "عِلْم", "ar_tr_singular": "ʿilm"}, {"en_plural": "sciences", "ar_plural": "عُلُوم", "ar_tr_plural": "ʿulūm"}],
+  [{"en_singular": "nationality", "ar_singular": "جِنْسِيَّة", "ar_tr_singular": "jinsiyyah"}, {"en_plural": "nationalities", "ar_plural": "جِنْسِيَّات", "ar_tr_plural": "jinsiyyāt"}],
+  [{"en_singular": "square", "ar_singular": "مُرَبَّع", "ar_tr_singular": "murabbaʿ"}, {"en_plural": "squares", "ar_plural": "مُرَبَّعَات", "ar_tr_plural": "murabbaʿāt"}],
+  [{"en_singular": "octagon", "ar_singular": "مُثَمَّن", "ar_tr_singular": "muthamman"}, {"en_plural": "octagons", "ar_plural": "مُثَمَّنَات", "ar_tr_plural": "muthammanāt"}],
+  [{"en_singular": "finance", "ar_singular": "تَمْوِيل", "ar_tr_singular": "tamwīl"}, {"en_plural": "finances", "ar_plural": "مَالِيَّة", "ar_tr_plural": "māliyyah"}],
+  [{"en_singular": "message", "ar_singular": "رِسَالَة", "ar_tr_singular": "risālah"}, {"en_plural": "messages", "ar_plural": "رَسَائِل", "ar_tr_plural": "rasāʾil"}],
+  [{"en_singular": "number", "ar_singular": "رَقْم", "ar_tr_singular": "raqm"}, {"en_plural": "numbers", "ar_plural": "أَرْقَام", "ar_tr_plural": "ʾarqām"}],
+  [{"en_singular": "illegality", "ar_singular": "عَدَمُ الشَّرْعِيَّة", "ar_tr_singular": "ʿadam al-sharʿiyyah"}, {"en_plural": "illegalities", "ar_plural": "عَدَمُ الشَّرْعِيَّة", "ar_tr_plural": "ʿadam al-sharʿiyyah"}],
+  [{"en_singular": "challenge", "ar_singular": "تَحَدٍّ", "ar_tr_singular": "taḥaddin"}, {"en_plural": "challenges", "ar_plural": "تَحَدِّيَات", "ar_tr_plural": "taḥaddiyāt"}],
+  [{"en_singular": "surprise", "ar_singular": "مُفَاجَأَة", "ar_tr_singular": "mufājaʾah"}, {"en_plural": "surprises", "ar_plural": "مُفَاجَآت", "ar_tr_plural": "mufājaʾāt"}],
+  [{"en_singular": "color", "ar_singular": "لَوْن", "ar_tr_singular": "lawn"}, {"en_plural": "colors", "ar_plural": "أَلْوَان", "ar_tr_plural": "ʾalwān"}],
+  [{"en_singular": "hexagon", "ar_singular": "سُدَاسِيّ", "ar_tr_singular": "sudāsiyy"}, {"en_plural": "hexagons", "ar_plural": "سُدَاسِيَّات", "ar_tr_plural": "sudāsiyyāt"}],
+  [{"en_singular": "sphere", "ar_singular": "كُرَة", "ar_tr_singular": "kurah"}, {"en_plural": "spheres", "ar_plural": "كُرَات", "ar_tr_plural": "kurāt"}],
+  [{"en_singular": "cube", "ar_singular": "مُكَعَّب", "ar_tr_singular": "mukaʿʿab"}, {"en_plural": "cubes", "ar_plural": "مُكَعَّبَات", "ar_tr_plural": "mukaʿʿabāt"}],
+  [{"en_singular": "shape", "ar_singular": "شَكْل", "ar_tr_singular": "shakl"}, {"en_plural": "shapes", "ar_plural": "أَشْكَال", "ar_tr_plural": "ʾashkāl"}]
+]
+
+
+
+description
+
+[
+  [{"en_adjective": "cold", "ar_adjective": "بَارِد", "ar_tr_adjective": "bārid"}, {"en_adverb": "coldly", "ar_adverb": "بِبُرُود", "ar_tr_adverb": "bi-burūd"}],
+  [{"en_adjective": "weak", "ar_adjective": "ضَعِيف", "ar_tr_adjective": "ḍaʿīf"}, {"en_adverb": "weakly", "ar_adverb": "بِضَعْف", "ar_tr_adverb": "bi-ḍaʿf"}],
+  [{"en_adjective": "wavy", "ar_adjective": "مُمَوَّج", "ar_tr_adjective": "mumawwaj"}, {"en_adverb": "wavily", "ar_adverb": "بِتَمَوُّج", "ar_tr_adverb": "bi-tamawwuj"}],
+  [{"en_adjective": "bad", "ar_adjective": "سَيِّء", "ar_tr_adjective": "sayyiʾ"}, {"en_adverb": "badly", "ar_adverb": "بِسُوء", "ar_tr_adverb": "bi-sūʾ"}],
+  [{"en_adjective": "delicious", "ar_adjective": "لَذِيذ", "ar_tr_adjective": "ladhīdh"}, {"en_adverb": "deliciously", "ar_adverb": "بِلَذَّة", "ar_tr_adverb": "bi-ladhdhah"}],
+  [{"en_adjective": "dirty", "ar_adjective": "قَذِر", "ar_tr_adjective": "qadhir"}, {"en_adverb": "dirtily", "ar_adverb": "بِقَذَارَة", "ar_tr_adverb": "bi-qadhārah"}],
+  [{"en_adjective": "nice", "ar_adjective": "لَطِيف", "ar_tr_adjective": "laṭīf"}, {"en_adverb": "nicely", "ar_adverb": "بِلُطْف", "ar_tr_adverb": "bi-luṭf"}],
+  [{"en_adjective": "beautiful", "ar_adjective": "جَمِيل", "ar_tr_adjective": "jamīl"}, {"en_adverb": "beautifully", "ar_adverb": "بِجَمَال", "ar_tr_adverb": "bi-jamāl"}],
+  [{"en_adjective": "handsome", "ar_adjective": "وَسِيم", "ar_tr_adjective": "wasīm"}, {"en_adverb": "handsomely", "ar_adverb": "بِوَسَامَة", "ar_tr_adverb": "bi-wasāmah"}],
+  [{"en_adjective": "kind", "ar_adjective": "لَطِيف", "ar_tr_adjective": "laṭīf"}, {"en_adverb": "kindly", "ar_adverb": "بِلُطْف", "ar_tr_adverb": "bi-luṭf"}],
+  [{"en_adjective": "serious", "ar_adjective": "جَادّ", "ar_tr_adjective": "jādd"}, {"en_adverb": "seriously", "ar_adverb": "بِجِدِّيَّة", "ar_tr_adverb": "bi-jiddiyyah"}],
+  [{"en_adjective": "ugly", "ar_adjective": "قَبِيح", "ar_tr_adjective": "qabīḥ"}, {"en_adverb": "uglily", "ar_adverb": "بِقُبْح", "ar_tr_adverb": "bi-qubḥ"}],
+  [{"en_adjective": "easy", "ar_adjective": "سَهْل", "ar_tr_adjective": "sahl"}, {"en_adverb": "easily", "ar_adverb": "بِسُهُولَة", "ar_tr_adverb": "bi-suhūlah"}],
+  [{"en_adjective": "angry", "ar_adjective": "غَاضِب", "ar_tr_adjective": "ghāḍib"}, {"en_adverb": "angrily", "ar_adverb": "بِغَضَب", "ar_tr_adverb": "bi-ghaḍab"}],
+  [{"en_adjective": "scared", "ar_adjective": "خَائِف", "ar_tr_adjective": "khāʾif"}, {"en_adverb": "scaredly", "ar_adverb": "بِخَوْف", "ar_tr_adverb": "bi-khawf"}],
+  [{"en_adjective": "painful", "ar_adjective": "مُؤْلِم", "ar_tr_adjective": "muʾlim"}, {"en_adverb": "painfully", "ar_adverb": "بِأَلَم", "ar_tr_adverb": "bi-ʾalam"}],
+  [{"en_adjective": "sunken", "ar_adjective": "غَارِق", "ar_tr_adjective": "ghāriq"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "silver", "ar_adjective": "فِضِّيّ", "ar_tr_adjective": "fiḍḍiyy"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "healthy", "ar_adjective": "صِحِّيّ", "ar_tr_adjective": "ṣiḥḥiyy"}, {"en_adverb": "healthily", "ar_adverb": "بِشَكْلٍ صِحِّيّ", "ar_tr_adverb": "bi-shaklin ṣiḥḥiyy"}],
+  [{"en_adjective": "insignificant", "ar_adjective": "تَافِه", "ar_tr_adjective": "tāfih"}, {"en_adverb": "insignificantly", "ar_adverb": "بِتَفَاهَة", "ar_tr_adverb": "bi-tafāhah"}],
+  [{"en_adjective": "bright", "ar_adjective": "مُشْرِق", "ar_tr_adjective": "mushriq"}, {"en_adverb": "brightly", "ar_adverb": "بِإِشْرَاق", "ar_tr_adverb": "bi-ʾishrāq"}],
+  [{"en_adjective": "disgusting", "ar_adjective": "مُقْرِف", "ar_tr_adjective": "muqrif"}, {"en_adverb": "disgustingly", "ar_adverb": "بِشَكْلٍ مُقْرِف", "ar_tr_adverb": "bi-shaklin muqrif"}],
+  [{"en_adjective": "dark", "ar_adjective": "مُظْلِم", "ar_tr_adjective": "muẓlim"}, {"en_adverb": "darkly", "ar_adverb": "بِظَلَام", "ar_tr_adverb": "bi-ẓalām"}],
+  [{"en_adjective": "close", "ar_adjective": "قَرِيب", "ar_tr_adjective": "qarīb"}, {"en_adverb": "closely", "ar_adverb": "عَنْ كَثَب", "ar_tr_adverb": "ʿan kathab"}],
+  [{"en_adjective": "poor", "ar_adjective": "فَقِير", "ar_tr_adjective": "faqīr"}, {"en_adverb": "poorly", "ar_adverb": "بِفَقْر", "ar_tr_adverb": "bi-faqr"}],
+  [{"en_adjective": "winning", "ar_adjective": "فَائِز", "ar_tr_adjective": "fāʾiz"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "casual", "ar_adjective": "عَفَوِيّ", "ar_tr_adjective": "ʿafawiyy"}, {"en_adverb": "casually", "ar_adverb": "بِعَفَوِيَّة", "ar_tr_adverb": "bi-ʿafawiyyah"}],
+  [{"en_adjective": "famous", "ar_adjective": "مَشْهُور", "ar_tr_adjective": "mashhūr"}, {"en_adverb": "famously", "ar_adverb": "بِشُهْرَة", "ar_tr_adverb": "bi-shuhrah"}],
+  [{"en_adjective": "correct", "ar_adjective": "صَحِيح", "ar_tr_adjective": "ṣaḥīḥ"}, {"en_adverb": "correctly", "ar_adverb": "بِشَكْلٍ صَحِيح", "ar_tr_adverb": "bi-shaklin ṣaḥīḥ"}],
+  [{"en_adjective": "tired", "ar_adjective": "مُتْعَب", "ar_tr_adjective": "mutʿab"}, {"en_adverb": "tiredly", "ar_adverb": "بِتَعَب", "ar_tr_adverb": "bi-taʿab"}],
+  [{"en_adjective": "winning", "ar_adjective": "فَائِز", "ar_tr_adjective": "fāʾiz"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "suspicious", "ar_adjective": "مَشْبُوه", "ar_tr_adjective": "mashbūh"}, {"en_adverb": "suspiciously", "ar_adverb": "بِشَكّ", "ar_tr_adverb": "bi-shakk"}],
+  [{"en_adjective": "complete", "ar_adjective": "كَامِل", "ar_tr_adjective": "kāmil"}, {"en_adverb": "completely", "ar_adverb": "بِالْكَامِل", "ar_tr_adverb": "bil-kāmil"}],
+  [{"en_adjective": "free", "ar_adjective": "حُرّ", "ar_tr_adjective": "ḥurr"}, {"en_adverb": "freely", "ar_adverb": "بِحُرِّيَّة", "ar_tr_adverb": "bi-ḥurriyyah"}],
+  [{"en_adjective": "decisive", "ar_adjective": "حَاسِم", "ar_tr_adjective": "ḥāsim"}, {"en_adverb": "decisively", "ar_adverb": "بِحَسْم", "ar_tr_adverb": "bi-ḥasm"}],
+  [{"en_adjective": "real", "ar_adjective": "حَقِيقِيّ", "ar_tr_adjective": "ḥaqīqiyy"}, {"en_adverb": "really", "ar_adverb": "حَقًّا", "ar_tr_adverb": "ḥaqqan"}],
+  [{"en_adjective": "private", "ar_adjective": "خَاصّ", "ar_tr_adjective": "khāṣṣ"}, {"en_adverb": "privately", "ar_adverb": "بِشَكْلٍ خَاصّ", "ar_tr_adverb": "bi-shaklin khāṣṣ"}],
+  [{"en_adjective": "true", "ar_adjective": "صَحِيح", "ar_tr_adjective": "ṣaḥīḥ"}, {"en_adverb": "truly", "ar_adverb": "حَقًّا", "ar_tr_adverb": "ḥaqqan"}],
+  [{"en_adjective": "great", "ar_adjective": "عَظِيم", "ar_tr_adjective": "ʿaẓīm"}, {"en_adverb": "greatly", "ar_adverb": "إِلَى حَدٍّ كَبِير", "ar_tr_adverb": "ʾilā ḥaddin kabīr"}],
+  [{"en_adjective": "warm", "ar_adjective": "دَافِئ", "ar_tr_adjective": "dāfiʾ"}, {"en_adverb": "warmly", "ar_adverb": "بِدِفْء", "ar_tr_adverb": "bi-difʾ"}],
+  [{"en_adjective": "fat", "ar_adjective": "سَمِين", "ar_tr_adjective": "samīn"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "mistaken", "ar_adjective": "مُخْطِئ", "ar_tr_adjective": "mukhṭiʾ"}, {"en_adverb": "mistakenly", "ar_adverb": "خَطَأً", "ar_tr_adverb": "khaṭaʾan"}],
+  [{"en_adjective": "awesome", "ar_adjective": "رَائِع", "ar_tr_adjective": "rāʾiʿ"}, {"en_adverb": "awesomely", "ar_adverb": "بِرَوْعَة", "ar_tr_adverb": "bi-rawʿah"}],
+  [{"en_adjective": "rich", "ar_adjective": "غَنِيّ", "ar_tr_adjective": "ghaniyy"}, {"en_adverb": "richly", "ar_adverb": "بِغِنًى", "ar_tr_adverb": "bi-ghinan"}],
+  [{"en_adjective": "stupid", "ar_adjective": "غَبِيّ", "ar_tr_adjective": "ghabiyy"}, {"en_adverb": "stupidly", "ar_adverb": "بِغَبَاء", "ar_tr_adverb": "bi-ghabāʾ"}],
+  [{"en_adjective": "attractive", "ar_adjective": "جَذَّاب", "ar_tr_adjective": "jadhdhāb"}, {"en_adverb": "attractively", "ar_adverb": "بِجَاذِبِيَّة", "ar_tr_adverb": "bi-jādhibiyyah"}]
+  [{"en_adjective": "partial", "ar_adjective": "جُزْئِيّ", "ar_tr_adjective": "juzʾiyy"}, {"en_adverb": "partially", "ar_adverb": "جُزْئِيًّا", "ar_tr_adverb": "juzʾiyyan"}],
+  [{"en_adjective": "fresh", "ar_adjective": "طَازَج", "ar_tr_adjective": "ṭāzaj"}, {"en_adverb": "freshly", "ar_adverb": "طَازَجًا", "ar_tr_adverb": "ṭāzajan"}],
+  [{"en_adjective": "packed", "ar_adjective": "مُعَبَّأ", "ar_tr_adjective": "muʿabbaʾ"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "suspenseful", "ar_adjective": "مُشَوِّق", "ar_tr_adjective": "mushawwiq"}, {"en_adverb": "suspensefully", "ar_adverb": "بِتَشْوِيق", "ar_tr_adverb": "bi-tashwīq"}],
+  [{"en_adjective": "thin", "ar_adjective": "رَقِيق", "ar_tr_adjective": "raqīq"}, {"en_adverb": "thinly", "ar_adverb": "بِرِقَّة", "ar_tr_adverb": "bi-riqqah"}],
+  [{"en_adjective": "skinny", "ar_adjective": "نَحِيل", "ar_tr_adjective": "naḥīl"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "salty", "ar_adjective": "مَالِح", "ar_tr_adjective": "māliḥ"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "sweet", "ar_adjective": "حُلْو", "ar_tr_adjective": "ḥulw"}, {"en_adverb": "sweetly", "ar_adverb": "بِحَلَاوَة", "ar_tr_adverb": "bi-ḥalāwah"}],
+  [{"en_adjective": "bitter", "ar_adjective": "مُرّ", "ar_tr_adjective": "murr"}, {"en_adverb": "bitterly", "ar_adverb": "بِمَرَارَة", "ar_tr_adverb": "bi-marārah"}],
+  [{"en_adjective": "short", "ar_adjective": "قَصِير", "ar_tr_adjective": "qaṣīr"}, {"en_adverb": "shortly", "ar_adverb": "قَرِيبًا", "ar_tr_adverb": "qarīban"}],
+  [{"en_adjective": "spicy", "ar_adjective": "حَارّ", "ar_tr_adjective": "ḥārr"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "tall", "ar_adjective": "طَوِيل", "ar_tr_adjective": "ṭawīl"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "sour", "ar_adjective": "حَامِض", "ar_tr_adjective": "ḥāmiḍ"}, {"en_adverb": "sourly", "ar_adverb": "بِحُمُوضَة", "ar_tr_adverb": "bi-ḥumūḍah"}],
+  [{"en_adjective": "slim", "ar_adjective": "نَحِيف", "ar_tr_adjective": "naḥīf"}, {"en_adverb": "slimly", "ar_adverb": "بِنَحَافَة", "ar_tr_adverb": "bi-naḥāfah"}],
+  [{"en_adjective": "hungry", "ar_adjective": "جَائِع", "ar_tr_adjective": "jāʾiʿ"}, {"en_adverb": "hungrily", "ar_adverb": "بِجُوع", "ar_tr_adverb": "bi-jūʿ"}],
+  [{"en_adjective": "thirsty", "ar_adjective": "عَطْشَان", "ar_tr_adjective": "ʿaṭshān"}, {"en_adverb": "thirstily", "ar_adverb": "بِعَطَش", "ar_tr_adverb": "bi-ʿaṭash"}],
+  [{"en_adjective": "full", "ar_adjective": "مُمْتَلِئ", "ar_tr_adjective": "mumtaliʾ"}, {"en_adverb": "fully", "ar_adverb": "بِالْكَامِل", "ar_tr_adverb": "bil-kāmil"}],
+  [{"en_adjective": "round", "ar_adjective": "مُسْتَدِير", "ar_tr_adjective": "mustadīr"}, {"en_adverb": "roundly", "ar_adverb": "بِاسْتِدَارَة", "ar_tr_adverb": "bi-istidārah"}],
+  [{"en_adjective": "big", "ar_adjective": "كَبِير", "ar_tr_adjective": "kabīr"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "small", "ar_adjective": "صَغِير", "ar_tr_adjective": "ṣaghīr"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "narrow", "ar_adjective": "ضَيِّق", "ar_tr_adjective": "ḍayyiq"}, {"en_adverb": "narrowly", "ar_adverb": "بِصُعُوبَة", "ar_tr_adverb": "bi-ṣuʿūbah"}],
+  [{"en_adjective": "hard", "ar_adjective": "صَعْب", "ar_tr_adjective": "ṣaʿb"}, {"en_adverb": "hard", "ar_adverb": "بِجِدّ", "ar_tr_adverb": "bi-jidd"}],
+  [{"en_adjective": "long", "ar_adjective": "طَوِيل", "ar_tr_adjective": "ṭawīl"}, {"en_adverb": "long", "ar_adverb": "طَوِيلاً", "ar_tr_adverb": "ṭawīlan"}],
+  [{"en_adjective": "busy", "ar_adjective": "مَشْغُول", "ar_tr_adjective": "mashghūl"}, {"en_adverb": "busily", "ar_adverb": "بِانْشِغَال", "ar_tr_adverb": "bi-inshighāl"}],
+  [{"en_adjective": "roundabout", "ar_adjective": "دَوَّار", "ar_tr_adjective": "dawwār"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "freezing", "ar_adjective": "مُتَجَمِّد", "ar_tr_adjective": "mutajammid"}, {"en_adverb": "freezingly", "ar_adverb": "بِبُرُودَةٍ شَدِيدَة", "ar_tr_adverb": "bi-burūdatin shadīdah"}],
+  [{"en_adjective": "cloudy", "ar_adjective": "غَائِم", "ar_tr_adjective": "ghāʾim"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "good", "ar_adjective": "جَيِّد", "ar_tr_adjective": "jayyid"}, {"en_adverb": "well", "ar_adverb": "جَيِّدًا", "ar_tr_adverb": "jayyidan"}],
+  [{"en_adjective": "deep", "ar_adjective": "عَمِيق", "ar_tr_adjective": "ʿamīq"}, {"en_adverb": "deeply", "ar_adverb": "بِعُمْق", "ar_tr_adverb": "bi-ʿumq"}],
+  [{"en_adjective": "shallow", "ar_adjective": "ضَحْل", "ar_tr_adjective": "ḍaḥl"}, {"en_adverb": "shallowly", "ar_adverb": "بِضَحَالَة", "ar_tr_adverb": "bi-ḍaḥālah"}],
+  [{"en_adjective": "loose", "ar_adjective": "وَاسِع", "ar_tr_adjective": "wāsiʿ"}, {"en_adverb": "loosely", "ar_adverb": "بِشَكْلٍ وَاسِع", "ar_tr_adverb": "bi-shaklin wāsiʿ"}],
+  [{"en_adjective": "hot", "ar_adjective": "حَارّ", "ar_tr_adjective": "ḥārr"}, {"en_adverb": "hotly", "ar_adverb": "بِحَرَارَة", "ar_tr_adverb": "bi-ḥarārah"}],
+  [{"en_adjective": "cool", "ar_adjective": "بَارِد", "ar_tr_adjective": "bārid"}, {"en_adverb": "coolly", "ar_adverb": "بِبُرُود", "ar_tr_adverb": "bi-burūd"}],
+  [{"en_adjective": "fluffy", "ar_adjective": "رَقِيق", "ar_tr_adjective": "raqīq"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "tight", "ar_adjective": "ضَيِّق", "ar_tr_adjective": "ḍayyiq"}, {"en_adverb": "tightly", "ar_adverb": "بِإِحْكَام", "ar_tr_adverb": "bi-ʾiḥkām"}],
+  [{"en_adjective": "beautiful", "ar_adjective": "جَمِيل", "ar_tr_adjective": "jamīl"}, {"en_adverb": "beautifully", "ar_adverb": "بِجَمَال", "ar_tr_adverb": "bi-jamāl"}],
+  [{"en_adjective": "strong", "ar_adjective": "قَوِيّ", "ar_tr_adjective": "qawiyy"}, {"en_adverb": "strongly", "ar_adverb": "بِقُوَّة", "ar_tr_adverb": "bi-quwwah"}],
+  [{"en_adjective": "elegant", "ar_adjective": "أَنِيق", "ar_tr_adjective": "ʾanīq"}, {"en_adverb": "elegantly", "ar_adverb": "بِأَنَاقَة", "ar_tr_adverb": "bi-ʾanāqah"}],
+  [{"en_adjective": "cute", "ar_adjective": "لَطِيف", "ar_tr_adjective": "laṭīf"}, {"en_adverb": "cutely", "ar_adverb": "بِلَطَافَة", "ar_tr_adverb": "bi-laṭāfah"}],
+  [{"en_adjective": "dull", "ar_adjective": "مُمِلّ", "ar_tr_adjective": "mumill"}, {"en_adverb": "dully", "ar_adverb": "بِمَلَل", "ar_tr_adverb": "bi-malal"}],
+  [{"en_adjective": "soft", "ar_adjective": "نَاعِم", "ar_tr_adjective": "nāʿim"}, {"en_adverb": "softly", "ar_adverb": "بِنُعُومَة", "ar_tr_adverb": "bi-nuʿūmah"}],
+  [{"en_adjective": "kind", "ar_adjective": "نَوْع", "ar_tr_adjective": "nawʿ"}, {"en_adverb": null, "ar_adverb": null, "ar_tr_adverb": null}],
+  [{"en_adjective": "famous", "ar_adjective": "مَشْهُور", "ar_tr_adjective": "mashhūr"}, {"en_adverb": "famously", "ar_adverb": "بِشُهْرَة", "ar_tr_adverb": "bi-shuhrah"}],
+  [{"en_adjective": "safe", "ar_adjective": "آمِن", "ar_tr_adjective": "ʾāmin"}, {"en_adverb": "safely", "ar_adverb": "بِأَمَان", "ar_tr_adverb": "bi-ʾamān"}]
+]
+
+
+
+animals
+
+[
+  [{"en_animal": "pet", "ar_animal": "حَيَوَانٌ أَلِيف", "ar_tr_animal": "ḥayawān ʾalīf"}, {"en_possessive": "pet's", "ar_possessive": "خَاصّ بِالحَيَوَانِ الأَلِيف", "ar_tr_possessive": "khāṣṣ bil-ḥayawān al-ʾalīf"}],
+  [{"en_animal": "ant", "ar_animal": "نَمْلَة", "ar_tr_animal": "namlah"}, {"en_possessive": "ant's", "ar_possessive": "خَاصّ بِالنَّمْلَة", "ar_tr_possessive": "khāṣṣ bin-namlah"}],
+  [{"en_animal": "vulture", "ar_animal": "نَسْر", "ar_tr_animal": "nasr"}, {"en_possessive": "vulture's", "ar_possessive": "خَاصّ بِالنَّسْر", "ar_tr_possessive": "khāṣṣ bin-nasr"}],
+  [{"en_animal": "walrus", "ar_animal": "فَظّ", "ar_tr_animal": "faẓẓ"}, {"en_possessive": "walrus's", "ar_possessive": "خَاصّ بِالفَظّ", "ar_tr_possessive": "khāṣṣ bil-faẓẓ"}],
+  [{"en_animal": "giraffe", "ar_animal": "زَرَافَة", "ar_tr_animal": "zarāfah"}, {"en_possessive": "giraffe's", "ar_possessive": "خَاصّ بِالزَّرَافَة", "ar_tr_possessive": "khāṣṣ biz-zarāfah"}],
+  [{"en_animal": "cheetah", "ar_animal": "فَهْد", "ar_tr_animal": "fahd"}, {"en_possessive": "cheetah's", "ar_possessive": "خَاصّ بِالفَهْد", "ar_tr_possessive": "khāṣṣ bil-fahd"}],
+  [{"en_animal": "hippo", "ar_animal": "فَرَسُ النَّهْر", "ar_tr_animal": "faras al-nahr"}, {"en_possessive": "hippo's", "ar_possessive": "خَاصّ بِفَرَسِ النَّهْر", "ar_tr_possessive": "khāṣṣ bi-faras al-nahr"}],
+  [{"en_animal": "crocodile", "ar_animal": "تِمْسَاح", "ar_tr_animal": "timsāḥ"}, {"en_possessive": "crocodile's", "ar_possessive": "خَاصّ بِالتِّمْسَاح", "ar_tr_possessive": "khāṣṣ bit-timsāḥ"}],
+  [{"en_animal": "buffalo", "ar_animal": "جَامُوس", "ar_tr_animal": "jāmūs"}, {"en_possessive": "buffalo's", "ar_possessive": "خَاصّ بِالجَامُوس", "ar_tr_possessive": "khāṣṣ bil-jāmūs"}],
+  [{"en_animal": "eel", "ar_animal": "ثُعْبَانُ الْمَاء", "ar_tr_animal": "thuʿbān al-māʾ"}, {"en_possessive": "eel's", "ar_possessive": "خَاصّ بِثُعْبَانِ الْمَاء", "ar_tr_possessive": "khāṣṣ bi-thuʿbān al-māʾ"}],
+  [{"en_animal": "guinea pig", "ar_animal": "خِنْزِيرُ غِينِيَا", "ar_tr_animal": "khinzīr ghīniyā"}, {"en_possessive": "guinea pig's", "ar_possessive": "خَاصّ بِخِنْزِيرِ غِينِيَا", "ar_tr_possessive": "khāṣṣ bi-khinzīr ghīniyā"}],
+  [{"en_animal": "crow", "ar_animal": "غُرَاب", "ar_tr_animal": "ghurāb"}, {"en_possessive": "crow's", "ar_possessive": "خَاصّ بِالغُرَاب", "ar_tr_possessive": "khāṣṣ bil-ghurāb"}],
+  [{"en_animal": "jaguar", "ar_animal": "يَغْوَار", "ar_tr_animal": "yaghwār"}, {"en_possessive": "jaguar's", "ar_possessive": "خَاصّ بِاليَغْوَار", "ar_tr_possessive": "khāṣṣ bil-yaghwār"}],
+  [{"en_animal": "animal", "ar_animal": "حَيَوَان", "ar_tr_animal": "ḥayawān"}, {"en_possessive": "animal's", "ar_possessive": "خَاصّ بِالحَيَوَان", "ar_tr_possessive": "khāṣṣ bil-ḥayawān"}],
+  [{"en_animal": "squid", "ar_animal": "حَبَّار", "ar_tr_animal": "ḥabbār"}, {"en_possessive": "squid's", "ar_possessive": "خَاصّ بِالحَبَّار", "ar_tr_possessive": "khāṣṣ bil-ḥabbār"}],
+  [{"en_animal": "fish", "ar_animal": "سَمَكَة", "ar_tr_animal": "samakah"}, {"en_possessive": "fish's", "ar_possessive": "خَاصّ بِالسَّمَكَة", "ar_tr_possessive": "khāṣṣ bis-samakah"}],
+  [{"en_animal": "snail", "ar_animal": "حَلَزُون", "ar_tr_animal": "ḥalazūn"}, {"en_possessive": "snail's", "ar_possessive": "خَاصّ بِالحَلَزُون", "ar_tr_possessive": "khāṣṣ bil-ḥalazūn"}],
+  [{"en_animal": "insect", "ar_animal": "حَشَرَة", "ar_tr_animal": "ḥasharah"}, {"en_possessive": "insect's", "ar_possessive": "خَاصّ بِالحَشَرَة", "ar_tr_possessive": "khāṣṣ bil-ḥasharah"}],
+  [{"en_animal": "camel", "ar_animal": "جَمَل", "ar_tr_animal": "jamal"}, {"en_possessive": "camel's", "ar_possessive": "خَاصّ بِالجَمَل", "ar_tr_possessive": "khāṣṣ bil-jamal"}],
+  [{"en_animal": "bird", "ar_animal": "طَائِر", "ar_tr_animal": "ṭāʾir"}, {"en_possessive": "bird's", "ar_possessive": "خَاصّ بِالطَّائِر", "ar_tr_possessive": "khāṣṣ biṭ-ṭāʾir"}],
+  [{"en_animal": "dog", "ar_animal": "كَلْب", "ar_tr_animal": "kalb"}, {"en_possessive": "dog's", "ar_possessive": "خَاصّ بِالكَلْب", "ar_tr_possessive": "khāṣṣ bil-kalb"}],
+  [{"en_animal": "cat", "ar_animal": "قِطَّة", "ar_tr_animal": "qiṭṭah"}, {"en_possessive": "cat's", "ar_possessive": "خَاصّ بِالقِطَّة", "ar_tr_possessive": "khāṣṣ bil-qiṭṭah"}],
+  [{"en_animal": "mouse", "ar_animal": "فَأْر", "ar_tr_animal": "faʾr"}, {"en_possessive": "mouse's", "ar_possessive": "خَاصّ بِالفَأْر", "ar_tr_possessive": "khāṣṣ bil-faʾr"}],
+  [{"en_animal": "cockroach", "ar_animal": "صُرْصُور", "ar_tr_animal": "ṣurṣūr"}, {"en_possessive": "cockroach's", "ar_possessive": "خَاصّ بِالصُّرْصُور", "ar_tr_possessive": "khāṣṣ biṣ-ṣurṣūr"}],
+  [{"en_animal": "mosquito", "ar_animal": "بَعُوضَة", "ar_tr_animal": "baʿūḍah"}, {"en_possessive": "mosquito's", "ar_possessive": "خَاصّ بِالبَعُوضَة", "ar_tr_possessive": "khāṣṣ bil-baʿūḍah"}],
+  [{"en_animal": "bee", "ar_animal": "نَحْلَة", "ar_tr_animal": "naḥlah"}, {"en_possessive": "bee's", "ar_possessive": "خَاصّ بِالنَّحْلَة", "ar_tr_possessive": "khāṣṣ bin-naḥlah"}],
+  [{"en_animal": "spider", "ar_animal": "عَنْكَبُوت", "ar_tr_animal": "ʿankabūt"}, {"en_possessive": "spider's", "ar_possessive": "خَاصّ بِالعَنْكَبُوت", "ar_tr_possessive": "khāṣṣ bil-ʿankabūt"}],
+  [{"en_animal": "frog", "ar_animal": "ضِفْدَع", "ar_tr_animal": "ḍifdaʿ"}, {"en_possessive": "frog's", "ar_possessive": "خَاصّ بِالضِّفْدَع", "ar_tr_possessive": "khāṣṣ biḍ-ḍifdaʿ"}],
+  [{"en_animal": "cow", "ar_animal": "بَقَرَة", "ar_tr_animal": "baqarah"}, {"en_possessive": "cow's", "ar_possessive": "خَاصّ بِالبَقَرَة", "ar_tr_possessive": "khāṣṣ bil-baqarah"}],
+  [{"en_animal": "pig", "ar_animal": "خِنْزِير", "ar_tr_animal": "khinzīr"}, {"en_possessive": "pig's", "ar_possessive": "خَاصّ بِالخِنْزِير", "ar_tr_possessive": "khāṣṣ bil-khinzīr"}],
+  [{"en_animal": "sheep", "ar_animal": "خَرُوف", "ar_tr_animal": "kharūf"}, {"en_possessive": "sheep's", "ar_possessive": "خَاصّ بِالخَرُوف", "ar_tr_possessive": "khāṣṣ bil-kharūf"}],
+  [{"en_animal": "goat", "ar_animal": "مَاعِز", "ar_tr_animal": "māʿiz"}, {"en_possessive": "goat's", "ar_possessive": "خَاصّ بِالمَاعِز", "ar_tr_possessive": "khāṣṣ bil-māʿiz"}],
+  [{"en_animal": "rabbit", "ar_animal": "أَرْنَب", "ar_tr_animal": "ʾarnab"}, {"en_possessive": "rabbit's", "ar_possessive": "خَاصّ بِالأَرْنَب", "ar_tr_possessive": "khāṣṣ bil-ʾarnab"}],
+  [{"en_animal": "horse", "ar_animal": "حِصَان", "ar_tr_animal": "ḥiṣān"}, {"en_possessive": "horse's", "ar_possessive": "خَاصّ بِالحِصَان", "ar_tr_possessive": "khāṣṣ bil-ḥiṣān"}],
+  [{"en_animal": "snake", "ar_animal": "ثُعْبَان", "ar_tr_animal": "thuʿbān"}, {"en_possessive": "snake's", "ar_possessive": "خَاصّ بِالثُّعْبَان", "ar_tr_possessive": "khāṣṣ bith-thuʿbān"}],
+  [{"en_animal": "crab", "ar_animal": "سَرَطَان", "ar_tr_animal": "saraṭān"}, {"en_possessive": "crab's", "ar_possessive": "خَاصّ بِالسَّرَطَان", "ar_tr_possessive": "khāṣṣ bis-saraṭān"}],
+  [{"en_animal": "octopus", "ar_animal": "أُخْطُبُوط", "ar_tr_animal": "ʾukhṭubūṭ"}, {"en_possessive": "octopus's", "ar_possessive": "خَاصّ بِالأُخْطُبُوط", "ar_tr_possessive": "khāṣṣ bil-ʾukhṭubūṭ"}],
+  [{"en_animal": "pigeon", "ar_animal": "حَمَامَة", "ar_tr_animal": "ḥamāmah"}, {"en_possessive": "pigeon's", "ar_possessive": "خَاصّ بِالحَمَامَة", "ar_tr_possessive": "khāṣṣ bil-ḥamāmah"}],
+  [{"en_animal": "elephant", "ar_animal": "فِيل", "ar_tr_animal": "fīl"}, {"en_possessive": "elephant's", "ar_possessive": "خَاصّ بِالفِيل", "ar_tr_possessive": "khāṣṣ bil-fīl"}],
+  [{"en_animal": "fox", "ar_animal": "ثَعْلَب", "ar_tr_animal": "thaʿlab"}, {"en_possessive": "fox's", "ar_possessive": "خَاصّ بِالثَّعْلَب", "ar_tr_possessive": "khāṣṣ bith-thaʿlab"}],
+  [{"en_animal": "deer", "ar_animal": "غَزَال", "ar_tr_animal": "ghazāl"}, {"en_possessive": "deer's", "ar_possessive": "خَاصّ بِالغَزَال", "ar_tr_possessive": "khāṣṣ bil-ghazāl"}],
+  [{"en_animal": "lion", "ar_animal": "أَسَد", "ar_tr_animal": "ʾasad"}, {"en_possessive": "lion's", "ar_possessive": "خَاصّ بِالأَسَد", "ar_tr_possessive": "khāṣṣ bil-ʾasad"}],
+  [{"en_animal": "bear", "ar_animal": "دُبّ", "ar_tr_animal": "dubb"}, {"en_possessive": "bear's", "ar_possessive": "خَاصّ بِالدُّبّ", "ar_tr_possessive": "khāṣṣ bid-dubb"}],
+  [{"en_animal": "panda", "ar_animal": "بَانْدَا", "ar_tr_animal": "bāndā"}, {"en_possessive": "panda's", "ar_possessive": "خَاصّ بِالبَانْدَا", "ar_tr_possessive": "khāṣṣ bil-bāndā"}],
+  [{"en_animal": "whale", "ar_animal": "حُوت", "ar_tr_animal": "ḥūt"}, {"en_possessive": "whale's", "ar_possessive": "خَاصّ بِالحُوت", "ar_tr_possessive": "khāṣṣ bil-ḥūt"}],
+  [{"en_animal": "dolphin", "ar_animal": "دُلْفِين", "ar_tr_animal": "dulfīn"}, {"en_possessive": "dolphin's", "ar_possessive": "خَاصّ بِالدُّلْفِين", "ar_tr_possessive": "khāṣṣ bid-dulfīn"}],
+  [{"en_animal": "tiger", "ar_animal": "نَمِر", "ar_tr_animal": "namir"}, {"en_possessive": "tiger's", "ar_possessive": "خَاصّ بِالنَّمِر", "ar_tr_possessive": "khāṣṣ bin-namir"}],
+  [{"en_animal": "monkey", "ar_animal": "قِرْد", "ar_tr_animal": "qird"}, {"en_possessive": "monkey's", "ar_possessive": "خَاصّ بِالقِرْد", "ar_tr_possessive": "khāṣṣ bil-qird"}],
+  [{"en_animal": "zebra", "ar_animal": "حِمَارٌ وَحْشِيّ", "ar_tr_animal": "ḥimārun waḥshiyy"}, {"en_possessive": "zebra's", "ar_possessive": "خَاصّ بِالحِمَارِ الْوَحْشِيّ", "ar_tr_possessive": "khāṣṣ bil-ḥimār al-waḥshiyy"}],
+  [{"en_animal": "leopard", "ar_animal": "فَهْد", "ar_tr_animal": "fahd"}, {"en_possessive": "leopard's", "ar_possessive": "خَاصّ بِالفَهْد", "ar_tr_possessive": "khāṣṣ bil-fahd"}],
+  [{"en_animal": "koala", "ar_animal": "كَوَالَا", "ar_tr_animal": "kawālā"}, {"en_possessive": "koala's", "ar_possessive": "خَاصّ بِالكَوَالَا", "ar_tr_possessive": "khāṣṣ bil-kawālā"}],
+  [{"en_animal": "kangaroo", "ar_animal": "كَنَغَر", "ar_tr_animal": "kanaghar"}, {"en_possessive": "kangaroo's", "ar_possessive": "خَاصّ بِالكَنَغَر", "ar_tr_possessive": "khāṣṣ bil-kanaghar"}],
+  [{"en_animal": "rhinoceros", "ar_animal": "وَحِيدُ الْقَرْن", "ar_tr_animal": "waḥīd al-qarn"}, {"en_possessive": "rhinoceros's", "ar_possessive": "خَاصّ بِوَحِيدِ الْقَرْن", "ar_tr_possessive": "khāṣṣ bi-waḥīd al-qarn"}],
+  [{"en_animal": "squirrel", "ar_animal": "سِنْجَاب", "ar_tr_animal": "sinjāb"}, {"en_possessive": "squirrel's", "ar_possessive": "خَاصّ بِالسِّنْجَاب", "ar_tr_possessive": "khāṣṣ bis-sinjāb"}],
+  [{"en_animal": "bat", "ar_animal": "خُفَّاش", "ar_tr_animal": "khuffāsh"}, {"en_possessive": "bat's", "ar_possessive": "خَاصّ بِالخُفَّاش", "ar_tr_possessive": "khāṣṣ bil-khuffāsh"}],
+  [{"en_animal": "wolf", "ar_animal": "ذِئْب", "ar_tr_animal": "dhiʾb"}, {"en_possessive": "wolf's", "ar_possessive": "خَاصّ بِالذِّئْب", "ar_tr_possessive": "khāṣṣ bidh-dhiʾb"}],
+  [{"en_animal": "orangutan", "ar_animal": "إِنْسَانُ الْغَاب", "ar_tr_animal": "ʾinsān al-ghāb"}, {"en_possessive": "orangutan's", "ar_possessive": "خَاصّ بِإِنْسَانِ الْغَاب", "ar_tr_possessive": "khāṣṣ bi-ʾinsān al-ghāb"}],
+  [{"en_animal": "gorilla", "ar_animal": "غُورِيلَّا", "ar_tr_animal": "ghūrīllā"}, {"en_possessive": "gorilla's", "ar_possessive": "خَاصّ بِالغُورِيلَّا", "ar_tr_possessive": "khāṣṣ bil-ghūrīllā"}],
+  [{"en_animal": "chimpanzee", "ar_animal": "شِمْبَانْزِي", "ar_tr_animal": "shimbānzī"}, {"en_possessive": "chimpanzee's", "ar_possessive": "خَاصّ بِالشِّمْبَانْزِي", "ar_tr_possessive": "khāṣṣ bish-shimbānzī"}],
+  [{"en_animal": "sloth", "ar_animal": "كَسْلَان", "ar_tr_animal": "kaslān"}, {"en_possessive": "sloth's", "ar_possessive": "خَاصّ بِالكَسْلَان", "ar_tr_possessive": "khāṣṣ bil-kaslān"}],
+  [{"en_animal": "anteater", "ar_animal": "آكِلُ النَّمْل", "ar_tr_animal": "ʾākil al-naml"}, {"en_possessive": "anteater's", "ar_possessive": "خَاصّ بِآكِلِ النَّمْل", "ar_tr_possessive": "khāṣṣ bi-ʾākil al-naml"}],
+  [{"en_animal": "porcupine", "ar_animal": "نِيص", "ar_tr_animal": "nīṣ"}, {"en_possessive": "porcupine's", "ar_possessive": "خَاصّ بِالنِّيص", "ar_tr_possessive": "khāṣṣ bin-nīṣ"}],
+  [{"en_animal": "raccoon", "ar_animal": "رَاكُون", "ar_tr_animal": "rākūn"}, {"en_possessive": "raccoon's", "ar_possessive": "خَاصّ بِالرَّاكُون", "ar_tr_possessive": "khāṣṣ bir-rākūn"}],
+  [{"en_animal": "hyena", "ar_animal": "ضَبْع", "ar_tr_animal": "ḍabʿ"}, {"en_possessive": "hyena's", "ar_possessive": "خَاصّ بِالضَّبْع", "ar_tr_possessive": "khāṣṣ biḍ-ḍabʿ"}],
+  [{"en_animal": "snail", "ar_animal": "حَلَزُون", "ar_tr_animal": "ḥalazūn"}, {"en_possessive": "snail's", "ar_possessive": "خَاصّ بِالحَلَزُون", "ar_tr_possessive": "khāṣṣ bil-ḥalazūn"}],
+  [{"en_animal": "cicada", "ar_animal": "زيز", "ar_tr_animal": "zīz"}, {"en_possessive": "cicada's", "ar_possessive": "خَاصّ بِالزِّيز", "ar_tr_possessive": "khāṣṣ biz-zīz"}],
+  [{"en_animal": "butterfly", "ar_animal": "فَرَاشَة", "ar_tr_animal": "farāshah"}, {"en_possessive": "butterfly's", "ar_possessive": "خَاصّ بِالفَرَاشَة", "ar_tr_possessive": "khāṣṣ bil-farāshah"}],
+  [{"en_animal": "ladybug", "ar_animal": "دُعْسُوقَة", "ar_tr_animal": "duʿsūqah"}, {"en_possessive": "ladybug's", "ar_possessive": "خَاصّ بِالدُّعْسُوقَة", "ar_tr_possessive": "khāṣṣ bid-duʿsūqah"}],
+  [{"en_animal": "dragonfly", "ar_animal": "يَعْسُوب", "ar_tr_animal": "yaʿsūb"}, {"en_possessive": "dragonfly's", "ar_possessive": "خَاصّ بِاليَعْسُوب", "ar_tr_possessive": "khāṣṣ bil-yaʿsūb"}],
+  [{"en_animal": "grasshopper", "ar_animal": "جُنْدُب", "ar_tr_animal": "jundub"}, {"en_possessive": "grasshopper's", "ar_possessive": "خَاصّ بِالجُنْدُب", "ar_tr_possessive": "khāṣṣ bil-jundub"}],
+  [{"en_animal": "firefly", "ar_animal": "يَرَاعَة", "ar_tr_animal": "yarāʿah"}, {"en_possessive": "firefly's", "ar_possessive": "خَاصّ بِاليَرَاعَة", "ar_tr_possessive": "khāṣṣ bil-yarāʿah"}],
+  [{"en_animal": "worm", "ar_animal": "دُودَة", "ar_tr_animal": "dūdah"}, {"en_possessive": "worm's", "ar_possessive": "خَاصّ بِالدُّودَة", "ar_tr_possessive": "khāṣṣ bid-dūdah"}],
+  [{"en_animal": "shark", "ar_animal": "قِرْش", "ar_tr_animal": "qirsh"}, {"en_possessive": "shark's", "ar_possessive": "خَاصّ بِالقِرْش", "ar_tr_possessive": "khāṣṣ bil-qirsh"}],
+  [{"en_animal": "jellyfish", "ar_animal": "قِنْدِيلُ الْبَحْر", "ar_tr_animal": "qindīl al-baḥr"}, {"en_possessive": "jellyfish's", "ar_possessive": "خَاصّ بِقِنْدِيلِ الْبَحْر", "ar_tr_possessive": "khāṣṣ bi-qindīl al-baḥr"}]
+]
+
+
+
+body part
+
+[
+  [{"en_singular": "liver", "ar_singular": "كَبِد", "ar_tr_singular": "kabid"}, {"en_plural": "livers", "ar_plural": "أَكْبَاد", "ar_tr_plural": "ʾakbād"}],
+  [{"en_singular": "knee", "ar_singular": "رُكْبَة", "ar_tr_singular": "rukbah"}, {"en_plural": "knees", "ar_plural": "رُكَب", "ar_tr_plural": "rukab"}],
+  [{"en_singular": "heart", "ar_singular": "قَلْب", "ar_tr_singular": "qalb"}, {"en_plural": "hearts", "ar_plural": "قُلُوب", "ar_tr_plural": "qulūb"}],
+  [{"en_singular": "brain", "ar_singular": "دِمَاغ", "ar_tr_singular": "dimāgh"}, {"en_plural": "brains", "ar_plural": "أَدْمِغَة", "ar_tr_plural": "ʾadmighah"}],
+  [{"en_singular": "back", "ar_singular": "ظَهْر", "ar_tr_singular": "ẓahr"}, {"en_plural": "backs", "ar_plural": "ظُهُور", "ar_tr_plural": "ẓuhūr"}],
+  [{"en_singular": "lip", "ar_singular": "شَفَة", "ar_tr_singular": "shafah"}, {"en_plural": "lips", "ar_plural": "شِفَاه", "ar_tr_plural": "shifāh"}],
+  [{"en_singular": "soul", "ar_singular": "رُوح", "ar_tr_singular": "rūḥ"}, {"en_plural": "souls", "ar_plural": "أَرْوَاح", "ar_tr_plural": "ʾarwāḥ"}],
+  [{"en_singular": "memory", "ar_singular": "ذَاكِرَة", "ar_tr_singular": "dhākirah"}, {"en_plural": "memories", "ar_plural": "ذِكْرَيَات", "ar_tr_plural": "dhikrayāt"}],
+  [{"en_singular": "muscle", "ar_singular": "عَضَلَة", "ar_tr_singular": "ʿaḍalah"}, {"en_plural": "muscles", "ar_plural": "عَضَلَات", "ar_tr_plural": "ʿaḍalāt"}],
+  [{"en_singular": "bone", "ar_singular": "عَظْم", "ar_tr_singular": "ʿaẓm"}, {"en_plural": "bones", "ar_plural": "عِظَام", "ar_tr_plural": "ʿiẓām"}],
+  [{"en_singular": "face", "ar_singular": "وَجْه", "ar_tr_singular": "wajh"}, {"en_plural": "faces", "ar_plural": "وُجُوه", "ar_tr_plural": "wujūh"}],
+  [{"en_singular": "head", "ar_singular": "رَأْس", "ar_tr_singular": "raʾs"}, {"en_plural": "heads", "ar_plural": "رُؤُوس", "ar_tr_plural": "ruʾūs"}],
+  [{"en_singular": "ear", "ar_singular": "أُذُن", "ar_tr_singular": "ʾudhun"}, {"en_plural": "ears", "ar_plural": "آذَان", "ar_tr_plural": "ʾādhān"}],
+  [{"en_singular": "chin", "ar_singular": "ذَقْن", "ar_tr_singular": "dhaqn"}, {"en_plural": "chins", "ar_plural": "ذُقُون", "ar_tr_plural": "dhuqūn"}],
+  [{"en_singular": "forehead", "ar_singular": "جَبْهَة", "ar_tr_singular": "jabhah"}, {"en_plural": "foreheads", "ar_plural": "جِبَاه", "ar_tr_plural": "jibāh"}],
+  [{"en_singular": "mouth", "ar_singular": "فَم", "ar_tr_singular": "fam"}, {"en_plural": "mouths", "ar_plural": "أَفْوَاه", "ar_tr_plural": "ʾafwāh"}],
+  [{"en_singular": "strand of hair", "ar_singular": "شَعْرَة", "ar_tr_singular": "shaʿrah"}, {"en_plural": "hair", "ar_plural": "شَعْر", "ar_tr_plural": "shaʿr"}],
+  [{"en_singular": "mustache", "ar_singular": "شَارِب", "ar_tr_singular": "shārib"}, {"en_plural": "mustaches", "ar_plural": "شَوَارِب", "ar_tr_plural": "shawārib"}],
+  [{"en_singular": "beard", "ar_singular": "لِحْيَة", "ar_tr_singular": "liḥyah"}, {"en_plural": "beards", "ar_plural": "لِحَى", "ar_tr_plural": "liḥā"}],
+  [{"en_singular": "cheek", "ar_singular": "خَدّ", "ar_tr_singular": "khadd"}, {"en_plural": "cheeks", "ar_plural": "خُدُود", "ar_tr_plural": "khudūd"}],
+  [{"en_singular": "neck", "ar_singular": "رَقَبَة", "ar_tr_singular": "raqabah"}, {"en_plural": "necks", "ar_plural": "رِقَاب", "ar_tr_plural": "riqāb"}],
+  [{"en_singular": "thigh", "ar_singular": "فَخْذ", "ar_tr_singular": "fakhdh"}, {"en_plural": "thighs", "ar_plural": "أَفْخَاذ", "ar_tr_plural": "ʾafkhādh"}],
+  [{"en_singular": "calf", "ar_singular": "بَطَّةُ السَّاق", "ar_tr_singular": "baṭṭat al-sāq"}, {"en_plural": "calves", "ar_plural": "بَطَّاتُ السِّيقَان", "ar_tr_plural": "baṭṭāt al-sīqān"}],
+  [{"en_singular": "ankle", "ar_singular": "كَاحِل", "ar_tr_singular": "kāḥil"}, {"en_plural": "ankles", "ar_plural": "كَوَاحِل", "ar_tr_plural": "kawāḥil"}],
+  [{"en_singular": "waist", "ar_singular": "خَصْر", "ar_tr_singular": "khaṣr"}, {"en_plural": "waists", "ar_plural": "خُصُور", "ar_tr_plural": "khuṣūr"}],
+  [{"en_singular": "nose", "ar_singular": "أَنْف", "ar_tr_singular": "ʾanf"}, {"en_plural": "noses", "ar_plural": "أُنُوف", "ar_tr_plural": "ʾunūf"}],
+  [{"en_singular": "tooth", "ar_singular": "سِنّ", "ar_tr_singular": "sinn"}, {"en_plural": "teeth", "ar_plural": "أَسْنَان", "ar_tr_plural": "ʾasnān"}],
+  [{"en_singular": "eyelash", "ar_singular": "رِمْش", "ar_tr_singular": "rimsh"}, {"en_plural": "eyelashes", "ar_plural": "رُمُوش", "ar_tr_plural": "rumūsh"}],
+  [{"en_singular": "eye", "ar_singular": "عَيْن", "ar_tr_singular": "ʿayn"}, {"en_plural": "eyes", "ar_plural": "عُيُون", "ar_tr_plural": "ʿuyūn"}],
+  [{"en_singular": "eyebrow", "ar_singular": "حَاجِب", "ar_tr_singular": "ḥājib"}, {"en_plural": "eyebrows", "ar_plural": "حَوَاجِب", "ar_tr_plural": "ḥawājib"}],
+  [{"en_singular": "eyelid", "ar_singular": "جَفْن", "ar_tr_singular": "jafn"}, {"en_plural": "eyelids", "ar_plural": "جُفُون", "ar_tr_plural": "jufūn"}],
+  [{"en_singular": "tongue", "ar_singular": "لِسَان", "ar_tr_singular": "lisān"}, {"en_plural": "tongues", "ar_plural": "أَلْسِنَة", "ar_tr_plural": "ʾalsinah"}],
+  [{"en_singular": "saliva", "ar_singular": "لُعَاب", "ar_tr_singular": "luʿāb"}, {"en_plural": "saliva", "ar_plural": "لُعَاب", "ar_tr_plural": "luʿāb"}],
+  [{"en_singular": "tear", "ar_singular": "دَمْعَة", "ar_tr_singular": "damʿah"}, {"en_plural": "tears", "ar_plural": "دُمُوع", "ar_tr_plural": "dumūʿ"}],
+  [{"en_singular": "shoulder", "ar_singular": "كَتِف", "ar_tr_singular": "katif"}, {"en_plural": "shoulders", "ar_plural": "أَكْتَاف", "ar_tr_plural": "ʾaktāf"}],
+  [{"en_singular": "arm", "ar_singular": "ذِرَاع", "ar_tr_singular": "dhirāʿ"}, {"en_plural": "arms", "ar_plural": "أَذْرُع", "ar_tr_plural": "ʾadhruʿ"}],
+  [{"en_singular": "elbow", "ar_singular": "مِرْفَق", "ar_tr_singular": "mirfaq"}, {"en_plural": "elbows", "ar_plural": "مَرَافِق", "ar_tr_plural": "marāfiq"}],
+  [{"en_singular": "forearm", "ar_singular": "سَاعِد", "ar_tr_singular": "sāʿid"}, {"en_plural": "forearms", "ar_plural": "سَوَاعِد", "ar_tr_plural": "sawāʿid"}],
+  [{"en_singular": "wrist", "ar_singular": "رُسْغ", "ar_tr_singular": "rusgh"}, {"en_plural": "wrists", "ar_plural": "أَرْسَاغ", "ar_tr_plural": "ʾarsāgh"}],
+  [{"en_singular": "hand", "ar_singular": "يَد", "ar_tr_singular": "yad"}, {"en_plural": "hands", "ar_plural": "أَيْدٍ", "ar_tr_plural": "ʾaydin"}],
+  [{"en_singular": "finger", "ar_singular": "إِصْبَع", "ar_tr_singular": "ʾiṣbaʿ"}, {"en_plural": "fingers", "ar_plural": "أَصَابِع", "ar_tr_plural": "ʾaṣābiʿ"}],
+  [{"en_singular": "pinkie", "ar_singular": "خِنْصَر", "ar_tr_singular": "khinṣar"}, {"en_plural": "pinkies", "ar_plural": "خَنَاصِر", "ar_tr_plural": "khanāṣir"}],
+  [{"en_singular": "index finger", "ar_singular": "سَبَّابَة", "ar_tr_singular": "sabbābah"}, {"en_plural": "index fingers", "ar_plural": "سَبَّابَات", "ar_tr_plural": "sabbābāt"}],
+  [{"en_singular": "rib", "ar_singular": "ضِلْع", "ar_tr_singular": "ḍilʿ"}, {"en_plural": "ribs", "ar_plural": "ضُلُوع", "ar_tr_plural": "ḍulūʿ"}],
+  [{"en_singular": "belly", "ar_singular": "بَطْن", "ar_tr_singular": "baṭn"}, {"en_plural": "bellies", "ar_plural": "بُطُون", "ar_tr_plural": "buṭūn"}],
+  [{"en_singular": "kidney", "ar_singular": "كُلْيَة", "ar_tr_singular": "kulyah"}, {"en_plural": "kidneys", "ar_plural": "كُلَى", "ar_tr_plural": "kulan"}],
+  [{"en_singular": "shoulder blade", "ar_singular": "لَوْحُ الْكَتِف", "ar_tr_singular": "lawḥ al-katif"}, {"en_plural": "shoulder blades", "ar_plural": "أَلْوَاحُ الْكَتِف", "ar_tr_plural": "ʾalwāḥ al-katif"}],
+  [{"en_singular": "thumb", "ar_singular": "إِبْهَام", "ar_tr_singular": "ʾibhām"}, {"en_plural": "thumbs", "ar_plural": "أَبَاهِيم", "ar_tr_plural": "ʾabāhīm"}],
+  [{"en_singular": "lung", "ar_singular": "رِئَة", "ar_tr_singular": "riʾah"}, {"en_plural": "lungs", "ar_plural": "رِئَات", "ar_tr_plural": "riʾāt"}],
+  [{"en_singular": "stomach", "ar_singular": "مَعِدَة", "ar_tr_singular": "maʿidah"}, {"en_plural": "stomachs", "ar_plural": "مَعِدَات", "ar_tr_plural": "maʿidāt"}],
+  [{"en_singular": "leg", "ar_singular": "سَاق", "ar_tr_singular": "sāq"}, {"en_plural": "legs", "ar_plural": "سِيقَان", "ar_tr_plural": "sīqān"}],
+  [{"en_singular": "chest", "ar_singular": "صَدْر", "ar_tr_singular": "ṣadr"}, {"en_plural": "chests", "ar_plural": "صُدُور", "ar_tr_plural": "ṣudūr"}],
+  [{"en_singular": "skin", "ar_singular": "جِلْد", "ar_tr_singular": "jild"}, {"en_plural": "skins", "ar_plural": "جُلُود", "ar_tr_plural": "julūd"}],
+  [{"en_singular": "blood", "ar_singular": "دَم", "ar_tr_singular": "dam"}, {"en_plural": "blood", "ar_plural": "دِمَاء", "ar_tr_plural": "dimāʾ"}]
+]
+
+
+clothes
+
+[
+  [{"en_singular": "pair of trousers", "ar_singular": "بِنْطَال", "ar_tr_singular": "binṭāl"}, {"en_plural": "trousers", "ar_plural": "بَنَاطِيل", "ar_tr_plural": "banāṭīl"}, {"en_possessive": "trousers'", "ar_possessive": "خَاصّ بِالبِنْطَال", "ar_tr_possessive": "khāṣṣ bil-binṭāl"}],
+  [{"en_singular": "shirt", "ar_singular": "قَمِيص", "ar_tr_singular": "qamīṣ"}, {"en_plural": "shirts", "ar_plural": "قُمْصَان", "ar_tr_plural": "qumṣān"}, {"en_possessive": "shirt's", "ar_possessive": "خَاصّ بِالقَمِيص", "ar_tr_possessive": "khāṣṣ bil-qamīṣ"}],
+  [{"en_singular": "shoe", "ar_singular": "حِذَاء", "ar_tr_singular": "ḥidhāʾ"}, {"en_plural": "shoes", "ar_plural": "أَحْذِيَة", "ar_tr_plural": "ʾaḥdhiyah"}, {"en_possessive": "shoe's", "ar_possessive": "خَاصّ بِالحِذَاء", "ar_tr_possessive": "khāṣṣ bil-ḥidhāʾ"}],
+  [{"en_singular": "skirt", "ar_singular": "تَنُّورَة", "ar_tr_singular": "tannūrah"}, {"en_plural": "skirts", "ar_plural": "تَنَانِير", "ar_tr_plural": "tanānīr"}, {"en_possessive": "skirt's", "ar_possessive": "خَاصّ بِالتَّنُّورَة", "ar_tr_possessive": "khāṣṣ bit-tannūrah"}],
+  [{"en_singular": "vest", "ar_singular": "سُتْرَة", "ar_tr_singular": "sutrah"}, {"en_plural": "vests", "ar_plural": "سُتْرَات", "ar_tr_plural": "sutrāt"}, {"en_possessive": "vest's", "ar_possessive": "خَاصّ بِالسُّتْرَة", "ar_tr_possessive": "khāṣṣ bis-sutrah"}],
+  [{"en_singular": "necktie", "ar_singular": "رَبْطَةُ عُنُق", "ar_tr_singular": "rabṭat ʿunuq"}, {"en_plural": "neckties", "ar_plural": "رَبَطَاتُ عُنُق", "ar_tr_plural": "rabaṭāt ʿunuq"}, {"en_possessive": "necktie's", "ar_possessive": "خَاصّ بِرَبْطَةِ العُنُق", "ar_tr_possessive": "khāṣṣ bi-rabṭat al-ʿunuq"}],
+  [{"en_singular": "dress", "ar_singular": "فُسْتَان", "ar_tr_singular": "fustān"}, {"en_plural": "dresses", "ar_plural": "فَسَاتِين", "ar_tr_plural": "fasātīn"}, {"en_possessive": "dress's", "ar_possessive": "خَاصّ بِالفُسْتَان", "ar_tr_possessive": "khāṣṣ bil-fustān"}],
+  [{"en_singular": "sleeve", "ar_singular": "كُمّ", "ar_tr_singular": "kumm"}, {"en_plural": "sleeves", "ar_plural": "أَكْمَام", "ar_tr_plural": "ʾakmām"}, {"en_possessive": "sleeve's", "ar_possessive": "خَاصّ بِالكُمّ", "ar_tr_possessive": "khāṣṣ bil-kumm"}],
+  [{"en_singular": "pair of shorts", "ar_singular": "سِرْوَالٌ قَصِير", "ar_tr_singular": "sirwālun qaṣīr"}, {"en_plural": "shorts", "ar_plural": "سَرَاوِيلُ قَصِيرَة", "ar_tr_plural": "sarāwīl qaṣīrah"}, {"en_possessive": "shorts'", "ar_possessive": "خَاصّ بِالسِّرْوَالِ القَصِير", "ar_tr_possessive": "khāṣṣ bis-sirwāl al-qaṣīr"}],
+  [{"en_singular": "jacket", "ar_singular": "سُتْرَة", "ar_tr_singular": "sutrah"}, {"en_plural": "jackets", "ar_plural": "سُتْرَات", "ar_tr_plural": "sutrāt"}, {"en_possessive": "jacket's", "ar_possessive": "خَاصّ بِالسُّتْرَة", "ar_tr_possessive": "khāṣṣ bis-sutrah"}],
+  [{"en_singular": "torso", "ar_singular": "جِذْع", "ar_tr_singular": "jidhʿ"}, {"en_plural": "torsos", "ar_plural": "جُذُوع", "ar_tr_plural": "judhūʿ"}, {"en_possessive": "torso's", "ar_possessive": "خَاصّ بِالجِذْع", "ar_tr_possessive": "khāṣṣ bil-jidhʿ"}],
+  [{"en_singular": "underwear", "ar_singular": "مَلَابِسُ دَاخِلِيَّة", "ar_tr_singular": "malābis dākhiliyyah"}, {"en_plural": "underwear", "ar_plural": "مَلَابِسُ دَاخِلِيَّة", "ar_tr_plural": "malābis dākhiliyyah"}, {"en_possessive": "underwear's", "ar_possessive": "خَاصّ بِالمَلَابِسِ الدَّاخِلِيَّة", "ar_tr_possessive": "khāṣṣ bil-malābis ad-dākhiliyyah"}],
+  [{"en_singular": "suit", "ar_singular": "بَدْلَة", "ar_tr_singular": "badlah"}, {"en_plural": "suits", "ar_plural": "بَدَلَات", "ar_tr_plural": "badalāt"}, {"en_possessive": "suit's", "ar_possessive": "خَاصّ بِالبَدْلَة", "ar_tr_possessive": "khāṣṣ bil-badlah"}],
+  [{"en_singular": "undershirt", "ar_singular": "فَانِلَّة", "ar_tr_singular": "fānillah"}, {"en_plural": "undershirts", "ar_plural": "فَانِلَّات", "ar_tr_plural": "fānillāt"}, {"en_possessive": "undershirt's", "ar_possessive": "خَاصّ بِالفَانِلَّة", "ar_tr_possessive": "khāṣṣ bil-fānillah"}],
+  [{"en_singular": "sweater", "ar_singular": "سُتْرَة", "ar_tr_singular": "sutrah"}, {"en_plural": "sweaters", "ar_plural": "سُتْرَات", "ar_tr_plural": "sutrāt"}, {"en_possessive": "sweater's", "ar_possessive": "خَاصّ بِالسُّتْرَة", "ar_tr_possessive": "khāṣṣ bis-sutrah"}],
+  [{"en_singular": "swimsuit", "ar_singular": "مَلَابِسُ سِبَاحَة", "ar_tr_singular": "malābis sibāḥah"}, {"en_plural": "swimsuits", "ar_plural": "مَلَابِسُ سِبَاحَة", "ar_tr_plural": "malābis sibāḥah"}, {"en_possessive": "swimsuit's", "ar_possessive": "خَاصّ بِمَلَابِسِ السِّبَاحَة", "ar_tr_possessive": "khāṣṣ bi-malābis as-sibāḥah"}],
+  [{"en_singular": "pair of jeans", "ar_singular": "بِنْطَالُ جِينْز", "ar_tr_singular": "binṭāl jīnz"}, {"en_plural": "jeans", "ar_plural": "بَنَاطِيلُ جِينْز", "ar_tr_plural": "banāṭīl jīnz"}, {"en_possessive": "jeans'", "ar_possessive": "خَاصّ بِبِنْطَالِ الجِينْز", "ar_tr_possessive": "khāṣṣ bi-binṭāl al-jīnz"}],
+  [{"en_singular": "pajamas", "ar_singular": "بِيجَامَا", "ar_tr_singular": "bījāmā"}, {"en_plural": "pajamas", "ar_plural": "بِيجَامَات", "ar_tr_plural": "bījāmāt"}, {"en_possessive": "pajamas'", "ar_possessive": "خَاصّ بِالبِيجَامَا", "ar_tr_possessive": "khāṣṣ bil-bījāmā"}],
+  [{"en_singular": "sock", "ar_singular": "جَوْرَب", "ar_tr_singular": "jawrab"}, {"en_plural": "socks", "ar_plural": "جَوَارِب", "ar_tr_plural": "jawārib"}, {"en_possessive": "sock's", "ar_possessive": "خَاصّ بِالجَوْرَب", "ar_tr_possessive": "khāṣṣ bil-jawrab"}],
+  [{"en_singular": "pair of pants", "ar_singular": "بِنْطَال", "ar_tr_singular": "binṭāl"}, {"en_plural": "pants", "ar_plural": "بَنَاطِيل", "ar_tr_plural": "banāṭīl"}, {"en_possessive": "pants'", "ar_possessive": "خَاصّ بِالبِنْطَال", "ar_tr_possessive": "khāṣṣ bil-binṭāl"}]
+]
+
+
+feeling
+
+[
+  [{"en_feel_word": "happy", "ar_feel_word": "سَعِيد", "ar_tr_feel_word": "saʿīd"}, {"en_feel_present": "feeling happy", "ar_feel_present": "يَشْعُرُ بِالسَّعَادَة", "ar_tr_feel_present": "yashʿuru bis-saʿādah"}],
+  [{"en_feel_word": "sad", "ar_feel_word": "حَزِين", "ar_tr_feel_word": "ḥazīn"}, {"en_feel_present": "feeling sad", "ar_feel_present": "يَشْعُرُ بِالْحُزْن", "ar_tr_feel_present": "yashʿuru bil-ḥuzn"}],
+  [{"en_feel_word": "shy", "ar_feel_word": "خَجُول", "ar_tr_feel_word": "khajūl"}, {"en_feel_present": "feeling shy", "ar_feel_present": "يَشْعُرُ بِالْخَجَل", "ar_tr_feel_present": "yashʿuru bil-khajal"}],
+  [{"en_feel_word": "want", "ar_feel_word": "يُرِيدُ", "ar_tr_feel_word": "yurīdu"}, {"en_feel_present": "wanting", "ar_feel_present": "يُرِيدُ", "ar_tr_feel_present": "yurīdu"}],
+  [{"en_feel_word": "interested", "ar_feel_word": "مُهْتَمّ", "ar_tr_feel_word": "muhtamm"}, {"en_feel_present": "feeling interested", "ar_feel_present": "يَشْعُرُ بِالاهْتِمَام", "ar_tr_feel_present": "yashʿuru bil-ihtimām"}],
+  [{"en_feel_word": "bored", "ar_feel_word": "مَلِل", "ar_tr_feel_word": "malil"}, {"en_feel_present": "feeling bored", "ar_feel_present": "يَشْعُرُ بِالْمَلَل", "ar_tr_feel_present": "yashʿuru bil-malal"}],
+  [{"en_feel_word": "embarrassed", "ar_feel_word": "مُحْرَج", "ar_tr_feel_word": "muḥraj"}, {"en_feel_present": "feeling embarrassed", "ar_feel_present": "يَشْعُرُ بِالْإِحْرَاج", "ar_tr_feel_present": "yashʿuru bil-ʾiḥrāj"}],
+  [{"en_feel_word": "job", "ar_feel_word": "عَمَل", "ar_tr_feel_word": "ʿamal"}, {"en_feel_present": "working", "ar_feel_present": "يَعْمَلُ", "ar_tr_feel_present": "yaʿmalu"}],
+  [{"en_feel_word": "trip", "ar_feel_word": "رِحْلَة", "ar_tr_feel_word": "riḥlah"}, {"en_feel_present": "traveling", "ar_feel_present": "يُسَافِرُ", "ar_tr_feel_present": "yusāfiru"}],
+  [{"en_feel_word": "feeling", "ar_feel_word": "شُعُور", "ar_tr_feel_word": "shuʿūr"}, {"en_feel_present": "feeling", "ar_feel_present": "يَشْعُرُ", "ar_tr_feel_present": "yashʿuru"}],
+  [{"en_feel_word": "promise", "ar_feel_word": "وَعْد", "ar_tr_feel_word": "waʿd"}, {"en_feel_present": "promising", "ar_feel_present": "يَعِدُ", "ar_tr_feel_present": "yaʿidu"}],
+  [{"en_feel_word": "greeting", "ar_feel_word": "تَحِيَّة", "ar_tr_feel_word": "taḥiyyah"}, {"en_feel_present": "greeting", "ar_feel_present": "يُحَيِّي", "ar_tr_feel_present": "yuḥayyī"}],
+  [{"en_feel_word": "well", "ar_feel_word": "بِخَيْر", "ar_tr_feel_word": "bi-khayr"}, {"en_feel_present": "doing well", "ar_feel_present": "يَبْلِي حَسَنًا", "ar_tr_feel_present": "yablī ḥasanan"}],
+  [{"en_feel_word": "behavior", "ar_feel_word": "سُلُوك", "ar_tr_feel_word": "sulūk"}, {"en_feel_present": "behaving", "ar_feel_present": "يَتَصَرَّفُ", "ar_tr_feel_present": "yataṣarrafu"}],
+  [{"en_feel_word": "romantic", "ar_feel_word": "رُومَانْسِيّ", "ar_tr_feel_word": "rūmānsiyy"}, {"en_feel_present": "being romantic", "ar_feel_present": "يَتَصَرَّفُ بِرُومَانْسِيَّة", "ar_tr_feel_present": "yataṣarrafu bi-rūmānsiyyah"}],
+  [{"en_feel_word": "fine", "ar_feel_word": "بِخَيْر", "ar_tr_feel_word": "bi-khayr"}, {"en_feel_present": "feeling fine", "ar_feel_present": "يَشْعُرُ بِأَنَّهُ بِخَيْر", "ar_tr_feel_present": "yashʿuru bi-ʾannahu bi-khayr"}],
+  [{"en_feel_word": "experience", "ar_feel_word": "خِبْرَة", "ar_tr_feel_word": "khibrah"}, {"en_feel_present": "experiencing", "ar_feel_present": "يُجَرِّبُ", "ar_tr_feel_present": "yujarribu"}],
+  [{"en_feel_word": "rest", "ar_feel_word": "رَاحَة", "ar_tr_feel_word": "rāḥah"}, {"en_feel_present": "resting", "ar_feel_present": "يَسْتَرِيحُ", "ar_tr_feel_present": "yastarīḥu"}],
+  [{"en_feel_word": "humble", "ar_feel_word": "مُتَوَاضِع", "ar_tr_feel_word": "mutawāḍiʿ"}, {"en_feel_present": "being humble", "ar_feel_present": "يَتَوَاضَعُ", "ar_tr_feel_present": "yatawāḍaʿu"}],
+  [{"en_feel_word": "nap", "ar_feel_word": "قَيْلُولَة", "ar_tr_feel_word": "qaylūlah"}, {"en_feel_present": "napping", "ar_feel_present": "يَأْخُذُ قَيْلُولَة", "ar_tr_feel_present": "yaʾkhudhu qaylūlah"}],
+  [{"en_feel_word": "happy", "ar_feel_word": "سَعِيد", "ar_tr_feel_word": "saʿīd"}, {"en_feel_present": "feeling happy", "ar_feel_present": "يَشْعُرُ بِالسَّعَادَة", "ar_tr_feel_present": "yashʿuru bis-saʿādah"}]
+]
+
+
+
+foood
+
+[
+  [{"en_singular": "salad", "ar_singular": "سَلَطَة", "ar_tr_singular": "salaṭah"}, {"en_plural": "salads", "ar_plural": "سَلَطَات", "ar_tr_plural": "salaṭāt"}],
+  [{"en_singular": "apple", "ar_singular": "تُفَّاحَة", "ar_tr_singular": "tuffāḥah"}, {"en_plural": "apples", "ar_plural": "تُفَّاح", "ar_tr_plural": "tuffāḥ"}],
+  [{"en_singular": "orange", "ar_singular": "بُرْتُقَالَة", "ar_tr_singular": "burtuqālah"}, {"en_plural": "oranges", "ar_plural": "بُرْتُقَال", "ar_tr_plural": "burtuqāl"}],
+  [{"en_singular": "pizza", "ar_singular": "بِيتْزَا", "ar_tr_singular": "bītzā"}, {"en_plural": "pizzas", "ar_plural": "بِيتْزَات", "ar_tr_plural": "bītzāt"}],
+  [{"en_singular": "egg", "ar_singular": "بَيْضَة", "ar_tr_singular": "bayḍah"}, {"en_plural": "eggs", "ar_plural": "بَيْض", "ar_tr_plural": "bayḍ"}],
+  [{"en_singular": "noodle", "ar_singular": "شَعْرِيَّة", "ar_tr_singular": "shaʿriyyah"}, {"en_plural": "noodles", "ar_plural": "شَعْرِيَّة", "ar_tr_plural": "shaʿriyyah"}],
+  [{"en_singular": "raspberry", "ar_singular": "حَبَّةُ تُوتِ الْعُلَّيْق", "ar_tr_singular": "ḥabbat tūt al-ʿullayq"}, {"en_plural": "raspberries", "ar_plural": "تُوتُ الْعُلَّيْق", "ar_tr_plural": "tūt al-ʿullayq"}],
+  [{"en_singular": "pepper", "ar_singular": "فُلْفُل", "ar_tr_singular": "fulful"}, {"en_plural": "peppers", "ar_plural": "فُلْفُل", "ar_tr_plural": "fulful"}],
+  [{"en_singular": "tuna fish", "ar_singular": "سَمَكُ التُّونَة", "ar_tr_singular": "samak al-tūnah"}, {"en_plural": "tuna fish", "ar_plural": "سَمَكُ التُّونَة", "ar_tr_plural": "samak al-tūnah"}],
+  [{"en_singular": "basil", "ar_singular": "رَيْحَان", "ar_tr_singular": "rayḥān"}, {"en_plural": "basil", "ar_plural": "رَيْحَان", "ar_tr_plural": "rayḥān"}],
+  [{"en_singular": "sardine", "ar_singular": "سَرْدِينَة", "ar_tr_singular": "sardīnah"}, {"en_plural": "sardines", "ar_plural": "سَرْدِين", "ar_tr_plural": "sardīn"}],
+  [{"en_singular": "soup", "ar_singular": "حَسَاء", "ar_tr_singular": "ḥasāʾ"}, {"en_plural": "soups", "ar_plural": "حَسَاءَات", "ar_tr_plural": "ḥasāʾāt"}],
+  [{"en_singular": "water", "ar_singular": "مَاء", "ar_tr_singular": "māʾ"}, {"en_plural": "water", "ar_plural": "مِيَاه", "ar_tr_plural": "miyāh"}],
+  [{"en_singular": "coffee", "ar_singular": "قَهْوَة", "ar_tr_singular": "qahwah"}, {"en_plural": "coffees", "ar_plural": "قَهْوَة", "ar_tr_plural": "qahwah"}],
+  [{"en_singular": "soda", "ar_singular": "مَشْرُوبٌ غَازِيّ", "ar_tr_singular": "mashrūbun ghāziyy"}, {"en_plural": "sodas", "ar_plural": "مَشْرُوبَاتٌ غَازِيَّة", "ar_tr_plural": "mashrūbāt ghāziyyah"}],
+  [{"en_singular": "milk", "ar_singular": "حَلِيب", "ar_tr_singular": "ḥalīb"}, {"en_plural": "milk", "ar_plural": "حَلِيب", "ar_tr_plural": "ḥalīb"}],
+  [{"en_singular": "tea", "ar_singular": "شَاي", "ar_tr_singular": "shāy"}, {"en_plural": "teas", "ar_plural": "شَاي", "ar_tr_plural": "shāy"}],
+  [{"en_singular": "garlic", "ar_singular": "فَصُّ ثُوم", "ar_tr_singular": "faṣṣu thūm"}, {"en_plural": "garlic", "ar_plural": "ثُوم", "ar_tr_plural": "thūm"}],
+  [{"en_singular": "ginger", "ar_singular": "زَنْجَبِيل", "ar_tr_singular": "zanjabīl"}, {"en_plural": "ginger", "ar_plural": "زَنْجَبِيل", "ar_tr_plural": "zanjabīl"}],
+  [{"en_singular": "sugar", "ar_singular": "سُكَّر", "ar_tr_singular": "sukkar"}, {"en_plural": "sugar", "ar_plural": "سُكَّر", "ar_tr_plural": "sukkar"}],
+  [{"en_singular": "salt", "ar_singular": "مِلْح", "ar_tr_singular": "milḥ"}, {"en_plural": "salt", "ar_plural": "أَمْلَاح", "ar_tr_plural": "ʾamlāḥ"}],
+  [{"en_singular": "olive oil", "ar_singular": "زَيْتُ زَيْتُون", "ar_tr_singular": "zayt zaytūn"}, {"en_plural": "olive oil", "ar_plural": "زَيْتُ زَيْتُون", "ar_tr_plural": "zayt zaytūn"}],
+  [{"en_singular": "sauce", "ar_singular": "صَلْصَة", "ar_tr_singular": "ṣalṣah"}, {"en_plural": "sauces", "ar_plural": "صَلْصَات", "ar_tr_plural": "ṣalṣāt"}],
+  [{"en_singular": "vinegar", "ar_singular": "خَلّ", "ar_tr_singular": "khall"}, {"en_plural": "vinegar", "ar_plural": "خَلّ", "ar_tr_plural": "khall"}],
+  [{"en_singular": "grain of rice", "ar_singular": "حَبَّةُ أَرُزّ", "ar_tr_singular": "ḥabbat ʾaruzz"}, {"en_plural": "rice", "ar_plural": "أَرُزّ", "ar_tr_plural": "ʾaruzz"}],
+  [{"en_singular": "grain of wheat", "ar_singular": "حَبَّةُ قَمْح", "ar_tr_singular": "ḥabbat qamḥ"}, {"en_plural": "wheat", "ar_plural": "قَمْح", "ar_tr_plural": "qamḥ"}],
+  [{"en_singular": "corn", "ar_singular": "ذُرَة", "ar_tr_singular": "dhurah"}, {"en_plural": "corn", "ar_plural": "ذُرَة", "ar_tr_plural": "dhurah"}],
+  [{"en_singular": "butter", "ar_singular": "زُبْدَة", "ar_tr_singular": "zubdah"}, {"en_plural": "butter", "ar_plural": "زُبْدَة", "ar_tr_plural": "zubdah"}],
+  [{"en_singular": "bread", "ar_singular": "خُبْز", "ar_tr_singular": "khubz"}, {"en_plural": "breads", "ar_plural": "أَخْبَاز", "ar_tr_plural": "ʾakhbāz"}],
+  [{"en_singular": "potato", "ar_singular": "حَبَّةُ بَطَاطِس", "ar_tr_singular": "ḥabbat baṭāṭis"}, {"en_plural": "potatoes", "ar_plural": "بَطَاطِس", "ar_tr_plural": "baṭāṭis"}],
+  [{"en_singular": "soybean", "ar_singular": "فُولُ الصُّويَا", "ar_tr_singular": "fūl al-ṣūyā"}, {"en_plural": "soybeans", "ar_plural": "فُولُ الصُّويَا", "ar_tr_plural": "fūl al-ṣūyā"}],
+  [{"en_singular": "grain of barley", "ar_singular": "حَبَّةُ شَعِير", "ar_tr_singular": "ḥabbat shaʿīr"}, {"en_plural": "barley", "ar_plural": "شَعِير", "ar_tr_plural": "shaʿīr"}],
+  [{"en_singular": "fruit", "ar_singular": "فَاكِهَة", "ar_tr_singular": "fākihah"}, {"en_plural": "fruits", "ar_plural": "فَوَاكِه", "ar_tr_plural": "fawākih"}],
+  [{"en_singular": "apricot", "ar_singular": "مِشْمِشَة", "ar_tr_singular": "mishmishah"}, {"en_plural": "apricots", "ar_plural": "مِشْمِش", "ar_tr_plural": "mishmish"}],
+  [{"en_singular": "banana", "ar_singular": "مَوْزَة", "ar_tr_singular": "mawzah"}, {"en_plural": "bananas", "ar_plural": "مَوْز", "ar_tr_plural": "mawz"}],
+  [{"en_singular": "grape", "ar_singular": "حَبَّةُ عِنَب", "ar_tr_singular": "ḥabbat ʿinab"}, {"en_plural": "grapes", "ar_plural": "عِنَب", "ar_tr_plural": "ʿinab"}],
+  [{"en_singular": "watermelon", "ar_singular": "بِطِّيخَة", "ar_tr_singular": "biṭṭīkhah"}, {"en_plural": "watermelons", "ar_plural": "بِطِّيخ", "ar_tr_plural": "biṭṭīkh"}],
+  [{"en_singular": "grapefruit", "ar_singular": "جْرِيبْ فَرُوت", "ar_tr_singular": "jrīb frūt"}, {"en_plural": "grapefruits", "ar_plural": "جْرِيبْ فَرُوت", "ar_tr_plural": "jrīb frūt"}],
+  [{"en_singular": "pineapple", "ar_singular": "أَنَانَاسَة", "ar_tr_singular": "ʾanānasah"}, {"en_plural": "pineapples", "ar_plural": "أَنَانَاس", "ar_tr_plural": "ʾanānās"}],
+  [{"en_singular": "melon", "ar_singular": "شَمَّامَة", "ar_tr_singular": "shammāmah"}, {"en_plural": "melons", "ar_plural": "شَمَّام", "ar_tr_plural": "shammām"}],
+  [{"en_singular": "nut", "ar_singular": "جَوْزَة", "ar_tr_singular": "jawzah"}, {"en_plural": "nuts", "ar_plural": "جَوْز", "ar_tr_plural": "jawz"}],
+  [{"en_singular": "peanut", "ar_singular": "حَبَّةُ فُولٍ سُودَانِيّ", "ar_tr_singular": "ḥabbat fūlin sūdāniyy"}, {"en_plural": "peanuts", "ar_plural": "فُولٌ سُودَانِيّ", "ar_tr_plural": "fūlun sūdāniyy"}],
+  [{"en_singular": "cashew nut", "ar_singular": "حَبَّةُ كَاجُو", "ar_tr_singular": "ḥabbat kājū"}, {"en_plural": "cashew nuts", "ar_plural": "كَاجُو", "ar_tr_plural": "kājū"}],
+  [{"en_singular": "vegetable", "ar_singular": "خُضْرَة", "ar_tr_singular": "khuḍrah"}, {"en_plural": "vegetables", "ar_plural": "خُضْرَوَات", "ar_tr_plural": "khuḍrawāt"}],
+  [{"en_singular": "carrot", "ar_singular": "جَزَرَة", "ar_tr_singular": "jazarah"}, {"en_plural": "carrots", "ar_plural": "جَزَر", "ar_tr_plural": "jazar"}],
+  [{"en_singular": "turnip", "ar_singular": "لِفْتَة", "ar_tr_singular": "liftah"}, {"en_plural": "turnips", "ar_plural": "لِفْت", "ar_tr_plural": "lift"}],
+  [{"en_singular": "onion", "ar_singular": "بَصَلَة", "ar_tr_singular": "baṣalah"}, {"en_plural": "onions", "ar_plural": "بَصَل", "ar_tr_plural": "baṣal"}],
+  [{"en_singular": "mushroom", "ar_singular": "فِطْر", "ar_tr_singular": "fiṭr"}, {"en_plural": "mushrooms", "ar_plural": "فِطْرِيَّات", "ar_tr_plural": "fiṭriyyāt"}],
+  [{"en_singular": "tomato", "ar_singular": "حَبَّةُ طَمَاطِم", "ar_tr_singular": "ḥabbat ṭamāṭim"}, {"en_plural": "tomatoes", "ar_plural": "طَمَاطِم", "ar_tr_plural": "ṭamāṭim"}],
+  [{"en_singular": "lettuce", "ar_singular": "خَسّ", "ar_tr_singular": "khass"}, {"en_plural": "lettuces", "ar_plural": "خَسّ", "ar_tr_plural": "khass"}],
+  [{"en_singular": "seafood", "ar_singular": "مَأْكُولَاتٌ بَحْرِيَّة", "ar_tr_singular": "maʾkūlāt baḥriyyah"}, {"en_plural": "seafood", "ar_plural": "مَأْكُولَاتٌ بَحْرِيَّة", "ar_tr_plural": "maʾkūlāt baḥriyyah"}],
+  [{"en_singular": "shrimp", "ar_singular": "رُوبِيَان", "ar_tr_singular": "rūbiyān"}, {"en_plural": "shrimp", "ar_plural": "رُوبِيَان", "ar_tr_plural": "rūbiyān"}],
+  [{"en_singular": "salmon", "ar_singular": "سَلَمُون", "ar_tr_singular": "salamūn"}, {"en_plural": "salmon", "ar_plural": "سَلَمُون", "ar_tr_plural": "salamūn"}],
+  [{"en_singular": "meat", "ar_singular": "لَحْم", "ar_tr_singular": "laḥm"}, {"en_plural": "meats", "ar_plural": "لُحُوم", "ar_tr_plural": "luḥūm"}],
+  [{"en_singular": "beef", "ar_singular": "لَحْمُ بَقَر", "ar_tr_singular": "laḥm baqar"}, {"en_plural": "beef", "ar_plural": "لَحْمُ بَقَر", "ar_tr_plural": "laḥm baqar"}],
+  [{"en_singular": "pork", "ar_singular": "لَحْمُ خِنْزِير", "ar_tr_singular": "laḥm khinzīr"}, {"en_plural": "pork", "ar_plural": "لَحْمُ خِنْزِير", "ar_tr_plural": "laḥm khinzīr"}],
+  [{"en_singular": "chicken", "ar_singular": "لَحْمُ دَجَاج", "ar_tr_singular": "laḥm dajāj"}, {"en_plural": "chicken", "ar_plural": "لُحُومُ دَجَاج", "ar_tr_plural": "luḥūm dajāj"}],
+  [{"en_singular": "lamb", "ar_singular": "لَحْمُ ضَأْن", "ar_tr_singular": "laḥm ḍaʾn"}, {"en_plural": "lamb", "ar_plural": "لَحْمُ ضَأْن", "ar_tr_plural": "laḥm ḍaʾn"}],
+  [{"en_singular": "sweet", "ar_singular": "حَلْوَى", "ar_tr_singular": "ḥalwā"}, {"en_plural": "sweets", "ar_plural": "حَلَوِيَّات", "ar_tr_plural": "ḥalawiyyāt"}],
+  [{"en_singular": "breakfast", "ar_singular": "فُطُور", "ar_tr_singular": "fuṭūr"}, {"en_plural": "breakfasts", "ar_plural": "فُطُورَات", "ar_tr_plural": "fuṭūrāt"}],
+  [{"en_singular": "lunch", "ar_singular": "غَدَاء", "ar_tr_singular": "ghadāʾ"}, {"en_plural": "lunches", "ar_plural": "غَدَاءَات", "ar_tr_plural": "ghadāʾāt"}],
+  [{"en_singular": "dinner", "ar_singular": "عَشَاء", "ar_tr_singular": "ʿashāʾ"}, {"en_plural": "dinners", "ar_plural": "عَشَاءَات", "ar_tr_plural": "ʿashāʾāt"}],
+  [{"en_singular": "snack", "ar_singular": "وَجْبَةٌ خَفِيفَة", "ar_tr_singular": "wajbah khafīfah"}, {"en_plural": "snacks", "ar_plural": "وَجَبَاتٌ خَفِيفَة", "ar_tr_plural": "wajabāt khafīfah"}],
+  [{"en_singular": "pumpkin", "ar_singular": "يَقْطِين", "ar_tr_singular": "yaqṭīn"}, {"en_plural": "pumpkins", "ar_plural": "يَقْطِين", "ar_tr_plural": "yaqṭīn"}],
+  [{"en_singular": "lobster", "ar_singular": "جَرَادُ الْبَحْر", "ar_tr_singular": "jarād al-baḥr"}, {"en_plural": "lobsters", "ar_plural": "جَرَادُ الْبَحْر", "ar_tr_plural": "jarād al-baḥr"}],
+  [{"en_singular": "cauliflower", "ar_singular": "قَرْنَبِيط", "ar_tr_singular": "qarnabīṭ"}, {"en_plural": "cauliflowers", "ar_plural": "قَرْنَبِيط", "ar_tr_plural": "qarnabīṭ"}],
+  [{"en_singular": "cabbage", "ar_singular": "كُرُنْب", "ar_tr_singular": "kurunb"}, {"en_plural": "cabbages", "ar_plural": "كُرُنْب", "ar_tr_plural": "kurunb"}],
+  [{"en_singular": "celery", "ar_singular": "كَرَفْس", "ar_tr_singular": "karafs"}, {"en_plural": "celeries", "ar_plural": "كَرَفْس", "ar_tr_plural": "karafs"}],
+  [{"en_singular": "chilli pepper", "ar_singular": "فُلْفُلٌ حَارّ", "ar_tr_singular": "fulfulun ḥārr"}, {"en_plural": "chilli peppers", "ar_plural": "فُلْفُلٌ حَارّ", "ar_tr_plural": "fulfulun ḥārr"}],
+  [{"en_singular": "eggplant", "ar_singular": "بَاذِنْجَان", "ar_tr_singular": "bādhinjān"}, {"en_plural": "eggplants", "ar_plural": "بَاذِنْجَان", "ar_tr_plural": "bādhinjān"}],
+  [{"en_singular": "broccoli", "ar_singular": "بُرُوكْلِي", "ar_tr_singular": "burūklī"}, {"en_plural": "broccoli", "ar_plural": "بُرُوكْلِي", "ar_tr_plural": "burūklī"}],
+  [{"en_singular": "spinach", "ar_singular": "سَبَانِخ", "ar_tr_singular": "sabānikh"}, {"en_plural": "spinach", "ar_plural": "سَبَانِخ", "ar_tr_plural": "sabānikh"}],
+  [{"en_singular": "bean sprout", "ar_singular": "بُرْعُمُ الْفَاصُولِيَا", "ar_tr_singular": "burʿum al-fāṣūliyā"}, {"en_plural": "bean sprouts", "ar_plural": "بَرَاعِمُ الْفَاصُولِيَا", "ar_tr_plural": "barāʿim al-fāṣūliyā"}],
+  [{"en_singular": "cheese", "ar_singular": "جُبْن", "ar_tr_singular": "jubn"}, {"en_plural": "cheeses", "ar_plural": "أَجْبَان", "ar_tr_plural": "ʾajbān"}],
+  [{"en_singular": "strawberry", "ar_singular": "حَبَّةُ فَرَاوِلَة", "ar_tr_singular": "ḥabbat farāwilah"}, {"en_plural": "strawberries", "ar_plural": "فَرَاوِلَة", "ar_tr_plural": "farāwilah"}],
+  [{"en_singular": "fig", "ar_singular": "تِينَة", "ar_tr_singular": "tīnah"}, {"en_plural": "figs", "ar_plural": "تِين", "ar_tr_plural": "tīn"}],
+  [{"en_singular": "plum", "ar_singular": "بَرْقُوقَة", "ar_tr_singular": "barqūqah"}, {"en_plural": "plums", "ar_plural": "بَرْقُوق", "ar_tr_plural": "barqūq"}],
+  [{"en_singular": "lemon", "ar_singular": "لَيْمُونَة", "ar_tr_singular": "laymūnah"}, {"en_plural": "lemons", "ar_plural": "لَيْمُون", "ar_tr_plural": "laymūn"}],
+  [{"en_singular": "blueberry", "ar_singular": "حَبَّةُ تُوتٍ أَزْرَق", "ar_tr_singular": "ḥabbat tūtin ʾazraq"}, {"en_plural": "blueberries", "ar_plural": "تُوتٌ أَزْرَق", "ar_tr_plural": "tūtun ʾazraq"}],
+  [{"en_singular": "prune", "ar_singular": "بَرْقُوقٌ مُجَفَّف", "ar_tr_singular": "barqūqun mujaffaf"}, {"en_plural": "prunes", "ar_plural": "بَرْقُوقٌ مُجَفَّف", "ar_tr_plural": "barqūqun mujaffaf"}],
+  [{"en_singular": "peach", "ar_singular": "دُرَّاقَة", "ar_tr_singular": "durrāqah"}, {"en_plural": "peaches", "ar_plural": "دُرَّاق", "ar_tr_plural": "durrāq"}],
+  [{"en_singular": "ice cream", "ar_singular": "مُثَلَّجَات", "ar_tr_singular": "muthallajāt"}, {"en_plural": "ice creams", "ar_plural": "مُثَلَّجَات", "ar_tr_plural": "muthallajāt"}],
+  [{"en_singular": "chocolate", "ar_singular": "شُوكُولَاتَة", "ar_tr_singular": "shūkūlātah"}, {"en_plural": "chocolates", "ar_plural": "شُوكُولَاتَات", "ar_tr_plural": "shūkūlātāt"}],
+  [{"en_singular": "juice", "ar_singular": "عَصِير", "ar_tr_singular": "ʿaṣīr"}, {"en_plural": "juices", "ar_plural": "عَصَائِر", "ar_tr_plural": "ʿaṣāʾir"}],
+  [{"en_singular": "soy sauce", "ar_singular": "صَلْصَةُ الصُّويَا", "ar_tr_singular": "ṣalṣat al-ṣūyā"}, {"en_plural": "soy sauces", "ar_plural": "صَلْصَاتُ الصُّويَا", "ar_tr_plural": "ṣalṣāt al-ṣūyā"}],
+  [{"en_singular": "sesame", "ar_singular": "سِمْسِم", "ar_tr_singular": "simsim"}, {"en_plural": "sesame", "ar_plural": "سِمْسِم", "ar_tr_plural": "simsim"}],
+  [{"en_singular": "oil", "ar_singular": "زَيْت", "ar_tr_singular": "zayt"}, {"en_plural": "oils", "ar_plural": "زُيُوت", "ar_tr_plural": "zuyūt"}],
+  [{"en_singular": "sausage", "ar_singular": "نَقَانِق", "ar_tr_singular": "naqāniq"}, {"en_plural": "sausages", "ar_plural": "نَقَانِق", "ar_tr_plural": "naqāniq"}],
+  [{"en_singular": "cherry", "ar_singular": "كَرَزَة", "ar_tr_singular": "karazah"}, {"en_plural": "cherries", "ar_plural": "كَرَز", "ar_tr_plural": "karaz"}],
+  [{"en_singular": "hamburger", "ar_singular": "هَمْبَرْغَر", "ar_tr_singular": "hambarghar"}, {"en_plural": "hamburgers", "ar_plural": "هَمْبَرْغَرَات", "ar_tr_plural": "hambargharāt"}]
+]
+
+
+
+personal
+[
+  {
+    "en": "bye",
+    "ar": "وَدَاعًا",
+    "tr": "wadāʿan"
+  },
+  {
+    "en": "okay",
+    "ar": "حَسَنًا",
+    "tr": "ḥasanan"
+  },
+  {
+    "en": "lame",
+    "ar": "سَخِيف",
+    "tr": "sakhīf"
+  },
+  {
+    "en": "kind",
+    "ar": "نَوْع",
+    "tr": "nawʿ"
+  },
+  {
+    "en": "death",
+    "ar": "مَوْت",
+    "tr": "mawt"
+  },
+  {
+    "en": "liar",
+    "ar": "كَذَّاب",
+    "tr": "kadhdhāb"
+  },
+  {
+    "en": "afraid",
+    "ar": "خَائِف",
+    "tr": "khāʾif"
+  },
+  {
+    "en": "healthy",
+    "ar": "صِحِّيّ",
+    "tr": "ṣiḥḥiyy"
+  },
+  {
+    "en": "satisfied",
+    "ar": "رَاضٍ",
+    "tr": "rāḍin"
+  },
+  {
+    "en": "sad",
+    "ar": "حَزِين",
+    "tr": "ḥazīn"
+  },
+  {
+    "en": "calm",
+    "ar": "هَادِئ",
+    "tr": "hādiʾ"
+  },
+  {
+    "en": "boring",
+    "ar": "مُمِلّ",
+    "tr": "mumill"
+  },
+  {
+    "en": "exciting",
+    "ar": "مُثِير",
+    "tr": "muthīr"
+  },
+  {
+    "en": "fear",
+    "ar": "خَوْف",
+    "tr": "khawf"
+  },
+  {
+    "en": "feel",
+    "ar": "يَشْعُرُ",
+    "tr": "yashʿuru"
+  },
+  {
+    "en": "pain",
+    "ar": "أَلَم",
+    "tr": "ʾalam"
+  },
+  {
+    "en": "nervous",
+    "ar": "مُتَوَتِّر",
+    "tr": "mutawattir"
+  },
+  {
+    "en": "taste",
+    "ar": "مَذَاق",
+    "tr": "madhāq"
+  },
+  {
+    "en": "infection",
+    "ar": "عَدْوَى",
+    "tr": "ʿadwā"
+  },
+  {
+    "en": "sick",
+    "ar": "مَرِيض",
+    "tr": "marīḍ"
+  },
+  {
+    "en": "nausea",
+    "ar": "غَثَيَان",
+    "tr": "ghathayān"
+  },
+  {
+    "en": "asthma",
+    "ar": "رَبْو",
+    "tr": "rabw"
+  },
+  {
+    "en": "itch",
+    "ar": "حِكَّة",
+    "tr": "ḥikkah"
+  },
+  {
+    "en": "clever",
+    "ar": "ذَكِيّ",
+    "tr": "dhakiyy"
+  },
+  {
+    "en": "honest",
+    "ar": "صَادِق",
+    "tr": "ṣādiq"
+  },
+  {
+    "en": "sprain",
+    "ar": "اِلْتِوَاء",
+    "tr": "iltiwāʾ"
+  },
+  {
+    "en": "funny",
+    "ar": "مُضْحِك",
+    "tr": "muḍḥik"
+  },
+  {
+    "en": "dissatisfied",
+    "ar": "غَيْرُ رَاضٍ",
+    "tr": "ghayru rāḍin"
+  },
+  {
+    "en": "difficult",
+    "ar": "صَعْب",
+    "tr": "ṣaʿb"
+  },
+  {
+    "en": "sleepy",
+    "ar": "نَعْسَان",
+    "tr": "naʿsān"
+  },
+  {
+    "en": "introverted",
+    "ar": "اِنْطِوَائِيّ",
+    "tr": "inṭiwāʾiyy"
+  },
+  {
+    "en": "extroverted",
+    "ar": "اِنْبِسَاطِيّ",
+    "tr": "inbisāṭiyy"
+  },
+  {
+    "en": "proactive",
+    "ar": "اِسْتِبَاقِيّ",
+    "tr": "istibāqiyy"
+  },
+  {
+    "en": "smart",
+    "ar": "ذَكِيّ",
+    "tr": "dhakiyy"
+  },
+  {
+    "en": "scary",
+    "ar": "مُخِيف",
+    "tr": "mukhīf"
+  },
+  {
+    "en": "brave",
+    "ar": "شُجَاع",
+    "tr": "shujāʿ"
+  },
+  {
+    "en": "hobby",
+    "ar": "هِوَايَة",
+    "tr": "hiwāyah"
+  },
+  {
+    "en": "caution",
+    "ar": "حَذَر",
+    "tr": "ḥadhar"
+  }
+]
+
+
+
+transportation
+
+[
+  [{"en_singular": "bike", "ar_singular": "دَرَّاجَة", "ar_tr_singular": "darrājah"}, {"en_plural": "bikes", "ar_plural": "دَرَّاجَات", "ar_tr_plural": "darrājāt"}],
+  [{"en_singular": "car", "ar_singular": "سَيَّارَة", "ar_tr_singular": "sayyārah"}, {"en_plural": "cars", "ar_plural": "سَيَّارَات", "ar_tr_plural": "sayyārāt"}],
+  [{"en_singular": "train", "ar_singular": "قِطَار", "ar_tr_singular": "qiṭār"}, {"en_plural": "trains", "ar_plural": "قِطَارَات", "ar_tr_plural": "qiṭārāt"}],
+  [{"en_singular": "airplane", "ar_singular": "طَائِرَة", "ar_tr_singular": "ṭāʾirah"}, {"en_plural": "airplanes", "ar_plural": "طَائِرَات", "ar_tr_plural": "ṭāʾirāt"}],
+  [{"en_singular": "truck", "ar_singular": "شَاحِنَة", "ar_tr_singular": "shāḥinah"}, {"en_plural": "trucks", "ar_plural": "شَاحِنَات", "ar_tr_plural": "shāḥināt"}],
+  [{"en_singular": "boat", "ar_singular": "قَارِب", "ar_tr_singular": "qārib"}, {"en_plural": "boats", "ar_plural": "قَوَارِب", "ar_tr_plural": "qawārib"}],
+  [{"en_singular": "ship", "ar_singular": "سَفِينَة", "ar_tr_singular": "safīnah"}, {"en_plural": "ships", "ar_plural": "سُفُن", "ar_tr_plural": "sufun"}],
+  [{"en_singular": "jet", "ar_singular": "طَائِرَةٌ نَفَّاثَة", "ar_tr_singular": "ṭāʾirah naffāthah"}, {"en_plural": "jets", "ar_plural": "طَائِرَاتٌ نَفَّاثَة", "ar_tr_plural": "ṭāʾirāt naffāthah"}],
+  [{"en_singular": "airport", "ar_singular": "مَطَار", "ar_tr_singular": "maṭār"}, {"en_plural": "airports", "ar_plural": "مَطَارَات", "ar_tr_plural": "maṭārāt"}],
+  [{"en_singular": "station", "ar_singular": "مَحَطَّة", "ar_tr_singular": "maḥaṭṭah"}, {"en_plural": "stations", "ar_plural": "مَحَطَّات", "ar_tr_plural": "maḥaṭṭāt"}],
+  [{"en_singular": "train", "ar_singular": "قِطَار", "ar_tr_singular": "qiṭār"}, {"en_plural": "trains", "ar_plural": "قِطَارَات", "ar_tr_plural": "qiṭārāt"}],
+  [{"en_singular": "bus", "ar_singular": "حَافِلَة", "ar_tr_singular": "ḥāfilah"}, {"en_plural": "buses", "ar_plural": "حَافِلَات", "ar_tr_plural": "ḥāfilāt"}],
+  [{"en_singular": "bicycle", "ar_singular": "دَرَّاجَةٌ هَوَائِيَّة", "ar_tr_singular": "darrājah hawāʾiyyah"}, {"en_plural": "bicycles", "ar_plural": "دَرَّاجَاتٌ هَوَائِيَّة", "ar_tr_plural": "darrājāt hawāʾiyyah"}],
+  [{"en_singular": "car", "ar_singular": "سَيَّارَة", "ar_tr_singular": "sayyārah"}, {"en_plural": "cars", "ar_plural": "سَيَّارَات", "ar_tr_plural": "sayyārāt"}],
+  [{"en_singular": "passenger", "ar_singular": "رَاكِب", "ar_tr_singular": "rākib"}, {"en_plural": "passengers", "ar_plural": "رُكَّاب", "ar_tr_plural": "rukkāb"}],
+  [{"en_singular": "bus stop", "ar_singular": "مَوْقِفُ حَافِلَات", "ar_tr_singular": "mawqif ḥāfilāt"}, {"en_plural": "bus stops", "ar_plural": "مَوَاقِفُ حَافِلَات", "ar_tr_plural": "mawāqif ḥāfilāt"}]
+]
+
+
+sentence words
+
+[
+  {
+    "en_word": "you",
+    "ar_word": "أَنْتَ",
+    "ar_word_tr": "ʾanta"
+  },
+  {
+    "en_word": "by",
+    "ar_word": "بِوَاسِطَة",
+    "ar_word_tr": "biwāsiṭat"
+  },
+  {
+    "en_word": "to",
+    "ar_word": "إِلَى",
+    "ar_word_tr": "ʾilā"
+  },
+  {
+    "en_word": "be",
+    "ar_word": "يَكُونُ",
+    "ar_word_tr": "yakūnu"
+  },
+  {
+    "en_word": "in",
+    "ar_word": "فِي",
+    "ar_word_tr": "fī"
+  },
+  {
+    "en_word": "the",
+    "ar_word": "ال",
+    "ar_word_tr": "al-"
+  },
+  {
+    "en_word": "made",
+    "ar_word": "صَنَعَ",
+    "ar_word_tr": "ṣanaʿa"
+  },
+  {
+    "en_word": "a",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "we",
+    "ar_word": "نَحْنُ",
+    "ar_word_tr": "naḥnu"
+  },
+  {
+    "en_word": "live",
+    "ar_word": "يَعِيشُ",
+    "ar_word_tr": "yaʿīshu"
+  },
+  {
+    "en_word": "on",
+    "ar_word": "عَلَى",
+    "ar_word_tr": "ʿalā"
+  },
+  {
+    "en_word": "it",
+    "ar_word": "هُوَ",
+    "ar_word_tr": "huwa"
+  },
+  {
+    "en_word": "took",
+    "ar_word": "أَخَذَ",
+    "ar_word_tr": "ʾakhadha"
+  },
+  {
+    "en_word": "come",
+    "ar_word": "يَأْتِي",
+    "ar_word_tr": "yaʾtī"
+  },
+  {
+    "en_word": "again",
+    "ar_word": "مَرَّةً أُخْرَى",
+    "ar_word_tr": "marratan ʾukhrā"
+  },
+  {
+    "en_word": "she",
+    "ar_word": "هِيَ",
+    "ar_word_tr": "hiya"
+  },
+  {
+    "en_word": "does",
+    "ar_word": "يَفْعَلُ",
+    "ar_word_tr": "yafʿalu"
+  },
+  {
+    "en_word": "not",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "is",
+    "ar_word": "يَكُونُ",
+    "ar_word_tr": "yakūnu"
+  },
+  {
+    "en_word": "usually",
+    "ar_word": "عَادَةً",
+    "ar_word_tr": "ʿādatan"
+  },
+  {
+    "en_word": "don't",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "look",
+    "ar_word": "يَنْظُرُ",
+    "ar_word_tr": "yanẓuru"
+  },
+  {
+    "en_word": "looks",
+    "ar_word": "يَبْدُو",
+    "ar_word_tr": "yabdū"
+  },
+  {
+    "en_word": "these",
+    "ar_word": "هَؤُلَاءِ",
+    "ar_word_tr": "hāʾulāʾi"
+  },
+  {
+    "en_word": "aren't",
+    "ar_word": "لَيْسُوا",
+    "ar_word_tr": "laysū"
+  },
+  {
+    "en_word": "has",
+    "ar_word": "لَدَيْهِ",
+    "ar_word_tr": "ladayhi"
+  },
+  {
+    "en_word": "finish",
+    "ar_word": "يُنْهِي",
+    "ar_word_tr": "yunhī"
+  },
+  {
+    "en_word": "finished",
+    "ar_word": "أَنْهَى",
+    "ar_word_tr": "ʾanhā"
+  },
+  {
+    "en_word": "finishing",
+    "ar_word": "يُنْهِي",
+    "ar_word_tr": "yunhī"
+  },
+  {
+    "en_word": "who",
+    "ar_word": "مَنْ",
+    "ar_word_tr": "man"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "after",
+    "ar_word": "بَعْدَ",
+    "ar_word_tr": "baʿda"
+  },
+  {
+    "en_word": "your",
+    "ar_word": "خَاصَّتُكَ",
+    "ar_word_tr": "khāṣṣatuka"
+  },
+  {
+    "en_word": "aren't",
+    "ar_word": "لَيْسُوا",
+    "ar_word_tr": "laysū"
+  },
+  {
+    "en_word": "he",
+    "ar_word": "هُوَ",
+    "ar_word_tr": "huwa"
+  },
+  {
+    "en_word": "wants",
+    "ar_word": "يُرِيدُ",
+    "ar_word_tr": "yurīdu"
+  },
+  {
+    "en_word": "see",
+    "ar_word": "يَرَى",
+    "ar_word_tr": "yarā"
+  },
+  {
+    "en_word": "those",
+    "ar_word": "أُولَئِكَ",
+    "ar_word_tr": "ʾūlāʾika"
+  },
+  {
+    "en_word": "theirs",
+    "ar_word": "خَاصَّتُهُمْ",
+    "ar_word_tr": "khāṣṣatuhum"
+  },
+  {
+    "en_word": "to",
+    "ar_word": "إِلَى",
+    "ar_word_tr": "ʾilā"
+  },
+  {
+    "en_word": "wonder",
+    "ar_word": "يَتَسَاءَلُ",
+    "ar_word_tr": "yatasaʾalu"
+  },
+  {
+    "en_word": "if",
+    "ar_word": "إِذَا",
+    "ar_word_tr": "ʾidhā"
+  },
+  {
+    "en_word": "she",
+    "ar_word": "هِيَ",
+    "ar_word_tr": "hiya"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "ask",
+    "ar_word": "يَسْأَلُ",
+    "ar_word_tr": "yasʾalu"
+  },
+  {
+    "en_word": "where",
+    "ar_word": "أَيْنَ",
+    "ar_word_tr": "ʾayna"
+  },
+  {
+    "en_word": "my",
+    "ar_word": "خَاصَّتِي",
+    "ar_word_tr": "khāṣṣatī"
+  },
+  {
+    "en_word": "I'm",
+    "ar_word": "أَنَا",
+    "ar_word_tr": "ʾanā"
+  },
+  {
+    "en_word": "from",
+    "ar_word": "مِنْ",
+    "ar_word_tr": "min"
+  },
+  {
+    "en_word": "can",
+    "ar_word": "يَسْتَطِيعُ",
+    "ar_word_tr": "yastaṭīʿu"
+  },
+  {
+    "en_word": "just",
+    "ar_word": "فَقَطْ",
+    "ar_word_tr": "faqaṭ"
+  },
+  {
+    "en_word": "were",
+    "ar_word": "كَانُوا",
+    "ar_word_tr": "kānū"
+  },
+  {
+    "en_word": "with",
+    "ar_word": "مَعَ",
+    "ar_word_tr": "maʿa"
+  },
+  {
+    "en_word": "anyone",
+    "ar_word": "أَيُّ شَخْص",
+    "ar_word_tr": "ʾayyu shakhṣ"
+  },
+  {
+    "en_word": "wish",
+    "ar_word": "يَتَمَنَّى",
+    "ar_word_tr": "yatamannā"
+  },
+  {
+    "en_word": "could",
+    "ar_word": "اِسْتَطَاعَ",
+    "ar_word_tr": "istaṭāʿa"
+  },
+  {
+    "en_word": "have",
+    "ar_word": "يَمْلِكُ",
+    "ar_word_tr": "yamliku"
+  },
+  {
+    "en_word": "has",
+    "ar_word": "لَدَيْهِ",
+    "ar_word_tr": "ladayhi"
+  },
+  {
+    "en_word": "doesn't",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "did",
+    "ar_word": "فَعَلَ",
+    "ar_word_tr": "faʿala"
+  },
+  {
+    "en_word": "didn't",
+    "ar_word": "لَمْ يَفْعَلْ",
+    "ar_word_tr": "lam yafʿal"
+  },
+  {
+    "en_word": "forgot",
+    "ar_word": "نَسِيَ",
+    "ar_word_tr": "nasiya"
+  },
+  {
+    "en_word": "they",
+    "ar_word": "هُمْ",
+    "ar_word_tr": "hum"
+  },
+  {
+    "en_word": "us",
+    "ar_word": "إِيَّانَا",
+    "ar_word_tr": "ʾiyyānā"
+  },
+  {
+    "en_word": "take",
+    "ar_word": "يَأْخُذُ",
+    "ar_word_tr": "yaʾkhudhu"
+  },
+  {
+    "en_word": "seem",
+    "ar_word": "يَبْدُو",
+    "ar_word_tr": "yabdū"
+  },
+  {
+    "en_word": "an",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "and",
+    "ar_word": "وَ",
+    "ar_word_tr": "wa"
+  },
+  {
+    "en_word": "therefore",
+    "ar_word": "لِذَلِكَ",
+    "ar_word_tr": "lidhālika"
+  },
+  {
+    "en_word": "so",
+    "ar_word": "إِذَنْ",
+    "ar_word_tr": "ʾidhan"
+  },
+  {
+    "en_word": "then",
+    "ar_word": "ثُمَّ",
+    "ar_word_tr": "thumma"
+  },
+  {
+    "en_word": "would",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "like",
+    "ar_word": "يُحِبُّ",
+    "ar_word_tr": "yuḥibbu"
+  },
+  {
+    "en_word": "back",
+    "ar_word": "خَلْف",
+    "ar_word_tr": "khalf"
+  },
+  {
+    "en_word": "return",
+    "ar_word": "يَعُودُ",
+    "ar_word_tr": "yaʿūdu"
+  },
+  {
+    "en_word": "saw",
+    "ar_word": "رَأَى",
+    "ar_word_tr": "raʾā"
+  },
+  {
+    "en_word": "seen",
+    "ar_word": "مَرْئِيّ",
+    "ar_word_tr": "marʾiyy"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "all",
+    "ar_word": "كُلّ",
+    "ar_word_tr": "kull"
+  },
+  {
+    "en_word": "are",
+    "ar_word": "يَكُونُونَ",
+    "ar_word_tr": "yakūnūna"
+  },
+  {
+    "en_word": "there",
+    "ar_word": "هُنَاكَ",
+    "ar_word_tr": "hunāka"
+  }
+]
+
+
+sencewords
+
+
+
+```json
+[
+  {
+    "en_word": "you",
+    "ar_word": "أَنْتَ",
+    "ar_word_tr": "ʾanta"
+  },
+  {
+    "en_word": "by",
+    "ar_word": "بِوَاسِطَة",
+    "ar_word_tr": "biwāsiṭat"
+  },
+  {
+    "en_word": "to",
+    "ar_word": "إِلَى",
+    "ar_word_tr": "ʾilā"
+  },
+  {
+    "en_word": "be",
+    "ar_word": "يَكُونُ",
+    "ar_word_tr": "yakūnu"
+  },
+  {
+    "en_word": "in",
+    "ar_word": "فِي",
+    "ar_word_tr": "fī"
+  },
+  {
+    "en_word": "the",
+    "ar_word": "ال",
+    "ar_word_tr": "al-"
+  },
+  {
+    "en_word": "made",
+    "ar_word": "صَنَعَ",
+    "ar_word_tr": "ṣanaʿa"
+  },
+  {
+    "en_word": "a",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "we",
+    "ar_word": "نَحْنُ",
+    "ar_word_tr": "naḥnu"
+  },
+  {
+    "en_word": "live",
+    "ar_word": "يَعِيشُ",
+    "ar_word_tr": "yaʿīshu"
+  },
+  {
+    "en_word": "on",
+    "ar_word": "عَلَى",
+    "ar_word_tr": "ʿalā"
+  },
+  {
+    "en_word": "it",
+    "ar_word": "هُوَ",
+    "ar_word_tr": "huwa"
+  },
+  {
+    "en_word": "took",
+    "ar_word": "أَخَذَ",
+    "ar_word_tr": "ʾakhadha"
+  },
+  {
+    "en_word": "come",
+    "ar_word": "يَأْتِي",
+    "ar_word_tr": "yaʾtī"
+  },
+  {
+    "en_word": "again",
+    "ar_word": "مَرَّةً أُخْرَى",
+    "ar_word_tr": "marratan ʾukhrā"
+  },
+  {
+    "en_word": "she",
+    "ar_word": "هِيَ",
+    "ar_word_tr": "hiya"
+  },
+  {
+    "en_word": "does",
+    "ar_word": "يَفْعَلُ",
+    "ar_word_tr": "yafʿalu"
+  },
+  {
+    "en_word": "not",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "is",
+    "ar_word": "يَكُونُ",
+    "ar_word_tr": "yakūnu"
+  },
+  {
+    "en_word": "usually",
+    "ar_word": "عَادَةً",
+    "ar_word_tr": "ʿādatan"
+  },
+  {
+    "en_word": "don't",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "look",
+    "ar_word": "يَنْظُرُ",
+    "ar_word_tr": "yanẓuru"
+  },
+  {
+    "en_word": "looks",
+    "ar_word": "يَبْدُو",
+    "ar_word_tr": "yabdū"
+  },
+  {
+    "en_word": "these",
+    "ar_word": "هَؤُلَاءِ",
+    "ar_word_tr": "hāʾulāʾi"
+  },
+  {
+    "en_word": "aren't",
+    "ar_word": "لَيْسُوا",
+    "ar_word_tr": "laysū"
+  },
+  {
+    "en_word": "has",
+    "ar_word": "لَدَيْهِ",
+    "ar_word_tr": "ladayhi"
+  },
+  {
+    "en_word": "finish",
+    "ar_word": "يُنْهِي",
+    "ar_word_tr": "yunhī"
+  },
+  {
+    "en_word": "finished",
+    "ar_word": "أَنْهَى",
+    "ar_word_tr": "ʾanhā"
+  },
+  {
+    "en_word": "finishing",
+    "ar_word": "يُنْهِي",
+    "ar_word_tr": "yunhī"
+  },
+  {
+    "en_word": "who",
+    "ar_word": "مَنْ",
+    "ar_word_tr": "man"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "after",
+    "ar_word": "بَعْدَ",
+    "ar_word_tr": "baʿda"
+  },
+  {
+    "en_word": "your",
+    "ar_word": "خَاصَّتُكَ",
+    "ar_word_tr": "khāṣṣatuka"
+  },
+  {
+    "en_word": "aren't",
+    "ar_word": "لَيْسُوا",
+    "ar_word_tr": "laysū"
+  },
+  {
+    "en_word": "he",
+    "ar_word": "هُوَ",
+    "ar_word_tr": "huwa"
+  },
+  {
+    "en_word": "wants",
+    "ar_word": "يُرِيدُ",
+    "ar_word_tr": "yurīdu"
+  },
+  {
+    "en_word": "see",
+    "ar_word": "يَرَى",
+    "ar_word_tr": "yarā"
+  },
+  {
+    "en_word": "those",
+    "ar_word": "أُولَئِكَ",
+    "ar_word_tr": "ʾūlāʾika"
+  },
+  {
+    "en_word": "theirs",
+    "ar_word": "خَاصَّتُهُمْ",
+    "ar_word_tr": "khāṣṣatuhum"
+  },
+  {
+    "en_word": "to",
+    "ar_word": "إِلَى",
+    "ar_word_tr": "ʾilā"
+  },
+  {
+    "en_word": "wonder",
+    "ar_word": "يَتَسَاءَلُ",
+    "ar_word_tr": "yatasaʾalu"
+  },
+  {
+    "en_word": "if",
+    "ar_word": "إِذَا",
+    "ar_word_tr": "ʾidhā"
+  },
+  {
+    "en_word": "she",
+    "ar_word": "هِيَ",
+    "ar_word_tr": "hiya"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "ask",
+    "ar_word": "يَسْأَلُ",
+    "ar_word_tr": "yasʾalu"
+  },
+  {
+    "en_word": "where",
+    "ar_word": "أَيْنَ",
+    "ar_word_tr": "ʾayna"
+  },
+  {
+    "en_word": "my",
+    "ar_word": "خَاصَّتِي",
+    "ar_word_tr": "khāṣṣatī"
+  },
+  {
+    "en_word": "I'm",
+    "ar_word": "أَنَا",
+    "ar_word_tr": "ʾanā"
+  },
+  {
+    "en_word": "from",
+    "ar_word": "مِنْ",
+    "ar_word_tr": "min"
+  },
+  {
+    "en_word": "can",
+    "ar_word": "يَسْتَطِيعُ",
+    "ar_word_tr": "yastaṭīʿu"
+  },
+  {
+    "en_word": "just",
+    "ar_word": "فَقَطْ",
+    "ar_word_tr": "faqaṭ"
+  },
+  {
+    "en_word": "were",
+    "ar_word": "كَانُوا",
+    "ar_word_tr": "kānū"
+  },
+  {
+    "en_word": "with",
+    "ar_word": "مَعَ",
+    "ar_word_tr": "maʿa"
+  },
+  {
+    "en_word": "anyone",
+    "ar_word": "أَيُّ شَخْص",
+    "ar_word_tr": "ʾayyu shakhṣ"
+  },
+  {
+    "en_word": "wish",
+    "ar_word": "يَتَمَنَّى",
+    "ar_word_tr": "yatamannā"
+  },
+  {
+    "en_word": "could",
+    "ar_word": "اِسْتَطَاعَ",
+    "ar_word_tr": "istaṭāʿa"
+  },
+  {
+    "en_word": "have",
+    "ar_word": "يَمْلِكُ",
+    "ar_word_tr": "yamliku"
+  },
+  {
+    "en_word": "has",
+    "ar_word": "لَدَيْهِ",
+    "ar_word_tr": "ladayhi"
+  },
+  {
+    "en_word": "doesn't",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "did",
+    "ar_word": "فَعَلَ",
+    "ar_word_tr": "faʿala"
+  },
+  {
+    "en_word": "didn't",
+    "ar_word": "لَمْ يَفْعَلْ",
+    "ar_word_tr": "lam yafʿal"
+  },
+  {
+    "en_word": "forgot",
+    "ar_word": "نَسِيَ",
+    "ar_word_tr": "nasiya"
+  },
+  {
+    "en_word": "they",
+    "ar_word": "هُمْ",
+    "ar_word_tr": "hum"
+  },
+  {
+    "en_word": "us",
+    "ar_word": "إِيَّانَا",
+    "ar_word_tr": "ʾiyyānā"
+  },
+  {
+    "en_word": "take",
+    "ar_word": "يَأْخُذُ",
+    "ar_word_tr": "yaʾkhudhu"
+  },
+  {
+    "en_word": "seem",
+    "ar_word": "يَبْدُو",
+    "ar_word_tr": "yabdū"
+  },
+  {
+    "en_word": "an",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "and",
+    "ar_word": "وَ",
+    "ar_word_tr": "wa"
+  },
+  {
+    "en_word": "therefore",
+    "ar_word": "لِذَلِكَ",
+    "ar_word_tr": "lidhālika"
+  },
+  {
+    "en_word": "so",
+    "ar_word": "إِذَنْ",
+    "ar_word_tr": "ʾidhan"
+  },
+  {
+    "en_word": "then",
+    "ar_word": "ثُمَّ",
+    "ar_word_tr": "thumma"
+  },
+  {
+    "en_word": "would",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "like",
+    "ar_word": "يُحِبُّ",
+    "ar_word_tr": "yuḥibbu"
+  },
+  {
+    "en_word": "back",
+    "ar_word": "خَلْف",
+    "ar_word_tr": "khalf"
+  },
+  {
+    "en_word": "return",
+    "ar_word": "يَعُودُ",
+    "ar_word_tr": "yaʿūdu"
+  },
+  {
+    "en_word": "saw",
+    "ar_word": "رَأَى",
+    "ar_word_tr": "raʾā"
+  },
+  {
+    "en_word": "seen",
+    "ar_word": "مَرْئِيّ",
+    "ar_word_tr": "marʾiyy"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "all",
+    "ar_word": "كُلّ",
+    "ar_word_tr": "kull"
+  },
+  {
+    "en_word": "are",
+    "ar_word": "يَكُونُونَ",
+    "ar_word_tr": "yakūnūna"
+  },
+  {
+    "en_word": "there",
+    "ar_word": "هُنَاكَ",
+    "ar_word_tr": "hunāka"
+  },
+  {
+    "en_word": "pair",
+    "ar_word": "زَوْج",
+    "ar_word_tr": "zawj"
+  },
+  {
+    "en_word": "someone",
+    "ar_word": "شَخْصٌ مَا",
+    "ar_word_tr": "shakhṣun mā"
+  },
+  {
+    "en_word": "know",
+    "ar_word": "يَعْرِفُ",
+    "ar_word_tr": "yaʿrifu"
+  },
+  {
+    "en_word": "them",
+    "ar_word": "هُمْ",
+    "ar_word_tr": "hum"
+  },
+  {
+    "en_word": "thinking",
+    "ar_word": "يُفَكِّرُ",
+    "ar_word_tr": "yufakkiru"
+  },
+  {
+    "en_word": "thought",
+    "ar_word": "فَكَّرَ",
+    "ar_word_tr": "fakkara"
+  },
+  {
+    "en_word": "though",
+    "ar_word": "رَغْمَ أَنَّ",
+    "ar_word_tr": "raghma ʾanna"
+  },
+  {
+    "en_word": "however",
+    "ar_word": "لَكِنْ",
+    "ar_word_tr": "lākin"
+  },
+  {
+    "en_word": "if",
+    "ar_word": "إِذَا",
+    "ar_word_tr": "ʾidhā"
+  },
+  {
+    "en_word": "would",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "better",
+    "ar_word": "أَفْضَل",
+    "ar_word_tr": "ʾafḍal"
+  },
+  {
+    "en_word": "may",
+    "ar_word": "قَدْ",
+    "ar_word_tr": "qad"
+  },
+  {
+    "en_word": "burrow",
+    "ar_word": "يَحْفِرُ",
+    "ar_word_tr": "yaḥfiru"
+  },
+  {
+    "en_word": "collecting",
+    "ar_word": "يَجْمَعُ",
+    "ar_word_tr": "yajmaʿu"
+  },
+  {
+    "en_word": "at",
+    "ar_word": "عِنْدَ",
+    "ar_word_tr": "ʿinda"
+  },
+  {
+    "en_word": "way",
+    "ar_word": "طَرِيقَة",
+    "ar_word_tr": "ṭarīqah"
+  },
+  {
+    "en_word": "let's",
+    "ar_word": "دَعْنَا",
+    "ar_word_tr": "daʿnā"
+  },
+  {
+    "en_word": "understand",
+    "ar_word": "يَفْهَمُ",
+    "ar_word_tr": "yafhamu"
+  },
+  {
+    "en_word": "either",
+    "ar_word": "إِمَّا",
+    "ar_word_tr": "ʾimmā"
+  },
+  {
+    "en_word": "neither",
+    "ar_word": "لَا هَذَا وَلَا ذَاكَ",
+    "ar_word_tr": "lā hādhā wa lā dhāka"
+  },
+  {
+    "en_word": "answer",
+    "ar_word": "إِجَابَة",
+    "ar_word_tr": "ʾijābah"
+  },
+  {
+    "en_word": "got",
+    "ar_word": "حَصَلَ عَلَى",
+    "ar_word_tr": "ḥaṣala ʿalā"
+  },
+  {
+    "en_word": "where",
+    "ar_word": "أَيْنَ",
+    "ar_word_tr": "ʾayna"
+  },
+  {
+    "en_word": "take",
+    "ar_word": "يَأْخُذُ",
+    "ar_word_tr": "yaʾkhudhu"
+  },
+  {
+    "en_word": "anything",
+    "ar_word": "أَيُّ شَيْء",
+    "ar_word_tr": "ʾayyu shayʾ"
+  },
+  {
+    "en_word": "that's",
+    "ar_word": "ذَلِكَ هُوَ",
+    "ar_word_tr": "dhālika huwa"
+  },
+  {
+    "en_word": "we",
+    "ar_word": "نَحْنُ",
+    "ar_word_tr": "naḥnu"
+  },
+  {
+    "en_word": "want",
+    "ar_word": "يُرِيدُ",
+    "ar_word_tr": "yurīdu"
+  },
+  {
+    "en_word": "know",
+    "ar_word": "يَعْرِفُ",
+    "ar_word_tr": "yaʿrifu"
+  },
+  {
+    "en_word": "whose",
+    "ar_word": "لِمَنْ",
+    "ar_word_tr": "liman"
+  },
+  {
+    "en_word": "asked",
+    "ar_word": "سَأَلَ",
+    "ar_word_tr": "saʾala"
+  },
+  {
+    "en_word": "likes",
+    "ar_word": "يُحِبُّ",
+    "ar_word_tr": "yuḥibbu"
+  },
+  {
+    "en_word": "here's",
+    "ar_word": "هَا هُوَ",
+    "ar_word_tr": "hā huwa"
+  },
+  {
+    "en_word": "some",
+    "ar_word": "بَعْض",
+    "ar_word_tr": "baʿḍ"
+  },
+  {
+    "en_word": "long",
+    "ar_word": "طَوِيل",
+    "ar_word_tr": "ṭawīl"
+  },
+  {
+    "en_word": "left",
+    "ar_word": "غَادَرَ",
+    "ar_word_tr": "ghādara"
+  },
+  {
+    "en_word": "me",
+    "ar_word": "إِيَّايَ",
+    "ar_word_tr": "ʾiyyāya"
+  },
+  {
+    "en_word": "note",
+    "ar_word": "مُلَاحَظَة",
+    "ar_word_tr": "mulāḥaẓah"
+  },
+  {
+    "en_word": "acknowledged",
+    "ar_word": "اِعْتَرَفَ",
+    "ar_word_tr": "iʿtarafa"
+  },
+  {
+    "en_word": "lost",
+    "ar_word": "خَسِرَ",
+    "ar_word_tr": "khasira"
+  },
+  {
+    "en_word": "found",
+    "ar_word": "وَجَدَ",
+    "ar_word_tr": "wajada"
+  },
+  {
+    "en_word": "usually",
+    "ar_word": "عَادَةً",
+    "ar_word_tr": "ʿādatan"
+  },
+  {
+    "en_word": "before",
+    "ar_word": "قَبْلَ",
+    "ar_word_tr": "qabla"
+  },
+  {
+    "en_word": "send",
+    "ar_word": "يُرْسِلُ",
+    "ar_word_tr": "yursilu"
+  },
+  {
+    "en_word": "sent",
+    "ar_word": "أَرْسَلَ",
+    "ar_word_tr": "ʾarsala"
+  },
+  {
+    "en_word": "were",
+    "ar_word": "كَانُوا",
+    "ar_word_tr": "kānū"
+  },
+  {
+    "en_word": "was",
+    "ar_word": "كَانَ",
+    "ar_word_tr": "kāna"
+  },
+  {
+    "en_word": "often",
+    "ar_word": "غَالِبًا",
+    "ar_word_tr": "ghāliban"
+  },
+  {
+    "en_word": "just",
+    "ar_word": "فَقَطْ",
+    "ar_word_tr": "faqaṭ"
+  },
+  {
+    "en_word": "behind",
+    "ar_word": "خَلْفَ",
+    "ar_word_tr": "khalfa"
+  },
+  {
+    "en_word": "happened",
+    "ar_word": "حَدَثَ",
+    "ar_word_tr": "ḥadatha"
+  },
+  {
+    "en_word": "happen",
+    "ar_word": "يَحْدُثُ",
+    "ar_word_tr": "yaḥduthu"
+  },
+  {
+    "en_word": "happening",
+    "ar_word": "يَحْدُثُ",
+    "ar_word_tr": "yaḥduthu"
+  },
+  {
+    "en_word": "happens",
+    "ar_word": "يَحْدُثُ",
+    "ar_word_tr": "yaḥduthu"
+  },
+  {
+    "en_word": "an",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "peel",
+    "ar_word": "يُقَشِّرُ",
+    "ar_word_tr": "yuqashshiru"
+  },
+  {
+    "en_word": "went",
+    "ar_word": "ذَهَبَ",
+    "ar_word_tr": "dhahaba"
+  },
+  {
+    "en_word": "learn",
+    "ar_word": "يَتَعَلَّمُ",
+    "ar_word_tr": "yataʿallamu"
+  },
+  {
+    "en_word": "else",
+    "ar_word": "آخَر",
+    "ar_word_tr": "ʾākhar"
+  },
+  {
+    "en_word": "none",
+    "ar_word": "لَا أَحَد",
+    "ar_word_tr": "lā ʾaḥad"
+  },
+  {
+    "en_word": "nothing",
+    "ar_word": "لَا شَيْء",
+    "ar_word_tr": "lā shayʾ"
+  },
+  {
+    "en_word": "almost",
+    "ar_word": "تَقْرِيبًا",
+    "ar_word_tr": "taqrīban"
+  },
+  {
+    "en_word": "reason",
+    "ar_word": "سَبَب",
+    "ar_word_tr": "sabab"
+  },
+  {
+    "en_word": "never",
+    "ar_word": "أَبَدًا",
+    "ar_word_tr": "ʾabadan"
+  },
+  {
+    "en_word": "wish",
+    "ar_word": "أُمْنِيَة",
+    "ar_word_tr": "ʾumniyah"
+  },
+  {
+    "en_word": "having",
+    "ar_word": "يَمْلِكُ",
+    "ar_word_tr": "yamliku"
+  },
+  {
+    "en_word": "tried",
+    "ar_word": "حَاوَلَ",
+    "ar_word_tr": "ḥāwala"
+  },
+  {
+    "en_word": "try",
+    "ar_word": "يُحَاوِلُ",
+    "ar_word_tr": "yuḥāwilu"
+  },
+  {
+    "en_word": "something",
+    "ar_word": "شَيْءٌ مَا",
+    "ar_word_tr": "shayʾun mā"
+  },
+  {
+    "en_word": "began",
+    "ar_word": "بَدَأَ",
+    "ar_word_tr": "badaʾa"
+  },
+  {
+    "en_word": "dropped",
+    "ar_word": "أَسْقَطَ",
+    "ar_word_tr": "ʾasqaṭa"
+  },
+  {
+    "en_word": "pass",
+    "ar_word": "يَمُرُّ",
+    "ar_word_tr": "yamurru"
+  },
+  {
+    "en_word": "out",
+    "ar_word": "خَارِج",
+    "ar_word_tr": "khārij"
+  },
+  {
+    "en_word": "order",
+    "ar_word": "أَمْر",
+    "ar_word_tr": "ʾamr"
+  },
+  {
+    "en_word": "went",
+    "ar_word": "ذَهَبَ",
+    "ar_word_tr": "dhahaba"
+  },
+  {
+    "en_word": "do",
+    "ar_word": "يَفْعَلُ",
+    "ar_word_tr": "yafʿalu"
+  },
+  {
+    "en_word": "early",
+    "ar_word": "مُبَكِّرًا",
+    "ar_word_tr": "mubakkiran"
+  },
+  {
+    "en_word": "must",
+    "ar_word": "يَجِبُ",
+    "ar_word_tr": "yajibu"
+  },
+  {
+    "en_word": "still",
+    "ar_word": "لَا يَزَالُ",
+    "ar_word_tr": "lā yazālu"
+  },
+  {
+    "en_word": "get",
+    "ar_word": "يَحْصُلُ عَلَى",
+    "ar_word_tr": "yaḥṣulu ʿalā"
+  },
+  {
+    "en_word": "glad",
+    "ar_word": "سَعِيد",
+    "ar_word_tr": "saʿīd"
+  },
+  {
+    "en_word": "necessarily",
+    "ar_word": "بِالضَّرُورَة",
+    "ar_word_tr": "bi-ḍ-ḍarūrah"
+  },
+  {
+    "en_word": "reliable",
+    "ar_word": "مَوْثُوق",
+    "ar_word_tr": "mawthūq"
+  },
+  {
+    "en_word": "mind",
+    "ar_word": "عَقْل",
+    "ar_word_tr": "ʿaql"
+  },
+  {
+    "en_word": "new",
+    "ar_word": "جَدِيد",
+    "ar_word_tr": "jadīd"
+  },
+  {
+    "en_word": "live",
+    "ar_word": "يَعِيشُ",
+    "ar_word_tr": "yaʿīshu"
+  },
+  {
+    "en_word": "lived",
+    "ar_word": "عَاشَ",
+    "ar_word_tr": "ʿāsha"
+  },
+  {
+    "en_word": "sense",
+    "ar_word": "إِحْسَاس",
+    "ar_word_tr": "ʾiḥsās"
+  },
+  {
+    "en_word": "check",
+    "ar_word": "يَتَحَقَّقُ",
+    "ar_word_tr": "yataḥaqqaqu"
+  },
+  {
+    "en_word": "terribly",
+    "ar_word": "بِشِدَّة",
+    "ar_word_tr": "bi-shiddah"
+  }
+]

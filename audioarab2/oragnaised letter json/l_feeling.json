@@ -1,0 +1,25 @@
+
+[
+  [{"en_feel_word": "happy", "ar_feel_word": "سَعِيد", "ar_tr_feel_word": "saʿīd"}, {"en_feel_present": "feeling happy", "ar_feel_present": "يَشْعُرُ بِالسَّعَادَة", "ar_tr_feel_present": "yashʿuru bis-saʿādah"}],
+  [{"en_feel_word": "sad", "ar_feel_word": "حَزِين", "ar_tr_feel_word": "ḥazīn"}, {"en_feel_present": "feeling sad", "ar_feel_present": "يَشْعُرُ بِالْحُزْن", "ar_tr_feel_present": "yashʿuru bil-ḥuzn"}],
+  [{"en_feel_word": "shy", "ar_feel_word": "خَجُول", "ar_tr_feel_word": "khajūl"}, {"en_feel_present": "feeling shy", "ar_feel_present": "يَشْعُرُ بِالْخَجَل", "ar_tr_feel_present": "yashʿuru bil-khajal"}],
+  [{"en_feel_word": "want", "ar_feel_word": "يُرِيدُ", "ar_tr_feel_word": "yurīdu"}, {"en_feel_present": "wanting", "ar_feel_present": "يُرِيدُ", "ar_tr_feel_present": "yurīdu"}],
+  [{"en_feel_word": "interested", "ar_feel_word": "مُهْتَمّ", "ar_tr_feel_word": "muhtamm"}, {"en_feel_present": "feeling interested", "ar_feel_present": "يَشْعُرُ بِالاهْتِمَام", "ar_tr_feel_present": "yashʿuru bil-ihtimām"}],
+  [{"en_feel_word": "bored", "ar_feel_word": "مَلِل", "ar_tr_feel_word": "malil"}, {"en_feel_present": "feeling bored", "ar_feel_present": "يَشْعُرُ بِالْمَلَل", "ar_tr_feel_present": "yashʿuru bil-malal"}],
+  [{"en_feel_word": "embarrassed", "ar_feel_word": "مُحْرَج", "ar_tr_feel_word": "muḥraj"}, {"en_feel_present": "feeling embarrassed", "ar_feel_present": "يَشْعُرُ بِالْإِحْرَاج", "ar_tr_feel_present": "yashʿuru bil-ʾiḥrāj"}],
+  [{"en_feel_word": "job", "ar_feel_word": "عَمَل", "ar_tr_feel_word": "ʿamal"}, {"en_feel_present": "working", "ar_feel_present": "يَعْمَلُ", "ar_tr_feel_present": "yaʿmalu"}],
+  [{"en_feel_word": "trip", "ar_feel_word": "رِحْلَة", "ar_tr_feel_word": "riḥlah"}, {"en_feel_present": "traveling", "ar_feel_present": "يُسَافِرُ", "ar_tr_feel_present": "yusāfiru"}],
+  [{"en_feel_word": "feeling", "ar_feel_word": "شُعُور", "ar_tr_feel_word": "shuʿūr"}, {"en_feel_present": "feeling", "ar_feel_present": "يَشْعُرُ", "ar_tr_feel_present": "yashʿuru"}],
+  [{"en_feel_word": "promise", "ar_feel_word": "وَعْد", "ar_tr_feel_word": "waʿd"}, {"en_feel_present": "promising", "ar_feel_present": "يَعِدُ", "ar_tr_feel_present": "yaʿidu"}],
+  [{"en_feel_word": "greeting", "ar_feel_word": "تَحِيَّة", "ar_tr_feel_word": "taḥiyyah"}, {"en_feel_present": "greeting", "ar_feel_present": "يُحَيِّي", "ar_tr_feel_present": "yuḥayyī"}],
+  [{"en_feel_word": "well", "ar_feel_word": "بِخَيْر", "ar_tr_feel_word": "bi-khayr"}, {"en_feel_present": "doing well", "ar_feel_present": "يَبْلِي حَسَنًا", "ar_tr_feel_present": "yablī ḥasanan"}],
+  [{"en_feel_word": "behavior", "ar_feel_word": "سُلُوك", "ar_tr_feel_word": "sulūk"}, {"en_feel_present": "behaving", "ar_feel_present": "يَتَصَرَّفُ", "ar_tr_feel_present": "yataṣarrafu"}],
+  [{"en_feel_word": "romantic", "ar_feel_word": "رُومَانْسِيّ", "ar_tr_feel_word": "rūmānsiyy"}, {"en_feel_present": "being romantic", "ar_feel_present": "يَتَصَرَّفُ بِرُومَانْسِيَّة", "ar_tr_feel_present": "yataṣarrafu bi-rūmānsiyyah"}],
+  [{"en_feel_word": "fine", "ar_feel_word": "بِخَيْر", "ar_tr_feel_word": "bi-khayr"}, {"en_feel_present": "feeling fine", "ar_feel_present": "يَشْعُرُ بِأَنَّهُ بِخَيْر", "ar_tr_feel_present": "yashʿuru bi-ʾannahu bi-khayr"}],
+  [{"en_feel_word": "experience", "ar_feel_word": "خِبْرَة", "ar_tr_feel_word": "khibrah"}, {"en_feel_present": "experiencing", "ar_feel_present": "يُجَرِّبُ", "ar_tr_feel_present": "yujarribu"}],
+  [{"en_feel_word": "rest", "ar_feel_word": "رَاحَة", "ar_tr_feel_word": "rāḥah"}, {"en_feel_present": "resting", "ar_feel_present": "يَسْتَرِيحُ", "ar_tr_feel_present": "yastarīḥu"}],
+  [{"en_feel_word": "humble", "ar_feel_word": "مُتَوَاضِع", "ar_tr_feel_word": "mutawāḍiʿ"}, {"en_feel_present": "being humble", "ar_feel_present": "يَتَوَاضَعُ", "ar_tr_feel_present": "yatawāḍaʿu"}],
+  [{"en_feel_word": "nap", "ar_feel_word": "قَيْلُولَة", "ar_tr_feel_word": "qaylūlah"}, {"en_feel_present": "napping", "ar_feel_present": "يَأْخُذُ قَيْلُولَة", "ar_tr_feel_present": "yaʾkhudhu qaylūlah"}],
+  [{"en_feel_word": "happy", "ar_feel_word": "سَعِيد", "ar_tr_feel_word": "saʿīd"}, {"en_feel_present": "feeling happy", "ar_feel_present": "يَشْعُرُ بِالسَّعَادَة", "ar_tr_feel_present": "yashʿuru bis-saʿādah"}]
+]
+

@@ -1,0 +1,2287 @@
+[
+  {
+    "base_verb": { "en": "pass", "ar": "يَمُرُّ", "ar_tr": "yamurru" },
+    "third_person_singular": { "en": "passes", "ar": "يَمُرُّ", "ar_tr": "yamurru" },
+    "present_participle": { "en": "passing", "ar": "يَمُرُّ", "ar_tr": "yamurru" },
+    "past_tense": { "en": "passed", "ar": "مَرَّ", "ar_tr": "marra" },
+    "related_noun": { "en": "pass", "ar": "تَمْرِيرَة", "ar_tr": "tamrīrah" },
+    "related_adjective": { "en": "passing", "ar": "عَابِر", "ar_tr": "ʿābir" },
+    "tags": ["intransitive","action_physical","dynamic","process","(can_be_transitive_in_sports)"]
+  },
+  {
+    "base_verb": { "en": "change", "ar": "يُغَيِّرُ", "ar_tr": "yughayyiru" },
+    "third_person_singular": { "en": "changes", "ar": "يُغَيِّرُ", "ar_tr": "yughayyiru" },
+    "present_participle": { "en": "changing", "ar": "يُغَيِّرُ", "ar_tr": "yughayyiru" },
+    "past_tense": { "en": "changed", "ar": "غَيَّرَ", "ar_tr": "ghayyara" },
+    "related_noun": { "en": "change", "ar": "تَغْيِير", "ar_tr": "taghyīr" },
+    "related_adjective": { "en": "changed", "ar": "مُتَغَيِّر", "ar_tr": "mutaghayyir" },
+    "tags": ["transitive","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "visit", "ar": "يَزُورُ", "ar_tr": "yazūru" },
+    "third_person_singular": { "en": "visits", "ar": "يَزُورُ", "ar_tr": "yazūru" },
+    "present_participle": { "en": "visiting", "ar": "يَزُورُ", "ar_tr": "yazūru" },
+    "past_tense": { "en": "visited", "ar": "زَارَ", "ar_tr": "zāra" },
+    "related_noun": { "en": "visit", "ar": "زِيَارَة", "ar_tr": "ziyārah" },
+    "related_adjective": { "en": "visiting", "ar": "زَائِر", "ar_tr": "zāʾir" },
+    "tags": ["transitive","action_physical","dynamic","social"]
+  },
+  {
+    "base_verb": { "en": "leave", "ar": "يُغَادِرُ", "ar_tr": "yughādiru" },
+    "third_person_singular": { "en": "leaves", "ar": "يُغَادِرُ", "ar_tr": "yughādiru" },
+    "present_participle": { "en": "leaving", "ar": "يُغَادِرُ", "ar_tr": "yughādiru" },
+    "past_tense": { "en": "left", "ar": "غَادَرَ", "ar_tr": "ghādara" },
+    "related_noun": { "en": "leave", "ar": "مُغَادَرَة", "ar_tr": "mughādarah" },
+    "related_adjective": { "en": "left", "ar": "مُغَادِر", "ar_tr": "mughādir" },
+    "tags": ["transitive","intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "play", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "third_person_singular": { "en": "plays", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "present_participle": { "en": "playing", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "past_tense": { "en": "played", "ar": "لَعِبَ", "ar_tr": "laʿiba" },
+    "related_noun": { "en": "player", "ar": "لاَعِب", "ar_tr": "lāʿib" },
+    "related_adjective": { "en": "playing", "ar": "لاَعِب", "ar_tr": "lāʿib" },
+    "tags": ["intransitive","action_physical","dynamic","recreation"]
+  },
+  {
+    "base_verb": { "en": "pull", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "third_person_singular": { "en": "pulls", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "present_participle": { "en": "pulling", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "past_tense": { "en": "pulled", "ar": "سَحَبَ", "ar_tr": "saḥaba" },
+    "related_noun": { "en": "pull", "ar": "سَحْب", "ar_tr": "saḥb" },
+    "related_adjective": { "en": "pulled", "ar": "مَسْحُوب", "ar_tr": "masḥūb" },
+    "tags": ["transitive","action_physical","dynamic","force"]
+  },
+  {
+    "base_verb": { "en": "hope", "ar": "يَأْمُلُ", "ar_tr": "yaʾmulu" },
+    "third_person_singular": { "en": "hopes", "ar": "يَأْمُلُ", "ar_tr": "yaʾmulu" },
+    "present_participle": { "en": "hoping", "ar": "يَأْمُلُ", "ar_tr": "yaʾmulu" },
+    "past_tense": { "en": "hoped", "ar": "أَمَلَ", "ar_tr": "ʾamala" },
+    "related_noun": { "en": "hope", "ar": "أَمَل", "ar_tr": "ʾamal" },
+    "related_adjective": { "en": "hopeful", "ar": "مُتَفَائِل", "ar_tr": "mutafāʾil" },
+    "tags": ["action_mental","intransitive","stative_dynamic_mixed","emotion"]
+  },
+  {
+    "base_verb": { "en": "do", "ar": "يَفْعَلُ", "ar_tr": "yafʿalu" },
+    "third_person_singular": { "en": "does", "ar": "يَفْعَلُ", "ar_tr": "yafʿalu" },
+    "present_participle": { "en": "doing", "ar": "يَفْعَلُ", "ar_tr": "yafʿalu" },
+    "past_tense": { "en": "did", "ar": "فَعَلَ", "ar_tr": "faʿala" },
+    "related_noun": { "en": "deed", "ar": "فِعْل", "ar_tr": "fiʿl" },
+    "related_adjective": { "en": "done", "ar": "مَفْعُول", "ar_tr": "mafʿūl" },
+    "tags": ["transitive","intransitive","dynamic","light_verb"]
+  },
+  {
+    "base_verb": { "en": "reach", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "third_person_singular": { "en": "reaches", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "present_participle": { "en": "reaching", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "past_tense": { "en": "reached", "ar": "وَصَلَ", "ar_tr": "waṣala" },
+    "related_noun": { "en": "reach", "ar": "وُصُول", "ar_tr": "wuṣūl" },
+    "related_adjective": { "en": "reachable", "ar": "يُمْكِنُ الوُصُولُ إِلَيْهِ", "ar_tr": "yumkinu l-wuṣūlu ilayh" },
+    "tags": ["intransitive","dynamic","goal_directed"]
+  },
+  {
+    "base_verb": { "en": "go", "ar": "يَذْهَبُ", "ar_tr": "yadhhabu" },
+    "third_person_singular": { "en": "goes", "ar": "يَذْهَبُ", "ar_tr": "yadhhabu" },
+    "present_participle": { "en": "going", "ar": "يَذْهَبُ", "ar_tr": "yadhhabu" },
+    "past_tense": { "en": "went", "ar": "ذَهَبَ", "ar_tr": "dhahaba" },
+    "related_noun": { "en": "going", "ar": "ذَهَاب", "ar_tr": "dhahāb" },
+    "related_adjective": { "en": "gone", "ar": "ذَاهِب", "ar_tr": "dhāhib" },
+    "tags": ["intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "can", "ar": "يَسْتَطِيعُ", "ar_tr": "yastaṭīʿu" },
+    "third_person_singular": { "en": "can", "ar": "يَسْتَطِيعُ", "ar_tr": "yastaṭīʿu" },
+    "present_participle": null,
+    "past_tense": { "en": "could", "ar": "اِسْتَطَاعَ", "ar_tr": "istaṭāʿa" },
+    "related_noun": { "en": "ability", "ar": "قُدْرَة", "ar_tr": "qudra" },
+    "related_adjective": { "en": "able", "ar": "قَادِر", "ar_tr": "qādir" },
+    "tags": ["modal","stative","ability"]
+  },
+  {
+    "base_verb": { "en": "fold", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "third_person_singular": { "en": "folds", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "present_participle": { "en": "folding", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "past_tense": { "en": "folded", "ar": "طَوَى", "ar_tr": "ṭawā" },
+    "related_noun": { "en": "fold", "ar": "طَيَّة", "ar_tr": "ṭayyah" },
+    "related_adjective": { "en": "folded", "ar": "مَطْوِيّ", "ar_tr": "maṭwiyy" },
+    "tags": ["transitive","action_physical","dynamic","manipulation"]
+  },
+  {
+    "base_verb": { "en": "like", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "third_person_singular": { "en": "likes", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "present_participle": { "en": "liking", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "past_tense": { "en": "liked", "ar": "أَحَبَّ", "ar_tr": "aḥabba" },
+    "related_noun": { "en": "liking", "ar": "مَحَبَّة", "ar_tr": "maḥabbah" },
+    "related_adjective": { "en": "liked", "ar": "مَحْبُوب", "ar_tr": "maḥbūb" },
+    "tags": ["action_mental","transitive","stative"]
+  },
+  {
+    "base_verb": { "en": "pour", "ar": "يَصُبُّ", "ar_tr": "yaṣubbu" },
+    "third_person_singular": { "en": "pours", "ar": "يَصُبُّ", "ar_tr": "yaṣubbu" },
+    "present_participle": { "en": "pouring", "ar": "يَصُبُّ", "ar_tr": "yaṣubbu" },
+    "past_tense": { "en": "poured", "ar": "صَبَّ", "ar_tr": "ṣabba" },
+    "related_noun": { "en": "pour", "ar": "صَبّ", "ar_tr": "ṣabb" },
+    "related_adjective": { "en": "poured", "ar": "مَصْبُوب", "ar_tr": "maṣbūb" },
+    "tags": ["transitive","action_physical","dynamic","liquid"]
+  },
+  {
+    "base_verb": { "en": "squeeze", "ar": "يَعْصِرُ", "ar_tr": "yaʿṣiru" },
+    "third_person_singular": { "en": "squeezes", "ar": "يَعْصِرُ", "ar_tr": "yaʿṣiru" },
+    "present_participle": { "en": "squeezing", "ar": "يَعْصِرُ", "ar_tr": "yaʿṣiru" },
+    "past_tense": { "en": "squeezed", "ar": "عَصَرَ", "ar_tr": "ʿaṣara" },
+    "related_noun": { "en": "squeeze", "ar": "عَصْر", "ar_tr": "ʿaṣr" },
+    "related_adjective": { "en": "squeezed", "ar": "مَعْصُور", "ar_tr": "maʿṣūr" },
+    "tags": ["transitive","action_physical","dynamic","manipulation"]
+  },
+  {
+    "base_verb": { "en": "hit", "ar": "يَضْرِبُ", "ar_tr": "yaḍribu" },
+    "third_person_singular": { "en": "hits", "ar": "يَضْرِبُ", "ar_tr": "yaḍribu" },
+    "present_participle": { "en": "hitting", "ar": "يَضْرِبُ", "ar_tr": "yaḍribu" },
+    "past_tense": { "en": "hit", "ar": "ضَرَبَ", "ar_tr": "ḍaraba" },
+    "related_noun": { "en": "hit", "ar": "ضَرْبَة", "ar_tr": "ḍarbah" },
+    "related_adjective": { "en": "hit", "ar": "مَضْرُوب", "ar_tr": "maḍrūb" },
+    "tags": ["transitive","intransitive","action_physical","dynamic","impact"]
+  },
+  {
+    "base_verb": { "en": "blow", "ar": "يَنْفُخُ", "ar_tr": "yanfukhu" },
+    "third_person_singular": { "en": "blows", "ar": "يَنْفُخُ", "ar_tr": "yanfukhu" },
+    "present_participle": { "en": "blowing", "ar": "يَنْفُخُ", "ar_tr": "yanfukhu" },
+    "past_tense": { "en": "blew", "ar": "نَفَخَ", "ar_tr": "nafakha" },
+    "related_noun": { "en": "blow", "ar": "نَفْخَة", "ar_tr": "nafkha" },
+    "related_adjective": { "en": "blown", "ar": "مَنْفُوخ", "ar_tr": "manfūkh" },
+    "tags": ["intransitive","transitive","action_physical","dynamic","air"]
+  },
+  {
+    "base_verb": { "en": "paintbrush", "ar": "يَرْسُمُ بِالفُرْشَاة", "ar_tr": "yarsumu bil-furshāh" },
+    "third_person_singular": { "en": "paintbrushes", "ar": "يَرْسُمُ بِالفُرْشَاة", "ar_tr": "yarsumu bil-furshāh" },
+    "present_participle": { "en": "paintbrushing", "ar": "يَرْسُمُ بِالفُرْشَاة", "ar_tr": "yarsumu bil-furshāh" },
+    "past_tense": { "en": "paintbrushed", "ar": "رَسَمَ بِالفُرْشَاة", "ar_tr": "rasama bil-furshāh" },
+    "related_noun": { "en": "paintbrush", "ar": "فُرْشَاة رَسْم", "ar_tr": "furshāt rasm" },
+    "related_adjective": { "en": "painted", "ar": "مَرْسُوم", "ar_tr": "marsūm" },
+    "tags": ["transitive","action_physical","dynamic","tool_use","(nonstandard_verb_phrase)"]
+  },
+  {
+    "base_verb": { "en": "speak", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "third_person_singular": { "en": "speaks", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "present_participle": { "en": "speaking", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "past_tense": { "en": "spoke", "ar": "تَحَدَّثَ", "ar_tr": "taḥaddatha" },
+    "related_noun": { "en": "speaker", "ar": "مُتَحَدِّث", "ar_tr": "mutaḥaddith" },
+    "related_adjective": { "en": "spoken", "ar": "مَنْطُوق", "ar_tr": "manṭūq" },
+    "tags": ["intransitive","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "resume", "ar": "يَسْتَأْنِفُ", "ar_tr": "yastaʾnifu" },
+    "third_person_singular": { "en": "resumes", "ar": "يَسْتَأْنِفُ", "ar_tr": "yastaʾnifu" },
+    "present_participle": { "en": "resuming", "ar": "يَسْتَأْنِفُ", "ar_tr": "yastaʾnifu" },
+    "past_tense": { "en": "resumed", "ar": "اِسْتَأْنَفَ", "ar_tr": "istaʾnafa" },
+    "related_noun": { "en": "resumption", "ar": "اِسْتِئْنَاف", "ar_tr": "istiʾnāf" },
+    "related_adjective": { "en": "resumed", "ar": "مُسْتَأْنَف", "ar_tr": "mustaʾnaf" },
+    "tags": ["transitive","dynamic","process_restart"]
+  },
+  {
+    "base_verb": { "en": "progress", "ar": "يَتَقَدَّمُ", "ar_tr": "yataqaddamu" },
+    "third_person_singular": { "en": "progresses", "ar": "يَتَقَدَّمُ", "ar_tr": "yataqaddamu" },
+    "present_participle": { "en": "progressing", "ar": "يَتَقَدَّمُ", "ar_tr": "yataqaddamu" },
+    "past_tense": { "en": "progressed", "ar": "تَقَدَّمَ", "ar_tr": "taqaddama" },
+    "related_noun": { "en": "progress", "ar": "تَقَدُّم", "ar_tr": "taqaddum" },
+    "related_adjective": { "en": "progressive", "ar": "تَقَدُّمِيّ", "ar_tr": "taqaddumiyy" },
+    "tags": ["intransitive","dynamic","process","improvement"]
+  },
+  {
+    "base_verb": { "en": "connect", "ar": "يَتَّصِلُ", "ar_tr": "yattaṣilu" },
+    "third_person_singular": { "en": "connects", "ar": "يَتَّصِلُ", "ar_tr": "yattaṣilu" },
+    "present_participle": { "en": "connecting", "ar": "يَتَّصِلُ", "ar_tr": "yattaṣilu" },
+    "past_tense": { "en": "connected", "ar": "اِتَّصَلَ", "ar_tr": "ittaṣala" },
+    "related_noun": { "en": "connection", "ar": "اِتِّصَال", "ar_tr": "ittiṣāl" },
+    "related_adjective": { "en": "connected", "ar": "مُتَّصِل", "ar_tr": "muttaṣil" },
+    "tags": ["intransitive","relational","dynamic","linking"]
+  },
+  {
+    "base_verb": { "en": "cause", "ar": "يُسَبِّبُ", "ar_tr": "yusabbibu" },
+    "third_person_singular": { "en": "causes", "ar": "يُسَبِّبُ", "ar_tr": "yusabbibu" },
+    "present_participle": { "en": "causing", "ar": "يُسَبِّبُ", "ar_tr": "yusabbibu" },
+    "past_tense": { "en": "caused", "ar": "سَبَّبَ", "ar_tr": "sabbaba" },
+    "related_noun": { "en": "cause", "ar": "سَبَب", "ar_tr": "sabab" },
+    "related_adjective": { "en": "caused", "ar": "مُسَبَّب", "ar_tr": "musabbab" },
+    "tags": ["transitive","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "enjoy", "ar": "يَسْتَمْتِعُ", "ar_tr": "yastamtiʿu" },
+    "third_person_singular": { "en": "enjoys", "ar": "يَسْتَمْتِعُ", "ar_tr": "yastamtiʿu" },
+    "present_participle": { "en": "enjoying", "ar": "يَسْتَمْتِعُ", "ar_tr": "yastamtiʿu" },
+    "past_tense": { "en": "enjoyed", "ar": "اِسْتَمْتَعَ", "ar_tr": "istamtaʿa" },
+    "related_noun": { "en": "enjoyment", "ar": "مُتْعَة", "ar_tr": "mutʿah" },
+    "related_adjective": { "en": "enjoyable", "ar": "مُمْتِع", "ar_tr": "mumtiʿ" },
+    "tags": ["action_mental","transitive","stative_dynamic_mixed","emotion"]
+  },
+  {
+    "base_verb": { "en": "catch", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "third_person_singular": { "en": "catches", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "present_participle": { "en": "catching", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "past_tense": { "en": "caught", "ar": "أَمْسَكَ", "ar_tr": "amsaka" },
+    "related_noun": { "en": "catch", "ar": "إمْسَاك", "ar_tr": "imsāk" },
+    "related_adjective": { "en": "caught", "ar": "مُمْسَك", "ar_tr": "mumsak" },
+    "tags": ["transitive","action_physical","dynamic","capture"]
+  },
+  {
+    "base_verb": { "en": "protect", "ar": "يَحْمِي", "ar_tr": "yaḥmī" },
+    "third_person_singular": { "en": "protects", "ar": "يَحْمِي", "ar_tr": "yaḥmī" },
+    "present_participle": { "en": "protecting", "ar": "يَحْمِي", "ar_tr": "yaḥmī" },
+    "past_tense": { "en": "protected", "ar": "حَمَى", "ar_tr": "ḥamā" },
+    "related_noun": { "en": "protection", "ar": "حِمَايَة", "ar_tr": "ḥimāyah" },
+    "related_adjective": { "en": "protected", "ar": "مَحْمِيّ", "ar_tr": "maḥmiyy" },
+    "tags": ["transitive","action_physical","dynamic","defense"]
+  },
+  {
+    "base_verb": { "en": "look", "ar": "يَنْظُرُ", "ar_tr": "yanẓuru" },
+    "third_person_singular": { "en": "looks", "ar": "يَنْظُرُ", "ar_tr": "yanẓuru" },
+    "present_participle": { "en": "looking", "ar": "يَنْظُرُ", "ar_tr": "yanẓuru" },
+    "past_tense": { "en": "looked", "ar": "نَظَرَ", "ar_tr": "naẓara" },
+    "related_noun": { "en": "look", "ar": "نَظْرَة", "ar_tr": "naẓrah" },
+    "related_adjective": { "en": "looking", "ar": "نَاظِر", "ar_tr": "nāẓir" },
+    "tags": ["intransitive","perception","stative_dynamic_mixed"]
+  },
+  {
+    "base_verb": { "en": "work", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "third_person_singular": { "en": "works", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "present_participle": { "en": "working", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "past_tense": { "en": "worked", "ar": "عَمِلَ", "ar_tr": "ʿamila" },
+    "related_noun": { "en": "work", "ar": "عَمَل", "ar_tr": "ʿamal" },
+    "related_adjective": { "en": "working", "ar": "عَامِل", "ar_tr": "ʿāmil" },
+    "tags": ["intransitive","dynamic","process","employment"]
+  },
+  {
+    "base_verb": { "en": "put", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "third_person_singular": { "en": "puts", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "present_participle": { "en": "putting", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "past_tense": { "en": "put", "ar": "وَضَعَ", "ar_tr": "waḍaʿa" },
+    "related_noun": { "en": "placement", "ar": "وَضْع", "ar_tr": "waḍʿ" },
+    "related_adjective": { "en": "put", "ar": "مَوْضُوع", "ar_tr": "mawḍūʿ" },
+    "tags": ["transitive","action_physical","dynamic","placement"]
+  },
+  {
+    "base_verb": { "en": "ride", "ar": "يَرْكَبُ", "ar_tr": "yarkabu" },
+    "third_person_singular": { "en": "rides", "ar": "يَرْكَبُ", "ar_tr": "yarkabu" },
+    "present_participle": { "en": "riding", "ar": "يَرْكَبُ", "ar_tr": "yarkabu" },
+    "past_tense": { "en": "rode", "ar": "رَكِبَ", "ar_tr": "rakiba" },
+    "related_noun": { "en": "ride", "ar": "رُكُوب", "ar_tr": "rukūb" },
+    "related_adjective": { "en": "ridden", "ar": "مَرْكُوب", "ar_tr": "markūb" },
+    "tags": ["transitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "come", "ar": "يَأْتِي", "ar_tr": "yaʾtī" },
+    "third_person_singular": { "en": "comes", "ar": "يَأْتِي", "ar_tr": "yaʾtī" },
+    "present_participle": { "en": "coming", "ar": "يَأْتِي", "ar_tr": "yaʾtī" },
+    "past_tense": { "en": "came", "ar": "أَتَى", "ar_tr": "atā" },
+    "related_noun": { "en": "coming", "ar": "مَجِيء", "ar_tr": "majīʾ" },
+    "related_adjective": { "en": "coming", "ar": "قَادِم", "ar_tr": "qādim" },
+    "tags": ["intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "take", "ar": "يَأْخُذُ", "ar_tr": "yaʾkhudhu" },
+    "third_person_singular": { "en": "takes", "ar": "يَأْخُذُ", "ar_tr": "yaʾkhudhu" },
+    "present_participle": { "en": "taking", "ar": "يَأْخُذُ", "ar_tr": "yaʾkhudhu" },
+    "past_tense": { "en": "took", "ar": "أَخَذَ", "ar_tr": "akhadha" },
+    "related_noun": { "en": "take", "ar": "أَخْذ", "ar_tr": "akhdh" },
+    "related_adjective": { "en": "taken", "ar": "مَأْخُوذ", "ar_tr": "maʾkhūdh" },
+    "tags": ["transitive","action_physical","dynamic","possession"]
+  },
+  {
+    "base_verb": { "en": "dry", "ar": "يُجَفِّفُ", "ar_tr": "yujaffifu" },
+    "third_person_singular": { "en": "dries", "ar": "يُجَفِّفُ", "ar_tr": "yujaffifu" },
+    "present_participle": { "en": "drying", "ar": "يُجَفِّفُ", "ar_tr": "yujaffifu" },
+    "past_tense": { "en": "dried", "ar": "جَفَّفَ", "ar_tr": "jaffafa" },
+    "related_noun": { "en": "dryness", "ar": "جَفَاف", "ar_tr": "jafāf" },
+    "related_adjective": { "en": "dry", "ar": "جَافّ", "ar_tr": "jāff" },
+    "tags": ["transitive","causative","dynamic","process"]
+  },
+  {
+    "base_verb": { "en": "apply", "ar": "يُطَبِّقُ", "ar_tr": "yuṭabbiqu" },
+    "third_person_singular": { "en": "applies", "ar": "يُطَبِّقُ", "ar_tr": "yuṭabbiqu" },
+    "present_participle": { "en": "applying", "ar": "يُطَبِّقُ", "ar_tr": "yuṭabbiqu" },
+    "past_tense": { "en": "applied", "ar": "طَبَّقَ", "ar_tr": "ṭabbaqa" },
+    "related_noun": { "en": "application", "ar": "تَطْبِيق", "ar_tr": "taṭbīq" },
+    "related_adjective": { "en": "applied", "ar": "مُطَبَّق", "ar_tr": "muṭabbaq" },
+    "tags": ["transitive","dynamic","procedure"]
+  },
+  {
+    "base_verb": { "en": "jump", "ar": "يَقْفِزُ", "ar_tr": "yaqfizu" },
+    "third_person_singular": { "en": "jumps", "ar": "يَقْفِزُ", "ar_tr": "yaqfizu" },
+    "present_participle": { "en": "jumping", "ar": "يَقْفِزُ", "ar_tr": "yaqfizu" },
+    "past_tense": { "en": "jumped", "ar": "قَفَزَ", "ar_tr": "qafaza" },
+    "related_noun": { "en": "jump", "ar": "قَفْزَة", "ar_tr": "qafzah" },
+    "related_adjective": { "en": "jumping", "ar": "قَافِز", "ar_tr": "qāfiz" },
+    "tags": ["intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "crowd", "ar": "يَحْتَشِدُ", "ar_tr": "yaḥtashidu" },
+    "third_person_singular": { "en": "crowds", "ar": "يَحْتَشِدُ", "ar_tr": "yaḥtashidu" },
+    "present_participle": { "en": "crowding", "ar": "يَحْتَشِدُ", "ar_tr": "yaḥtashidu" },
+    "past_tense": { "en": "crowded", "ar": "اِحْتَشَدَ", "ar_tr": "iḥtashada" },
+    "related_noun": { "en": "crowd", "ar": "حَشْد", "ar_tr": "ḥashd" },
+    "related_adjective": { "en": "crowded", "ar": "مُزْدَحِم", "ar_tr": "muzdaḥim" },
+    "tags": ["intransitive","collective","dynamic","social"]
+  },
+  {
+    "base_verb": { "en": "answer", "ar": "يُجِيبُ", "ar_tr": "yujību" },
+    "third_person_singular": { "en": "answers", "ar": "يُجِيبُ", "ar_tr": "yujību" },
+    "present_participle": { "en": "answering", "ar": "يُجِيبُ", "ar_tr": "yujību" },
+    "past_tense": { "en": "answered", "ar": "أَجَابَ", "ar_tr": "ajāba" },
+    "related_noun": { "en": "answer", "ar": "إِجَابَة", "ar_tr": "ijābah" },
+    "related_adjective": { "en": "answered", "ar": "مُجَاب", "ar_tr": "mujāb" },
+    "tags": ["transitive","communication","dynamic","response"]
+  },
+  {
+    "base_verb": { "en": "teach", "ar": "يُعَلِّمُ", "ar_tr": "yuʿallimu" },
+    "third_person_singular": { "en": "teaches", "ar": "يُعَلِّمُ", "ar_tr": "yuʿallimu" },
+    "present_participle": { "en": "teaching", "ar": "يُعَلِّمُ", "ar_tr": "yuʿallimu" },
+    "past_tense": { "en": "taught", "ar": "عَلَّمَ", "ar_tr": "ʿallama" },
+    "related_noun": { "en": "teacher", "ar": "مُعَلِّم", "ar_tr": "muʿallim" },
+    "related_adjective": { "en": "taught", "ar": "مُدَرَّس", "ar_tr": "mudarras" },
+    "tags": ["transitive","communication","dynamic","education"]
+  },
+  {
+    "base_verb": { "en": "receive", "ar": "يَسْتَلِمُ", "ar_tr": "yastalimu" },
+    "third_person_singular": { "en": "receives", "ar": "يَسْتَلِمُ", "ar_tr": "yastalimu" },
+    "present_participle": { "en": "receiving", "ar": "يَسْتَلِمُ", "ar_tr": "yastalimu" },
+    "past_tense": { "en": "received", "ar": "اِسْتَلَمَ", "ar_tr": "istalama" },
+    "related_noun": { "en": "receipt", "ar": "اِسْتِلاَم", "ar_tr": "istilām" },
+    "related_adjective": { "en": "received", "ar": "مُسْتَلَم", "ar_tr": "mustalam" },
+    "tags": ["transitive","dynamic","possession"]
+  },
+  {
+    "base_verb": { "en": "hear", "ar": "يَسْمَعُ", "ar_tr": "yasmaʿu" },
+    "third_person_singular": { "en": "hears", "ar": "يَسْمَعُ", "ar_tr": "yasmaʿu" },
+    "present_participle": { "en": "hearing", "ar": "يَسْمَعُ", "ar_tr": "yasmaʿu" },
+    "past_tense": { "en": "heard", "ar": "سَمِعَ", "ar_tr": "samiʿa" },
+    "related_noun": { "en": "hearing", "ar": "سَمْع", "ar_tr": "samʿ" },
+    "related_adjective": { "en": "heard", "ar": "مَسْمُوع", "ar_tr": "masmūʿ" },
+    "tags": ["transitive","intransitive","perception","stative_dynamic_mixed"]
+  },
+  {
+    "base_verb": { "en": "listen", "ar": "يَسْتَمِعُ", "ar_tr": "yastamiʿu" },
+    "third_person_singular": { "en": "listens", "ar": "يَسْتَمِعُ", "ar_tr": "yastamiʿu" },
+    "present_participle": { "en": "listening", "ar": "يَسْتَمِعُ", "ar_tr": "yastamiʿu" },
+    "past_tense": { "en": "listened", "ar": "اِسْتَمَعَ", "ar_tr": "istamaʿa" },
+    "related_noun": { "en": "listener", "ar": "مُسْتَمِع", "ar_tr": "mustamiʿ" },
+    "related_adjective": { "en": "listening", "ar": "مُصْغٍ", "ar_tr": "muṣghin" },
+    "tags": ["intransitive","perception","communication","dynamic_attention"]
+  },
+  {
+    "base_verb": { "en": "believe", "ar": "يُؤْمِنُ", "ar_tr": "yuʾminu" },
+    "third_person_singular": { "en": "believes", "ar": "يُؤْمِنُ", "ar_tr": "yuʾminu" },
+    "present_participle": { "en": "believing", "ar": "يُؤْمِنُ", "ar_tr": "yuʾminu" },
+    "past_tense": { "en": "believed", "ar": "آمَنَ", "ar_tr": "āmana" },
+    "related_noun": { "en": "believer", "ar": "مُؤْمِن", "ar_tr": "muʾmin" },
+    "related_adjective": { "en": "believable", "ar": "مُصَدَّق", "ar_tr": "muṣaddaq" },
+    "tags": ["action_mental","intransitive","stative"]
+  },
+  {
+    "base_verb": { "en": "request", "ar": "يَطْلُبُ", "ar_tr": "yaṭlubu" },
+    "third_person_singular": { "en": "requests", "ar": "يَطْلُبُ", "ar_tr": "yaṭlubu" },
+    "present_participle": { "en": "requesting", "ar": "يَطْلُبُ", "ar_tr": "yaṭlubu" },
+    "past_tense": { "en": "requested", "ar": "طَلَبَ", "ar_tr": "ṭalaba" },
+    "related_noun": { "en": "request", "ar": "طَلَب", "ar_tr": "ṭalab" },
+    "related_adjective": { "en": "requested", "ar": "مَطْلُوب", "ar_tr": "maṭlūb" },
+    "tags": ["transitive","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "search", "ar": "يَبْحَثُ", "ar_tr": "yabḥathu" },
+    "third_person_singular": { "en": "searches", "ar": "يَبْحَثُ", "ar_tr": "yabḥathu" },
+    "present_participle": { "en": "searching", "ar": "يَبْحَثُ", "ar_tr": "yabḥathu" },
+    "past_tense": { "en": "searched", "ar": "بَحَثَ", "ar_tr": "baḥatha" },
+    "related_noun": { "en": "search", "ar": "بَحْث", "ar_tr": "baḥth" },
+    "related_adjective": { "en": "searched", "ar": "مَبْحُوث", "ar_tr": "mabḥūth" },
+    "tags": ["transitive","intransitive","cognition","dynamic"]
+  },
+  {
+    "base_verb": { "en": "pick up", "ar": "يَلْتَقِطُ", "ar_tr": "yaltaqiṭu" },
+    "third_person_singular": { "en": "picks up", "ar": "يَلْتَقِطُ", "ar_tr": "yaltaqiṭu" },
+    "present_participle": { "en": "picking up", "ar": "يَلْتَقِطُ", "ar_tr": "yaltaqiṭu" },
+    "past_tense": { "en": "picked up", "ar": "اِلْتَقَطَ", "ar_tr": "iltaqaṭa" },
+    "related_noun": { "en": "pickup", "ar": "اِلْتِقَاط", "ar_tr": "iltiqāṭ" },
+    "related_adjective": { "en": "picked up", "ar": "مُلْتَقَط", "ar_tr": "multaqaṭ" },
+    "tags": ["transitive","action_physical","dynamic","manipulation"]
+  },
+  {
+    "base_verb": { "en": "convert", "ar": "يُحَوِّلُ", "ar_tr": "yuḥawwil" },
+    "third_person_singular": { "en": "converts", "ar": "يُحَوِّلُ", "ar_tr": "yuḥawwil" },
+    "present_participle": { "en": "converting", "ar": "يُحَوِّلُ", "ar_tr": "yuḥawwil" },
+    "past_tense": { "en": "converted", "ar": "حَوَّلَ", "ar_tr": "ḥawwalah" },
+    "related_noun": { "en": "conversion", "ar": "تَحْوِيل", "ar_tr": "taḥwīl" },
+    "related_adjective": { "en": "converted", "ar": "مُحَوَّل", "ar_tr": "muḥawwal" },
+    "tags": ["transitive","causative","dynamic","change_of_state"]
+  },
+  {
+    "base_verb": { "en": "dig", "ar": "يَحْفِرُ", "ar_tr": "yaḥfiru" },
+    "third_person_singular": { "en": "digs", "ar": "يَحْفِرُ", "ar_tr": "yaḥfiru" },
+    "present_participle": { "en": "digging", "ar": "يَحْفِرُ", "ar_tr": "yaḥfiru" },
+    "past_tense": { "en": "dug", "ar": "حَفَرَ", "ar_tr": "ḥafara" },
+    "related_noun": { "en": "dig", "ar": "حَفْر", "ar_tr": "ḥafr" },
+    "related_adjective": { "en": "dug", "ar": "مَحْفُور", "ar_tr": "maḥfūr" },
+    "tags": ["transitive","action_physical","dynamic","tool_use"]
+  },
+  {
+    "base_verb": { "en": "push", "ar": "يَدْفَعُ", "ar_tr": "yadfaʿu" },
+    "third_person_singular": { "en": "pushes", "ar": "يَدْفَعُ", "ar_tr": "yadfaʿu" },
+    "present_participle": { "en": "pushing", "ar": "يَدْفَعُ", "ar_tr": "yadfaʿu" },
+    "past_tense": { "en": "pushed", "ar": "دَفَعَ", "ar_tr": "dafaʿa" },
+    "related_noun": { "en": "push", "ar": "دَفْع", "ar_tr": "dafʿ" },
+    "related_adjective": { "en": "pushed", "ar": "مَدْفُوع", "ar_tr": "madfūʿ" },
+    "tags": ["transitive","action_physical","dynamic","force"]
+  },
+  {
+    "base_verb": { "en": "put", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "third_person_singular": { "en": "puts", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "present_participle": { "en": "putting", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "past_tense": { "en": "put", "ar": "وَضَعَ", "ar_tr": "waḍaʿa" },
+    "related_noun": { "en": "placement", "ar": "وَضْع", "ar_tr": "waḍʿ" },
+    "related_adjective": { "en": "put", "ar": "مَوْضُوع", "ar_tr": "mawḍūʿ" },
+    "tags": ["transitive","action_physical","dynamic","placement"]
+  },
+  {
+    "base_verb": { "en": "climb", "ar": "يَتَسَلَّقُ", "ar_tr": "yatasallaqu" },
+    "third_person_singular": { "en": "climbs", "ar": "يَتَسَلَّقُ", "ar_tr": "yatasallaqu" },
+    "present_participle": { "en": "climbing", "ar": "يَتَسَلَّقُ", "ar_tr": "yatasallaqu" },
+    "past_tense": { "en": "climbed", "ar": "تَسَلَّقَ", "ar_tr": "tasallaqa" },
+    "related_noun": { "en": "climb", "ar": "تَسَلُّق", "ar_tr": "tasalluq" },
+    "related_adjective": { "en": "climbing", "ar": "مُتَسَلِّق", "ar_tr": "mutasalliq" },
+    "tags": ["transitive","action_physical","dynamic","motion_vertical"]
+  },
+  {
+    "base_verb": { "en": "use", "ar": "يَسْتَخْدِمُ", "ar_tr": "yastakhdimu" },
+    "third_person_singular": { "en": "uses", "ar": "يَسْتَخْدِمُ", "ar_tr": "yastakhdimu" },
+    "present_participle": { "en": "using", "ar": "يَسْتَخْدِمُ", "ar_tr": "yastakhdimu" },
+    "past_tense": { "en": "used", "ar": "اِسْتَخْدَمَ", "ar_tr": "istakhdama" },
+    "related_noun": { "en": "use", "ar": "اِسْتِخْدَام", "ar_tr": "istikhdām" },
+    "related_adjective": { "en": "used", "ar": "مُسْتَخْدَم", "ar_tr": "mustakhdam" },
+    "tags": ["transitive","dynamic","tool_use"]
+  },
+  {
+    "base_verb": { "en": "raise", "ar": "يَرْفَعُ", "ar_tr": "yarfaʿu" },
+    "third_person_singular": { "en": "raises", "ar": "يَرْفَعُ", "ar_tr": "yarfaʿu" },
+    "present_participle": { "en": "raising", "ar": "يَرْفَعُ", "ar_tr": "yarfaʿu" },
+    "past_tense": { "en": "raised", "ar": "رَفَعَ", "ar_tr": "rafaʿa" },
+    "related_noun": { "en": "raise", "ar": "رَفْع", "ar_tr": "rafʿ" },
+    "related_adjective": { "en": "raised", "ar": "مَرْفُوع", "ar_tr": "marfūʿ" },
+    "tags": ["transitive","causative","dynamic","motion_vertical"]
+  },
+  {
+    "base_verb": { "en": "fly", "ar": "يَطِيرُ", "ar_tr": "yaṭīru" },
+    "third_person_singular": { "en": "flies", "ar": "يَطِيرُ", "ar_tr": "yaṭīru" },
+    "present_participle": { "en": "flying", "ar": "يَطِيرُ", "ar_tr": "yaṭīru" },
+    "past_tense": { "en": "flew", "ar": "طَارَ", "ar_tr": "ṭāra" },
+    "related_noun": { "en": "flight", "ar": "طَيَرَان", "ar_tr": "ṭayarān" },
+    "related_adjective": { "en": "flying", "ar": "طَائِر", "ar_tr": "ṭāʾir" },
+    "tags": ["intransitive","action_physical","dynamic","motion_air"]
+  },
+  {
+    "base_verb": { "en": "work", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "third_person_singular": { "en": "works", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "present_participle": { "en": "working", "ar": "يَعْمَلُ", "ar_tr": "yaʿmalu" },
+    "past_tense": { "en": "worked", "ar": "عَمِلَ", "ar_tr": "ʿamila" },
+    "related_noun": { "en": "work", "ar": "عَمَل", "ar_tr": "ʿamal" },
+    "related_adjective": { "en": "working", "ar": "عَامِل", "ar_tr": "ʿāmil" },
+    "tags": ["intransitive","dynamic","process","employment"]
+  },
+  {
+    "base_verb": { "en": "get up", "ar": "يَنْهَضُ", "ar_tr": "yanhaḍu" },
+    "third_person_singular": { "en": "gets up", "ar": "يَنْهَضُ", "ar_tr": "yanhaḍu" },
+    "present_participle": { "en": "getting up", "ar": "يَنْهَضُ", "ar_tr": "yanhaḍu" },
+    "past_tense": { "en": "got up", "ar": "نَهَضَ", "ar_tr": "nahaḍa" },
+    "related_noun": { "en": "uprising", "ar": "نُهُوض", "ar_tr": "nuhūḍ" },
+    "related_adjective": { "en": "awake", "ar": "مُسْتَيْقِظ", "ar_tr": "mustayqiẓ" },
+    "tags": ["intransitive","action_physical","dynamic","motion_vertical","wakefulness"]
+  },
+  {
+    "base_verb": { "en": "carry", "ar": "يَحْمِلُ", "ar_tr": "yaḥmilu" },
+    "third_person_singular": { "en": "carries", "ar": "يَحْمِلُ", "ar_tr": "yaḥmilu" },
+    "present_participle": { "en": "carrying", "ar": "يَحْمِلُ", "ar_tr": "yaḥmilu" },
+    "past_tense": { "en": "carried", "ar": "حَمَلَ", "ar_tr": "ḥamala" },
+    "related_noun": { "en": "load", "ar": "حَمْل", "ar_tr": "ḥaml" },
+    "related_adjective": { "en": "carried", "ar": "مَحْمُول", "ar_tr": "maḥmūl" },
+    "tags": ["transitive","action_physical","dynamic","transport"]
+  },
+  {
+    "base_verb": { "en": "play", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "third_person_singular": { "en": "plays", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "present_participle": { "en": "playing", "ar": "يَلْعَبُ", "ar_tr": "yalʿabu" },
+    "past_tense": { "en": "played", "ar": "لَعِبَ", "ar_tr": "laʿiba" },
+    "related_noun": { "en": "game", "ar": "لَعِب", "ar_tr": "laʿib" },
+    "related_adjective": { "en": "played", "ar": "مَلْعُوب", "ar_tr": "malʿūb" },
+    "tags": ["intransitive","action_physical","dynamic","recreation"]
+  },
+  {
+    "base_verb": { "en": "read", "ar": "يَقْرَأُ", "ar_tr": "yaqraʾu" },
+    "third_person_singular": { "en": "reads", "ar": "يَقْرَأُ", "ar_tr": "yaqraʾu" },
+    "present_participle": { "en": "reading", "ar": "يَقْرَأُ", "ar_tr": "yaqraʾu" },
+    "past_tense": { "en": "read", "ar": "قَرَأَ", "ar_tr": "qaraʾa" },
+    "related_noun": { "en": "reading", "ar": "قِرَاءَة", "ar_tr": "qirāʾah" },
+    "related_adjective": { "en": "read", "ar": "مَقْرُوء", "ar_tr": "maqruʾ" },
+    "tags": ["transitive","intransitive","cognition","dynamic"]
+  },
+  {
+    "base_verb": { "en": "come", "ar": "يَأْتِي", "ar_tr": "yaʾtī" },
+    "third_person_singular": { "en": "comes", "ar": "يَأْتِي", "ar_tr": "yaʾtī" },
+    "present_participle": { "en": "coming", "ar": "يَأْتِي", "ar_tr": "yaʾtī" },
+    "past_tense": { "en": "came", "ar": "أَتَى", "ar_tr": "atā" },
+    "related_noun": { "en": "arrival", "ar": "مَجِيء", "ar_tr": "majīʾ" },
+    "related_adjective": { "en": "coming", "ar": "قَادِم", "ar_tr": "qādim" },
+    "tags": ["intransitive","action_physical","dynamic","arrival"]
+  },
+  {
+    "base_verb": { "en": "sit", "ar": "يَجْلِسُ", "ar_tr": "yajlisu" },
+    "third_person_singular": { "en": "sits", "ar": "يَجْلِسُ", "ar_tr": "yajlisu" },
+    "present_participle": { "en": "sitting", "ar": "يَجْلِسُ", "ar_tr": "yajlisu" },
+    "past_tense": { "en": "sat", "ar": "جَلَسَ", "ar_tr": "jalasa" },
+    "related_noun": { "en": "seat", "ar": "مَجْلِس", "ar_tr": "majlis" },
+    "related_adjective": { "en": "seated", "ar": "جَالِس", "ar_tr": "jālis" },
+    "tags": ["intransitive","posture","stative_dynamic_mixed"]
+  },
+  {
+    "base_verb": { "en": "clear", "ar": "يُنَظِّفُ", "ar_tr": "yunazzifu" },
+    "third_person_singular": { "en": "clears", "ar": "يُنَظِّفُ", "ar_tr": "yunazzifu" },
+    "present_participle": { "en": "clearing", "ar": "يُنَظِّفُ", "ar_tr": "yunazzifu" },
+    "past_tense": { "en": "cleared", "ar": "نَظَّفَ", "ar_tr": "nazzafa" },
+    "related_noun": { "en": "clarity", "ar": "وُضُوح", "ar_tr": "wuḍūḥ" },
+    "related_adjective": { "en": "clear", "ar": "وَاضِح", "ar_tr": "wāḍiḥ" },
+    "tags": ["transitive","action_physical","dynamic","cleaning"]
+  },
+  {
+    "base_verb": { "en": "wake up", "ar": "يَسْتَيْقِظُ", "ar_tr": "yastayqiẓu" },
+    "third_person_singular": { "en": "wakes up", "ar": "يَسْتَيْقِظُ", "ar_tr": "yastayqiẓu" },
+    "present_participle": { "en": "waking up", "ar": "يَسْتَيْقِظُ", "ar_tr": "yastayqiẓu" },
+    "past_tense": { "en": "woke up", "ar": "اِسْتَيْقَظَ", "ar_tr": "istayqaẓa" },
+    "related_noun": { "en": "awakening", "ar": "اِسْتِيقَاظ", "ar_tr": "istayqāẓ" },
+    "related_adjective": { "en": "awake", "ar": "مُسْتَيْقِظ", "ar_tr": "mustayqiẓ" },
+    "tags": ["intransitive","wakefulness","dynamic"]
+  },
+  {
+    "base_verb": { "en": "turn", "ar": "يَدُورُ", "ar_tr": "yadūru" },
+    "third_person_singular": { "en": "turns", "ar": "يَدُورُ", "ar_tr": "yadūru" },
+    "present_participle": { "en": "turning", "ar": "يَدُورُ", "ar_tr": "yadūru" },
+    "past_tense": { "en": "turned", "ar": "دَارَ", "ar_tr": "dāra" },
+    "related_noun": { "en": "turn", "ar": "دَوْر", "ar_tr": "dawr" },
+    "related_adjective": { "en": "turned", "ar": "مُدَار", "ar_tr": "mudār" },
+    "tags": ["intransitive","action_physical","dynamic","rotation"]
+  },
+  {
+    "base_verb": { "en": "draw", "ar": "يَرْسُمُ", "ar_tr": "yarsumu" },
+    "third_person_singular": { "en": "draws", "ar": "يَرْسُمُ", "ar_tr": "yarsumu" },
+    "present_participle": { "en": "drawing", "ar": "يَرْسُمُ", "ar_tr": "yarsumu" },
+    "past_tense": { "en": "drew", "ar": "رَسَمَ", "ar_tr": "rasama" },
+    "related_noun": { "en": "drawing", "ar": "رَسْم", "ar_tr": "rasm" },
+    "related_adjective": { "en": "drawn", "ar": "مَرْسُوم", "ar_tr": "marsūm" },
+    "tags": ["transitive","action_physical","dynamic","art"]
+  },
+  {
+    "base_verb": { "en": "write", "ar": "يَكْتُبُ", "ar_tr": "yaktubu" },
+    "third_person_singular": { "en": "writes", "ar": "يَكْتُبُ", "ar_tr": "yaktubu" },
+    "present_participle": { "en": "writing", "ar": "يَكْتُبُ", "ar_tr": "yaktubu" },
+    "past_tense": { "en": "wrote", "ar": "كَتَبَ", "ar_tr": "kataba" },
+    "related_noun": { "en": "writing", "ar": "كِتَابَة", "ar_tr": "kitābah" },
+    "related_adjective": { "en": "written", "ar": "مَكْتُوب", "ar_tr": "maktūb" },
+    "tags": ["transitive","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "arrive", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "third_person_singular": { "en": "arrives", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "present_participle": { "en": "arriving", "ar": "يَصِلُ", "ar_tr": "yaṣilu" },
+    "past_tense": { "en": "arrived", "ar": "وَصَلَ", "ar_tr": "waṣala" },
+    "related_noun": { "en": "arrival", "ar": "وُصُول", "ar_tr": "wuṣūl" },
+    "related_adjective": { "en": "arrived", "ar": "وَاصِل", "ar_tr": "wāṣil" },
+    "tags": ["intransitive","dynamic","arrival","motion"]
+  },
+  {
+    "base_verb": { "en": "eat", "ar": "يَأْكُلُ", "ar_tr": "yaʾkulu" },
+    "third_person_singular": { "en": "eats", "ar": "يَأْكُلُ", "ar_tr": "yaʾkulu" },
+    "present_participle": { "en": "eating", "ar": "يَأْكُلُ", "ar_tr": "yaʾkulu" },
+    "past_tense": { "en": "ate", "ar": "أَكَلَ", "ar_tr": "ʾakala" },
+    "related_noun": { "en": "food", "ar": "أَكْل", "ar_tr": "ʾakl" },
+    "related_adjective": { "en": "eaten", "ar": "مَأْكُول", "ar_tr": "maʾkūl" },
+    "tags": ["transitive","action_physical","dynamic","consumption"]
+  },
+  {
+    "base_verb": { "en": "open", "ar": "يَفْتَحُ", "ar_tr": "yaftaḥu" },
+    "third_person_singular": { "en": "opens", "ar": "يَفْتَحُ", "ar_tr": "yaftaḥu" },
+    "present_participle": { "en": "opening", "ar": "يَفْتَحُ", "ar_tr": "yaftaḥu" },
+    "past_tense": { "en": "opened", "ar": "فَتَحَ", "ar_tr": "fataḥa" },
+    "related_noun": { "en": "opener", "ar": "فَتَّاحَة", "ar_tr": "fattaḥah" },
+    "related_adjective": { "en": "open", "ar": "مَفْتُوح", "ar_tr": "maftūḥ" },
+    "tags": ["transitive","causative","dynamic","change_of_state"]
+  },
+  {
+    "base_verb": { "en": "order", "ar": "يَطْلُبُ", "ar_tr": "yaṭlubu" },
+    "third_person_singular": { "en": "orders", "ar": "يَطْلُبُ", "ar_tr": "yaṭlubu" },
+    "present_participle": { "en": "ordering", "ar": "يَطْلُبُ", "ar_tr": "yaṭlubu" },
+    "past_tense": { "en": "ordered", "ar": "طَلَبَ", "ar_tr": "ṭalaba" },
+    "related_noun": { "en": "order", "ar": "طَلَب", "ar_tr": "ṭalab" },
+    "related_adjective": { "en": "ordered", "ar": "مَطْلُوب", "ar_tr": "maṭlūb" },
+    "tags": ["transitive","communication","commerce","dynamic"]
+  },
+  {
+    "base_verb": { "en": "confirm", "ar": "يُؤَكِّدُ", "ar_tr": "yuʾakkidu" },
+    "third_person_singular": { "en": "confirms", "ar": "يُؤَكِّدُ", "ar_tr": "yuʾakkidu" },
+    "present_participle": { "en": "confirming", "ar": "يُؤَكِّدُ", "ar_tr": "yuʾakkidu" },
+    "past_tense": { "en": "confirmed", "ar": "أَكَّدَ", "ar_tr": "ʾakkada" },
+    "related_noun": { "en": "confirmation", "ar": "تَأْكِيد", "ar_tr": "taʾkīd" },
+    "related_adjective": { "en": "confirmed", "ar": "مُؤَكَّد", "ar_tr": "muʾakkad" },
+    "tags": ["transitive","communication","validation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "break", "ar": "يَكْسِرُ", "ar_tr": "yaksiru" },
+    "third_person_singular": { "en": "breaks", "ar": "يَكْسِرُ", "ar_tr": "yaksiru" },
+    "present_participle": { "en": "breaking", "ar": "يَكْسِرُ", "ar_tr": "yaksiru" },
+    "past_tense": { "en": "broke", "ar": "كَسَرَ", "ar_tr": "kasara" },
+    "related_noun": { "en": "break", "ar": "كَسْر", "ar_tr": "kasr" },
+    "related_adjective": { "en": "broken", "ar": "مَكْسُور", "ar_tr": "maksūr" },
+    "tags": ["transitive","action_physical","dynamic","change_of_state"]
+  },
+  {
+    "base_verb": { "en": "smoke", "ar": "يُدَخِّنُ", "ar_tr": "yudakhkhinu" },
+    "third_person_singular": { "en": "smokes", "ar": "يُدَخِّنُ", "ar_tr": "yudakhkhinu" },
+    "present_participle": { "en": "smoking", "ar": "يُدَخِّنُ", "ar_tr": "yudakhkhinu" },
+    "past_tense": { "en": "smoked", "ar": "دَخَّنَ", "ar_tr": "dakhkhana" },
+    "related_noun": { "en": "smoke", "ar": "دُخَان", "ar_tr": "dukhān" },
+    "related_adjective": { "en": "smoked", "ar": "مُدَخَّن", "ar_tr": "mudakhkhan" },
+    "tags": ["intransitive","transitive","habit","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "wash", "ar": "يَغْسِلُ", "ar_tr": "yaghsilu" },
+    "third_person_singular": { "en": "washes", "ar": "يَغْسِلُ", "ar_tr": "yaghsilu" },
+    "present_participle": { "en": "washing", "ar": "يَغْسِلُ", "ar_tr": "yaghsilu" },
+    "past_tense": { "en": "washed", "ar": "غَسَلَ", "ar_tr": "ghasala" },
+    "related_noun": { "en": "washing", "ar": "غَسْل", "ar_tr": "ghasl" },
+    "related_adjective": { "en": "washed", "ar": "مَغْسُول", "ar_tr": "maghsūl" },
+    "tags": ["transitive","action_physical","dynamic","cleaning"]
+  },
+  {
+    "base_verb": { "en": "speak", "ar": "يَتَكَلَّمُ", "ar_tr": "yatakallamu" },
+    "third_person_singular": { "en": "speaks", "ar": "يَتَكَلَّمُ", "ar_tr": "yatakallamu" },
+    "present_participle": { "en": "speaking", "ar": "يَتَكَلَّمُ", "ar_tr": "yatakallamu" },
+    "past_tense": { "en": "spoke", "ar": "تَكَلَّمَ", "ar_tr": "takallama" },
+    "related_noun": { "en": "speech", "ar": "كَلاَم", "ar_tr": "kalām" },
+    "related_adjective": { "en": "spoken", "ar": "مَنْطُوق", "ar_tr": "manṭūq" },
+    "tags": ["intransitive","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "find", "ar": "يَجِدُ", "ar_tr": "yajidu" },
+    "third_person_singular": { "en": "finds", "ar": "يَجِدُ", "ar_tr": "yajidu" },
+    "present_participle": { "en": "finding", "ar": "يَجِدُ", "ar_tr": "yajidu" },
+    "past_tense": { "en": "found", "ar": "وَجَدَ", "ar_tr": "wajada" },
+    "related_noun": { "en": "discovery", "ar": "اِكْتِشَاف", "ar_tr": "iktishāf" },
+    "related_adjective": { "en": "found", "ar": "مَوْجُود", "ar_tr": "mawjūd" },
+    "tags": ["transitive","cognition","achievement","dynamic"]
+  },
+  {
+    "base_verb": { "en": "give", "ar": "يُعْطِي", "ar_tr": "yuʿṭī" },
+    "third_person_singular": { "en": "gives", "ar": "يُعْطِي", "ar_tr": "yuʿṭī" },
+    "present_participle": { "en": "giving", "ar": "يُعْطِي", "ar_tr": "yuʿṭī" },
+    "past_tense": { "en": "gave", "ar": "أَعْطَى", "ar_tr": "aʿṭā" },
+    "related_noun": { "en": "gift", "ar": "عَطَاء", "ar_tr": "ʿaṭāʾ" },
+    "related_adjective": { "en": "given", "ar": "مُعْطَى", "ar_tr": "muʿṭā" },
+    "tags": ["ditransitive","transitive","transfer","dynamic"]
+  },
+  {
+    "base_verb": { "en": "fly", "ar": "يَطِيرُ", "ar_tr": "yaṭīru" },
+    "third_person_singular": { "en": "flies", "ar": "يَطِيرُ", "ar_tr": "yaṭīru" },
+    "present_participle": { "en": "flying", "ar": "يَطِيرُ", "ar_tr": "yaṭīru" },
+    "past_tense": { "en": "flew", "ar": "طَارَ", "ar_tr": "ṭāra" },
+    "related_noun": { "en": "flight", "ar": "طَيَرَان", "ar_tr": "ṭayarān" },
+    "related_adjective": { "en": "flying", "ar": "طَائِر", "ar_tr": "ṭāʾir" },
+    "tags": ["intransitive","action_physical","dynamic","motion_air"]
+  },
+  {
+    "base_verb": { "en": "catch", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "third_person_singular": { "en": "catches", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "present_participle": { "en": "catching", "ar": "يُمْسِكُ", "ar_tr": "yumsiku" },
+    "past_tense": { "en": "caught", "ar": "أَمْسَكَ", "ar_tr": "amsaka" },
+    "related_noun": { "en": "catch", "ar": "إمْسَاك", "ar_tr": "imsāk" },
+    "related_adjective": { "en": "caught", "ar": "مُمْسَك", "ar_tr": "mumsak" },
+    "tags": ["transitive","action_physical","dynamic","capture"]
+  } ,
+  {
+    "base_verb": { "en": "twist", "ar": "يَلْوِي", "ar_tr": "yalwī" },
+    "third_person_singular": { "en": "twists", "ar": "يَلْوِي", "ar_tr": "yalwī" },
+    "present_participle": { "en": "twisting", "ar": "يَلْوِي", "ar_tr": "yalwī" },
+    "past_tense": { "en": "twisted", "ar": "لَوَى", "ar_tr": "lawā" },
+    "related_noun": { "en": "twist", "ar": "لَيَّة", "ar_tr": "layyah" },
+    "related_adjective": { "en": "twisted", "ar": "مَلْوِيّ", "ar_tr": "malwiyy" },
+    "tags": ["transitive","action_physical","dynamic","manipulation"]
+  },
+  {
+    "base_verb": { "en": "enter", "ar": "يَدْخُلُ", "ar_tr": "yadkhulu" },
+    "third_person_singular": { "en": "enters", "ar": "يَدْخُلُ", "ar_tr": "yadkhulu" },
+    "present_participle": { "en": "entering", "ar": "يَدْخُلُ", "ar_tr": "yadkhulu" },
+    "past_tense": { "en": "entered", "ar": "دَخَلَ", "ar_tr": "dakhala" },
+    "related_noun": { "en": "entrance", "ar": "دُخُول", "ar_tr": "dukhūl" },
+    "related_adjective": { "en": "entered", "ar": "مَدْخُول", "ar_tr": "madkhūl" },
+    "tags": ["intransitive","action_physical","dynamic","boundary_crossing"]
+  },
+  {
+    "base_verb": { "en": "miss", "ar": "يَفُوتُ", "ar_tr": "yafūtu" },
+    "third_person_singular": { "en": "misses", "ar": "يَفُوتُ", "ar_tr": "yafūtu" },
+    "present_participle": { "en": "missing", "ar": "يَفُوتُ", "ar_tr": "yafūtu" },
+    "past_tense": { "en": "missed", "ar": "فَاتَ", "ar_tr": "fāta" },
+    "related_noun": { "en": "miss", "ar": "فَقْد", "ar_tr": "faqd" },
+    "related_adjective": { "en": "missing", "ar": "مَفْقُود", "ar_tr": "mafqūd" },
+    "tags": ["transitive","dynamic","failure","absence"]
+  },
+  {
+    "base_verb": { "en": "see", "ar": "يَرَى", "ar_tr": "yarā" },
+    "third_person_singular": { "en": "sees", "ar": "يَرَى", "ar_tr": "yarā" },
+    "present_participle": { "en": "seeing", "ar": "يَرَى", "ar_tr": "yarā" },
+    "past_tense": { "en": "saw", "ar": "رَأَى", "ar_tr": "raʾā" },
+    "related_noun": { "en": "sight", "ar": "رُؤْيَة", "ar_tr": "ruʾyah" },
+    "related_adjective": { "en": "seen", "ar": "مَرْئِيّ", "ar_tr": "marʾiyy" },
+    "tags": ["transitive","perception","stative_dynamic_mixed"]
+  },
+  {
+    "base_verb": { "en": "taste", "ar": "يَتَذَوَّقُ", "ar_tr": "yatadhawwaqu" },
+    "third_person_singular": { "en": "tastes", "ar": "يَتَذَوَّقُ", "ar_tr": "yatadhawwaqu" },
+    "present_participle": { "en": "tasting", "ar": "يَتَذَوَّقُ", "ar_tr": "yatadhawwaqu" },
+    "past_tense": { "en": "tasted", "ar": "تَذَوَّقَ", "ar_tr": "tadhawwaqa" },
+    "related_noun": { "en": "taste", "ar": "مَذَاق", "ar_tr": "madhāq" },
+    "related_adjective": { "en": "tasted", "ar": "مُتَذَوَق", "ar_tr": "mutadhawwaq" },
+    "tags": ["transitive","perception","dynamic"]
+  },
+  {
+    "base_verb": { "en": "revise", "ar": "يُرَاجِعُ", "ar_tr": "yurājiʿu" },
+    "third_person_singular": { "en": "revises", "ar": "يُرَاجِعُ", "ar_tr": "yurājiʿu" },
+    "present_participle": { "en": "revising", "ar": "يُرَاجِعُ", "ar_tr": "yurājiʿu" },
+    "past_tense": { "en": "revised", "ar": "رَاجَعَ", "ar_tr": "rājaʿa" },
+    "related_noun": { "en": "revision", "ar": "مُرَاجَعَة", "ar_tr": "murājaʿah" },
+    "related_adjective": { "en": "revised", "ar": "مُرَاجَع", "ar_tr": "murājaʿ" },
+    "tags": ["transitive","cognition","dynamic","correction"]
+  },
+  {
+    "base_verb": { "en": "run", "ar": "يَرْكُضُ", "ar_tr": "yarkuḍu" },
+    "third_person_singular": { "en": "runs", "ar": "يَرْكُضُ", "ar_tr": "yarkuḍu" },
+    "present_participle": { "en": "running", "ar": "يَرْكُضُ", "ar_tr": "yarkuḍu" },
+    "past_tense": { "en": "ran", "ar": "رَكَضَ", "ar_tr": "rakaḍa" },
+    "related_noun": { "en": "runner", "ar": "عَدَّاء", "ar_tr": "ʿaddāʾ" },
+    "related_adjective": { "en": "running", "ar": "جَارٍ", "ar_tr": "jārin" },
+    "tags": ["intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "study", "ar": "يَدْرُسُ", "ar_tr": "yadrusu" },
+    "third_person_singular": { "en": "studies", "ar": "يَدْرُسُ", "ar_tr": "yadrusu" },
+    "present_participle": { "en": "studying", "ar": "يَدْرُسُ", "ar_tr": "yadrusu" },
+    "past_tense": { "en": "studied", "ar": "دَرَسَ", "ar_tr": "darasa" },
+    "related_noun": { "en": "study", "ar": "دِرَاسَة", "ar_tr": "dirāsah" },
+    "related_adjective": { "en": "studied", "ar": "مَدْرُوس", "ar_tr": "madrūs" },
+    "tags": ["transitive","cognition","dynamic","learning"]
+  },
+  {
+    "base_verb": { "en": "talk", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "third_person_singular": { "en": "talks", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "present_participle": { "en": "talking", "ar": "يَتَحَدَّثُ", "ar_tr": "yataḥaddathu" },
+    "past_tense": { "en": "talked", "ar": "تَحَدَّثَ", "ar_tr": "taḥaddatha" },
+    "related_noun": { "en": "talk", "ar": "حَدِيث", "ar_tr": "ḥadīth" },
+    "related_adjective": { "en": "talking", "ar": "مُتَحَدِّث", "ar_tr": "mutaḥaddith" },
+    "tags": ["intransitive","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "lose", "ar": "يَخْسَرُ", "ar_tr": "yakhsaru" },
+    "third_person_singular": { "en": "loses", "ar": "يَخْسَرُ", "ar_tr": "yakhsaru" },
+    "present_participle": { "en": "losing", "ar": "يَخْسَرُ", "ar_tr": "yakhsaru" },
+    "past_tense": { "en": "lost", "ar": "خَسِرَ", "ar_tr": "khasira" },
+    "related_noun": { "en": "loss", "ar": "خَسَارَة", "ar_tr": "khasārah" },
+    "related_adjective": { "en": "lost", "ar": "مَفْقُود", "ar_tr": "mafqūd" },
+    "tags": ["transitive","change_of_possession","negative_outcome","dynamic"]
+  },
+  {
+    "base_verb": { "en": "move", "ar": "يَتَحَرَّكُ", "ar_tr": "yataḥarraku" },
+    "third_person_singular": { "en": "moves", "ar": "يَتَحَرَّكُ", "ar_tr": "yataḥarraku" },
+    "present_participle": { "en": "moving", "ar": "يَتَحَرَّكُ", "ar_tr": "yataḥarraku" },
+    "past_tense": { "en": "moved", "ar": "تَحَرَّكَ", "ar_tr": "taḥarraka" },
+    "related_noun": { "en": "movement", "ar": "حَرَكَة", "ar_tr": "ḥarakah" },
+    "related_adjective": { "en": "moving", "ar": "مُتَحَرِّك", "ar_tr": "mutaḥarrik" },
+    "tags": ["intransitive","action_physical","dynamic","motion"]
+  },
+  {
+    "base_verb": { "en": "swim", "ar": "يَسْبَحُ", "ar_tr": "yasbaḥu" },
+    "third_person_singular": { "en": "swims", "ar": "يَسْبَحُ", "ar_tr": "yasbaḥu" },
+    "present_participle": { "en": "swimming", "ar": "يَسْبَحُ", "ar_tr": "yasbaḥu" },
+    "past_tense": { "en": "swam", "ar": "سَبَحَ", "ar_tr": "sabaḥa" },
+    "related_noun": { "en": "swimming", "ar": "سِبَاحَة", "ar_tr": "sibāḥah" },
+    "related_adjective": { "en": "swimming", "ar": "سَابِح", "ar_tr": "sābiḥ" },
+    "tags": ["intransitive","action_physical","dynamic","motion_water"]
+  },
+  {
+    "base_verb": { "en": "turn", "ar": "يَلْتَفِتُ", "ar_tr": "yaltafitu" },
+    "third_person_singular": { "en": "turns", "ar": "يَلْتَفِتُ", "ar_tr": "yaltafitu" },
+    "present_participle": { "en": "turning", "ar": "يَلْتَفِتُ", "ar_tr": "yaltafitu" },
+    "past_tense": { "en": "turned", "ar": "اِلْتَفَتَ", "ar_tr": "iltafata" },
+    "related_noun": { "en": "turn", "ar": "اِلْتِفَاتَة", "ar_tr": "iltifātah" },
+    "related_adjective": { "en": "turned", "ar": "مُلْتَفَت", "ar_tr": "multafat" },
+    "tags": ["intransitive","action_physical","dynamic","orientation"]
+  },
+  {
+    "base_verb": { "en": "become", "ar": "يُصْبِحُ", "ar_tr": "yuṣbiḥu" },
+    "third_person_singular": { "en": "becomes", "ar": "يُصْبِحُ", "ar_tr": "yuṣbiḥu" },
+    "present_participle": { "en": "becoming", "ar": "يُصْبِحُ", "ar_tr": "yuṣbiḥu" },
+    "past_tense": { "en": "became", "ar": "أَصْبَحَ", "ar_tr": "aṣbaḥa" },
+    "related_noun": { "en": "becoming", "ar": "تَحَوُّل", "ar_tr": "taḥawwul" },
+    "related_adjective": { "en": "becoming", "ar": "مُلائِم", "ar_tr": "mulāʾim" },
+    "tags": ["intransitive","linking","change_of_state","dynamic"]
+  },
+  {
+    "base_verb": { "en": "soil", "ar": "يُوَسِّخُ", "ar_tr": "yuwassikhu" },
+    "third_person_singular": { "en": "soils", "ar": "يُوَسِّخُ", "ar_tr": "yuwassikhu" },
+    "present_participle": { "en": "soiling", "ar": "يُوَسِّخُ", "ar_tr": "yuwassikhu" },
+    "past_tense": { "en": "soiled", "ar": "وَسَّخَ", "ar_tr": "wassakha" },
+    "related_noun": { "en": "soil", "ar": "تُرْبَة", "ar_tr": "turbah" },
+    "related_adjective": { "en": "soiled", "ar": "مُتَّسِخ", "ar_tr": "muttasikh" },
+    "tags": ["transitive","action_physical","dynamic","dirtying"]
+  },
+  {
+    "base_verb": { "en": "place", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "third_person_singular": { "en": "places", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "present_participle": { "en": "placing", "ar": "يَضَعُ", "ar_tr": "yaḍaʿu" },
+    "past_tense": { "en": "placed", "ar": "وَضَعَ", "ar_tr": "waḍaʿa" },
+    "related_noun": { "en": "place", "ar": "مَكَان", "ar_tr": "makān" },
+    "related_adjective": { "en": "placed", "ar": "مَوْضُوع", "ar_tr": "mawḍūʿ" },
+    "tags": ["transitive","action_physical","dynamic","placement"]
+  },
+  {
+    "base_verb": { "en": "pollute", "ar": "يُلَوِّثُ", "ar_tr": "yulawwithu" },
+    "third_person_singular": { "en": "pollutes", "ar": "يُلَوِّثُ", "ar_tr": "yulawwithu" },
+    "present_participle": { "en": "polluting", "ar": "يُلَوِّثُ", "ar_tr": "yulawwithu" },
+    "past_tense": { "en": "polluted", "ar": "لَوَّثَ", "ar_tr": "lawwatha" },
+    "related_noun": { "en": "pollution", "ar": "تَلَوُّث", "ar_tr": "talawwuth" },
+    "related_adjective": { "en": "polluted", "ar": "مُلَوَّث", "ar_tr": "mulawwith" },
+    "tags": ["transitive","causative","environment","dynamic"]
+  },
+  {
+    "base_verb": { "en": "rain", "ar": "تُمْطِرُ", "ar_tr": "tumṭiru" },
+    "third_person_singular": { "en": "rains", "ar": "تُمْطِرُ", "ar_tr": "tumṭiru" },
+    "present_participle": { "en": "raining", "ar": "تُمْطِرُ", "ar_tr": "tumṭiru" },
+    "past_tense": { "en": "rained", "ar": "أَمْطَرَتْ", "ar_tr": "amṭarat" },
+    "related_noun": { "en": "rain", "ar": "مَطَر", "ar_tr": "maṭar" },
+    "related_adjective": { "en": "rainy", "ar": "مُمْطِر", "ar_tr": "mumṭir" },
+    "tags": ["intransitive","weather","dynamic"]
+  },
+  {
+    "base_verb": { "en": "vacate", "ar": "يُخْلِي", "ar_tr": "yukhlī" },
+    "third_person_singular": { "en": "vacates", "ar": "يُخْلِي", "ar_tr": "yukhlī" },
+    "present_participle": { "en": "vacating", "ar": "يُخْلِي", "ar_tr": "yukhlī" },
+    "past_tense": { "en": "vacated", "ar": "أَخْلَى", "ar_tr": "akhlā" },
+    "related_noun": { "en": "vacation", "ar": "إِجَازَة", "ar_tr": "ijāzah" },
+    "related_adjective": { "en": "vacant", "ar": "شَاغِر", "ar_tr": "shāghir" },
+    "tags": ["transitive","causative","dynamic","emptying"]
+  },
+  {
+    "base_verb": { "en": "rent", "ar": "يَسْتَأْجِرُ", "ar_tr": "yastaʾjiru" },
+    "third_person_singular": { "en": "rents", "ar": "يَسْتَأْجِرُ", "ar_tr": "yastaʾjiru" },
+    "present_participle": { "en": "renting", "ar": "يَسْتَأْجِرُ", "ar_tr": "yastaʾjiru" },
+    "past_tense": { "en": "rented", "ar": "اِسْتَأْجَرَ", "ar_tr": "istaʾjara" },
+    "related_noun": { "en": "rent", "ar": "إِيجَار", "ar_tr": "ijār" },
+    "related_adjective": { "en": "rented", "ar": "مُسْتَأْجَر", "ar_tr": "mustaʾjar" },
+    "tags": ["transitive","commerce","dynamic","service"]
+  },
+  {
+    "base_verb": { "en": "flood", "ar": "يَفِيضُ", "ar_tr": "yafīḍu" },
+    "third_person_singular": { "en": "floods", "ar": "يَفِيضُ", "ar_tr": "yafīḍu" },
+    "present_participle": { "en": "flooding", "ar": "يَفِيضُ", "ar_tr": "yafīḍu" },
+    "past_tense": { "en": "flooded", "ar": "فَاضَ", "ar_tr": "fāḍa" },
+    "related_noun": { "en": "flood", "ar": "فَيَضَان", "ar_tr": "fayḍān" },
+    "related_adjective": { "en": "flooded", "ar": "غَارِق", "ar_tr": "ghāriq" },
+    "tags": ["intransitive","nature","dynamic","overflow"]
+  },
+  {
+    "base_verb": { "en": "fold", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "third_person_singular": { "en": "folds", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "present_participle": { "en": "folding", "ar": "يَطْوِي", "ar_tr": "yaṭwī" },
+    "past_tense": { "en": "folded", "ar": "طَوَى", "ar_tr": "ṭawā" },
+    "related_noun": { "en": "fold", "ar": "طَيَّة", "ar_tr": "ṭayyah" },
+    "related_adjective": { "en": "folded", "ar": "مَطْوِيّ", "ar_tr": "maṭwiyy" },
+    "tags": ["transitive","action_physical","dynamic","manipulation"]
+  },
+  {
+    "base_verb": { "en": "corner", "ar": "يَحْشُرُ", "ar_tr": "yaḥshuru" },
+    "third_person_singular": { "en": "corners", "ar": "يَحْشُرُ", "ar_tr": "yaḥshuru" },
+    "present_participle": { "en": "cornering", "ar": "يَحْشُرُ", "ar_tr": "yaḥshuru" },
+    "past_tense": { "en": "cornered", "ar": "حَشَرَ", "ar_tr": "ḥashara" },
+    "related_noun": { "en": "corner", "ar": "زَاوِيَة", "ar_tr": "zāwiyah" },
+    "related_adjective": { "en": "cornered", "ar": "مَحْشُور", "ar_tr": "maḥshūr" },
+    "tags": ["transitive","action_physical","dynamic","constraint"]
+  },
+  {
+    "base_verb": { "en": "bill", "ar": "يُفَوِّرُ", "ar_tr": "yufawwiru" },
+    "third_person_singular": { "en": "bills", "ar": "يُفَوِّرُ", "ar_tr": "yufawwiru" },
+    "present_participle": { "en": "billing", "ar": "يُفَوِّرُ", "ar_tr": "yufawwiru" },
+    "past_tense": { "en": "billed", "ar": "فَوَّرَ", "ar_tr": "fawwara" },
+    "related_noun": { "en": "bill", "ar": "فَاتُورَة", "ar_tr": "fātūrah" },
+    "related_adjective": { "en": "billed", "ar": "مُفَوَّر", "ar_tr": "mufawwar" },
+    "tags": ["transitive","commerce","dynamic","invoicing"]
+  },
+  {
+    "base_verb": { "en": "cost", "ar": "يُكَلِّفُ", "ar_tr": "yukallifu" },
+    "third_person_singular": { "en": "costs", "ar": "يُكَلِّفُ", "ar_tr": "yukallifu" },
+    "present_participle": { "en": "costing", "ar": "يُكَلِّفُ", "ar_tr": "yukallifu" },
+    "past_tense": { "en": "cost", "ar": "كَلَّفَ", "ar_tr": "kallafa" },
+    "related_noun": { "en": "cost", "ar": "تَكْلُفَة", "ar_tr": "taklufah" },
+    "related_adjective": { "en": "costly", "ar": "مُكْلِف", "ar_tr": "muklif" },
+    "tags": ["transitive","stative_dynamic_mixed","economics"]
+  },
+  {
+    "base_verb": { "en": "smoke", "ar": "يُدَخِّنُ", "ar_tr": "yudakhkhinu" },
+    "third_person_singular": { "en": "smokes", "ar": "يُدَخِّنُ", "ar_tr": "yudakhkhinu" },
+    "present_participle": { "en": "smoking", "ar": "يُدَخِّنُ", "ar_tr": "yudakhkhinu" },
+    "past_tense": { "en": "smoked", "ar": "دَخَّنَ", "ar_tr": "dakhkhana" },
+    "related_noun": { "en": "smoke", "ar": "دُخَان", "ar_tr": "dukhān" },
+    "related_adjective": { "en": "smoked", "ar": "مُدَخَّن", "ar_tr": "mudakhkhan" },
+    "tags": ["intransitive","transitive","habit","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "close", "ar": "يُغْلِقُ", "ar_tr": "yughliqu" },
+    "third_person_singular": { "en": "closes", "ar": "يُغْلِقُ", "ar_tr": "yughliqu" },
+    "present_participle": { "en": "closing", "ar": "يُغْلِقُ", "ar_tr": "yughliqu" },
+    "past_tense": { "en": "closed", "ar": "أَغْلَقَ", "ar_tr": "aghlaqa" },
+    "related_noun": { "en": "closure", "ar": "إِغْلاَق", "ar_tr": "ighlāq" },
+    "related_adjective": { "en": "close", "ar": "قَرِيب", "ar_tr": "qarīb" },
+    "tags": ["transitive","causative","dynamic","change_of_state"]
+  },
+  {
+    "base_verb": { "en": "brighten", "ar": "يُشْرِقُ", "ar_tr": "yushriqu" },
+    "third_person_singular": { "en": "brightens", "ar": "يُشْرِقُ", "ar_tr": "yushriqu" },
+    "present_participle": { "en": "brightening", "ar": "يُشْرِقُ", "ar_tr": "yushriqu" },
+    "past_tense": { "en": "brightened", "ar": "أَشْرَقَ", "ar_tr": "ashraqa" },
+    "related_noun": { "en": "brightness", "ar": "إِشْرَاق", "ar_tr": "ishrāq" },
+    "related_adjective": { "en": "bright", "ar": "مُشْرِق", "ar_tr": "mushriq" },
+    "tags": ["intransitive","perception_light","dynamic","increase_intensity"]
+  },
+  {
+    "base_verb": { "en": "calculate", "ar": "يَحْسِبُ", "ar_tr": "yaḥsibu" },
+    "third_person_singular": { "en": "calculates", "ar": "يَحْسِبُ", "ar_tr": "yaḥsibu" },
+    "present_participle": { "en": "calculating", "ar": "يَحْسِبُ", "ar_tr": "yaḥsibu" },
+    "past_tense": { "en": "calculated", "ar": "حَسَبَ", "ar_tr": "ḥasaba" },
+    "related_noun": { "en": "calculator", "ar": "آلَة حَاسِبَة", "ar_tr": "ālah ḥāsibah" },
+    "related_adjective": { "en": "calculated", "ar": "مَحْسُوب", "ar_tr": "maḥsūb" },
+    "tags": ["transitive","cognition","math","dynamic"]
+  },
+  {
+    "base_verb": { "en": "cash", "ar": "يَصْرِفُ", "ar_tr": "yaṣrifu" },
+    "third_person_singular": { "en": "cashes", "ar": "يَصْرِفُ", "ar_tr": "yaṣrifu" },
+    "present_participle": { "en": "cashing", "ar": "يَصْرِفُ", "ar_tr": "yaṣrifu" },
+    "past_tense": { "en": "cashed", "ar": "صَرَفَ", "ar_tr": "ṣarafa" },
+    "related_noun": { "en": "cash", "ar": "نَقْد", "ar_tr": "naqd" },
+    "related_adjective": { "en": "cashed", "ar": "مَصْرُوف", "ar_tr": "maṣrūf" },
+    "tags": ["transitive","commerce","finance","dynamic"]
+  },
+  {
+    "base_verb": { "en": "toy", "ar": "يَلْهُو", "ar_tr": "yalhū" },
+    "third_person_singular": { "en": "toys", "ar": "يَلْهُو", "ar_tr": "yalhū" },
+    "present_participle": { "en": "toying", "ar": "يَلْهُو", "ar_tr": "yalhū" },
+    "past_tense": { "en": "toyed", "ar": "لَهَا", "ar_tr": "lahā" },
+    "related_noun": { "en": "toy", "ar": "لُعْبَة", "ar_tr": "luʿbah" },
+    "related_adjective": { "en": "playful", "ar": "لَعُوب", "ar_tr": "laʿūb" },
+    "tags": ["intransitive","recreation","dynamic","light_action"]
+  },
+  {
+    "base_verb": { "en": "stare", "ar": "يُحَدِّقُ", "ar_tr": "yuḥaddiqu" },
+    "third_person_singular": { "en": "stares", "ar": "يُحَدِّقُ", "ar_tr": "yuḥaddiqu" },
+    "present_participle": { "en": "staring", "ar": "يُحَدِّقُ", "ar_tr": "yuḥaddiqu" },
+    "past_tense": { "en": "stared", "ar": "حَدَّقَ", "ar_tr": "ḥaddaqa" },
+    "related_noun": { "en": "stare", "ar": "تَحْدِيق", "ar_tr": "taḥdīq" },
+    "related_adjective": { "en": "staring", "ar": "مُحَدِّق", "ar_tr": "muḥaddiq" },
+    "tags": ["intransitive","perception","dynamic_attention"]
+  },
+  {
+    "base_verb": { "en": "rub", "ar": "يَفْرُكُ", "ar_tr": "yafruku" },
+    "third_person_singular": { "en": "rubs", "ar": "يَفْرُكُ", "ar_tr": "yafruku" },
+    "present_participle": { "en": "rubbing", "ar": "يَفْرُكُ", "ar_tr": "yafruku" },
+    "past_tense": { "en": "rubbed", "ar": "فَرَكَ", "ar_tr": "faraka" },
+    "related_noun": { "en": "rub", "ar": "فَرْك", "ar_tr": "fark" },
+    "related_adjective": { "en": "rubbed", "ar": "مَفْرُوك", "ar_tr": "mafrūq" },
+    "tags": ["transitive","action_physical","dynamic","friction"]
+  },
+  {
+    "base_verb": { "en": "seat", "ar": "يُجْلِسُ", "ar_tr": "yujlisu" },
+    "third_person_singular": { "en": "seats", "ar": "يُجْلِسُ", "ar_tr": "yujlisu" },
+    "present_participle": { "en": "seating", "ar": "يُجْلِسُ", "ar_tr": "yujlisu" },
+    "past_tense": { "en": "seated", "ar": "أَجْلَسَ", "ar_tr": "ajlasa" },
+    "related_noun": { "en": "seat", "ar": "مَقْعَد", "ar_tr": "maqʿad" },
+    "related_adjective": { "en": "seated", "ar": "جَالِس", "ar_tr": "jālis" },
+    "tags": ["transitive","causative","dynamic","posture"]
+  },
+  {
+    "base_verb": { "en": "drink", "ar": "يَشْرَبُ", "ar_tr": "yashrabu" },
+    "third_person_singular": { "en": "drinks", "ar": "يَشْرَبُ", "ar_tr": "yashrabu" },
+    "present_participle": { "en": "drinking", "ar": "يَشْرَبُ", "ar_tr": "yashrabu" },
+    "past_tense": { "en": "drank", "ar": "شَرِبَ", "ar_tr": "shariba" },
+    "related_noun": { "en": "drink", "ar": "شَرَاب", "ar_tr": "sharāb" },
+    "related_adjective": { "en": "drunk", "ar": "مَشْرُوب", "ar_tr": "mashrūb" },
+    "tags": ["transitive","action_physical","dynamic","consumption"]
+  },
+  {
+    "base_verb": { "en": "microwave", "ar": "يُسَخِّنُ بِالمِيكْرُوويف", "ar_tr": "yusakhkhinu bil-mīkrūwīf" },
+    "third_person_singular": { "en": "microwaves", "ar": "يُسَخِّنُ بِالمِيكْرُوويف", "ar_tr": "yusakhkhinu bil-mīkrūwīf" },
+    "present_participle": { "en": "microwaving", "ar": "يُسَخِّنُ بِالمِيكْرُوويف", "ar_tr": "yusakhkhinu bil-mīkrūwīf" },
+    "past_tense": { "en": "microwaved", "ar": "سَخَّنَ بِالمِيكْرُوويف", "ar_tr": "sakhkhana bil-mīkrūwīf" },
+    "related_noun": { "en": "microwave", "ar": "مِيكْرُوويف", "ar_tr": "mīkrūwīf" },
+    "related_adjective": { "en": "microwaved", "ar": "مُسَخَّن", "ar_tr": "musakhkhan" },
+    "tags": ["transitive","kitchen","tool_use","dynamic","heating"]
+  },
+  {
+    "base_verb": { "en": "refrigerate", "ar": "يُبَرِّدُ", "ar_tr": "yubarridu" },
+    "third_person_singular": { "en": "refrigerates", "ar": "يُبَرِّدُ", "ar_tr": "yubarridu" },
+    "present_participle": { "en": "refrigerating", "ar": "يُبَرِّدُ", "ar_tr": "yubarridu" },
+    "past_tense": { "en": "refrigerated", "ar": "بَرَّدَ", "ar_tr": "barrada" },
+    "related_noun": { "en": "refrigerator", "ar": "ثَلاَّجَة", "ar_tr": "thallājah" },
+    "related_adjective": { "en": "refrigerated", "ar": "مُبَرَّد", "ar_tr": "mubarrad" },
+    "tags": ["transitive","kitchen","tool_use","dynamic","cooling"]
+  },
+  {
+    "base_verb": { "en": "bandage", "ar": "يُضَمِّدُ", "ar_tr": "yuḍammidu" },
+    "third_person_singular": { "en": "bandages", "ar": "يُضَمِّدُ", "ar_tr": "yuḍammidu" },
+    "present_participle": { "en": "bandaging", "ar": "يُضَمِّدُ", "ar_tr": "yuḍammidu" },
+    "past_tense": { "en": "bandaged", "ar": "ضَمَّدَ", "ar_tr": "ḍammada" },
+    "related_noun": { "en": "bandage", "ar": "ضِمَاد", "ar_tr": "ḍimād" },
+    "related_adjective": { "en": "bandaged", "ar": "مُضَمَّد", "ar_tr": "muḍammad" },
+    "tags": ["transitive","medical","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "compute", "ar": "يَحْسِبُ", "ar_tr": "yaḥsibu" },
+    "third_person_singular": { "en": "computes", "ar": "يَحْسِبُ", "ar_tr": "yaḥsibu" },
+    "present_participle": { "en": "computing", "ar": "يَحْسِبُ", "ar_tr": "yaḥsibu" },
+    "past_tense": { "en": "computed", "ar": "حَسَبَ", "ar_tr": "ḥasaba" },
+    "related_noun": { "en": "computer", "ar": "حَاسُوب", "ar_tr": "ḥāsūb" },
+    "related_adjective": { "en": "computed", "ar": "مَحْسُوب", "ar_tr": "maḥsūb" },
+    "tags": ["transitive","cognition","math","dynamic"]
+  },
+  {
+    "base_verb": { "en": "air condition", "ar": "يُكَيِّفُ الهَوَاء", "ar_tr": "yukayyifu al-hawāʾ" },
+    "third_person_singular": { "en": "air conditions", "ar": "يُكَيِّفُ الهَوَاء", "ar_tr": "yukayyifu al-hawāʾ" },
+    "present_participle": { "en": "air conditioning", "ar": "يُكَيِّفُ الهَوَاء", "ar_tr": "yukayyifu al-hawāʾ" },
+    "past_tense": { "en": "air conditioned", "ar": "كَيَّفَ الهَوَاء", "ar_tr": "kayyafa al-hawāʾ" },
+    "related_noun": { "en": "air conditioner", "ar": "مُكَيِّف هَوَاء", "ar_tr": "mukayyif hawāʾ" },
+    "related_adjective": { "en": "air-conditioned", "ar": "مُكَيَّف", "ar_tr": "mukayyaf" },
+    "tags": ["transitive","tool_use","facility","dynamic","cooling"]
+  },
+  {
+    "base_verb": { "en": "tape", "ar": "يُلْصِقُ بِشَرِيط", "ar_tr": "yulṣiqu bi-sharīṭ" },
+    "third_person_singular": { "en": "tapes", "ar": "يُلْصِقُ بِشَرِيط", "ar_tr": "yulṣiqu bi-sharīṭ" },
+    "present_participle": { "en": "taping", "ar": "يُلْصِقُ بِشَرِيط", "ar_tr": "yulṣiqu bi-sharīṭ" },
+    "past_tense": { "en": "taped", "ar": "أَلْصَقَ بِشَرِيط", "ar_tr": "alṣaqa bi-sharīṭ" },
+    "related_noun": { "en": "tape", "ar": "شَرِيط لاَصِق", "ar_tr": "sharīṭ lāsiq" },
+    "related_adjective": { "en": "taped", "ar": "مُلْصَق", "ar_tr": "mulṣaq" },
+    "tags": ["transitive","action_physical","tool_use","dynamic","adhesion"]
+  },
+  {
+    "base_verb": { "en": "shave", "ar": "يَحْلِقُ", "ar_tr": "yaḥliqu" },
+    "third_person_singular": { "en": "shaves", "ar": "يَحْلِقُ", "ar_tr": "yaḥliqu" },
+    "present_participle": { "en": "shaving", "ar": "يَحْلِقُ", "ar_tr": "yaḥliqu" },
+    "past_tense": { "en": "shaved", "ar": "حَلَقَ", "ar_tr": "ḥalaqa" },
+    "related_noun": { "en": "shave", "ar": "حِلاَقَة", "ar_tr": "ḥilāqah" },
+    "related_adjective": { "en": "shaved", "ar": "مَحْلُوق", "ar_tr": "maḥlūq" },
+    "tags": ["transitive","grooming","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "toothbrush", "ar": "يُنَظِّفُ الأَسْنَان", "ar_tr": "yunazzifu al-asnān" },
+    "third_person_singular": { "en": "toothbrushes", "ar": "يُنَظِّفُ الأَسْنَان", "ar_tr": "yunazzifu al-asnān" },
+    "present_participle": { "en": "toothbrushing", "ar": "يُنَظِّفُ الأَسْنَان", "ar_tr": "yunazzifu al-asnān" },
+    "past_tense": { "en": "toothbrushed", "ar": "نَظَّفَ الأَسْنَان", "ar_tr": "nazzafa al-asnān" },
+    "related_noun": { "en": "toothbrush", "ar": "فُرْشَاة أَسْنَان", "ar_tr": "furshāt asnān" },
+    "related_adjective": { "en": "brushed", "ar": "مُنَظَّف", "ar_tr": "munazzaf" },
+    "tags": ["transitive","hygiene","tool_use","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "condition", "ar": "يُكَيِّفُ", "ar_tr": "yukayyifu" },
+    "third_person_singular": { "en": "conditions", "ar": "يُكَيِّفُ", "ar_tr": "yukayyifu" },
+    "present_participle": { "en": "conditioning", "ar": "يُكَيِّفُ", "ar_tr": "yukayyifu" },
+    "past_tense": { "en": "conditioned", "ar": "كَيَّفَ", "ar_tr": "kayyafa" },
+    "related_noun": { "en": "conditioner", "ar": "مُكَيِّف", "ar_tr": "mukayyif" },
+    "related_adjective": { "en": "conditioned", "ar": "مُكَيَّف", "ar_tr": "mukayyaf" },
+    "tags": ["transitive","tool_use","facility","dynamic"]
+  },
+  {
+    "base_verb": { "en": "whiteboard", "ar": "يَكْتُبُ عَلَى السَّبُّورَة", "ar_tr": "yaktubu ʿalā as-sabbūrah" },
+    "third_person_singular": { "en": "whiteboards", "ar": "يَكْتُبُ عَلَى السَّبُّورَة", "ar_tr": "yaktubu ʿalā as-sabbūrah" },
+    "present_participle": { "en": "whiteboarding", "ar": "يَكْتُبُ عَلَى السَّبُّورَة", "ar_tr": "yaktubu ʿalā as-sabbūrah" },
+    "past_tense": { "en": "whiteboarded", "ar": "كَتَبَ عَلَى السَّبُّورَة", "ar_tr": "kataba ʿalā as-sabbūrah" },
+    "related_noun": { "en": "whiteboard", "ar": "سَبُّورَة بَيْضَاء", "ar_tr": "sabbūrah bayḍāʾ" },
+    "related_adjective": { "en": "written", "ar": "مَكْتُوب", "ar_tr": "maktūb" },
+    "tags": ["intransitive","communication","tool_use","dynamic","writing_surface"]
+  },
+  {
+    "base_verb": { "en": "book", "ar": "يَحْجِزُ", "ar_tr": "yaḥjizu" },
+    "third_person_singular": { "en": "books", "ar": "يَحْجِزُ", "ar_tr": "yaḥjizu" },
+    "present_participle": { "en": "booking", "ar": "يَحْجِزُ", "ar_tr": "yaḥjizu" },
+    "past_tense": { "en": "booked", "ar": "حَجَزَ", "ar_tr": "ḥajaza" },
+    "related_noun": { "en": "book", "ar": "كِتَاب", "ar_tr": "kitāb" },
+    "related_adjective": { "en": "booked", "ar": "مَحْجُوز", "ar_tr": "maḥjūz" },
+    "tags": ["transitive","commerce","scheduling","dynamic"]
+  },
+  {
+    "base_verb": { "en": "erase", "ar": "يَمْحُو", "ar_tr": "yamḥū" },
+    "third_person_singular": { "en": "erases", "ar": "يَمْحُو", "ar_tr": "yamḥū" },
+    "present_participle": { "en": "erasing", "ar": "يَمْحُو", "ar_tr": "yamḥū" },
+    "past_tense": { "en": "erased", "ar": "مَحَا", "ar_tr": "maḥā" },
+    "related_noun": { "en": "eraser", "ar": "مِمْحَاة", "ar_tr": "mimḥāh" },
+    "related_adjective": { "en": "erased", "ar": "مَمْحُوّ", "ar_tr": "mamḥū" },
+    "tags": ["transitive","action_physical","dynamic","removal"]
+  },
+  {
+    "base_verb": { "en": "mailbox", "ar": "يَضَعُ فِي البَرِيد", "ar_tr": "yaḍaʿu fī al-barīd" },
+    "third_person_singular": { "en": "mailboxes", "ar": "يَضَعُ فِي البَرِيد", "ar_tr": "yaḍaʿu fī al-barīd" },
+    "present_participle": { "en": "smailing", "ar": "يَضَعُ فِي البَرِيد", "ar_tr": "yaḍaʿu fī al-barīd" },
+    "past_tense": { "en": "mailboxed", "ar": "وَضَعَ فِي البَرِيد", "ar_tr": "waḍaʿa fī al-barīd" },
+    "related_noun": { "en": "mailbox", "ar": "صُنْدُوق بَرِيد", "ar_tr": "ṣundūq barīd" },
+    "related_adjective": { "en": "mailed", "ar": "مُرْسَل", "ar_tr": "mursal" },
+    "tags": ["transitive","communication","postal","dynamic","placement"]
+  },
+  {
+    "base_verb": { "en": "inform", "ar": "يُبْلِغُ", "ar_tr": "yubliġu" },
+    "third_person_singular": { "en": "informs", "ar": "يُبْلِغُ", "ar_tr": "yubliġu" },
+    "present_participle": { "en": "informing", "ar": "يُبْلِغُ", "ar_tr": "yubliġu" },
+    "past_tense": { "en": "informed", "ar": "أَبْلَغَ", "ar_tr": "ablaġa" },
+    "related_noun": { "en": "informer", "ar": "مُخْبِر", "ar_tr": "mukhbir" },
+    "related_adjective": { "en": "informed", "ar": "مُطَّلِع", "ar_tr": "muṭṭaliʿ" },
+    "tags": ["transitive","communication","reporting","dynamic"]
+  },
+  {
+    "base_verb": { "en": "scissor", "ar": "يَقُصُّ", "ar_tr": "yaqussu" },
+    "third_person_singular": { "en": "scissors", "ar": "يَقُصُّ", "ar_tr": "yaqussu" },
+    "present_participle": { "en": "scissoring", "ar": "يَقُصُّ", "ar_tr": "yaqussu" },
+    "past_tense": { "en": "scissored", "ar": "قَصَّ", "ar_tr": "qaṣṣa" },
+    "related_noun": { "en": "scissors", "ar": "مِقَصّ", "ar_tr": "miqaṣṣ" },
+    "related_adjective": { "en": "cut", "ar": "مَقْصُوص", "ar_tr": "maqṣūṣ" },
+    "tags": ["transitive","tool_use","action_physical","cutting","dynamic"]
+  },
+  {
+    "base_verb": { "en": "rule", "ar": "يَحْكُمُ", "ar_tr": "yaḥkumu" },
+    "third_person_singular": { "en": "rules", "ar": "يَحْكُمُ", "ar_tr": "yaḥkumu" },
+    "present_participle": { "en": "ruling", "ar": "يَحْكُمُ", "ar_tr": "yaḥkumu" },
+    "past_tense": { "en": "ruled", "ar": "حَكَمَ", "ar_tr": "ḥakama" },
+    "related_noun": { "en": "ruler", "ar": "حَاكِم", "ar_tr": "ḥākim" },
+    "related_adjective": { "en": "ruled", "ar": "مَحْكُوم", "ar_tr": "maḥkūm" },
+    "tags": ["transitive","governance","authority","dynamic"]
+  },
+  {
+    "base_verb": { "en": "glue", "ar": "يُلْصِقُ", "ar_tr": "yulṣiqu" },
+    "third_person_singular": { "en": "glues", "ar": "يُلْصِقُ", "ar_tr": "yulṣiqu" },
+    "present_participle": { "en": "gluing", "ar": "يُلْصِقُ", "ar_tr": "yulṣiqu" },
+    "past_tense": { "en": "glued", "ar": "أَلْصَقَ", "ar_tr": "alṣaqa" },
+    "related_noun": { "en": "glue", "ar": "صَمْغ", "ar_tr": "ṣamgh" },
+    "related_adjective": { "en": "glued", "ar": "مُلْصَق", "ar_tr": "mulṣaq" },
+    "tags": ["transitive","tool_use","adhesion","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "ring", "ar": "يَرِنُّ", "ar_tr": "yarinnū" },
+    "third_person_singular": { "en": "rings", "ar": "يَرِنُّ", "ar_tr": "yarinnū" },
+    "present_participle": { "en": "ringing", "ar": "يَرِنُّ", "ar_tr": "yarinnū" },
+    "past_tense": { "en": "rang", "ar": "رَنَّ", "ar_tr": "rannā" },
+    "related_noun": { "en": "ring", "ar": "خَاتَم", "ar_tr": "khātam" },
+    "related_adjective": { "en": "ringing", "ar": "رَنَّان", "ar_tr": "rannān" },
+    "tags": ["intransitive","sound","event_emission","dynamic"]
+  },
+  {
+    "base_verb": { "en": "remote control", "ar": "يَتَحَكَّمُ عَنْ بُعْد", "ar_tr": "yataḥakkamu ʿan buʿd" },
+    "third_person_singular": { "en": "remote controls", "ar": "يَتَحَكَّمُ عَنْ بُعْد", "ar_tr": "yataḥakkamu ʿan buʿd" },
+    "present_participle": { "en": "remote controlling", "ar": "يَتَحَكَّمُ عَنْ بُعْد", "ar_tr": "yataḥakkamu ʿan buʿd" },
+    "past_tense": { "en": "remote controlled", "ar": "تَحَكَّمَ عَنْ بُعْد", "ar_tr": "taḥakkama ʿan buʿd" },
+    "related_noun": { "en": "remote control", "ar": "جِهَاز تَحَكُّم", "ar_tr": "jihāz taḥakkum" },
+    "related_adjective": { "en": "remote-controlled", "ar": "مُتَحَكَّم فِيهِ عَنْ بُعْد", "ar_tr": "mutaḥakkam fīhi ʿan buʿd" },
+    "tags": ["transitive","tool_use","technology","control","dynamic"]
+  },
+  {
+    "base_verb": { "en": "duck", "ar": "يَنْحَنِي", "ar_tr": "yanḥanī" },
+    "third_person_singular": { "en": "ducks", "ar": "يَنْحَنِي", "ar_tr": "yanḥanī" },
+    "present_participle": { "en": "ducking", "ar": "يَنْحَنِي", "ar_tr": "yanḥanī" },
+    "past_tense": { "en": "ducked", "ar": "اِنْحَنَى", "ar_tr": "inḥanā" },
+    "related_noun": { "en": "duck", "ar": "بَطَّة", "ar_tr": "baṭṭah" },
+    "related_adjective": { "en": "ducking", "ar": "مُنْحَنٍ", "ar_tr": "munḥanin" },
+    "tags": ["intransitive","action_physical","avoidance","posture","dynamic"]
+  },
+  {
+    "base_verb": { "en": "mirror", "ar": "يَعْكِسُ", "ar_tr": "yaʿkisu" },
+    "third_person_singular": { "en": "mirrors", "ar": "يَعْكِسُ", "ar_tr": "yaʿkisu" },
+    "present_participle": { "en": "mirroring", "ar": "يَعْكِسُ", "ar_tr": "yaʿkisu" },
+    "past_tense": { "en": "mirrored", "ar": "عَكَسَ", "ar_tr": "ʿakasa" },
+    "related_noun": { "en": "mirror", "ar": "مِرْآة", "ar_tr": "mirʾāh" },
+    "related_adjective": { "en": "mirrored", "ar": "مَعْكُوس", "ar_tr": "maʿkūs" },
+    "tags": ["transitive","representation","reflection","dynamic"]
+  },
+  {
+    "base_verb": { "en": "print", "ar": "يَطْبَعُ", "ar_tr": "yaṭbaʿu" },
+    "third_person_singular": { "en": "prints", "ar": "يَطْبَعُ", "ar_tr": "yaṭbaʿu" },
+    "present_participle": { "en": "printing", "ar": "يَطْبَعُ", "ar_tr": "yaṭbaʿu" },
+    "past_tense": { "en": "printed", "ar": "طَبَعَ", "ar_tr": "ṭabaʿa" },
+    "related_noun": { "en": "printer", "ar": "طَابِعَة", "ar_tr": "ṭābiʿah" },
+    "related_adjective": { "en": "printed", "ar": "مَطْبُوع", "ar_tr": "maṭbūʿ" },
+    "tags": ["transitive","tool_use","production","office","dynamic"]
+  },
+  {
+    "base_verb": { "en": "teach", "ar": "يُدَرِّسُ", "ar_tr": "yudarrisu" },
+    "third_person_singular": { "en": "teaches", "ar": "يُدَرِّسُ", "ar_tr": "yudarrisu" },
+    "present_participle": { "en": "teaching", "ar": "يُدَرِّسُ", "ar_tr": "yudarrisu" },
+    "past_tense": { "en": "taught", "ar": "دَرَّسَ", "ar_tr": "darrasa" },
+    "related_noun": { "en": "teacher", "ar": "مُدَرِّس", "ar_tr": "mudarris" },
+    "related_adjective": { "en": "taught", "ar": "مُدَرَّس", "ar_tr": "mudarras" },
+    "tags": ["ditransitive","education","communication","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "garden", "ar": "يَعْتَنِي بِالحَدِيقَة", "ar_tr": "yaʿtanī bil-ḥadīqah" },
+    "third_person_singular": { "en": "gardens", "ar": "يَعْتَنِي بِالحَدِيقَة", "ar_tr": "yaʿtanī bil-ḥadīqah" },
+    "present_participle": { "en": "gardening", "ar": "يَعْتَنِي بِالحَدِيقَة", "ar_tr": "yaʿtanī bil-ḥadīqah" },
+    "past_tense": { "en": "gardened", "ar": "اِعْتَنَى بِالحَدِيقَة", "ar_tr": "iʿtanā bil-ḥadīqah" },
+    "related_noun": { "en": "gardener", "ar": "بُسْتَانِيّ", "ar_tr": "bustānī" },
+    "related_adjective": { "en": "gardened", "ar": "مُعْتَنَى بِهِ", "ar_tr": "muʿtanā bihi" },
+    "tags": ["intransitive","outdoors","maintenance","dynamic"]
+  },
+  {
+    "base_verb": { "en": "program", "ar": "يُبَرْمِجُ", "ar_tr": "yubarmiju" },
+    "third_person_singular": { "en": "programs", "ar": "يُبَرْمِجُ", "ar_tr": "yubarmiju" },
+    "present_participle": { "en": "programming", "ar": "يُبَرْمِجُ", "ar_tr": "yubarmiju" },
+    "past_tense": { "en": "programmed", "ar": "بَرْمَجَ", "ar_tr": "barmaja" },
+    "related_noun": { "en": "programmer", "ar": "مُبَرْمِج", "ar_tr": "mubarmij" },
+    "related_adjective": { "en": "programmed", "ar": "مُبَرْمَج", "ar_tr": "mubarmaj" },
+    "tags": ["transitive","technology","creation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "migrate", "ar": "يُهَاجِرُ", "ar_tr": "yuhājiru" },
+    "third_person_singular": { "en": "migrates", "ar": "يُهَاجِرُ", "ar_tr": "yuhājiru" },
+    "present_participle": { "en": "migrating", "ar": "يُهَاجِرُ", "ar_tr": "yuhājiru" },
+    "past_tense": { "en": "migrated", "ar": "هَاجَرَ", "ar_tr": "hājara" },
+    "related_noun": { "en": "migrant", "ar": "مُهَاجِر", "ar_tr": "muhājir" },
+    "related_adjective": { "en": "migratory", "ar": "مُهَاجِر", "ar_tr": "muhājir" },
+    "tags": ["intransitive","movement","travel","dynamic"]
+  },
+  {
+    "base_verb": { "en": "occupy", "ar": "يَحْتَلُّ", "ar_tr": "yaḥtallu" },
+    "third_person_singular": { "en": "occupies", "ar": "يَحْتَلُّ", "ar_tr": "yaḥtallu" },
+    "present_participle": { "en": "occupying", "ar": "يَحْتَلُّ", "ar_tr": "yaḥtallu" },
+    "past_tense": { "en": "occupied", "ar": "اِحْتَلَّ", "ar_tr": "iḥtalla" },
+    "related_noun": { "en": "occupation", "ar": "اِحْتِلال", "ar_tr": "iḥtilāl" },
+    "related_adjective": { "en": "occupied", "ar": "مُحْتَلّ", "ar_tr": "muḥtall" },
+    "tags": ["transitive","possession","control","dynamic"]
+  },
+  {
+    "base_verb": { "en": "sing", "ar": "يُغَنِّي", "ar_tr": "yughannī" },
+    "third_person_singular": { "en": "sings", "ar": "يُغَنِّي", "ar_tr": "yughannī" },
+    "present_participle": { "en": "singing", "ar": "يُغَنِّي", "ar_tr": "yughannī" },
+    "past_tense": { "en": "sang", "ar": "غَنَّى", "ar_tr": "ghannā" },
+    "related_noun": { "en": "singer", "ar": "مُغَنٍّ", "ar_tr": "mughannī" },
+    "related_adjective": { "en": "sung", "ar": "مُغَنَّى", "ar_tr": "mughannā" },
+    "tags": ["intransitive","music","vocal","dynamic"]
+  },
+  {
+    "base_verb": { "en": "account", "ar": "يُحَاسِبُ", "ar_tr": "yuḥāsibu" },
+    "third_person_singular": { "en": "accounts", "ar": "يُحَاسِبُ", "ar_tr": "yuḥāsibu" },
+    "present_participle": { "en": "accounting", "ar": "يُحَاسِبُ", "ar_tr": "yuḥāsibu" },
+    "past_tense": { "en": "accounted", "ar": "حَاسَبَ", "ar_tr": "ḥāsaba" },
+    "related_noun": { "en": "accountant", "ar": "مُحَاسِب", "ar_tr": "muḥāsib" },
+    "related_adjective": { "en": "accountable", "ar": "مَسْؤُول", "ar_tr": "masʾūl" },
+    "tags": ["transitive","finance","evaluation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "farm", "ar": "يَزْرَعُ", "ar_tr": "yazraʿu" },
+    "third_person_singular": { "en": "farms", "ar": "يَزْرَعُ", "ar_tr": "yazraʿu" },
+    "present_participle": { "en": "farming", "ar": "يَزْرَعُ", "ar_tr": "yazraʿu" },
+    "past_tense": { "en": "farmed", "ar": "زَرَعَ", "ar_tr": "zaraʿa" },
+    "related_noun": { "en": "farmer", "ar": "مُزَارِع", "ar_tr": "muzāriʿ" },
+    "related_adjective": { "en": "farmed", "ar": "مَزْرُوع", "ar_tr": "mazrūʿ" },
+    "tags": ["transitive","agriculture","production","dynamic"]
+  },
+  {
+    "base_verb": { "en": "manage", "ar": "يُدِيرُ", "ar_tr": "yudīru" },
+    "third_person_singular": { "en": "manages", "ar": "يُدِيرُ", "ar_tr": "yudīru" },
+    "present_participle": { "en": "managing", "ar": "يُدِيرُ", "ar_tr": "yudīru" },
+    "past_tense": { "en": "managed", "ar": "أَدَارَ", "ar_tr": "adāra" },
+    "related_noun": { "en": "manager", "ar": "مُدِير", "ar_tr": "mudīr" },
+    "related_adjective": { "en": "managed", "ar": "مُدَار", "ar_tr": "mudār" },
+    "tags": ["transitive","administration","control","dynamic"]
+  }, 
+  {
+    "base_verb": { "en": "drive", "ar": "يَقُودُ", "ar_tr": "yaqūdu" },
+    "third_person_singular": { "en": "drives", "ar": "يَقُودُ", "ar_tr": "yaqūdu" },
+    "present_participle": { "en": "driving", "ar": "يَقُودُ", "ar_tr": "yaqūdu" },
+    "past_tense": { "en": "drove", "ar": "قَادَ", "ar_tr": "qāda" },
+    "related_noun": { "en": "driver", "ar": "سَائِق", "ar_tr": "sāʾiq" },
+    "related_adjective": { "en": "driven", "ar": "مَقُود", "ar_tr": "maqūd" },
+    "tags": ["transitive","intransitive","motion_vehicle","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "group", "ar": "يُجَمِّعُ", "ar_tr": "yujammiʿu" },
+    "third_person_singular": { "en": "groups", "ar": "يُجَمِّعُ", "ar_tr": "yujammiʿu" },
+    "present_participle": { "en": "grouping", "ar": "يُجَمِّعُ", "ar_tr": "yujammiʿu" },
+    "past_tense": { "en": "grouped", "ar": "جَمَّعَ", "ar_tr": "jammaʿa" },
+    "related_noun": { "en": "group", "ar": "مَجْمُوعَة", "ar_tr": "majmūʿah" },
+    "related_adjective": { "en": "grouped", "ar": "مُجَمَّع", "ar_tr": "mujammaʿ" },
+    "tags": ["transitive","organization","aggregation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "throw", "ar": "يَرْمِي", "ar_tr": "yarmī" },
+    "third_person_singular": { "en": "throws", "ar": "يَرْمِي", "ar_tr": "yarmī" },
+    "present_participle": { "en": "throwing", "ar": "يَرْمِي", "ar_tr": "yarmī" },
+    "past_tense": { "en": "threw", "ar": "رَمَى", "ar_tr": "ramā" },
+    "related_noun": { "en": "throw", "ar": "رَمْيَة", "ar_tr": "ramyah" },
+    "related_adjective": { "en": "thrown", "ar": "مَرْمِيّ", "ar_tr": "marmiyy" },
+    "tags": ["transitive","action_physical","projectile","dynamic"]
+  },
+  {
+    "base_verb": { "en": "withdraw", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "third_person_singular": { "en": "withdraws", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "present_participle": { "en": "withdrawing", "ar": "يَسْحَبُ", "ar_tr": "yasḥabu" },
+    "past_tense": { "en": "withdrew", "ar": "سَحَبَ", "ar_tr": "saḥaba" },
+    "related_noun": { "en": "withdrawal", "ar": "سَحْب", "ar_tr": "saḥb" },
+    "related_adjective": { "en": "withdrawn", "ar": "مَسْحُوب", "ar_tr": "masḥūb" },
+    "tags": ["transitive","finance","removal","dynamic"]
+  },
+  {
+    "base_verb": { "en": "finish", "ar": "يُنْهِي", "ar_tr": "yunhī" },
+    "third_person_singular": { "en": "finishes", "ar": "يُنْهِي", "ar_tr": "yunhī" },
+    "present_participle": { "en": "finishing", "ar": "يُنْهِي", "ar_tr": "yunhī" },
+    "past_tense": { "en": "finished", "ar": "أَنْهَى", "ar_tr": "anhā" },
+    "related_noun": { "en": "finish", "ar": "نِهَايَة", "ar_tr": "nihāyah" },
+    "related_adjective": { "en": "finished", "ar": "مُنْتَهٍ", "ar_tr": "muntahin" },
+    "tags": ["transitive","telic","change_of_state","dynamic"]
+  },
+  {
+    "base_verb": { "en": "relax", "ar": "يَسْتَرْخِي", "ar_tr": "yastarkhī" },
+    "third_person_singular": { "en": "relaxes", "ar": "يَسْتَرْخِي", "ar_tr": "yastarkhī" },
+    "present_participle": { "en": "relaxing", "ar": "يَسْتَرْخِي", "ar_tr": "yastarkhī" },
+    "past_tense": { "en": "relaxed", "ar": "اِسْتَرْخَى", "ar_tr": "istarkhā" },
+    "related_noun": { "en": "relaxation", "ar": "اِسْتِرْخَاء", "ar_tr": "istirkhāʾ" },
+    "related_adjective": { "en": "relaxed", "ar": "مُسْتَرْخٍ", "ar_tr": "mustarkhin" },
+    "tags": ["intransitive","state_change","rest","dynamic"]
+  },
+  {
+    "base_verb": { "en": "cook", "ar": "يَطْبُخُ", "ar_tr": "yaṭbukhu" },
+    "third_person_singular": { "en": "cooks", "ar": "يَطْبُخُ", "ar_tr": "yaṭbukhu" },
+    "present_participle": { "en": "cooking", "ar": "يَطْبُخُ", "ar_tr": "yaṭbukhu" },
+    "past_tense": { "en": "cooked", "ar": "طَبَخَ", "ar_tr": "ṭabakha" },
+    "related_noun": { "en": "cook", "ar": "طَبَّاخ", "ar_tr": "ṭabbākh" },
+    "related_adjective": { "en": "cooked", "ar": "مَطْبُوخ", "ar_tr": "maṭbūkh" },
+    "tags": ["transitive","intransitive","kitchen","preparation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "exercise", "ar": "يَتَمَرَّنُ", "ar_tr": "yatamarranu" },
+    "third_person_singular": { "en": "exercises", "ar": "يَتَمَرَّنُ", "ar_tr": "yatamarranu" },
+    "present_participle": { "en": "exercising", "ar": "يَتَمَرَّنُ", "ar_tr": "yatamarranu" },
+    "past_tense": { "en": "exercised", "ar": "تَمَرَّنَ", "ar_tr": "tamarrana" },
+    "related_noun": { "en": "exercise", "ar": "تَمْرِين", "ar_tr": "tamrīn" },
+    "related_adjective": { "en": "exercised", "ar": "مُمَرَّن", "ar_tr": "mumarran" },
+    "tags": ["intransitive","fitness","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "die", "ar": "يَمُوتُ", "ar_tr": "yamūtu" },
+    "third_person_singular": { "en": "dies", "ar": "يَمُوتُ", "ar_tr": "yamūtu" },
+    "present_participle": { "en": "dying", "ar": "يَمُوتُ", "ar_tr": "yamūtu" },
+    "past_tense": { "en": "died", "ar": "مَاتَ", "ar_tr": "māta" },
+    "related_noun": { "en": "death", "ar": "مَوْت", "ar_tr": "mawt" },
+    "related_adjective": { "en": "dead", "ar": "مَيِّت", "ar_tr": "mayyit" },
+    "tags": ["intransitive","change_of_state","life_event","stative_endpoint"]
+  },
+  {
+    "base_verb": { "en": "attend", "ar": "يَحْضُرُ", "ar_tr": "yaḥḍuru" },
+    "third_person_singular": { "en": "attends", "ar": "يَحْضُرُ", "ar_tr": "yaḥḍuru" },
+    "present_participle": { "en": "attending", "ar": "يَحْضُرُ", "ar_tr": "yaḥḍuru" },
+    "past_tense": { "en": "attended", "ar": "حَضَرَ", "ar_tr": "ḥaḍara" },
+    "related_noun": { "en": "attendance", "ar": "حُضُور", "ar_tr": "ḥuḍūr" },
+    "related_adjective": { "en": "attending", "ar": "حَاضِر", "ar_tr": "ḥāḍir" },
+    "tags": ["transitive","event","participation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "say", "ar": "يَقُولُ", "ar_tr": "yaqūlu" },
+    "third_person_singular": { "en": "says", "ar": "يَقُولُ", "ar_tr": "yaqūlu" },
+    "present_participle": { "en": "saying", "ar": "يَقُولُ", "ar_tr": "yaqūlu" },
+    "past_tense": { "en": "said", "ar": "قَالَ", "ar_tr": "qāla" },
+    "related_noun": { "en": "saying", "ar": "قَوْل", "ar_tr": "qawl" },
+    "related_adjective": { "en": "said", "ar": "مَقُول", "ar_tr": "maqūl" },
+    "tags": ["transitive","communication","speech","dynamic"]
+  },
+  {
+    "base_verb": { "en": "call", "ar": "يُنَادِي", "ar_tr": "yunādī" },
+    "third_person_singular": { "en": "calls", "ar": "يُنَادِي", "ar_tr": "yunādī" },
+    "present_participle": { "en": "calling", "ar": "يُنَادِي", "ar_tr": "yunādī" },
+    "past_tense": { "en": "called", "ar": "نَادَى", "ar_tr": "nā dā" },
+    "related_noun": { "en": "caller", "ar": "مُنَادٍ", "ar_tr": "munādin" },
+    "related_adjective": { "en": "called", "ar": "مُنَادَى", "ar_tr": "munādā" },
+    "tags": ["ditransitive","communication","vocative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "cough", "ar": "يَسْعُلُ", "ar_tr": "yasʿulu" },
+    "third_person_singular": { "en": "coughs", "ar": "يَسْعُلُ", "ar_tr": "yasʿulu" },
+    "present_participle": { "en": "coughing", "ar": "يَسْعُلُ", "ar_tr": "yasʿulu" },
+    "past_tense": { "en": "coughed", "ar": "سَعَلَ", "ar_tr": "saʿala" },
+    "related_noun": { "en": "cough", "ar": "سُعَال", "ar_tr": "suʿāl" },
+    "related_adjective": { "en": "coughing", "ar": "سَاعِل", "ar_tr": "sāʿil" },
+    "tags": ["intransitive","health","bodily_function","dynamic"]
+  },
+  {
+    "base_verb": { "en": "reserve", "ar": "يَحْجِزُ", "ar_tr": "yaḥjizu" },
+    "third_person_singular": { "en": "reserves", "ar": "يَحْجِزُ", "ar_tr": "yaḥjizu" },
+    "present_participle": { "en": "reserving", "ar": "يَحْجِزُ", "ar_tr": "yaḥjizu" },
+    "past_tense": { "en": "reserved", "ar": "حَجَزَ", "ar_tr": "ḥajaza" },
+    "related_noun": { "en": "reservation", "ar": "حَجْز", "ar_tr": "ḥajz" },
+    "related_adjective": { "en": "reserved", "ar": "مَحْجُوز", "ar_tr": "maḥjūz" },
+    "tags": ["transitive","commerce","scheduling","dynamic"]
+  },
+  {
+    "base_verb": { "en": "marry", "ar": "يَتَزَوَّجُ", "ar_tr": "yatazawwaj" },
+    "third_person_singular": { "en": "marries", "ar": "يَتَزَوَّجُ", "ar_tr": "yatazawwaj" },
+    "present_participle": { "en": "marrying", "ar": "يَتَزَوَّجُ", "ar_tr": "yatazawwaj" },
+    "past_tense": { "en": "married", "ar": "تَزَوَّجَ", "ar_tr": "tazawwa ja" },
+    "related_noun": { "en": "marriage", "ar": "زَوَاج", "ar_tr": "zawāj" },
+    "related_adjective": { "en": "married", "ar": "مُتَزَوِّج", "ar_tr": "mutazawwij" },
+    "tags": ["intransitive","life_event","social","dynamic"]
+  },
+  {
+    "base_verb": { "en": "participate", "ar": "يُشَارِكُ", "ar_tr": "yushāriku" },
+    "third_person_singular": { "en": "participates", "ar": "يُشَارِكُ", "ar_tr": "yushāriku" },
+    "present_participle": { "en": "participating", "ar": "يُشَارِكُ", "ar_tr": "yushāriku" },
+    "past_tense": { "en": "participated", "ar": "شَارَكَ", "ar_tr": "shāraka" },
+    "related_noun": { "en": "participation", "ar": "مُشَارَكَة", "ar_tr": "mushārakah" },
+    "related_adjective": { "en": "participating", "ar": "مُشَارِك", "ar_tr": "mushārik" },
+    "tags": ["intransitive","social","event","dynamic"]
+  },
+  {
+    "base_verb": { "en": "engage", "ar": "يُشَارِكُ", "ar_tr": "yushāriku" },
+    "third_person_singular": { "en": "engages", "ar": "يُشَارِكُ", "ar_tr": "yushāriku" },
+    "present_participle": { "en": "engaging", "ar": "يُشَارِكُ", "ar_tr": "yushāriku" },
+    "past_tense": { "en": "engaged", "ar": "شَارَكَ", "ar_tr": "shāraka" },
+    "related_noun": { "en": "engagement", "ar": "مُشَارَكَة", "ar_tr": "mushārakah" },
+    "related_adjective": { "en": "engaging", "ar": "جَذَّاب", "ar_tr": "jadhdhāb" },
+    "tags": ["intransitive","social","participation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "cheer", "ar": "يُهَلِّلُ", "ar_tr": "yuhallilu" },
+    "third_person_singular": { "en": "cheers", "ar": "يُهَلِّلُ", "ar_tr": "yuhallilu" },
+    "present_participle": { "en": "cheering", "ar": "يُهَلِّلُ", "ar_tr": "yuhallilu" },
+    "past_tense": { "en": "cheered", "ar": "هَلَّلَ", "ar_tr": "hallala" },
+    "related_noun": { "en": "cheer", "ar": "هُتَاف", "ar_tr": "hutāf" },
+    "related_adjective": { "en": "cheerful", "ar": "مُبْتَهِج", "ar_tr": "mubtahij" },
+    "tags": ["intransitive","communication","support","dynamic"]
+  },
+  {
+    "base_verb": { "en": "park", "ar": "يُوقِفُ السَّيَّارَة", "ar_tr": "yūqifu as-sayyārah" },
+    "third_person_singular": { "en": "parks", "ar": "يُوقِفُ السَّيَّارَة", "ar_tr": "yūqifu as-sayyārah" },
+    "present_participle": { "en": "parking", "ar": "يُوقِفُ السَّيَّارَة", "ar_tr": "yūqifu as-sayyārah" },
+    "past_tense": { "en": "parked", "ar": "أَوْقَفَ السَّيَّارَة", "ar_tr": "awqafa as-sayyārah" },
+    "related_noun": { "en": "park", "ar": "مُنْتَزَه", "ar_tr": "muntazah" },
+    "related_adjective": { "en": "parked", "ar": "مُتَوَقِّف", "ar_tr": "mutawaqqif" },
+    "tags": ["transitive","vehicle","positioning","dynamic"]
+  },
+  {
+    "base_verb": { "en": "export", "ar": "يُصَدِّرُ", "ar_tr": "yuṣaddiru" },
+    "third_person_singular": { "en": "exports", "ar": "يُصَدِّرُ", "ar_tr": "yuṣaddiru" },
+    "present_participle": { "en": "exporting", "ar": "يُصَدِّرُ", "ar_tr": "yuṣaddiru" },
+    "past_tense": { "en": "exported", "ar": "صَدَّرَ", "ar_tr": "ṣaddara" },
+    "related_noun": { "en": "export", "ar": "تَصْدِير", "ar_tr": "taṣdīr" },
+    "related_adjective": { "en": "exported", "ar": "مُصَدَّر", "ar_tr": "muṣaddar" },
+    "tags": ["transitive","commerce","trade","dynamic"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "dizziness", "ar": "دُوَار", "ar_tr": "duwār" },
+    "related_adjective": { "en": "dizzy", "ar": "دَائِخ", "ar_tr": "dāʾikh" },
+    "tags": ["state","health","sensation"]
+  },
+  {
+    "base_verb": { "en": "skip", "ar": "يَتَخَطَّى", "ar_tr": "yata khaṭṭā" },
+    "third_person_singular": { "en": "skips", "ar": "يَتَخَطَّى", "ar_tr": "yata khaṭṭā" },
+    "present_participle": { "en": "skipping", "ar": "يَتَخَطَّى", "ar_tr": "yata khaṭṭā" },
+    "past_tense": { "en": "skipped", "ar": "تَخَطَّى", "ar_tr": "takh aṭṭā" },
+    "related_noun": { "en": "skip", "ar": "تَخَطٍّ", "ar_tr": "takhaṭṭin" },
+    "related_adjective": { "en": "skipped", "ar": "مُتَخَطَّى", "ar_tr": "mutakhaṭṭā" },
+    "tags": ["transitive","intransitive","omission","movement","dynamic"]
+  },
+  {
+    "base_verb": { "en": "burn", "ar": "يَحْرِقُ", "ar_tr": "yaḥriqu" },
+    "third_person_singular": { "en": "burns", "ar": "يَحْرِقُ", "ar_tr": "yaḥriqu" },
+    "present_participle": { "en": "burning", "ar": "يَحْرِقُ", "ar_tr": "yaḥriqu" },
+    "past_tense": { "en": "burned", "ar": "حَرَقَ", "ar_tr": "ḥaraqa" },
+    "related_noun": { "en": "burn", "ar": "حَرْق", "ar_tr": "ḥarq" },
+    "related_adjective": { "en": "burnt", "ar": "مَحْرُوق", "ar_tr": "maḥrūq" },
+    "tags": ["transitive","action_physical","heat","change_of_state","dynamic"]
+  },
+  {
+    "base_verb": { "en": "sell", "ar": "يَبِيعُ", "ar_tr": "yabīʿu" },
+    "third_person_singular": { "en": "sells", "ar": "يَبِيعُ", "ar_tr": "yabīʿu" },
+    "present_participle": { "en": "selling", "ar": "يَبِيعُ", "ar_tr": "yabīʿu" },
+    "past_tense": { "en": "sold", "ar": "بَاعَ", "ar_tr": "bāʿa" },
+    "related_noun": { "en": "sale", "ar": "بَيْع", "ar_tr": "bayʿ" },
+    "related_adjective": { "en": "sold", "ar": "مَبِيع", "ar_tr": "mabīʿ" },
+    "tags": ["transitive","commerce","exchange","dynamic"]
+  },
+  {
+    "base_verb": { "en": "mix", "ar": "يَخْلِطُ", "ar_tr": "yakhlīṭu" },
+    "third_person_singular": { "en": "mixes", "ar": "يَخْلِطُ", "ar_tr": "yakhlīṭu" },
+    "present_participle": { "en": "mixing", "ar": "يَخْلِطُ", "ar_tr": "yakhlīṭu" },
+    "past_tense": { "en": "mixed", "ar": "خَلَطَ", "ar_tr": "khalaṭa" },
+    "related_noun": { "en": "mixture", "ar": "خَلِيط", "ar_tr": "khalīṭ" },
+    "related_adjective": { "en": "mixed", "ar": "مَخْلُوط", "ar_tr": "makhlūṭ" },
+    "tags": ["transitive","combination","kitchen","lab","dynamic"]
+  },
+  {
+    "base_verb": { "en": "help", "ar": "يُسَاعِدُ", "ar_tr": "yusāʿidu" },
+    "third_person_singular": { "en": "helps", "ar": "يُسَاعِدُ", "ar_tr": "yusāʿidu" },
+    "present_participle": { "en": "helping", "ar": "يُسَاعِدُ", "ar_tr": "yusāʿidu" },
+    "past_tense": { "en": "helped", "ar": "سَاعَدَ", "ar_tr": "sāʿada" },
+    "related_noun": { "en": "help", "ar": "مُسَاعَدَة", "ar_tr": "musāʿadah" },
+    "related_adjective": { "en": "helpful", "ar": "مُفِيد", "ar_tr": "mufīd" },
+    "tags": ["ditransitive","assistance","social","dynamic"]
+  },
+  {
+    "base_verb": { "en": "start", "ar": "يَبْدَأُ", "ar_tr": "yabdaʾu" },
+    "third_person_singular": { "en": "starts", "ar": "يَبْدَأُ", "ar_tr": "yabdaʾu" },
+    "present_participle": { "en": "starting", "ar": "يَبْدَأُ", "ar_tr": "yabdaʾu" },
+    "past_tense": { "en": "started", "ar": "بَدَأَ", "ar_tr": "badaʾa" },
+    "related_noun": { "en": "start", "ar": "بِدَايَة", "ar_tr": "bidāyah" },
+    "related_adjective": { "en": "starting", "ar": "مُبْتَدِئ", "ar_tr": "mubtadiʾ" },
+    "tags": ["transitive","inchoative","process","dynamic"]
+  },
+  {
+    "base_verb": { "en": "welcome", "ar": "يُرَحِّبُ", "ar_tr": "yuraḥḥibu" },
+    "third_person_singular": { "en": "welcomes", "ar": "يُرَحِّبُ", "ar_tr": "yuraḥḥibu" },
+    "present_participle": { "en": "welcoming", "ar": "يُرَحِّبُ", "ar_tr": "yuraḥḥibu" },
+    "past_tense": { "en": "welcomed", "ar": "رَحَّبَ", "ar_tr": "raḥḥaba" },
+    "related_noun": { "en": "welcome", "ar": "تَرْحِيب", "ar_tr": "tarḥīb" },
+    "related_adjective": { "en": "welcome", "ar": "مُرَحَّب بِهِ", "ar_tr": "muraḥḥab bihi" },
+    "tags": ["transitive","social","hospitality","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "import", "ar": "يَسْتَوْرِدُ", "ar_tr": "yastawridu" },
+    "third_person_singular": { "en": "imports", "ar": "يَسْتَوْرِدُ", "ar_tr": "yastawridu" },
+    "present_participle": { "en": "importing", "ar": "يَسْتَوْرِدُ", "ar_tr": "yastawridu" },
+    "past_tense": { "en": "imported", "ar": "اِسْتَوْرَدَ", "ar_tr": "istawrada" },
+    "related_noun": { "en": "import", "ar": "اِسْتِيرَاد", "ar_tr": "istīrād" },
+    "related_adjective": { "en": "imported", "ar": "مُسْتَوْرَد", "ar_tr": "mustawrad" },
+    "tags": ["transitive","commerce","trade","dynamic"]
+  },
+  {
+    "base_verb": { "en": "hiccup", "ar": "يُفَوِّقُ", "ar_tr": "yufawwiqu" },
+    "third_person_singular": { "en": "hiccups", "ar": "يُفَوِّقُ", "ar_tr": "yufawwiqu" },
+    "present_participle": { "en": "hiccuping", "ar": "يُفَوِّقُ", "ar_tr": "yufawwiqu" },
+    "past_tense": { "en": "hiccuped", "ar": "فَوَّقَ", "ar_tr": "fawwaqa" },
+    "related_noun": { "en": "hiccup", "ar": "فُوَاق", "ar_tr": "fuwāq" },
+    "related_adjective": null,
+    "tags": ["intransitive","bodily_function","health","dynamic"]
+  },
+  {
+    "base_verb": { "en": "serve", "ar": "يَخْدِمُ", "ar_tr": "yakhdimu" },
+    "third_person_singular": { "en": "serves", "ar": "يَخْدِمُ", "ar_tr": "yakhdimu" },
+    "present_participle": { "en": "serving", "ar": "يَخْدِمُ", "ar_tr": "yakhdimu" },
+    "past_tense": { "en": "served", "ar": "خَدَمَ", "ar_tr": "khadama" },
+    "related_noun": { "en": "service", "ar": "خِدْمَة", "ar_tr": "khidmah" },
+    "related_adjective": { "en": "served", "ar": "مَخْدُوم", "ar_tr": "makhdūm" },
+    "tags": ["transitive","assistance","hospitality","dynamic"]
+  },
+  {
+    "base_verb": { "en": "cut", "ar": "يَقْطَعُ", "ar_tr": "yaqṭaʿu" },
+    "third_person_singular": { "en": "cuts", "ar": "يَقْطَعُ", "ar_tr": "yaqṭaʿu" },
+    "present_participle": { "en": "cutting", "ar": "يَقْطَعُ", "ar_tr": "yaqṭaʿu" },
+    "past_tense": { "en": "cut", "ar": "قَطَعَ", "ar_tr": "qaṭaʿa" },
+    "related_noun": { "en": "cut", "ar": "قَطْع", "ar_tr": "qaṭʿ" },
+    "related_adjective": { "en": "cut", "ar": "مَقْطُوع", "ar_tr": "maqṭūʿ" },
+    "tags": ["transitive","action_physical","cutting","tool_use","dynamic"]
+  },
+  {
+    "base_verb": { "en": "frustrate", "ar": "يُحْبِطُ", "ar_tr": "yuḥbiṭu" },
+    "third_person_singular": { "en": "frustrates", "ar": "يُحْبِطُ", "ar_tr": "yuḥbiṭu" },
+    "present_participle": { "en": "frustrating", "ar": "يُحْبِطُ", "ar_tr": "yuḥbiṭu" },
+    "past_tense": { "en": "frustrated", "ar": "أَحْبَطَ", "ar_tr": "aḥbaṭa" },
+    "related_noun": { "en": "frustration", "ar": "إِحْبَاط", "ar_tr": "iḥbāṭ" },
+    "related_adjective": { "en": "frustrated", "ar": "مُحْبَط", "ar_tr": "muḥbaṭ" },
+    "tags": ["transitive","emotion_causation","psychological","dynamic"]
+  },
+  {
+    "base_verb": { "en": "ask", "ar": "يَسْأَلُ", "ar_tr": "yasʾalu" },
+    "third_person_singular": { "en": "asks", "ar": "يَسْأَلُ", "ar_tr": "yasʾalu" },
+    "present_participle": { "en": "asking", "ar": "يَسْأَلُ", "ar_tr": "yasʾalu" },
+    "past_tense": { "en": "asked", "ar": "سَأَلَ", "ar_tr": "saʾala" },
+    "related_noun": { "en": "question", "ar": "سُؤَال", "ar_tr": "suʾāl" },
+    "related_adjective": { "en": "asked", "ar": "مَسْؤُول", "ar_tr": "masʾūl" },
+    "tags": ["ditransitive","communication","query","dynamic"]
+  },
+  {
+    "base_verb": { "en": "injure", "ar": "يُصِيبُ", "ar_tr": "yuṣību" },
+    "third_person_singular": { "en": "injures", "ar": "يُصِيبُ", "ar_tr": "yuṣību" },
+    "present_participle": { "en": "injuring", "ar": "يُصِيبُ", "ar_tr": "yuṣību" },
+    "past_tense": { "en": "injured", "ar": "أَصَابَ", "ar_tr": "aṣāba" },
+    "related_noun": { "en": "injury", "ar": "إِصَابَة", "ar_tr": "iṣābah" },
+    "related_adjective": { "en": "injured", "ar": "مُصَاب", "ar_tr": "muṣāb" },
+    "tags": ["transitive","health","harm","dynamic"]
+  },
+  {
+    "base_verb": { "en": "fight", "ar": "يُقَاتِلُ", "ar_tr": "yuqātilu" },
+    "third_person_singular": { "en": "fights", "ar": "يُقَاتِلُ", "ar_tr": "yuqātilu" },
+    "present_participle": { "en": "fighting", "ar": "يُقَاتِلُ", "ar_tr": "yuqātilu" },
+    "past_tense": { "en": "fought", "ar": "قَاتَلَ", "ar_tr": "qātala" },
+    "related_noun": { "en": "fight", "ar": "قِتَال", "ar_tr": "qitāl" },
+    "related_adjective": { "en": "fighting", "ar": "مُقَاتِل", "ar_tr": "muqātil" },
+    "tags": ["transitive","reciprocal","conflict","dynamic"]
+  },
+  {
+    "base_verb": { "en": "upset", "ar": "يُزْعِجُ", "ar_tr": "yuzʿiju" },
+    "third_person_singular": { "en": "upsets", "ar": "يُزْعِجُ", "ar_tr": "yuzʿiju" },
+    "present_participle": { "en": "upsetting", "ar": "يُزْعِجُ", "ar_tr": "yuzʿiju" },
+    "past_tense": { "en": "upset", "ar": "أَزْعَجَ", "ar_tr": "azʿaja" },
+    "related_noun": { "en": "upset", "ar": "اِنْزِعَاج", "ar_tr": "inziʿāj" },
+    "related_adjective": { "en": "upset", "ar": "مُنْزَعِج", "ar_tr": "munzaʿij" },
+    "tags": ["transitive","emotion_causation","psychological","dynamic"]
+  },
+  {
+    "base_verb": { "en": "worry", "ar": "يَقْلَقُ", "ar_tr": "yaqlaqu" },
+    "third_person_singular": { "en": "worries", "ar": "يَقْلَقُ", "ar_tr": "yaqlaqu" },
+    "present_participle": { "en": "worrying", "ar": "يَقْلَقُ", "ar_tr": "yaqlaqu" },
+    "past_tense": { "en": "worried", "ar": "قَلِقَ", "ar_tr": "qaliqa" },
+    "related_noun": { "en": "worry", "ar": "قَلَق", "ar_tr": "qalaq" },
+    "related_adjective": { "en": "worried", "ar": "قَلِق", "ar_tr": "qaliq" },
+    "tags": ["intransitive","emotion_state","psychological","stative"]
+  },
+  {
+    "base_verb": { "en": "drive", "ar": "يَقُودُ", "ar_tr": "yaqūdu" },
+    "third_person_singular": { "en": "drives", "ar": "يَقُودُ", "ar_tr": "yaqūdu" },
+    "present_participle": { "en": "driving", "ar": "يَقُودُ", "ar_tr": "yaqūdu" },
+    "past_tense": { "en": "drove", "ar": "قَادَ", "ar_tr": "qāda" },
+    "related_noun": { "en": "driver", "ar": "سَائِق", "ar_tr": "sāʾiq" },
+    "related_adjective": { "en": "driven", "ar": "مَقُود", "ar_tr": "maqūd" },
+    "tags": ["transitive","intransitive","motion_vehicle","action_physical","dynamic"]
+  },
+  {
+    "base_verb": { "en": "land", "ar": "يَهْبِطُ", "ar_tr": "yahbiṭu" },
+    "third_person_singular": { "en": "lands", "ar": "يَهْبِطُ", "ar_tr": "yahbiṭu" },
+    "present_participle": { "en": "landing", "ar": "يَهْبِطُ", "ar_tr": "yahbiṭu" },
+    "past_tense": { "en": "landed", "ar": "هَبَطَ", "ar_tr": "habaṭa" },
+    "related_noun": { "en": "land", "ar": "أَرْض", "ar_tr": "arḍ" },
+    "related_adjective": { "en": "landed", "ar": "هَابِط", "ar_tr": "hābiṭ" },
+    "tags": ["intransitive","aviation","motion","dynamic"]
+  },
+  {
+    "base_verb": { "en": "confiscate", "ar": "يُصَادِرُ", "ar_tr": "yuṣādiru" },
+    "third_person_singular": { "en": "confiscates", "ar": "يُصَادِرُ", "ar_tr": "yuṣādiru" },
+    "present_participle": { "en": "confiscating", "ar": "يُصَادِرُ", "ar_tr": "yuṣādiru" },
+    "past_tense": { "en": "confiscated", "ar": "صَادَرَ", "ar_tr": "ṣādara" },
+    "related_noun": { "en": "confiscation", "ar": "مُصَادَرَة", "ar_tr": "muṣādarah" },
+    "related_adjective": { "en": "confiscated", "ar": "مُصَادَر", "ar_tr": "muṣādar" },
+    "tags": ["transitive","legal","seizure","control","dynamic"]
+  },
+  {
+    "base_verb": { "en": "declare", "ar": "يُعْلِنُ", "ar_tr": "yuʿlinu" },
+    "third_person_singular": { "en": "declares", "ar": "يُعْلِنُ", "ar_tr": "yuʿlinu" },
+    "present_participle": { "en": "declaring", "ar": "يُعْلِنُ", "ar_tr": "yuʿlinu" },
+    "past_tense": { "en": "declared", "ar": "أَعْلَنَ", "ar_tr": "aʿlana" },
+    "related_noun": { "en": "declaration", "ar": "إِعْلاَن", "ar_tr": "iʿlān" },
+    "related_adjective": { "en": "declared", "ar": "مُعْلَن", "ar_tr": "muʿlan" },
+    "tags": ["transitive","communication","official","dynamic"]
+  },
+  {
+    "base_verb": { "en": "commute", "ar": "يَتَنَقَّلُ", "ar_tr": "yatanaqqalu" },
+    "third_person_singular": { "en": "commutes", "ar": "يَتَنَقَّلُ", "ar_tr": "yatanaqqalu" },
+    "present_participle": { "en": "commuting", "ar": "يَتَنَقَّلُ", "ar_tr": "yatanaqqalu" },
+    "past_tense": { "en": "commuted", "ar": "تَنَقَّلَ", "ar_tr": "tanaqqala" },
+    "related_noun": { "en": "commute", "ar": "تَنَقُّل", "ar_tr": "tanaqqul" },
+    "related_adjective": { "en": "commuting", "ar": "مُتَنَقِّل", "ar_tr": "mutanaqqil" },
+    "tags": ["intransitive","travel","routine","dynamic"]
+  }, {
+    "base_verb": { "en": "sign", "ar": "يُوَقِّعُ", "ar_tr": "yuwaqqiʿu" },
+    "third_person_singular": { "en": "signs", "ar": "يُوَقِّعُ", "ar_tr": "yuwaqqiʿu" },
+    "present_participle": { "en": "signing", "ar": "يُوَقِّعُ", "ar_tr": "yuwaqqiʿu" },
+    "past_tense": { "en": "signed", "ar": "وَقَّعَ", "ar_tr": "waqqaʿa" },
+    "related_noun": { "en": "sign", "ar": "لاَفِتَة", "ar_tr": "lāfitah" },
+    "related_adjective": { "en": "signed", "ar": "مُوَقَّع", "ar_tr": "muwaqqaʿ" },
+    "tags": ["transitive","document","official","communication","dynamic"]
+  },
+  {
+    "base_verb": { "en": "respect", "ar": "يَحْتَرِمُ", "ar_tr": "yaḥtarimu" },
+    "third_person_singular": { "en": "respects", "ar": "يَحْتَرِمُ", "ar_tr": "yaḥtarimu" },
+    "present_participle": { "en": "respecting", "ar": "يَحْتَرِمُ", "ar_tr": "yaḥtarimu" },
+    "past_tense": { "en": "respected", "ar": "اِحْتَرَمَ", "ar_tr": "iḥtarama" },
+    "related_noun": { "en": "respect", "ar": "اِحْتِرَام", "ar_tr": "iḥtirām" },
+    "related_adjective": { "en": "respected", "ar": "مُحْتَرَم", "ar_tr": "muḥtaram" },
+    "tags": ["transitive","social","attitude","politeness","stative"]
+  },
+  {
+    "base_verb": { "en": "thank", "ar": "يَشْكُرُ", "ar_tr": "yashkuru" },
+    "third_person_singular": { "en": "thanks", "ar": "يَشْكُرُ", "ar_tr": "yashkuru" },
+    "present_participle": { "en": "thanking", "ar": "يَشْكُرُ", "ar_tr": "yashkuru" },
+    "past_tense": { "en": "thanked", "ar": "شَكَرَ", "ar_tr": "shakara" },
+    "related_noun": { "en": "thanks", "ar": "شُكْر", "ar_tr": "shukr" },
+    "related_adjective": { "en": "thankful", "ar": "شَاكِر", "ar_tr": "shākir" },
+    "tags": ["ditransitive","communication","politeness","dynamic"]
+  },
+  {
+    "base_verb": { "en": "love", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "third_person_singular": { "en": "loves", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "present_participle": { "en": "loving", "ar": "يُحِبُّ", "ar_tr": "yuḥibbu" },
+    "past_tense": { "en": "loved", "ar": "أَحَبَّ", "ar_tr": "aḥabba" },
+    "related_noun": { "en": "love", "ar": "حُبّ", "ar_tr": "ḥubb" },
+    "related_adjective": { "en": "loved", "ar": "مَحْبُوب", "ar_tr": "maḥbūb" },
+    "tags": ["transitive","emotion_state","stative"]
+  },
+  {
+    "base_verb": { "en": "sneeze", "ar": "يَعْطِسُ", "ar_tr": "yaʿṭisu" },
+    "third_person_singular": { "en": "sneezes", "ar": "يَعْطِسُ", "ar_tr": "yaʿṭisu" },
+    "present_participle": { "en": "sneezing", "ar": "يَعْطِسُ", "ar_tr": "yaʿṭisu" },
+    "past_tense": { "en": "sneezed", "ar": "عَطَسَ", "ar_tr": "ʿaṭasa" },
+    "related_noun": { "en": "sneeze", "ar": "عَطْسَة", "ar_tr": "ʿaṭsah" },
+    "related_adjective": null,
+    "tags": ["intransitive","bodily_function","health","dynamic"]
+  },
+  {
+    "base_verb": { "en": "knock", "ar": "يَطْرُقُ", "ar_tr": "yaṭruqu" },
+    "third_person_singular": { "en": "knocks", "ar": "يَطْرُقُ", "ar_tr": "yaṭruqu" },
+    "present_participle": { "en": "knocking", "ar": "يَطْرُقُ", "ar_tr": "yaṭruqu" },
+    "past_tense": { "en": "knocked", "ar": "طَرَقَ", "ar_tr": "ṭaraqa" },
+    "related_noun": { "en": "knock", "ar": "طَرْقَة", "ar_tr": "ṭarqah" },
+    "related_adjective": { "en": "knocked", "ar": "مَطْرُوق", "ar_tr": "maṭrūq" },
+    "tags": ["transitive","intransitive","contact","sound","dynamic"]
+  },
+  {
+    "base_verb": { "en": "explain", "ar": "يَشْرَحُ", "ar_tr": "yashraḥu" },
+    "third_person_singular": { "en": "explains", "ar": "يَشْرَحُ", "ar_tr": "yashraḥu" },
+    "present_participle": { "en": "explaining", "ar": "يَشْرَحُ", "ar_tr": "yashraḥu" },
+    "past_tense": { "en": "explained", "ar": "شَرَحَ", "ar_tr": "sharaḥa" },
+    "related_noun": { "en": "explanation", "ar": "شَرْح", "ar_tr": "sharḥ" },
+    "related_adjective": { "en": "explained", "ar": "مَشْرُوح", "ar_tr": "mashrūḥ" },
+    "tags": ["ditransitive","communication","teaching","dynamic"]
+  },
+  {
+    "base_verb": { "en": "plan", "ar": "يُخَطِّطُ", "ar_tr": "yukhaṭṭiṭu" },
+    "third_person_singular": { "en": "plans", "ar": "يُخَطِّطُ", "ar_tr": "yukhaṭṭiṭu" },
+    "present_participle": { "en": "planning", "ar": "يُخَطِّطُ", "ar_tr": "yukhaṭṭiṭu" },
+    "past_tense": { "en": "planned", "ar": "خَطَّطَ", "ar_tr": "khaṭṭaṭa" },
+    "related_noun": { "en": "plan", "ar": "خُطَّة", "ar_tr": "khuṭṭah" },
+    "related_adjective": { "en": "planned", "ar": "مُخَطَّط", "ar_tr": "mukhaṭṭaṭ" },
+    "tags": ["transitive","cognition","preparation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "repeat", "ar": "يُكَرِّرُ", "ar_tr": "yukarriru" },
+    "third_person_singular": { "en": "repeats", "ar": "يُكَرِّرُ", "ar_tr": "yukarriru" },
+    "present_participle": { "en": "repeating", "ar": "يُكَرِّرُ", "ar_tr": "yukarriru" },
+    "past_tense": { "en": "repeated", "ar": "كَرَّرَ", "ar_tr": "karrara" },
+    "related_noun": { "en": "repetition", "ar": "تِكْرَار", "ar_tr": "tikrār" },
+    "related_adjective": { "en": "repeated", "ar": "مُكَرَّر", "ar_tr": "mukarrar" },
+    "tags": ["transitive","iteration","process","dynamic"]
+  },
+  {
+    "base_verb": { "en": "recycle", "ar": "يُعِيدُ تَدْوِير", "ar_tr": "yuʿīdu tadwīr" },
+    "third_person_singular": { "en": "recycles", "ar": "يُعِيدُ تَدْوِير", "ar_tr": "yuʿīdu tadwīr" },
+    "present_participle": { "en": "recycling", "ar": "يُعِيدُ تَدْوِير", "ar_tr": "yuʿīdu tadwīr" },
+    "past_tense": { "en": "recycled", "ar": "أَعَادَ تَدْوِير", "ar_tr": "aʿāda tadwīr" },
+    "related_noun": { "en": "recycling", "ar": "إِعَادَة تَدْوِير", "ar_tr": "iʿādat tadwīr" },
+    "related_adjective": { "en": "recycled", "ar": "مُعَاد تَدْوِيرُهُ", "ar_tr": "muʿād tadwīruhu" },
+    "tags": ["transitive","environment","process","dynamic"]
+  },
+  {
+    "base_verb": { "en": "defecate", "ar": "يَتَغَوَّطُ", "ar_tr": "yataghawwaṭu" },
+    "third_person_singular": { "en": "defecates", "ar": "يَتَغَوَّطُ", "ar_tr": "yataghawwaṭu" },
+    "present_participle": { "en": "defecating", "ar": "يَتَغَوَّطُ", "ar_tr": "yataghawwaṭu" },
+    "past_tense": { "en": "defecated", "ar": "تَغَوَّطَ", "ar_tr": "taghawwaṭa" },
+    "related_noun": { "en": "defecation", "ar": "تَغَوُّط", "ar_tr": "taghawwuṭ" },
+    "related_adjective": null,
+    "tags": ["intransitive","bodily_function","health","dynamic"]
+  },
+  {
+    "base_verb": { "en": "graduate", "ar": "يَتَخَرَّجُ", "ar_tr": "yatakharraju" },
+    "third_person_singular": { "en": "graduates", "ar": "يَتَخَرَّجُ", "ar_tr": "yatakharraju" },
+    "present_participle": { "en": "graduating", "ar": "يَتَخَرَّجُ", "ar_tr": "yatakharraju" },
+    "past_tense": { "en": "graduated", "ar": "تَخَرَّجَ", "ar_tr": "takharraja" },
+    "related_noun": { "en": "graduate", "ar": "خِرِّيج", "ar_tr": "khirrīj" },
+    "related_adjective": { "en": "graduated", "ar": "مُتَخَرِّج", "ar_tr": "mutakharraj" },
+    "tags": ["intransitive","education","life_event","telic"]
+  },
+  {
+    "base_verb": { "en": "tour", "ar": "يَتَجَوَّلُ", "ar_tr": "yatajawwalu" },
+    "third_person_singular": { "en": "tours", "ar": "يَتَجَوَّلُ", "ar_tr": "yatajawwalu" },
+    "present_participle": { "en": "touring", "ar": "يَتَجَوَّلُ", "ar_tr": "yatajawwalu" },
+    "past_tense": { "en": "toured", "ar": "تَجَوَّلَ", "ar_tr": "tajawwalah" },
+    "related_noun": { "en": "tour", "ar": "جَوْلَة", "ar_tr": "jawlah" },
+    "related_adjective": { "en": "touring", "ar": "سِيَاحِيّ", "ar_tr": "siyāḥiyy" },
+    "tags": ["intransitive","travel","leisure","dynamic"]
+  },
+  {
+    "base_verb": { "en": "retire", "ar": "يَتَقَاعَدُ", "ar_tr": "yataqāʿadu" },
+    "third_person_singular": { "en": "retires", "ar": "يَتَقَاعَدُ", "ar_tr": "yataqāʿadu" },
+    "present_participle": { "en": "retiring", "ar": "يَتَقَاعَدُ", "ar_tr": "yataqāʿadu" },
+    "past_tense": { "en": "retired", "ar": "تَقَاعَدَ", "ar_tr": "taqāʿada" },
+    "related_noun": { "en": "retirement", "ar": "تَقَاعُد", "ar_tr": "taqāʿud" },
+    "related_adjective": { "en": "retired", "ar": "مُتَقَاعِد", "ar_tr": "mutaqāʿid" },
+    "tags": ["intransitive","work","life_event","change_of_state"]
+  },
+  {
+    "base_verb": { "en": "resign", "ar": "يَسْتَقِيلُ", "ar_tr": "yastaqīlu" },
+    "third_person_singular": { "en": "resigns", "ar": "يَسْتَقِيلُ", "ar_tr": "yastaqīlu" },
+    "present_participle": { "en": "resigning", "ar": "يَسْتَقِيلُ", "ar_tr": "yastaqīlu" },
+    "past_tense": { "en": "resigned", "ar": "اِسْتَقَالَ", "ar_tr": "istaqāla" },
+    "related_noun": { "en": "resignation", "ar": "اِسْتِقَالَة", "ar_tr": "istiqālah" },
+    "related_adjective": { "en": "resigned", "ar": "مُسْتَقِيل", "ar_tr": "mustaqīl" },
+    "tags": ["intransitive","work","administrative","change_of_state"]
+  },
+  {
+    "base_verb": { "en": "exchange", "ar": "يَتَبَادَلُ", "ar_tr": "yatabādalu" },
+    "third_person_singular": { "en": "exchanges", "ar": "يَتَبَادَلُ", "ar_tr": "yatabādalu" },
+    "present_participle": { "en": "exchanging", "ar": "يَتَبَادَلُ", "ar_tr": "yatabādalu" },
+    "past_tense": { "en": "exchanged", "ar": "تَبَادَلَ", "ar_tr": "tabādala" },
+    "related_noun": { "en": "exchange", "ar": "تَبَادُل", "ar_tr": "tabādul" },
+    "related_adjective": { "en": "exchanged", "ar": "مُتَبَادَل", "ar_tr": "mutabādal" },
+    "tags": ["transitive","reciprocal","commerce","transfer","dynamic"]
+  },
+  {
+    "base_verb": { "en": "confuse", "ar": "يُرْبِكُ", "ar_tr": "yurbiku" },
+    "third_person_singular": { "en": "confuses", "ar": "يُرْبِكُ", "ar_tr": "yurbiku" },
+    "present_participle": { "en": "confusing", "ar": "يُرْبِكُ", "ar_tr": "yurbiku" },
+    "past_tense": { "en": "confused", "ar": "أَرْبَكَ", "ar_tr": "arbaka" },
+    "related_noun": { "en": "confusion", "ar": "اِرْتِبَاك", "ar_tr": "irtibāk" },
+    "related_adjective": { "en": "confused", "ar": "مُرْتَبِك", "ar_tr": "murtabik" },
+    "tags": ["transitive","cognition","emotion_causation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "cycle", "ar": "يَرْكَبُ الدَّرَّاجَة", "ar_tr": "yarkabu ad-darrājah" },
+    "third_person_singular": { "en": "cycles", "ar": "يَرْكَبُ الدَّرَّاجَة", "ar_tr": "yarkabu ad-darrājah" },
+    "present_participle": { "en": "cycling", "ar": "يَرْكَبُ الدَّرَّاجَة", "ar_tr": "yarkabu ad-darrājah" },
+    "past_tense": { "en": "cycled", "ar": "رَكِبَ الدَّرَّاجَة", "ar_tr": "rakiba ad-darrājah" },
+    "related_noun": { "en": "cycle", "ar": "دَوْرَة", "ar_tr": "dawrah" },
+    "related_adjective": { "en": "cycling", "ar": "دَائِريّ", "ar_tr": "dāʾiriyy" },
+    "tags": ["intransitive","sport","transport","motion","dynamic"]
+  },
+  {
+    "base_verb": { "en": "relieve", "ar": "يُخَفِّفُ", "ar_tr": "yukhaffifu" },
+    "third_person_singular": { "en": "relieves", "ar": "يُخَفِّفُ", "ar_tr": "yukhaffifu" },
+    "present_participle": { "en": "relieving", "ar": "يُخَفِّفُ", "ar_tr": "yukhaffifu" },
+    "past_tense": { "en": "relieved", "ar": "خَفَّفَ", "ar_tr": "khaffafa" },
+    "related_noun": { "en": "relief", "ar": "رَاحَة", "ar_tr": "rāḥah" },
+    "related_adjective": { "en": "relieved", "ar": "مُرْتَاح", "ar_tr": "murtāḥ" },
+    "tags": ["transitive","emotion_causation","health","aid","dynamic"]
+  },
+  {
+    "base_verb": { "en": "dictate", "ar": "يُمْلِي", "ar_tr": "yumlī" },
+    "third_person_singular": { "en": "dictates", "ar": "يُمْلِي", "ar_tr": "yumlī" },
+    "present_participle": { "en": "dictating", "ar": "يُمْلِي", "ar_tr": "yumlī" },
+    "past_tense": { "en": "dictated", "ar": "أَمْلَى", "ar_tr": "amlā" },
+    "related_noun": { "en": "dictator", "ar": "دِكْتَاتُور", "ar_tr": "diktātūr" },
+    "related_adjective": { "en": "dictated", "ar": "مُمْلَى", "ar_tr": "mumlā" },
+    "tags": ["transitive","speech","administrative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "joke", "ar": "يَمْزَحُ", "ar_tr": "yamzaḥu" },
+    "third_person_singular": { "en": "jokes", "ar": "يَمْزَحُ", "ar_tr": "yamzaḥu" },
+    "present_participle": { "en": "joking", "ar": "يَمْزَحُ", "ar_tr": "yamzaḥu" },
+    "past_tense": { "en": "joked", "ar": "مَزَحَ", "ar_tr": "mazaḥa" },
+    "related_noun": { "en": "joker", "ar": "مُهَرِّج", "ar_tr": "muharrij" },
+    "related_adjective": { "en": "joking", "ar": "مَازِح", "ar_tr": "māziḥ" },
+    "tags": ["intransitive","social","humor","dynamic"]
+  },
+  {
+    "base_verb": { "en": "research", "ar": "يَبْحَثُ", "ar_tr": "yabḥathu" },
+    "third_person_singular": { "en": "researches", "ar": "يَبْحَثُ", "ar_tr": "yabḥathu" },
+    "present_participle": { "en": "researching", "ar": "يَبْحَثُ", "ar_tr": "yabḥathu" },
+    "past_tense": { "en": "researched", "ar": "بَحَثَ", "ar_tr": "baḥatha" },
+    "related_noun": { "en": "researcher", "ar": "بَاحِث", "ar_tr": "bāḥith" },
+    "related_adjective": { "en": "researched", "ar": "مَبْحُوث", "ar_tr": "mabhūth" },
+    "tags": ["transitive","intransitive","academic","investigation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "sweat", "ar": "يَتَعَرَّقُ", "ar_tr": "yataʿarraqu" },
+    "third_person_singular": { "en": "sweats", "ar": "يَتَعَرَّقُ", "ar_tr": "yataʿarraqu" },
+    "present_participle": { "en": "sweating", "ar": "يَتَعَرَّقُ", "ar_tr": "yataʿarraqu" },
+    "past_tense": { "en": "sweated", "ar": "تَعَرَّقَ", "ar_tr": "taʿarraqa" },
+    "related_noun": { "en": "sweat", "ar": "عَرَق", "ar_tr": "ʿaraq" },
+    "related_adjective": { "en": "sweaty", "ar": "مُتَعَرِّق", "ar_tr": "mutaʿarriq" },
+    "tags": ["intransitive","bodily_function","health","dynamic"]
+  },
+  {
+    "base_verb": { "en": "return", "ar": "يَعُودُ", "ar_tr": "yaʿūdu" },
+    "third_person_singular": { "en": "returns", "ar": "يَعُودُ", "ar_tr": "yaʿūdu" },
+    "present_participle": { "en": "returning", "ar": "يَعُودُ", "ar_tr": "yaʿūdu" },
+    "past_tense": { "en": "returned", "ar": "عَادَ", "ar_tr": "ʿāda" },
+    "related_noun": { "en": "return", "ar": "عَوْدَة", "ar_tr": "ʿawdat" },
+    "related_adjective": { "en": "returned", "ar": "عَائِد", "ar_tr": "ʿāʾid" },
+    "tags": ["intransitive","motion","telic","dynamic"]
+  },
+  {
+    "base_verb": { "en": "buy", "ar": "يَشْتَرِي", "ar_tr": "yashtarī" },
+    "third_person_singular": { "en": "buys", "ar": "يَشْتَرِي", "ar_tr": "yashtarī" },
+    "present_participle": { "en": "buying", "ar": "يَشْتَرِي", "ar_tr": "yashtarī" },
+    "past_tense": { "en": "bought", "ar": "اِشْتَرَى", "ar_tr": "ishtarā" },
+    "related_noun": { "en": "buyer", "ar": "مُشْتَرٍ", "ar_tr": "mushtarīn" },
+    "related_adjective": { "en": "bought", "ar": "مُشْتَرَى", "ar_tr": "mushtarā" },
+    "tags": ["transitive","commerce","transaction","dynamic"]
+  },
+  {
+    "base_verb": { "en": "cry", "ar": "يَبْكِي", "ar_tr": "yabkī" },
+    "third_person_singular": { "en": "cries", "ar": "يَبْكِي", "ar_tr": "yabkī" },
+    "present_participle": { "en": "crying", "ar": "يَبْكِي", "ar_tr": "yabkī" },
+    "past_tense": { "en": "cried", "ar": "بَكَى", "ar_tr": "bakā" },
+    "related_noun": { "en": "cry", "ar": "بُكَاء", "ar_tr": "bukāʾ" },
+    "related_adjective": { "en": "crying", "ar": "بَاكٍ", "ar_tr": "bākin" },
+    "tags": ["intransitive","emotion","bodily_function","dynamic"]
+  },
+  {
+    "base_verb": { "en": "swim", "ar": "يَسْبَحُ", "ar_tr": "yasbaḥu" },
+    "third_person_singular": { "en": "swims", "ar": "يَسْبَحُ", "ar_tr": "yasbaḥu" },
+    "present_participle": { "en": "swimming", "ar": "يَسْبَحُ", "ar_tr": "yasbaḥu" },
+    "past_tense": { "en": "swam", "ar": "سَبَحَ", "ar_tr": "sabaḥa" },
+    "related_noun": { "en": "swimming", "ar": "سِبَاحَة", "ar_tr": "sibāḥah" },
+    "related_adjective": { "en": "swimming", "ar": "سَابِح", "ar_tr": "sābiḥ" },
+    "tags": ["intransitive","sport","motion","dynamic"]
+  },
+  {
+    "base_verb": { "en": "laugh", "ar": "يَضْحَكُ", "ar_tr": "yaḍḥaku" },
+    "third_person_singular": { "en": "laughs", "ar": "يَضْحَكُ", "ar_tr": "yaḍḥaku" },
+    "present_participle": { "en": "laughing", "ar": "يَضْحَكُ", "ar_tr": "yaḍḥaku" },
+    "past_tense": { "en": "laughed", "ar": "ضَحِكَ", "ar_tr": "ḍaḥika" },
+    "related_noun": { "en": "laugh", "ar": "ضَحْك", "ar_tr": "ḍaḥk" },
+    "related_adjective": { "en": "laughing", "ar": "ضَاحِك", "ar_tr": "ḍāḥik" },
+    "tags": ["intransitive","social","emotion","dynamic"]
+  },
+  {
+    "base_verb": { "en": "telephone", "ar": "يَتَّصِلُ", "ar_tr": "yattasilu" },
+    "third_person_singular": { "en": "telephones", "ar": "يَتَّصِلُ", "ar_tr": "yattasilu" },
+    "present_participle": { "en": "telephoning", "ar": "يَتَّصِلُ", "ar_tr": "yattasilu" },
+    "past_tense": { "en": "telephoned", "ar": "اِتَّصَلَ", "ar_tr": "ittasala" },
+    "related_noun": { "en": "telephone", "ar": "هَاتِف", "ar_tr": "hātif" },
+    "related_adjective": null,
+    "tags": ["ditransitive","communication","technology","dynamic"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "longevity", "ar": "طُولُ العُمْر", "ar_tr": "ṭūlu al-ʿumr" },
+    "related_adjective": { "en": "long-lasting", "ar": "طَوِيلُ الأَمَدِ", "ar_tr": "ṭawīlu al-amad" },
+    "tags": ["noun_only","quality","time"]
+  },
+  {
+    "base_verb": { "en": "kick", "ar": "يَرْكُلُ", "ar_tr": "yarkulu" },
+    "third_person_singular": { "en": "kicks", "ar": "يَرْكُلُ", "ar_tr": "yarkulu" },
+    "present_participle": { "en": "kicking", "ar": "يَرْكُلُ", "ar_tr": "yarkulu" },
+    "past_tense": { "en": "kicked", "ar": "رَكَلَ", "ar_tr": "rakala" },
+    "related_noun": { "en": "kick", "ar": "رَكْلَة", "ar_tr": "raklah" },
+    "related_adjective": { "en": "kicked", "ar": "مَرْكُول", "ar_tr": "markūl" },
+    "tags": ["transitive","contact","sport","dynamic"]
+  },
+  {
+    "base_verb": { "en": "range", "ar": "يَتَرَاوَحُ", "ar_tr": "yatarāwaḥu" },
+    "third_person_singular": { "en": "ranges", "ar": "يَتَرَاوَحُ", "ar_tr": "yatarāwaḥu" },
+    "present_participle": { "en": "ranging", "ar": "يَتَرَاوَحُ", "ar_tr": "yatarāwaḥu" },
+    "past_tense": { "en": "ranged", "ar": "تَرَاوَحَ", "ar_tr": "tarāwaḥa" },
+    "related_noun": { "en": "range", "ar": "مَدَى", "ar_tr": "madā" },
+    "related_adjective": null,
+    "tags": ["intransitive","measurement","stative"]
+  },
+  {
+    "base_verb": { "en": "market", "ar": "يُسَوِّقُ", "ar_tr": "yusawwiqu" },
+    "third_person_singular": { "en": "markets", "ar": "يُسَوِّقُ", "ar_tr": "yusawwiqu" },
+    "present_participle": { "en": "marketing", "ar": "يُسَوِّقُ", "ar_tr": "yusawwiqu" },
+    "past_tense": { "en": "marketed", "ar": "سَوَّقَ", "ar_tr": "sawwaqa" },
+    "related_noun": { "en": "market", "ar": "سُوق", "ar_tr": "sūq" },
+    "related_adjective": { "en": "marketed", "ar": "مُسَوَّق", "ar_tr": "musawwaq" },
+    "tags": ["transitive","commerce","promotion","dynamic"]
+  },
+  {
+    "base_verb": { "en": "message", "ar": "يُرَاسِلُ", "ar_tr": "yurāsilu" },
+    "third_person_singular": { "en": "messages", "ar": "يُرَاسِلُ", "ar_tr": "yurāsilu" },
+    "present_participle": { "en": "messaging", "ar": "يُرَاسِلُ", "ar_tr": "yurāsilu" },
+    "past_tense": { "en": "messaged", "ar": "رَاسَلَ", "ar_tr": "rāsala" },
+    "related_noun": { "en": "message", "ar": "رِسَالَة", "ar_tr": "risālah" },
+    "related_adjective": null,
+    "tags": ["ditransitive","communication","digital","dynamic"]
+  },
+  {
+    "base_verb": { "en": "shape", "ar": "يُشَكِّلُ", "ar_tr": "yushakkilu" },
+    "third_person_singular": { "en": "shapes", "ar": "يُشَكِّلُ", "ar_tr": "yushakkilu" },
+    "present_participle": { "en": "shaping", "ar": "يُشَكِّلُ", "ar_tr": "yushakkilu" },
+    "past_tense": { "en": "shaped", "ar": "شَكَّلَ", "ar_tr": "shakkala" },
+    "related_noun": { "en": "shape", "ar": "شَكْل", "ar_tr": "shakl" },
+    "related_adjective": { "en": "shaped", "ar": "مُشَكَّل", "ar_tr": "mushakkal" },
+    "tags": ["transitive","causative","form","dynamic"]
+  },
+  {
+    "base_verb": { "en": "weaken", "ar": "يُضْعِفُ", "ar_tr": "yuḍʿifu" },
+    "third_person_singular": { "en": "weakens", "ar": "يُضْعِفُ", "ar_tr": "yuḍʿifu" },
+    "present_participle": { "en": "weakening", "ar": "يُضْعِفُ", "ar_tr": "yuḍʿifu" },
+    "past_tense": { "en": "weakened", "ar": "أَضْعَفَ", "ar_tr": "aḍʿafa" },
+    "related_noun": { "en": "weakness", "ar": "ضَعْف", "ar_tr": "ḍaʿf" },
+    "related_adjective": { "en": "weak", "ar": "ضَعِيف", "ar_tr": "ḍaʿīf" },
+    "tags": ["transitive","intransitive","change_of_state","causative","dynamic"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "kindness", "ar": "لُطْف", "ar_tr": "luṭf" },
+    "related_adjective": { "en": "kind", "ar": "لَطِيف", "ar_tr": "laṭīf" },
+    "tags": ["noun_only","trait","positive_quality"]
+  },
+   {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "seriousness", "ar": "جِدِّيَّة", "ar_tr": "jiddiyyah" },
+    "related_adjective": { "en": "serious", "ar": "جَادّ", "ar_tr": "jādd" },
+    "tags": ["noun_only","quality","attitude"]
+  },
+  {
+    "base_verb": { "en": "anger", "ar": "يُغْضِبُ", "ar_tr": "yughḍibu" },
+    "third_person_singular": { "en": "angers", "ar": "يُغْضِبُ", "ar_tr": "yughḍibu" },
+    "present_participle": { "en": "angering", "ar": "يُغْضِبُ", "ar_tr": "yughḍibu" },
+    "past_tense": { "en": "angered", "ar": "أَغْضَبَ", "ar_tr": "aghḍaba" },
+    "related_noun": { "en": "anger", "ar": "غَضَب", "ar_tr": "ghaḍab" },
+    "related_adjective": { "en": "angry", "ar": "غَاضِب", "ar_tr": "ghāḍib" },
+    "tags": ["transitive","emotion","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "sink", "ar": "يَغْرَقُ", "ar_tr": "yaghraqu" },
+    "third_person_singular": { "en": "sinks", "ar": "يَغْرَقُ", "ar_tr": "yaghraqu" },
+    "present_participle": { "en": "sinking", "ar": "يَغْرَقُ", "ar_tr": "yaghraqu" },
+    "past_tense": { "en": "sank", "ar": "غَرِقَ", "ar_tr": "ghariqa" },
+    "related_noun": { "en": "sink", "ar": "مَغْسَلَة", "ar_tr": "maghsalah" },
+    "related_adjective": { "en": "sunken", "ar": "غَارِق", "ar_tr": "ghāriq" },
+    "tags": ["intransitive","motion","water","dynamic"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "insignificance", "ar": "تَفَاهَة", "ar_tr": "tafāhah" },
+    "related_adjective": { "en": "insignificant", "ar": "تَافِه", "ar_tr": "tāfih" },
+    "tags": ["noun_only","quality","negative"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "casualness", "ar": "عَفَوِيَّة", "ar_tr": "ʿafawiyyah" },
+    "related_adjective": { "en": "casual", "ar": "عَفَوِيّ", "ar_tr": "ʿafawī" },
+    "tags": ["noun_only","manner","neutral"]
+  },
+  {
+    "base_verb": { "en": "suspect", "ar": "يَشْتَبِهُ", "ar_tr": "yashtabihu" },
+    "third_person_singular": { "en": "suspects", "ar": "يَشْتَبِهُ", "ar_tr": "yashtabihu" },
+    "present_participle": { "en": "suspecting", "ar": "يَشْتَبِهُ", "ar_tr": "yashtabihu" },
+    "past_tense": { "en": "suspected", "ar": "اِشْتَبَهَ", "ar_tr": "ishtabaha" },
+    "related_noun": { "en": "suspiciousness", "ar": "شَكّ", "ar_tr": "shakk" },
+    "related_adjective": { "en": "suspicious", "ar": "مَشْبُوه", "ar_tr": "mashbūh" },
+    "tags": ["transitive","cognition","judgment","dynamic"]
+  },
+  {
+    "base_verb": { "en": "decide", "ar": "يُقَرِّرُ", "ar_tr": "yuqarriru" },
+    "third_person_singular": { "en": "decides", "ar": "يُقَرِّرُ", "ar_tr": "yuqarriru" },
+    "present_participle": { "en": "deciding", "ar": "يُقَرِّرُ", "ar_tr": "yuqarriru" },
+    "past_tense": { "en": "decided", "ar": "قَرَّرَ", "ar_tr": "qarrara" },
+    "related_noun": { "en": "decision", "ar": "قَرَار", "ar_tr": "qarār" },
+    "related_adjective": { "en": "decisive", "ar": "حَاسِم", "ar_tr": "ḥāsim" },
+    "tags": ["transitive","mental_action","resolution","dynamic"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "greatness", "ar": "عَظَمَة", "ar_tr": "ʿaẓamah" },
+    "related_adjective": { "en": "great", "ar": "عَظِيم", "ar_tr": "ʿaẓīm" },
+    "tags": ["noun_only","quality","positive"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "truth", "ar": "حَقِيقَة", "ar_tr": "ḥaqīqah" },
+    "related_adjective": { "en": "true", "ar": "صَحِيح", "ar_tr": "ṣaḥīḥ" },
+    "tags": ["noun_only","concept","epistemic"]
+  },
+  {
+    "base_verb": { "en": "warm", "ar": "يُدَفِّئُ", "ar_tr": "yudaffiʾu" },
+    "third_person_singular": { "en": "warms", "ar": "يُدَفِّئُ", "ar_tr": "yudaffiʾu" },
+    "present_participle": { "en": "warming", "ar": "يُدَفِّئُ", "ar_tr": "yudaffiʾu" },
+    "past_tense": { "en": "warmed", "ar": "دَفَّأَ", "ar_tr": "daffaʾa" },
+    "related_noun": { "en": "warmth", "ar": "دِفْء", "ar_tr": "difʾ" },
+    "related_adjective": { "en": "warm", "ar": "دَافِئ", "ar_tr": "dāfiʾ" },
+    "tags": ["transitive","temperature","causative","dynamic"]
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "gentleness", "ar": "رِقَّة", "ar_tr": "riqqah" },
+    "related_adjective": { "en": "gentle", "ar": "لَطِيف", "ar_tr": "laṭīf" },
+    "tags": ["noun_only","trait","positive_quality"]
+  },
+  {
+    "base_verb": { "en": "part", "ar": "يُجَزِّئُ", "ar_tr": "yujazziʾu" },
+    "third_person_singular": { "en": "parts", "ar": "يُجَزِّئُ", "ar_tr": "yujazziʾu" },
+    "present_participle": { "en": "parting", "ar": "يُجَزِّئُ", "ar_tr": "yujazziʾu" },
+    "past_tense": { "en": "parted", "ar": "جَزَّأَ", "ar_tr": "jazzaʾa" },
+    "related_noun": { "en": "part", "ar": "جُزْء", "ar_tr": "juzʾ" },
+    "related_adjective": { "en": "partial", "ar": "جُزْئِيّ", "ar_tr": "juzʾiyy" },
+    "tags": ["transitive","division","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "suspend", "ar": "يُعَلِّقُ", "ar_tr": "yuʿalliqu" },
+    "third_person_singular": { "en": "suspends", "ar": "يُعَلِّقُ", "ar_tr": "yuʿalliqu" },
+    "present_participle": { "en": "suspending", "ar": "يُعَلِّقُ", "ar_tr": "yuʿalliqu" },
+    "past_tense": { "en": "suspended", "ar": "عَلَّقَ", "ar_tr": "ʿallaqa" },
+    "related_noun": { "en": "suspense", "ar": "تَشْوِيق", "ar_tr": "tashwīq" },
+    "related_adjective": { "en": "suspenseful", "ar": "مُشَوِّق", "ar_tr": "mushawwiq" },
+    "tags": ["transitive","hold","administrative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "embitter", "ar": "يُمَرِّرُ", "ar_tr": "yumarriru" },
+    "third_person_singular": { "en": "embitters", "ar": "يُمَرِّرُ", "ar_tr": "yumarriru" },
+    "present_participle": { "en": "embittering", "ar": "يُمَرِّرُ", "ar_tr": "yumarriru" },
+    "past_tense": { "en": "embittered", "ar": "مَرَّرَ", "ar_tr": "marrara" },
+    "related_noun": { "en": "bitterness", "ar": "مَرَارَة", "ar_tr": "marārah" },
+    "related_adjective": { "en": "bitter", "ar": "مُرّ", "ar_tr": "murr" },
+    "tags": ["transitive","emotion","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "slim", "ar": "يُنَحِّفُ", "ar_tr": "yunahhifu" },
+    "third_person_singular": { "en": "slims", "ar": "يُنَحِّفُ", "ar_tr": "yunahhifu" },
+    "present_participle": { "en": "slimming", "ar": "يُنَحِّفُ", "ar_tr": "yunahhifu" },
+    "past_tense": { "en": "slimmed", "ar": "نَحَّفَ", "ar_tr": "naḥḥafa" },
+    "related_noun": { "en": "slimness", "ar": "نَحَافَة", "ar_tr": "naḥāfah" },
+    "related_adjective": { "en": "slim", "ar": "نَحِيف", "ar_tr": "naḥīf" },
+    "tags": ["transitive","health","change_of_state","dynamic"]
+  },
+  {
+    "base_verb": { "en": "fill", "ar": "يَمْلَأُ", "ar_tr": "yamlaʾu" },
+    "third_person_singular": { "en": "fills", "ar": "يَمْلَأُ", "ar_tr": "yamlaʾu" },
+    "present_participle": { "en": "filling", "ar": "يَمْلَأُ", "ar_tr": "yamlaʾu" },
+    "past_tense": { "en": "filled", "ar": "مَلَأَ", "ar_tr": "malaʾa" },
+    "related_noun": { "en": "fullness", "ar": "اِمْتِلاء", "ar_tr": "imtilāʾ" },
+    "related_adjective": { "en": "full", "ar": "مُمْتَلِئ", "ar_tr": "mumtaliʾ" },
+    "tags": ["transitive","container","completion","dynamic"]
+  },
+  {
+    "base_verb": { "en": "narrow", "ar": "يُضَيِّقُ", "ar_tr": "yuḍayyiqu" },
+    "third_person_singular": { "en": "narrows", "ar": "يُضَيِّقُ", "ar_tr": "yuḍayyiqu" },
+    "present_participle": { "en": "narrowing", "ar": "يُضَيِّقُ", "ar_tr": "yuḍayyiqu" },
+    "past_tense": { "en": "narrowed", "ar": "ضَيَّقَ", "ar_tr": "ḍayyaqa" },
+    "related_noun": { "en": "narrowness", "ar": "ضِيق", "ar_tr": "ḍīq" },
+    "related_adjective": { "en": "narrow", "ar": "ضَيِّق", "ar_tr": "ḍayyiq" },
+    "tags": ["transitive","size","change_of_state","dynamic"]
+  },
+  {
+    "base_verb": { "en": "freeze", "ar": "يَتَجَمَّدُ", "ar_tr": "yatajammadu" },
+    "third_person_singular": { "en": "freezes", "ar": "يَتَجَمَّدُ", "ar_tr": "yatajammadu" },
+    "present_participle": { "en": "freezing", "ar": "يَتَجَمَّدُ", "ar_tr": "yatajammadu" },
+    "past_tense": { "en": "froze", "ar": "تَجَمَّدَ", "ar_tr": "tajammada" },
+    "related_noun": { "en": "freeze", "ar": "تَجَمُّد", "ar_tr": "tajammud" },
+    "related_adjective": { "en": "frozen", "ar": "مُتَجَمِّد", "ar_tr": "mutajammid" },
+    "tags": ["intransitive","temperature","change_of_state","dynamic"]
+  },
+  {
+    "base_verb": { "en": "deepen", "ar": "يُعَمِّقُ", "ar_tr": "yuʿammiqu" },
+    "third_person_singular": { "en": "deepens", "ar": "يُعَمِّقُ", "ar_tr": "yuʿammiqu" },
+    "present_participle": { "en": "deepening", "ar": "يُعَمِّقُ", "ar_tr": "yuʿammiqu" },
+    "past_tense": { "en": "deepened", "ar": "عَمَّقَ", "ar_tr": "ʿammaqa" },
+    "related_noun": { "en": "depth", "ar": "عُمْق", "ar_tr": "ʿumq" },
+    "related_adjective": { "en": "deep", "ar": "عَمِيق", "ar_tr": "ʿamīq" },
+    "tags": ["transitive","degree","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "tighten", "ar": "يَشُدُّ", "ar_tr": "yashuddu" },
+    "third_person_singular": { "en": "tightens", "ar": "يَشُدُّ", "ar_tr": "yashuddu" },
+    "present_participle": { "en": "tightening", "ar": "يَشُدُّ", "ar_tr": "yashuddu" },
+    "past_tense": { "en": "tightened", "ar": "شَدَّ", "ar_tr": "shadda" },
+    "related_noun": { "en": "tightness", "ar": "شِدَّة", "ar_tr": "shiddah" },
+    "related_adjective": { "en": "tight", "ar": "مَشْدُود", "ar_tr": "mashdūd" },
+    "tags": ["transitive","fasten","force","dynamic"]
+  },
+  {
+    "base_verb": { "en": "beautify", "ar": "يُجَمِّلُ", "ar_tr": "yujammilu" },
+    "third_person_singular": { "en": "beautifies", "ar": "يُجَمِّلُ", "ar_tr": "yujammilu" },
+    "present_participle": { "en": "beautifying", "ar": "يُجَمِّلُ", "ar_tr": "yujammilu" },
+    "past_tense": { "en": "beautified", "ar": "جَمَّلَ", "ar_tr": "jammala" },
+    "related_noun": { "en": "beautification", "ar": "تَجْمِيل", "ar_tr": "tajmīl" },
+    "related_adjective": { "en": "beautiful", "ar": "جَمِيل", "ar_tr": "jamīl" },
+    "tags": ["transitive","appearance","causative","dynamic"]
+  },
+  {
+    "base_verb": { "en": "plant", "ar": "يَزْرَعُ", "ar_tr": "yazraʿu" },
+    "third_person_singular": { "en": "plants", "ar": "يَزْرَعُ", "ar_tr": "yazraʿu" },
+    "present_participle": { "en": "planting", "ar": "يَزْرَعُ", "ar_tr": "yazraʿu" },
+    "past_tense": { "en": "planted", "ar": "زَرَعَ", "ar_tr": "zaraʿa" },
+    "related_noun": { "en": "plant", "ar": "نَبَات", "ar_tr": "nabāt" },
+    "related_adjective": { "en": "planted", "ar": "مَزْرُوع", "ar_tr": "mazrūʿ" },
+    "tags": ["transitive","agriculture","creation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "prescribe", "ar": "يَصِفُ", "ar_tr": "yaṣifu" },
+    "third_person_singular": { "en": "prescribes", "ar": "يَصِفُ", "ar_tr": "yaṣifu" },
+    "present_participle": { "en": "prescribing", "ar": "يَصِفُ", "ar_tr": "yaṣifu" },
+    "past_tense": { "en": "prescribed", "ar": "وَصَفَ", "ar_tr": "waṣafa" },
+    "related_noun": { "en": "prescription", "ar": "وَصْفَة طِبِّيَّة", "ar_tr": "waṣfah ṭibbiyyah" },
+    "related_adjective": { "en": "prescribed", "ar": "مَوْصُوف", "ar_tr": "mawṣūf" },
+    "tags": ["ditransitive","medical","documentation","dynamic"]
+  },
+  {
+    "base_verb": { "en": "staple", "ar": "يُدَبِّسُ", "ar_tr": "yudabbisu" },
+    "third_person_singular": { "en": "staples", "ar": "يُدَبِّسُ", "ar_tr": "yudabbisu" },
+    "present_participle": { "en": "stapling", "ar": "يُدَبِّسُ", "ar_tr": "yudabbisu" },
+    "past_tense": { "en": "stapled", "ar": "دَبَّسَ", "ar_tr": "dabbasa" },
+    "related_noun": { "en": "stapler", "ar": "دَبَّاسَة", "ar_tr": "dabbāsah" },
+    "related_adjective": { "en": "stapled", "ar": "مُدَبَّس", "ar_tr": "mudabbas" },
+    "tags": ["transitive","office","tool","dynamic"]
+  },
+  {
+    "base_verb": { "en": "bowl", "ar": "يُلْقِي الكُرَة", "ar_tr": "yulqī al-kurah" },
+    "third_person_singular": { "en": "bowls", "ar": "يُلْقِي الكُرَة", "ar_tr": "yulqī al-kurah" },
+    "present_participle": { "en": "bowling", "ar": "يُلْقِي الكُرَة", "ar_tr": "yulqī al-kurah" },
+    "past_tense": { "en": "bowled", "ar": "أَلْقَى الكُرَة", "ar_tr": "alqā al-kurah" },
+    "related_noun": { "en": "bowl", "ar": "وِعَاء", "ar_tr": "wiʿāʾ" },
+    "related_adjective": null,
+    "tags": ["transitive","sport","throw","dynamic"]
+  },
+  {
+    "base_verb": { "en": "rock", "ar": "يَهُزُّ", "ar_tr": "yahuzzu" },
+    "third_person_singular": { "en": "rocks", "ar": "يَهُزُّ", "ar_tr": "yahuzzu" },
+    "present_participle": { "en": "rocking", "ar": "يَهُزُّ", "ar_tr": "yahuzzu" },
+    "past_tense": { "en": "rocked", "ar": "هَزَّ", "ar_tr": "hazza" },
+    "related_noun": { "en": "rock", "ar": "صَخْرَة", "ar_tr": "ṣakhrah" },
+    "related_adjective": { "en": "rocking", "ar": "مُهْتَزّ", "ar_tr": "muhtazz" },
+    "tags": ["transitive","motion","shake","dynamic"]
+  },
+  {
+    "base_verb": { "en": "drum", "ar": "يُطَبِّلُ", "ar_tr": "yuṭabbilu" },
+    "third_person_singular": { "en": "drums", "ar": "يُطَبِّلُ", "ar_tr": "yuṭabbilu" },
+    "present_participle": { "en": "drumming", "ar": "يُطَبِّلُ", "ar_tr": "yuṭabbilu" },
+    "past_tense": { "en": "drummed", "ar": "طَبَّلَ", "ar_tr": "ṭabbala" },
+    "related_noun": { "en": "drum", "ar": "طَبْل", "ar_tr": "ṭabl" },
+    "related_adjective": null,
+    "tags": ["intransitive","music","rhythm","dynamic"]
+  },
+  {
+    "base_verb": { "en": "picture", "ar": "يَتَصَوَّرُ", "ar_tr": "yataṣawwaru" },
+    "third_person_singular": { "en": "pictures", "ar": "يَتَصَوَّرُ", "ar_tr": "yataṣawwaru" },
+    "present_participle": { "en": "picturing", "ar": "يَتَصَوَّرُ", "ar_tr": "yataṣawwaru" },
+    "past_tense": { "en": "pictured", "ar": "تَصَوَّرَ", "ar_tr": "taṣawwara" },
+    "related_noun": { "en": "picture", "ar": "صُورَة", "ar_tr": "ṣūrah" },
+    "related_adjective": { "en": "pictured", "ar": "مُصَوَّر", "ar_tr": "muṣawwar" },
+    "tags": ["transitive","imagine","visual","dynamic"]
+  },
+  {
+    "base_verb": { "en": "bench", "ar": "يُجْلِسُ عَلَى المَقْعَد", "ar_tr": "yujlisu ʿalā al-maqʿad" },
+    "third_person_singular": { "en": "benches", "ar": "يُجْلِسُ عَلَى المَقْعَد", "ar_tr": "yujlisu ʿalā al-maqʿad" },
+    "present_participle": { "en": "benching", "ar": "يُجْلِسُ عَلَى المَقْعَد", "ar_tr": "yujlisu ʿalā al-maqʿad" },
+    "past_tense": { "en": "benched", "ar": "أَجْلَسَ عَلَى المَقْعَد", "ar_tr": "ajlasa ʿalā al-maqʿad" },
+    "related_noun": { "en": "bench", "ar": "مَقْعَد", "ar_tr": "maqʿad" },
+    "related_adjective": null,
+    "tags": ["transitive","placement","sports","dynamic"]
+  },
+  {
+    "base_verb": { "en": "sculpt", "ar": "يَنْحَتُ", "ar_tr": "yanḥitu" },
+    "third_person_singular": { "en": "sculpts", "ar": "يَنْحَتُ", "ar_tr": "yanḥitu" },
+    "present_participle": { "en": "sculpting", "ar": "يَنْحَتُ", "ar_tr": "yanḥitu" },
+    "past_tense": { "en": "sculpted", "ar": "نَحَتَ", "ar_tr": "naḥata" },
+    "related_noun": { "en": "sculpture", "ar": "تِمْثَال", "ar_tr": "timthāl" },
+    "related_adjective": { "en": "sculpted", "ar": "مَنْحُوت", "ar_tr": "manḥūt" },
+    "tags": ["transitive","art","craft","dynamic"]
+  }
+]

@@ -1,0 +1,236 @@
+[
+  {
+    "base_verb": { "en": "pass", "ja": "passu" },
+    "third_person_singular": { "en": "passes", "ja": "passu suru" },
+    "present_participle": { "en": "passing", "ja": "passu" },
+    "past_tense": { "en": "passed", "ja": "passu shita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "change", "ja": "kaeru" },
+    "third_person_singular": { "en": "changes", "ja": "kaeru" },
+    "present_participle": { "en": "changing", "ja": "kaete iru" },
+    "past_tense": { "en": "changed", "ja": "kaetta" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "visit", "ja": "hōmon suru" },
+    "third_person_singular": { "en": "visits", "ja": "hōmon suru" },
+    "present_participle": { "en": "visiting", "ja": "hōmon shite iru" },
+    "past_tense": { "en": "visited", "ja": "hōmon shita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "leave", "ja": "saru" },
+    "third_person_singular": { "en": "leaves", "ja": "saru" },
+    "present_participle": { "en": "leaving", "ja": "satte iru" },
+    "past_tense": null,
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "play", "ja": "asobu" },
+    "third_person_singular": { "en": "plays", "ja": "asobu" },
+    "present_participle": { "en": "playing", "ja": "asobu" },
+    "past_tense": { "en": "played", "ja": "asonda" },
+    "related_noun": { "en": "player", "ja": "pureiyaa" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "pull", "ja": "hiku" },
+    "third_person_singular": { "en": "pulls", "ja": "hiku" },
+    "present_participle": { "en": "pulling", "ja": "hiku" },
+    "past_tense": { "en": "pulled", "ja": "hita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "hope", "ja": "kitai suru" },
+    "third_person_singular": { "en": "hopes", "ja": "kitai suru" },
+    "present_participle": { "en": "hoping", "ja": "kitai suru" },
+    "past_tense": { "en": "hoped", "ja": "kitai shita" },
+    "related_noun": { "en": "hope", "ja": "kitai" },
+    "related_adjective": { "en": "hopeful", "ja": "kitai suru" }
+  },
+  {
+    "base_verb": { "en": "do", "ja": "suru" },
+    "third_person_singular": { "en": "does", "ja": "suru" },
+    "present_participle": { "en": "doing", "ja": "suru" },
+    "past_tense": { "en": "done", "ja": "shita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "reach", "ja": "tōtaru" },
+    "third_person_singular": { "en": "reaches", "ja": "tōtaru" },
+    "present_participle": { "en": "reaching", "ja": "tōtaru" },
+    "past_tense": { "en": "reached", "ja": "tōtta" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "go", "ja": "iku" },
+    "third_person_singular": null,
+    "present_participle": { "en": "going", "ja": "iku" },
+    "past_tense": { "en": "gone", "ja": "itta" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "can", "ja": "dekiru" },
+    "third_person_singular": null,
+    "present_participle": null,
+    "past_tense": null,
+    "related_noun": { "en": "can not", "ja": "dekimasen" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "fold", "ja": "oru" },
+    "third_person_singular": { "en": "folds", "ja": "oru" },
+    "present_participle": { "en": "folding", "ja": "ori" },
+    "past_tense": { "en": "folded", "ja": "orita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+
+  
+  {
+    "base_verb": { "en": "like", "ja": "suki" },
+    "third_person_singular": { "en": "likes", "ja": "suki" },
+    "present_participle": { "en": "liking", "ja": "suki" },
+    "past_tense": { "en": "liked", "ja": "sukida" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "pour", "ja": "sasu" },
+    "third_person_singular": null,
+    "present_participle": { "en": "pouring", "ja": "sasu" },
+    "past_tense": { "en": "poured", "ja": "sashita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "squeeze", "ja": "shiboru" },
+    "third_person_singular": { "en": "squeezes", "ja": "shiboru" },
+    "present_participle": { "en": "squeezing", "ja": "shibotte iru" },
+    "past_tense": { "en": "squeezed", "ja": "shiborita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "hit", "ja": "ataru" },
+    "third_person_singular": { "en": "hits", "ja": "ataru" },
+    "present_participle": { "en": "hitting", "ja": "atte iru" },
+    "past_tense": { "en": "hit", "ja": "atta" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "blow", "ja": "fuku" },
+    "third_person_singular": { "en": "blows", "ja": "fuku" },
+    "present_participle": { "en": "blowing", "ja": "fuite iru" },
+    "past_tense": { "en": "blew", "ja": "fuita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": null,
+    "third_person_singular": null,
+    "present_participle": { "en": "paintbrushing", "ja": "fude o tsukau" },
+    "past_tense": { "en": "paintbrushed", "ja": "fude o tsukatta" },
+    "related_noun": { "en": "paintbrush", "ja": "fude" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "speak", "ja": "hanasu" },
+    "third_person_singular": null,
+    "present_participle": { "en": "speaking", "ja": "hanasu" },
+    "past_tense": { "en": "spoke", "ja": "hanashita" },
+    "related_noun": { "en": "speaker", "ja": "hanashite iru" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "resume", "ja": "saishū suru" },
+    "third_person_singular": null,
+    "present_participle": { "en": "resuming", "ja": "saishū suru" },
+    "past_tense": { "en": "resumed", "ja": "saishū shita" },
+    "related_noun": { "en": "resume", "ja": "saishū" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "progress", "ja": "shinpo suru" },
+    "third_person_singular": { "en": "progresses", "ja": "shinpo suru" },
+    "present_participle": { "en": "progressing", "ja": "shinpo shite iru" },
+    "past_tense": { "en": "progressed", "ja": "shinpo shita" },
+    "related_noun": { "en": "progress", "ja": "shinpo" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "connect", "ja": "tsunagu" },
+    "third_person_singular": { "en": "connects", "ja": "tsunagu" },
+    "present_participle": { "en": "connecting", "ja": "tsunagatte iru" },
+    "past_tense": { "en": "connected", "ja": "tsunagatta" },
+    "related_noun": { "en": "connection", "ja": "kankei" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "cause", "ja": "yōin suru" },
+    "third_person_singular": { "en": "causes", "ja": "yōin suru" },
+    "present_participle": { "en": "causing", "ja": "yōin shite iru" },
+    "past_tense": { "en": "caused", "ja": "yōin shita" },
+    "related_noun": { "en": "cause", "ja": "yōin" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "enjoy", "ja": "tanoshimu" },
+    "third_person_singular": { "en": "enjoys", "ja": "tanoshimu" },
+    "present_participle": { "en": "enjoying", "ja": "tanoshinde iru" },
+    "past_tense": { "en": "enjoyed", "ja": "tanoshinda" },
+    "related_noun": { "en": "enjoyment", "ja": "tanoshimu" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "catch", "ja": "tsukamu" },
+    "third_person_singular": { "en": "catches", "ja": "tsukamu" },
+    "present_participle": { "en": "catching", "ja": "tsukande iru" },
+    "past_tense": { "en": "caught", "ja": "tsukanda" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "protect", "ja": "mamoru" },
+    "third_person_singular": { "en": "protects", "ja": "mamoru" },
+    "present_participle": { "en": "protecting", "ja": "mamotte iru" },
+    "past_tense": { "en": "protected", "ja": "mamotta" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "look", "ja": "miru" },
+    "third_person_singular": { "en": "looks", "ja": "miru" },
+    "present_participle": { "en": "looking", "ja": "mite iru" },
+    "past_tense": { "en": "looked", "ja": "mita" },
+    "related_noun": null,
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "work", "ja": "shigoto suru" },
+    "third_person_singular": { "en": "works", "ja": "shigoto suru" },
+    "present_participle": { "en": "working", "ja": "shigoto shite iru" },
+    "past_tense": { "en": "worked", "ja": "shigoto shita" },
+    "related_noun": { "en": "work", "ja": "shigoto" },
+    "related_adjective": null
+  },
+  {
+    "base_verb": { "en": "put", "ja": "oku" },
+    "third_person_singular": { "en": "puts", "ja": "oku" },
+    "present_participle": { "en": "putting", "ja": "okite iru" },
+    "past_tense": { "en": "put", "ja": "okita" },
+    "related_noun": null,
+    "related_adjective": null
+  }
+]

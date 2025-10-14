@@ -1,0 +1,138 @@
+[
+  {
+    "base_verb": { "en": "like", "ar": "يُحِبّ" },
+    "third_person_singular": { "en": "likes", "ar": "يُحِبّ" },
+    "present_participle": { "en": "liking", "ar": "يُحِبّ" },
+    "past_tense": { "en": "liked", "ar": "أَحَبَّ" },
+    "related_noun": { "en": "liking", "ar": "مَحَبَّة" },
+    "related_adjective": { "en": "liked", "ar": "مَحبوب" }
+  },
+  {
+    "base_verb": { "en": "pour", "ar": "يَصُبّ" },
+    "third_person_singular": { "en": "pours", "ar": "يَصُبّ" },
+    "present_participle": { "en": "pouring", "ar": "يَصُبّ" },
+    "past_tense": { "en": "poured", "ar": "صَبَّ" },
+    "related_noun": { "en": "pour", "ar": "صَبّ" },
+    "related_adjective": { "en": "poured", "ar": "مَصْبوب" }
+  },
+  {
+    "base_verb": { "en": "squeeze", "ar": "يَعْصِر" },
+    "third_person_singular": { "en": "squeezes", "ar": "يَعْصِر" },
+    "present_participle": { "en": "squeezing", "ar": "يَعْصِر" },
+    "past_tense": { "en": "squeezed", "ar": "عَصَرَ" },
+    "related_noun": { "en": "squeeze", "ar": "عَصْر" },
+    "related_adjective": { "en": "squeezed", "ar": "مَعْصور" }
+  },
+  {
+    "base_verb": { "en": "hit", "ar": "يَضْرِب" },
+    "third_person_singular": { "en": "hits", "ar": "يَضْرِب" },
+    "present_participle": { "en": "hitting", "ar": "يَضْرِب" },
+    "past_tense": { "en": "hit", "ar": "ضَرَبَ" },
+    "related_noun": { "en": "hit", "ar": "ضَرْبَة" },
+    "related_adjective": { "en": "hitting", "ar": "ضارِب" }
+  },
+  {
+    "base_verb": { "en": "blow", "ar": "يَنْفُخ" },
+    "third_person_singular": { "en": "blows", "ar": "يَنْفُخ" },
+    "present_participle": { "en": "blowing", "ar": "يَنْفُخ" },
+    "past_tense": { "en": "blew", "ar": "نَفَخَ" },
+    "related_noun": { "en": "blow", "ar": "نَفْخَة" },
+    "related_adjective": { "en": "blown", "ar": "مَنْفُوخ" }
+  },
+  {
+    "base_verb": { "en": "paintbrush", "ar": "يَسْتَعْمِلُ فُرْشاةَ الطِّلاء" },
+    "third_person_singular": { "en": "paintbrushes", "ar": "يَسْتَعْمِلُ فُرْشاةَ الطِّلاء" },
+    "present_participle": { "en": "paintbrushing", "ar": "يَدْهُنُ بِالفُرْشاة" },
+    "past_tense": { "en": "paintbrushed", "ar": "دَهَنَ بِالفُرْشاة" },
+    "related_noun": { "en": "paintbrush", "ar": "فُرْشاة طِلاء" },
+    "related_adjective": { "en": "painted", "ar": "مَطْليّ" }
+  },
+  {
+    "base_verb": { "en": "speak", "ar": "يَتَكَلَّم" },
+    "third_person_singular": { "en": "speaks", "ar": "يَتَكَلَّم" },
+    "present_participle": { "en": "speaking", "ar": "يَتَكَلَّم" },
+    "past_tense": { "en": "spoke", "ar": "تَكَلَّمَ" },
+    "related_noun": { "en": "speaker", "ar": "مُتَكَلِّم" },
+    "related_adjective": { "en": "spoken", "ar": "مَقول" }
+  },
+  {
+    "base_verb": { "en": "resume", "ar": "يَسْتَأْنِف" },
+    "third_person_singular": { "en": "resumes", "ar": "يَسْتَأْنِف" },
+    "present_participle": { "en": "resuming", "ar": "يَسْتَأْنِف" },
+    "past_tense": { "en": "resumed", "ar": "اِسْتَأْنَفَ" },
+    "related_noun": { "en": "resume", "ar": "اِسْتِئْناف" },
+    "related_adjective": { "en": "resumed", "ar": "مُسْتَأْنَف" }
+  },
+  {
+    "base_verb": { "en": "progress", "ar": "يَتَقَدَّم" },
+    "third_person_singular": { "en": "progresses", "ar": "يَتَقَدَّم" },
+    "present_participle": { "en": "progressing", "ar": "يَتَقَدَّم" },
+    "past_tense": { "en": "progressed", "ar": "تَقَدَّمَ" },
+    "related_noun": { "en": "progress", "ar": "تَقَدُّم" },
+    "related_adjective": { "en": "progressive", "ar": "تَقَدُّمِيّ" }
+  },
+  {
+    "base_verb": { "en": "connect", "ar": "يَرْبِط" },
+    "third_person_singular": { "en": "connects", "ar": "يَرْبِط" },
+    "present_participle": { "en": "connecting", "ar": "يَرْبِط" },
+    "past_tense": { "en": "connected", "ar": "رَبَطَ" },
+    "related_noun": { "en": "connection", "ar": "اِتِّصال / رَبْط" },
+    "related_adjective": { "en": "connected", "ar": "مُتَّصِل" }
+  },
+  {
+    "base_verb": { "en": "cause", "ar": "يُسَبِّب" },
+    "third_person_singular": { "en": "causes", "ar": "يُسَبِّب" },
+    "present_participle": { "en": "causing", "ar": "يُسَبِّب" },
+    "past_tense": { "en": "caused", "ar": "سَبَّبَ" },
+    "related_noun": { "en": "cause", "ar": "سَبَب" },
+    "related_adjective": { "en": "causal", "ar": "سَبَبِيّ" }
+  },
+  {
+    "base_verb": { "en": "enjoy", "ar": "يَسْتَمْتِع" },
+    "third_person_singular": { "en": "enjoys", "ar": "يَسْتَمْتِع" },
+    "present_participle": { "en": "enjoying", "ar": "يَسْتَمْتِع" },
+    "past_tense": { "en": "enjoyed", "ar": "اِسْتَمْتَعَ" },
+    "related_noun": { "en": "enjoyment", "ar": "اِسْتِمْتاع" },
+    "related_adjective": { "en": "enjoyable", "ar": "مُمْتِع" }
+  },
+  {
+    "base_verb": { "en": "catch", "ar": "يُمْسِك" },
+    "third_person_singular": { "en": "catches", "ar": "يُمْسِك" },
+    "present_participle": { "en": "catching", "ar": "يُمْسِك" },
+    "past_tense": { "en": "caught", "ar": "أَمْسَكَ" },
+    "related_noun": { "en": "catch", "ar": "إِمْساك / صَيْد" },
+    "related_adjective": { "en": "caught", "ar": "مُمْسوك" }
+  },
+  {
+    "base_verb": { "en": "protect", "ar": "يَحْمِي" },
+    "third_person_singular": { "en": "protects", "ar": "يَحْمِي" },
+    "present_participle": { "en": "protecting", "ar": "يَحْمِي" },
+    "past_tense": { "en": "protected", "ar": "حَمَى" },
+    "related_noun": { "en": "protection", "ar": "حِماية" },
+    "related_adjective": { "en": "protective", "ar": "وِقائيّ" }
+  },
+  {
+    "base_verb": { "en": "look", "ar": "يَنْظُر" },
+    "third_person_singular": { "en": "looks", "ar": "يَنْظُر" },
+    "present_participle": { "en": "looking", "ar": "يَنْظُر" },
+    "past_tense": { "en": "looked", "ar": "نَظَرَ" },
+    "related_noun": { "en": "look", "ar": "نَظْرَة" },
+    "related_adjective": { "en": "looking", "ar": "ناظِر" }
+  },
+  {
+    "base_verb": { "en": "work", "ar": "يَعْمَل" },
+    "third_person_singular": { "en": "works", "ar": "يَعْمَل" },
+    "present_participle": { "en": "working", "ar": "يَعْمَل" },
+    "past_tense": { "en": "worked", "ar": "عَمِلَ" },
+    "related_noun": { "en": "work", "ar": "عَمَل" },
+    "related_adjective": { "en": "working", "ar": "عَامِل / عَمَليّ" }
+  },
+  {
+    "base_verb": { "en": "put", "ar": "يَضَع" },
+    "third_person_singular": { "en": "puts", "ar": "يَضَع" },
+    "present_participle": { "en": "putting", "ar": "يَضَع" },
+    "past_tense": { "en": "put", "ar": "وَضَعَ" },
+    "related_noun": { "en": "placement", "ar": "وَضْع" },
+    "related_adjective": { "en": "put", "ar": "مَوْضوع" }
+  }
+]

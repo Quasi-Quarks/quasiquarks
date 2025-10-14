@@ -1,0 +1,858 @@
+
+[
+  {
+    "en_word": "you",
+    "ar_word": "أَنْتَ",
+    "ar_word_tr": "ʾanta"
+  },
+  {
+    "en_word": "by",
+    "ar_word": "بِوَاسِطَة",
+    "ar_word_tr": "biwāsiṭat"
+  },
+  {
+    "en_word": "to",
+    "ar_word": "إِلَى",
+    "ar_word_tr": "ʾilā"
+  },
+  {
+    "en_word": "be",
+    "ar_word": "يَكُونُ",
+    "ar_word_tr": "yakūnu"
+  },
+  {
+    "en_word": "in",
+    "ar_word": "فِي",
+    "ar_word_tr": "fī"
+  },
+  {
+    "en_word": "the",
+    "ar_word": "ال",
+    "ar_word_tr": "al-"
+  },
+  {
+    "en_word": "made",
+    "ar_word": "صَنَعَ",
+    "ar_word_tr": "ṣanaʿa"
+  },
+  {
+    "en_word": "a",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "we",
+    "ar_word": "نَحْنُ",
+    "ar_word_tr": "naḥnu"
+  },
+  {
+    "en_word": "live",
+    "ar_word": "يَعِيشُ",
+    "ar_word_tr": "yaʿīshu"
+  },
+  {
+    "en_word": "on",
+    "ar_word": "عَلَى",
+    "ar_word_tr": "ʿalā"
+  },
+  {
+    "en_word": "it",
+    "ar_word": "هُوَ",
+    "ar_word_tr": "huwa"
+  },
+  {
+    "en_word": "took",
+    "ar_word": "أَخَذَ",
+    "ar_word_tr": "ʾakhadha"
+  },
+  {
+    "en_word": "come",
+    "ar_word": "يَأْتِي",
+    "ar_word_tr": "yaʾtī"
+  },
+  {
+    "en_word": "again",
+    "ar_word": "مَرَّةً أُخْرَى",
+    "ar_word_tr": "marratan ʾukhrā"
+  },
+  {
+    "en_word": "she",
+    "ar_word": "هِيَ",
+    "ar_word_tr": "hiya"
+  },
+  {
+    "en_word": "does",
+    "ar_word": "يَفْعَلُ",
+    "ar_word_tr": "yafʿalu"
+  },
+  {
+    "en_word": "not",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "is",
+    "ar_word": "يَكُونُ",
+    "ar_word_tr": "yakūnu"
+  },
+  {
+    "en_word": "usually",
+    "ar_word": "عَادَةً",
+    "ar_word_tr": "ʿādatan"
+  },
+  {
+    "en_word": "don't",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "look",
+    "ar_word": "يَنْظُرُ",
+    "ar_word_tr": "yanẓuru"
+  },
+  {
+    "en_word": "looks",
+    "ar_word": "يَبْدُو",
+    "ar_word_tr": "yabdū"
+  },
+  {
+    "en_word": "these",
+    "ar_word": "هَؤُلَاءِ",
+    "ar_word_tr": "hāʾulāʾi"
+  },
+  {
+    "en_word": "aren't",
+    "ar_word": "لَيْسُوا",
+    "ar_word_tr": "laysū"
+  },
+  {
+    "en_word": "has",
+    "ar_word": "لَدَيْهِ",
+    "ar_word_tr": "ladayhi"
+  },
+  {
+    "en_word": "finish",
+    "ar_word": "يُنْهِي",
+    "ar_word_tr": "yunhī"
+  },
+  {
+    "en_word": "finished",
+    "ar_word": "أَنْهَى",
+    "ar_word_tr": "ʾanhā"
+  },
+  {
+    "en_word": "finishing",
+    "ar_word": "يُنْهِي",
+    "ar_word_tr": "yunhī"
+  },
+  {
+    "en_word": "who",
+    "ar_word": "مَنْ",
+    "ar_word_tr": "man"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "after",
+    "ar_word": "بَعْدَ",
+    "ar_word_tr": "baʿda"
+  },
+  {
+    "en_word": "your",
+    "ar_word": "خَاصَّتُكَ",
+    "ar_word_tr": "khāṣṣatuka"
+  },
+  {
+    "en_word": "aren't",
+    "ar_word": "لَيْسُوا",
+    "ar_word_tr": "laysū"
+  },
+  {
+    "en_word": "he",
+    "ar_word": "هُوَ",
+    "ar_word_tr": "huwa"
+  },
+  {
+    "en_word": "wants",
+    "ar_word": "يُرِيدُ",
+    "ar_word_tr": "yurīdu"
+  },
+  {
+    "en_word": "see",
+    "ar_word": "يَرَى",
+    "ar_word_tr": "yarā"
+  },
+  {
+    "en_word": "those",
+    "ar_word": "أُولَئِكَ",
+    "ar_word_tr": "ʾūlāʾika"
+  },
+  {
+    "en_word": "theirs",
+    "ar_word": "خَاصَّتُهُمْ",
+    "ar_word_tr": "khāṣṣatuhum"
+  },
+  {
+    "en_word": "to",
+    "ar_word": "إِلَى",
+    "ar_word_tr": "ʾilā"
+  },
+  {
+    "en_word": "wonder",
+    "ar_word": "يَتَسَاءَلُ",
+    "ar_word_tr": "yatasaʾalu"
+  },
+  {
+    "en_word": "if",
+    "ar_word": "إِذَا",
+    "ar_word_tr": "ʾidhā"
+  },
+  {
+    "en_word": "she",
+    "ar_word": "هِيَ",
+    "ar_word_tr": "hiya"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "ask",
+    "ar_word": "يَسْأَلُ",
+    "ar_word_tr": "yasʾalu"
+  },
+  {
+    "en_word": "where",
+    "ar_word": "أَيْنَ",
+    "ar_word_tr": "ʾayna"
+  },
+  {
+    "en_word": "my",
+    "ar_word": "خَاصَّتِي",
+    "ar_word_tr": "khāṣṣatī"
+  },
+  {
+    "en_word": "I'm",
+    "ar_word": "أَنَا",
+    "ar_word_tr": "ʾanā"
+  },
+  {
+    "en_word": "from",
+    "ar_word": "مِنْ",
+    "ar_word_tr": "min"
+  },
+  {
+    "en_word": "can",
+    "ar_word": "يَسْتَطِيعُ",
+    "ar_word_tr": "yastaṭīʿu"
+  },
+  {
+    "en_word": "just",
+    "ar_word": "فَقَطْ",
+    "ar_word_tr": "faqaṭ"
+  },
+  {
+    "en_word": "were",
+    "ar_word": "كَانُوا",
+    "ar_word_tr": "kānū"
+  },
+  {
+    "en_word": "with",
+    "ar_word": "مَعَ",
+    "ar_word_tr": "maʿa"
+  },
+  {
+    "en_word": "anyone",
+    "ar_word": "أَيُّ شَخْص",
+    "ar_word_tr": "ʾayyu shakhṣ"
+  },
+  {
+    "en_word": "wish",
+    "ar_word": "يَتَمَنَّى",
+    "ar_word_tr": "yatamannā"
+  },
+  {
+    "en_word": "could",
+    "ar_word": "اِسْتَطَاعَ",
+    "ar_word_tr": "istaṭāʿa"
+  },
+  {
+    "en_word": "have",
+    "ar_word": "يَمْلِكُ",
+    "ar_word_tr": "yamliku"
+  },
+  {
+    "en_word": "has",
+    "ar_word": "لَدَيْهِ",
+    "ar_word_tr": "ladayhi"
+  },
+  {
+    "en_word": "doesn't",
+    "ar_word": "لَا",
+    "ar_word_tr": "lā"
+  },
+  {
+    "en_word": "did",
+    "ar_word": "فَعَلَ",
+    "ar_word_tr": "faʿala"
+  },
+  {
+    "en_word": "didn't",
+    "ar_word": "لَمْ يَفْعَلْ",
+    "ar_word_tr": "lam yafʿal"
+  },
+  {
+    "en_word": "forgot",
+    "ar_word": "نَسِيَ",
+    "ar_word_tr": "nasiya"
+  },
+  {
+    "en_word": "they",
+    "ar_word": "هُمْ",
+    "ar_word_tr": "hum"
+  },
+  {
+    "en_word": "us",
+    "ar_word": "إِيَّانَا",
+    "ar_word_tr": "ʾiyyānā"
+  },
+  {
+    "en_word": "take",
+    "ar_word": "يَأْخُذُ",
+    "ar_word_tr": "yaʾkhudhu"
+  },
+  {
+    "en_word": "seem",
+    "ar_word": "يَبْدُو",
+    "ar_word_tr": "yabdū"
+  },
+  {
+    "en_word": "an",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "and",
+    "ar_word": "وَ",
+    "ar_word_tr": "wa"
+  },
+  {
+    "en_word": "therefore",
+    "ar_word": "لِذَلِكَ",
+    "ar_word_tr": "lidhālika"
+  },
+  {
+    "en_word": "so",
+    "ar_word": "إِذَنْ",
+    "ar_word_tr": "ʾidhan"
+  },
+  {
+    "en_word": "then",
+    "ar_word": "ثُمَّ",
+    "ar_word_tr": "thumma"
+  },
+  {
+    "en_word": "would",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "like",
+    "ar_word": "يُحِبُّ",
+    "ar_word_tr": "yuḥibbu"
+  },
+  {
+    "en_word": "back",
+    "ar_word": "خَلْف",
+    "ar_word_tr": "khalf"
+  },
+  {
+    "en_word": "return",
+    "ar_word": "يَعُودُ",
+    "ar_word_tr": "yaʿūdu"
+  },
+  {
+    "en_word": "saw",
+    "ar_word": "رَأَى",
+    "ar_word_tr": "raʾā"
+  },
+  {
+    "en_word": "seen",
+    "ar_word": "مَرْئِيّ",
+    "ar_word_tr": "marʾiyy"
+  },
+  {
+    "en_word": "will",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "all",
+    "ar_word": "كُلّ",
+    "ar_word_tr": "kull"
+  },
+  {
+    "en_word": "are",
+    "ar_word": "يَكُونُونَ",
+    "ar_word_tr": "yakūnūna"
+  },
+  {
+    "en_word": "there",
+    "ar_word": "هُنَاكَ",
+    "ar_word_tr": "hunāka"
+  },
+  {
+    "en_word": "pair",
+    "ar_word": "زَوْج",
+    "ar_word_tr": "zawj"
+  },
+  {
+    "en_word": "someone",
+    "ar_word": "شَخْصٌ مَا",
+    "ar_word_tr": "shakhṣun mā"
+  },
+  {
+    "en_word": "know",
+    "ar_word": "يَعْرِفُ",
+    "ar_word_tr": "yaʿrifu"
+  },
+  {
+    "en_word": "them",
+    "ar_word": "هُمْ",
+    "ar_word_tr": "hum"
+  },
+  {
+    "en_word": "thinking",
+    "ar_word": "يُفَكِّرُ",
+    "ar_word_tr": "yufakkiru"
+  },
+  {
+    "en_word": "thought",
+    "ar_word": "فَكَّرَ",
+    "ar_word_tr": "fakkara"
+  },
+  {
+    "en_word": "though",
+    "ar_word": "رَغْمَ أَنَّ",
+    "ar_word_tr": "raghma ʾanna"
+  },
+  {
+    "en_word": "however",
+    "ar_word": "لَكِنْ",
+    "ar_word_tr": "lākin"
+  },
+  {
+    "en_word": "if",
+    "ar_word": "إِذَا",
+    "ar_word_tr": "ʾidhā"
+  },
+  {
+    "en_word": "would",
+    "ar_word": "سَوْفَ",
+    "ar_word_tr": "sawfa"
+  },
+  {
+    "en_word": "better",
+    "ar_word": "أَفْضَل",
+    "ar_word_tr": "ʾafḍal"
+  },
+  {
+    "en_word": "may",
+    "ar_word": "قَدْ",
+    "ar_word_tr": "qad"
+  },
+  {
+    "en_word": "burrow",
+    "ar_word": "يَحْفِرُ",
+    "ar_word_tr": "yaḥfiru"
+  },
+  {
+    "en_word": "collecting",
+    "ar_word": "يَجْمَعُ",
+    "ar_word_tr": "yajmaʿu"
+  },
+  {
+    "en_word": "at",
+    "ar_word": "عِنْدَ",
+    "ar_word_tr": "ʿinda"
+  },
+  {
+    "en_word": "way",
+    "ar_word": "طَرِيقَة",
+    "ar_word_tr": "ṭarīqah"
+  },
+  {
+    "en_word": "let's",
+    "ar_word": "دَعْنَا",
+    "ar_word_tr": "daʿnā"
+  },
+  {
+    "en_word": "understand",
+    "ar_word": "يَفْهَمُ",
+    "ar_word_tr": "yafhamu"
+  },
+  {
+    "en_word": "either",
+    "ar_word": "إِمَّا",
+    "ar_word_tr": "ʾimmā"
+  },
+  {
+    "en_word": "neither",
+    "ar_word": "لَا هَذَا وَلَا ذَاكَ",
+    "ar_word_tr": "lā hādhā wa lā dhāka"
+  },
+  {
+    "en_word": "answer",
+    "ar_word": "إِجَابَة",
+    "ar_word_tr": "ʾijābah"
+  },
+  {
+    "en_word": "got",
+    "ar_word": "حَصَلَ عَلَى",
+    "ar_word_tr": "ḥaṣala ʿalā"
+  },
+  {
+    "en_word": "where",
+    "ar_word": "أَيْنَ",
+    "ar_word_tr": "ʾayna"
+  },
+  {
+    "en_word": "take",
+    "ar_word": "يَأْخُذُ",
+    "ar_word_tr": "yaʾkhudhu"
+  },
+  {
+    "en_word": "anything",
+    "ar_word": "أَيُّ شَيْء",
+    "ar_word_tr": "ʾayyu shayʾ"
+  },
+  {
+    "en_word": "that's",
+    "ar_word": "ذَلِكَ هُوَ",
+    "ar_word_tr": "dhālika huwa"
+  },
+  {
+    "en_word": "we",
+    "ar_word": "نَحْنُ",
+    "ar_word_tr": "naḥnu"
+  },
+  {
+    "en_word": "want",
+    "ar_word": "يُرِيدُ",
+    "ar_word_tr": "yurīdu"
+  },
+  {
+    "en_word": "know",
+    "ar_word": "يَعْرِفُ",
+    "ar_word_tr": "yaʿrifu"
+  },
+  {
+    "en_word": "whose",
+    "ar_word": "لِمَنْ",
+    "ar_word_tr": "liman"
+  },
+  {
+    "en_word": "asked",
+    "ar_word": "سَأَلَ",
+    "ar_word_tr": "saʾala"
+  },
+  {
+    "en_word": "likes",
+    "ar_word": "يُحِبُّ",
+    "ar_word_tr": "yuḥibbu"
+  },
+  {
+    "en_word": "here's",
+    "ar_word": "هَا هُوَ",
+    "ar_word_tr": "hā huwa"
+  },
+  {
+    "en_word": "some",
+    "ar_word": "بَعْض",
+    "ar_word_tr": "baʿḍ"
+  },
+  {
+    "en_word": "long",
+    "ar_word": "طَوِيل",
+    "ar_word_tr": "ṭawīl"
+  },
+  {
+    "en_word": "left",
+    "ar_word": "غَادَرَ",
+    "ar_word_tr": "ghādara"
+  },
+  {
+    "en_word": "me",
+    "ar_word": "إِيَّايَ",
+    "ar_word_tr": "ʾiyyāya"
+  },
+  {
+    "en_word": "note",
+    "ar_word": "مُلَاحَظَة",
+    "ar_word_tr": "mulāḥaẓah"
+  },
+  {
+    "en_word": "acknowledged",
+    "ar_word": "اِعْتَرَفَ",
+    "ar_word_tr": "iʿtarafa"
+  },
+  {
+    "en_word": "lost",
+    "ar_word": "خَسِرَ",
+    "ar_word_tr": "khasira"
+  },
+  {
+    "en_word": "found",
+    "ar_word": "وَجَدَ",
+    "ar_word_tr": "wajada"
+  },
+  {
+    "en_word": "usually",
+    "ar_word": "عَادَةً",
+    "ar_word_tr": "ʿādatan"
+  },
+  {
+    "en_word": "before",
+    "ar_word": "قَبْلَ",
+    "ar_word_tr": "qabla"
+  },
+  {
+    "en_word": "send",
+    "ar_word": "يُرْسِلُ",
+    "ar_word_tr": "yursilu"
+  },
+  {
+    "en_word": "sent",
+    "ar_word": "أَرْسَلَ",
+    "ar_word_tr": "ʾarsala"
+  },
+  {
+    "en_word": "were",
+    "ar_word": "كَانُوا",
+    "ar_word_tr": "kānū"
+  },
+  {
+    "en_word": "was",
+    "ar_word": "كَانَ",
+    "ar_word_tr": "kāna"
+  },
+  {
+    "en_word": "often",
+    "ar_word": "غَالِبًا",
+    "ar_word_tr": "ghāliban"
+  },
+  {
+    "en_word": "just",
+    "ar_word": "فَقَطْ",
+    "ar_word_tr": "faqaṭ"
+  },
+  {
+    "en_word": "behind",
+    "ar_word": "خَلْفَ",
+    "ar_word_tr": "khalfa"
+  },
+  {
+    "en_word": "happened",
+    "ar_word": "حَدَثَ",
+    "ar_word_tr": "ḥadatha"
+  },
+  {
+    "en_word": "happen",
+    "ar_word": "يَحْدُثُ",
+    "ar_word_tr": "yaḥduthu"
+  },
+  {
+    "en_word": "happening",
+    "ar_word": "يَحْدُثُ",
+    "ar_word_tr": "yaḥduthu"
+  },
+  {
+    "en_word": "happens",
+    "ar_word": "يَحْدُثُ",
+    "ar_word_tr": "yaḥduthu"
+  },
+  {
+    "en_word": "an",
+    "ar_word": "وَاحِد",
+    "ar_word_tr": "wāḥid"
+  },
+  {
+    "en_word": "peel",
+    "ar_word": "يُقَشِّرُ",
+    "ar_word_tr": "yuqashshiru"
+  },
+  {
+    "en_word": "went",
+    "ar_word": "ذَهَبَ",
+    "ar_word_tr": "dhahaba"
+  },
+  {
+    "en_word": "learn",
+    "ar_word": "يَتَعَلَّمُ",
+    "ar_word_tr": "yataʿallamu"
+  },
+  {
+    "en_word": "else",
+    "ar_word": "آخَر",
+    "ar_word_tr": "ʾākhar"
+  },
+  {
+    "en_word": "none",
+    "ar_word": "لَا أَحَد",
+    "ar_word_tr": "lā ʾaḥad"
+  },
+  {
+    "en_word": "nothing",
+    "ar_word": "لَا شَيْء",
+    "ar_word_tr": "lā shayʾ"
+  },
+  {
+    "en_word": "almost",
+    "ar_word": "تَقْرِيبًا",
+    "ar_word_tr": "taqrīban"
+  },
+  {
+    "en_word": "reason",
+    "ar_word": "سَبَب",
+    "ar_word_tr": "sabab"
+  },
+  {
+    "en_word": "never",
+    "ar_word": "أَبَدًا",
+    "ar_word_tr": "ʾabadan"
+  },
+  {
+    "en_word": "wish",
+    "ar_word": "أُمْنِيَة",
+    "ar_word_tr": "ʾumniyah"
+  },
+  {
+    "en_word": "having",
+    "ar_word": "يَمْلِكُ",
+    "ar_word_tr": "yamliku"
+  },
+  {
+    "en_word": "tried",
+    "ar_word": "حَاوَلَ",
+    "ar_word_tr": "ḥāwala"
+  },
+  {
+    "en_word": "try",
+    "ar_word": "يُحَاوِلُ",
+    "ar_word_tr": "yuḥāwilu"
+  },
+  {
+    "en_word": "something",
+    "ar_word": "شَيْءٌ مَا",
+    "ar_word_tr": "shayʾun mā"
+  },
+  {
+    "en_word": "began",
+    "ar_word": "بَدَأَ",
+    "ar_word_tr": "badaʾa"
+  },
+  {
+    "en_word": "dropped",
+    "ar_word": "أَسْقَطَ",
+    "ar_word_tr": "ʾasqaṭa"
+  },
+  {
+    "en_word": "pass",
+    "ar_word": "يَمُرُّ",
+    "ar_word_tr": "yamurru"
+  },
+  {
+    "en_word": "out",
+    "ar_word": "خَارِج",
+    "ar_word_tr": "khārij"
+  },
+  {
+    "en_word": "order",
+    "ar_word": "أَمْر",
+    "ar_word_tr": "ʾamr"
+  },
+  {
+    "en_word": "went",
+    "ar_word": "ذَهَبَ",
+    "ar_word_tr": "dhahaba"
+  },
+  {
+    "en_word": "do",
+    "ar_word": "يَفْعَلُ",
+    "ar_word_tr": "yafʿalu"
+  },
+  {
+    "en_word": "early",
+    "ar_word": "مُبَكِّرًا",
+    "ar_word_tr": "mubakkiran"
+  },
+  {
+    "en_word": "must",
+    "ar_word": "يَجِبُ",
+    "ar_word_tr": "yajibu"
+  },
+  {
+    "en_word": "still",
+    "ar_word": "لَا يَزَالُ",
+    "ar_word_tr": "lā yazālu"
+  },
+  {
+    "en_word": "get",
+    "ar_word": "يَحْصُلُ عَلَى",
+    "ar_word_tr": "yaḥṣulu ʿalā"
+  },
+  {
+    "en_word": "glad",
+    "ar_word": "سَعِيد",
+    "ar_word_tr": "saʿīd"
+  },
+  {
+    "en_word": "necessarily",
+    "ar_word": "بِالضَّرُورَة",
+    "ar_word_tr": "bi-ḍ-ḍarūrah"
+  },
+  {
+    "en_word": "reliable",
+    "ar_word": "مَوْثُوق",
+    "ar_word_tr": "mawthūq"
+  },
+  {
+    "en_word": "mind",
+    "ar_word": "عَقْل",
+    "ar_word_tr": "ʿaql"
+  },
+  {
+    "en_word": "new",
+    "ar_word": "جَدِيد",
+    "ar_word_tr": "jadīd"
+  },
+  {
+    "en_word": "live",
+    "ar_word": "يَعِيشُ",
+    "ar_word_tr": "yaʿīshu"
+  },
+  {
+    "en_word": "lived",
+    "ar_word": "عَاشَ",
+    "ar_word_tr": "ʿāsha"
+  },
+  {
+    "en_word": "sense",
+    "ar_word": "إِحْسَاس",
+    "ar_word_tr": "ʾiḥsās"
+  },
+  {
+    "en_word": "check",
+    "ar_word": "يَتَحَقَّقُ",
+    "ar_word_tr": "yataḥaqqaqu"
+  },
+  {
+    "en_word": "terribly",
+    "ar_word": "بِشِدَّة",
+    "ar_word_tr": "bi-shiddah"
+  }
+]

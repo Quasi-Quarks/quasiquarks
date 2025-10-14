@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to Romaji Converter</title>
+</head>
+<body>
+    <h2>Enter English Text:</h2>
+    <input type="text" id="englishInput" placeholder="Hello">
+    <button onclick="convertToRomaji()">Convert to Romaji</button>
+    
+    <h3>Romaji Output:</h3>
+    <p id="output"></p>
+
+    <script>
+        function convertToRomaji() {
+            let text = document.getElementById("englishInput").value;
+
+            // Step 1: Translate English to Japanese
+            let translateUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ja&dt=t&q=${encodeURIComponent(text)}`;
+
+            fetch(translateUrl)
+                .then(response => response.json())
+                .then(data => {
+                    let japaneseText = data[0][0][0]; // Get Japanese text
+
+                    // Step 2: Convert Japanese to Romaji (IMPORTANT: Use `ja-Latn`)
+                    let romajiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=ja-Latn&dt=t&q=${encodeURIComponent(japaneseText)}`;
+
+                    return fetch(romajiUrl);
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("output").innerText = data[0][0][0]; // Now it should return Romaji
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

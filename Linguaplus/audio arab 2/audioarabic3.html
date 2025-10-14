@@ -1,0 +1,124 @@
+Awesome! Here’s a clean, minimal **English → Arabic** version (no CSS). It fetches both the translation and (when available) the transliteration/romanization.
+
+> Note: Uses the unofficial `translate.googleapis.com/translate_a/single` endpoint — fine for demos, can change/break.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EN → AR Translator (Unofficial)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <h1>English → Arabic Translator</h1>
+
+  <label for="text">English text</label><br />
+  <textarea id="text" rows="6" cols="60">this is a fish from the market</textarea><br /><br />
+
+  <button id="translateBtn">Translate</button>
+  <button id="copyTranslation">Copy Arabic</button>
+  <button id="copyTranslit">Copy Transliteration</button>
+  <p id="status"></p>
+
+  <h2>Arabic</h2>
+  <div id="translation">—</div>
+
+  <h3>Transliteration (if available)</h3>
+  <div id="transliteration">—</div>
+
+  <h3>Raw JSON (debug)</h3>
+  <pre id="raw">—</pre>
+
+<script>
+(function(){
+  const textEl = document.getElementById('text');
+  const translateBtn = document.getElementById('translateBtn');
+  const copyTranslationBtn = document.getElementById('copyTranslation');
+  const copyTranslitBtn = document.getElementById('copyTranslit');
+
+  const outTrans = document.getElementById('translation');
+  const outTranslit = document.getElementById('transliteration');
+  const outRaw = document.getElementById('raw');
+  const statusEl = document.getElementById('status');
+
+  function setStatus(m){ statusEl.textContent = m || ''; }
+  function escapeHTML(s){
+    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  }
+
+  // Unofficial Google Translate JSON
+  async function gtxTranslateENtoAR(text){
+    const params = new URLSearchParams({
+      client: 'gtx',
+      sl: 'en',        // English source
+      tl: 'ar',        // Arabic target
+      hl: 'en',
+      dj: '1',
+      ie: 'UTF-8',
+      oe: 'UTF-8',
+      source: 'input',
+      q: text
+    });
+    params.append('dt', 't');   // translation
+    params.append('dt', 'rm');  // transliteration (romanization)
+
+    const url = 'https://translate.googleapis.com/translate_a/single?' + params.toString();
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return res.json();
+  }
+
+  function parseResult(data){
+    const sentences = data?.sentences || [];
+    const translation = sentences.map(s => s.trans || '').join('');
+    const transliteration = sentences
+      .map(s => s.translit || s.src_translit || '')
+      .filter(Boolean).join(' ').trim();
+    return { translation, transliteration, raw: data };
+  }
+
+  async function doTranslate(){
+    const text = textEl.value.trim();
+    if(!text){ setStatus('Please enter English text.'); return; }
+    translateBtn.disabled = true; setStatus('Translating…');
+    try{
+      const data = await gtxTranslateENtoAR(text);
+      const { translation, transliteration, raw } = parseResult(data);
+      outTrans.innerHTML = translation ? escapeHTML(translation) : '—';
+      outTranslit.innerHTML = transliteration ? escapeHTML(transliteration) : '—';
+      outRaw.textContent = JSON.stringify(raw, null, 2);
+      setStatus('Done.');
+    }catch(err){
+      console.error(err);
+      setStatus('Error: ' + (err?.message || 'Failed to translate.'));
+    }finally{
+      translateBtn.disabled = false;
+    }
+  }
+
+  async function copyText(el){
+    const t = el.textContent.trim();
+    if(!t || t === '—'){ setStatus('Nothing to copy.'); return; }
+    try{
+      await navigator.clipboard.writeText(t);
+      setStatus('Copied to clipboard.');
+    }catch{
+      setStatus('Copy failed (clipboard blocked).');
+    }
+  }
+
+  translateBtn.addEventListener('click', doTranslate);
+  textEl.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') doTranslate();
+  });
+  copyTranslationBtn.addEventListener('click', () => copyText(outTrans));
+  copyTranslitBtn.addEventListener('click', () => copyText(outTranslit));
+
+  // initial demo run
+  doTranslate();
+})();
+</script>
+</body>
+</html>
+```

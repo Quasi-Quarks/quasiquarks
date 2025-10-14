@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>English to Romaji Converter</title>
+
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  
+  <div class="menu">
+    <p>Tutorial</p>
+    <p>Grammar</p>
+    <p>Vocabulary</p>
+    <p>Sentence</p>
+    <p>Grammar</p>
+  </div>
+
+
+
+  <div id="translation_container">
+    <p class="translation_container_element" id="inputtedText">English Input Text</p>
+   <p class="translation_container_element" id="translatedresult">السلام عليكم</p>
+   <p  class="translation_container_element" id="translated-transliteration-result">As salaam Alaykum</p>
+  </div>
+
+
+  <div class="type">
+    <p>verb</p>
+    <p>noun</p>
+  </div>
+  <div id="translate_container">
+   <textarea type="text" id="englishInput" placeholder="Translate">
+    </textarea>
+   <button id="send">Translate</button>
+   </div>
+
+ 
+
+
+
+  <div class="vocabularytype">
+    <p>Object</p>
+    <p>Profession</p>
+    <p>place</p>
+    <p>position</p>
+    <p>Time</p>
+    <p>Non object</p>
+    <p>Adjectives</p>
+    <p>animal</p>
+    <p>body parts</p>
+    <p>clothings</p>
+    <p>emotions</p>
+    <p>food</p>
+    <p>social</p>
+    <p>Grammatical</p>
+    <p>Transportations</p>
+    <p>plural food</p>
+    <p>numbers</p>
+    <p>word numbers</p>
+    <p>colors</p>
+  </div>
+
+  <div id="sentenc_category_container">
+      <div id="sentenc_category_">
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+    </div>
+
+    <div id="sentenc_category_">
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+    </div>
+
+    <div id="sentenc_category_">
+          <p></p>
+          <p></p>
+    </div>
+
+  </div>
+  
+
+  <script>
+     
+
+     englishInput.oninput = function() {
+
+      inputtedText.innerText = this.value;
+     }
+
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to Romaji (Google Translate API)</title>
+</head>
+<body>
+    <h2>English to Romaji Converter (Google API Only)</h2>
+    
+    <input type="text" id="englishInput" placeholder="Enter English text">
+    <button onclick="convertToRomaji()">Convert to Romaji</button>
+    
+    <h3>Romaji Output:</h3>
+    <p id="output"></p>
+
+    <script>
+        async function convertToRomaji() {
+            let text = document.getElementById("englishInput").value;
+            if (!text) {
+                alert("Please enter text!");
+                return;
+            }
+
+            try {
+                // Use Google Translate API to translate English to Japanese
+                let translateUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ja&dt=t&q=${encodeURIComponent(text)}`;
+                let response = await fetch(translateUrl);
+                let data = await response.json();
+
+                let japaneseText = data[0].map(item => item[0]).join(" ");
+                console.log("Japanese Text:", japaneseText);
+
+                // Now translate Japanese to Romaji using Google API
+                let romajiUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=ja&tl=ja-Latn&dt=t&q=${encodeURIComponent(japaneseText)}`;
+                let romajiResponse = await fetch(romajiUrl);
+                let romajiData = await romajiResponse.json();
+
+                let romajiText = romajiData[0].map(item => item[0]).join(" ");
+                console.log("Romaji Output:", romajiText);
+
+                document.getElementById("output").innerText = romajiText;
+
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Translation failed. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
