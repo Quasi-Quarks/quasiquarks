@@ -4586,3 +4586,22 @@ o_sentence =
     "ar_word_tr": "bi-shiddah"
   }
 ];
+
+p_transportation = [
+  [{"en_singular_transportation": "bike", "ar_singular": "دَرَّاجَة", "ar_tr_singular": "darrājah"}, {"en_plural_transportation": "bikes", "ar_plural": "دَرَّاجَات", "ar_tr_plural": "darrājāt"}],
+  [{"en_singular_transportation": "car", "ar_singular": "سَيَّارَة", "ar_tr_singular": "sayyārah"}, {"en_plural_transportation": "cars", "ar_plural": "سَيَّارَات", "ar_tr_plural": "sayyārāt"}],
+  [{"en_singular_transportation": "train", "ar_singular": "قِطَار", "ar_tr_singular": "qiṭār"}, {"en_plural_transportation": "trains", "ar_plural": "قِطَارَات", "ar_tr_plural": "qiṭārāt"}],
+  [{"en_singular_transportation": "airplane", "ar_singular": "طَائِرَة", "ar_tr_singular": "ṭāʾirah"}, {"en_plural_transportation": "airplanes", "ar_plural": "طَائِرَات", "ar_tr_plural": "ṭāʾirāt"}],
+  [{"en_singular_transportation": "truck", "ar_singular": "شَاحِنَة", "ar_tr_singular": "shāḥinah"}, {"en_plural_transportation": "trucks", "ar_plural": "شَاحِنَات", "ar_tr_plural": "shāḥināt"}],
+  [{"en_singular_transportation": "boat", "ar_singular": "قَارِب", "ar_tr_singular": "qārib"}, {"en_plural_transportation": "boats", "ar_plural": "قَوَارِب", "ar_tr_plural": "qawārib"}],
+  [{"en_singular_transportation": "ship", "ar_singular": "سَفِينَة", "ar_tr_singular": "safīnah"}, {"en_plural_transportation": "ships", "ar_plural": "سُفُن", "ar_tr_plural": "sufun"}],
+  [{"en_singular_transportation": "jet", "ar_singular": "طَائِرَةٌ نَفَّاثَة", "ar_tr_singular": "ṭāʾirah naffāthah"}, {"en_plural_transportation": "jets", "ar_plural": "طَائِرَاتٌ نَفَّاثَة", "ar_tr_plural": "ṭāʾirāt naffāthah"}],
+  [{"en_singular_transportation": "airport", "ar_singular": "مَطَار", "ar_tr_singular": "maṭār"}, {"en_plural_transportation": "airports", "ar_plural": "مَطَارَات", "ar_tr_plural": "maṭārāt"}],
+  [{"en_singular_transportation": "station", "ar_singular": "مَحَطَّة", "ar_tr_singular": "maḥaṭṭah"}, {"en_plural_transportation": "stations", "ar_plural": "مَحَطَّات", "ar_tr_plural": "maḥaṭṭāt"}],
+  [{"en_singular_transportation": "train", "ar_singular": "قِطَار", "ar_tr_singular": "qiṭār"}, {"en_plural_transportation": "trains", "ar_plural": "قِطَارَات", "ar_tr_plural": "qiṭārāt"}],
+  [{"en_singular_transportation": "bus", "ar_singular": "حَافِلَة", "ar_tr_singular": "ḥāfilah"}, {"en_plural_transportation": "buses", "ar_plural": "حَافِلَات", "ar_tr_plural": "ḥāfilāt"}],
+  [{"en_singular_transportation": "bicycle", "ar_singular": "دَرَّاجَةٌ هَوَائِيَّة", "ar_tr_singular": "darrājah hawāʾiyyah"}, {"en_plural_transportation": "bicycles", "ar_plural": "دَرَّاجَاتٌ هَوَائِيَّة", "ar_tr_plural": "darrājāt hawāʾiyyah"}],
+  [{"en_singular_transportation": "car", "ar_singular": "سَيَّارَة", "ar_tr_singular": "sayyārah"}, {"en_plural_transportation": "cars", "ar_plural": "سَيَّارَات", "ar_tr_plural": "sayyārāt"}],
+  [{"en_singular_transportation": "passenger", "ar_singular": "رَاكِب", "ar_tr_singular": "rākib"}, {"en_plural_transportation": "passengers", "ar_plural": "رُكَّاب", "ar_tr_plural": "rukkāb"}],
+  [{"en_singular_transportation": "bus stop", "ar_singular": "مَوْقِفُ حَافِلَات", "ar_tr_singular": "mawqif ḥāfilāt"}, {"en_plural_transportation": "bus stops", "ar_plural": "مَوَاقِفُ حَافِلَات", "ar_tr_plural": "mawāqif ḥāfilāt"}]
+]

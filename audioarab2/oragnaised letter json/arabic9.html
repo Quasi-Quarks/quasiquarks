@@ -37,7 +37,7 @@
   <div id="translate_container">
    <textarea type="text" id="englishInput" placeholder="Write here">
     </textarea>
-   <button id="convert">Convert</button> 
+   <button id="convert"></button> 
    </div>
 
  
@@ -219,7 +219,8 @@ var array_written_text_data;
           func_search_all_l_feeling();
           func_search_all_m_food();
           func_search_all_n_personal();
-          func_search_all_o_sentence()
+          func_search_all_o_sentence();
+          func_search_all_p_transportation()
           get_the_noun_type();
            //console.log(all_Types_word_types)
           
@@ -270,6 +271,7 @@ function get_the_noun_type() {
                 func_m_food(index)
                 func_n_personal(index)
                 func_o_sentence(index)
+                func_p_transportation(index)
             
         }
         document.getElementById("noun_type_container").appendChild(word_type_button)
@@ -620,6 +622,23 @@ function func_search_all_o_sentence() {
 }
 // func_search_all_o_sentence()
 
+
+function func_search_all_p_transportation() {
+ for(n=0; n<=p_transportation.length+-1; n++) {
+  console.log(p_transportation[n][1].en_plural_transportation)
+  if(p_transportation[n][0].en_singular_transportation == virtual_button) {
+      all_Types_word_types[14][0] = "en_singular_transportation"
+      all_Types_word_types_text[14][0] = "Single Transport"
+  }
+
+  if(p_transportation[n][1].en_plural_transportation == virtual_button) {
+      all_Types_word_types[14][0] = "en_plural_transportation"
+      all_Types_word_types_text[14][0] = "Multiple Transport"
+  }
+ }
+// console.log(all_Types_word_types)
+}
+//func_search_all_p_transportation()
 
 ///////// create the words \\\\\\\\\\\\\\
 
@@ -997,6 +1016,32 @@ function func_o_sentence(para) {
   }
 }
 
+
+function func_p_transportation(para) {
+  // alert("feeling")
+  for (c2 = 0; c2 <= p_transportation.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const generalFeeling = p_transportation[c2][0]?.en_singular_transportation
+      const presentFeeling  = p_transportation[c2][1]?.en_plural_transportation
+     console.log(generalFeeling)
+     console.log(para)
+     //console.log(pluralEnvironment)
+    if (generalFeeling !== null && generalFeeling !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_singular_transportation") {   
+      console.log(generalFeeling);       
+      createVocab(generalFeeling)
+      }
+    } 
+     if (presentFeeling !== null && presentFeeling !== undefined ) {
+      if (para == "en_plural_transportation") {   
+      console.log(presentFeeling);       
+      createVocab(presentFeeling);
+      }
+    } 
+
+  }
+}
 
   </script>
 
