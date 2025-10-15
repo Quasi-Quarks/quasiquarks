@@ -83,20 +83,17 @@ input#englishInput {
 }
 
 textarea#englishInput {
-    width: 92%;
-    height: 80px;
-    height: max-content;
-    min-height: 50px;
-    align-items: flex-start;
-    text-align: left;
-    padding: 16px 5%;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 8px 12px;
-    /* border-radius: 5px; */
-    font-weight: 500;
-    /* overflow: unset; */
-    /* height: max-content; */
+  /* resize: both !important; */ /* Allow user resizing */
+  /* overflow: auto !important; */ /* Needed so resize works properly */
+  /* height: auto; */ /* Avoid locking the height */
+  height: max-content;
+  width: max-content;
+  background: white;
+  min-width: 75%;
+  min-height: 14vh;
+  border-radius: 6px;
+  text-align: left;
+  padding: 4px 7px;
 }
 
 body {
@@ -109,12 +106,13 @@ body {
 }
 
 div#translate_container {
-    /* width: 95%; */
-    height: max-content;
-    min-height: 72px;
-    flex-direction: row;
-    border: red;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: row; /* instead of row if needed */
+  align-items: stretch;
+  width: 93%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .type {
@@ -196,6 +194,7 @@ div#words_written_button_container {
     display: inline-block;
     align-items: flex-start;
     justify-content: flex-start;
+    margin: 9px 0px;
 }
 
 p {
