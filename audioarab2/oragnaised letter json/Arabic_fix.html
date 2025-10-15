@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>English to Romaji Converter</title>
+</head>
+<body>
+  <h1>English to Romaji Converter</h1>
+  <label for="englishInput">Enter English Text:</label>
+  <input type="text" id="englishInput" placeholder="hello">
+  <button id="convert">Convert</button>
+  <h2>Result:</h2>
+  <p id="arabic_transiliteration_text"></p>
+  <p id="arabic_translation_text"></p>
+  <script>
+
+    convert.onclick = function () {
+
+         // Get user's input from the text field
+      const text = document.getElementById("englishInput").value;
+      const encodedText = encodeURIComponent(text);
+      
+      // API URL:
+      // sl=en: source language is English
+      // tl=ja-Latn: target language is Japanese in Latin (romanized) script
+      // dt=t and dt=rm: request both translation and romanization data
+     // const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ja-Latn&dt=t&dt=rm&q=${encodedText}`;
+      //
+      const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ar&dt=t&dt=rm&q=${encodedText}`;
+
+      // Fetch the data from the API
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          // Log the full JSON response in the browser console
+          console.log("Full JSON response:", data);
+
+          const arabic_transiliteration = data[0][1][2];
+          console.log("arabic_transiliteration:", arabic_transiliteration);
+          const arabic_translation = data[0][0][0];
+          console.log("arabic_translation:", arabic_transiliteration);
+          // Display the romanized text on the page
+          document.getElementById("arabic_transiliteration_text").innerText = arabic_transiliteration;
+          document.getElementById("arabic_translation_text").innerText = arabic_translation;
+        })
+        .catch(error => console.error("Error fetching data:", error));
+
+    }
+    function convertToRomaji() {
+     
+    }
+  </script>
+</body>
+</html>

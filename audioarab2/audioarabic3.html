@@ -47,6 +47,7 @@ Awesome! Here’s a clean, minimal **English → Arabic** version (no CSS). It f
     return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   }
 
+  
   // Unofficial Google Translate JSON
   async function gtxTranslateENtoAR(text){
     const params = new URLSearchParams({

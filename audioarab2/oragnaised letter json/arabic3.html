@@ -334,7 +334,7 @@ var all_Types_word_types = [
 
 ]
 
-var virtual_button = "tissue";
+var virtual_button = "passing";
 
 function func_search_all_a_action(dataword) {
  noun_array = []
@@ -367,7 +367,9 @@ function func_search_all_a_action(dataword) {
 
 func_search_all_a_action("pass")
 //func_search_all_a_action("blew")
+ 
 
+//tomrr 4:15 blood test
 
 function func_search_all_b_object() {
  for(b=0; b<=b_object.length+-1; b++) {
@@ -380,12 +382,12 @@ function func_search_all_b_object() {
       all_Types_word_types[1][0] = "en_plural"
 
   }
-
+ 
   
   //  console.log(b_object[b][0].en_singular)
   //  console.log(b_object[b][1].en_plural)
  }
- //console.log(all_Types_word_types)
+ console.log(all_Types_word_types)
 }
 func_search_all_b_object()
 
@@ -640,9 +642,11 @@ function createVocab(vocab_data) {
         func_buttons.innerText  = array_written_text_data[bt];
         func_buttons.setAttribute("class", "func_buttons");
         func_buttons.onclick = function() {
-          func_search_all_b_object() 
+         
           alert(88)
           virtual_button = this.innerText;
+           func_search_all_b_object() 
+          
           // get the value of the button clicked
           // from the written input data array
           //func_buttonClick(this.innerText)
