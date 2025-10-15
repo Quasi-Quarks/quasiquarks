@@ -94,6 +94,8 @@ textarea#englishInput {
   border-radius: 6px;
   text-align: left;
   padding: 4px 7px;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 body {
@@ -186,6 +188,7 @@ div#noun_type_container button {
     padding: 5px 4px;
     color: black;
     border-radius: 20px;
+    font-weight: 700;
 }
 
 div#words_written_button_container {
