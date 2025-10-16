@@ -167,6 +167,8 @@ var array_button_sentence_written_index = 0;
 
 var raw_written_text_data_realtime = "";
 
+funcButton_text = "";
+
 /*
 turn input written to array
 var array_written_text_data;
@@ -179,7 +181,16 @@ var array_written_text_data;
       raw_written_text_data = this.value;
       array_written_text_data = raw_written_text_data.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
 
+      for(t=0; t<=array_written_text_data.length +-1; t++) {
+       
+          virtual_button = array_written_text_data[array_written_text_data.length+-1];
+          console.log(virtual_button + t)
 
+          findtheword(t, virtual_button)
+         
+         automatic_noun_type(funcButton_text)
+          get_the_noun_type();
+      }
       
       inputtedText.innerText = raw_written_text_data;
       // console.log(raw_written_text_data)
@@ -198,13 +209,31 @@ var array_written_text_data;
         func_buttons.setAttribute("data-index", bt);
         func_buttons.onclick = function(para) {
            var index = this.getAttribute("data-index");
-         array_button_sentence_written_index = index;
+         findtheword(index, this.innerText)
+         this.setAttribute("automatic_noun", funcButton_text);
+         automatic_noun_type(funcButton_text)
+          get_the_noun_type();
+         //this.innerText = funcButton_text;
+           //console.log(all_Types_word_types)
+          
+          // get the value of the button clicked
+          // from the written input data array
+          //func_buttonClick(this.innerText)
+        }
+        document.getElementById("words_written_button_container").appendChild(func_buttons)
+      }
+
+    }
+
+    function findtheword(index, txt) {
+
+        array_button_sentence_written_index = index;
         //  alert(this.innerText)
         // console.log(all_Types_word_types)
          all_Types_word_types = JSON.parse(JSON.stringify(all_Types_word_types_backup));
         //  console.log(all_Types_word_types_backup)
           //alert(88 + " " + index)
-          virtual_button = this.innerText;
+          virtual_button = txt
          
           func_search_all_a_action_2() 
           func_search_all_b_object()
@@ -223,15 +252,7 @@ var array_written_text_data;
           func_search_all_o_sentence();
           func_search_all_p_transportation()
           get_the_noun_type();
-           //console.log(all_Types_word_types)
-          
-          // get the value of the button clicked
-          // from the written input data array
-          //func_buttonClick(this.innerText)
-        }
-        document.getElementById("words_written_button_container").appendChild(func_buttons)
-      }
-
+      
     }
     
 
@@ -290,6 +311,54 @@ function get_the_noun_type() {
        //console.log(all_Types_word_types)
 }
 
+
+
+function automatic_noun_type(thisIndex) {
+
+     document.getElementById("noun_type_container").innerHTML = "";
+    // console.log(all_Types_word_types)
+
+    for(w=0; w<=all_Types_word_types.length + -1; w++) {
+          for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
+           if(all_Types_word_types[w][ww] !== "") {
+            // alert(8888)
+           }
+          }
+        }
+       for(w=0; w<=all_Types_word_types.length + -1; w++) {
+          for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
+           if(all_Types_word_types[w][ww] !== "") {
+                // word_type_button.innerText  = all_Types_word_types_text[w][ww];
+                document.getElementById("vocabulary_container").innerHTML = ""
+                 var index = thisIndex
+
+               
+                // alert(this.innerText + 22 + " " + index)
+
+                func_a_action(index)
+                func_b_object(index)
+                func_c_career(index)
+                func_d_environment(index)
+                func_e_position(index)
+                func_f_time(index)
+                func_g_stuff(index)
+                func_h_description(index)
+                func_i_animal(index)
+                func_j_body(index)
+                func_k_clothing(index)
+                func_l_feeling(index)
+                func_m_food(index)
+                func_n_personal(index)
+                func_o_sentence(index)
+                func_p_transportation(index)
+            
+        }
+       // document.getElementById("noun_type_container").appendChild(word_type_button)
+           
+          }
+       }
+       //console.log(all_Types_word_types)
+}
 function createVocab(vocab_data) {
         console.log("create vocab")
         var vocab_buttons = document.createElement("button");
@@ -375,17 +444,21 @@ function func_search_all_a_action_2() {
       console.log(baseVerb);
       all_Types_word_types[0][0] = "base_verb"
       all_Types_word_types_text[0][0] = "normal verb"
+      funcButton_text = all_Types_word_types[0][0];
+      
     }
     if (presentVerb === virtual_button) {
       console.log(presentVerb);
       all_Types_word_types[0][0] = "present_participle"
       all_Types_word_types_text[0][0] = "present action"
+      funcButton_text = all_Types_word_types[0][0];
     }
 
      if (pastVerb === virtual_button) {
       console.log(pastVerb);
       all_Types_word_types[0][0] = "past_tense"
       all_Types_word_types_text[0][0] = "past verb"
+      funcButton_text = all_Types_word_types[0][0];
     }
   }
 }
@@ -400,12 +473,14 @@ function func_search_all_b_object() {
   if(b_object[b][0].en_singular == virtual_button) {
       all_Types_word_types[1][0] = "en_singular"
       all_Types_word_types_text[1][0] = "singular object"
+      funcButton_text = all_Types_word_types[1][0];
 
   }
 
    if(b_object[b][1].en_plural == virtual_button) {
       all_Types_word_types[1][0] = "en_plural"
       all_Types_word_types_text[1][0] = "plural object"
+
 
   }
  
@@ -429,6 +504,7 @@ function func_search_all_c_career() {
   if(c_career[c][0].en_singular_career == virtual_button) {
       all_Types_word_types[2][0] = "en_singular_career"
       all_Types_word_types_text[2][0] = "Professional career"
+      funcButton_text = all_Types_word_types[2][0];
   }
    if(c_career[c][1].en_plural_career == virtual_button) {
       all_Types_word_types[2][0] = "en_plural_career";
@@ -446,6 +522,7 @@ function func_search_all_d_environment() {
   if(d_environment[d][0].en_singular_environment == virtual_button) {
       all_Types_word_types[3][0] = "en_singular_environment"
       all_Types_word_types_text[3][0] = "Place"
+      funcButton_text = all_Types_word_types[3][0];
   }
    if(d_environment[d][1].en_plural_environment == virtual_button) {
       all_Types_word_types[3][0] = "en_plural_environment";
@@ -474,6 +551,7 @@ function func_search_all_e_position() {
   if(e_position[e].en_position == virtual_button) {
       all_Types_word_types[4][0] = "en_position";
       all_Types_word_types_text[4][0] = "Position"
+      funcButton_text = all_Types_word_types[4][0];
   }
  }
 }
@@ -485,6 +563,7 @@ function func_search_all_f_time() {
   if(f_time[f].en_time == virtual_button) {
       all_Types_word_types[5][0] = "en_time"
       all_Types_word_types_text[5][0] = "Time words"
+      funcButton_text = all_Types_word_types[5][0];
   }
  }
  console.log(all_Types_word_types)
@@ -497,6 +576,7 @@ function func_search_all_g_stuff() {
   if(g_stuff[g][0].en_singular_stuff == virtual_button) {
       all_Types_word_types[6][0] = "en_singular_stuff";
       all_Types_word_types_text[6][0] = "Singular Stuff"
+      funcButton_text = all_Types_word_types[6][0];
   }
    if(g_stuff[g][1].en_plural_stuff == virtual_button) {
       all_Types_word_types[6][0] = "en_plural_stuff"
@@ -512,10 +592,12 @@ function func_search_all_h_description() {
   if(h_description[h][0].en_adjective == virtual_button) {
       all_Types_word_types[7][0] = "en_adjective"
       all_Types_word_types_text[7][0] = "Description";
+      funcButton_text = all_Types_word_types[7][0];
   }
    if(h_description[h][1].en_adverb == virtual_button) {
       all_Types_word_types[7][0] = "en_adverb";
       all_Types_word_types_text[7][0] = "Adverb";
+      funcButton_text = all_Types_word_types[7][0];
   }
  }
  //console.log(all_Types_word_types)
@@ -529,6 +611,7 @@ function func_search_all_i_animal() {
   if(i_animal[i][0].en_animal == virtual_button) {
       all_Types_word_types[8][0] = "en_animal"
       all_Types_word_types_text[8][0] = "Animal"
+      funcButton_text = all_Types_word_types[8][0];
   }
    if(i_animal[i][1].en_possessive == virtual_button) {
       all_Types_word_types[8][0] = "en_possessive"
@@ -546,6 +629,7 @@ function func_search_all_j_body() {
   if(j_body[j][0].en_singular_body == virtual_button) {
       all_Types_word_types[9][0] = "en_singular_body"
       all_Types_word_types_text[9][0] = "Body Part"
+      funcButton_text = all_Types_word_types[9][0];
   
   }
    if(j_body[j][1].en_plural_body == virtual_button) {
@@ -563,6 +647,7 @@ function func_search_all_k_clothing() {
   if(k_clothing[k][0].en_singular_clothing == virtual_button) {
       all_Types_word_types[10][0] = "en_singular_clothing";
       all_Types_word_types_text[10][0] = "Singluar Clothes"
+      funcButton_text = all_Types_word_types[10][0];
   }
    if(k_clothing[k][1].en_plural_clothing == virtual_button) {
       all_Types_word_types[10][0] = "en_plural_clothing"
@@ -580,6 +665,7 @@ function func_search_all_l_feeling() {
   if(l_feeling[l][0].en_feel_word == virtual_button) {
       all_Types_word_types[11][0] = "en_feel_word";
       all_Types_word_types_text[11][0] = "General Feel"
+      funcButton_text = all_Types_word_types[11][0];
   }
    if(l_feeling[l][1].en_feel_present == virtual_button) {
       all_Types_word_types[11][0] = "en_feel_present"
@@ -598,6 +684,7 @@ function func_search_all_m_food() {
   if(m_food[m][0].en_singular_food == virtual_button) {
       all_Types_word_types[12][0] = "en_singular_food"
       all_Types_word_types_text[12][0] = "Single Foods"
+      funcButton_text = all_Types_word_types[12][0];
   }
    if(m_food[m][1].en_plural_food == virtual_button) {
       all_Types_word_types[12][0] = "en_plural_food"
@@ -614,6 +701,7 @@ function func_search_all_n_personal() {
   if(n_personal[n].en_communication == virtual_button) {
       all_Types_word_types[13][0] = "en_communication"
       all_Types_word_types_text[13][0] = "Personal Words"
+      funcButton_text = all_Types_word_types[13][0];
   }
  }
 // console.log(all_Types_word_types)
@@ -627,6 +715,7 @@ function func_search_all_o_sentence() {
   if(o_sentence[n].en_word == virtual_button) {
       all_Types_word_types[14][0] = "en_word"
       all_Types_word_types_text[14][0] = "Important Connectors"
+      funcButton_text = all_Types_word_types[14][0];
   }
  }
 // console.log(all_Types_word_types)
@@ -638,13 +727,14 @@ function func_search_all_p_transportation() {
  for(n=0; n<=p_transportation.length+-1; n++) {
   console.log(p_transportation[n][1].en_plural_transportation)
   if(p_transportation[n][0].en_singular_transportation == virtual_button) {
-      all_Types_word_types[14][0] = "en_singular_transportation"
-      all_Types_word_types_text[14][0] = "Single Transport"
+      all_Types_word_types[15][0] = "en_singular_transportation"
+      all_Types_word_types_text[15][0] = "Single Transport"
+      funcButton_text = all_Types_word_types[15][0];
   }
 
   if(p_transportation[n][1].en_plural_transportation == virtual_button) {
-      all_Types_word_types[14][0] = "en_plural_transportation"
-      all_Types_word_types_text[14][0] = "Multiple Transport"
+      all_Types_word_types[15][0] = "en_plural_transportation"
+      all_Types_word_types_text[15][0] = "Multiple Transport"
   }
  }
 // console.log(all_Types_word_types)

@@ -99,7 +99,7 @@ textarea#englishInput {
 }
 
 body {
-    min-height: 124vh;
+    /* max-height: 100vh; */
     height: max-content;
     position: relative;
     justify-content: flex-start;
@@ -159,14 +159,14 @@ button.js_button {
     margin-left: 8px;
     display: inline-block;
     margin: 5px 4px;
-    background-color: rgb(255 255 255);
+    background-color: white;
     border-radius: 25px;
     color: #000000;
 }
 
 div#vocabulary_container {
     width: 100%;
-    height: 452px;
+    height: 161px;
     display: inline-block;
     overflow: scroll;
 }
@@ -193,7 +193,7 @@ div#noun_type_container button {
 
 div#words_written_button_container {
     background-color: #6b718900;
-    height: max-content;
+    height: 62px;
     display: inline-block;
     align-items: flex-start;
     justify-content: flex-start;
