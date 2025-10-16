@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khalium - Creative Web Studio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00bcd4, #6200ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00bcd4;
+    }section {
+  width: 100%;
+  padding: 6rem 10%;
+  text-align: center;
+}
+
+.hero {
+  background: linear-gradient(120deg, #f3f4f6, #ffffff);
+}
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+.hero button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hero button:hover {
+  background: #00bcd4;
+}
+
+.wide-section {
+  width: 100%;
+  text-align: left;
+  padding: 5rem 10%;
+}
+.wide-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.wide-section p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+}
+
+.services {
+  background: #f9f9f9;
+}
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+.service {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+.service:hover {
+  transform: translateY(-5px);
+}
+.service h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+footer p {
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+img {
+    height: 140px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Khalium</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <section class="hero">
+    <img src="logo.PNG">
+    <h2>Build Your Digital Presence with Khalium</h2>
+    <p>We craft fast, elegant, and affordable websites for Nigerian businesses and startups.</p>
+    <button>Start Your Project</button>
+  </section>  <section id="about" class="wide-section">
+    <h2>About Khalium</h2>
+    <p>At Khalium, we merge creativity with technology to deliver stunning web design and development solutions that reflect your brand identity. Our approach is simple — modern, clean, and focused on user experience. From concept to launch, we ensure that every project stands out with performance and style.</p>
+  </section>  <section id="services" class="wide-section services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service">
+        <h3>Web Design</h3>
+        <p>Clean, responsive designs tailored to your brand to make lasting impressions.</p>
+      </div>
+      <div class="service">
+        <h3>Web Development</h3>
+        <p>We build fast, secure, and scalable websites powered by modern technologies.</p>
+      </div>
+      <div class="service">
+        <h3>Maintenance & Support</h3>
+        <p>We provide continuous support and updates to keep your site at its best.</p>
+      </div>
+    </div>
+  </section>  <section id="contact" class="wide-section">
+    <h2>Contact Us</h2>
+    <p>Have a project in mind? Let’s make it real. Fill out the form below or reach us directly.</p>
+    <form style="margin-top:2rem; max-width:600px;">
+      <input type="text" placeholder="Your Name" required style="width:100%;padding:1rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:8px;">
+      <input type="email" placeholder="Your Email" required style="width:100%;padding:1rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:8px;">
+      <textarea placeholder="Your Message" required style="width:100%;padding:1rem;height:150px;border:1px solid #ccc;border-radius:8px;margin-bottom:1rem;"></textarea>
+      <button type="submit" style="background:#111;color:#fff;padding:1rem 2rem;border:none;border-radius:30px;font-size:1rem;cursor:pointer;">Send Message</button>
+    </form>
+  </section>  <footer>
+    <p>© 2025 Khalium. Designed by Khalifa. All rights reserved.</p>
+    <p>📞 ++2348029863040 | ✉ khalifallahglobal@gmail.com</p>
+  </footer>
+</body>
+</html>
