@@ -1,297 +1,177 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="homemobile.css"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khalium - Creative Web Studio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00bcd4, #6200ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00bcd4;
+    }section {
+  width: 100%;
+  padding: 6rem 10%;
+  text-align: center;
+}
 
+.hero {
+  background: linear-gradient(120deg, #f3f4f6, #ffffff);
+}
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+.hero button {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.hero button:hover {
+  background: #00bcd4;
+}
 
-<style>
+.wide-section {
+  width: 100%;
+  text-align: left;
+  padding: 5rem 10%;
+}
+.wide-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.wide-section p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+}
 
-    
-</style>
-    </head>
- 
-    <body>
+.services {
+  background: #f9f9f9;
+}
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: left;
+}
+.service {
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+.service:hover {
+  transform: translateY(-5px);
+}
+.service h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
 
-        <div class="menuBar">
-           <div class="menu">
-            <!-- <a href="khalifa-center/index.html">Khalifa 10</a>
-            <a href="codingbackground/codingplay5/index.html">swap</a> -->
-            <a href="audioarab2/audioarab - Copy.html">1</a>
-            <a href="audioarab2/audioarab.html">2</a>
-            <a href="audioarab2/audioarabic3.html">3</a>
-            <a href="audioarab2/audioarabic4.html">4</a>
-            <a href="audioarab2/audioarabic5.html">5</a>
-            <a href="audioarab2/audioarabic6.html">6</a>
-            <a href="audioarab2/audioarabic7.html">7</a>
-            <a href="audioarab2/audioarabic8.html">8</a>
-            <a href="audioarab2/audioarabic9.html">9.2</a>
-            <a href="audioarab2/oragnaised letter json/arabic9.html">9</a>
-            <a href="audioarab2/oragnaised letter json/arabic10final.html">final 2</a>
-            <a href="audioarab2/index.html">i</a>
-           </div>
-        </div>
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+footer p {
+  font-size: 0.95rem;
+  color: #bbb;
+}
 
-
-    <div class="gap">
-
-</div>
-
-    <div class="section" id="heroSecton" style="">
-       
-        <h1 class="hero_section_h1">Build Modern Web <br> Experiences</h1>
-        <h3 class="hero_section_h2">Web Design, Web development, App development, Back End, Data Science, Machine learning, AI, Deep Learning, </h3>
-        
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Khalium</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <section class="hero">
+    <h2>Build Your Digital Presence with Khalium</h2>
+    <p>We craft fast, elegant, and affordable websites for Nigerian businesses and startups.</p>
+    <button>Start Your Project</button>
+  </section>  <section id="about" class="wide-section">
+    <h2>About Khalium</h2>
+    <p>At Khalium, we merge creativity with technology to deliver stunning web design and development solutions that reflect your brand identity. Our approach is simple — modern, clean, and focused on user experience. From concept to launch, we ensure that every project stands out with performance and style.</p>
+  </section>  <section id="services" class="wide-section services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service">
+        <h3>Web Design</h3>
+        <p>Clean, responsive designs tailored to your brand to make lasting impressions.</p>
+      </div>
+      <div class="service">
+        <h3>Web Development</h3>
+        <p>We build fast, secure, and scalable websites powered by modern technologies.</p>
+      </div>
+      <div class="service">
+        <h3>Maintenance & Support</h3>
+        <p>We provide continuous support and updates to keep your site at its best.</p>
+      </div>
     </div>
-<div class="video-background" id="sectioncontainer">
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="images/nn1.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
- <div class="section mission" id="section1">
-  <h1 class="mission_section_h1">I started learning code frustrated with outdated guides</h1>
-  <h3 class="mission_section_h1">So I built the platform I wish had existed 8 years ago.</h3>
-</div>
-
-<div class="section mission" id="section2">
-  <h1 class="mission_section_h1">We wanted to make learning to code easy</h1>
-  <h3 class="mission_section_h1">
-    Whether you’re changing careers, building a business, freelancing, working remotely, 
-    or studying and researching — our goal is to support your journey.
-  </h3>
-  <button class="section_button">Start Learning</button>
-</div>
-
-<div class="section mission" id="section3">
-  <h1 class="mission_section_h1">We have different roadmaps coming soon</h1>
-  <h3 class="mission_section_h1">Stay tuned — exciting new paths are on the way!</h3>
-</div>
-
-<div class="section mission" id="section4">
-  <h1 class="mission_section_h1">We design our courses to cut out the clutter</h1>
-  <h3 class="mission_section_h1">
-    Our lessons get straight to the point, so you can start building within days.
-  </h3>
-  <button class="section_button">See now</button>
-</div>
-
-<div class="section mission" id="section5">
-  <h1 class="mission_section_h1">We care about your growth and update daily</h1>
-  <h3 class="mission_section_h1">Need help or guidance? Reach out anytime.</h3>
-  <button class="section_button">Contact Us</button>
-</div>
-</div>
-        
-
-<div class="Learningsection">
-
-
-
-  <div class="learningrow1_container learning3row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Programming
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
-  </div>
-  
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/html.png" >
-        <h1 class="icon_title">HTML</h1>
-        <p class="string_text">Web Development</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/css3.png" >
-        <h1 class="icon_title">CSS</h1>
-        <p class="string_text">Wed design language</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/js.png" >
-        <h1 class="icon_title">JS</h1>
-        <p class="string_text">Web dynamics</p>
-      </div>
-  </div>
-
-    <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/react.png" >
-        <h1 class="icon_title">React.JS</h1>
-        <p class="string_text">Web FrameWork</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/reactnative.png" >
-        <h1 class="icon_title">React Native</h1>
-        <p class="string_text">Mobile App Development</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/php.png" >
-        <h1 class="icon_title">PHP</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-  </div>
-
-
-  <div class="learningrow1" id="nodejs">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/nodejs.png" >
-        <h1 class="icon_title">nodejs</h1>
-        <p class="string_text">JS Backend</p>
-      </div>
-
-    
-  </div>
-
-
-  </div>
-
-
-  
-
-<!-- row 2 -->
-
-  <div class="learningrow1_container learning1row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Storage
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
-  </div>
-  
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/json.png" >
-        <h1 class="icon_title">JSON</h1>
-        <p class="string_text">Data Structure</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/sql.png" >
-        <h1 class="icon_title">SQL + MYSQL</h1>
-        <p class="string_text">Using a database</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/server.png" >
-        <h1 class="icon_title">Web Host</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-  </div>
-
-    
-
-
-  </div>
-
-
-  
-
-
-<!-- Computer Architecture -->
-
-  <div class="learningrow1_container learning1row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Computer Architecture
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
-  </div>
-  
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/013-cpu.png" >
-        <h1 class="icon_title">Architecture</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/015-internet-connection.png" >
-        <h1 class="icon_title">Networking</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/020-cloud-1.png" >
-        <h1 class="icon_title">Cloud</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-  </div>
-
-  </div>
-
-
-  <!-- Computer Architecture -->
-
-  <div class="learningrow1_container learning2row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Data Science
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
-  </div>
-  
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/023-exploratory-analysis.png" >
-        <h1 class="icon_title">Data Analysis</h1>
-        <p class="string_text">Using computer to analyse data</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/025-data-science.png" >
-        <h1 class="icon_title">Data Science</h1>
-        <p class="string_text">Making a computer predict</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/029-microchip.png" >
-        <h1 class="icon_title">AI</h1>
-        <p class="string_text">Introduction to AI</p>
-      </div>
-  </div>
-
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/024-brain.png" >
-        <h1 class="icon_title">Machine Learning</h1>
-        <p class="string_text">Using computer to analyse data</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/028-deep-learning.png" >
-        <h1 class="icon_title">Deep Learning</h1>
-        <p class="string_text">Making a computer predict</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/030-chat-gpt.png" >
-        <h1 class="icon_title">Project and Research</h1>
-        <p class="string_text">Introduction to AI</p>
-      </div>
-  </div>
-
-  </div>
-
-  <!--  -->
-
-  
-
-
-</div>
-        
-    <script>
-
-    </script>
+  </section>  <section id="contact" class="wide-section">
+    <h2>Contact Us</h2>
+    <p>Have a project in mind? Let’s make it real. Fill out the form below or reach us directly.</p>
+    <form style="margin-top:2rem; max-width:600px;">
+      <input type="text" placeholder="Your Name" required style="width:100%;padding:1rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:8px;">
+      <input type="email" placeholder="Your Email" required style="width:100%;padding:1rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:8px;">
+      <textarea placeholder="Your Message" required style="width:100%;padding:1rem;height:150px;border:1px solid #ccc;border-radius:8px;margin-bottom:1rem;"></textarea>
+      <button type="submit" style="background:#111;color:#fff;padding:1rem 2rem;border:none;border-radius:30px;font-size:1rem;cursor:pointer;">Send Message</button>
+    </form>
+  </section>  <footer>
+    <p>© 2025 Khalium. Designed by Khalifa. All rights reserved.</p>
+    <p>📞 +2348067241003 | ✉ khalifallahglobal@gmail.com</p>
+  </footer>
 </body>
-
 </html>
-
-
