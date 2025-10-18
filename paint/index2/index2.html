@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mobile Triangle Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0b1022" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- App Shell -->
+  <div id="app" class="app">
+
+    <!-- Toolbar: only two buttons as requested -->
+    <div id="toolbar" class="toolbar" role="toolbar" aria-label="Edit actions">
+      <button id="undoBtn" class="btn" aria-label="Undo" title="Undo" type="button">Undo</button>
+      <button id="redoBtn" class="btn" aria-label="Redo" title="Redo" type="button">Redo</button>
+    </div>
+
+    <!-- Color panel: appears when a triangle is selected -->
+    <div id="colorPanel" class="color-panel" aria-hidden="true">
+      <label for="fillColor" class="color-label">Color</label>
+      <input id="fillColor" class="color-input" type="color" value="#60a5fa" />
+    </div>
+
+    <!-- Full-screen canvas (mobile landscape) -->
+    <canvas id="stage" class="stage" aria-label="Drawing canvas"></canvas>
+
+    <!-- Subtle helper text (can be hidden by CSS) -->
+    <div id="hint" class="hint" aria-hidden="true">
+      Tap empty space to add a triangle. Tap its center to select. Drag corners to reshape. Pinch/rotate with two fingers to scale/rotate. Drag center to move.
+    </div>
+
+    <!-- Optional: orientation notice for users holding phone in portrait -->
+    <div id="rotateNotice" class="rotate-notice" aria-hidden="true">
+      <div class="rotate-card">
+        <div class="rotate-icon" aria-hidden="true">⤾</div>
+        <div class="rotate-text">Rotate your phone for landscape</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- App script (will be provided in next output) -->
+  <script src="app.js" defer></script>
+
+  <!-- No-script fallback -->
+  <noscript>
+    <style>body{background:#0b1022;color:#fff;font-family:system-ui,sans-serif;padding:24px}</style>
+    <p>This app needs JavaScript enabled.</p>
+  </noscript>
+</body>
+</html>

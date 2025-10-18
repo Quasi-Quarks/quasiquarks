@@ -1,0 +1,414 @@
+/* =========================================================
+   Triangle Studio — Mobile-first Styles
+   ========================================================= */
+
+/* ---------- CSS Variables (Theme) ---------- */
+:root {
+  --bg: #0b1022;
+  --bg-elev: #0f172a;
+  --panel: #111827;
+  --panel-2: #0c1324;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2937;
+  --accent: #60a5fa;
+  --accent-2: #93c5fd;
+
+  --danger: #ef4444;
+  --danger-2: #f87171;
+  --shadow: 0 8px 24px rgba(0,0,0,.35);
+
+  --radius: 12px;
+  --radius-lg: 16px;
+  --pad: 12px;
+  --gap: 10px;
+
+  --btn-bg: #1f2937;
+  --btn-bg-active: #374151;
+
+  --chip-bg: rgba(96,165,250,.1);
+  --chip-border: rgba(96,165,250,.4);
+}
+
+/* Respect user preference */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --bg-elev: #f1f5f9;
+    --panel: #ffffff;
+    --panel-2: #f8fafc;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #e2e8f0;
+    --btn-bg: #e5e7eb;
+    --btn-bg-active: #d1d5db;
+    --shadow: 0 8px 24px rgba(2,6,23,.12);
+    --chip-bg: rgba(37,99,235,.08);
+    --chip-border: rgba(37,99,235,.3);
+  }
+}
+
+/* ---------- Base & Layout ---------- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html { color-scheme: dark light; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+               Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100svh;
+}
+
+/* Header */
+#app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(180deg, var(--bg-elev), color-mix(in oklab, var(--bg-elev), transparent 20%));
+  border-bottom: 1px solid var(--border);
+  padding: calc(var(--pad) + 2px) var(--pad);
+}
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+}
+.app-title {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: .2px;
+}
+.header-actions { display: flex; gap: var(--gap); }
+
+/* Main layout: stage + controls */
+#app {
+  display: grid;
+  grid-template-rows: 1fr auto; /* stage grows, controls stick at bottom */
+  min-height: calc(100svh - 56px); /* approx header height */
+}
+
+/* Stage */
+#stage {
+  position: relative;
+  padding: var(--pad);
+  padding-bottom: calc(var(--pad) / 2);
+  min-height: 50svh; /* mobile-first sensible area */
+}
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #0b1022;
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 10px 30px rgba(0,0,0,.35), 0 2px 12px rgba(0,0,0,.25);
+  touch-action: none; /* gestures handled in JS */
+}
+
+/* HUD / Chips */
+#hud {
+  position: absolute;
+  inset: var(--pad);
+  pointer-events: none;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  color: var(--text);
+  border-radius: 999px;
+  font-size: 12px;
+  box-shadow: var(--shadow);
+}
+
+/* Controls wrapper (sticky bottom panel) */
+#controls {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--panel), transparent 10%), var(--panel));
+  border-top: 1px solid var(--border);
+  padding: var(--pad);
+  padding-bottom: calc(var(--pad) + 4px);
+  backdrop-filter: blur(8px);
+}
+
+/* Toolbars */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  margin-bottom: var(--gap);
+}
+.toolbar-top { justify-content: space-between; flex-wrap: wrap; }
+.toolbar-bottom { justify-content: flex-end; flex-wrap: wrap; }
+.spacer { flex: 1; }
+
+/* Segmented control */
+.segmented {
+  display: inline-flex;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.seg-btn {
+  appearance: none;
+  background: transparent;
+  color: var(--text);
+  border: 0;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.seg-btn[aria-selected="true"] {
+  background: var(--btn-bg-active);
+  color: var(--text);
+}
+
+/* Buttons */
+button, .btn, .icon-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--btn-bg);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .05s ease, background .15s ease, border-color .15s ease, opacity .2s ease;
+}
+button:hover, .btn:hover, .icon-btn:hover {
+  background: var(--btn-bg-active);
+  border-color: color-mix(in oklab, var(--accent), var(--border) 70%);
+}
+button:active, .btn:active, .icon-btn:active {
+  transform: translateY(1px);
+}
+button:disabled, .btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+.btn.primary {
+  background: color-mix(in oklab, var(--accent), var(--btn-bg) 25%);
+  border-color: color-mix(in oklab, var(--accent), var(--border) 50%);
+}
+.btn.primary:hover {
+  background: color-mix(in oklab, var(--accent), var(--btn-bg) 10%);
+}
+.btn.danger {
+  background: color-mix(in oklab, var(--danger), var(--btn-bg) 40%);
+  border-color: color-mix(in oklab, var(--danger), var(--border) 40%);
+}
+.btn.danger:hover {
+  background: color-mix(in oklab, var(--danger), var(--btn-bg) 25%);
+}
+.icon-btn {
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+/* Panels (cards in the control area) */
+.panel {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: var(--gap);
+}
+.panel-style, .panel-transform {}
+
+/* Fields */
+.field { margin-bottom: 10px; }
+.field:last-child { margin-bottom: 0; }
+.field label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.field output {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  font-weight: 600;
+}
+.field-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+
+/* Color inputs */
+input[type="color"] {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0;
+  background: var(--panel);
+}
+
+/* Range sliders (mobile-friendly) */
+input[type="range"] {
+  width: 100%;
+  height: 28px;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: linear-gradient(90deg, var(--btn-bg-active), var(--btn-bg));
+  border-radius: 999px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  border: 2px solid color-mix(in oklab, var(--accent-2), #000 30%);
+  margin-top: -8px; /* center on track */
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  background: linear-gradient(90deg, var(--btn-bg-active), var(--btn-bg));
+  border-radius: 999px;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  border: 2px solid color-mix(in oklab, var(--accent-2), #000 30%);
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+/* Notes */
+.field.note {
+  color: var(--muted);
+  font-size: 12px;
+  background: color-mix(in oklab, var(--panel-2), transparent 25%);
+  border: 1px dashed var(--border);
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+/* Dialog (Help) */
+dialog {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  color: var(--text);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  max-width: min(720px, 92vw);
+}
+dialog::backdrop {
+  background: rgba(0,0,0,.45);
+  backdrop-filter: blur(2px);
+}
+.dialog-content {
+  margin: 8px 0 16px;
+}
+.dialog-content ul {
+  margin: 0; padding-left: 18px;
+  display: grid; gap: 8px;
+}
+.dialog-actions {
+  display: flex; justify-content: flex-end; gap: var(--gap);
+}
+
+/* Toasts */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 60;
+  display: grid;
+  gap: 8px;
+  pointer-events: none;
+}
+.toast-item {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: color-mix(in oklab, var(--panel), var(--bg-elev) 20%);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  animation: toast-in .18s ease-out;
+}
+.toast-text { font-weight: 600; font-size: 14px; }
+@keyframes toast-in {
+  from { transform: translate(-50%, 8px); opacity: 0; }
+  to   { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* Accessibility: focus styles */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Small tap targets on iOS Safari selection highlight */
+::selection {
+  background: color-mix(in oklab, var(--accent), transparent 65%);
+}
+
+/* ---------- Larger screens adjustments ---------- */
+@media (min-width: 720px) {
+  #app {
+    grid-template-rows: minmax(420px, 1fr) auto;
+  }
+  #stage {
+    padding: 16px;
+    min-height: 56svh;
+  }
+  .toolbar-top, .toolbar-bottom {
+    justify-content: space-between;
+  }
+  .panel {
+    padding: 14px;
+  }
+  .field-pair {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Optional: Very large screens ---------- */
+@media (min-width: 1100px) {
+  #controls {
+    padding: 16px 18px 22px;
+  }
+  .panel {
+    max-width: 980px;
+    margin-inline: auto;
+  }
+  .toolbar-top, .toolbar-bottom {
+    max-width: 980px;
+    margin-inline: auto;
+  }
+}
+
+/* Utility (hidden attr compatibility for older browsers) */
+[hidden] { display: none !important; }

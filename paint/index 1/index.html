@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Triangle Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Icons are optional; leave commented for now
+  <link rel="icon" href="favicon.ico" />
+  -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- App Header -->
+  <header id="app-header" role="banner" aria-label="Triangle Studio header">
+    <div class="header-row">
+      <h1 class="app-title">Triangle Studio</h1>
+      <div class="header-actions">
+        <button id="btn-help" class="icon-btn" aria-label="Help" title="Help">?</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <main id="app" role="main">
+    <!-- Canvas Stage (mobile-first; fills available height) -->
+    <section id="stage" aria-label="Drawing stage">
+      <canvas id="canvas" aria-label="Drawing canvas"></canvas>
+
+      <!-- Overlay HUD for selected triangle (positioned via CSS/JS) -->
+      <div id="hud" aria-hidden="true">
+        <!-- Handles are drawn on canvas; this HUD can show selection info/tips -->
+        <div id="selection-label" class="chip" hidden>Triangle selected</div>
+      </div>
+    </section>
+
+    <!-- Controls Panel (sticky bottom on mobile) -->
+    <section id="controls" aria-label="Controls">
+      <!-- Mode & History -->
+      <div class="toolbar toolbar-top" role="group" aria-label="Modes and history">
+        <div class="segmented" role="tablist" aria-label="Modes">
+          <button id="mode-draw" role="tab" aria-selected="true" class="seg-btn">Draw</button>
+          <button id="mode-edit" role="tab" aria-selected="false" class="seg-btn">Edit</button>
+        </div>
+
+        <div class="history">
+          <button id="btn-undo" class="btn" aria-label="Undo" title="Undo" disabled>Undo</button>
+          <button id="btn-redo" class="btn" aria-label="Redo" title="Redo" disabled>Redo</button>
+        </div>
+      </div>
+
+      <!-- Style Controls -->
+      <div class="panel panel-style" aria-label="Style controls">
+        <div class="field-pair">
+          <div class="field">
+            <label for="fill-color">Fill</label>
+            <input id="fill-color" type="color" value="#60a5fa" />
+          </div>
+          <div class="field">
+            <label for="stroke-color">Stroke</label>
+            <input id="stroke-color" type="color" value="#ffffff" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="opacity">Opacity <output id="opacity-out" for="opacity">0.6</output></label>
+          <input id="opacity" type="range" min="0" max="1" step="0.01" value="0.6" />
+        </div>
+
+        <div class="field">
+          <label for="stroke-width">Stroke width <output id="lw-out" for="stroke-width">2</output></label>
+          <input id="stroke-width" type="range" min="0" max="16" step="0.5" value="2" />
+        </div>
+      </div>
+
+      <!-- Transform Controls (for selected triangle) -->
+      <div class="panel panel-transform" aria-label="Transform controls">
+        <div class="field note">
+          Pinch with two fingers to scale. Rotate gesture supported (two-finger twist).
+        </div>
+        <div class="field-pair">
+          <div class="field">
+            <label for="scale">Scale (%) <output id="scale-out" for="scale">100</output></label>
+            <input id="scale" type="range" min="10" max="400" step="1" value="100" />
+          </div>
+          <div class="field">
+            <label for="rotation">Rotate (°) <output id="rot-out" for="rotation">0</output></label>
+            <input id="rotation" type="range" min="0" max="360" step="1" value="0" />
+          </div>
+        </div>
+        <div class="field note">
+          Tip: In Edit mode, drag anywhere inside the triangle to move it. Drag a vertex dot to change its angle.
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="toolbar toolbar-bottom" role="group" aria-label="Actions">
+        <button id="btn-duplicate" class="btn" aria-label="Duplicate selected" title="Duplicate selected" disabled>Duplicate</button>
+        <button id="btn-delete" class="btn danger" aria-label="Delete selected" title="Delete selected" disabled>Delete</button>
+        <div class="spacer"></div>
+        <button id="btn-clear" class="btn" aria-label="Clear all" title="Clear all">Clear</button>
+        <button id="btn-save" class="btn primary" aria-label="Save as PNG" title="Save as PNG">Save PNG</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom Sheets / Dialogs -->
+  <dialog id="help-dialog" aria-labelledby="help-title">
+    <h2 id="help-title">Quick Help</h2>
+    <div class="dialog-content">
+      <ul>
+        <li><strong>Draw mode:</strong> Tap three points to create a triangle.</li>
+        <li><strong>Edit mode:</strong> Tap a triangle to select it. Drag inside to move; drag a vertex dot to reshape.</li>
+        <li><strong>Pinch:</strong> Two fingers to scale. Twist to rotate.</li>
+        <li><strong>Style:</strong> Use Fill, Stroke, Opacity, and Stroke width.</li>
+        <li><strong>History:</strong> Undo/Redo any change.</li>
+        <li><strong>Save:</strong> Export current canvas to PNG.</li>
+      </ul>
+    </div>
+    <form method="dialog" class="dialog-actions">
+      <button value="close" class="btn primary">Close</button>
+    </form>
+  </dialog>
+
+  <!-- Toasts -->
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Templates (for JS cloning if needed) -->
+  <template id="toast-template">
+    <div class="toast-item" data-timeout="2400">
+      <span class="toast-text"></span>
+    </div>
+  </template>
+
+  <!-- Scripts -->
+  <script src="app.js" defer></script>
+</body>
+</html>
