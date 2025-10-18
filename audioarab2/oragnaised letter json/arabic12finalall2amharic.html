@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>English to Romaji Converter</title>
+
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  
+  <div class="menu">
+    <p>Tutorial</p>
+    <p>Grammar</p>
+    <p>Vocabulary</p>
+    <p>Sentence</p>
+    <p>Grammar</p>
+  </div>
+
+
+
+  <div id="translation_container">
+    
+   <p class="translation_container_element" id="translatedresult">السلام عليكم</p>
+   <p  class="translation_container_element" id="translated-transliteration-result">As salaam Alaykum 2</p>
+  <p class="translation_container_element" id="inputtedText">Your text here</p>
+  </div>
+<div id="vocabulary_container">
+    
+  </div>
+
+
+
+
+    <div id="words_written_button_container">
+   
+  </div>
+  <div id="translate_container">
+   <textarea type="text" id="englishInput" placeholder="Write here">
+    </textarea>
+   <button id="convert"></button> 
+   </div>
+  <div id="noun_type_container">
+ 
+  </div>
+ 
+
+
+<!-- 
+  <div class="vocabularytype">
+    <p>Object</p>
+    <p>Profession</p>
+    <p>place</p>
+    <p>position</p>
+    <p>Time</p>
+    <p>Non object</p>
+    <p>Adjectives</p>
+    <p>animal</p>
+    <p>body parts</p>
+    <p>clothings</p>
+    <p>emotions</p>
+    <p>food</p>
+    <p>social</p>
+    <p>Grammatical</p>
+    <p>Transportations</p>
+    <p>plural food</p>
+    <p>numbers</p>
+    <p>word numbers</p>
+    <p>colors</p>
+  </div> -->
+
+  
+
+  </div>
+   <script src="total2.js"></script>
+
+  <script>
+
+ 
+
+var raw_written_text_data; //englishInput.oninput = function() {
+
+var array_written_text_data; // func_buttons()
+var buttonData; //func_buttonClick(buttonValue)
+var keyword = "base_verb";
+
+
+
+var buttonData = "pass";
+
+var noun_array = []
+
+var raw_written_text_data;
+
+var all_Types_word_types = [
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+
+]
+
+var all_Types_word_types_text = [
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+
+]
+
+
+
+var all_Types_word_types_backup = [
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+[],
+
+]
+virtual_button ="";
+
+var array_button_sentence_written_index = 0;
+
+
+var raw_written_text_data_realtime = "";
+
+funcButton_text = "";
+
+/*
+turn input written to array
+var array_written_text_data;
+     englishInput.oninput = function() {
+*/
+
+var array_written_text_data;
+     englishInput.oninput = function() {
+
+      raw_written_text_data = this.value;
+      array_written_text_data = raw_written_text_data.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
+
+      for(t=0; t<=array_written_text_data.length +-1; t++) {
+       
+          virtual_button = array_written_text_data[array_written_text_data.length+-1];
+          console.log(virtual_button + t)
+
+          findtheword(t, virtual_button)
+         
+         automatic_noun_type(funcButton_text)
+          get_the_noun_type();
+      }
+      
+      inputtedText.innerText = raw_written_text_data;
+      // console.log(raw_written_text_data)
+      // console.log(array_written_text_data)
+      func_buttons()
+     }
+
+
+     function func_buttons() {
+      document.getElementById("words_written_button_container").innerHTML = "";
+      console.log(array_written_text_data)
+      for(bt=0; bt<=array_written_text_data.length +-1; bt++) {
+        var func_buttons = document.createElement("button");
+        func_buttons.innerText  = array_written_text_data[bt];
+        func_buttons.setAttribute("class", "func_buttons");
+        func_buttons.setAttribute("data-index", bt);
+        func_buttons.onclick = function(para) {
+           var index = this.getAttribute("data-index");
+         findtheword(index, this.innerText)
+         this.setAttribute("automatic_noun", funcButton_text);
+         automatic_noun_type(funcButton_text)
+          get_the_noun_type();
+         //this.innerText = funcButton_text;
+           //console.log(all_Types_word_types)
+          
+          // get the value of the button clicked
+          // from the written input data array
+          //func_buttonClick(this.innerText)
+        }
+        document.getElementById("words_written_button_container").appendChild(func_buttons)
+      }
+
+    }
+
+    function findtheword(index, txt) {
+
+        array_button_sentence_written_index = index;
+        //  alert(this.innerText)
+        // console.log(all_Types_word_types)
+         all_Types_word_types = JSON.parse(JSON.stringify(all_Types_word_types_backup));
+        //  console.log(all_Types_word_types_backup)
+          //alert(88 + " " + index)
+          virtual_button = txt
+         
+          func_search_all_a_action_2() 
+          func_search_all_b_object()
+          func_search_all_c_career()
+          func_search_all_d_environment();
+          func_search_all_e_position()
+          func_search_all_f_time()
+          func_search_all_g_stuff()
+          func_search_all_h_description()
+          func_search_all_i_animal()
+          func_search_all_j_body();
+          func_search_all_k_clothing();
+          func_search_all_l_feeling();
+          func_search_all_m_food();
+          func_search_all_n_personal();
+          func_search_all_o_sentence();
+          func_search_all_p_transportation()
+          get_the_noun_type();
+      
+    }
+    
+
+var word_array_length = []
+
+    
+function get_the_noun_type() {
+     document.getElementById("noun_type_container").innerHTML = "";
+    // console.log(all_Types_word_types)
+
+    for(w=0; w<=all_Types_word_types.length + -1; w++) {
+          for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
+           if(all_Types_word_types[w][ww] !== "") {
+            // alert(8888)
+           }
+          }
+        }
+       for(w=0; w<=all_Types_word_types.length + -1; w++) {
+          for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
+           if(all_Types_word_types[w][ww] !== "") {
+            // alert(8888)
+              var word_type_button = document.createElement("button");
+              console.log(all_Types_word_types_text)
+              console.log(all_Types_word_types)
+              word_type_button.innerText  = all_Types_word_types_text[w][ww];
+              word_type_button.setAttribute("class", "word_type_button");
+              word_type_button.setAttribute("data-index", all_Types_word_types[w][ww]);
+              word_type_button.onclick = function() {
+                document.getElementById("vocabulary_container").innerHTML = ""
+                 var index = this.getAttribute("data-index");
+                
+                // alert(this.innerText + 22 + " " + index)
+
+                func_a_action(index)
+                func_b_object(index)
+                func_c_career(index)
+                func_d_environment(index)
+                func_e_position(index)
+                func_f_time(index)
+                func_g_stuff(index)
+                func_h_description(index)
+                func_i_animal(index)
+                func_j_body(index)
+                func_k_clothing(index)
+                func_l_feeling(index)
+                func_m_food(index)
+                func_n_personal(index)
+                func_o_sentence(index)
+                func_p_transportation(index)
+            
+        }
+        document.getElementById("noun_type_container").appendChild(word_type_button)
+           }
+          }
+       }
+       //console.log(all_Types_word_types)
+}
+
+
+
+function automatic_noun_type(thisIndex) {
+
+     document.getElementById("noun_type_container").innerHTML = "";
+    // console.log(all_Types_word_types)
+
+    for(w=0; w<=all_Types_word_types.length + -1; w++) {
+          for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
+           if(all_Types_word_types[w][ww] !== "") {
+            // alert(8888)
+           }
+          }
+        }
+       for(w=0; w<=all_Types_word_types.length + -1; w++) {
+          for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
+           if(all_Types_word_types[w][ww] !== "") {
+                // word_type_button.innerText  = all_Types_word_types_text[w][ww];
+                document.getElementById("vocabulary_container").innerHTML = ""
+                 var index = thisIndex
+
+               
+                // alert(this.innerText + 22 + " " + index)
+
+                func_a_action(index)
+                func_b_object(index)
+                func_c_career(index)
+                func_d_environment(index)
+                func_e_position(index)
+                func_f_time(index)
+                func_g_stuff(index)
+                func_h_description(index)
+                func_i_animal(index)
+                func_j_body(index)
+                func_k_clothing(index)
+                func_l_feeling(index)
+                func_m_food(index)
+                func_n_personal(index)
+                func_o_sentence(index)
+                func_p_transportation(index)
+            
+        }
+       // document.getElementById("noun_type_container").appendChild(word_type_button)
+           
+          }
+       }
+       //console.log(all_Types_word_types)
+}
+function createVocab(vocab_data) {
+        console.log("create vocab")
+        var vocab_buttons = document.createElement("button");
+        vocab_buttons.innerText  = vocab_data;
+        vocab_buttons.setAttribute("class", "js_button");
+        vocab_buttons.onclick = function() {
+          buttonData = this.innerText;
+          // alert("line 630 " + buttonData)
+          array_written_text_data[array_button_sentence_written_index] = this.innerText;
+          
+          raw_written_text_data = englishInput.value;
+          loop_input_text()
+          inputtedText.innerText = raw_written_text_data;
+           
+          func_buttons();
+          translate()
+          
+        }
+        document.getElementById("vocabulary_container").appendChild(vocab_buttons)
+}
+
+
+
+function loop_input_text() {
+   englishInput.value = "";
+  for(t=0; t<=array_written_text_data.length + -1; t++) {
+    console.log(array_written_text_data[t])
+     englishInput.value = englishInput.value + " " + array_written_text_data[t];
+     raw_written_text_data = englishInput.value;
+  }
+
+}
+
+convert.onclick = function () {
+
+ translate()
+    }
+
+
+    function translate() {
+          
+         // Get user's input from the text field
+      const text = raw_written_text_data;
+      const encodedText = encodeURIComponent(text);
+      
+     // const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ar&dt=t&dt=rm&q=${encodedText}`;
+      //const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ar&dt=t&dt=rm&q=${encodedText}`;
+     // const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ja-Latn&dt=t&dt=rm&q=${encodedText}`;
+       // spanish
+        // const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&dt=rm&q=${encodedText}`;
+        // amharic
+         const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=am&dt=t&dt=rm&q=${encodedText}`;
+
+      // Fetch the data from the API
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          // Log the full JSON response in the browser console
+          console.log("Full JSON response:", data);
+
+          const arabic_transiliteration = data[0][1][2];
+          console.log("arabic_transiliteration:", arabic_transiliteration);
+          const arabic_translation = data[0][0][0];
+          console.log("arabic_translation:", arabic_transiliteration);
+          // Display the romanized text on the page
+          document.getElementById("translated-transliteration-result").innerText = arabic_transiliteration;
+          document.getElementById("translatedresult").innerText = arabic_translation;
+          loop_input_text()
+        })
+        .catch(error => console.error("Error fetching data:", error));
+    }
+
+  
+
+    ///// Get figure The word types \\\
+
+
+function func_search_all_a_action_2() {
+ 
+
+  for (let a2 = 0; a2 < a_action.length; a2++) {
+    
+    const baseVerb = a_action[a2]?.base_verb?.en;
+    const presentVerb = a_action[a2]?.present_participle?.en;
+    const pastVerb = a_action[a2]?.past_tense?.en;
+    if (baseVerb === virtual_button) {
+      console.log(baseVerb);
+      all_Types_word_types[0][0] = "base_verb"
+      all_Types_word_types_text[0][0] = "normal verb"
+      funcButton_text = all_Types_word_types[0][0];
+      
+    }
+    if (presentVerb === virtual_button) {
+      console.log(presentVerb);
+      all_Types_word_types[0][0] = "present_participle"
+      all_Types_word_types_text[0][0] = "present action"
+      funcButton_text = all_Types_word_types[0][0];
+    }
+
+     if (pastVerb === virtual_button) {
+      console.log(pastVerb);
+      all_Types_word_types[0][0] = "past_tense"
+      all_Types_word_types_text[0][0] = "past verb"
+      funcButton_text = all_Types_word_types[0][0];
+    }
+  }
+}
+
+func_search_all_a_action_2("blew")
+ 
+
+//tomrr 4:15 blood test
+
+function func_search_all_b_object() {
+ for(b=0; b<=b_object.length+-1; b++) {
+  if(b_object[b][0].en_singular == virtual_button) {
+      all_Types_word_types[1][0] = "en_singular"
+      all_Types_word_types_text[1][0] = "singular object"
+      funcButton_text = all_Types_word_types[1][0];
+
+  }
+
+   if(b_object[b][1].en_plural == virtual_button) {
+      all_Types_word_types[1][0] = "en_plural"
+      all_Types_word_types_text[1][0] = "plural object"
+
+
+  }
+ 
+  
+  //  console.log(b_object[b][0].en_singular)
+  //  console.log(b_object[b][1].en_plural)
+ }
+ //console.log(all_Types_word_types)
+}
+// func_search_all_b_object()
+
+//func_search_all_a_action("pass")
+//func_search_all_a_action("blew")
+
+
+function func_search_all_c_career() {
+ for(c=0; c<=c_career.length+-1; c++) {
+
+  //console.log(c_career[c][0].en_singular_career)
+  //console.log(virtual_button)
+  if(c_career[c][0].en_singular_career == virtual_button) {
+      all_Types_word_types[2][0] = "en_singular_career"
+      all_Types_word_types_text[2][0] = "Professional career"
+      funcButton_text = all_Types_word_types[2][0];
+  }
+   if(c_career[c][1].en_plural_career == virtual_button) {
+      all_Types_word_types[2][0] = "en_plural_career";
+      all_Types_word_types_text[2][0] = "Professional careers"
+  }
+ }
+ //console.log(all_Types_word_types)
+}
+// func_search_all_c_career()
+
+
+function func_search_all_d_environment() {
+  // alert(4567890)
+ for(d=0; d<=d_environment.length+-1; d++) {
+  if(d_environment[d][0].en_singular_environment == virtual_button) {
+      all_Types_word_types[3][0] = "en_singular_environment"
+      all_Types_word_types_text[3][0] = "Place"
+      funcButton_text = all_Types_word_types[3][0];
+  }
+   if(d_environment[d][1].en_plural_environment == virtual_button) {
+      all_Types_word_types[3][0] = "en_plural_environment";
+      all_Types_word_types_text[3][0] = "Multiple places"
+  }
+ }
+ console.log(all_Types_word_types)
+}
+// func_search_all_d_environment()
+
+// function func_search_all_d_environment() {
+//  for(d=0; d<=d_environment.length+-1; d++) {
+//   if(d_environment[d][0].en_singular == virtual_button) {
+//       all_Types_word_types[3][0] = "en_singular"
+//   }
+//    if(d_environment[d][1].en_plural == virtual_button) {
+//       all_Types_word_types[3][0] = "en_plural"
+//   }
+//  }
+//  //console.log(all_Types_word_types)
+// }
+// func_search_all_d_environment()
+
+function func_search_all_e_position() {
+ for(e=0; e<=e_position.length+-1; e++) {
+  if(e_position[e].en_position == virtual_button) {
+      all_Types_word_types[4][0] = "en_position";
+      all_Types_word_types_text[4][0] = "Position"
+      funcButton_text = all_Types_word_types[4][0];
+  }
+ }
+}
+// func_search_all_e_position()
+
+function func_search_all_f_time() {
+  console
+ for(f=0; f<=f_time.length+-1; f++) {
+  if(f_time[f].en_time == virtual_button) {
+      all_Types_word_types[5][0] = "en_time"
+      all_Types_word_types_text[5][0] = "Time words"
+      funcButton_text = all_Types_word_types[5][0];
+  }
+ }
+ console.log(all_Types_word_types)
+}
+// func_search_all_f_time()
+
+
+function func_search_all_g_stuff() {
+ for(g=0; g<=g_stuff.length+-1; g++) {
+  if(g_stuff[g][0].en_singular_stuff == virtual_button) {
+      all_Types_word_types[6][0] = "en_singular_stuff";
+      all_Types_word_types_text[6][0] = "Singular Stuff"
+      funcButton_text = all_Types_word_types[6][0];
+  }
+   if(g_stuff[g][1].en_plural_stuff == virtual_button) {
+      all_Types_word_types[6][0] = "en_plural_stuff"
+      all_Types_word_types_text[6][0] = "Plural Stuff";
+  }
+ }
+ console.log(all_Types_word_types)
+}
+// func_search_all_g_stuff()
+
+function func_search_all_h_description() {
+ for(h=0; h<=h_description.length+-1; h++) {
+  if(h_description[h][0].en_adjective == virtual_button) {
+      all_Types_word_types[7][0] = "en_adjective"
+      all_Types_word_types_text[7][0] = "Description";
+      funcButton_text = all_Types_word_types[7][0];
+  }
+   if(h_description[h][1].en_adverb == virtual_button) {
+      all_Types_word_types[7][0] = "en_adverb";
+      all_Types_word_types_text[7][0] = "Adverb";
+      funcButton_text = all_Types_word_types[7][0];
+  }
+ }
+ //console.log(all_Types_word_types)
+}
+// func_search_all_h_description()
+
+
+
+function func_search_all_i_animal() {
+ for(i=0; i<=i_animal.length+-1; i++) {
+  if(i_animal[i][0].en_animal == virtual_button) {
+      all_Types_word_types[8][0] = "en_animal"
+      all_Types_word_types_text[8][0] = "Animal"
+      funcButton_text = all_Types_word_types[8][0];
+  }
+   if(i_animal[i][1].en_possessive == virtual_button) {
+      all_Types_word_types[8][0] = "en_possessive"
+      all_Types_word_types_text[8][0] = "Animal Ownership"
+  }
+
+ }
+ //console.log(all_Types_word_types)
+}
+// func_search_all_i_animal()
+
+
+function func_search_all_j_body() {
+ for(j=0; j<=j_body.length+-1; j++) {
+  if(j_body[j][0].en_singular_body == virtual_button) {
+      all_Types_word_types[9][0] = "en_singular_body"
+      all_Types_word_types_text[9][0] = "Body Part"
+      funcButton_text = all_Types_word_types[9][0];
+  
+  }
+   if(j_body[j][1].en_plural_body == virtual_button) {
+      all_Types_word_types[9][0] = "en_plural_body"
+      all_Types_word_types_text[9][0] = "Body Parts"
+  }
+ }
+ console.log(all_Types_word_types)
+}
+// func_search_all_j_body()
+
+
+function func_search_all_k_clothing() {
+ for(k=0; k<=k_clothing.length+-1; k++) {
+  if(k_clothing[k][0].en_singular_clothing == virtual_button) {
+      all_Types_word_types[10][0] = "en_singular_clothing";
+      all_Types_word_types_text[10][0] = "Singluar Clothes"
+      funcButton_text = all_Types_word_types[10][0];
+  }
+   if(k_clothing[k][1].en_plural_clothing == virtual_button) {
+      all_Types_word_types[10][0] = "en_plural_clothing"
+      all_Types_word_types_text[10][0] = "Plural Clothes"
+  }
+ }
+ //console.log(all_Types_word_types)
+}
+// func_search_all_k_clothing()
+
+
+
+function func_search_all_l_feeling() {
+ for(l=0; l<=l_feeling.length+-1; l++) {
+  if(l_feeling[l][0].en_feel_word == virtual_button) {
+      all_Types_word_types[11][0] = "en_feel_word";
+      all_Types_word_types_text[11][0] = "General Feel"
+      funcButton_text = all_Types_word_types[11][0];
+  }
+   if(l_feeling[l][1].en_feel_present == virtual_button) {
+      all_Types_word_types[11][0] = "en_feel_present"
+      all_Types_word_types_text[11][0] = "Present Feel"
+
+      
+  }
+ }
+// console.log(all_Types_word_types)
+}
+// func_search_all_l_feeling()
+
+
+function func_search_all_m_food() {
+ for(m=0; m<=m_food.length+-1; m++) {
+  if(m_food[m][0].en_singular_food == virtual_button) {
+      all_Types_word_types[12][0] = "en_singular_food"
+      all_Types_word_types_text[12][0] = "Single Foods"
+      funcButton_text = all_Types_word_types[12][0];
+  }
+   if(m_food[m][1].en_plural_food == virtual_button) {
+      all_Types_word_types[12][0] = "en_plural_food"
+      all_Types_word_types_text[12][0] = "Multiple Foods"
+  }
+ }
+ //console.log(all_Types_word_types)
+}
+// func_search_all_m_food()
+
+
+function func_search_all_n_personal() {
+ for(n=0; n<=n_personal.length+-1; n++) {
+  if(n_personal[n].en_communication == virtual_button) {
+      all_Types_word_types[13][0] = "en_communication"
+      all_Types_word_types_text[13][0] = "Personal Words"
+      funcButton_text = all_Types_word_types[13][0];
+  }
+ }
+// console.log(all_Types_word_types)
+}
+// func_search_all_n_personal()
+
+ 
+
+function func_search_all_o_sentence() {
+ for(n=0; n<=o_sentence.length+-1; n++) {
+  if(o_sentence[n].en_word == virtual_button) {
+      all_Types_word_types[14][0] = "en_word"
+      all_Types_word_types_text[14][0] = "Important Connectors"
+      funcButton_text = all_Types_word_types[14][0];
+  }
+ }
+// console.log(all_Types_word_types)
+}
+// func_search_all_o_sentence()
+
+
+function func_search_all_p_transportation() {
+ for(n=0; n<=p_transportation.length+-1; n++) {
+  console.log(p_transportation[n][1].en_plural_transportation)
+  if(p_transportation[n][0].en_singular_transportation == virtual_button) {
+      all_Types_word_types[15][0] = "en_singular_transportation"
+      all_Types_word_types_text[15][0] = "Single Transport"
+      funcButton_text = all_Types_word_types[15][0];
+  }
+
+  if(p_transportation[n][1].en_plural_transportation == virtual_button) {
+      all_Types_word_types[15][0] = "en_plural_transportation"
+      all_Types_word_types_text[15][0] = "Multiple Transport"
+  }
+ }
+// console.log(all_Types_word_types)
+}
+//func_search_all_p_transportation()
+
+///////// create the words \\\\\\\\\\\\\\
+
+
+function func_a_action(para) {
+ // document.getElementById("vocabulary_container").innerHTML = ""
+  for (a = 0; a <= a_action.length - 1; a++) {
+    if (a_action[a].base_verb && a_action[a].base_verb.en !== null && a_action[a].base_verb.en !== undefined) {
+      if (para == "base_verb") {   
+        console.log(77)
+      console.log(a_action[a].base_verb.en);       
+      createVocab(a_action[a].base_verb.en)
+      }
+    } 
+    if (a_action[a].present_participle && a_action[a].present_participle.en !== null && a_action[a].present_participle.en !== undefined) {
+
+      if (para == "present_participle") {   
+      console.log(a_action[a].present_participle.en);   
+      createVocab(a_action[a].present_participle.en)    
+      }
+    } 
+
+    if (a_action[a].past_tense && a_action[a].past_tense.en !== null && a_action[a].past_tense.en !== undefined) {
+
+      if (para == "past_tense") {   
+        createVocab(a_action[a].past_tense.en) 
+      console.log(a_action[a].past_tense.en);       
+      }
+    } 
+  }
+}
+
+
+
+
+function func_b_object(para) {
+  
+  for (b2 = 0; b2 <= b_object.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const singularNoun = b_object[b2][0]?.en_singular
+      const pluralNoun = b_object[b2][1]?.en_plural
+    //  console.log(singularNoun)
+    //  console.log(pluralNoun)
+    if (singularNoun !== null && singularNoun !== undefined ) {
+      if (para == "en_singular") {   
+      console.log(singularNoun);       
+      createVocab(singularNoun)
+      }
+    } 
+     if (pluralNoun !== null && pluralNoun !== undefined ) {
+      if (para == "en_plural") {   
+      console.log(pluralNoun);       
+      createVocab(pluralNoun)
+      }
+    } 
+
+  }
+}
+
+
+function func_c_career(para) {
+  
+  for (c2 = 0; c2 <= c_career.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const singularNoun = c_career[c2][0]?.en_singular_career
+      const pluralNoun = c_career[c2][1]?.en_plural_career
+    //  console.log(singularNoun)
+    //  console.log(pluralNoun)
+    if (singularNoun !== null && singularNoun !== undefined ) {
+      console.log("suncess")
+      if (para == "en_singular_career") {   
+      console.log(singularNoun);       
+      createVocab(singularNoun)
+      }
+    } 
+     if (pluralNoun !== null && pluralNoun !== undefined ) {
+      if (para == "en_plural_career") {   
+      console.log(pluralNoun);       
+      createVocab(pluralNoun)
+      }
+    } 
+
+  }
+}
+
+function func_d_environment(para) {
+  
+  for (c2 = 0; c2 <= d_environment.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const singularEnvironment = d_environment[c2][0]?.en_singular_environment
+      const pluralEnvironment= d_environment[c2][1]?.en_plural_environment
+     //console.log(singularEnvironment)
+     //console.log(pluralEnvironment)
+    if (singularEnvironment !== null && singularEnvironment !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_singular_environment") {   
+      console.log(singularEnvironment);       
+      createVocab(singularEnvironment)
+      }
+    } 
+     if (pluralEnvironment !== null && pluralEnvironment !== undefined ) {
+      if (para == "en_plural_environment") {   
+      console.log(pluralEnvironment);       
+      createVocab(pluralEnvironment)
+      }
+    } 
+
+  }
+}
+
+function func_e_position(para) {
+  
+  for (c2 = 0; c2 <= e_position.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+  //  console.log(e_position[0].en_position)
+    const en_noun_position = e_position[c2]?.en_position
+      
+    //  console.log(en_noun_position)
+     
+    if (en_noun_position !== null && en_noun_position !== undefined ) {
+      console.log("suncess")
+      if (para == "en_position") {   
+      console.log(en_noun_position);       
+      createVocab(en_noun_position)
+      }
+    } 
+     
+
+  }
+}
+
+
+function func_f_time(para) {
+  
+  for (c2 = 0; c2 <= f_time.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+  //  console.log(f_time[0].en_time)
+    const en_noun_time = f_time[c2]?.en_time
+      
+    /// console.log(en_noun_time)
+     
+    if (en_noun_time !== null && en_noun_time !== undefined ) {
+      console.log("suncess")
+      if (para == "en_time") {   
+      console.log(en_noun_time);       
+      createVocab(en_noun_time)
+      }
+    } 
+     
+
+  }
+}
+
+
+function func_g_stuff(para) {
+  
+  for (c2 = 0; c2 <= g_stuff.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const singularStuff = g_stuff[c2][0]?.en_singular_stuff
+      const pluralStuff= g_stuff[c2][1]?.en_plural_stuff
+     //console.log(singularEnvironment)
+     //console.log(pluralEnvironment)
+    if (singularStuff !== null && singularStuff !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_singular_stuff") {   
+      console.log(singularStuff);       
+      createVocab(singularStuff)
+      }
+    } 
+     if (pluralStuff !== null && pluralStuff !== undefined ) {
+      if (para == "en_plural_stuff") {   
+      console.log(pluralStuff);       
+      createVocab(pluralStuff)
+      }
+    } 
+
+  }
+}
+
+function func_h_description(para) {
+  
+  for (c2 = 0; c2 <= h_description.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const description = h_description[c2][0]?.en_adjective
+      const adverb = h_description[c2][1]?.en_adverb
+     //console.log(singularEnvironment)
+     //console.log(pluralEnvironment)
+    if (description !== null && description !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_adjective") {   
+      console.log(description);       
+      createVocab(description)
+      }
+    } 
+     if (adverb !== null && adverb !== undefined ) {
+      if (para == "en_adverb") {   
+      console.log(adverb);       
+      createVocab(adverb)
+      }
+    } 
+
+  }
+}
+
+
+function func_i_animal(para) {
+  
+  for (c2 = 0; c2 <= i_animal.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const animal = i_animal[c2][0]?.en_animal
+      const animal_possession  = i_animal[c2][1]?.en_possessive
+     //console.log(singularEnvironment)
+     //console.log(pluralEnvironment)
+    if (animal !== null && animal !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_animal") {   
+      console.log(animal);       
+      createVocab(animal)
+      }
+    } 
+     if (animal_possession !== null && animal_possession !== undefined ) {
+      if (para == "en_possessive") {   
+      console.log(animal_possession);       
+      createVocab(animal_possession);
+      }
+    } 
+
+  }
+}
+
+
+function func_j_body(para) {
+ 
+  for (c2 = 0; c2 <= j_body.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const bodyPart = j_body[c2][0]?.en_singular_body
+      const bodyParts  = j_body[c2][1]?.en_plural_body
+     console.log(bodyPart)
+     //console.log(pluralEnvironment)
+    if (bodyPart !== null && bodyPart !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_singular_body") {   
+      console.log(bodyPart);       
+      createVocab(bodyPart)
+      }
+    } 
+     if (bodyParts !== null && bodyParts !== undefined ) {
+      if (para == "en_plural_body") {   
+      console.log(bodyParts);       
+      createVocab(bodyParts);
+      }
+    } 
+
+  }
+}
+
+
+function func_k_clothing(para) {
+ 
+  for (c2 = 0; c2 <= k_clothing.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const singularClothes = k_clothing[c2][0]?.en_singular_clothing
+      const multipleClothes  = k_clothing[c2][1]?.en_plural_clothing
+     console.log(singularClothes)
+     //console.log(pluralEnvironment)
+    if (singularClothes !== null && singularClothes !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_singular_clothing") {   
+      console.log(singularClothes);       
+      createVocab(singularClothes)
+      }
+    } 
+     if (multipleClothes !== null && multipleClothes !== undefined ) {
+      if (para == "en_plural_clothing") {   
+      console.log(multipleClothes);       
+      createVocab(multipleClothes);
+      }
+    } 
+
+  }
+}
+
+function func_l_feeling(para) {
+  // alert("feeling")
+  for (c2 = 0; c2 <= l_feeling.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const generalFeeling = l_feeling[c2][0]?.en_feel_word
+      const presentFeeling  = l_feeling[c2][1]?.en_feel_present
+     console.log(generalFeeling)
+     //console.log(pluralEnvironment)
+    if (generalFeeling !== null && generalFeeling !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_feel_word") {   
+      console.log(generalFeeling);       
+      createVocab(generalFeeling)
+      }
+    } 
+     if (presentFeeling !== null && presentFeeling !== undefined ) {
+      if (para == "en_feel_present") {   
+      console.log(presentFeeling);       
+      createVocab(presentFeeling);
+      }
+    } 
+
+  }
+}
+
+function func_m_food(para) {
+  // alert("feeling")
+  for (c2 = 0; c2 <= m_food.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const generalFeeling = m_food[c2][0]?.en_singular_food
+      const presentFeeling  = m_food[c2][1]?.en_plural_food
+     console.log(generalFeeling)
+     console.log(para)
+     //console.log(pluralEnvironment)
+    if (generalFeeling !== null && generalFeeling !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_singular_food") {   
+      console.log(generalFeeling);       
+      createVocab(generalFeeling)
+      }
+    } 
+     if (presentFeeling !== null && presentFeeling !== undefined ) {
+      if (para == "en_plural_food") {   
+      console.log(presentFeeling);       
+      createVocab(presentFeeling);
+      }
+    } 
+
+  }
+}
+
+
+function func_n_personal(para) {
+  
+  for (c2 = 0; c2 <= n_personal.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+  //  console.log(f_time[0].en_time)
+    const en_noun_time = n_personal[c2]?.en_communication
+      
+    /// console.log(en_noun_time)
+     
+    if (en_noun_time !== null && en_noun_time !== undefined ) {
+      console.log("found")
+      if (para == "en_communication") {   
+      console.log(en_noun_time);       
+      createVocab(en_noun_time)
+      }
+    } 
+     
+
+  }
+}
+
+
+function func_o_sentence(para) {
+  
+  for (c2 = 0; c2 <= o_sentence.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+  //  console.log(f_time[0].en_time)
+    const en_noun_time = o_sentence[c2]?.en_word
+      
+    /// console.log(en_noun_time)
+     
+    if (en_noun_time !== null && en_noun_time !== undefined ) {
+      console.log("found")
+      if (para == "en_word") {   
+      console.log(en_noun_time);       
+      createVocab(en_noun_time)
+      }
+    } 
+     
+
+  }
+}
+
+
+function func_p_transportation(para) {
+  // alert("feeling")
+  for (c2 = 0; c2 <= p_transportation.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+    const generalFeeling = p_transportation[c2][0]?.en_singular_transportation
+      const presentFeeling  = p_transportation[c2][1]?.en_plural_transportation
+     console.log(generalFeeling)
+     console.log(para)
+     //console.log(pluralEnvironment)
+    if (generalFeeling !== null && generalFeeling !== undefined ) {
+     // console.log("suncess")
+      if (para == "en_singular_transportation") {   
+      console.log(generalFeeling);       
+      createVocab(generalFeeling)
+      }
+    } 
+     if (presentFeeling !== null && presentFeeling !== undefined ) {
+      if (para == "en_plural_transportation") {   
+      console.log(presentFeeling);       
+      createVocab(presentFeeling);
+      }
+    } 
+
+  }
+}
+
+  </script>
+
+
+</body>
+</html>
