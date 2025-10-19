@@ -1,849 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>English to Romaji Converter</title>
-
-  <link rel="stylesheet" href="index.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>English → Arabic Speech (debug)</title>
+<style>
+  body { font-family: system-ui, sans-serif; padding: 18px; }
+  textarea { width: 100%; max-width: 720px; min-height: 100px; }
+  button { padding: 10px 14px; margin-top: 10px; }
+  #ar { margin-top: 12px; font-size: 20px; direction: rtl; }
+  #note { margin-top: 10px; font-size: 12px; opacity: .7; }
+</style>
 </head>
 <body>
-  
-  <div class="menu">
-    <p>Tutorial</p>
-    <p>Grammar</p>
-    <p>Vocabulary</p>
-    <p>Sentence</p>
-    <p>Grammar</p>
-  </div>
+  <h2>English → Arabic Speech</h2>
 
+  <textarea id="en" placeholder="Type English here...">Hello, how are you?</textarea><br>
+  <button id="go">Translate & Speak Arabic</button>
+  <button id="stop" disabled>Stop</button>
 
+  <p id="ar"></p>
+  <div id="note">Tip: Open DevTools (F12) to see detailed logs. If you hear nothing, install an Arabic voice (notes below).</div>
 
-  <div id="translation_container">
-    
-   <p class="translation_container_element" id="translatedresult">السلام عليكم</p>
-   <p  class="translation_container_element" id="translated-transliteration-result">As salaam Alaykum</p>
-  <p class="translation_container_element" id="inputtedText">Your text here</p>
-  </div>
+<script>
+/* ===== Debug helpers ===== */
+const DEBUG = true;
+const log = (...a)=>DEBUG && console.log('[TTS]', ...a);
+const info = (...a)=>DEBUG && console.info('[TTS]', ...a);
+const warn = (...a)=>DEBUG && console.warn('[TTS]', ...a);
+const err  = (...a)=>DEBUG && console.error('[TTS]', ...a);
 
+/* ===== DOM ===== */
+const goBtn = document.getElementById('go');
+const stopBtn = document.getElementById('stop');
+const enBox = document.getElementById('en');
+const arOut = document.getElementById('ar');
 
-  <div id="noun_type_container">
- 
-  </div>
-
-    <div id="words_written_button_container">
-   
-  </div>
-  <div id="translate_container">
-   <textarea type="text" id="englishInput" placeholder="Write here">
-    </textarea>
-   <!-- <button id="send">Translate</button> -->
-   </div>
-
- 
-
-
-
-  <div class="vocabularytype">
-    <p>Object</p>
-    <p>Profession</p>
-    <p>place</p>
-    <p>position</p>
-    <p>Time</p>
-    <p>Non object</p>
-    <p>Adjectives</p>
-    <p>animal</p>
-    <p>body parts</p>
-    <p>clothings</p>
-    <p>emotions</p>
-    <p>food</p>
-    <p>social</p>
-    <p>Grammatical</p>
-    <p>Transportations</p>
-    <p>plural food</p>
-    <p>numbers</p>
-    <p>word numbers</p>
-    <p>colors</p>
-  </div>
-
-  <div id="vocabulary_container">
-    
-  </div>
-
-
-  </div>
-   <script src="total.js"></script>
-
-  <script>
-
- 
-
-var raw_written_text_data; //englishInput.oninput = function() {
-
-var array_written_text_data; // func_buttons()
-var buttonData; //func_buttonClick(buttonValue)
-var keyword = "base_verb";
-
-
-
-var buttonData = "pass";
-
-var noun_array = []
-
-
-
-
-
-/*
-click on the word type button container  
-"function func_create_noun_type(data_para_noun_type)"
-*/
-
-/*
-add word types to the array 
-"func_nounArray(data_noun_type)"
-*/
-
-/*
-func_a_action() will look for that word
-and check how many types
-of noun types it belongs to or word type
-it will then call func_nounArray(topkeys[aa])
-topkeys[a] gets the keyname
-*/
-
-/*
-    // click on the button of the array from the written input
-    // add button.innerText to button data
-    //which will hold the word
-    func_buttonClick(buttonValue) {
-    buttonData = buttonValue;
-    which will also call func_a_action()
-    */
-
-   /*
-
-        add buttons to the written input
-         function func_buttons() {
-         make them onclick to func_buttonClick(this.innerText)
-     */
-
-/*
-turn input written to array
-var array_written_text_data;
-     englishInput.oninput = function() {
-*/
-
-// ---------------------------------- //
-
-
-function func_nounArray(data_noun_type) {
- alert(data_noun_type)
-  noun_array[noun_array.length] = data_noun_type;
-console.log(noun_array)
- document.getElementById("translated-transliteration-result").innerText = noun_array;
-}
-
-// word type container
-// click on the word type button container
-
-function func_create_noun_type(data_para_noun_type) {
- 
-  for(nt=0; nt<=noun_array.length + -1; nt++) {
-
-     var noun_type_button = document.createElement("button");
-        noun_type_button.innerText  = noun_array[nt];
-        noun_type_button.setAttribute("class", "js_button");
-        noun_type_button.onclick = function() {
-          //func_noun_type_search()
-          keyword = this.innerText;
-          alert("keyword %^&*()"+keyword)
-          search_all_action()
-        }
-        document.getElementById("noun_type_container").appendChild(noun_type_button)
+/* ===== Utilities ===== */
+function joinTranslated(data) {
+  // Robust join of segments from translate.googleapis.com
+  // data[0] is an array: [[translated, original, ...], ...]
+  try {
+    if (!Array.isArray(data) || !Array.isArray(data[0])) return '';
+    const out = data[0].map(seg => Array.isArray(seg) ? (seg[0] || '') : '').join('');
+    log('joinTranslated →', out);
+    return out;
+  } catch (e) {
+    err('joinTranslated error:', e, data);
+    return '';
   }
-
 }
 
-function func_a_action() {
- noun_array = []
-  for (a = 0; a <= a_action.length - 1; a++) {
-    // Get top-level keys of this object
-    var topkeys = Object.keys(a_action[a]);
-    
-    for (aa = 0; aa <= topkeys.length - 1; aa++) {
-      var childkey_store = a_action[a][topkeys[aa]];
+function waitForVoices() {
+  return new Promise(resolve => {
+    const existing = speechSynthesis.getVoices();
+    if (existing && existing.length) return resolve(existing);
+    speechSynthesis.onvoiceschanged = () => resolve(speechSynthesis.getVoices());
+  });
+}
 
-      // ✅ Skip if childkey_store is null or not an object
-      if (childkey_store == null || typeof childkey_store !== "object") {
-        continue;
-      }
+function pickArabicVoice(voices) {
+  const all = voices || [];
+  log('Total voices available:', all.length);
 
-      // ✅ Only get keys if it's really an object
-      var childkeys = Object.keys(childkey_store);
+  // Prefer voices whose lang starts with 'ar'
+  const arVoices = all.filter(v => (v.lang || '').toLowerCase().startsWith('ar'));
+  info('Arabic voices found:', arVoices.map(v => ({name:v.name, lang:v.lang, default:v.default, local:v.localService})));
 
-      // ✅ Safely check for .en before using it
-      if (childkey_store.en !== undefined && childkey_store.en !== null && childkey_store.en !== "" && childkey_store.en === buttonData) {
-        console.log("Found match in:", topkeys[aa]);
-        // console.log("en "+a_action[a][topkeys[aa]].en)
-        // console.log("ar " + a_action[a][topkeys[aa]].ar)
-        func_nounArray(topkeys[aa])
-        // func_create_noun_type(topkeys[aa])
-      }
+  // Try some common Arabic voice names, then fall back to first Arabic voice.
+  const preferredNames = ['Microsoft Hoda', 'Microsoft Naayf', 'Google العربية', 'Google ar'];
+  for (const name of preferredNames) {
+    const hit = arVoices.find(v => (v.name || '').toLowerCase().includes(name.toLowerCase()));
+    if (hit) {
+      info('Chosen Arabic voice by preference:', hit.name, hit.lang);
+      return hit;
     }
   }
-  
-  func_create_noun_type()
+  if (arVoices[0]) {
+    info('Chosen first available Arabic voice:', arVoices[0].name, arVoices[0].lang);
+    return arVoices[0];
+  }
+
+  warn('No Arabic voices found. Speech may still try with ar lang but likely silent.');
+  return null;
 }
 
-//func_a_action();
-
-
-
-
-var raw_written_text_data;
-
-
-/*
-turn input written to array
-var array_written_text_data;
-     englishInput.oninput = function() {
-*/
-
-var array_written_text_data;
-     englishInput.oninput = function() {
-
-      raw_written_text_data = this.value;
-      array_written_text_data = raw_written_text_data.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
-
-
-      
-      inputtedText.innerText = raw_written_text_data;
-      // console.log(raw_written_text_data)
-      // console.log(array_written_text_data)
-      func_buttons()
-     }
-
-
-     /*
-
-        add buttons to the written input
-         function func_buttons() {
-         make them onclick to func_buttonClick(this.innerText)
-     */
-    /*
-     function func_buttons() {
-      document.getElementById("words_written_button_container").innerHTML = "";
-      for(bt=0; bt<=array_written_text_data.length +-1; bt++) {
-        var js_buttons = document.createElement("button");
-        js_buttons.innerText  = array_written_text_data[bt];
-        js_buttons.setAttribute("class", "js_button");
-        js_buttons.onclick = function() {
-          // get the value of the button clicked
-          // from the written input data array
-          func_buttonClick(this.innerText)
-        }
-        document.getElementById("words_written_button_container").appendChild(js_buttons)
-      }
-      
-
-     }
-      */
-
-    /*
-    // click on the button of the array from the written input
-    // add button.innerText to button data
-    //which will hold the word
-    func_buttonClick(buttonValue) {
-    buttonData = buttonValue;
-    */
-     function func_buttonClick(buttonValue) {
-        
-         
-         func_a_action()
-     }
-
-     function func_searchAll() {
-
-
-     }
-
-     // search all related terms
-    
-     function search_all_action() {
-      document.getElementById("vocabulary_container").innerHTML = "";
-      for(sa = 0; sa <= a_action.length - 1; sa++) {
-        //  console.log(a_action[sa])
-        if (a_action[sa][keyword] && a_action[sa][keyword].en) {
- // console.log(a_action[sa][keyword].en);
-           createVocab(a_action[sa][keyword].en)
-
-} else {
-  //console.log("No English value found for:", keyword);
-}
-
-      }
-     }
-
-search_all_action()
-
-
-/*
-function createVocab(vocab_data) {
-        var vocab_buttons = document.createElement("button");
-        vocab_buttons.innerText  = vocab_data;
-        vocab_buttons.setAttribute("class", "js_button");
-        vocab_buttons.onclick = function() {
-          func_buttonClick(this.innerText)
-        }
-        document.getElementById("vocabulary_container").appendChild(vocab_buttons)
-}
-*/
-/*
-
-
-
-
-      Search all connections
-
-
-
-*/
-
-var alljson = [a_action, b_object, c_career, d_environment, e_position, f_time, g_stuff, h_description, i_animal, j_body, k_clothing, l_feeling, m_food, n_personal, o_sentence]
-
-var all_Types_word_types = [
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-[],
-
-]
-
-var virtual_button = "passing";
-
-function func_search_all_a_action(dataword) {
- noun_array = []
-  for (a = 0; a <= a_action.length - 1; a++) {
-    // Get top-level keys of this object
-    var topkeys = Object.keys(a_action[a]);
-    
-    for (aa = 0; aa <= topkeys.length - 1; aa++) {
-      var childkey_store = a_action[a][topkeys[aa]];
-
-      // ✅ Skip if childkey_store is null or not an object
-      if (childkey_store == null || typeof childkey_store !== "object") {
-        continue;
-      }
-
-      // ✅ Only get keys if it's really an object
-      var childkeys = Object.keys(childkey_store);
-
-      // ✅ Safely check for .en before using it
-      if (childkey_store.en !== undefined && childkey_store.en !== null && childkey_store.en !== "" && childkey_store.en === virtual_button) {
-      //  console.log("Found match in:", topkeys[aa]);
-
-         //  console.log(aa)
-          all_Types_word_types[0][all_Types_word_types[0].length] = topkeys[aa];
-        // console.log(all_Types_word_types)
-      }
-    }
-  }
-}
-
-func_search_all_a_action("pass")
-//func_search_all_a_action("blew")
- 
-
-//tomrr 4:15 blood test
-
-function func_search_all_b_object() {
- for(b=0; b<=b_object.length+-1; b++) {
-  if(b_object[b][0].en_singular == virtual_button) {
-      all_Types_word_types[1][0] = "en_singular"
-
-  }
-
-   if(b_object[b][1].en_plural == virtual_button) {
-      all_Types_word_types[1][0] = "en_plural"
-
-  }
- 
-  
-  //  console.log(b_object[b][0].en_singular)
-  //  console.log(b_object[b][1].en_plural)
- }
- console.log(all_Types_word_types)
-}
-func_search_all_b_object()
-
-func_search_all_a_action("pass")
-//func_search_all_a_action("blew")
-
-
-function func_search_all_c_career() {
- for(c=0; c<=c_career.length+-1; c++) {
-  if(c_career[c][0].en_singular == virtual_button) {
-      all_Types_word_types[2][0] = "en_singular"
-  }
-   if(c_career[c][1].en_plural == virtual_button) {
-      all_Types_word_types[2][0] = "en_plural"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_c_career()
-
-
-function func_search_all_d_environment() {
- for(d=0; d<=d_environment.length+-1; d++) {
-  if(d_environment[d][0].en_singular == virtual_button) {
-      all_Types_word_types[3][0] = "en_singular"
-  }
-   if(d_environment[d][1].en_plural == virtual_button) {
-      all_Types_word_types[3][0] = "en_plural"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_d_environment()
-
-function func_search_all_d_environment() {
- for(d=0; d<=d_environment.length+-1; d++) {
-  if(d_environment[d][0].en_singular == virtual_button) {
-      all_Types_word_types[3][0] = "en_singular"
-  }
-   if(d_environment[d][1].en_plural == virtual_button) {
-      all_Types_word_types[3][0] = "en_plural"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_d_environment()
-
-function func_search_all_e_position() {
- for(e=0; e<=e_position.length+-1; e++) {
-  if(e_position[e].en == virtual_button) {
-      all_Types_word_types[4][0] = "en"
-  }
- }
-}
-func_search_all_e_position()
-
-function func_search_all_f_time() {
- for(f=0; f<=f_time.length+-1; f++) {
-  if(f_time[f].en == virtual_button) {
-      all_Types_word_types[5][0] = "en"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_f_time()
-
-
-function func_search_all_g_stuff() {
- for(g=0; g<=g_stuff.length+-1; g++) {
-  if(g_stuff[g][0].en_singular == virtual_button) {
-      all_Types_word_types[6][0] = "en_singular"
-  }
-   if(g_stuff[g][1].en_plural == virtual_button) {
-      all_Types_word_types[6][0] = "en_plural"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_g_stuff()
-
-function func_search_all_h_description() {
- for(h=0; h<=h_description.length+-1; h++) {
-  if(h_description[h][0].en_adjective == virtual_button) {
-      all_Types_word_types[7][0] = "en_adjective"
-  }
-   if(h_description[h][1].en_adverb == virtual_button) {
-      all_Types_word_types[7][0] = "en_adverb"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_h_description()
-
-
-
-function func_search_all_i_animal() {
- for(i=0; i<=i_animal.length+-1; i++) {
-  if(i_animal[i][0].en_animal == virtual_button) {
-      all_Types_word_types[8][0] = "en_animal"
-  }
-   if(i_animal[i][1].en_possessive == virtual_button) {
-      all_Types_word_types[8][0] = "en_possessive"
-  }
-
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_i_animal()
-
-
-function func_search_all_j_body() {
- for(j=0; j<=j_body.length+-1; j++) {
-  if(j_body[j][0].en_singular == virtual_button) {
-      all_Types_word_types[9][0] = "en_singular"
-  }
-   if(j_body[j][1].en_plural == virtual_button) {
-      all_Types_word_types[9][0] = "en_plural"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_j_body()
-
-
-function func_search_all_k_clothing() {
- for(k=0; k<=k_clothing.length+-1; k++) {
-  if(k_clothing[k][0].en_singular == virtual_button) {
-      all_Types_word_types[10][0] = "en_singular"
-  }
-   if(k_clothing[k][1].en_plural == virtual_button) {
-      all_Types_word_types[10][0] = "en_plural"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_k_clothing()
-
-
-
-function func_search_all_l_feeling() {
- for(l=0; l<=l_feeling.length+-1; l++) {
-  if(l_feeling[l][0].en_feel_word == virtual_button) {
-      all_Types_word_types[11][0] = "en_feel_word"
-  }
-   if(l_feeling[l][1].en_feel_present == virtual_button) {
-      all_Types_word_types[11][0] = "en_feel_present"
-  }
- }
-// console.log(all_Types_word_types)
-}
-func_search_all_l_feeling()
-
-
-function func_search_all_m_food() {
- for(m=0; m<=m_food.length+-1; m++) {
-  if(m_food[m][0].en_singular == virtual_button) {
-      all_Types_word_types[12][0] = "en_singular"
-  }
-   if(m_food[m][1].en_plural == virtual_button) {
-      all_Types_word_types[12][0] = "en_plural"
-  }
- }
- //console.log(all_Types_word_types)
-}
-func_search_all_m_food()
-
-
-function func_search_all_n_personal() {
- for(n=0; n<=n_personal.length+-1; n++) {
-  if(n_personal[n].en == virtual_button) {
-      all_Types_word_types[13][0] = "en"
-  }
- }
-// console.log(all_Types_word_types)
-}
-func_search_all_n_personal()
-
- 
-
-function func_search_all_o_sentence() {
- for(n=0; n<=o_sentence.length+-1; n++) {
-  if(o_sentence[n].en_word == virtual_button) {
-      all_Types_word_types[14][0] = "en_word"
-  }
- }
-// console.log(all_Types_word_types)
-}
-func_search_all_o_sentence()
-
-
-
-function get_the_word_type() {
-     
-       for(w=0; w<=all_Types_word_types.length + -1; w++) {
-          for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
-           if(all_Types_word_types[w][ww] !== "") {
-              var word_type_button = document.createElement("button");
-              word_type_button.innerText  = all_Types_word_types[w][ww];
-              word_type_button.setAttribute("class", "word_type_button");
-              word_type_button.onclick = function() {
-                 //document.getElementById("noun_type_container").innerHTML = "";
-                //func_noun_type_search()
-                // keyword = this.innerText;
-                // alert("keyword %^&*()"+keyword)
-                // search_all_action()
-                alert(this.innerText + 22)
-                filter_search()
-        }
-        document.getElementById("noun_type_container").appendChild(word_type_button)
-           }
-          }
-       }
-}
-
-get_the_word_type()
-
-
-function filter_search() {
-   for(w=0; w<=all_Types_word_types.length + -1; w++) {
-     for(ww=0; ww<=all_Types_word_types[w].length + -1; ww++) {
-      if(all_Types_word_types[0][ww] == "base_verb") {
-        
-         func_a_action("base_verb")
-      } else if(all_Types_word_types[0][ww] == "present_participle") {
-        
-         func_a_action("present_participle")
-      } 
-      else if(all_Types_word_types[0][ww] == "past_tense") {
-        
-         func_a_action("past_tense")
-      } 
-     }
-   }
-}
-
-function createVocab(vocab_data) {
-        console.log("create vocab")
-        var vocab_buttons = document.createElement("button");
-        vocab_buttons.innerText  = vocab_data;
-        vocab_buttons.setAttribute("class", "js_button");
-        vocab_buttons.onclick = function() {
-          buttonData = this.innerText;
-          alert("line 630 " + buttonData)
-        }
-        document.getElementById("vocabulary_container").appendChild(vocab_buttons)
-}
-
-     function func_buttons() {
-      document.getElementById("words_written_button_container").innerHTML = "";
-      for(bt=0; bt<=array_written_text_data.length +-1; bt++) {
-        var func_buttons = document.createElement("button");
-        func_buttons.innerText  = array_written_text_data[bt];
-        func_buttons.setAttribute("class", "func_buttons");
-        func_buttons.onclick = function() {
-         
-          alert(88)
-          virtual_button = this.innerText;
-           func_search_all_b_object() 
-          
-          // get the value of the button clicked
-          // from the written input data array
-          //func_buttonClick(this.innerText)
-        }
-        document.getElementById("words_written_button_container").appendChild(func_buttons)
-      }
-
+/* ===== Main flow ===== */
+async function translateAndSpeak() {
+  const text = enBox.value.trim();
+  if (!text) return alert('Please type some English.');
+
+  // ENV + sanity logs
+  console.group('Translate & Speak run');
+  info('UserAgent:', navigator.userAgent);
+  info('Platform:', navigator.platform);
+  info('Secure context:', window.isSecureContext);
+  info('speechSynthesis supported:', !!window.speechSynthesis);
+  info('Protocol:', location.protocol);
+
+  // 1) Translate EN → AR
+  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ar&dt=t&q=${encodeURIComponent(text)}`;
+  goBtn.disabled = true;
+  goBtn.textContent = 'Translating...';
+
+  console.time('Translation fetch');
+  try {
+    log('Translation URL:', url);
+    const res = await fetch(url);
+    log('Translation status:', res.status, res.statusText);
+    if (!res.ok) throw new Error('Non-OK translation response: ' + res.status);
+    const data = await res.json();
+    console.timeEnd('Translation fetch');
+    log('Translation raw JSON:', data);
+
+    const arabic = joinTranslated(data).trim();
+    arOut.textContent = arabic || '(no translation)';
+    info('Arabic text length:', arabic.length);
+
+    if (!arabic) {
+      warn('No Arabic text returned. Aborting speech.');
+      return;
     }
 
+    // 2) Speak Arabic via Web Speech API
+    if (!('speechSynthesis' in window)) {
+      err('speechSynthesis not supported in this browser.');
+      alert('Your browser does not support speechSynthesis.');
+      return;
+    }
 
-function func_a_action(para) {
-  document.getElementById("vocabulary_container").innerHTML = ""
-  for (a = 0; a <= a_action.length - 1; a++) {
-    if (a_action[a].base_verb && a_action[a].base_verb.en !== null && a_action[a].base_verb.en !== undefined) {
-      if (para == "base_verb") {   
-      console.log(a_action[a].base_verb.en);       
-      createVocab(a_action[a].base_verb.en)
-      }
-    } 
-    if (a_action[a].present_participle && a_action[a].present_participle.en !== null && a_action[a].present_participle.en !== undefined) {
+    console.time('Voices load');
+    const voices = await waitForVoices();
+    console.timeEnd('Voices load');
 
-      if (para == "present_participle") {   
-      console.log(a_action[a].present_participle.en);   
-      createVocab(a_action[a].present_participle.en)    
-      }
-    } 
+    // Dump voices table for debugging
+    if (DEBUG && voices && voices.length) {
+      try {
+        console.table(voices.map(v => ({
+          name: v.name, lang: v.lang, default: !!v.default,
+          localService: !!v.localService, voiceURI: v.voiceURI
+        })));
+      } catch {}
+    }
 
-    if (a_action[a].past_tense && a_action[a].past_tense.en !== null && a_action[a].past_tense.en !== undefined) {
+    const voice = pickArabicVoice(voices);
 
-      if (para == "past_tense") {   
-        createVocab(a_action[a].past_tense.en) 
-      console.log(a_action[a].past_tense.en);       
-      }
-    } 
+    // Build utterance
+    const utt = new SpeechSynthesisUtterance(arabic);
+    utt.lang = 'ar';   // critical
+    utt.rate = 1.0;    // tweak as needed
+    utt.pitch = 1.0;
+    if (voice) utt.voice = voice;
+
+    // Hook events for deep debugging
+    utt.onstart = (e) => info('onstart', { elapsedTime: e.elapsedTime });
+    utt.onend = (e) => { info('onend', { elapsedTime: e.elapsedTime }); stopBtn.disabled = true; console.groupEnd(); };
+    utt.onerror = (e) => { err('onerror', e.error || e); stopBtn.disabled = true; console.groupEnd(); };
+    utt.onpause = (e) => info('onpause', e);
+    utt.onresume = (e) => info('onresume', e);
+    utt.onmark = (e) => info('onmark', e);
+    utt.onboundary = (e) => info('onboundary', { name: e.name, charIndex: e.charIndex });
+
+    stopBtn.disabled = false;
+
+    // Cancel any ongoing speech, then speak
+    log('Cancel any current speech…');
+    speechSynthesis.cancel();
+
+    log('Speaking now…', { textPreview: arabic.slice(0, 48) + (arabic.length>48?'…':'') });
+    speechSynthesis.speak(utt);
+
+  } catch (e) {
+    console.timeEnd('Translation fetch');
+    err('translateAndSpeak error:', e);
+    alert('Translation or speech failed. Check console for details.');
+    console.groupEnd();
+  } finally {
+    goBtn.disabled = false;
+    goBtn.textContent = 'Translate & Speak Arabic';
   }
 }
 
-      
-
-function func_b_object() {
- for(b=0; b<=b_object.length+-1; b++) {
-  //console.log(b_object[b][0].en_singular)
- }
-}
-func_b_object()
-
-
-function func_d_environment() {
- for(b=0; b<=d_environment.length+-1; b++) {
-  // console.log(d_environment[b][0].en_singular)
- }
-}
-func_d_environment()
-
-function func_e_position() {
- for(b=0; b<=e_position.length+-1; b++) {
-   //console.log(e_position[b].en)
- }
-}
-func_e_position()
-
-function func_f_time() {
- for(f=0; f<=f_time.length+-1; f++) {
-  // console.log(f_time[f].en)
- }
-}
-func_f_time()
-
-function func_g_stuff() {
- for(g=0; g<=g_stuff.length+-1; g++) {
-   //console.log(g_stuff[g][0].en_singular)
- }
-}
-func_g_stuff()
-
-function func_h_description() {
- for(h=0; h<=h_description.length+-1; h++) {
-  // console.log(h_description[h][0].en_adjective)
- }
-}
-func_h_description()
-
-function func_h_description() {
- for(h=0; h<=h_description.length+-1; h++) {
-   //console.log(h_description[h][0].en_adjective)
- }
-}
-func_h_description()
-
-
-function func_i_animal() {
- for(i=0; i<=i_animal.length+-1; i++) {
-   //console.log(i_animal[i][0].en_animal)
- }
-}
-func_j_body()
-
-function func_j_body() {
- for(j=0; j<=j_body.length+-1; j++) {
-   //console.log(j_body[j][0].en_singular)
- }
-}
-func_j_body()
-
-function func_k_clothing() {
- for(k=0; k<=k_clothing.length+-1; k++) {
-  // console.log(k_clothing[k][0].en_singular)
- }
-}
-func_k_clothing()
-
-function func_l_feeling() {
- for(l=0; l<=l_feeling.length+-1; l++) {
-  //  console.log(l_feeling[l][0].en_feel_word)
- }
-}
-func_l_feeling()
-
-function func_m_food() {
- for(m=0; m<=m_food.length+-1; m++) {
-  //  console.log(m_food[m][0].en_singular)
- }
-}
-func_m_food()
-
-function func_n_personal() {
- for(n=0; n<=n_personal.length+-1; n++) {
-  // console.log(n_personal[n].en)
- }
-}
-func_n_personal()
-
-function func_o_personal() {
- for(o=0; o<=o_sentence.length+-1; o++) {
-  // console.log(o_sentence[o].en_word)
- }
-}
-func_o_personal()
-
-function func_o_personal() {
- for(o=0; o<=o_sentence.length+-1; o++) {
-   //console.log(o_sentence[o].en_word)
- }
-}
-func_o_personal()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </script>
-
-
+/* ===== Wire up buttons ===== */
+goBtn.addEventListener('click', () => {
+  info('Go button clicked.');
+  translateAndSpeak();
+});
+stopBtn.addEventListener('click', () => {
+  info('Stop button clicked. Cancelling speech.');
+  speechSynthesis.cancel();
+  stopBtn.disabled = true;
+});
+
+/* ===== Extra debug helpers (call these from DevTools) ===== */
+window.dumpVoices = async function() {
+  const v = await waitForVoices();
+  console.table(v.map(x => ({ name:x.name, lang:x.lang, default:x.default, localService:x.localService, uri:x.voiceURI })));
+  return v;
+};
+window.testArabicVoice = async function(sampleText = 'مرحبا، هذا اختبار للصوت العربي.') {
+  const voices = await waitForVoices();
+  const voice = pickArabicVoice(voices);
+  if (!voice) { warn('No Arabic voice installed.'); return; }
+  const utt = new SpeechSynthesisUtterance(sampleText);
+  utt.lang = 'ar';
+  utt.voice = voice;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utt);
+  info('Testing with voice:', voice.name, voice.lang);
+};
+
+/* ===== On load: environment log ===== */
+(function bootLog(){
+  console.group('Environment');
+  info('UA:', navigator.userAgent);
+  info('Language:', navigator.language);
+  info('Languages:', navigator.languages);
+  info('Protocol:', location.protocol, 'Host:', location.host);
+  info('speechSynthesis present:', !!window.speechSynthesis);
+  console.groupEnd();
+})();
+</script>
+
+<hr>
+<h4>If you hear nothing:</h4>
+<ol>
+  <li><b>Windows (Edge/Chrome):</b> Settings → Time & Language → <i>Speech</i> → <b>Manage voices</b> → <b>Add voices</b> → add <b>Arabic</b>. Restart the browser.</li>
+  <li><b>Android (Chrome):</b> Settings → Accessibility → <i>Text-to-speech output</i> → Preferred engine (Speech Services by Google) → Install/Download <b>Arabic</b> voice.</li>
+  <li><b>macOS:</b> System Settings → Accessibility → <i>Spoken Content</i> → System Voice → Manage Voices → add <b>Arabic</b>.</li>
+  <li>Click the button (browsers require a user gesture to start audio).</li>
+</ol>
 </body>
 </html>
