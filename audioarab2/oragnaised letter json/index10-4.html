@@ -1,0 +1,69 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<div>
+  <select id="style">
+    <option value="google" selected>google</option>
+    <option value="ascii">ascii</option>
+    <option value="academic">academic</option>
+  </select>
+
+  <select id="voice">
+    <option value="ar-XA-Standard-A">Standard A (F)</option>
+    <option value="ar-XA-Standard-B">Standard B (M)</option>
+    <option value="ar-XA-Wavenet-A" selected>Wavenet A (F)</option>
+    <option value="ar-XA-Wavenet-B">Wavenet B (M)</option>
+    <option value="ar-XA-Chirp3-HD-Achernar">Chirp3-HD (F)</option>
+  </select>
+
+  <input id="rate" type="number" step="0.05" value="1" placeholder="speed">
+  <input id="gain" type="number" step="1" value="0" placeholder="loudness dB">
+
+  <button id="go">Translate + Speak</button>
+</div>
+
+<script>
+const URL = "https://arabic-tts-kntnnqwloa-ew.a.run.app";
+
+// Your variables (edit eng as you like)
+var eng = "Welcome to our website! We hope you enjoy your visit.";
+var arb = "";
+var trn = "";
+
+const style = document.getElementById('style');
+const voice = document.getElementById('voice');
+const rate  = document.getElementById('rate');
+const gain  = document.getElementById('gain');
+
+document.getElementById('go').onclick = async () => {
+  // 1) Translate + transliterate
+  const r1 = await fetch(URL + "?en2ar=1", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text: eng, style: style.value })
+  });
+  const j1 = await r1.json();
+  arb = j1.ar || "";
+  trn = j1.transliteration || "";
+
+  // 2) Speak Arabic
+  if (arb) {
+    const r2 = await fetch(URL + "?speak=1", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        text: arb,
+        voiceName: voice.value,
+        speakingRate: parseFloat(rate.value || "1"),
+        volumeGainDb: parseFloat(gain.value || "0")
+      })
+    });
+    const j2 = await r2.json();
+    if (j2.audioContent) new Audio("data:audio/mp3;base64," + j2.audioContent).play();
+  }
+
+  console.log({ eng, arb, trn });
+  alert("eng: " + eng + "\narb: " + arb + "\ntrn: " + trn);
+};
+</script>

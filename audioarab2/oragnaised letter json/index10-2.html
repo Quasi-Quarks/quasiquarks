@@ -1,0 +1,136 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EN→AR + Transliteration (google | ascii | academic)</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f8fafc;margin:0;color:#111827}
+  .wrap{max-width:820px;margin:24px auto;padding:0 12px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.06);padding:16px;margin-bottom:16px}
+  label{display:block;margin:8px 0 4px}
+  input,textarea,select{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:12px;font:inherit}
+  textarea{min-height:110px}
+  button{appearance:none;border:1px solid #e5e7eb;background:#fff;border-radius:12px;padding:10px 14px;cursor:pointer}
+  button.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+  .out{border:1px dashed #e5e7eb;border-radius:12px;padding:10px;background:#fff}
+  .ar{direction:rtl;font-size:20px;line-height:1.7}
+  .log{background:#0b1220;color:#e7eaf3;border-radius:8px;padding:12px;min-height:120px;white-space:pre-wrap}
+</style>
+
+<div class="wrap">
+  <div class="card">
+    <label>Function URL</label>
+    <input id="u" value="https://arabic-tts-kntnnqwloa-ew.a.run.app">
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px">Translate English → Arabic + transliteration</h3>
+    <label>English</label>
+    <textarea id="en">Welcome to our website! We hope you enjoy your visit.</textarea>
+
+    <div style="display:flex;gap:10px;margin:10px 0;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px">
+        <label>Transliteration style</label>
+        <select id="style1">
+          <option value="google" selected>google (official)</option>
+          <option value="ascii">ascii (no diacritics)</option>
+          <option value="academic">academic (with diacritics)</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button id="btn1" class="primary">Translate + Romanize</button>
+      <button id="diag">GET ?diag=1</button>
+      <button id="copy">Copy log</button>
+      <button id="clear">Clear log</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div><strong>Arabic:</strong></div>
+    <div id="ar" class="out ar">—</div>
+    <div style="margin-top:8px"><strong>Transliteration:</strong></div>
+    <div id="tr" class="out">—</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px">Romanize Arabic only</h3>
+    <textarea id="arOnly">مرحباً بكم في موقعنا</textarea>
+    <div style="display:flex;gap:10px;margin:10px 0;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px">
+        <label>Transliteration style</label>
+        <select id="style2">
+          <option value="google" selected>google (official)</option>
+          <option value="ascii">ascii (no diacritics)</option>
+          <option value="academic">academic (with diacritics)</option>
+        </select>
+      </div>
+    </div>
+    <button id="btn2">Romanize Arabic</button>
+  </div>
+
+  <div class="card">
+    <div id="log" class="log"></div>
+  </div>
+</div>
+
+<script>
+const u  = document.getElementById('u');
+const en = document.getElementById('en');
+const arEl = document.getElementById('ar');
+const trEl = document.getElementById('tr');
+const arOnly = document.getElementById('arOnly');
+const style1 = document.getElementById('style1');
+const style2 = document.getElementById('style2');
+const log = document.getElementById('log');
+
+const j = o => { try{return JSON.stringify(o,null,2)}catch(e){return String(o)} };
+const add = t => { log.textContent += t + '\n'; log.scrollTop = log.scrollHeight; };
+
+document.getElementById('btn1').onclick = async () => {
+  const url = u.value.trim();
+  add('POST ' + url + '?en2ar=1');
+  const r = await fetch(url + '?en2ar=1', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ text: en.value.trim(), style: style1.value })
+  });
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data={}; try{ data=await r.json(); }catch{}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+  if (r.ok){ arEl.textContent = data.ar || '—'; trEl.textContent = data.transliteration || '—'; }
+  else if (r.status === 403){ add('Hint: enable Translation API, link Billing, and add roles/cloudtranslate.user to the Cloud Run service account.'); }
+};
+
+document.getElementById('btn2').onclick = async () => {
+  const url = u.value.trim();
+  add('POST ' + url + ' (romanize only)');
+  const r = await fetch(url, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ arabic: arOnly.value.trim(), style: style2.value })
+  });
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data={}; try{ data=await r.json(); }catch{}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+  if (r.ok){ trEl.textContent = data.transliteration || '—'; }
+};
+
+document.getElementById('diag').onclick = async () => {
+  const url = u.value.trim();
+  add('GET ' + url + '?diag=1');
+  const r = await fetch(url + '?diag=1');
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data={}; try{ data=await r.json(); }catch{}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+};
+
+document.getElementById('copy').onclick = async () => {
+  await navigator.clipboard.writeText(log.textContent);
+  alert('Log copied');
+};
+document.getElementById('clear').onclick = () => { log.textContent=''; };
+</script>

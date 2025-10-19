@@ -1,0 +1,53 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EN → AR — Translate Only</title>
+<div style="max-width:760px;margin:24px auto;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif">
+  <p><label>Function URL <input id="u" style="width:100%" value="https://arabic-tts-kntnnqwloa-ew.a.run.app"></label></p>
+  <p><label>English <textarea id="en" style="width:100%;min-height:120px">Welcome to our website! We hope you enjoy your visit.</textarea></label></p>
+  <p>
+    <label>Source <input id="src" value="en"></label>
+    <label>Target <input id="tgt" value="ar"></label>
+  </p>
+  <p>
+    <button id="translate">Translate</button>
+    <button id="diag">GET ?diag=1</button>
+  </p>
+  <h3>Arabic</h3>
+  <div id="out" style="border:1px solid #ddd;border-radius:8px;padding:10px;direction:rtl;font-size:20px;line-height:1.7">—</div>
+  <h3>Log</h3>
+  <pre id="log" style="background:#0b1220;color:#e7eaf3;border-radius:8px;padding:12px;min-height:160px;white-space:pre-wrap"></pre>
+</div>
+<script>
+const u = document.getElementById('u');
+const en = document.getElementById('en');
+const src = document.getElementById('src');
+const tgt = document.getElementById('tgt');
+const out = document.getElementById('out');
+const log = document.getElementById('log');
+const j = o => { try { return JSON.stringify(o,null,2) } catch(e){ return String(o) } };
+const add = t => { log.textContent += (t + '\n'); };
+
+document.getElementById('translate').onclick = async () => {
+  add('POST ' + u.value);
+  const r = await fetch(u.value, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ text: en.value.trim(), source: src.value.trim()||'en', target: tgt.value.trim()||'ar' })
+  });
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data = {}; try { data = await r.json() } catch {}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+  if (r.ok) out.textContent = data.translated || '—';
+  if (r.status === 403) add('Hint: API enabled, billing linked, and roles/cloudtranslate.user on the Cloud Run service account.');
+};
+
+document.getElementById('diag').onclick = async () => {
+  add('GET ' + u.value + '?diag=1');
+  const r = await fetch(u.value + '?diag=1');
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data = {}; try { data = await r.json() } catch {}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+};
+</script>

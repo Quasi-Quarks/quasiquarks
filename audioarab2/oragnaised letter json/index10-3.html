@@ -1,0 +1,179 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EN→AR + Transliteration + TTS</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f8fafc;margin:0;color:#111827}
+  .wrap{max-width:900px;margin:24px auto;padding:0 12px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.06);padding:16px;margin-bottom:16px}
+  label{display:block;margin:8px 0 4px}
+  input,textarea,select{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:12px;font:inherit}
+  textarea{min-height:110px}
+  button{appearance:none;border:1px solid #e5e7eb;background:#fff;border-radius:12px;padding:10px 14px;cursor:pointer}
+  button.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .out{border:1px dashed #e5e7eb;border-radius:12px;padding:10px;background:#fff}
+  .ar{direction:rtl;font-size:20px;line-height:1.7}
+  .log{background:#0b1220;color:#e7eaf3;border-radius:8px;padding:12px;min-height:120px;white-space:pre-wrap}
+</style>
+
+<div class="wrap">
+  <div class="card">
+    <label>Function URL</label>
+    <input id="u" value="https://arabic-tts-kntnnqwloa-ew.a.run.app">
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px">Translate English → Arabic + transliteration</h3>
+    <label>English</label>
+    <textarea id="en">Welcome to our website! We hope you enjoy your visit.</textarea>
+
+    <div class="row" style="margin:10px 0">
+      <div style="flex:1;min-width:220px">
+        <label>Transliteration style</label>
+        <select id="style1">
+          <option value="google" selected>google (official)</option>
+          <option value="ascii">ascii (no diacritics)</option>
+          <option value="academic">academic (with diacritics)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="btnTranslate" class="primary">Translate + Romanize</button>
+      <button id="btnDiag">GET ?diag=1</button>
+      <button id="btnCopy">Copy log</button>
+      <button id="btnClear">Clear log</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div><strong>Arabic:</strong></div>
+    <div id="ar" class="out ar">—</div>
+    <div style="margin-top:8px"><strong>Transliteration:</strong></div>
+    <div id="tr" class="out">—</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 8px">Speak Arabic (TTS)</h3>
+    <div class="row">
+      <div style="flex:2;min-width:220px">
+        <label>Voice</label>
+        <select id="v">
+          <option value="ar-XA-Standard-A">Standard A (F)</option>
+          <option value="ar-XA-Standard-B">Standard B (M)</option>
+          <option value="ar-XA-Wavenet-A" selected>Wavenet A (F)</option>
+          <option value="ar-XA-Wavenet-B">Wavenet B (M)</option>
+          <option value="ar-XA-Chirp3-HD-Achernar">Chirp3-HD (F)</option>
+        </select>
+        <div style="margin-top:6px">
+          <button id="btnVoices">Load Arabic voices</button>
+          <small style="margin-left:6px;opacity:.7">Populates the list from API</small>
+        </div>
+      </div>
+      <div style="flex:1;min-width:140px">
+        <label>Speed (0.7–1.3 typical)</label>
+        <input id="rate" type="number" step="0.05" value="1">
+      </div>
+      <div style="flex:1;min-width:140px">
+        <label>Loudness (dB, −6 to +6)</label>
+        <input id="gain" type="number" step="1" value="0">
+      </div>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button id="btnSpeak" class="primary">Speak Arabic</button>
+    </div>
+    <audio id="player" controls style="margin-top:10px;width:100%"></audio>
+  </div>
+
+  <div class="card">
+    <div id="log" class="log"></div>
+  </div>
+</div>
+
+<script>
+const u  = document.getElementById('u');
+const en = document.getElementById('en');
+const style1 = document.getElementById('style1');
+const arEl = document.getElementById('ar');
+const trEl = document.getElementById('tr');
+const vSel = document.getElementById('v');
+const rate = document.getElementById('rate');
+const gain = document.getElementById('gain');
+const player = document.getElementById('player');
+const log = document.getElementById('log');
+
+const j = o => { try{return JSON.stringify(o,null,2)}catch(e){return String(o)} };
+const add = t => { log.textContent += t + '\n'; log.scrollTop = log.scrollHeight; };
+
+document.getElementById('btnTranslate').onclick = async () => {
+  const url = u.value.trim();
+  add('POST ' + url + '?en2ar=1');
+  const r = await fetch(url + '?en2ar=1', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({ text: en.value.trim(), style: style1.value })
+  });
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data={}; try{ data=await r.json(); }catch{}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+  if (r.ok){ arEl.textContent = data.ar || '—'; trEl.textContent = data.transliteration || '—'; }
+  else if (r.status === 403){ add('Hint: enable Translation & TTS APIs, link Billing, roles/cloudtranslate.user on the Cloud Run SA.'); }
+};
+
+document.getElementById('btnVoices').onclick = async () => {
+  const url = u.value.trim();
+  add('GET ' + url + '?voices=1');
+  const r = await fetch(url + '?voices=1');
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data={}; try{ data=await r.json(); }catch{}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+  if (r.ok && Array.isArray(data.voices)){
+    vSel.innerHTML = '';
+    for (const v of data.voices) {
+      const opt = document.createElement('option');
+      opt.value = v.name; opt.textContent = v.name + (v.ssmlGender ? ` (${v.ssmlGender})` : '');
+      vSel.appendChild(opt);
+    }
+  }
+};
+
+document.getElementById('btnSpeak').onclick = async () => {
+  const url = u.value.trim();
+  const text = (arEl.textContent && arEl.textContent !== '—') ? arEl.textContent : en.value.trim();
+  if (!text) return alert('Nothing to speak.');
+  const body = {
+    text, voiceName: vSel.value || 'ar-XA-Wavenet-A',
+    speakingRate: parseFloat(rate.value || '1'),
+    volumeGainDb: parseFloat(gain.value || '0')
+  };
+  add('POST ' + url + '?speak=1'); add(j(body));
+  const r = await fetch(url + '?speak=1', {
+    method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)
+  });
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data={}; try{ data=await r.json(); }catch{}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+  if (r.ok && data.audioContent){
+    player.src = 'data:audio/mp3;base64,' + data.audioContent;
+    player.play().catch(()=>{});
+  }
+};
+
+document.getElementById('btnDiag').onclick = async () => {
+  const url = u.value.trim();
+  add('GET ' + url + '?diag=1');
+  const r = await fetch(url + '?diag=1');
+  const hdr = Object.fromEntries(r.headers.entries());
+  let data={}; try{ data=await r.json(); }catch{}
+  add('Response ' + r.status + ' ' + r.statusText);
+  add(j(hdr)); add(j(data));
+};
+
+document.getElementById('btnCopy').onclick = async () => {
+  await navigator.clipboard.writeText(log.textContent); alert('Log copied');
+};
+document.getElementById('btnClear').onclick = () => { log.textContent=''; };
+</script>
