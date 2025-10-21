@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mobile – Multi Mini Editors (Video + Timeline)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index5.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="lesson.css" />
+
+</head>
+<body class="state-compact">
+
+  <!-- your menu/header etc above ... -->
+
+  <main class="mainbody" role="main">
+    <div class="body_container_cover">
+      <div class="body_container">
+           <button id="menudisplay" aria-label="Toggle menu">☰</button>
+
+  <!-- Left menu -->
+  <nav class="menuBarstdy" aria-label="Study Menu">
+    <div class="menuHeader">
+      <div class="menuTitle">Study Menu</div>
+    </div>
+
+       <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Intro</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+          <a class="menustudytxt" href="../lesson1/index.html">Introduction</a>
+        <a class="menustudytxt" href="../lesson2/index.html">Overview</a>
+        <a class="menustudytxt" href="#">Setup on android</a>
+        <a class="menustudytxt" href="#">Setup on iphone</a>
+        <a class="menustudytxt" href="#">Setup desktop</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Learning</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+        <a class="menustudytxt" href="../lesson3txt/index.html">Text</a>
+        <a class="menustudytxt" href="../lesson4img/index.html">Images</a>
+        <a class="menustudytxt" href="../lesson5divs/index.html">divs</a>
+        <a class="menustudytxt" href="../lesson6buttonlinks/index.html">Links</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <button class="menustudycategory" aria-expanded="false">
+        <span class="menustudytxtheader">How to learn</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="How to learn">
+        <a class="menustudytxt" href="#">Roadmap</a>
+        <a class="menustudytxt" href="#">Practice</a>
+        <a class="menustudytxt" href="#">Projects</a>
+        <a class="menustudytxt" href="#">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+
+  
+        
+ <!-- ============================== Lesson ============================== -->
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Text in HTML</h1>
+            <p>Text is very powerfull in website it can represent information, design, layout and theme of the website </p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Text in different content</h1>
+            <p>Text can be in a menu, in the footer, in the about us, a description about your products </p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Designing the Text</h1>
+            <p>Since text can be in a menu or in a slideshow we need to design the font type, size, color, alignment, background </p>
+            </div>
+        </div>
+
+
+        <!-- ========== MINI EDITOR #2 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor B</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+
+        <!-- ============================== Lesson ============================== -->
+
+
+
+      
+  
+        
+ <!-- ============================== Lesson ============================== -->
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Text Structure</h1>
+            <p>Text can be inside a header or paragraphs </p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>h1, h2, h3, h4, h5 h6</h1>
+            <p>These h1 to h6 are just the headers, you can say the title text,
+               you can say of a particular things a section or products</p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>General Ruless of Node</h1>
+            <p>Just a general the <body> in  a website is the only parent element that can contain child elements of images, texts and videos</p>
+              <p>What does that mean, well every element written in < > can be a parent node of elements and itself can be a child node. </p>
+              <p>For example every <h1> is a child node of <body> so body is the parent of h1, but body is also a child of the whole code meaning, <html> itself</p>
+            </div>
+        </div>
+
+        <!-- ========== MINI EDITOR #2 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor B</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+
+        <!-- ============================== Lesson ============================== -->
+
+
+
+        
+
+      
+  
+        
+ <!-- ============================== Lesson ============================== -->
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Font Size </h1>
+            <p>You have to think about what you want the size of your font to be</p>
+            <p>To change the size of you just add font-size: and you specify the number in pixels</p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Color</h1>
+            <p>To change the color, you just add color: and change the color</p>
+            </div>
+        </div>
+
+         <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Alignment</h1>
+            <p>You need to add width: 100%; then text-align: left;</p>
+            <p>you can add text-align: left; text-align: center; text-align: right;</p>
+            </div>
+        </div>
+
+         <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Type </h1>
+            <p>To change the font type</p>
+            <p>You have to add and change font-family: </p>
+            <p> font-family: sans-serif; <br>
+      font-family: system-ui; <br>
+      font-family: serif;<br>
+      </p>
+            </div>
+        </div>
+
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Background Color</h1>
+            <p>To change the background Color</p>
+            <p>You add and change background-color: blue;</p>
+            <p>blue was just an example you can use any colours</p>
+            </div>
+        </div>
+
+
+
+        <!-- ========== MINI EDITOR #2 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor B</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+
+        <!-- ============================== Lesson ============================== -->
+
+
+  
+
+      
+  
+        
+ <!-- ============================== Lesson ============================== -->
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Is it easy?</h1>
+            <p> You might think it's easy or this easy, but you have to change all these variables in to the right values skillfully for the right design or correct design</p>
+            <p>No is going to come and design for you, that's where I made the mistake, you need to know how to design</p>
+          </div>
+        </div>
+
+        
+
+         <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Type </h1>
+            <p>To change the font type</p>
+            <p>You have to add and change font-family: </p>
+            <p> font-family: sans-serif; <br>
+      font-family: system-ui; <br>
+      font-family: serif;<br>
+      </p>
+            </div>
+        </div>
+
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Background Color</h1>
+            <p>To change the background Color</p>
+            <p>You add and change background-color: blue;</p>
+            <p>blue was just an example you can use any colours</p>
+            </div>
+        </div>
+
+
+
+        <!-- ========== MINI EDITOR #2 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor B</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+
+        <!-- ============================== Lesson ============================== -->
+
+
+  
+
+        
+
+
+      </div>
+    </div>
+  </main>
+
+ 
+<script src="app.js" defer></script>
+  <script src="menu.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mobile – Multi Mini Editors (Video + Timeline)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index5.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="lesson.css" />
+
+</head>
+<body class="state-compact">
+
+  <!-- your menu/header etc above ... -->
+
+  <main class="mainbody" role="main">
+    <div class="body_container_cover">
+      <div class="body_container">
+           <button id="menudisplay" aria-label="Toggle menu">☰</button>
+
+
+  <!-- Left menu -->
+  <nav class="menuBarstdy" aria-label="Study Menu">
+    <div class="menuHeader">
+      <div class="menuTitle">Study Menu</div>
+    </div>
+
+      <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Intro</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+          <a class="menustudytxt" href="../lesson1/index.html">Introduction</a>
+        <a class="menustudytxt" href="../lesson2/index.html">Overview</a>
+        <a class="menustudytxt" href="#">Setup on android</a>
+        <a class="menustudytxt" href="#">Setup on iphone</a>
+        <a class="menustudytxt" href="#">Setup desktop</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Learning</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+        <a class="menustudytxt" href="../lesson3txt/index.html">Text</a>
+        <a class="menustudytxt" href="../lesson4img/index.html">Images</a>
+        <a class="menustudytxt" href="../lesson5divs/index.html">divs</a>
+        <a class="menustudytxt" href="../lesson6buttonlinks/index.html">Links</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <button class="menustudycategory" aria-expanded="false">
+        <span class="menustudytxtheader">How to learn</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="How to learn">
+        <a class="menustudytxt" href="#">Roadmap</a>
+        <a class="menustudytxt" href="#">Practice</a>
+        <a class="menustudytxt" href="#">Projects</a>
+        <a class="menustudytxt" href="#">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+
+  
+        
+ <!-- ============================== Lesson ============================== -->
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>A button and a link</h1>
+            <p>All websites contain a link and a button</p>
+            <p>Not every button in a link, an Image for a product can be a link</p>
+            <p>A text be a link</p>
+            <p>All HTML elements can be a link</p>
+            <P>All links don't have to be a button and all button doesn't have to be a link</P>
+            </div>
+        </div>
+
+
+        
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Importance of a link</h1>
+            <p>All websites have link<br> A link can be inside a webpage leading to your other webpages</p>
+            <p>A link allows you to organise your webpage in to pagess like <br>
+              home, products, services, about us,</p>
+            <p>A link can come from a <br> TXT, <br> Image <br> Button</p>
+
+            </div>
+        </div>
+
+
+       
+
+        <!-- ========== MINI EDITOR #2 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor B</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+
+        <!-- ============================== Lesson ============================== -->
+
+
+
+    
+
+      </div>
+    </div>
+  </main>
+
+ 
+<script src="app.js" defer></script>
+  <script src="menu.js" defer></script>
+</body>
+</html>

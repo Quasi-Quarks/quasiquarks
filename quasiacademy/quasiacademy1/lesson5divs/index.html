@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mobile – Multi Mini Editors (Video + Timeline)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="index5.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="lesson.css" />
+
+</head>
+<body class="state-compact">
+
+  <!-- your menu/header etc above ... -->
+
+  <main class="mainbody" role="main">
+    <div class="body_container_cover">
+      <div class="body_container">
+           <button id="menudisplay" aria-label="Toggle menu">☰</button>
+
+  <!-- Left menu -->
+  <nav class="menuBarstdy" aria-label="Study Menu">
+    <div class="menuHeader">
+      <div class="menuTitle">Study Menu</div>
+    </div>
+
+       <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Intro</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+          <a class="menustudytxt" href="../lesson1/index.html">Introduction</a>
+        <a class="menustudytxt" href="../lesson2/index.html">Overview</a>
+        <a class="menustudytxt" href="#">Setup locally</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer open">
+      <button class="menustudycategory" aria-expanded="true">
+        <span class="menustudytxtheader">Learning</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="Set up">
+        <a class="menustudytxt" href="../lesson3txt/index.html">Text</a>
+        <a class="menustudytxt" href="../lesson4img/index.html">Images</a>
+        <a class="menustudytxt" href="../lesson5divs/index.html">divs</a>
+        <a class="menustudytxt" href="../lesson6buttonlinks/index.html">Links</a>
+      </div>
+    </div>
+
+    <div class="menustudycategorycontainer">
+      <button class="menustudycategory" aria-expanded="false">
+        <span class="menustudytxtheader">How to learn</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+      </button>
+      <div class="menustudy" role="region" aria-label="How to learn">
+        <a class="menustudytxt" href="#">Roadmap</a>
+        <a class="menustudytxt" href="#">Practice</a>
+        <a class="menustudytxt" href="#">Projects</a>
+        <a class="menustudytxt" href="#">Resources</a>
+      </div>
+    </div>
+  </nav>
+
+
+  
+        
+ <!-- ============================== Lesson ============================== -->
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Containers, Squares, Layers, Parents</h1>
+            <p>All is written in a div</p>
+            <p>What is a < d i v >? it is all above it allows you to organise your content</p>
+            <p>A < div > allow things to be organised for your websites, users, web developers and web designers</p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            
+            <h1>Functionality</h1>
+            <p>Essentialliy a div is a square or just a rectangle, it depends on how it can be manipulated and it's usage can allow different functionalities.</p>
+            <p>A div can be a menu, it can hold the services sections together, it can be the footer istelf, it can hold an image</p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Background Image</h1>
+            <p>Any div can contain a background image </p>
+            </div>
+        </div>
+
+
+        <!-- ========== MINI EDITOR #2 ========== -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor B</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+
+        <!-- ============================== Lesson ============================== -->
+
+
+
+      
+  
+
+        
+
+
+
+  
+
+        
+
+
+      </div>
+    </div>
+  </main>
+
+ 
+<script src="app.js" defer></script>
+  <script src="menu.js" defer></script>
+</body>
+</html>

@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
   
   <div class="menu">
     <p>Tutorial</p>
@@ -1490,7 +1491,7 @@ var sentencesall = [sentence1, sentence2, sentence3, sentence4, sentence5];
 function searchAlltext() {
  
   for(s=0; s<=sentencesall.length + -1; s++) {
-    console.log(sentencesall[s])
+    //console.log(sentencesall[s])
     var sentence_elements_container = document.createElement("div");;
         sentence_elements_container.setAttribute("class", "sentence_elements_container");
     
@@ -1500,7 +1501,7 @@ function searchAlltext() {
         sentence_elements.setAttribute("class", "sentence_elements");
 
         sentence_elements.onclick = function() {
-
+englishInput.value = this.innerText;
           raw_written_text_data = this.innerText;
       array_written_text_data = raw_written_text_data.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
 
@@ -1520,6 +1521,8 @@ function searchAlltext() {
       // console.log(raw_written_text_data)
       // console.log(array_written_text_data)
       func_buttons()
+        document.getElementById("sentences").innerHTML = ""
+        searchAlltext2()
         }
         sentence_elements_container.appendChild(sentence_elements)
     }
@@ -1530,6 +1533,45 @@ function searchAlltext() {
 }
 
 searchAlltext()
+
+
+
+
+
+function searchAlltext2() {
+ 
+  for(s=0; s<=sentencesall.length + -1; s++) {
+    console.log(sentencesall[s])
+    var sentence_elements_container = document.createElement("div");;
+        sentence_elements_container.setAttribute("class", "sentence_elements_container");
+    
+         shuffle(sentencesall[s], s) 
+    document.getElementById("sentences").appendChild(sentence_elements_container)
+  }
+
+  searchAlltext()
+
+}
+
+
+
+
+
+ function shuffle(arr, s) {
+  const copy = arr.slice(); // or [...arr]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+
+  sentencesall[s] = copy;
+  console.log(copy)
+  return copy;
+}
+  
+
+
+
 
 
 
