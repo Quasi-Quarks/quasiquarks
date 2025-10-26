@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midnight Bloom — Children’s Dresses (Dark, Girly)</title>
+  <meta name="description" content="A small, aesthetic children’s boutique. Dark, girly, modern—full-bleed imagery, bold text, and minimal UI." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- NOTE: We will add /css/mobile.css + /js/animationvideo.js in the next step per your plan.
+       For now, all CSS for this page is inline to keep it single-file. -->
+  <style>
+    
+  </style>
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="stylesheet" href="mobilefirst.css">
+</head>
+<body>
+  <!-- Header with dynamic, responsive nav (JS will power the toggle in next step) -->
+  <header class="site-header" data-nav>
+    <div class="container nav">
+      <a class="brand" href="#home">Tristen Aisha Boutique</a>
+
+      <!-- Mobile toggle (JS will toggle aria-expanded + .is-open) -->
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav id="primary-nav" class="nav-links" role="navigation" aria-label="Main">
+        <a href="#products">Products</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary cta" href="https://wa.me/447000000000?text=Hello%20Midnight%20Bloom%20—%20I’d%20like%20to%20order" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO (full‑bleed with real image source) -->
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="hero-wrap">
+        <div class="hero-media">
+          <!-- IMAGE SOURCE: picsum.photos (placeholder). Replace with your brand photos or stock links (Unsplash/Pexels). -->
+          <img src="img1.jpg" alt="Soft, dreamy dress vibe in dark girly palette" />
+          <span class="duo" aria-hidden="true"></span>
+          <span class="sparkles" aria-hidden="true"></span>
+        </div>
+        <div class="hero-content">
+          <div class="container">
+            <div class="eyebrow">Hand‑finished • Ages 0–8</div>
+            <h1 id="hero-title" class="headline">Twirls in <span class="accent">moonlit</span> hues.</h1>
+            <p class="sub">A tiny, girly boutique for dresses that feel like bedtime stories—soft, comfortable, and made for play.</p>
+            <div class="buttons">
+              <a class="btn btn-primary" href="#products">View Products</a>
+              <a class="btn btn-secondary" href="#contact">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND STRIP -->
+    <section class="brand-strip section" aria-label="Brand highlights">
+      <div class="container pillars">
+        <div class="pillar">Organic Cotton<small>Gentle on skin</small></div>
+        <div class="pillar">Made to Move<small>Play‑friendly</small></div>
+        <div class="pillar">Small Batch<small>Hand‑finished</small></div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL SLICES (edge‑to‑edge with sources) -->
+    <section class="slice section" aria-labelledby="slice-title-1">
+      <div class="slice-block">
+        <div class="slice-image">
+          <img src="img5.jpg" alt="Editorial pastel scene, party season" />
+        </div>
+        <div class="slice-caption">
+          <div class="container">
+            <div class="eyebrow">Party Season</div>
+            <div id="slice-title-1" class="slice-title">Sparkle, twirl, repeat.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slice section" aria-labelledby="slice-title-2">
+      <div class="slice-block">
+        <div class="slice-image">
+          <img src="img4.jpg" alt="Editorial lavender scene, everyday softness" />
+        </div>
+        <div class="slice-caption">
+          <div class="container">
+            <div class="eyebrow">Everyday</div>
+            <div id="slice-title-2" class="slice-title">Soft shades for sunny days.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT TEASER (uncluttered, with sources) -->
+    <section id="products" class="teaser section" aria-labelledby="products-title">
+      <div class="container teaser-header">
+        <h2 id="products-title" style="margin:0 0 var(--space-2) 0; font-size: var(--h2);">Products</h2>
+        <p class="small" style="color:var(--muted);">Message us on WhatsApp or call to order. Prices shown on images.</p>
+      </div>
+      <div class="container teaser-row">
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img19.jpg" alt="Luna Ruffle Dress in blush" /></div>
+          <figcaption class="price-tag">Luna Ruffle — $49</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img14.jpg" alt="Meadow Bow Dress in lavender" /></div>
+          <figcaption class="price-tag">Meadow Bow — $45</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img15.jpg" alt="Daisy Flutter Dress in peach" /></div>
+          <figcaption class="price-tag">Daisy Flutter — $39</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img22.jpg" alt="Aurora Tulle Dress in rose" /></div>
+          <figcaption class="price-tag">Aurora Tulle — $59</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img21.jpg" alt="Pearl Ribbon Dress in cream" /></div>
+          <figcaption class="price-tag">Pearl Ribbon — $55</figcaption>
+        </figure>
+      </div>
+      <div class="container" style="text-align:center; margin-top: var(--space-5);">
+        <a class="btn btn-secondary" href="#gallery">View Gallery</a>
+      </div>
+    </section>
+
+    <!-- STORY BAND -->
+    <section id="about" class="story section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">Small shop, big heart.</h2>
+        <p>We’re a tiny studio focused on comfort and joy—soft fabrics, gentle finishes, and thoughtful details made for real childhood. Each piece is crafted in small batches and designed to feel as special as it looks.</p>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card">
+          <h3 id="cta-title" style="margin:0 0 var(--space-3) 0; font-size: var(--h3);">Ready to order?</h3>
+          <div class="buttons" style="justify-content:center; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="https://chat.whatsapp.com/LsC4I6RPiHtL7IzmenLVfj?mode=wwt" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-secondary" href="tel:+2547037295669">Call</a>
+            <a class="btn btn-secondary" href="mailto:Tristenaishaministries@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY ANCHOR (placeholder) -->
+    <section id="gallery" class="section" aria-label="Gallery">
+      <div class="container" style="text-align:center;">
+        <h2 style="font-size: var(--h2); margin-bottom: var(--space-3); color: var(--rose-200);">Gallery</h2>
+        <p class="small" style="color:var(--muted);">Visit our gallery page for more full‑width imagery and editorials.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT ANCHOR (placeholder) -->
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="container" style="text-align:center;">
+        <h2 style="font-size: var(--h2); margin-bottom: var(--space-3); color: var(--rose-200);">Contact</h2>
+        <p class="small" style="color:var(--muted);">DM, call, or email—whatever suits you best. We’ll help with sizes and delivery info.</p>
+        <div class="buttons" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://chat.whatsapp.com/LsC4I6RPiHtL7IzmenLVfj?mode=wwt" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-secondary" href="tel:+2547037295669">Call</a>
+          <a class="btn btn-secondary" href="mailto:hello@example.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="brand">Tristen Aisha Boutique</div>
+      <div class="small">Images served via <a href="https://picsum.photos/" target="_blank" rel="noopener">Picsum</a>
+         <br>© <span id="y"></span> Designed by Khalium.com
+        <br>© <span id="y"></span> Tristen Aisha Boutique. All rights reserved.
+      
+      </div>
+    </div>
+  </footer>
+
+  <!-- We’ll add JS file next step: /js/animationvideo.js -->
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="animationvideo.js" defer></script>
+
+</body>
+</html>

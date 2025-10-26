@@ -1,0 +1,38 @@
+/*
+  Midnight Bloom — Single-file CSS (Dark, Girly, Header v2, Mobile-First)
+  Use as your only CSS file (e.g., /css/style.css), then link once in <head>.
+*/
+
+/* -------------------- */
+/* Design Tokens        */
+/* -------------------- */
+:root {
+  /* Palette */
+  --bg-deep: #160b17;      /* midnight plum */
+  --bg-alt: #1f0f22;       /* deeper plum */
+  --rose-400: #ff72b6;     /* neon rose */
+  --rose-300: #ff9fcb;
+  --rose-200: #ffcde0;
+  --violet-400: #c49bff;   /* fairy violet */
+  --violet-300: #dabdff;
+  --ink: #f6edf8;          /* light ink on dark */
+  --ink-soft: #e2cfe5;
+  --muted: #a88fb2;
+  --white: #ffffff;
+
+  --container: 1200px;
+  --radius: 22px;
+
+  /* Type scale */
+  --h1: clamp(2.4rem, 7vw, 4.8rem);
+  --h2: clamp(1.8rem, 5vw, 3.2rem);
+  --h3: clamp(1.2rem, 3.6vw, 2rem);
+  --body: clamp(1rem, 2.5vw, 1.125rem);
+
+  /* Spacing */
+  --space-1: 8px;  --space-2: 12px; --space-3: 16px; --space-4: 24px;
+  --space-5: 32px; --space-6: 48px; --space-7: 72px; --space-8: 96px;
+
+  --shadow-soft: 0 18px 50px rgba(0,0,0,.35);
+  --glow-rose: 0 0 0 3px rgba(255,114,182,.22), 0 0 28px rgba(255,114,182,.25);
+}
