@@ -1,0 +1,13 @@
+html { scroll-behavior: smooth; }
+
+div#imagescolor {
+    width: 100%;
+    display: flex;
+    height: 532px;
+    /* position: absolute; */
+    display: none;
+}
+
+div#imagescolor img {
+    width: 34%;
+}
