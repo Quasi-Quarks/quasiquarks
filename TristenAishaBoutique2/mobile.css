@@ -92,7 +92,11 @@ a { color: inherit; text-decoration: none; }
 }
 .btn-primary {background: linear-gradient(180deg, #ff8fb9, #d54980);color: #2b0011;}
 .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--glow-rose); }
-.btn-secondary { background: transparent; border-color: rgba(255,255,255,.24); color: var(--ink); }
+.btn-secondary {
+    background: #ffd700e3;
+    border-color: gold;
+    color: #bd1171;
+}
 .btn-secondary:hover { background: rgba(255,255,255,.08); }
 
 /* Reveal helper (JS toggles .is-revealed) */
