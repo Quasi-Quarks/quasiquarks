@@ -203,6 +203,23 @@
   <!-- We’ll add JS file next step: /js/animationvideo.js -->
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   <script src="animationvideo.js" defer></script>
+  
+<script src="animation.js"></script>
+<script>
+  // 1) Initialise once
+  GoldParticles.init({
+    globalTrails: true,       // trails anywhere on page
+    trailsWhilePressing: false, // set true if you only want trails while pressing
+  });
 
+  // 2) Attach effects to specific elements (by id or element)
+  GoldParticles.attachTo('buyNow',  { hoverShimmer: true, clickBurst: 120, trailOnMove: true });
+  GoldParticles.attachTo('contact', { hoverShimmer: true, clickBurst: 80,  trailOnMove: true });
+
+  // Optional: later
+  // GoldParticles.detachFrom('contact');
+
+  
+</script>
 </body>
 </html>
