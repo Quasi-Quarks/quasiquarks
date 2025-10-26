@@ -1,299 +1,225 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="homemobile.css"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Midnight Bloom — Children’s Dresses (Dark, Girly)</title>
+  <meta name="description" content="A small, aesthetic children’s boutique. Dark, girly, modern—full-bleed imagery, bold text, and minimal UI." />
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-
+  <!-- NOTE: We will add /css/mobile.css + /js/animationvideo.js in the next step per your plan.
+       For now, all CSS for this page is inline to keep it single-file. -->
+  <style>
     
-</style>
-    </head>
+  </style>
+  <link rel="stylesheet" href="mobile.css">
+  <!-- <link rel="stylesheet" href="mobilefirst.css"> -->
+
+   <link rel="stylesheet" href="exp.css">
+</head>
+<body>
+
  
-    <body>
+  <!-- Header with dynamic, responsive nav (JS will power the toggle in next step) -->
+  <header class="site-header" data-nav>
+    <div class="container nav">
+      <a class="brand" href="#home">Tristen Aisha Boutique</a>
 
-        <div class="menuBar">
-           <div class="menu">
-            <!-- <a href="khalifa-center/index.html">Khalifa 10</a>
-            <a href="codingbackground/codingplay5/index.html">swap</a> -->
-            <a href="TristenAishaBoutique/index.html">TristenAishaBoutique</a>
-            <a href="audioarab2/audioarab.html">2</a>
-            <a href="audioarab2/audioarabic3.html">3</a>
-            <a href="audioarab2/audioarabic4.html">4</a>
-            <a href="audioarab2/audioarabic5.html">5</a>
-            <a href="audioarab2/audioarabic6.html">6</a>
-            <a href="audioarab2/audioarabic7.html">7</a>
-            <a href="audioarab2/audioarabic8.html">8</a>
-            <a href="audioarab2/audioarabic9.html">9.2</a>
-            <a href="audioarab2/oragnaised letter json/arabic12finalall2spanish.html">spanish 12.1</a>
-             <a href="audioarab2/oragnaised letter json/arabic12finalall2amharic.html">amharic</a>
-            <a href="audioarab2/oragnaised letter json/arabic9.html">9</a>
-            <a href="audioarab2/oragnaised letter json/arabic10final.html">final 2</a>
-            <a href="audioarab2/oragnaised letter json/arabic12finalall2google3.html">final 12.1</a>
-           </div>
-        </div>
+      <!-- Mobile toggle (JS will toggle aria-expanded + .is-open) -->
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
 
-
-    <div class="gap">
-
-</div>
-
-    <div class="section" id="heroSecton" style="">
-       
-        <h1 class="hero_section_h1">Build Modern Web <br> Experiences</h1>
-        <h3 class="hero_section_h2">Web Design, Web development, App development, Back End, Data Science, Machine learning, AI, Deep Learning, </h3>
-        
+      <nav id="primary-nav" class="nav-links" role="navigation" aria-label="Main">
+        <a href="#products">Products</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary cta" href="https://wa.me/447000000000?text=Hello%20Midnight%20Bloom%20—%20I’d%20like%20to%20order" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
     </div>
-<div class="video-background" id="sectioncontainer">
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="images/nn1.mp4" type="video/mp4">
-  </video>
-  <div class="overlay"></div>
- <div class="section mission" id="section1">
-  <h1 class="mission_section_h1">I started learning code frustrated with outdated guides</h1>
-  <h3 class="mission_section_h1">So I built the platform I wish had existed 8 years ago.</h3>
-</div>
+  </header>
 
-<div class="section mission" id="section2">
-  <h1 class="mission_section_h1">We wanted to make learning to code easy</h1>
-  <h3 class="mission_section_h1">
-    Whether you’re changing careers, building a business, freelancing, working remotely, 
-    or studying and researching — our goal is to support your journey.
-  </h3>
-  <button class="section_button">Start Learning</button>
-</div>
-
-<div class="section mission" id="section3">
-  <h1 class="mission_section_h1">We have different roadmaps coming soon</h1>
-  <h3 class="mission_section_h1">Stay tuned — exciting new paths are on the way!</h3>
-</div>
-
-<div class="section mission" id="section4">
-  <h1 class="mission_section_h1">We design our courses to cut out the clutter</h1>
-  <h3 class="mission_section_h1">
-    Our lessons get straight to the point, so you can start building within days.
-  </h3>
-  <button class="section_button">See now</button>
-</div>
-
-<div class="section mission" id="section5">
-  <h1 class="mission_section_h1">We care about your growth and update daily</h1>
-  <h3 class="mission_section_h1">Need help or guidance? Reach out anytime.</h3>
-  <button class="section_button">Contact Us</button>
-</div>
-</div>
-        
-
-<div class="Learningsection">
-
-
-
-  <div class="learningrow1_container learning3row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Programming
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
+   <div id="imagescolor">
+  <img id="one" src="color1.jpg" alt="Soft, dreamy dress vibe in dark girly palette" />
+  <img id="two" src="color2.jpg" alt="Soft, dreamy dress vibe in dark girly palette" />
+  <img id="three" src="color3.jpg" alt="Soft, dreamy dress vibe in dark girly palette" />
   </div>
+
+  <main id="home">
+    <!-- HERO (full‑bleed with real image source) -->
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="hero-wrap">
+        <div class="hero-media">
+          <!-- IMAGE SOURCE: picsum.photos (placeholder). Replace with your brand photos or stock links (Unsplash/Pexels). -->
+          <img src="img1.jpg" alt="Soft, dreamy dress vibe in dark girly palette" />
+          <span class="duo" aria-hidden="true"></span>
+          <span class="sparkles" aria-hidden="true"></span>
+        </div>
+        <div class="hero-content">
+          <div class="container">
+            <div class="eyebrow">Hand‑finished • Ages 0–8</div>
+            <h1 id="hero-title" class="headline">Twirls in <span class="accent">moonlit</span> hues.</h1>
+            <p class="sub">A tiny, girly boutique for dresses that feel like bedtime stories—soft, comfortable, and made for play.</p>
+            <div class="buttons">
+              <a class="btn btn-primary" href="#products">View Products</a>
+              <a class="btn btn-secondary" href="#contact">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND STRIP -->
+    <section class="brand-strip section" aria-label="Brand highlights">
+      <div class="container pillars">
+        <div class="pillar">Organic Cotton<small>Gentle on skin</small></div>
+        <div class="pillar">Made to Move<small>Play‑friendly</small></div>
+        <div class="pillar">Small Batch<small>Hand‑finished</small></div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL SLICES (edge‑to‑edge with sources) -->
+    <section class="slice section" aria-labelledby="slice-title-1">
+      <div class="slice-block">
+        <div class="slice-image">
+          <img src="img5.jpg" alt="Editorial pastel scene, party season" />
+        </div>
+        <div class="slice-caption">
+          <div class="container">
+            <div class="eyebrow">Party Season</div>
+            <div id="slice-title-1" class="slice-title">Sparkle, twirl, repeat.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slice section" aria-labelledby="slice-title-2">
+      <div class="slice-block">
+        <div class="slice-image">
+          <img src="img4.jpg" alt="Editorial lavender scene, everyday softness" />
+        </div>
+        <div class="slice-caption">
+          <div class="container">
+            <div class="eyebrow">Everyday</div>
+            <div id="slice-title-2" class="slice-title">Soft shades for sunny days.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT TEASER (uncluttered, with sources) -->
+    <section id="products" class="teaser section" aria-labelledby="products-title">
+      <div class="container teaser-header">
+        <h2 id="products-title" style="margin:0 0 var(--space-2) 0; font-size: var(--h2);">Products</h2>
+        <p class="small" style="color:var(--muted);">Message us on WhatsApp or call to order. Prices shown on images.</p>
+      </div>
+      <div class="container teaser-row">
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img19.jpg" alt="Luna Ruffle Dress in blush" /></div>
+          <figcaption class="price-tag">Luna Ruffle — $49</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img14.jpg" alt="Meadow Bow Dress in lavender" /></div>
+          <figcaption class="price-tag">Meadow Bow — $45</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img15.jpg" alt="Daisy Flutter Dress in peach" /></div>
+          <figcaption class="price-tag">Daisy Flutter — $39</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img22.jpg" alt="Aurora Tulle Dress in rose" /></div>
+          <figcaption class="price-tag">Aurora Tulle — $59</figcaption>
+        </figure>
+        <figure class="teaser-item">
+          <div class="teaser-img"><img src="img21.jpg" alt="Pearl Ribbon Dress in cream" /></div>
+          <figcaption class="price-tag">Pearl Ribbon — $55</figcaption>
+        </figure>
+      </div>
+      <div class="container" style="text-align:center; margin-top: var(--space-5);">
+        <a class="btn btn-secondary" href="#gallery">View Gallery</a>
+      </div>
+    </section>
+
+    <!-- STORY BAND -->
+    <section id="about" class="story section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">Small shop, big heart.</h2>
+        <p>We’re a tiny studio focused on comfort and joy—soft fabrics, gentle finishes, and thoughtful details made for real childhood. Each piece is crafted in small batches and designed to feel as special as it looks.</p>
+      </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card">
+          <h3 id="cta-title" style="margin:0 0 var(--space-3) 0; font-size: var(--h3);">Ready to order?</h3>
+          <div class="buttons" style="justify-content:center; flex-wrap: wrap;">
+            <a class="btn btn-primary" href="https://chat.whatsapp.com/LsC4I6RPiHtL7IzmenLVfj?mode=wwt" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn btn-secondary" href="tel:+2547037295669">Call</a>
+            <a class="btn btn-secondary" href="mailto:Tristenaishaministries@gmail.com">Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY ANCHOR (placeholder) -->
+    <section id="gallery" class="section" aria-label="Gallery">
+      <div class="container" style="text-align:center;">
+        <h2 style="font-size: var(--h2); margin-bottom: var(--space-3); color: var(--rose-200);">Gallery</h2>
+        <p class="small" style="color:var(--muted);">Visit our gallery page for more full‑width imagery and editorials.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT ANCHOR (placeholder) -->
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="container" style="text-align:center;">
+        <h2 style="font-size: var(--h2); margin-bottom: var(--space-3); color: var(--rose-200);">Contact</h2>
+        <p class="small" style="color:var(--muted);">DM, call, or email—whatever suits you best. We’ll help with sizes and delivery info.</p>
+        <div class="buttons" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://chat.whatsapp.com/LsC4I6RPiHtL7IzmenLVfj?mode=wwt" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-secondary" href="tel:+2547037295669">Call</a>
+          <a class="btn btn-secondary" href="mailto:Tristenaishaministries@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="brand">Tristen Aisha Boutique</div>
+      <div class="small"><a href="https://Khalium.com" target="_blank" rel="noopener">Designed by Khalium.com</a>
+        <br>© <span id="y"></span> Tristen Aisha Boutique. All rights reserved.
+      
+      </div>
+    </div>
+  </footer>
+
+  <!-- We’ll add JS file next step: /js/animationvideo.js -->
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="animationvideo.js" defer></script>
   
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/html.png" >
-        <h1 class="icon_title">HTML</h1>
-        <p class="string_text">Web Development</p>
-      </div>
+<script src="animation.js"></script>
+<script>
+  // 1) Initialise once
+  GoldParticles.init({
+    globalTrails: true,       // trails anywhere on page
+    trailsWhilePressing: false, // set true if you only want trails while pressing
+  });
 
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/css3.png" >
-        <h1 class="icon_title">CSS</h1>
-        <p class="string_text">Wed design language</p>
-      </div>
+  // 2) Attach effects to specific elements (by id or element)
+  GoldParticles.attachTo('buyNow',  { hoverShimmer: true, clickBurst: 120, trailOnMove: true });
+  GoldParticles.attachTo('contact', { hoverShimmer: true, clickBurst: 80,  trailOnMove: true });
 
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/js.png" >
-        <h1 class="icon_title">JS</h1>
-        <p class="string_text">Web dynamics</p>
-      </div>
-  </div>
-
-    <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/react.png" >
-        <h1 class="icon_title">React.JS</h1>
-        <p class="string_text">Web FrameWork</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/reactnative.png" >
-        <h1 class="icon_title">React Native</h1>
-        <p class="string_text">Mobile App Development</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/php.png" >
-        <h1 class="icon_title">PHP</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-  </div>
-
-
-  <div class="learningrow1" id="nodejs">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/nodejs.png" >
-        <h1 class="icon_title">nodejs</h1>
-        <p class="string_text">JS Backend</p>
-      </div>
-
-    
-  </div>
-
-
-  </div>
-
-
-  
-
-<!-- row 2 -->
-
-  <div class="learningrow1_container learning1row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Storage
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
-  </div>
-  
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/json.png" >
-        <h1 class="icon_title">JSON</h1>
-        <p class="string_text">Data Structure</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/sql.png" >
-        <h1 class="icon_title">SQL + MYSQL</h1>
-        <p class="string_text">Using a database</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/server.png" >
-        <h1 class="icon_title">Web Host</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-  </div>
-
-    
-
-
-  </div>
-
-
-  
-
-
-<!-- Computer Architecture -->
-
-  <div class="learningrow1_container learning1row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Computer Architecture
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
-  </div>
-  
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/013-cpu.png" >
-        <h1 class="icon_title">Architecture</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/015-internet-connection.png" >
-        <h1 class="icon_title">Networking</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/020-cloud-1.png" >
-        <h1 class="icon_title">Cloud</h1>
-        <p class="string_text">Semantic Structure</p>
-      </div>
-  </div>
-
-  </div>
-
-
-  <!-- Computer Architecture -->
-
-  <div class="learningrow1_container learning2row">
-  <div class="learning_title">
-   <h1 class="leaningh1">
-    Data Science
-   </h1>
-   <p class="leaningp">Component-driven lessons with accessibility, performance, and progressive enhancement.</p>
-
-  </div>
-  
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/023-exploratory-analysis.png" >
-        <h1 class="icon_title">Data Analysis</h1>
-        <p class="string_text">Using computer to analyse data</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/025-data-science.png" >
-        <h1 class="icon_title">Data Science</h1>
-        <p class="string_text">Making a computer predict</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/029-microchip.png" >
-        <h1 class="icon_title">AI</h1>
-        <p class="string_text">Introduction to AI</p>
-      </div>
-  </div>
-
-  <div class="learningrow1">
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/024-brain.png" >
-        <h1 class="icon_title">Machine Learning</h1>
-        <p class="string_text">Using computer to analyse data</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/028-deep-learning.png" >
-        <h1 class="icon_title">Deep Learning</h1>
-        <p class="string_text">Making a computer predict</p>
-      </div>
-
-      <div class="sectioncard">
-        <img class="learningicon" src="icons/030-chat-gpt.png" >
-        <h1 class="icon_title">Project and Research</h1>
-        <p class="string_text">Introduction to AI</p>
-      </div>
-  </div>
-
-  </div>
-
-  <!--  -->
+  // Optional: later
+  // GoldParticles.detachFrom('contact');
 
   
-
-
-</div>
-        
-    <script>
-
-    </script>
+</script>
 </body>
-
 </html>
-
-
