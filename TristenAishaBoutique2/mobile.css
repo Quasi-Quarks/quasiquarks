@@ -349,11 +349,11 @@ body{
   box-shadow: inset 0 -1px 0 rgba(239,194,83,.18); /* gold hairline */
 }
 
+
 /* Hero caption backdrop: blue-black (not purple) */
 .hero-content{
-  background: linear-gradient(180deg, transparent, rgba(11,18,38,.85) 30%, rgba(11,18,38,1));
+  background: linear-gradient(180deg, transparent, rgb(11 18 38 / 24%) 30%, rgba(11, 18, 38, 1));
 }
-
 /* 3) Accents */
 .brand-strip{
   background: linear-gradient(
