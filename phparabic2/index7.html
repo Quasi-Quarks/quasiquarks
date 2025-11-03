@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EN↔AR (auto-detect + per-word splitter)</title>
+  <style>
+    /* tiny readability (remove if you want totally bare) */
+    #arabic_splitter { margin-top: 8px; }
+    #arabic_splitter > div {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px; padding: 6px 0; border-bottom: 1px solid #eee;
+    }
+    #arabic_splitter p { margin: 0; cursor: pointer; }
+    #arabic_splitter p:nth-child(1) { font-size: 20px; }       /* Arabic */
+    #arabic_splitter p:nth-child(2) { font-size: 12px; opacity: .75; } /* translit */
+    #arabic_splitter p:nth-child(3) { font-size: 12px; color:#333; }   /* English */
+  </style>
+</head>
+<body>
+
+  <div id="show_arabic">
+    <p id="arabic_text"></p>
+    <p id="arabic_text_romanised"></p>
+  </div>
+
+  <div id="show_english">
+    <p id="english_text"></p>
+  </div>
+
+  <div id="arabic_splitter"></div>
+
+  <input id="input_box" value="This is a book I bought from the market">
+  <button id="run">Run</button>
+  <audio id="player" controls></audio>
+
+  <div id="settings">
+    <label for="voice">Choose a voice</label>
+    <select id="voice"></select>
+  </div>
+
+  <script>
+  // --- Config ---
+  var API   = "https://quasiquarks.com/api3.php";
+  var STYLE = "google";
+  var VOICE = "ar-XA-Wavenet-A";
+  var RATE  = 1.0;
+  var GAIN  = 0.0;
+
+  // --- Helpers ---
+  function isArabicText(s) {
+    return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(s);
+  }
+  function setText(id, val){ var el=document.getElementById(id); if(el) el.innerText = val || ""; }
+
+  // --- EN -> AR (with transliteration, optional speak) ---
+  async function doEnToAr(text, speakIt) {
+    var r = await fetch(API + "?en2ar=1", {
+      method:"POST", headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ text: text, style: STYLE })
+    });
+    var j = await r.json();
+    if (!r.ok) { console.log("en2ar failed", j); return; }
+
+    var ar = j.ar || "", tr = j.transliteration || "";
+    setText("arabic_text", ar);
+    setText("arabic_text_romanised", tr);
+    setText("english_text", "");
+
+    // Build per-word view (Arabic + translit + per-word EN translation)
+    buildArabicSplitter(ar);
+
+    if (speakIt && ar) {
+      var r2 = await fetch(API + "?speak=1", {
+        method:"POST", headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ text: ar, voiceName: VOICE, speakingRate: RATE, volumeGainDb: GAIN })
+      });
+      var j2 = await r2.json();
+      if (r2.ok && j2.audioContent) {
+        var player = document.getElementById("player");
+        player.src = "data:audio/mp3;base64," + j2.audioContent;
+        try { await player.play(); } catch(e){}
+      }
+    }
+  }
+
+  // --- AR -> EN (clears splitter) ---
+  async function doArToEn(text) {
+    var r = await fetch(API + "?ar2en=1", {
+      method:"POST", headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ arabic: text })
+    });
+    var j = await r.json();
+    if (!r.ok) { console.log("ar2en failed", j); return; }
+
+    setText("english_text", j.en || "");
+    setText("arabic_text", "");
+    setText("arabic_text_romanised", "");
+    var box = document.getElementById('arabic_splitter');
+    if (box) box.innerHTML = '';
+  }
+
+  // --- Auto-detect & route ---
+  async function detectlanguage(speak) {
+    var text = (document.getElementById("input_box").value || "").trim();
+    if (!text) {
+      setText("arabic_text",""); setText("arabic_text_romanised",""); setText("english_text","");
+      var box = document.getElementById('arabic_splitter'); if (box) box.innerHTML = '';
+      return;
+    }
+    if (isArabicText(text)) {
+      await doArToEn(text);
+    } else {
+      await doEnToAr(text, !!speak);
+    }
+  }
+
+  // Wire up
+  document.getElementById("input_box").oninput = function(){ detectlanguage(false); };
+  document.getElementById("run").onclick = function(){ detectlanguage(true); };
+
+  // Populate voices
+  function loadVoices(selectId, apiUrl) {
+    var sel = document.getElementById(selectId);
+    if (!sel) return;
+    fetch(apiUrl + '?voices=1')
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if (!j || !j.voices || !j.voices.length) return;
+        sel.innerHTML = '';
+        for (var i = 0; i < j.voices.length; i++) {
+          var v = j.voices[i];
+          var opt = document.createElement('option');
+          opt.value = v.name;
+          var label = v.name.replace('ar-XA-','').replace('Chirp3-HD-','Chirp3-HD ');
+          if (v.ssmlGender) label += ' (' + v.ssmlGender + ')';
+          opt.textContent = label;
+          sel.appendChild(opt);
+        }
+        if (VOICE) sel.value = VOICE;
+      })
+      .catch(function(e){ console.log('voices fetch failed', e); });
+  }
+  document.getElementById('voice').addEventListener('change', function () {
+    VOICE = this.value || VOICE;
+  });
+  loadVoices('voice', API);
+
+  // ===== Splitter: Arabic → (translit + per-word EN) =====
+  // Caches
+  var _wordTranslitCache = {};
+  var _wordEnCache = {};
+
+  function buildArabicSplitter(arText) {
+    var box = document.getElementById('arabic_splitter');
+    if (!box) return;
+    box.innerHTML = '';
+
+    var words = (arText || '').trim().split(/\s+/).filter(Boolean);
+
+    function cleanEdge(w) {
+      return (w || '').replace(/^[\s\.,!?;:()\[\]«»"“”'،؛…]+|[\s\.,!?;:()\[\]«»"“”'،؛…]+$/g, '');
+    }
+
+    // Build rows
+    for (var i = 0; i < words.length; i++) {
+      var displayAr = words[i];
+      var plainAr   = cleanEdge(displayAr);
+
+      var row = document.createElement('div');
+
+      var pAr = document.createElement('p');
+      pAr.innerText = displayAr;
+
+      var pTr = document.createElement('p');
+      pTr.innerText = '…';
+
+      var pEn = document.createElement('p');
+      pEn.innerText = '…';
+
+      // Click any cell -> speak this Arabic word
+      pAr.onclick = pTr.onclick = pEn.onclick = (function(word){
+        return function(){ if (word) speakWord(word); };
+      })(plainAr || displayAr);
+
+      row.appendChild(pAr);
+      row.appendChild(pTr);
+      row.appendChild(pEn);
+
+      // stash for fills
+      row._plain = plainAr;
+      row._pTr   = pTr;
+      row._pEn   = pEn;
+
+      box.appendChild(row);
+    }
+
+    // Fill transliteration and per-word English sequentially
+    (async function fillAll(){
+      for (var k = 0; k < box.children.length; k++) {
+        var r = box.children[k];
+        var w = r._plain;
+        if (!w) { r._pTr.innerText = ''; r._pEn.innerText = ''; continue; }
+
+        // transliteration (cached)
+        try {
+          var keyTr = w + '::' + STYLE;
+          if (_wordTranslitCache[keyTr]) {
+            r._pTr.innerText = _wordTranslitCache[keyTr];
+          } else {
+            var t = await romanizeWord(w);
+            _wordTranslitCache[keyTr] = t || '';
+            r._pTr.innerText = t || '';
+          }
+        } catch(_) { r._pTr.innerText = ''; }
+
+        // per-word English (cached)
+        try {
+          if (_wordEnCache[w]) {
+            r._pEn.innerText = _wordEnCache[w];
+          } else {
+            var e = await translateWordToEnglish(w);
+            _wordEnCache[w] = e || '';
+            r._pEn.innerText = e || '';
+          }
+        } catch(_) { r._pEn.innerText = ''; }
+      }
+    })();
+  }
+
+  // Romanize one word
+  async function romanizeWord(word) {
+    var resp = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({ arabic: word, style: STYLE })
+    });
+    var j = await resp.json();
+    return resp.ok ? (j.transliteration || '') : '';
+  }
+
+  // Translate one Arabic word -> English
+  async function translateWordToEnglish(word) {
+    var r = await fetch(API + '?ar2en=1', {
+      method:'POST', headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({ arabic: word })
+    });
+    var j = await r.json();
+    return r.ok ? (j.en || '') : '';
+  }
+
+  // Speak one word
+  async function speakWord(word) {
+    var r = await fetch(API + '?speak=1', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        text: word,
+        voiceName: VOICE,
+        speakingRate: RATE,
+        volumeGainDb: GAIN
+      })
+    });
+    var j = await r.json();
+    if (r.ok && j.audioContent) {
+      var player = document.getElementById('player');
+      player.src = 'data:audio/mp3;base64,' + j.audioContent;
+      try { await player.play(); } catch(_) {}
+    }
+  }
+
+  // kick off once
+  detectlanguage(false);
+  </script>
+</body>
+</html>

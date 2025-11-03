@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Control Game</title>
+<style>
+    /* CSS to style the container */
+    #container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        perspective: 1000px; /* Adjust perspective as needed */
+    }
+
+    /* CSS to style the cube */
+    .cube {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-style: preserve-3d;
+        transition: transform 0.1s ease-out; /* Smooth transition */
+    }
+
+    /* Front face of the cube */
+    .front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 0, 0, 0.5);
+        transform: translateZ(50px);
+    }
+
+    /* Back face of the cube */
+    .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 255, 0, 0.5);
+        transform: rotateY(180deg) translateZ(50px);
+    }
+
+    /* Right face of the cube */
+    .right {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 255, 0.5);
+        transform: rotateY(90deg) translateZ(50px);
+    }
+
+    /* Left face of the cube */
+    .left {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 0, 0.5);
+        transform: rotateY(-90deg) translateZ(50px);
+    }
+
+    /* Top face of the cube */
+    .top {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 0, 255, 0.5);
+        transform: rotateX(90deg) translateZ(50px);
+    }
+
+    /* Bottom face of the cube */
+    .bottom {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 255, 255, 0.5);
+        transform: rotateX(-90deg) translateZ(50px);
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <div class="cube">
+            <div class="front"></div>
+            <div class="back"></div>
+            <div class="right"></div>
+            <div class="left"></div>
+            <div class="top"></div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+
+    <script>
+        // Example function to handle mouse movement
+        function handleMouseMove(event) {
+            // Get the change in mouse position
+            const deltaX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
+            const deltaY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
+
+            // Convert mouse movement to rotation angles
+            const sensitivity = 0.1; // Adjust sensitivity as needed
+            const rotationX = deltaX * sensitivity;
+            const rotationY = deltaY * sensitivity;
+
+            // Apply rotation to the cube
+            const cube = document.querySelector('.cube');
+            cube.style.transform = `rotateX(${rotationY}deg) rotateY(${rotationX}deg)`;
+        }
+
+        // Attach mousemove event listener
+        document.addEventListener('mousemove', handleMouseMove);
+    </script>
+</body>
+</html>

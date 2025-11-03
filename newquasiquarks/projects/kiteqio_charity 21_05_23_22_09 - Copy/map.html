@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>World Map</title>
+	<style>
+		img {
+			display: block;
+			margin: auto;
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<img src="worldmap.jpg" usemap="#worldmap">
+
+	<map name="worldmap">
+		<area shape="rect" coords="10,10,100,100" alt="Kenya" onclick="showPopup('Kenya', 'There are 200,000 homeless people affected by earthquake', 'red')" />
+		<area shape="rect" coords="110,110,200,200" alt="Zimbabwe" onclick="showPopup('Zimbabwe', 'There are 75,000 homeless people', 'orange')" />
+		<!-- Add more areas for other countries -->
+	</map>
+
+	<script>
+		function showPopup(country, info, color) {
+			alert(country + '\n\n' + info);
+			// You can also change the background color of the clicked area
+			document.querySelector('area[alt="' + country + '"]').style.backgroundColor = color;
+		}
+	</script>
+</body>
+</html>

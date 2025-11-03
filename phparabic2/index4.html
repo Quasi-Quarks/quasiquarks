@@ -1,0 +1,121 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EN↔AR Demo (PHP + HTML)</title>
+
+
+</head>
+
+<div id="show_arabic">
+  <p id="arabic_text"></p>
+  <p id="arabic_text_romanised"></p>
+</div>
+
+<div id="show_english">
+  <p id="english_text"></p>
+ 
+</div>
+
+<input id="input_box" value="as salaamu alaykum">
+
+<button id="run">Run demo</button>
+<audio id="player" controls></audio>
+
+<script>
+
+
+var input_box_text = ""
+
+document.getElementById("input_box").oninput = function() {
+  console.log(this.value)
+   input_box_text = this.value;
+}
+
+
+function detectlanguage() {
+
+// check if letters are english if so do arabic translation
+// else do english translation from arabic very simple
+
+}
+// Calls your local PHP proxy (same folder)
+const API = "https://quasiquarks.com/api.php";
+
+// Defaults
+const STYLE = 'google';
+const VOICE = 'ar-XA-Wavenet-A';
+const RATE  = 1.0;
+const GAIN  = 0.0;
+
+async function runDemo() {
+  const player = document.getElementById('player');
+
+  // --- English -> Arabic (+ transliteration + speak) ---
+  const enText = input_box_text;
+  console.log('EN input:', enText);
+
+  // translate EN->AR
+  const r1 = await fetch(API + '?en2ar=1', {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify({ text: enText, style: STYLE })
+  });
+  const j1 = await r1.json();
+  if (!r1.ok) { console.error('en2ar failed:', j1); return; }
+
+  const ar = j1.ar || '';
+  const tr = j1.transliteration || '';
+  console.log('AR output:', ar);
+  console.log('TR output:', tr);
+  document.getElementById("arabic_text").innerText = ar; 
+  document.getElementById("arabic_text_romanised").innerText = tr;
+  // speak Arabic
+  if (ar) {
+    const r2 = await fetch(API + '?speak=1', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        text: ar,
+        voiceName: VOICE,
+        speakingRate: RATE,
+        volumeGainDb: GAIN
+      })
+    });
+    const j2 = await r2.json();
+    if (r2.ok && j2.audioContent) {
+      player.src = 'data:audio/mp3;base64,' + j2.audioContent;
+      try { await player.play(); } catch(e) {
+        console.warn('Autoplay blocked — press Play.');
+      }
+    } else {
+      console.error('speak failed:', j2);
+    }
+  }
+
+  // --- Arabic -> English ---
+  const arText = 'وعليكم السلام';
+  console.log('AR input:', arText);
+
+  const r3 = await fetch(API + '?ar2en=1', {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify({ arabic: arText })
+  });
+  const j3 = await r3.json();
+  if (r3.ok) {
+    console.log('EN output:', j3.en || '');
+  } else {
+    console.error('ar2en failed:', j3);
+  }
+}
+
+document.getElementById('run').addEventListener('click', runDemo);
+</script>
+
+</body>
+</html>

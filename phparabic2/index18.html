@@ -1,0 +1,91 @@
+<body>
+    <head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Basaam Qasem">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EN↔AR (auto-detect + per-word splitter)</title>
+  <link rel="stylesheet" href="index18.css">
+</head>
+  <div id="body_container">
+<div id="canva">
+  <div id="show_arabic">
+    <p id="arabic_text">السلام عليكم</p>
+    <p id="arabic_text_romanised">Alsalam ealaykum</p>
+    <div id="settings_logo"></div>
+  </div>
+
+  <div id="show_english">
+    <p id="english_text"></p>
+  </div>
+
+  <div id="arabic_splitter"><div><p style="color: red;">السلام</p><p style="color: red;">Alsalam</p><p>peace</p></div><div><p style="color: green;">عليكم</p><p style="color: green;">Ealaykum</p><p>You</p></div></div>
+</div>
+<div id="send_container">
+  <div id="textinput_container">  
+    <textarea id="input_box">As salaamu alaykum </textarea>  
+   </div> 
+      <button id="run">Run</button>
+</div>
+
+<div id="vocabcontainer">
+  <div id="vocab_topics">
+     <p id="refresh">Refresh</p>
+    <p id="action">action</p>
+    <p id="objects">objects</p>
+    <p id="career">career</p>
+    <p id="environment">environment</p>
+    <p id="position">position</p>
+    <p id="Time">Time</p>
+    <p id="Stuff">Stuff</p>
+    <p id="description">Description</p>
+    <p id="Animal">Animal</p>
+    <p id="body">body</p>
+    <p id="clothing">clothing</p>
+    <p id="feeling">feeling</p>
+    <p id="food">food</p>
+    <p id="personal">Personal</p>
+    <p id="transportation">transportation</p>
+    <p id="pronoun">pronoun</p>
+  </div>
+   <p id="words_written"></p>
+   <div id="split_words_buttons_container"></div>
+   <div id="dictionary_section_view"></div>
+
+   <div id="refreshContainer">
+   <div id="dictionary_list_container"><div><p class="vocabarabic_p">دَرَّاجَة</p><p class="vocabtr_p">darrājah</p><p class="vocabenglish_p">bike</p></div><div><p class="vocabarabic_p">سَيَّارَة</p><p class="vocabtr_p">sayyārah</p><p class="vocabenglish_p">car</p></div><div><p class="vocabarabic_p">قِطَار</p><p class="vocabtr_p">qiṭār</p><p class="vocabenglish_p">train</p></div><div><p class="vocabarabic_p">طَائِرَة</p><p class="vocabtr_p">ṭāʾirah</p><p class="vocabenglish_p">airplane</p></div><div><p class="vocabarabic_p">شَاحِنَة</p><p class="vocabtr_p">shāḥinah</p><p class="vocabenglish_p">truck</p></div><div><p class="vocabarabic_p">قَارِب</p><p class="vocabtr_p">qārib</p><p class="vocabenglish_p">boat</p></div><div><p class="vocabarabic_p">سَفِينَة</p><p class="vocabtr_p">safīnah</p><p class="vocabenglish_p">ship</p></div><div><p class="vocabarabic_p">طَائِرَةٌ نَفَّاثَة</p><p class="vocabtr_p">ṭāʾirah naffāthah</p><p class="vocabenglish_p">jet</p></div><div><p class="vocabarabic_p">مَطَار</p><p class="vocabtr_p">maṭār</p><p class="vocabenglish_p">airport</p></div><div><p class="vocabarabic_p">مَحَطَّة</p><p class="vocabtr_p">maḥaṭṭah</p><p class="vocabenglish_p">station</p></div><div><p class="vocabarabic_p">قِطَار</p><p class="vocabtr_p">qiṭār</p><p class="vocabenglish_p">train</p></div><div><p class="vocabarabic_p">حَافِلَة</p><p class="vocabtr_p">ḥāfilah</p><p class="vocabenglish_p">bus</p></div><div><p class="vocabarabic_p">دَرَّاجَةٌ هَوَائِيَّة</p><p class="vocabtr_p">darrājah hawāʾiyyah</p><p class="vocabenglish_p">bicycle</p></div><div><p class="vocabarabic_p">سَيَّارَة</p><p class="vocabtr_p">sayyārah</p><p class="vocabenglish_p">car</p></div><div><p class="vocabarabic_p">رَاكِب</p><p class="vocabtr_p">rākib</p><p class="vocabenglish_p">passenger</p></div><div><p class="vocabarabic_p">مَوْقِفُ حَافِلَات</p><p class="vocabtr_p">mawqif ḥāfilāt</p><p class="vocabenglish_p">bus stop</p></div></div>
+   <div id="sentencesList_container"><div class="sentence_elements_container"><p class="sentence_elements">this is a roof</p><p class="sentence_elements">that is a chicken</p><p class="sentence_elements">that is my book</p><p class="sentence_elements">that is a university</p><p class="sentence_elements">I went to the teacher</p><p class="sentence_elements">I went to the school</p><p class="sentence_elements">I am going to the house</p><p class="sentence_elements">Could you please return the cash</p><p class="sentence_elements">The teacher gave me the book</p><p class="sentence_elements">the car is quick</p><p class="sentence_elements">this is my house</p><p class="sentence_elements">The car is slow</p><p class="sentence_elements">The cheetah is nice</p><p class="sentence_elements">The book is big</p><p class="sentence_elements">the book is warm</p><p class="sentence_elements">She is beautiful</p></div><div class="sentence_elements_container"><p class="sentence_elements">I'm at the school</p><p class="sentence_elements">The teacher is at the school</p><p class="sentence_elements">He is at the house</p><p class="sentence_elements">I have a strong car</p><p class="sentence_elements">He is eating</p><p class="sentence_elements">The player is playing</p><p class="sentence_elements">he has my books</p><p class="sentence_elements">I'm in the car</p><p class="sentence_elements">I'm in the school</p><p class="sentence_elements">The chicken is running</p><p class="sentence_elements">I am playing</p><p class="sentence_elements">He is playing</p><p class="sentence_elements">He he has rose</p></div><div class="sentence_elements_container"><p class="sentence_elements">pass me the apple</p><p class="sentence_elements">pass me the apples</p><p class="sentence_elements">he gave me his book</p><p class="sentence_elements">he gave me his books</p><p class="sentence_elements">he is giving me a pot</p><p class="sentence_elements">he is giving me his car</p><p class="sentence_elements">I am driving a car</p><p class="sentence_elements">I will play</p><p class="sentence_elements">I played</p><p class="sentence_elements">I am playing</p><p class="sentence_elements">I gave the apple</p><p class="sentence_elements">I'm giving him my car</p></div><div class="sentence_elements_container"><p class="sentence_elements">is ball is rolling</p><p class="sentence_elements">the bird is flying</p><p class="sentence_elements">the bird is rolling quickly</p><p class="sentence_elements">the fish is moving</p><p class="sentence_elements">the car ss going quickly</p><p class="sentence_elements">the car is moving quickly</p><p class="sentence_elements">I am driving a car</p><p class="sentence_elements">he drove a car</p><p class="sentence_elements">he will a drive a car</p></div><div class="sentence_elements_container"><p class="sentence_elements">I'm returning home</p><p class="sentence_elements">I don't like apples</p><p class="sentence_elements">I feel like going to the country</p><p class="sentence_elements">what is an apple</p><p class="sentence_elements">How does a bird fly</p></div></div>
+  </div>
+
+
+ </div>
+  
+  <audio id="player" controls=""></audio>
+
+  <div id="settings">
+    <div class="settings_options">
+    <label for="voice">Choose a voice</label>
+    <select id="voice"><option value="ar-XA-Chirp3-HD-Achernar">Chirp3-HD Achernar (FEMALE)</option><option value="ar-XA-Chirp3-HD-Achird">Chirp3-HD Achird (MALE)</option><option value="ar-XA-Chirp3-HD-Algenib">Chirp3-HD Algenib (MALE)</option><option value="ar-XA-Chirp3-HD-Algieba">Chirp3-HD Algieba (MALE)</option><option value="ar-XA-Chirp3-HD-Alnilam">Chirp3-HD Alnilam (MALE)</option><option value="ar-XA-Chirp3-HD-Aoede">Chirp3-HD Aoede (FEMALE)</option><option value="ar-XA-Chirp3-HD-Autonoe">Chirp3-HD Autonoe (FEMALE)</option><option value="ar-XA-Chirp3-HD-Callirrhoe">Chirp3-HD Callirrhoe (FEMALE)</option><option value="ar-XA-Chirp3-HD-Charon">Chirp3-HD Charon (MALE)</option><option value="ar-XA-Chirp3-HD-Despina">Chirp3-HD Despina (FEMALE)</option><option value="ar-XA-Chirp3-HD-Enceladus">Chirp3-HD Enceladus (MALE)</option><option value="ar-XA-Chirp3-HD-Erinome">Chirp3-HD Erinome (FEMALE)</option><option value="ar-XA-Chirp3-HD-Fenrir">Chirp3-HD Fenrir (MALE)</option><option value="ar-XA-Chirp3-HD-Gacrux">Chirp3-HD Gacrux (FEMALE)</option><option value="ar-XA-Chirp3-HD-Iapetus">Chirp3-HD Iapetus (MALE)</option><option value="ar-XA-Chirp3-HD-Kore">Chirp3-HD Kore (FEMALE)</option><option value="ar-XA-Chirp3-HD-Laomedeia">Chirp3-HD Laomedeia (FEMALE)</option><option value="ar-XA-Chirp3-HD-Leda">Chirp3-HD Leda (FEMALE)</option><option value="ar-XA-Chirp3-HD-Orus">Chirp3-HD Orus (MALE)</option><option value="ar-XA-Chirp3-HD-Puck">Chirp3-HD Puck (MALE)</option><option value="ar-XA-Chirp3-HD-Pulcherrima">Chirp3-HD Pulcherrima (FEMALE)</option><option value="ar-XA-Chirp3-HD-Rasalgethi">Chirp3-HD Rasalgethi (MALE)</option><option value="ar-XA-Chirp3-HD-Sadachbia">Chirp3-HD Sadachbia (MALE)</option><option value="ar-XA-Chirp3-HD-Sadaltager">Chirp3-HD Sadaltager (MALE)</option><option value="ar-XA-Chirp3-HD-Schedar">Chirp3-HD Schedar (MALE)</option><option value="ar-XA-Chirp3-HD-Sulafat">Chirp3-HD Sulafat (FEMALE)</option><option value="ar-XA-Chirp3-HD-Umbriel">Chirp3-HD Umbriel (MALE)</option><option value="ar-XA-Chirp3-HD-Vindemiatrix">Chirp3-HD Vindemiatrix (FEMALE)</option><option value="ar-XA-Chirp3-HD-Zephyr">Chirp3-HD Zephyr (FEMALE)</option><option value="ar-XA-Chirp3-HD-Zubenelgenubi">Chirp3-HD Zubenelgenubi (MALE)</option><option value="ar-XA-Standard-A">Standard-A (FEMALE)</option><option value="ar-XA-Standard-B">Standard-B (MALE)</option><option value="ar-XA-Standard-C">Standard-C (MALE)</option><option value="ar-XA-Standard-D">Standard-D (FEMALE)</option><option value="ar-XA-Wavenet-A">Wavenet-A (FEMALE)</option><option value="ar-XA-Wavenet-B">Wavenet-B (MALE)</option><option value="ar-XA-Wavenet-C">Wavenet-C (MALE)</option><option value="ar-XA-Wavenet-D">Wavenet-D (FEMALE)</option></select>
+    </div>
+    <p id="close_settings">X</p>
+  </div>
+</div>
+  
+  
+
+  <script>
+     settings_display  = "none"
+document.getElementById("settings_logo").onclick = function() {
+   if(settings_display == "none") {
+      document.getElementById("settings").style.display = "flex";
+      settings_display = "flex"
+   } else {
+      document.getElementById("settings").style.display = "none";
+      settings_display = "none"
+   }
+}
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EN↔AR (auto-detect)</title>
+
+<div id="show_arabic">
+  <p id="arabic_text"></p>
+  <p id="arabic_text_romanised"></p>
+</div>
+
+<div id="show_english">
+  <p id="english_text"></p>
+</div>
+
+<input id="input_box" value="as salaamu alaykum">
+<button id="run">Run demo</button>
+<audio id="player" controls></audio>
+
+<div id="settings">
+  <label for="voice">Choose a voice</label>
+  <select id="voice"></select>
+</div>
+
+
+
+
+<script>
+// --- Config ---
+var API   = "https://quasiquarks.com/api2.php";
+var STYLE = "google";
+var VOICE = "ar-XA-Wavenet-A";
+var RATE  = 1.0;
+var GAIN  = 0.0;
+
+// --- Helpers ---
+function isArabicText(s) {
+  // Arabic blocks: main + supplement + presentation forms
+  return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(s);
+}
+function setText(id, val){ var el=document.getElementById(id); if(el) el.innerText = val || ""; }
+
+// --- EN -> AR (with transliteration, optional speak) ---
+async function doEnToAr(text, speakIt) {
+  var r = await fetch(API + "?en2ar=1", {
+    method:"POST", headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({ text: text, style: STYLE })
+  });
+  var j = await r.json();
+  if (!r.ok) { console.log("en2ar failed", j); return; }
+
+  var ar = j.ar || "", tr = j.transliteration || "";
+  console.log("AR:", ar);
+  console.log("TR:", tr);
+  setText("arabic_text", ar);
+  setText("arabic_text_romanised", tr);
+  setText("english_text", ""); // clear other side
+
+  if (speakIt && ar) {
+    var r2 = await fetch(API + "?speak=1", {
+      method:"POST", headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ text: ar, voiceName: VOICE, speakingRate: RATE, volumeGainDb: GAIN })
+    });
+    var j2 = await r2.json();
+    if (r2.ok && j2.audioContent) {
+      var player = document.getElementById("player");
+      player.src = "data:audio/mp3;base64," + j2.audioContent;
+      try { await player.play(); } catch(e){ /* autoplay may be blocked */ }
+    }
+  }
+}
+
+// --- AR -> EN ---
+async function doArToEn(text) {
+  var r = await fetch(API + "?ar2en=1", {
+    method:"POST", headers:{ "Content-Type":"application/json" },
+    body: JSON.stringify({ arabic: text })
+  });
+  var j = await r.json();
+  if (!r.ok) { console.log("ar2en failed", j); return; }
+
+  console.log("EN:", j.en || "");
+  setText("english_text", j.en || "");
+  setText("arabic_text", "");
+  setText("arabic_text_romanised", "");
+}
+
+// --- Auto-detect & route ---
+async function detectlanguage(speak) {
+  var text = (document.getElementById("input_box").value || "").trim();
+  if (!text) {
+    setText("arabic_text",""); setText("arabic_text_romanised",""); setText("english_text","");
+    return;
+  }
+  if (isArabicText(text)) {
+    await doArToEn(text);
+  } else {
+    await doEnToAr(text, !!speak);
+  }
+}
+
+// Wire up
+document.getElementById("input_box").oninput = function(){ detectlanguage(false); };
+document.getElementById("run").onclick = function(){ detectlanguage(true); };
+
+
+
+// Mini function: fetch voices and populate a <select>
+function loadVoices(selectId, apiUrl) {
+  var sel = document.getElementById(selectId);
+  if (!sel) return;
+
+  fetch(apiUrl + '?voices=1')
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      if (!j || !j.voices || !j.voices.length) return;
+
+      sel.innerHTML = '';
+      for (var i = 0; i < j.voices.length; i++) {
+        var v = j.voices[i];
+        var opt = document.createElement('option');
+        opt.value = v.name; // e.g. "ar-XA-Wavenet-A"
+        var label = v.name.replace('ar-XA-','').replace('Chirp3-HD-','Chirp3-HD ');
+        if (v.ssmlGender) label += ' (' + v.ssmlGender + ')';
+        opt.textContent = label;
+        sel.appendChild(opt);
+      }
+
+      // try to keep your default VOICE selected if present
+      if (VOICE) sel.value = VOICE;
+    })
+    .catch(function(e){
+      console.log('voices fetch failed', e);
+    });
+}
+
+// Keep VOICE in sync with the dropdown
+document.getElementById('voice').addEventListener('change', function () {
+  VOICE = this.value || VOICE;
+});
+
+// Populate on load
+loadVoices('voice', 'https://quasiquarks.com/api2.php');
+</script>
+
+
+

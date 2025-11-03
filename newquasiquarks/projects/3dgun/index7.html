@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+  div#chracter {
+    position: fixed;
+    top: 20%;
+    transform: rotateX(333deg) rotateY(-24deg);
+    transform-style: preserve-3d;
+    /* display: none; */
+    left: 50%;
+}
+
+div#controller {
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    z-index: 88;
+    /* display: none; */
+}
+
+        </style>
+
+</head>
+<body>
+
+
+
+    <div id="chracter">
+    
+    </div>
+
+    <div id="controller">
+
+    </div>
+
+    <script>
+
+var angle360 = 0;
+var angleY = 0;
+var angleX = 0;
+var angledistancex = 0;
+var angledistancey = 0;
+
+var controllerelem = document.getElementById("controller");
+  var controllerelemposy = parseInt(window.getComputedStyle(controllerelem, null).getPropertyValue("top"));
+  var controllerelemposx = parseInt(window.getComputedStyle(controllerelem, null).getPropertyValue("left"));
+  var mousposClientY = 0;
+  var mousposClientX = 0;
+  
+  addEventListener('mousemove', function() {
+    mousposClientY =  event.clientY;
+  mousposClientX =  event.clientX;
+
+  control()
+});
+
+       
+
+function control() {
+    angle  = parseInt((Math.atan((-mousposClientY+controllerelemposy)/(-mousposClientX+controllerelemposx))/Math.PI) * 180);  
+    if(mousposClientY >= controllerelemposy) {
+      if(mousposClientX >= controllerelemposx) {
+      controllerelem.style.backgroundColor = "red"
+      angleY = (-angle) / 10;
+      angleX = 9 + -(angle/10);
+      angle360 = 90 + angle;
+    } else  if(mousposClientX <= controllerelemposx) {
+      controllerelem.style.backgroundColor = "green"
+      angleY = angle / 10;
+      angleX = 9 +(angle / 10);
+      angleX = -angleX;
+      angle360 = 270 + angle;
+    } 
+    } else if(mousposClientY <= controllerelemposy) {
+      if(mousposClientX >= controllerelemposx) {
+      controllerelem.style.backgroundColor = "blue"
+      angleY = (-angle) / 10;
+      angleX = ((angle) / 10) + 9;
+      angle360 = -90 + -angle;
+      angle360 = -angle360;
+    } else  if(mousposClientX <= controllerelemposx) {
+      controllerelem.style.backgroundColor = "purple";
+      angleY = angle / 10;
+      angleX = 9 + -(angle / 10);
+      angleX = angleX;
+      angle360 = 270 + angle;
+    } 
+    }
+
+    angledistancex = angledistancex + (angleY /10);
+    angledistancey = angledistancey + (angleX/10);
+    
+    angleY = parseInt(angleY);
+    angleX = parseInt(angleX);
+
+
+  }
+
+
+
+  function move() {
+    
+    document.getElementById("controller").style.transform = "rotateY("+angledistancey+"deg) rotateX("+(angledistancex)+"deg)";
+  
+setTimeout(move, 20);
+}
+
+
+move()
+
+var chrchcubeposx = [0, 50, 0, -50, 0, 0, 0]
+    var chrchcubeposy = [0, 0, 150, 0, 0, 0, 0]
+    var chrchcubepostz = [50, 0, 100, 0, 50, -50, 0]
+
+    var elerotateY = [0, 90, 0, 90, 0, 0, 0]
+    var elerotateX = [90, 0, 90, 0, 0, 0, 90]
+
+    function chrchcrtCube() {
+    for(a=0; a<=6; a++) {
+          var layers = document.createElement("div");
+          layers.style.backgroundColor = "rgba("+(50*a)+", 150, 200, 0.5)";
+          layers.style.position = "absolute";
+          layers.setAttribute("class", "layers");
+          layers.style.height = 100 + "px";
+          layers.style.width = 100 + "px";
+          layers.style.top = chrchcubeposy[a] + "px";
+          layers.style.left = chrchcubeposx[a] + "px";  
+          layers.innerText = "a"+a;
+          layers.style.transform = "rotateY("+elerotateY[a]+"deg) rotateX("+elerotateX[a]+"deg) translateZ("+chrchcubepostz[a]+"px) ";
+          //layers.style.transform = "rotateY(45deg) rotateX(45deg) translateZ(10px)"
+
+          document.getElementById("chracter").appendChild(layers);
+          document.getElementById("controller").appendChild(layers);
+        
+        }
+        }
+
+        chrchcrtCube()
+    </script>
+</body>
+</html>

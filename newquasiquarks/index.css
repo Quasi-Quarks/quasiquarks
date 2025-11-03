@@ -1,0 +1,183 @@
+*:not(html, script, style, head) {
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: none;
+    border: 1px solid #ff0101;
+    /* color: white; */
+   } 
+
+
+body {
+    /* background-color: #122463; */
+    
+    }
+
+
+img#profilepicture {
+    height: 130px;
+    width: 130px;
+    border-radius: 100%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 61%;
+}
+
+.professions {
+    flex-direction: column;
+}
+
+p {}
+
+p.professionstxt {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+
+.hero_container {
+    height: 80vh;
+    width: 100%;
+    padding: 0px 0px 26px 0px;
+    background-image: linear-gradient(
+45deg, #00a4ff, #ce9fff);
+}
+
+.hero_section {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(45deg, #00a4ff, #ce9fff);
+    justify-content: space-between;
+}
+
+.profile_section {
+    height: 325px;
+    justify-content: space-evenly;
+}
+
+.menu {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    color: black;
+}
+
+.menu_container {
+    width: 100%;
+}
+
+.menu p {
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.Setion2container {
+    height: 340px;
+    background-color: #161313;
+}
+
+.section_content {
+    height: 100%;
+    width: 100%;
+}
+
+.section2 {
+    height: 100%;
+    width: 88%;
+}
+
+.section_content h1 {font-weight: 800;font-size: 1.8rem;}
+
+.Setion3container {
+    background: #260026;
+    width: 100%;
+    height: 370px;
+}
+
+.section3 {
+    height: 100%;
+    width: 100%;
+}
+
+.section_content_services {
+    justify-content: space-around;
+    height: 80%;
+}
+ 
+.Projects_Container {
+    height: 275px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.projects_section {
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+.project_background {
+    height: 200px;
+    width: 100%;
+    background-image: linear-gradient(45deg, #b73131, #00a4ff);
+}
+
+.projects_element {
+    width: 100%;
+    height: 233px;
+}
+
+.projects_elementContainer {
+    margin-left: 23px;
+    border-radius: 21px;
+    overflow: hidden;
+    min-width: 192px;
+    margin: 0px 19px;
+}
+
+
+#mario_project {
+
+    background-image: url(images/mario.png);
+}
+
+#car {
+
+    background-image: url(images/3dcar.png);
+}
+
+
+#gun_game {
+     background-image: url(images/gun.png);
+}
+
+
+
+#mario_2d {
+     background-image: url(images/mario2d.png);
+}
+
+#japanese_rgb {
+     background-image: url(images/japanesenew.png);
+}
+
+#pixiqu {
+     background-image: url(images/pixiqu.PNG);
+}
+#Arabic {
+
+     background-image: url(images/arabic.PNG);
+}

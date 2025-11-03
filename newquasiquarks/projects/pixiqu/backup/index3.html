@@ -1,0 +1,336 @@
+<html>
+ <head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index3.css">
+ </head>
+
+ <body>
+
+    <div id="devconsole">
+
+    </div>
+
+     <div class="MenuContainer">
+        <p id="square">Square</p>
+        <p>Circle</p>
+        <p>Rectangle</p>
+        <p id="menucrtText">Text</p>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+        <p>Border-radius px</p>
+        <input type="range" id="rangepixl" value="0" min="0" max="100"/>
+        <p>Border-radius %</p>
+        <input type="range" id="rangeage" value="0" min="0" max="100"/>
+        <p>Text Shaddow</p>
+     
+        <p>Resize</p>
+     </div>
+
+     <div id="canvas">
+
+     </div>
+
+
+     <script>
+
+        var player;
+
+        var incontrol = false;
+        var irncontrol = false;
+          document.getElementById("square").onclick = function() {
+           sqre("div", "crtdivsqre", "sqresize")
+
+
+            }
+
+
+            document.getElementById("menucrtText").onclick = function() {
+          
+
+            crttxt()
+            }
+
+        function sqre(typex, elementclssname, resize) {
+            
+            crtsqre = document.createElement("div")
+              crtsqre.setAttribute("class", "elementclssname")
+              crtsqre.setAttribute("data-first-name", "npcsqr")
+              crtsqre.style.left = 50 + "%";
+              crtsqre.style.top = 50 + "%";
+
+    
+
+            
+              typex == "input" ? crtsqrechld.value = "Typography" : false
+
+            
+              //crtsqre.innerText = "npc"
+
+              sqresize = document.createElement("label")
+              sqresize.setAttribute("class", "sqresize")
+              sqresize.setAttribute("data-first-name", "npc")
+              sqresize.src = "increase.png"
+              sqresize.innerText = "npc"
+
+              sqresize.onclick = function () {
+               // alert(22)
+                 if(this.innerText == "npc") {
+                   alert("input")
+                   this.innerText = "resize"
+                     irncontrol = true;
+                 } else {
+                    this.innerText = "npc"
+                     irncontrol = false;
+                 }
+                 
+                 player = this;
+              }
+
+              crtsqre.appendChild(sqresize);
+              
+              document.body.appendChild(crtsqre)
+
+              crtsqre.onclick = function () {
+
+                //alert(888)
+                // this.innerText = "player"
+                 if(this.dataset.firstName == "npcsqr") {
+                   //alert(this.dataset.firstName)
+                   this.dataset.firstName = "playerssqr"
+                    incontrol = true;
+                 } else {
+                    this.dataset.firstName = "npcsqr"
+                    incontrol = false;
+                 }
+
+                if(irncontrol == true) {
+                    incontrol = false;
+                }
+                 
+                 player = this;
+              }
+
+              player = crtsqre;
+        }
+
+        resizeclicked = "noneclick";
+
+        function crttxt() {
+            
+            crtsqre = document.createElement("div")
+              crtsqre.setAttribute("class", "inputparentcontainer")
+              crtsqre.setAttribute("data-first-name", "npc")
+              crtsqre.style.left = 25 + "%";
+              crtsqre.style.top = 25 + "%";
+
+              crtsqrechld = document.createElement("textarea")
+              crtsqrechld.setAttribute("class", "sqresizetxt")
+
+              crtsqre.appendChild(crtsqrechld)
+               crtsqrechld.value = "Typography";
+            
+              //crtsqre.innerText = "npc"
+
+              sqresize = document.createElement("label")
+              sqresize.setAttribute("class", "sqresize")
+              sqresize.setAttribute("data-first-name", "npc")
+              sqresize.src = "increase.png"
+              sqresize.innerText = "npc"
+
+             
+               
+              crtsqre.appendChild(sqresize);
+              
+              document.body.appendChild(crtsqre)
+
+              crtsqrechld.oninput = function() {
+                incontrol = false;
+             
+              }
+
+              crtsqre.onclick = function () {
+                
+               alert("crtsqareclicked")
+                // document.getElementById("devconsole").innerHTML = incontrol;
+               // alert(888)
+                // this.innerText = "player"
+               // this.style.border = "2px solid pink"
+                
+
+              if(resizeclicked == "doubleclicked") {
+
+              } else {
+                // since it's not double clicked
+                // meaning doubleclickeddone
+                 if(resizeclicked == "doubleclickeddone") { 
+
+                 } else
+                 {
+                    if(this.dataset.firstName == "npc") {
+                   //alert(this.dataset.firstName)
+                   this.dataset.firstName = "players"
+                    incontrol = true;
+
+                    this.style.border = "2px solid red"
+                 } else {
+                    this.dataset.firstName = "npc"
+                    incontrol = false;
+                    this.style.border = "2px solid green"
+                 }
+                }
+                }
+
+                // if(resizeclicked == "normal") 
+                  
+                // with resize clicked
+
+                if(resizeclicked == "doubleclicked") {
+                      // do nothing
+                } else if(resizeclicked == "doubleclickeddone") {
+                    irncontrol = false;
+                    incontrol = false;
+                    resizeclicked = "normal";
+                }
+               
+                document.getElementById("devconsole").innerHTML = "incontrol" +  incontrol +"   "   + "irncontrol" + irncontrol
+                  player = this;
+              }
+
+              sqresize.onclick = function () {
+
+                
+               alert("sqresizeclicked")
+            //    if(this.innerText == "npc") {
+            //      alert("input")
+            //      this.innerText = "resize"
+            //        irncontrol = true;
+            //    } else {
+            //       this.innerText = "npc"
+            //        irncontrol = false;
+            //    }
+               this.innerText = "resize"
+                   irncontrol = true;
+            //    alert("resize"+irncontrol)
+            //    alert("posctrl"+incontrol)
+               player = this;
+               resizeclicked = "doubleclicked";
+              setTimeout(doubleclicked, 1000);
+
+function doubleclicked() {
+   // alert("clicked")
+    resizeclicked = "doubleclickeddone";
+}
+               
+            }
+
+
+              player = crtsqre;
+        }
+
+
+
+    
+
+        document.getElementById("canvas").onclick = function() {
+            alert("canvas")
+
+            if(irncontrol == true) {
+                  irncontrol = false;
+                 }
+
+                 if(incontrol == true) {
+                  incontrol = false;
+                 }
+        }
+
+        document.body.onmousemove = function(event) {myFunction(event)};
+
+
+       
+
+function myFunction(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+
+  if(incontrol == true) {
+ player.style.left = x;
+  player.style.top = y;
+
+  
+//   var ctrlposy = parseInt(window.getComputedStyle(player, null).getPropertyValue("top"));
+//   var ctrlposx = parseInt(window.getComputedStyle(player, null).getPropertyValue("left"));
+  
+
+//   console.log(ctrlposy)
+//   console.log(ctrlposx)
+
+//   heightposy = -ctrlposy + y;
+//     widthposx = -ctrlposx + x;
+//    player.style.height = player.scrollHeight + - 10
+//    player.style.width = player.scrollWidth + -10
+
+//   player.childNodes[0].style.fontSize = heightposy + widthposx + - 10
+  }
+
+  if(irncontrol == true) {
+
+
+
+//   var ctrlposy = parseInt(window.getComputedStyle(player, null).getPropertyValue("top"));
+//   var ctrlposx = parseInt(window.getComputedStyle(player, null).getPropertyValue("left"));
+  
+
+//   console.log(ctrlposy)
+//   console.log(ctrlposx)
+
+//   heightposy = -ctrlposy + y;
+//     widthposx = -ctrlposx + x;
+//   player.style.height = heightposy + - 10
+//   player.style.width = widthposx + -10
+
+//   player.parentNode.childNode[1].style.fontSize = heightposy + - 10
+var ctrlposy = parseInt(window.getComputedStyle(player, null).getPropertyValue("top"));
+  var ctrlposx = parseInt(window.getComputedStyle(player, null).getPropertyValue("left"));
+  
+
+//   console.log(ctrlposy)
+//   console.log(ctrlposx)
+
+  heightposy = -ctrlposy + y;
+    widthposx = -ctrlposx + x;
+
+if(player.dataset.firstName == "npcsqr" || player.dataset.firstName == "playerssqr") {
+        player.style.height = heightposy + - 10
+  player.style.width = widthposx + -10
+    } else {
+  player.childNodes[0].style.fontSize = heightposy + - 10
+    }
+}
+
+//player.style.border = "8px solid rgba("+x+", 88, 255, 0.8)"
+  
+  let coor = "Coordinates: (" + x + "," + y + ")";
+  document.getElementById("devconsole").innerHTML = "incontrol" +  incontrol +"   "   + "irncontrol" + irncontrol
+
+}
+
+// document.getElementById("range").oninput = function() {
+//    console.log(this.value)
+// }
+
+document.getElementById("favcolor").oninput = function() {
+
+    if(player.dataset.firstName == "npcsqr") {
+      player.style.backgroundColor = this.value
+    }
+    player.style.color = this.value;
+    // player.style.border = "8px solid blue"
+    // player.childNodes[0].style.backgroundColor = "yellow";
+    player.childNodes[0].style.color = this.value
+}
+
+
+
+     </script>
+    </body>
+</html>

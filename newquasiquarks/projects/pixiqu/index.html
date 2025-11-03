@@ -1,0 +1,351 @@
+<html>
+ <head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index6.css">
+ </head>
+
+ <body>
+
+    <div id="devconsole">
+
+    </div>
+
+     <div class="MenuContainer">
+        <div id="menucrtTextInput" class="icons"></div>
+        <div id="addsquare" class="icons"></div>
+        <div id="crtcircle" class="icons"></div>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+        <div id="text_shaddow" class="icons"></div>
+        <div id="border_radius" class="icons"></div>
+        <div id="box_shaddow" class="icons"></div>
+     </div>
+
+     <div id="range_container_borderRadius">
+        <input type="range" min="0" max="100" value="0" id="range_borderRadius_a" />
+    </div>
+
+    <div id="range_container_boxShadow">
+        <input type="range" min="0" max="100" value="0" id="box_shaddow_a" />
+    </div>
+
+    <div id="cancel">x</div>
+
+     <div id="canvas">
+
+         
+
+
+     </div>
+
+
+     <script>
+
+        var parentElement = null;
+        var cancel = document.getElementById("cancel")
+        var canceltoggle = false;
+        var controlVar = "false"
+         
+        menucrtTextInput.onclick = function() {
+              crtInpelemntParent = document.createElement("div")
+              crtInpelemntParent.setAttribute("class", "csscrtInpelemntParent")
+              crtInpelemntParent.setAttribute("data-input-type", "input")
+              crtInpelemntParent.style.position = "absolute"
+              crtInpelemntParent.style.left = 35 + "%";
+              crtInpelemntParent.style.top = 35 + "%";
+
+              crtInpelemnt = document.createElement("input")
+              crtInpelemnt.setAttribute("class", "csscrtInpelemnt")
+              crtInpelemnt.setAttribute("data-first-name", "input");
+              crtInpelemnt.setAttribute("value", "type here");
+         
+              crtInpelemnt.oninput = function () {
+                 //alert(this.value.length)
+                 this.style.width = this.value.length +"ch"
+                //  this.style.backgroundColor  = "yellow"
+              }
+
+             // parentElement.childNodes[0].style.width = parentElement.childNodes[0].value.length  + "ch"
+              
+
+              crtInpelemntParentIcons = document.createElement("div");
+              crtInpelemntParentIcons.setAttribute("class", "cssInpelemntParentIcons")
+           
+               crtIconResize = document.createElement("p");
+               crtIconResize.innerText = "Resize";
+               crtIconPos = document.createElement("p");
+               crtIconPos.innerText = "Pos";
+
+
+               crtIconResize.onclick = function() {
+                  clickresize(this) 
+               }
+
+               crtIconPos.onclick = function() {
+                  clickpos(this)
+               }
+
+               function clickpos(para1) {
+                  funcposText(para1) 
+               }
+
+               function clickresize(para1) {
+                  funcresizeText(para1) 
+               }
+
+               crtInpelemntParentIcons.appendChild(crtIconResize);
+               crtInpelemntParentIcons.appendChild(crtIconPos)
+           
+              //   crtInpelemntParent.setAttribute("data-input-type", "input")
+
+
+    
+              crtInpelemntParent.appendChild(crtInpelemnt)
+              crtInpelemntParent.appendChild(crtInpelemntParentIcons)
+
+
+              document.getElementById("canvas").appendChild(crtInpelemntParent)
+              parentElement = crtInpelemntParent;
+            }
+
+
+            document.getElementById("addsquare").onclick = function() {
+              crtInpelemntParent = document.createElement("div")
+              crtInpelemntParent.setAttribute("class", "csscrtInpelemntParent")
+              crtInpelemntParent.setAttribute("data-input-type", "square")
+              crtInpelemntParent.style.position = "absolute"
+              crtInpelemntParent.style.left = 35 + "%";
+              crtInpelemntParent.style.top = 35 + "%";
+
+              crtInpelemnt = document.createElement("div")
+              crtInpelemnt.setAttribute("class", "csssqreelement")
+              crtInpelemnt.setAttribute("data-first-name", "input");
+              crtInpelemnt.setAttribute("value", "type");
+         
+              crtInpelemnt.oninput = function () {
+                 //alert(this.value.length)
+                 this.style.width = this.value.length +"ch"
+                //  this.style.backgroundColor  = "yellow"
+              }
+
+             // parentElement.childNodes[0].style.width = parentElement.childNodes[0].value.length  + "ch"
+              
+
+              crtInpelemntParentIcons = document.createElement("div");
+              crtInpelemntParentIcons.setAttribute("class", "cssInpelemntParentIcons")
+           
+               crtIconResize = document.createElement("p");
+               crtIconResize.innerText = "Resize";
+               crtIconPos = document.createElement("p");
+               crtIconPos.innerText = "Pos";
+
+
+               crtIconResize.onclick = function() {
+                  clickresizesqre(this) 
+               }
+
+               crtIconPos.onclick = function() {
+                  clickpos(this)
+               }
+
+               function clickpos(para1) {
+                  funcposText(para1) 
+               }
+
+               function clickresizesqre(para1) {
+                  funcresizeSqre(para1) 
+               }
+
+               crtInpelemntParentIcons.appendChild(crtIconResize);
+               crtInpelemntParentIcons.appendChild(crtIconPos)
+           
+              //   crtInpelemntParent.setAttribute("data-input-type", "input")
+
+
+    
+              crtInpelemntParent.appendChild(crtInpelemnt)
+              crtInpelemntParent.appendChild(crtInpelemntParentIcons)
+
+
+              document.getElementById("canvas").appendChild(crtInpelemntParent)
+              parentElement = crtInpelemntParent;
+            }
+
+            document.getElementById("crtcircle").onclick = function() {
+              crtInpelemntParent = document.createElement("div")
+              crtInpelemntParent.setAttribute("class", "csscrtInpelemntParentcircle")
+              crtInpelemntParent.setAttribute("data-input-type", "circle")
+              crtInpelemntParent.style.position = "absolute"
+              crtInpelemntParent.style.left = 35 + "%";
+              crtInpelemntParent.style.top = 35 + "%";
+
+              crtInpelemnt = document.createElement("div")
+              crtInpelemnt.setAttribute("class", "csscircleelement")
+              crtInpelemnt.setAttribute("data-first-name", "input");
+              crtInpelemnt.setAttribute("value", "type");
+         
+              crtInpelemnt.oninput = function () {
+                 //alert(this.value.length)
+                 this.style.width = this.value.length +"ch"
+                //  this.style.backgroundColor  = "yellow"
+              }
+
+             // parentElement.childNodes[0].style.width = parentElement.childNodes[0].value.length  + "ch"
+              
+
+              crtInpelemntParentIcons = document.createElement("div");
+              crtInpelemntParentIcons.setAttribute("class", "cssInpelemntParentIcons")
+           
+               crtIconResize = document.createElement("p");
+               crtIconResize.innerText = "Resize";
+               crtIconPos = document.createElement("p");
+               crtIconPos.innerText = "Pos";
+
+
+               crtIconResize.onclick = function() {
+                  clickresizesqre(this) 
+               }
+
+               crtIconPos.onclick = function() {
+                  clickpos(this)
+               }
+
+               function clickpos(para1) {
+                  funcposText(para1) 
+               }
+
+               function clickresizesqre(para1) {
+                  funcresizeSqre(para1) 
+               }
+
+               crtInpelemntParentIcons.appendChild(crtIconResize);
+               crtInpelemntParentIcons.appendChild(crtIconPos)
+           
+              //   crtInpelemntParent.setAttribute("data-input-type", "input")
+
+
+    
+              crtInpelemntParent.appendChild(crtInpelemnt)
+              crtInpelemntParent.appendChild(crtInpelemntParentIcons)
+
+
+              document.getElementById("canvas").appendChild(crtInpelemntParent)
+              parentElement = crtInpelemntParent;
+            }
+
+
+      
+
+
+        function funcresizeText(e) {
+            parentElement = e.parentNode.parentNode;
+           // alert(canceltoggle)
+            canceltoggle = true;
+            controlVar = "inputresize";
+           
+           // e.parentNode.parentNode.childNodes[0].style.backgroundColor = "red"
+            
+        }
+
+        function funcposText(e) {
+            parentElement = e.parentNode.parentNode;
+           // alert(controlVar)
+            canceltoggle = true;
+            controlVar = "inppos";    
+           // alert(controlVar)      
+           // e.parentNode.parentNode.childNodes[0].style.backgroundColor = "red"           
+        }
+
+        function funcresizeSqre(e) {
+            parentElement = e.parentNode.parentNode;
+          //  alert(controlVar)
+            canceltoggle = true;
+            controlVar = "sqreResize";    
+          //  alert(controlVar)      
+           // e.parentNode.parentNode.childNodes[0].style.backgroundColor = "red"           
+        }
+
+
+
+
+
+      var X_coor = 0;
+      var Y_coor = 0;
+
+
+
+     document.body.onmousemove = function(event) {
+        mousemvefunction(event)
+     };
+
+
+     
+     function mousemvefunction(e) {
+        let x = e.clientX;
+        let y = e.clientY;
+
+        X_coor = x;
+        Y_coor = y;
+ 
+        funcinpResize()
+        // console.log(X_coor)
+        // console.log(Y_coor)
+     }
+
+
+     function funcinpResize() {
+       
+        if(canceltoggle == true) {
+        cancel.style.top = (Y_coor + -2) + "px"
+        cancel.style.left = (X_coor + -2) + "px"
+       
+        if(controlVar == "inputresize") {
+        parentElement.childNodes[0].style.fontSize = ((Y_coor/8) + (X_coor/8)) + "px"
+        parentElement.childNodes[0].style.width = parentElement.childNodes[0].value.length  + "ch"
+       // parentElement.style.backgroundColor = "yellow" 
+      } else if(controlVar == "inppos") {
+       //  parentElement.style.backgroundColor = "purple" 
+         parentElement.style.top = (Y_coor + -2) + "px"
+         parentElement.style.left = (X_coor + -2) + "px"
+        } else if(controlVar == "sqreResize"){
+     //    parentElement.style.backgroundColor = "blue" 
+         parentElement.style.height = Y_coor + "px"
+         parentElement.style.width = X_coor + "px"
+        } 
+        // console.log(parentElement.childNodes[0].value.length + "akflnfkl")
+
+        } else {
+        cancel.style.top = 100 + "px"
+        cancel.style.left = 100 + "px"
+        }
+       
+        console.log(canceltoggle)
+     }
+
+
+
+     cancel.onclick = function() {
+        // canceltoggle = false;
+
+        if(canceltoggle == true) {
+          canceltoggle = false;
+          controlVar = "false"
+        }
+        //alert(canceltoggle)
+     }
+
+
+     document.getElementById("favcolor").oninput = function() {
+        
+    //  console.log(this.value)
+    if(parentElement.dataset.inputType == "input") {
+      parentElement.childNodes[0].style.color = this.value;
+   } else {
+      parentElement.style.backgroundColor = this.value;
+   }
+   
+   }
+
+     </script>
+    </body>
+</html>

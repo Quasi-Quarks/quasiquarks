@@ -1,0 +1,377 @@
+<html>
+   <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          * {
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* border: 2px solid purple; */
+            background-size: 100% 100%;
+            font-family: sans-serif;
+            color: rgba(255, 255, 255, 0.8);
+            }
+            style, script {
+                 display: none;
+
+               }
+              body {
+                height: 100%;
+                width: 100%;
+              }
+
+              #indexb {
+                 height: 88px;
+                 width: 88px;
+                 position: fixed;
+                 top: 50%;
+                 transform-style: preserve-3d;
+                 transform: rotateX(0deg) rotateY(0deg);
+                 animation: mymove 10s infinite;
+              }
+
+              .menu0 {
+                 height: 128px;
+                 width: 100%;
+                 position: fixed;
+                 bottom: 0;
+                 background-color: #151519c2;
+                 flex-direction: row;
+                 display: none;
+              }
+
+              .menu1 {
+                 width: 25%;
+                 height: 100%;
+                 border: 2px solid #0a080a;
+              }
+              .menu2 {
+                 
+                 width: 75%;
+                 
+              }
+
+              .menu3 {
+                 height: 28px;
+                 width: 100%;
+                 flex-direction: row;
+              }
+
+              .menu4 {
+                height: 100%;
+                width: 25px;
+                border: 2px solid gray;
+              }
+
+
+          .slidecontainer {
+       
+       position: fixed;
+       z-index: 8;
+       transform: translateZ(288px);
+       background-color: 
+       top: 88;
+       }
+
+        .lj {
+           flex-direction: row;
+           width: 100%;
+           justify-content: flex-start;
+        }
+
+        #wk1 {
+           height: 18px;
+           width: 18px;
+           background-image: url(map.jpg)
+        }
+        #wk2 {
+           height: 18px;
+           width: 18px;
+           background-image: url(founded.webp)
+        }
+        #wk3 {
+           height: 18px;
+           width: 18px;
+           background-image: url(director.png)
+        }
+
+        #wk4 {
+           height: 18px;
+           width: 18px;
+           background-image: url(description.jpg)
+        }
+
+         #yv {
+             height: 99px;
+             width: 153px;
+             position: absolute;
+             top: -100px;
+             justify-content: flex-end;
+             margin-left: 39px;
+          }
+
+div#yv {}
+
+          #cj {
+            background-color: gray;
+            width: 100%;
+            opacity: 0.8;
+          }
+          span {margin-right: 11px;}
+
+        
+          @keyframes mymove {
+  from {transform: rotateX(8deg) rotateY(89deg) rotate(8deg)}
+  to {transform: rotateX(-200deg) rotateY(-450deg) rotate(-500deg)}
+}
+
+           </style>
+          
+          
+          
+         
+            
+      </head>
+      <body>
+        <div id="indexb"></div>
+
+        <div class="menu0">
+           <div class="menu1">
+
+               <p>info</p>
+               <p>business</p>
+               <p>news</p>
+               <p>news</p>
+               <div id="yv">
+                  <p id="cj">hjbh</p>
+               </div>
+              </div>
+
+           <div class="menu2">
+             <div class="menu3">
+                 <div id="menu0" class="menu4">
+                 
+                </div>
+                <div id="menu1" class="menu4">
+                 
+                </div>
+             </div>
+            
+            <div class="lj"><span id="wk1"></span><p id="adress">adress</p></div>
+            <div class="lj"><span id="wk2"></span><p id="founded">founded</p></div>
+            <div class="lj"><span id="wk3"></span><p id="director">director</p></div>
+           <div class="lj"><span id="wk4"></span> <p id="other">other</p></div>
+           </div>
+    </div> 
+
+
+        </div>
+
+        <div class="slidecontainer">
+      <input type="range" min="1" max="270" onchange="script3(this.value)" value="50" class="slider" id="myrange1">
+      <input type="range" min="-38" max="270" onchange="script3()" value="50" class="slider" id="myrange2">
+      
+      </div>
+            
+          <script>
+
+          
+
+         var bkn = [
+  [
+    ["mi5", "mi6"],
+    ["london 12 millbank sw1p 4qe", "1909/10", "ken mccallum", "the mi5 carrot"],
+    ["85 Albert Embankment, Vauxhall, SE11 5AW", "July 1909", "Richard Moore", "recents"]
+  ],
+  [
+    ["cia", "fbi"],
+    [" 22101 colonial farm.rd", "18/8/1945", "David Cohen", " is a civilian foreign intelligence service processing national security"],
+    ["935 Pennsylvania Avenue NW, Washington, DC 20535,", "26 July 1908, United States", "us3", "snq"]
+  ],
+  [
+    ["canadian security intelligence service ", "Public Safety Canada"],
+    ["715 Peel St, Montreal, Quebec H3C 1B2, Canada", "David Vigneault", "21 June 1984", "CSIS is Canada's lead agency on national security"],
+    ["101 22 St E, Saskatoon, SK S7K 0E1, Canada", "2003", "Gina Wilson", "federal emergency response ", "recents"]
+  ],
+
+
+  [
+    ["EU INTCEN", "EEAS"],
+    ["14 Great College St, Westminster, London SW1P 3RX", "March 18, 2012", "e3", "José Casimiro Morgado", "ta forum for exchange of sensitive information between the external intelligence services"],
+    [" Tunnel belliard 100, 1000 Bruxelles, Belgium", " 1 December 2010", "Josep Borrell", "combined foreign and defence ministry of the European Union (EU)", "recents"]
+  ],
+
+  [
+    ["MSS", "Joint Staff Department of the Central Military Commission Intelligence Bureau"],
+    ["12554 W 80th Ave, Arvada, CO 80005, United States", "July 1983", "Hu–Wen Administration", "is the civilian intelligence,"],
+    ["mi5", "10/1905", "sdmfv", "snq"]
+  ],
+
+  [
+    ["kgb", "fsb"],
+    ["2 Bolshaya Lubyanka Street", "13 March 1954", "Viktor Chebrikov Виктор", "internal security, intelligence"],
+    ["FSB", "12 April 1995", "Ulitsa Belinskogo, 10, Lesosibirsk, Krasnoyarsk Krai, Russia, 662543", "s counter-intelligence, internal and border security, counter-terrorism"]
+  ],
+
+  [
+    ["sss", "nis"],
+    ["Arcadia Building, Pretoria", "1 January 1994", " Mr Robert McBride", "It is responsible for all non-military foreign intelligence"],
+    ["Musanda, Pretoria, South Africa", "January 1, 1994", "Ayanda Dlodlo", "responsible for domestic and counter-intelligence"]
+  ],
+
+  [
+    ["gid", "Iraqi Intelligence Service"],
+    ["El-Khalifa El-Maamoun, El-Qobba Bridge, Al Waili, Cairo Governorate, Egypt", "Abbas Kamel", "is an Egyptian intelligence agency responsible for providing national"],
+    ["Kindi St, Baghdad, Iraq", "1973", " Majid Hasan", " Mukhabarat, General Directorate of Intelligence, or Party Intelligence"]
+  ],
+  [
+    ["psia", "Kempeitai"],
+    ["1 Chome-1-1 Kasumigaseki, Chiyoda City, Tokyo 100-0013, Japan", "July 21, 1952", "Yōko Kamikawa, Minister of Justice", "tasked with internal security and espionage"],
+    ["90 Stamford Rd, Singapore 178903", "10/1905", "Admiralty Minister ", "police arm of the Imperial Japanese Army"]
+  ]
+
+]
+
+var bipcs0 = [["mi5.png", "mi6.png"], ["cia.png", "fbi.png"], ["csis.png", "psc.PNG"], ["euintcen.png", "eeas.png"], ["mss.png", "jscmc.PNG"], ["kgb.png", "fsb.png"],  ["sss.png", "nis.png"], ["gid.png", "iis.png"], ["psia.PNG", "Kempeitai.png"] ];
+
+             function Script1() {
+         
+       var b2 = 0;
+        
+    for(b=0; b<=58; b++) {
+               if(b >=88 ) {
+                  b2 = b2 + 1;
+                } else {
+                   b2 = b2 + 1;
+        
+                  }
+           var bmap = document.createElement("div");   
+               bmap.style.border = "2px solid purple";
+               bmap.style.height = 100+"px";
+               bmap.style.width = 100+"px";
+               bmap.style.position = "fixed";
+               bmap.innerText = b;
+               bmap.style.backgroundColor = "#03A9F4";
+              bmap.style.transform = " rotateX("+(b+b2)*32+"deg) rotateY("+(b2*2)+24+"deg) translateZ("+200+"px) ";
+               indexb.appendChild(bmap);
+                  
+              }
+         }
+
+
+
+           var gv = 0;
+           var  knj = 1;
+
+           menu0.onclick = function () {
+             knj = 1;
+              alert(gv)
+       
+             adress.innerText= "adress: " + bkn[gv][knj][0];
+             founded.innerText = "founded: " + bkn[gv][knj][1];
+            director.innerText = "director: " + bkn[gv][knj][2];
+            other.innerText = "description: " + bkn[gv][knj][3];
+             yv.style.backgroundImage = "url("+lk[gv][0]+")";
+               cj.innerText = bkn[gv][0][0];  
+           }
+
+           menu1.onclick = function () {
+             knj = 2;
+              alert(88)
+       
+             adress.innerText = "adress: " + bkn[gv][knj][0];
+             founded.innerText = "founded: " + bkn[gv][knj][1];
+                    director.innerText = "director: " + bkn[gv][knj][2];
+                    other.innerText = "description: " + bkn[gv][knj][3];
+                    alert(bipcs0[gv][1])
+             yv.style.backgroundImage = "url("+lk[gv][1]+")";
+            cj.innerText = bkn[gv][0][1];
+           }
+
+           var  lk = [["bmi5.jpg", "bmi6.jpg"], ["bcia.jpg", "bfbi.jpg"],
+                      ["bcsis.jpg", "bpsc.jfif"], ["beuintcen.jfif", "beeas.jfif"], ["bmss.jpg","bjsdcmcib.jpg"], ["bkgb.jpg","bfsb.jfif"], ["bss.jpg","bnnia.webp"], ["bgid.jpeg","biis.jpg"] ["bk.png", ""]];
+
+        function Script2() {
+        var bpic = ["uk.jpg", "america.png", "canada.jpg", "europe.png", "china.gif", "russia.jpg", "Africa.jpg", "arab.jpeg",  "japan.jpg"];
+       var b2 = 0;
+       var bx = [ -13, 24, 60, 7, 48, 82, -44, -11, 110];
+       var by = [ 0, -28, -24, 40, 54, 32, 43, 70, 63];
+        
+    for(b=0; b<=8; b++) {
+               if(b >=88 ) {
+                  b2 = b2 + 1;
+                } else {
+                   b2 = b2 + 1;
+        
+                  }
+           var bmap = document.createElement("div");   
+               bmap.style.border = "2px solid purple";
+               bmap.style.height = 100+"px";
+               bmap.style.width = 100+"px";
+               bmap.style.position = "fixed";
+               bmap.style.backgroundImage = "url("+bpic[b]+")"
+               vg(b)
+               function vg(gc) {
+                   bmap.onclick = function () {
+
+                  gv = gc;
+                  knj = 1;
+
+                  adress.innerText = "adress: " + bkn[gv][knj][0];
+             founded.innerText = "founded: " + bkn[gv][knj][1];
+                    director.innerText = "director: " + bkn[gv][knj][2];
+                    other.innerText = "description: " + bkn[gv][knj][3];
+                   menu0.style.backgroundImage = "url("+bipcs0[gv][0]+")";
+                   menu1.style.backgroundImage = "url("+bipcs0[gv][1]+")";
+                    yv.style.backgroundImage = "url("+lk[gv][0]+")";
+                   //menu1.style.backgroundImage = "url("+bipcs0[gv][1]+")";
+                   cj.innerText = bkn[gv][0][0];
+                   alert(bipcs0[gv][0])
+                    alert(gv)
+                   }
+               }
+               bmap.innerText = b;
+               bmap.style.backgroundColor = "green";
+              bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ(222px) ";
+               indexb.appendChild(bmap);
+                  
+              }
+
+             adress.innerText = "adress: " + bkn[gv][knj][0];
+             founded.innerText = "founded: " + bkn[gv][knj][1];
+                    director.innerText = "director: " + bkn[gv][knj][2];
+                    other.innerText = "description: " + bkn[gv][knj][3];
+                   menu0.style.backgroundImage = "url("+bipcs0[gv][0]+")";
+                   menu1.style.backgroundImage = "url("+bipcs0[gv][1]+")";
+                    yv.style.backgroundImage = "url("+lk[gv][0]+")";
+                   //menu1.style.backgroundImage = "url("+bipcs0[gv][1]+")";
+                   cj.innerText = bkn[gv][0][0];
+         }
+         Script2()
+         Script1()
+              
+              document.getElementById("myrange1").oninput  = function () {
+                  by = this.value;
+                  jnk()
+                  }
+
+                  document.getElementById("myrange2").oninput  = function () {
+                  bx = this.value;
+                  jnk()
+                  }
+
+                var by = 0;
+                var bx = 0;
+
+          function jnk() {
+               indexb.style.transform = " rotateX("+bx+"deg) rotateY("+-by+"deg)";
+          }
+
+
+             </script>
+
+         </body>
+  </html>

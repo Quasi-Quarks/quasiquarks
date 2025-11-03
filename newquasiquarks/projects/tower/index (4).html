@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		
+		* {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border: 2px solid #060303;
+     }
+
+		 style, script {
+            display: none;
+		 }
+
+		html {
+			  display: block;
+		}
+
+    div { 
+       transform-style: preserve-3d;
+       position: fixed;
+       }
+
+		body {height: 100vh;width: 100vw;background-color: #12cdf7;}
+
+
+		div { 
+             position: absolute;
+             height: 100px;
+             width: 100px;
+
+		     }
+
+
+  .map {
+         height: 400px;
+         width: 400px;
+       }
+
+    #bmap0 {
+         height: 400px;
+         width: 400px;
+         transform: rotateX(5deg) rotateY(15deg);
+       }
+
+  #txt { 
+        height: 288px;
+        width:  288px;
+        position: fixed;
+        top: 0;
+      }
+
+  #cube {
+
+     position: fixed;
+     top: -100px;
+  }
+
+  #bmap0 {
+    top:  50%;
+  }
+	</style>
+</head>
+<body>
+  
+  <div id="txt">alksd</div>
+
+
+ <div id="ctrldiv"></div>
+
+	<div class="map" id="bmap0">
+    <div id="cube">
+     
+    </div>
+		  <div class="map" id="bmap1">
+               
+          <div class="map" id="bmap2">
+      
+    </div>
+    </div>
+	  </div>
+
+
+    
+  <script type="text/javascript">
+
+
+     
+    var bly = 0;
+    var bx = 0;
+    var ctrlposy = 0;
+    var ctrlposx = 0;
+    var cubeposy = 2;
+var cubeposy2 = false;
+    
+    addEventListener('touchmove', function() {
+
+    bly =  event.touches[0].clientY;
+    bx =  event.touches[0].clientX;
+   
+    
+    });
+
+    addEventListener('mousemove', function() {
+  
+    bly =  event.clientY;
+    bx =  event.clientX;
+    //sdmk()
+    
+     // ctrl();
+    
+    });
+    
+    
+    var topz = 0;
+    var leftz = 0;
+    var rightz = 0;
+    var bottomz = 0;
+    
+       setInterval(ctrl, 88)
+    
+    var sc = 0;
+    function ctrl() {
+      sc = sc + 1;
+      bmap0.style.transform = " rotateX("+-18+"deg) rotateY("+angle2+"deg) translate3d("+0+"px, 0px, "+0+"px) ";
+     bmap1.style.transform = " rotateX("+0+"deg) rotateY("+0+"deg) translate3d("+-distancepostrx2+"px, "+cubeposy+"px, "+distancepostrz2+"px) ";
+      //setInterval(ctrl, 1000)
+      ///alert(88)
+        //document.getElementById("mnutxt").innerHTML  = sc;
+      ctrlmovt()
+     // collisionconvertcube();
+      //collisionconvertcubes();
+     // funcjump();
+      //goomacollision()
+    }
+
+    var angle = 0;
+    var angle2 = 0;
+        var elem = document.getElementById("ctrldiv");
+  var ctrlposy = parseInt(window.getComputedStyle(elem, null).getPropertyValue("top"));
+  var ctrlposx = parseInt(window.getComputedStyle(elem, null).getPropertyValue("left"));
+   var distancepostrz = 0;
+    var distancepostrx = 0;
+    var distancepostrz2 = 0;
+    var distancepostrx2 = 0;
+    
+
+
+
+       function ctrlmovt() {
+           
+
+   
+  angle  = parseInt((Math.atan((-bly+ctrlposy)/(-bx+ctrlposx))/Math.PI) * 180);  
+  
+
+               if(bly > ctrlposy) {
+                    if(bx > ctrlposx) {
+                    // angle2 = angle + - 
+                     ctrldiv.style.backgroundColor = "red";
+                     ctrldiv.innerText = 1;
+                     angle2 = angle + 90;
+                     bottomz == 0 ? distancepostrz =  -(-(9+ -(angle2/10))) : distancepostrz = 0;
+                     distancepostrx = 9-((angle2+-90)/10);
+      rightz == 0 ? distancepostrx = 9-((angle2+-90)/10) : distancepostrx = 0;
+                    } else {
+                         ctrldiv.style.backgroundColor = "green";
+                         ctrldiv.innerText = 2;
+                         angle2 = angle + 270;
+                        bottomz == 0 ? distancepostrz = -(27 + -((angle2/10))) : distancepostrz = 0;
+                        
+                       leftz  == 0 ? distancepostrx = -((angle2+-180)/10) : distancepostrx = 0;
+                             
+                    }
+               } 
+               
+                  if(bly < ctrlposy) {
+                    if(bx > ctrlposx) {
+                    // angle2 = angle + - 
+                     ctrldiv.style.backgroundColor = "purple";
+                     ctrldiv.innerText = 0;
+                     angle2 = angle + 90;
+              if(topz == 0) {
+                     distancepostrz = (9+ -(angle2/10));
+                 } else {
+                   distancepostrz = 0;
+                 }
+
+        rightz == 0 ? distancepostrx =  (angle2/10) : distancepostrx = 0;
+                    } else {
+                         ctrldiv.style.backgroundColor = "blue";
+                         ctrldiv.innerText = 3;
+                         angle2 = angle + 270;
+
+                    topz == 0 ? distancepostrz = (angle2/10) + -27 : distancepostrz = 0;
+                      leftz == 0 ? distancepostrx = -( 9 + -(angle2 + -270)/10) : distancepostrx = 0;
+                    }
+                }
+
+                     distancepostrz = parseInt(distancepostrz);
+                     distancepostrx = parseInt(distancepostrx);
+                
+                distancepostrz2 = distancepostrz2 + distancepostrz;
+                distancepostrx2 = distancepostrx2 + distancepostrx;
+             ctrldiv.style.transform = "rotate("+angle2+"deg)";
+
+                
+
+//document.getElementById("mnutxt").innerHTML = angle2 + " " + bx + " " + ctrlposx;
+//document.getElementById("mnutxt").innerHTML = angle2 + " " + bly + " " + ctrlposy;
+//document.getElementById("mnutxt").innerHTML = distancepostrz + " " + distancepostrx + " ";
+//mnutxt.innerHTML = distancepostrz2 + " " + distancepostrx2 + " ";
+                 
+       }
+
+        ctrlmovt();
+
+
+
+
+
+  	 
+
+  var  posay = [0, 90, 0, 90, 0, 0 ]
+  var  posax = [0, 0, 0, 0, 90, 90 ]
+  var postrz = [200, 0, -200, 0, 0, 0];
+    var posleft = [0, -200, 0, 200, 0, 0];
+    var postop = [0, 0, 0, 0, 200, -200];
+ 
+
+ var  posay2 = [0, 90, 0, 90, 0, 0 ]
+  var  posax2 = [0, 0, 0, 0, 90, 90 ]
+  var postrz2 = [50, 0, -50, 0, 0, 0];
+    var posleft2 = [0, -50, 0, 50, 0, 0];
+    var postop2 = [0, 0, 0, 0, 50, -50];
+ 
+
+function map0() {
+
+  	for (var i = 0; i<=5; i++) {
+  var bmap = document.createElement("div");
+
+    bmap.style.top =  postop[i] + "px";
+    bmap.style.left = posleft[i] + "px";
+     bmap.style.width = 400 + "px";
+    bmap.style.height = 400 + "px";
+   
+    bmap.style.position = "fixed";
+    //alert(posleft[i])
+    bmap.innerText = i;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+posax[i]+"deg) rotateY("+posay[i]+"deg) translateZ("+postrz[i]+"px) ";
+    // document.getElementById("map0").style.backgroundColor = "purple"
+    document.getElementById("bmap0").appendChild(bmap);
+  	}
+}
+
+map0()
+
+function map1() {
+
+    for (var i = 0; i<=5; i++) {
+  var bmap = document.createElement("div");
+
+    bmap.style.top =  postop[i] + "px";
+    bmap.style.left = posleft[i] + "px";
+     bmap.style.width = 400 + "px";
+    bmap.style.height = 400 + "px";
+   
+    bmap.style.position = "fixed";
+    //alert(posleft[i])
+    bmap.innerText = i;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+posax[i]+"deg) rotateY("+posay[i]+"deg) translateZ("+postrz[i]+"px) ";
+    // document.getElementById("map0").style.backgroundColor = "purple"
+    document.getElementById("bmap1").appendChild(bmap);
+    }
+}
+
+map1()
+
+function map2() {
+
+    for (var i = 0; i<=5; i++) {
+  var bmap = document.createElement("div");
+
+    bmap.style.top =  postop[i] + "px";
+    bmap.style.left = posleft[i] + "px";
+     bmap.style.width = 400 + "px";
+    bmap.style.height = 400 + "px";
+   
+    bmap.style.position = "fixed";
+    //alert(posleft[i])
+    bmap.innerText = i;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+posax[i]+"deg) rotateY("+posay[i]+"deg) translateZ("+postrz[i]+"px) ";
+    // document.getElementById("map0").style.backgroundColor = "purple"
+    document.getElementById("bmap2").appendChild(bmap);
+    }
+}
+
+map2()
+
+
+function cube() {
+
+    for (var i = 0; i<=5; i++) {
+  var bmap = document.createElement("div");
+
+    bmap.style.top =  postop2[i] + "px";
+    bmap.style.left = posleft2[i] + "px";
+     bmap.style.width = 100 + "px";
+    bmap.style.height = 100 + "px";
+   
+    bmap.style.position = "fixed";
+    //alert(posleft[i])
+    bmap.innerText = i;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+posax2[i]+"deg) rotateY("+posay2[i]+"deg) translateZ("+postrz2[i]+"px) ";
+    // document.getElementById("map0").style.backgroundColor = "purple"
+    document.getElementById("cube").appendChild(bmap);
+    }
+}
+
+cube()
+
+var cubeposheight2 = [300, 300, 300, 300, 100, 100]
+var cubeposwidth2 = [150, 100, 150, 100, 150, 150]
+ var  cubeposay = [0, 90, 0, 90, 0, 0 ]
+  var  cubeposax = [0, 0, 0, 0, 90, 90 ]
+  var cubepostrz = [50, 0, -50, 0, 0, 0];
+    var cubeposleft = [0, -50, 0, 100, 0, 0];
+    var cubepostop = [0, 0, 0, 0, 250, -50];
+
+function cube2(bl) {
+  var cube = document.createElement("div");
+  cube.setAttribute("id", "idtower"+bl)
+       cube.style.height = "300px";
+       cube.style.width = "150px";
+       cube.style.top = "-275px";
+       cube.style.display = "inline-block"
+
+
+       
+    for (var i = 0; i<=5; i++) {
+  var bmap = document.createElement("div");
+
+  
+     bmap.style.display = "block";
+     bmap.style.backgroundColor = "#848484"
+     
+     if(i == 0 || i == 2)
+    for (b=0; b<=14; b++) {
+   var windows = document.createElement("div");
+   windows.style.position = "static";
+   windows.style.display = "inline-block"
+    windows.style.height = "34px";
+    windows.style.width = "27px";
+    windows.style.padding = "7px";
+    windows.style.backgroundColor = "#75e5ff"
+    bmap.appendChild(windows);
+
+    
+  }
+    bmap.style.top =  cubepostop[i] + "px";
+    bmap.style.left = cubeposleft[i] + "px";
+     bmap.style.height = cubeposheight2[i] + "px";
+    bmap.style.width = cubeposwidth2[i] + "px";
+   
+    bmap.style.position = "fixed";
+    //alert(posleft[i])
+    bmap.style.border = "2px solid red";
+    bmap.style.transform = " rotateX("+cubeposax[i]+"deg) rotateY("+cubeposay[i]+"deg) translateZ("+cubepostrz[i]+"px) ";
+    // document.getElementById("map0").style.backgroundColor = "purple"
+     cube.appendChild(bmap)
+    document.getElementById("bmap1").appendChild(cube);
+    }
+}
+
+cube2(0)
+cube2(1)
+cube2(2)
+cube2(3)
+cube2(4)
+cube2(5)
+
+/*
+towerry = [90, 90, 90, 90, 0, 0]
+var towerspostrz = [200, 200, -200, -200, -300, 200];
+var towersposx = [200, -100, -200, 0, 0, 200];
+*/
+
+
+towerry = [90, 0, 90, 0, 0, 0]
+var towerspostrz = [200, 200, -200, -200, -300, 200];
+var towersposx = [200, -100, -200, 0, 0, 200];
+function towerstyle() {
+  for(ct=0; ct<=5; ct++) {
+    document.getElementById("idtower"+ct).style.transform = " rotateY("+towerry[ct]+"deg) translate3d("+-towersposx[ct]+"px, "+0+"px, "+towerspostrz[ct]+"px) ";
+  }
+
+}
+
+towerstyle()
+
+/*
+for (b=0; b<=5; b++) {
+   var windows = document.createElement("div");
+   windows.style.position = "static";
+   windows.style.display = "inline-block"
+    windows.style.height = "22px";
+    windows.style.width = "22px";
+    document.body.appendChild(windows);
+    
+  }*/
+
+  </script>
+</body>
+</html>

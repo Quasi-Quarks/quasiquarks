@@ -1,0 +1,137 @@
+*:not(head, script, html) {
+    background-size: 122% 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: 2px solid #2a6599;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    color: black;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 50px;
+}
+
+.cubemain {
+height: 1600px;
+width: 1600px;
+height: 800px;
+width: 800px;
+transform-style: preserve-3d;
+/* transform: rotateX(352deg) rotateY(-11deg); */
+/* transform: translateX(140px); */
+}
+
+.cubemain1 {
+    height: 800px;
+    width: 800px;
+    transform-style: preserve-3d;
+    transform: rotateX(295deg) rotateY(15deg);
+}
+
+div#cubemain0 {}
+
+div#cubemain0 {
+    position: absolute;
+    top: 180px;
+    /* transform: rotateX(-10deg) rotateY(-20deg); */
+    perspective: 400px;
+}
+
+div#chracter {
+    position: fixed;
+    top: 80px;
+    transform: rotateX(333deg) rotateY(-24deg);
+    transform-style: preserve-3d;
+    /* display: none; */
+}
+
+div#cubemain1 {
+    /* perspective: 500px; */
+    height: 100vh;
+    width: 100vh;
+}
+
+div#mouse {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    top: 540px;
+}
+
+div#controller {
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    top: 51%;
+    left: 50%;
+    z-index: 88;
+    /* display: none; */
+}
+
+div#cubemain2 {}
+
+div#cubemain3 {
+    transform: translate3d(1060px, -526px, 10px);
+}
+
+div#gun {
+    background-image: url(gun4.png);
+    height: 470px;
+    width: 530px;
+    z-index: 8888;
+    left: 330px;
+    position: absolute;
+    bottom: 147px;
+}
+
+div#spark {background-image: url(spark.gif);height: 470px;width: 530px;z-index: 8888;left: 61px;position: absolute;bottom: 280px;display: none;}
+
+body {
+    /* perspective: 500px; */
+    overflow: hidden;
+}
+
+div#cubemain4 {
+    transform: translate3d(960px, 10px, 1030px);
+}
+
+div#cubemain5 {
+    transform: translate3d(1, 10px, 10px);
+}
+
+.bullet {}
+
+.bullet {
+    height: 100px;
+    width: 100px;
+    background: #ffff0057;
+    position: fixed;
+    z-index: 7495288;
+    position: fixed;
+}
+
+div {
+}
+
+.bulletCOntainer {
+    position: fixed;
+    background: #4823d1;
+    height: 100px;
+    width: 100px;
+}
+
+.bulletContainer {
+    position: fixed;
+    background: #c9bb16;
+    height: 100px;
+    width: 100px;
+}

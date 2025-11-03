@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>EN ↔ AR — Design Demo</title>
+
+<style>
+/* ------------------ */
+/* Mobile-first Theme */
+/* ------------------ */
+:root{
+  --bg: #ffffff;
+  --ink: #0b1220;
+  --ink-2:#4b5563;
+  --ink-3:#94a3b8;
+  --line:#e5e7eb;
+  --brand:#2563eb;         /* blue */
+  --brand-ink:#0b3ea8;
+
+  /* token tints (color helps separate roles) */
+  --tok-noun:#e6f5ee;      /* soft green */
+  --tok-verb:#e7efff;      /* soft blue */
+  --tok-pron:#f6e9ff;      /* soft purple */
+  --tok-prep:#fff1e6;      /* soft orange */
+  --tok-part:#f1f5f9;      /* soft gray */
+  --tok-unk:#fef3f2;       /* soft red-ish */
+
+  --radius:16px;
+  --shadow:0 6px 20px rgba(2,8,23,.06);
+  --tap: 44px;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+button,input,select,textarea{font:inherit;color:inherit}
+
+/* Layout */
+.app{
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+/* App bar */
+.appbar{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:8px;padding:8px 0 10px;
+}
+.appbar .title{font-weight:700;letter-spacing:.2px}
+.iconbtn{
+  display:inline-grid;place-items:center;min-width:var(--tap);min-height:var(--tap);
+  border:1px solid var(--line);background:#fff;border-radius:12px;
+  box-shadow: var(--shadow); cursor:pointer;
+}
+.iconbtn:active{transform:scale(.98)}
+
+/* Output block */
+.output{
+  border:1px solid var(--line); border-radius: var(--radius);
+  padding:12px; box-shadow: var(--shadow); background:#fff;
+}
+.ar-block{ direction:rtl; text-align:right;}
+.arabic{ font-size:28px; line-height:1.3; font-weight:700; margin:0; }
+.roman{  margin:4px 0 0; color:var(--ink-2);}
+.en{     margin:8px 0 0; color:var(--ink-2); }
+
+.out-actions{
+  display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;
+}
+.btn{
+  padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;
+  box-shadow: var(--shadow); cursor:pointer; min-height:var(--tap);
+}
+.btn.primary{ background:var(--brand); color:#fff; border-color:transparent; }
+.btn:active{ transform:scale(.98) }
+
+/* Composer */
+.composer{ margin-top:14px; display:grid; gap:8px; }
+textarea#input{ width:100%; min-height:96px; resize:vertical;
+  border:1px solid var(--line); border-radius:12px; padding:10px 12px; }
+
+/* Sentence chip row */
+.chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+.chip{ padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#fff; box-shadow:var(--shadow); cursor:pointer; }
+.chip:active{ transform:scale(.98) }
+
+/* Word splitter */
+.splitter{
+  margin-top:14px;
+  border:1px solid var(--line); border-radius:var(--radius);
+  background:#fff; box-shadow:var(--shadow);
+}
+.split-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 12px; border-bottom:1px solid var(--line);
+}
+.legend{ display:flex; gap:6px; flex-wrap:wrap; }
+.legend span{
+  font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid var(--line);
+}
+.legend .noun{ background:var(--tok-noun) }
+.legend .verb{ background:var(--tok-verb) }
+.legend .pron{ background:var(--tok-pron) }
+.legend .prep{ background:var(--tok-prep) }
+.legend .part{ background:var(--tok-part) }
+
+.tokens{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:8px; padding:10px 8px;
+}
+@media (min-width:480px){ .tokens{ grid-template-columns:repeat(3,1fr);} }
+
+.token{
+  position:relative; padding:10px; border:1px solid var(--line);
+  border-radius:12px; background:#fff; box-shadow:var(--shadow);
+  min-height:88px;
+}
+.token .ar{ direction:rtl; text-align:right; font-size:20px; font-weight:700; margin:0; }
+.token .tr{ color:var(--ink-2); margin:2px 0 0; font-size:12px; }
+.token .gl{ color:var(--ink-2); margin:2px 0 0; font-size:12px; }
+.token .play{
+  position:absolute; inset:auto 8px 8px auto;
+  width:34px;height:34px;border-radius:10px; border:1px solid var(--line);
+  display:grid;place-items:center;background:#fff; cursor:pointer;
+}
+.tok-noun   { background: var(--tok-noun); }
+.tok-verb   { background: var(--tok-verb); }
+.tok-pron   { background: var(--tok-pron); }
+.tok-prep   { background: var(--tok-prep); }
+.tok-part   { background: var(--tok-part); }
+.tok-unk    { background: var(--tok-unk); }
+
+/* Vocab / topics (mock) */
+.panel{
+  margin-top:14px; border:1px solid var(--line); border-radius:var(--radius);
+  background:#fff; box-shadow:var(--shadow);
+}
+.panel .head{ display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border-bottom:1px solid var(--line); }
+.topics{ display:flex; gap:8px; flex-wrap:wrap; padding:10px 12px;}
+.topic{ padding:8px 10px; border:1px solid var(--line); border-radius:999px; background:#fff; cursor:pointer; }
+.topic.active{ background:var(--brand); color:#fff; border-color:transparent }
+
+/* Settings Drawer */
+.drawer{
+  position:fixed; inset:0 0 0 auto; width:min(92vw, 520px);
+  translate:100% 0; transition:translate .28s ease;
+  background:#fff; border-left:1px solid var(--line); box-shadow: -16px 0 30px rgba(2,8,23,.15);
+  z-index:100;
+  display:grid; grid-template-rows:auto 1fr; max-height:100dvh;
+}
+.drawer.open{ translate:0 0; }
+.drawer .bar{ display:flex; align-items:center; justify-content:space-between; padding:12px; border-bottom:1px solid var(--line); }
+.drawer .cont{ padding:12px; overflow:auto; }
+.row{ display:grid; gap:6px; margin-bottom:12px; }
+select, input[type="range"]{ width:100% }
+
+/* Bottom sheet (picker) */
+.sheet{
+  position:fixed; inset:auto 0 0 0; background:#fff; border-top:1px solid var(--line);
+  box-shadow: 0 -16px 30px rgba(2,8,23,.15); translate:0 100%; transition:translate .24s ease;
+  z-index: 90; border-top-left-radius: 16px; border-top-right-radius: 16px;
+}
+.sheet.open{ translate:0 0; }
+.sheet .grip{ width:56px;height:5px;border-radius:999px;background:var(--line); margin:10px auto 6px; }
+.sheet .body{ padding:10px 12px; }
+.sheet .chips{ margin-top:4px; }
+.sheet .foot{ display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); }
+
+/* Subtle helper */
+.mono{ font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,"Roboto Mono",monospace; font-size:12px; color:var(--ink-3); }
+.small{ font-size:12px; color:var(--ink-2); }
+
+/* Focus & a11y */
+:focus-visible{ outline:2px solid var(--brand); outline-offset:2px; border-radius:8px; }
+.hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- App bar -->
+  <div class="appbar">
+    <div class="title">EN ↔ AR</div>
+    <button class="iconbtn" id="btnSettings" aria-label="Settings">⚙️</button>
+  </div>
+
+  <!-- Output -->
+  <section class="output" aria-live="polite">
+    <div class="ar-block" lang="ar" dir="rtl">
+      <p class="arabic" id="outAr">هذا كتاب</p>
+      <p class="roman"  id="outTr">Hādhā kitāb</p>
+    </div>
+    <p class="en" id="outEn">This is a book</p>
+
+    <div class="out-actions">
+      <button class="btn" id="btnSpeak">🔊 Speak</button>
+      <button class="btn" id="btnSwap">↔ Swap</button>
+      <button class="btn" id="btnCopy">📋 Copy</button>
+      <span class="mono" id="statusMsg"></span>
+    </div>
+  </section>
+
+  <!-- Composer -->
+  <section class="composer" aria-label="Compose">
+    <textarea id="input" placeholder="Type English or Arabic…">This is a book</textarea>
+    <div class="chips" id="chips">
+      <!-- sentence tokens → click to open picker -->
+    </div>
+    <button class="btn primary" id="btnRun">Run / Translate</button>
+  </section>
+
+  <!-- Word Splitter -->
+  <section class="splitter" aria-label="Word-by-word">
+    <div class="split-header">
+      <div class="small">Tap a word to play</div>
+      <div class="legend">
+        <span class="noun">Noun</span>
+        <span class="verb">Verb</span>
+        <span class="pron">Pron</span>
+        <span class="prep">Prep</span>
+        <span class="part">Particle</span>
+      </div>
+    </div>
+    <div class="tokens" id="tokens" lang="ar" dir="rtl">
+      <!-- token cards -->
+    </div>
+  </section>
+
+  <!-- Topics (mock) -->
+  <section class="panel" aria-label="Topics">
+    <div class="head">
+      <div>Topics</div>
+      <button class="btn" id="btnRefresh">Refresh</button>
+    </div>
+    <div class="topics" id="topics">
+      <div class="topic active">action</div>
+      <div class="topic">objects</div>
+      <div class="topic">pronouns</div>
+      <div class="topic">career</div>
+      <div class="topic">environment</div>
+      <div class="topic">transport</div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Settings Drawer -->
+<aside class="drawer" id="drawer" aria-modal="true" aria-hidden="true">
+  <div class="bar">
+    <strong>Settings</strong>
+    <button class="iconbtn" id="btnClose">✖️</button>
+  </div>
+  <div class="cont">
+    <div class="row">
+      <label>Voice</label>
+      <select id="selVoice">
+        <option>ar-XA-Wavenet-A (F)</option>
+        <option>ar-XA-Wavenet-B (M)</option>
+        <option>ar-XA-Standard-A (F)</option>
+        <option>ar-XA-Standard-B (M)</option>
+        <option>ar-XA-Chirp3-HD-Achernar (F)</option>
+      </select>
+    </div>
+    <div class="row">
+      <label>Speech speed</label>
+      <input type="range" id="rngRate" min="0.6" max="1.4" step="0.05" value="1">
+    </div>
+    <div class="row">
+      <label>Loudness (dB)</label>
+      <input type="range" id="rngGain" min="-6" max="6" step="1" value="0">
+    </div>
+    <div class="row">
+      <label>Transliteration style</label>
+      <select id="selStyle">
+        <option value="google">Google</option>
+        <option value="ascii">ASCII</option>
+        <option value="academic">Academic</option>
+      </select>
+    </div>
+    <div class="row small">
+      Settings are for demo only (no network). Values are remembered per session.
+    </div>
+  </div>
+</aside>
+
+<!-- Bottom Sheet — word picker -->
+<div class="sheet" id="sheet" role="dialog" aria-hidden="true">
+  <div class="grip"></div>
+  <div class="body">
+    <div class="small">Pick an alternative for the selected word</div>
+    <div class="chips" id="sheetChips">
+      <!-- choices injected -->
+    </div>
+  </div>
+  <div class="foot">
+    <button class="btn" id="btnReset">Reset</button>
+    <button class="btn primary" id="btnApply">Apply</button>
+  </div>
+</div>
+
+<script>
+/* ===========================
+   Design Demo (no network)
+   =========================== */
+
+// Mock data
+const SAMPLE = {
+  en: "This is a book",
+  ar: "هذا كتاب",
+  tr: "Hādhā kitāb",
+  tokens: [
+    {ar:"هذا", tr:"Hādhā", gl:"this",  role:"pron"},
+    {ar:"كتاب", tr:"kitāb", gl:"book", role:"noun"}
+  ]
+};
+const CHOICES = {
+  This: ["That","This","It"],
+  is  : ["is","was","will be"],
+  a   : ["a","the","one"],
+  book: ["book","notebook","novel","manual"]
+};
+
+// State
+let currentSentence = SAMPLE.en;
+let chipWorking    = null;  // which word the user is editing
+
+// Elements
+const outAr = document.getElementById('outAr');
+const outTr = document.getElementById('outTr');
+const outEn = document.getElementById('outEn');
+const statusMsg = document.getElementById('statusMsg');
+const tokensEl = document.getElementById('tokens');
+const chipsEl = document.getElementById('chips');
+const inputEl = document.getElementById('input');
+
+// Settings drawer
+const drawer = document.getElementById('drawer');
+document.getElementById('btnSettings').onclick = () => openDrawer(true);
+document.getElementById('btnClose').onclick    = () => openDrawer(false);
+function openDrawer(open){
+  drawer.classList.toggle('open', open);
+  drawer.setAttribute('aria-hidden', String(!open));
+}
+
+// Sheet (picker)
+const sheet = document.getElementById('sheet');
+const sheetChips = document.getElementById('sheetChips');
+document.getElementById('btnApply').onclick = applyChoice;
+document.getElementById('btnReset').onclick = resetChoice;
+function openSheet(open){
+  sheet.classList.toggle('open', open);
+  sheet.setAttribute('aria-hidden', String(!open));
+}
+
+// Init UI
+function renderOutput(sample=SAMPLE){
+  outAr.textContent = sample.ar;
+  outTr.textContent = sample.tr;
+  outEn.textContent = sample.en;
+  renderTokens(sample.tokens);
+  renderChips(sample.en);
+  inputEl.value = sample.en;
+}
+function renderTokens(list){
+  tokensEl.innerHTML = '';
+  list.forEach(tok=>{
+    const card = document.createElement('div');
+    card.className = `token tok-${tok.role||'unk'}`;
+    card.innerHTML = `
+      <p class="ar">${tok.ar}</p>
+      <p class="tr">${tok.tr}</p>
+      <p class="gl">${tok.gl}</p>
+      <button class="play" aria-label="Play">▶</button>
+    `;
+    // mock play
+    card.querySelector('.play').onclick = () => beep();
+    // tap anywhere to play
+    card.onclick = (e)=>{ if(e.target.classList.contains('play'))return; beep(); };
+    tokensEl.appendChild(card);
+  });
+}
+
+function renderChips(sentence){
+  chipsEl.innerHTML='';
+  sentence.split(/\s+/).forEach(word=>{
+    const c = document.createElement('button');
+    c.className='chip';
+    c.textContent = word;
+    c.onclick = ()=> editWord(c);
+    chipsEl.appendChild(c);
+  });
+}
+
+/* Editor bottom sheet */
+function editWord(chip){
+  chipWorking = chip;
+  const word = chip.textContent;
+  const options = (CHOICES[word] || [word]);
+  sheetChips.innerHTML='';
+  options.forEach(opt=>{
+    const b=document.createElement('button');
+    b.className='chip';
+    b.textContent=opt;
+    b.onclick = ()=> {
+      // select visual
+      [...sheetChips.children].forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      chip.dataset.choice = opt;
+    };
+    sheetChips.appendChild(b);
+  });
+  openSheet(true);
+}
+function applyChoice(){
+  if(!chipWorking) { openSheet(false); return; }
+  const choice = chipWorking.dataset.choice;
+  if(choice){
+    chipWorking.textContent = choice;
+    updateInputFromChips();
+  }
+  chipWorking = null;
+  openSheet(false);
+}
+function resetChoice(){
+  if(!chipWorking){ openSheet(false); return; }
+  delete chipWorking.dataset.choice;
+  openSheet(false);
+}
+function updateInputFromChips(){
+  const s = [...chipsEl.children].map(c=>c.textContent).join(' ');
+  inputEl.value = s;
+  currentSentence = s;
+}
+
+/* Mock actions */
+document.getElementById('btnRun').onclick = ()=>{
+  // In the real app you'd translate. Here we just reflect sentence and rebuild chips.
+  statusMsg.textContent = 'Updated.';
+  setTimeout(()=>statusMsg.textContent='',1200);
+  renderChips(inputEl.value.trim() || SAMPLE.en);
+};
+document.getElementById('btnSpeak').onclick = ()=> beep();
+document.getElementById('btnCopy').onclick  = ()=>{
+  navigator.clipboard?.writeText(`${outAr.textContent}\n${outEn.textContent}`);
+  statusMsg.textContent = 'Copied';
+  setTimeout(()=>statusMsg.textContent='',1200);
+};
+document.getElementById('btnSwap').onclick  = ()=>{
+  // swap labels visually (mock)
+  const a = outAr.textContent, e = outEn.textContent;
+  outAr.textContent = e; outEn.textContent = a; outTr.textContent = '…';
+};
+
+/* Topics mock */
+document.getElementById('btnRefresh').onclick = ()=>{
+  // toggle which topic looks active
+  const list=[...document.querySelectorAll('.topic')];
+  const cur=list.find(x=>x.classList.contains('active'));
+  const idx=(cur?list.indexOf(cur):0);
+  list.forEach(x=>x.classList.remove('active'));
+  list[(idx+1)%list.length].classList.add('active');
+};
+
+/* Tiny audio beep so play is tangible */
+let _ctx;
+function beep(){
+  try{
+    _ctx = _ctx || new (window.AudioContext||window.webkitAudioContext)();
+    const o=_ctx.createOscillator(); const g=_ctx.createGain();
+    o.type='sine'; o.frequency.value=660;
+    g.gain.value=.08; o.connect(g); g.connect(_ctx.destination);
+    o.start(); setTimeout(()=>{o.stop();},180);
+  }catch(_){}
+}
+
+/* Boot */
+renderOutput();
+</script>
+</body>
+</html>

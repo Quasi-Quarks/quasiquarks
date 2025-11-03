@@ -1,0 +1,847 @@
+<html>
+   <head>
+      <style type="text/css">
+      
+      
+      * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+      }
+      
+      div {
+      height: 100px;
+      width: 100px;
+      background-color: rgba(88, 88, 88, 0.2);
+      border: 2px solid purple;
+      transform-style: preserve-3d;
+      }
+      
+      style, script {
+      display: none;
+      }
+      
+      body {
+       height: 100%;
+       width: 100%;
+       border: 2px solid purple;
+      overflow-x: hidden;
+      overscroll-behavior: none;
+      }
+        
+        #bmap0 {
+           height: 400px;
+           width: 400px;
+           border: 2px solid;
+           position: fixed;
+           top: 50%;
+        }
+
+        #bmap1 {
+           height: 400px;
+           width: 400px;
+           border: 2px solid;
+           position: absolute;
+           
+
+        }
+
+        #bmap2 {
+           height: 400px;
+           width: 400px;
+           border: 2px solid; 
+           position: absolute;
+        }
+
+        #ctrldiv {
+          height: 88px;
+           width: 88px;
+            background-color: purple;
+            z-index: 88;
+            border-top-right-radius: 28px;
+            border-top-left-radius: 28px;
+            position: fixed;
+            
+        }
+
+        #mnutxt {
+        	position: fixed;
+        	 width: 80%;
+        	 height: 88px;
+        	 background-color: gray;
+        	 z-index: 88;
+        	 top: 0;
+        }
+
+        #spritep { 
+               height: 88px;
+               width: 88px;
+               border: 2px solid red;
+               z-index: 188;
+               
+                position: fixed;
+                top: -200px;
+            }
+        #sprite0 {
+          height: 88px;
+          width: 88px;
+          position: absolute;
+          background-color: green;
+          transform: rotate(45deg);
+          }
+        #sprite1 {
+          height: 88px;
+          position: absolute;
+          width: 88px;
+          background-color: blue;
+          }
+audio {
+    z-index: 192;
+    display: none;
+}
+        </style>
+  </head>
+<body>
+	 <div id="mnutxt"></div>
+	 <div id="ctrldiv"></div>
+   <div id="spritep">
+     <div id="sprite0"></div>
+     <div id="sprite1"></div>
+   </div>
+   
+   <audio id="mariojumpaudio" controls>
+  <source src="mariojump.wav" type="audio/ogg">
+
+Your browser does not support the audio element.
+</audio>
+
+   <audio id="spriteappearsaudio" controls>
+  <source src="spriteappears.wav" type="audio/ogg">
+
+Your browser does not support the audio element.
+</audio>
+    
+    <audio id="shinegetaudio" controls>
+  <source src="shineget.wav" type="audio/ogg">
+
+Your browser does not support the audio element.
+</audio>
+<script type="text/javascript">
+    var cubectrl = 0;
+    
+    //code()
+    
+    
+    
+   // function code() {
+    
+    var bly = 0;
+    var bx = 0;
+    var ctrlposy = 0;
+    var ctrlposx = 0;
+    
+    addEventListener('touchmove', function() {
+
+    bly =  event.touches[0].clientY;
+    bx =  event.touches[0].clientX;
+   
+    
+    });
+
+    addEventListener('mousemove', function() {
+  
+    bly =  event.clientY;
+    bx =  event.clientX;
+    //sdmk()
+    
+     // ctrl();
+    
+    });
+    
+    
+    var topz = 0;
+    var leftz = 0;
+    var rightz = 0;
+    var bottomz = 0;
+    
+       setInterval(ctrl, 88)
+    
+    var sc = 0;
+    function ctrl() {
+    	sc = sc + 1;
+      bmap0.style.transform = " rotateX("+-18+"deg) rotateY("+angle2+"deg) translate3d("+0+"px, 0px, "+0+"px) ";
+     bmap1.style.transform = " rotateX("+0+"deg) rotateY("+0+"deg) translate3d("+-distancepostrx2+"px, "+cubeposy+"px, "+distancepostrz2+"px) ";
+      //setInterval(ctrl, 1000)
+      ///alert(88)
+        //document.getElementById("mnutxt").innerHTML  = sc;
+      ctrlmovt()
+      collisionconvertcube();
+      collisionconvertcubes();
+      funcjump();
+      goomacollision()
+    }
+
+    var angle = 0;
+    var angle2 = 0;
+        var elem = document.getElementById("ctrldiv");
+  var ctrlposy = parseInt(window.getComputedStyle(elem, null).getPropertyValue("top"));
+  var ctrlposx = parseInt(window.getComputedStyle(elem, null).getPropertyValue("left"));
+   var distancepostrz = 0;
+    var distancepostrx = 0;
+    var distancepostrz2 = 0;
+    var distancepostrx2 = 0;
+    
+
+
+
+       function ctrlmovt() {
+           
+
+   
+  angle  = parseInt((Math.atan((-bly+ctrlposy)/(-bx+ctrlposx))/Math.PI) * 180);  
+  
+
+               if(bly > ctrlposy) {
+               	    if(bx > ctrlposx) {
+                    // angle2 = angle + - 
+                     ctrldiv.style.backgroundColor = "red";
+                     ctrldiv.innerText = 1;
+                     angle2 = angle + 90;
+                     bottomz == 0 ? distancepostrz =  -(-(9+ -(angle2/10))) : distancepostrz = 0;
+                     distancepostrx = 9-((angle2+-90)/10);
+      rightz == 0 ? distancepostrx = 9-((angle2+-90)/10) : distancepostrx = 0;
+               	    } else {
+                         ctrldiv.style.backgroundColor = "green";
+                         ctrldiv.innerText = 2;
+                         angle2 = angle + 270;
+                        bottomz == 0 ? distancepostrz = -(27 + -((angle2/10))) : distancepostrz = 0;
+                        
+                       leftz  == 0 ? distancepostrx = -((angle2+-180)/10) : distancepostrx = 0;
+                             
+               	    }
+               } 
+               
+               	  if(bly < ctrlposy) {
+                    if(bx > ctrlposx) {
+                    // angle2 = angle + - 
+                     ctrldiv.style.backgroundColor = "purple";
+                     ctrldiv.innerText = 0;
+                     angle2 = angle + 90;
+              if(topz == 0) {
+                     distancepostrz = (9+ -(angle2/10));
+                 } else {
+                 	 distancepostrz = 0;
+                 }
+
+        rightz == 0 ? distancepostrx =  (angle2/10) : distancepostrx = 0;
+               	    } else {
+                         ctrldiv.style.backgroundColor = "blue";
+                         ctrldiv.innerText = 3;
+                         angle2 = angle + 270;
+
+                    topz == 0 ? distancepostrz = (angle2/10) + -27 : distancepostrz = 0;
+                      leftz == 0 ? distancepostrx = -( 9 + -(angle2 + -270)/10) : distancepostrx = 0;
+               	    }
+               	}
+
+                     distancepostrz = parseInt(distancepostrz);
+                     distancepostrx = parseInt(distancepostrx);
+               	
+               	distancepostrz2 = distancepostrz2 + distancepostrz;
+               	distancepostrx2 = distancepostrx2 + distancepostrx;
+             ctrldiv.style.transform = "rotate("+angle2+"deg)";
+
+                
+
+//document.getElementById("mnutxt").innerHTML = angle2 + " " + bx + " " + ctrlposx;
+//document.getElementById("mnutxt").innerHTML = angle2 + " " + bly + " " + ctrlposy;
+//document.getElementById("mnutxt").innerHTML = distancepostrz + " " + distancepostrx + " ";
+//mnutxt.innerHTML = distancepostrz2 + " " + distancepostrx2 + " ";
+                 
+       }
+
+        ctrlmovt();
+
+     var cubepostrz   = [200, -200, -200, 200];
+    var cubeposx = [200, 200, -200, 200];
+    var postrz = [200, 200, -200, -200];
+    var posx = [200, -200, 200, -200];
+    var cubepostrz2 = 0;
+    var cubeposx2 = 0;
+
+    var jump = true;
+    var jumpagain = 0;
+    var jumped = 0;
+    var jump2 = 0;
+
+
+           var jump = true;
+
+var cubeposy = 2;
+var cubeposy2 = false;
+      function funcjump() {
+            
+            if(jumping == true) {
+              
+                if(cubeposy >= 128) {
+                    cubeposy2 = true;
+                }
+                if(cubeposy <= 0) {
+                    cubeposy2 = false;
+                    jumping = false;
+                }
+
+                    if(cubeposy2 == true) {
+                            cubeposy =  cubeposy + -10;
+                    } else { 
+                           cubeposy = cubeposy + 8;
+                       }
+
+            }
+
+             mnutxt.innerHTML = cubeposy;
+
+
+      }
+
+      document.body.onclick = function () { 
+             
+            jumping = true;
+            mariojumpaudio.play();
+           }
+
+        cubedistancetrz = 0;
+       
+       function collisionconvertcube() {
+      	 cubedistancetrz = distancepostrz2 + 200;
+      	 cubedistancex = distancepostrx2 + 200;
+      	 //mnutxt.innerHTML = cubedistancex;
+      }
+
+      function collisionconvertcubes() {
+      	// mnutxt.innerHTML = distancepostrz2 + " " + distancepostrx2 + " ";
+      	 for(cj=0; cj<=3; cj++) {
+            cubepostrz2 = postrz[cj] + 200;
+      	 cubeposx2 = posx[cj] + 200;
+      	 if(cubedistancetrz >= cubepostrz2 + - 118 && cubedistancetrz <= cubepostrz2 + 118) {
+      	 if(cubedistancex >= cubeposx2 + -118 && cubedistancex <= cubeposx2 + 118) {
+             
+      	 	document.getElementById("cube0").style.backgroundColor = "red";
+
+              
+
+               if(cubedistancetrz >= cubepostrz2 + -108 && cubedistancetrz <= cubepostrz2 + 18) {
+      	 	topz = 1;
+             
+      	 } else {
+      	 	topz = 0;
+      	 }
+
+      	  if(cubedistancetrz <= cubedistancetrz + 28 && cubedistancetrz >= cubedistancetrz) {
+      	 	bottomz = 1;
+               
+      	 } else {
+      	 	bottomz = 0;
+      	 }
+
+
+
+
+      	 if(cubedistancex >= cubeposx2 + -118 && cubedistancex <= cubeposx2 + 18) {
+      	 	rightz = 1;
+      	 
+      	    } else {
+      	    	rightz = 0;
+      	    }
+
+      	    if(cubedistancex <= cubeposx2 + 122 && cubedistancex >= cubeposx2 + 100) {
+      	 	leftz = 1;
+      	 	
+      	    } else {
+      	      leftz = 0;
+      	    }
+           
+              if(topz == 1 || rightz == 1 || leftz == 1 || bottomz == 1) {
+              	break;
+              }
+
+      	 } else {
+      	 	document.getElementById("cube0").style.backgroundColor = "blue";
+      	 	topz = 0;
+      	 	rightz = 0;
+      	 	bottomz = 0;
+      	 	leftz = 0;
+      	 //	mnutxt.innerHTML = cubedistancex + " " + cubeposx2; 
+         
+      	      }
+      	 } 
+      	 
+      	 else {
+                topz = 0;
+      	 	rightz = 0;
+      	 	bottomz = 0;
+      	 	leftz = 0;
+      	 	document.getElementById("cube0").style.backgroundColor = "blue";
+             
+      	 } 
+      }
+      	 //mnutxt.innerHTML = cubedistancetrz + " " + cubepostrz2 + topz; 
+      	//mnutxt.innerHTML = cubedistancex + " " + cubeposx2 + " " + rightz;
+      	// mnutxt.innerHTML = cubedistancetrz + " " + (cubepostrz2 +  88) + " " +bottomz;
+      	 //mnutxt.innerHTML = cubedistancex + " " + cubeposx2 + " " + leftz;
+         
+         //mnutxt.innerText = topz;
+      }
+
+      var goombatrz = [22, 88, 22, 188];
+      var goombax = [0, 0, 0, 0];
+
+      var goombatrz2 = true;
+      var goombax2 = true;
+
+      function goomba2() {
+        for(bm=0; bm<=3; bm++) { 
+         
+           if(goombatrz[bm] >= 200) {
+            goombatrz2 = true;
+          }
+
+          if(goombatrz[bm] <= -200) {
+            goombatrz2 = false;
+          }  
+
+          if(goombatrz2 == true) { 
+               goombatrz[bm] = goombatrz[bm] + -8;
+            } else {
+               goombatrz[bm] = goombatrz[bm] + 8;
+            }
+
+            if(goombax[bm] >= 200) {
+            goombax2 = true;
+          }
+
+          if(goombax[bm] <= -200) {
+            goombax2 = false;
+          }  
+
+          if(goombax2 == true) { 
+               goombax[bm] = goombax[bm] + -8;
+            } else {
+               goombax[bm] = goombax[bm] + 8;
+            }
+            
+     
+    document.getElementById("idgoomba"+bm).style.transform = "translate3d("+goombatrz[bm]+"px, 0px, "+-goombax[bm]+"px) ";
+       
+        
+      }
+    
+      setTimeout(function(){ goomba2() }, 88);
+      }
+
+
+     var goombap = 0;
+
+
+      function goomacollision() {
+        for(bm=0; bm<=3; bm++) {
+          goombapostrz2 = goombatrz[bm] + 200;
+         goombaposx2 = goombax[bm] + 200;
+            if(cubeposy >= 88 && cubeposy <= 118 && cubeposy2 == true) {
+              if(cubedistancetrz >= goombapostrz2 + - 118 && cubedistancetrz <= goombapostrz2 + 118) {
+         if(cubedistancex >= goombaposx2 + -118 && cubedistancex <= goombaposx2 + 118) {
+             goombap = goombap + 1;
+             //alert(goombap)
+               mnutxt.innerHTML = cubedistancetrz + " " + goombapostrz2; 
+               goombatrz[bm] = 2288;
+               goombax[bm] = 2288;
+
+               document.getElementById("idgoomba"+bm).style.display = "none";
+            }
+          }
+        }
+        
+        mnutxt.innerHTML = cubedistancetrz + " " + goombapostrz2 + cubedistancex + goombaposx2;
+      }
+
+      if(goombap >= 3) {
+        
+           spriteappr();
+        
+      }
+
+
+      }
+
+
+            var spriteb = 0;
+            var spriteb2 = 0;
+            var spriteb3 = 0;
+
+          function spriteappr() {
+            spriteb = spriteb + 8;
+          spritep.style.transform = "rotateY("+spriteb+"deg)";
+          sprite0.style.backgroundColor = "yellow";
+          sprite1.style.backgroundColor = "yellow";
+          if(spriteb2 == 0) {
+              spriteappearsaudio.play()
+
+          }
+          spriteb2 = spriteb2 + 1;
+            setTimeout(function(){ goomba2() 
+                   spritecollision() 
+            }, 2288);
+        
+          }
+
+
+
+
+     var spriteb2 = 0;
+
+
+          function spritecollision() {
+            if(cubeposy >= 88 && cubeposy <= 118 && cubeposy2 == true) {
+              if(cubedistancetrz >= 200+ - 118 && cubedistancetrz <= 200 + 118) {
+         if(cubedistancex >= 200 + -118 && cubedistancex <= 200 + 118) {
+             
+           //  alert(188)
+               mnutxt.innerHTML = cubedistancetrz + " " + goombapostrz2; 
+                spriteb = spriteb + 8;
+          spritep.style.transform = "rotateY("+spriteb+"deg) rotateX("+spriteb+"deg)";
+            shinegetaudio.play();
+
+               document.getElementById("idgoomba"+bm).style.display = "none";
+            }
+          }
+        }
+
+          }
+    
+    function cube0() {
+    
+    var bx = [0, 0, 0, 0, 90, 90];
+    var by = [0, 90, 0, 90, 0, 0];
+    var yt = [0, 0, 0, 0, 200, -200];
+    var yx = [0, -200, 0, 200, 0, 0];
+    var yz = [200, 0, -200, 0, 0, 0];
+    
+          var bmap0 = document.createElement("div");   
+              bmap0.setAttribute("id", "bmap0");
+              bmap0.style.transformStyle = "preserve-3d";
+              var bmap1 = document.createElement("div");   
+              bmap1.setAttribute("id", "bmap1");
+              bmap1.style.transformStyle = "preserve-3d";
+              var bmap2 = document.createElement("div");   
+              bmap2.setAttribute("id", "bmap2");
+              bmap2.style.transformStyle = "preserve-3d";
+              bmap0.appendChild(bmap1);
+              bmap1.appendChild(bmap2);
+         for(b=0; b<=5; b++) {
+         
+         var bmap = document.createElement("div");   
+         bmap.style.border = "2px solid red";
+         bmap.style.height = 400+"px";
+         bmap.style.width = 400+"px";
+         bmap.style.position = "fixed";
+         bmap.style.top = yt[b];
+         bmap.style.left = yx[b];
+         bmap.innerText = b;
+         bmap.style.border = "2p solid red";
+         bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ("+yz[b]+"px) ";
+         bmap0.appendChild(bmap);
+         document.body.appendChild(bmap0);
+         }
+    
+    }
+    
+  
+    
+      
+    cube0()
+    
+    function cube1() {
+    
+    var bx = [0, 0, 0, 0, 90, 90];
+    var by = [0, 90, 0, 90, 0, 0];
+    var yt = [0, 0, 0, 0, 200, -200];
+    var yx = [0, -200, 0, 200, 0, 0];
+    var yz = [200, 0, -200, 0, 0, 0];
+    
+     var bmap0 = document.getElementById("bmap1");
+    for(b=0; b<=5; b++) {
+    
+    var bmap = document.createElement("div");   
+    bmap.style.border = "2px solid red";
+    bmap.style.height = 400+"px";
+    bmap.style.width = 400+"px";
+    bmap.style.position = "fixed";
+    bmap.style.top = yt[b];
+    bmap.style.left = yx[b];
+    bmap.innerText = b;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ("+yz[b]+"px) ";
+    
+    document.getElementById("bmap1").appendChild(bmap);
+    
+    }
+    
+    }
+    
+    
+    
+    
+   cube1()
+    
+    function cube2() {
+    
+    var bx = [0, 0, 0, 0, 90, 90];
+    var by = [0, 90, 0, 90, 0, 0];
+    var yt = [0, 0, 0, 0, 200, -200];
+    var yx = [0, -200, 0, 200, 0, 0];
+    var yz = [200, 0, -200, 0, 0, 0];
+    
+    var bmap0 = document.getElementById("bmap2");
+    for(b=0; b<=5; b++) {
+    
+    var bmap = document.createElement("div");   
+    bmap.style.border = "2px solid red";
+    bmap.style.height = 400+"px";
+    bmap.style.width = 400+"px";
+    bmap.style.position = "fixed";
+    bmap.style.top = yt[b];
+    bmap.style.left = yx[b];
+    bmap.innerText = b;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ("+yz[b]+"px) ";
+    
+    document.getElementById("bmap2").appendChild(bmap);
+    
+    }
+    
+    }
+    
+    
+    
+    
+   cube2()
+    
+
+
+    function mcube0(bly) {
+    
+    var bx = [0, 0, 0, 0, 90, 90];
+    var by = [0, 90, 0, 90, 0, 0];
+    var yt = [0, 0, 0, 0, 50, -50];
+    var yx = [0, -50, 0, 50, 0, 0];
+    var yz = [50, 0, -50, 0, 0, 0];
+    
+    
+    var backgroundcolor = ["red", "green", "blue", "purple"];
+
+    var bmap0 = document.createElement("div"); 
+          bmap0.style.height = "100px";
+          bmap0.style.width = "100px";
+          bmap0.style.transformStyle = "preserve-3d";
+          bmap0.style.position = "absolute";
+          bmap0.style.top = -100+"px";
+
+        bmap0.style.transform = "translate3d("+posx[bly]+"px, 0px, "+-postrz[bly]+"px) ";
+    for(b=0; b<=5; b++) {
+    
+    var bmap = document.createElement("div");   
+    bmap.style.border = "2px solid red";
+    bmap.style.height = 100+"px";
+    bmap.style.width = 100+"px";
+    bmap.style.position = "fixed";
+    //bmap.style.backgroundImage = "url(bricks.jpg)";
+    bmap.style.backgroundColor = backgroundcolor[bly];
+    bmap.style.backgroundSize = "100% 100%";
+    bmap.style.top = yt[b];
+    bmap.style.left = yx[b];
+    bmap.innerText = b;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ("+yz[b]+"px) ";
+    
+    bmap0.appendChild(bmap);
+    document.getElementById("bmap1").appendChild(bmap0);
+    
+    }
+    
+    }
+    
+    
+    
+    
+   mcube0(0);
+   mcube0(1);
+   mcube0(2);
+   mcube0(3);
+
+   function mcubeb(bly) {
+    
+    var bx = [0, 0, 0, 0, 90, 90];
+    var by = [0, 90, 0, 90, 0, 0];
+    var yt = [0, 0, 0, 0, 50, -50];
+    var yx = [0, -50, 0, 50, 0, 0];
+    var yz = [50, 0, -50, 0, 0, 0];
+    
+    var postrz = [200, -200, -200, 200];
+    var posx = [200, 200, -200, -200];
+
+
+    var bmap0 = document.createElement("div"); 
+        bmap0.setAttribute("id", "cube0");
+          bmap0.style.height = "100px";
+          bmap0.style.width = "100px";
+          bmap0.style.transformStyle = "preserve-3d";
+          bmap0.style.position = "absolute";
+          bmap0.style.top = -100+"px";
+
+        
+    for(b=0; b<=5; b++) {
+    
+    var bmap = document.createElement("div");   
+    bmap.style.border = "2px solid red";
+    bmap.style.height = 100+"px";
+    bmap.style.width = 100+"px";
+    bmap.style.position = "fixed";
+    bmap.style.top = yt[b];
+    bmap.style.left = yx[b];
+    bmap.innerText = b;
+    bmap.style.backgroundImage = "url(mario.jpg)";
+    bmap.style.backgroundSize = "100% 100%";
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ("+yz[b]+"px) ";
+    
+    bmap0.appendChild(bmap);
+    document.getElementById("bmap0").appendChild(bmap0);
+    
+    }
+    
+    }
+    
+    
+    
+    
+   mcubeb(0);
+
+
+
+
+    function mcube0(bly) {
+    
+    var bx = [0, 0, 0, 0, 90, 90];
+    var by = [0, 90, 0, 90, 0, 0];
+    var yt = [0, 0, 0, 0, 50, -50];
+    var yx = [0, -50, 0, 50, 0, 0];
+    var yz = [50, 0, -50, 0, 0, 0];
+    
+    
+    var backgroundcolor = ["red", "green", "blue", "purple"];
+
+    var bmap0 = document.createElement("div"); 
+          bmap0.style.height = "100px";
+          bmap0.style.width = "100px";
+          bmap0.style.transformStyle = "preserve-3d";
+          bmap0.style.position = "absolute";
+          bmap0.style.top = -100+"px";
+          bmap0.setAttribute("id", bly)
+
+        bmap0.style.transform = "translate3d("+posx[bly]+"px, 0px, "+-postrz[bly]+"px) ";
+    for(b=0; b<=5; b++) {
+    
+    var bmap = document.createElement("div");   
+    bmap.style.border = "2px solid red";
+    bmap.style.height = 100+"px";
+    bmap.style.width = 100+"px";
+    bmap.style.position = "fixed";
+    bmap.style.backgroundImage = "url(bricks.jpg)";
+   // bmap.style.backgroundColor = backgroundcolor[bly];
+    bmap.style.backgroundSize = "100% 100%";
+    bmap.style.top = yt[b];
+    bmap.style.left = yx[b];
+    bmap.innerText = b;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ("+yz[b]+"px) ";
+    
+    bmap0.appendChild(bmap);
+    document.getElementById("bmap1").appendChild(bmap0);
+    
+    }
+    
+    }
+    
+    
+    
+    
+   mcube0(0);
+   mcube0(1);
+   mcube0(2);
+   mcube0(3);
+    
+    
+    function mgoomba0(bly) {
+    
+    var bx = [0, 0, 0, 0, 90, 90];
+    var by = [0, 90, 0, 90, 0, 0];
+    var yt = [0, 0, 0, 0, 50, -50];
+    var yx = [0, -50, 0, 50, 0, 0];
+    var yz = [50, 0, -50, 0, 0, 0];
+    
+    
+    var backgroundcolor = ["red", "green", "blue", "purple"];
+
+    var bmap0 = document.createElement("div"); 
+          bmap0.style.height = "100px";
+          bmap0.style.width = "100px";
+          bmap0.style.transformStyle = "preserve-3d";
+          bmap0.style.position = "absolute";
+          bmap0.style.top = -100+"px";
+          bmap0.setAttribute("id", "idgoomba"+bly)
+
+        bmap0.style.transform = "translate3d("+posx[bly]+"px, 0px, "+-postrz[bly]+"px) ";
+    for(b=0; b<=5; b++) {
+    
+    var bmap = document.createElement("div");   
+    bmap.style.border = "2px solid red";
+    bmap.style.height = 100+"px";
+    bmap.style.width = 100+"px";
+    bmap.style.position = "fixed";
+    bmap.style.backgroundImage = "url(goomba.png)";
+    bmap.style.backgroundColor = backgroundcolor[bly];
+    bmap.style.backgroundSize = "100% 100%";
+    bmap.style.top = yt[b];
+    bmap.style.left = yx[b];
+    bmap.innerText = b;
+    bmap.style.border = "2p solid red";
+    bmap.style.transform = " rotateX("+bx[b]+"deg) rotateY("+by[b]+"deg) translateZ("+yz[b]+"px) ";
+    
+    bmap0.appendChild(bmap);
+    document.getElementById("bmap1").appendChild(bmap0);
+    
+    }
+
+
+    
+    }
+
+        document.getElementById("bmap1").appendChild(spritep);
+    
+    
+    
+   mgoomba0(0);
+   mgoomba0(1);
+   mgoomba0(2);
+   mgoomba0(3);
+
+   goomba2();
+   
+    
+    //}
+</script>
+</body>
+</html>

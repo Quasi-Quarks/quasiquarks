@@ -1,0 +1,1568 @@
+<html>
+    <head>
+        <style>
+            * {
+                 font-family: sans-serif;
+                 margin: 0;
+                 padding: 0;
+            }
+            .goal {
+                 height: 126px;
+                 width: 92%;
+                 background-color: white;
+                 display: inline-block;
+                 margin: 19px 1px;
+                 border-radius: 13px;
+            }
+
+            #main {
+                margin-top: 8px;
+                min-height: 110px;
+                height: 182px;
+                width: 94%;
+                background-color: white;
+                overflow-y: scroll;
+                border-radius: 13px;
+            }
+
+            .paragraph {
+               display: flex;
+               height: max-content;
+               width: max-content;
+               margin: 19px 9px;
+               display: inline-block;
+            }
+            p.genrewrd {
+    display: inline-block;
+    margin: 3px 19px;
+    color: black;
+}
+
+#gnrtdiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.trnsal {
+    margin: 0px 5px;
+}
+
+#main2 {
+     height: max-content;
+     width: 95%;
+     margin: auto;
+     /* background-color: rgb(108 108 108); */
+}
+
+.paragraphtr {
+    display: flex;
+    flex-direction: row;
+    margin: 3px 2px;
+    /* background-color: #bf4444; */
+    word-break: break-word;
+    display: inline-block;
+}
+
+.paragraphtr p{
+  margin: 1px 6px;
+  display: flex;
+  flex-direction: row;
+  min-width: max-content;
+  display: inline-block;
+}
+
+.parentdiv {background-color: #ffffff;margin: 19px 2px;height: 105px;display: flex;flex-direction: column;justify-content: space-evenly;border-radius: 13px;}
+
+body {
+    background-image: linear-gradient(168deg, #d692e6, #00dcff);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="goal" class="goal">
+            <button id="search">Search</button>
+        </div>
+        <!-- <div id="gnrtdiv">
+            <input id="samplesentence" tpye="text" value=""/>
+            <button id="genratorfunc">Generate</button>
+            <input id="gnrtsntc" tpye="text" value=""/>
+        </div> -->
+        <div id="main"></div>
+        <div id="main2"></div>
+        <script>
+
+            var genre = ["sentence", "grammar", "time", "description", "environment", "personal", "action", "item", "food", "animal", "vegetable", "fruit"];
+           
+            var words = [             
+                [["kitai", "hopeful"],["personal", "action", "description", "personal description"]],
+                [["tsugi", "next"],["sentence", "description"]],
+                [["fukai", "deep"],["description"]],
+                [["natsuyasumi", "summer vacation"],["environment"]],
+                [["kara", "from"],["grammar"]],
+                [["asai", "shallow"],["description"]],
+                [["okanemochi", "rich"],["personal", "description"]],
+                [["binbo", "poor"],["personal", "description"]],
+                [["dansei", "man"],["sentence", "grammar", "personal"]],
+                [["monita", "monitor"],["item"]],
+                [["oki", "big"],["description"]],
+                [["hoshi", "want"],["personal", "sentence", "grammar"]],
+                [["kibodo", "keyboard"],["item"]],
+                [["kowaremashita", "broken"],["description"]],
+                [["heddofon", "headphone"],["item"]],
+                [["shakkuri o suru", "hiccup"],["personal"]],
+                [["hanashinikui", "Difficult to talk"],["action", "personal"]],
+                [["buruberi", "blueberry"],["food", "fruit", "item"]],
+                [["marui", "round"],["description"]],
+                [["purun", "prune"],["food", "fruit", "item"]],
+                [["mango", "mango"],["food", "fruit", "item"]],
+                [["kudamono", "fruit"],["food", "fruit", "item"]],
+                [["remon", "lemon"],["food", "fruit", "item"]],
+                [["kaki", "oyster"],["?"]],
+                [["Shibori", "backwards"],["description"]],
+                [["taorete", "fall"],["action"]],
+                [["tsuyoku", "hard"],["description"]],
+                [["kata", "shoulder"],["personal"]],
+                [["migi", "right"],["description"]],
+                [["kinniku", "muscle"],[ "personal"]],
+                [["weito", "weight"],["description", "item", "personal", "something"]],
+                [["toreningu", "training"],["personal"]],
+                [["hone", "bone"],["personal"]],
+                [["shita", "beneath"],["description"]],
+                [["agohige", "beard"],["personal"]],
+                [["nagakute", "long"],["description"]],
+                [["satsumaimo", "sweet potatoe"],["item", "food", "vegetable"]],
+                [["kinoko", "mushroom"],["item", "food", "vegetable"]],
+                [["ryukku", "backpack"],["item"]],
+                [["hon", "book"],["item"]],
+                [["Enpitsu", "pencil"],["item"]],
+                [["Kami", "paper"],["item"]],
+                [["nori", "glue"],["item"]],
+                [["kami", "paper"],["item"]],
+                [["dentaku", "calculator"],["item"]],
+                [["Tesuto", "test"],["environment"]],
+                [["enpitsu kezuri ", "pencil sharpner"],["item", "description"]],
+                [["hiroi", "wide"],["description"]],
+                [["Kawa", "river"],["environment", "item"]],
+                [["semai", "narrow"],["description"]],
+                [["Michi", "path"],["decsription", "environment"]],
+                [["katai", "hard"],["description"]],
+                [["kame", "turtle"],["animal"]],
+                [["yawarakai", "soft"],["description"]],
+                [["Sozai", "material"],["item"]],
+                [["Berubetto", "velvet"],["?"]],
+                [["anzu", "apricot"],["food", "fruit", "item"]],
+                [["Hoshi anzu", "dried apricot"],["food", "fruit", "item", "description"]],
+                [["Kenkō", "healthy"],["description"]],
+                [["Sunakku", "snack"],["item"]],
+                [["painappuru", "pineapple"],["food", "fruit", "item"]],
+                [["kizanda painappuru", "chopped pineapple"],["description"]],
+                [["Kotēji", "cottage"],["?"]],
+                [["meron", "melon"],["food", "fruit", "item"]],
+                [["hyaku", "hundred"],["number"]],
+                [["shurui", "variety"],["description"]],
+                [["ichijiku", "fig"],["food", "fruit", "item"]],
+                [["Naga-sa ", "long"],["description"]],
+                [["karifurawa", "cabbage"],["food", "vegetable", "item"]],
+                [["yoru", "night"],["environment", "time"]],
+                [["serori", "celery"],["food", "vegetable", "item"]],
+                [["Karorī", "calory"],["personal"]],
+                [["nasu", "eggplant"],["food", "vegetable", "item"]],
+                [["murasaki", "purple"],["color", "description"]],
+                [["nado", "such"],["sentence"]],
+                [["moyashi", "bean sprout"],["food", "vegetable", "item"]],
+                [["mazeru", "mix"],["action"]],
+                [["Karikari", "crunchy"],["description"]],
+                [["Gohan", "rice"],["food", "vegetable", "item"]],
+                [["moyashi", "bean sprout"],["food", "vegetable", "item"]],
+                [["Amakute karikari", "sweet and crunchy"],["description", "food"]],
+                [["jiko", "accident"],["personal", "action", "description"]],
+                [["Gen'in", "cause"],["personal", "description"]],
+                [["kega", "injury"],["personal"]],
+                [["omo", "main"],["sentence"]],
+                [["shinguru beddo", "single bed"],["item", "environment"]],
+                [["daburuo beddo ", "double bed"],["personal", "environment", "item"]],
+                [["hoteru", "hotel"],["environment"]],
+                [["robi", "lobby"],["environment"]],
+                [["taiheiyo", "pacific ocean"],["environment"]],
+                [["taiseiyo", "atlantic ocean"],["environment"]],
+                [["sekai", "world"],["environment"]],
+                [["indoyo", "indian ocean "],["environment"]],
+                [["ostutoraria", "australia"],["environment", "country"]],
+                [["Chikyū", "earth"],["environment"]],
+                [["nankyoku tairiku", "antartica"],["environment"]],
+                [["ajia", "asia"],["environment"]],
+                [["afruika", "africa"],["environment"]],
+                [["yoroppa", "europe"],["environment"]],
+                [["kita america", "north america"],["environment"]],
+                [["Hokkyoku", "arctic"],["environment"]],
+                [["Karibukai", "caribbean"],["environment"]],
+                [["minami amerika", "south america"],["environment"]],
+                [["kuni", "country"],["environment"]],
+                [["indigo", "indigo"],["?"]],
+                [["shokubutsu", "plant"],["environment"]],
+                [["momoiro", "peach"],["food", "fruit", "item"]],
+                [["kurai", "dark"],["description"]],
+                [["iradatashi", "annoying"],["personal", "description"]],
+                [["urusai", "noisy"],["personal", "description"]],
+                [["dotai", "torso"],["?"]],
+                [["karada", "body"],["personal"]],
+                [["ashi", "leg"],["personal"]],
+                [["mune", "breast"],["personal"]],
+                [["Gan", "cancer"],["personal"]],
+                [["Shōjō", "symptom"],["personal", "description"]],
+                [["kuchihige", "mustache"],["perosnal"]],
+                [["kamo", "maybe"],["sentence"]],
+                [["sentakuki", "washing machine"],["item"]],
+                [["tamotsu", "keep"],["sentence", "action"]],
+                [["fuku", "clothes"],["item"]],
+                [["diubudi pureya", "dvd player"],["item"]],
+                [["Kinō", "yesterday"],["time"]],
+                [["senpuki", "fan"],["item", "description"]],
+                [["tsukeru", "turn on"],["action"]],
+                [["tobichitta", "scattered"],["action", "description"]],
+                [["eakon", "air conditioner"],["item"]],
+                [["sotozukeshi", "external"],["sentence", "description"]],
+                [["yasui", "cheap"],["description"]],
+                [["konro", "stove"],["item"]],
+                [["anzen", "safe"],["description"]],
+                [["denki", "electricity"],["environment", "item"]],
+                [["shogakko", "elementary school"],["environment"]],
+                [["Gakkō", "school"],["environment"]],
+                [["chugakko", "middle school"],["environment"]],
+                [["Ani", "older brother"],["personal"]],
+                [["jinsei", "life"],["personal"]],
+                [["jikan", "time"],["time", "time"]],
+                [["daigaku", "university"],["environment"]],
+                [["kocho", "priniciple"],["personal"]],
+                [["sofu", "grandfather"],["personal"]],
+                [["akarui", "bright"],["description"]],
+                [["shatsu", "shirt"],["item"]],
+                [["Kiteita", "wore"],["action"]],
+                [["noto pasokon", "laptop computer"],["item", "description"]],
+                [["pasokon", "computer"],["item"]],
+                [["konpakuto", "compact"],["description"]],
+                [["mausu", "mouse"],["item"]],
+                [["kowareta", "broken"],["action"]],
+                [["supika", "speaker"],["item"]],
+                [["Onryō", "volume"],["item", "description"]],
+                [["webu makera", "webcam"],["item"]],
+                [["Kaigi", "confrence"],["personal", "environment"]],
+                [["maiku", "microphone"],["item"]],
+                [["desukutoppu pasokan", "desktop computer"],["item"]],
+                [["togarashi", "chilli pepper"],["food", "vegetable", "item"]],
+                [["tane", "seed"],["food", "vegetable", "item"]],
+                [["tomorokshi", "corn"],["food", "vegetable", "item"]],
+                [["Araimono", "washing"],["action"]],
+                [["Arau", "wash"],["action"]],
+                [["sara", "plate"],["item"]],
+                [["kirikizu", "cut"],["action", "description"]],
+                [["hineru", "sprain"],["personal"]],
+                [["ashikubi", "ankle"],["personal"]],
+                [["daidokoro", "kitchen"],["environment"]],
+                [["benri", "convenient"],["personal", "description"]],
+                [["Denjirenji", "microwave"],["item"]],
+                [["reizoko", "refrigerator"],["item"]],
+                [["kyujitsu", "holiday"],["environment", "time", "description"]],
+                [["tabemono", "food"],["item"]],
+                [["sojiki", "vacuum cleaner"],["item"]],
+                [["Kāpetto", "carpet"],["item"]],
+                [["tamotsu", "keep"],["sentence"]],
+                [["Kirei", "clean"],["action"]],
+                [["ase o kaku", "sweat"],["personal", "action"]],
+                [["kao", "face"],["personal"]],
+                [["totemo", "very"],["sentence"]],
+                [["chekku in", " check in"],["?"]],
+                [["heya bango", "room number"],["evironment", "description"]],
+                [["rumu ki ", "room key"],["environment", "item"]],
+                [["funshitsu", "lost"],["?"]],
+                [["torikae", "replacement"],["action"]],
+                [["cost", "hiyo"],["personal"]],
+                [["moningu koru", "wake up call"],["action", "description"]],
+                [["chekku auto", "check out"],["personal"]],
+                [["akarui", "light"],["description"]],
+                [["kiniro no", "gold"],["description"]],
+                [["hando baggu", "purse"],["item"]],
+                [["pinku", "pink"],["color", "description"]],
+                [["Hoshī", "want"],["sentence", "grammar", "personal"]],
+                [["giniro no", "silver"],["description", "colour", "persona"]],
+                [["beju", "beige"],["description", "colour"]],
+                [["kanojo", "she"],["sentence", "personal", "grammar"]],
+                [["Keshō", "makeup"],["item"]],
+                [["fudan", "normally"],["sentence", "grammar"]],
+                [["razuberi", "raspberry"],["food", "fruit", "item"]],
+                [["honto ni", "really"],["sentence"]],
+                [["daisuki", "really like"],["sentence", "personal", "grammar"]],
+                [["seki", "cough"],["personal"]],
+                [["ninniku", "garlic"],["food", "vegetable", "item"]],
+                [["kozui", "flood"],["environment"]],
+                [["jeep", "jeep"],["?"]],
+                [["naka", "within inside"],["sentence", "grammar"]],
+                [["taifu", "typhoon"],["environment"]],
+                [["hariken", "hurricane"],["environment"]],
+                [["tatsumaki", "tornadoe"],["environment"]],
+                [["machi", "city"],["environment"]],
+                [["chikazuite", "approaching"],["action", "sentence", "grammar"]],
+                [["hideri", "drought"],["personal", "action", "environment"]],
+                [["Ine", "rice plant"],["food", "vegetable", "item"]],
+                [["isuramukyo", "islam"],["personal", "environment"]],
+                [["yogensha", "prophet"],["personal"]],
+                [["purotesutanto", "protestantism"],["personal", "environment"]],
+                [["katorikku", "catholicism"],["personal", "environment"]],
+                [["religion", "religion"],["personal", "environment"]],
+                [["hinzukyo", "hinduism"],["personal", "environment"]],
+                [["indo", "india"],["environment"]],
+                [["bukkyo", "buddhism"],["personal", "environment"]],
+                [["ashikubi", "ankle"],["personal"]],
+                [["kaidan", "stairs"],["item", "environment"]],
+                [["hiji", "elbow"],["personal"]],
+                [["ude", "arm"],["personal"]],
+                [["tekubi", "wrist"],["personal"]],
+                [["senshu", "player"],["personal"]],
+                [["tekubi", "writst"],["personal"]],
+                [["kega", "injury"],["personal", "action", "description"]],
+                [["hiza", "knee"],["personal"]],
+                [["hada", "skin"],["personal"]],
+                [["kikan", "organ"],["personal"]],
+                [["soru", "shave"],["action"]],
+                [["tsukaisute", "disposable"],["sentence", "grammar", "personal"]],
+                [["kamisori", "razor"],["item"]],
+                [["hige", "beard"],["personal"]],
+                [["sono dansei", "that man"],["sentence", "grammar", "personal"]],
+                [["shefu", "chef"],["personal"]],
+                [["kin'en", "non-smoking"],["environment", "personal"]],
+                [["suwaritai", "I want to sit"],["grammar", "sentence", "personal"]],
+                [["kitsuen", "smoking"],["perosnal", "action"]],
+                [["Resutoran", "restaurant"],["environment"]],
+                [["ketsueki", "blood"],["personal"]],
+                [["kensa", "test"],["personal", "environment", "sentence"]],
+                [["takai", "high"],["description", "sentence", "grammar"]],
+                [["Arukōru", "alcohol"],["item"]],
+                [["bara", "rose"],["item", "environment"]],
+                [["Romanchikku", "romantic"],["personal"]],
+                [["hana", "flower"],["item"]],
+                [["yuri", "lily"],["item"]],
+                [["hyaku", "hundred"],["number"]],
+                [["himawari", "sun flower"],["item", "environment"]],
+                [["natsu", "summer"],["personal", "time", "environment",]],
+                [["tanpopo", "dandelion"],["item"]],
+                [["zasso", "weed"],["item"]],
+                [["ryoko", "travelling"],["action"]],
+                [["Shumi", "hobby"],["action", "description", "personal"]],
+                [["undo", "excercising"],["action", "description", "personal"]],
+                [["Yuka", "floor"],["item", "environment"]],
+                [["onna", "woman"],["personal", "sentence"]],
+                [["toreningu", "workout"],["action", "description", "personal"]],
+                [["mainichi", "everyday"],["time"]],
+                [["dokusho", "reading"],["action"]],
+                [["toranpu", "playing cards"],["personal", "action"]],
+                [["iyaringu", "earring"],["item", "personal"]],
+                [["kirei", "beautiful"],["description", "sentence", "personal"]],
+                [["kono", "these"],["grammar", "sentence"]],
+                [["nekkuresu", "necklace"],["item", "personal"]],
+                [["Hōseki", "gems"],["item"]],
+                [["utsukushii", "beautiful"],["action", "personal", "description", "sentence"]],
+                [["yubiwa", "ring"],["item"]],
+                [["kekkon", "marriage"],["personal", "environment"]],
+                [["Hōseki-ten", "jewelry store"],["environment"]],
+                [["kekkon yubiwa", "wedding ring"],["item", "personal", "ring"]],
+                [["bokusa pantsu", "boxer shorts"],["item"]],
+                [["shitagi", "underwear"],["item"]],
+                [["sukato", "skirt"],["item"]],
+                [["kiiro", "yellow"],["description"]],
+                [["hanbaga", "hamburger"],["item"]],
+                [["amerika", "america"],["country"]],
+                [["chizubaga", "cheeseburger"],["item"]],
+                [["suraisu", "slice"],["action", "description", "sentence"]],
+                [["chizu", "cheese"],["item", "food"]],
+                [["piza", "pizza"],["item", "food"]],
+                [["itaria", "italy"],["environment"]],
+                [["Sekaijū de", "around the world"],["description", "environment"]],
+                [["hotto doggu", "hot dog"],["food", "item"]],
+                [["enbun", "enbun"],["?"]],
+                [["chippu", "tip"],["personal", "description"]],
+                [["meido", "maid"],["personal"]],
+                [["makura", "pillow"],["item"]],
+                [["inaka", "country"],["environment"]],
+                [["ie", "house"],["personal", "environment"]],
+                [["mura", "village"],["personal", "environment"]],
+                [["sodachimashita", "l grew up"],["action", "personal"]],
+                [["machi", "town"],["environment"]],
+                [["sansaku", "stroll"],["action"]],
+                [["kogai", "suburb"],["?"]],
+                [["kyonen", "last year"],["time", ]],
+                [["hikkoshimashita", "I moved"],["personal", "action"]],
+                [["yakedo", "burn"],["action"]],
+                [["hidaeite", "left hand"],["personal"]],
+                [["chesu", "chess"],["item", "environment",]],
+                [["supido", "speed"],["description", "sentence", "action"]],
+                [["suki da", "i like"],["sentence", "grammar"]],
+                [["gengo", "language"],["item"]],
+                [["gengogaku", "Linguistics"],["item"]],
+                [["buro suru", "blow-dry"],["action"]],
+                [["kami", "hair"],["personal"]],
+                [["maiasa", "every morning"],["time", "sentence", "grammar"]],
+                [["bujutsu", "martial arts"],["personal", "environment"]],
+                [["nen", "year"],["time", "sentence"]],
+                [["manzoku shita", "satisfied"],["personal", "sentence", "action"]],
+                [["kekka", "result"],["environment", "personal", "action"]],
+                [["ochitsuita", "calm"],["personal"]],
+                [["tokasu", "comb"],["item"]],
+                [["mainichi", "everyday"],["sentence", "grammar", "time"]],
+                [["inu", "dog"],["animal"]],
+                [["ugai suru", "gargle"],["action"]],
+                [["fuman", "dissatisfied"],["personal", "action"]],
+                [["otoko", "man"],["personal", "sentence", "grammar"]],
+                [["seihin", "product"],["item", "sentence"]],
+                [["go-sen", "five thousand"],["number"]],
+                [["hito", "people"],["personal", "sentence"]],
+                [["hiroba", "square"],["sentence", "grammar"]],
+                [["Kōgi suru", "protest"],["environment", "action", "personal"]],
+                [["san-zen", "three thousand"],["number"]],
+                [["peru", "peru"],["fruit", "item", "food"]],
+                [["jagaimo", "potatoe"],["vegetable", "item", "food"]],
+                [["roku-sen", "six thousand"],["number"]],
+                [["shima", "island"],["environment"]],
+                [["girisha", "greece"],["environment"]],
+                [["nana-sen", "seven thousand"],["number"]],
+                [["arubamu", "album"],["personal", "item"]],
+                [["kyu-sen", "nine thousand"],["number"]],
+                [["kara", "from"],["sentence", "grammar"]],
+                [["tettai", "withdrawal"],["action"]],
+                [["tettai shita", "withdrew"],["action"]],
+                [["oya", "landlord"],["perosnal"]],
+                [["kyodai", "brother"],["personal"]],
+                [["kogitte", "check"],["?"]],
+                [["uketsukenai", "not accepted"],["action"]],
+                [["daro", "i guess"],["sentence", "grammar"]],
+                [["ryo", "dormitory"],["environment"]],
+                [["Daigakusei", "college student"],["environment", "personal"]],
+                [["sunda", "lived"],["action", "sentence"]],
+                [["apato", "apartment buildin"],["environmetn"]],
+                [["kiri", "fog"],["environment"]],
+                [["Ōwa rete iru", "covered"],["action"]],
+                [["Nōjō", "farm"],["environment"]],
+                [["yagi", "goat"],["animal"]],
+                [["asonde iru", "playing"],["action"]],
+                [["tsunami", "tsunami"],["environment"]],
+                [["nadare", "avalanche"],["?"]],
+                [["haikai suru", "destroy"],["action"]],
+                [["kaji", "fire"],["item", "action"]],
+                [["hashigo", "ladder"],["item"]],
+                [["Shōbō-shi", "fire fighter"],["personal"]],
+                [["jishin", "earthquake"],["environment"]],
+                [["yurete iru", "shaking"],["action"]],
+                [["jimen", "ground"],["item", "environment"]],
+                [["sunaarashi", "sandstorm"],["environment"]],
+                [["tebukuro", "gloves"],["item"]],
+                [["awanakatta", "id not fit"],["?"]],
+                [["te", "hand"],["personal"]],
+                [["kasa", "umberella"],["item"]],
+                [["ame", "rain"],["environment"]],
+                [["boshi", "hat"],["item"]],
+                [["sukafu", "scarf"],["item"]],
+                [["akai", "red"],["colour"]],
+                [["nagasode", "long-sleeved"],["description"]],
+                [["long", "naga"],["description"]],
+                [["samui", "cold"],["description"]],
+                [["shatsu", "shirt"],["item", "personal"]],
+                [["hansode", "short-sleeved"],["item", "personal"]],
+                [["atatakai", "warm"],["description"]],
+                [["itai", "painfull"],["descripttion", "personal"]],
+                [["kurage", "jelly fish "],["animal"]],
+                [["totemo", "very"],["sentence"]],
+                [["Sasu", "sting"],["action", "description"]],
+                [["hazukashigaru", "shy"],["personal", "action"]],
+                [["kincho suru", "nervous"],["personal", "action"]],
+                [["sono", "the"],["sentence"]],
+                [["subarashii", "wonderful"],["sentence", "description"]],
+                [["otokonoko", "boy"],["sentence", "grammar"]],
+                
+                
+];
+
+
+
+var sentencex = [ 
+  [
+      ["tsugi", "no", "natsuyasumi", "ga", "subarashii", "mono", "de", "aru", "koto", "o", "kitai", "shite", "iru"],
+      ["I", "am", "hopeful", "that", "my", "next", "summer", "vacation", "will", "be", "wonderful"]
+  ],
+  [
+      ["sono", "otokonoko", "wa", "koronde,", "ashi", "ni", "fukai", "kirikizu", "o", "otta"],
+      ["the", "boy", "fell", "and", "has", "deep", "cut", "on", "his", "leg"]
+  ],
+  [
+      ["shinpai", "shinaide.", "koko", "wa", "mizu", "ga", "totemo", "asai", "kara"],
+      ["dont", "worry;", "the", "water", "is", "very", "shallow", "here"]
+  ],
+  [
+      ["kare", "no", "otosan", "wa", "o-kanemochi", "da"],
+      ["his", "father", "is", "a", "rich", "man"]
+  ],
+  [
+      ["sono", "dansei", "wa", "binbo", "desu"],
+      ["the", "man", "is", "poor"]
+  ],
+  [
+      ["motto", "okii", "monita", "ga", "hoshii"],
+      ["id", "like", "to", "have", "a", "bigger", "monitor"]
+  ],
+  [
+      ["kibodo", "ga", "kowaremashita"],
+      ["my", "keyboard", "is", "broken"]
+  ],
+  [
+      ["sonno", "heddofon", "wa", "totemo", "takai", "desu"],
+      ["those", "headphone", "are", "really", "expensive"]
+  ],
+  [
+      ["shakkuri", "o", "shinagara", "wa", "hanashinikui"],
+      ["when", "you", "have", "to", "hiccup", "its", "hard", "to", "talk"]
+  ],
+  [
+      ["buruberi", "wa", "marui"],
+      ["blueberries", "are", "round"]
+  ],
+  [
+      ["purun", "wa", "hoshita", "purama", "desu"],
+      ["prune", "are", "dried", "plums"]
+  ],
+  [
+      ["sekaiju", "ichi-ban", "taberarete", "iru", "kudamono", "wa", "mango", "da"],
+      ["more", "mangoes", "are", "eaten", "than", "any", "other", "fruit", "in", "the", "world"]
+  ],
+  [
+      ["kaki", "ni", "remon", "no", "shiborijiru", "o", "kakete", "taberarete"],
+      ["I", "put", "squeezed", "lemon", "juice", "on", "the", "oysters", "and", "ate", "them"]
+  ],
+  [
+      ["kanojo", "wa,", "ushiro", "ni", "taorete,", "o-shiri", "o", "tsuyoku", "utta"],
+      ["she", "fell", "backward", "landing", "hard", "on", "her", "buttocks"]
+  ],
+  [
+      ["migi", "no", "kata", "ga", "itai", "desu"],
+      ["my", "right", "shoulder", "hurts"]
+  ],
+  [
+      ["weito", "toreningu", "o", "sureba,", "kinniku", "o", "kitaerareu"],
+      ["if", "you", "lift", "weights,", "you", "can", "build", "muscles"]
+  ],
+  [
+      ["hone", "wa", "hifu", "no", "shita", "ni", "aru"],
+      ["your", "bones", "are", "beneath", "your", "skin"]
+  ],
+  [
+      ["santa", "kurosu", "wa,", "nagakute", "shiroi", "agohige", "ga", "aru"],
+      ["santa", "claus", "has", "a", "long", "white", "beard"]
+  ],
+  [
+      ["Yamaimo", "wa,", "satsumaimo", "to", "mo", "yobarete", "iru"],
+      ["a", "yam", "is", "also", "called", "sweet", "potatoe"]
+  ],
+  [
+      ["kinoko", "o", "taberu", "no", "wa", "kin", "o", "tabete", "iru", "no", "to", "onaji", "da"],
+      ["when", "you", "eat", "mushrooms", "you", "are", "eating", "fungus"]
+  ],
+  [
+      ["kare", "wa", "ryukku", "ni", "hon", "to", "enpitsu", "soshite", "kami", "o", "irete", "motte", "itta"],
+      ["he", "carried", "his", "books", "pencils", "and", "papers", "in", "the", "backpack"]
+  ],
+  [
+      ["ano", "mise", "wa", "shapen", "no", "shin", "no", "kage", "ga", "hofu", "ni", "sorotte", "iru"],
+      ["that", "store", "stocks", "a", "wide", "assorment", "of", "mechanical", "pencil", "lead", "reffils"]
+  ],
+  [
+      ["kami", "ni", "nori", "o", "tsukenasai"],
+      ["apply", "glue", "to", "the", "paper", "tsuka"]
+  ],
+  [
+      ["tesutochu", "ni", "dentaku", "o", "tsukau", "koto", "wa", "dekimasen"],
+      ["we", "cant", "use", "a", "calculator", "during", "the", "test"]
+  ],
+  [
+      ["enpitsu", "kezuri", "ga", "arimasu"],
+      ["I", "have", "a", "pencil", "sharpner"]
+  ],
+  [
+      ["sono", "kawa", "wa", "hirokute", "fukai"],
+      ["the", "river", "is", "wide", "and", "deep"]
+  ],
+  [
+      ["sono", "dansei", "wa", "semai", "michi", "o", "nobotte", "iru"],
+      ["the", "man", "is", "hiking", "on", "a", "narrow", "path"]
+  ],
+  [
+      ["kame", "wa", "mi", "o", "mamoru", "tame", "ni,", "karada", "ga", "katai", "kora", "de", "owarete", "iru"],
+      ["a", "turtle", "has", "a", "hard", "shell", "for", "production"]
+  ],
+  [
+      ["birodo", "sozai", "wa", "totemo", "yawarakai"],
+      ["velvet", "material", "is", "very", "soft"]
+  ],
+  [
+      ["hoshi", "anzu", "wa", "totemo", "kenkoteki", "de", "tegaru", "na", "sunakku", "desu"],
+      ["a", "dried", "apricot", "makes", "a", "very", "healthy", "and", "convenient", "snack"]
+  ],
+  [
+      ["kizanda", "painappuru", "wa", "katteji", "chizu", "to", "yoku", "aru"],
+      ["chopped", "pineapple", "goes", "great", "in", "cottage", "cheese"]
+  ],
+  [
+      ["hyaku", "shurui", "ijo", "no", "meron", "ga", "aru", "ga,", "dore", "mo", "jushi", "de", "oishii"],
+      ["there", "are", "over", "hundred", "varities", "of", "melon,", "but", "all", "are", "juicy", "and", "good", "tasting"]
+  ],
+  [
+      ["ichijiku", "wa", "kanso", "saseru", "to,", "nagamochi", "suru"],
+      ["once", "they", "are", "dried", "fig", "can", "last", "a", "long", "time"]
+  ],
+  [
+      ["karifurawa", "wa", "ranchi", "doresshingu", "ni", "tsukete", "tabemasu"],
+      ["we", "eat", "cauliflower", "dipped", "in", "ranch", "doresshingu"]
+  ],
+  [
+      ["kino", "no", "yoru", "kybastsu", "o", "tabemashita"],
+      ["I", "ate", "a", "cabbage", "last", "night"]
+  ],
+  [
+      ["serori", "o", "tabete", "eru", "karori", "yori", "serori", "o", "taberu", "tame", "ni", "tsukau", "karori", "no", "ho", "ga", "oi"],
+      ["it", "takes", "more", "calories", "to", "eat", "celery", "than", "you", "get", "by", "eating", "it"]
+  ],
+  [
+      ["nasu", "wa", "murasaki", "ya", "shiro", "midori", "nado", "iroiro", "na", "iro", "no", "mono", "ga", "aru"],
+      ["eggplant", "comes", "in", "various", "colors", "including", "purple", "white", "and", "green"]
+  ],
+  [
+      ["amakute", "hagotae", "no", "aru", "moyashi", "o", "gohan", "ni", "mazeru", "to", "totemo", "oishii", "ippin", "ni", "naru"],
+      ["sweet", "and", "crunchy", "bean", "sprouts", "in", "rice", "make", "an", "enjoyable", "side", "dish"]
+  ],
+  [
+      ["kurama", "no", "jiko", "wa,", "kega", "no", "omo", "na", "genin", "da"],
+      ["car", "accident", "are", "a", "leading", "cause", "of", "injury"]
+  ],
+  [
+      ["sono", "heya", "ni", "wa", "shinguru", "beddo", "ga", "tsuite", "imashita"],
+      ["the", "room", "came", "with", "a", "single", "bed"]
+  ],
+  [
+      ["sono", "daburu", "beddo", "wa", "totemo", "hiroi"],
+      ["the", "double", "bed", "is", "very", "spacious"]
+  ],
+  [
+      ["hoteru", "no", "robi", "de", "aimasho"],
+      ["lets", "meet", "at", "the", "hotel", "lobby"]
+  ],
+  [
+      ["furonto", "de", "chekku", "in", "to", "chekku", "auto", "o", "shita"],
+      ["we", "checked", "in", "and", "out", "at", "the", "front", "desk"]
+  ],
+  [
+      ["taiheiyo", "wa", "chiyujo", "de", "mottomo", "okina", "umi", "da"],
+      ["the", "pacific", "ocean", "is", "the", "biggest", "ocean", "on", "earth"]
+  ],
+  [
+      ["sekai", "saidai", "no", "sanmyaku", "wa", "jitsu", "wa,", "taiseiyo", "no", "domannaka", "ni", "aru"],
+      ["the", "worlds", "largest", "mountain", "range", "is", "actually", "in", "the", "middle", "of", "the", "atalantic", "ocean"]
+  ],
+  [
+      ["minami", "afruika", "no", "hiashi", "wa", "indoyo", "nishi", "wa", "taiseiyo", "da"],
+      ["to", "the", "east", "of", "south", "africa", "is", "the", "indian", "ocean,", "and", "to", "the", "west", "the", "atalantic", "ocean"]
+  ],
+  [
+      ["ostutoraria", "wa", "chikyujo", "yuiitsu", "no", "tairkoku", "da"],
+      ["australia", "is", "the", "only", "island", "continent", "on", "the", "earth"]
+  ],
+  [
+      ["nankyoku", "tairiku", "wa,", "nankyokuten", "o", "kakonde", "iru"],
+      ["the", "continent", "of", "antartica", "surrounds", "the", "south", "people"]
+  ],
+  [
+      ["ajia", "wa", "chikyujo", "no", "nana", "tairiku", "no", "naka", "de", "ichiban", "okii"],
+      ["asia", "is", "the", "largest", "of", "the", "earths", "seven", "continents"]
+  ],
+  [
+      ["karera", "wa", "raigetsu", "yoroppa", "ni", "iju", "suru", "koto", "o", "kimemashita"],
+      ["they", "have", "decided", "to", "move", "to", "europe", "in", "the", "coming", "months"]
+  ],
+  [
+      ["kita", "amerika", "wa", "hokkyokuken", "kara", "karibukai", "made", "hirogaru"],
+      ["north", "america", "reaches", "from", "the", "arctic", "to", "the", "caribbean"]
+  ],
+  [
+      ["minami", "amerika", "tairiku", "ni", "wa", "ju", "ni", "no", "kuni", "ga", "aru"],
+      ["there", "are", "twelve", "countries", "on", "the", "continent", "of", "south", "america"]
+  ],
+  [
+      ["indigo", "to", "iu", "no", "wa,", "indigo", "to", "iu", "shokubutsu", "no", "namae", "kara", "kite", "iru"],
+      ["indigo", "gets", "its", "name", "from", "the", "plant", "named", "indigo"]
+  ],
+  [
+      ["momoiro", "no", "chiku", "wa", "mitame", "ga", "pa", "tto", "akaruku", "narimasu", "yobarete"],
+      ["a", "peach", "colored", "blush", "will", "give", "a", "fresh", "look"]
+  ],
+  [
+      ["soto", "wa", "mo", "kurai"],
+      ["it", "is", "already", "dark"]
+  ],
+  [
+      ["urusai", "otonari", "san", "ga", "totemo", "iradatashii"],
+      ["my", "loud", "neighbour", "is", "very", "annoying"]
+  ],
+  [
+      ["dotai", "wa", "karada", "no", "johanshinn", "de,", "ude", "to", "ashi", "atama", "ni", "tsunagatte", "iru"],
+      ["the", "torso", "is", "the", "upper", "part", "of", "the", "body", "which", "attaches", "to", "the", "arms", "legs", "and", "headphone"]
+  ],
+  [
+      ["mune", "no", "itami", "wa", "gan", "no", "shojo", "kamo", "shirenai"],
+      ["breast", "pain", "can", "be", "a", "symptom", "of", "cancer"]
+  ],
+  [
+      ["dansei", "wa", "koi", "kuchihige", "o", "hayashite", "iru"],
+      ["the", "man", "has", "a", "thick", "mustache"]
+  ],
+  [
+      ["fuku", "o", "seiketsu", "ni", "tamotsu", "tame", "ni", "sentakuki", "o", "tsukaimasu"],
+      ["i", "use", "the", "washing", "machine", "to", "keep", "my", "clothes", "clean"]
+  ],
+  [
+      ["kare", "ea", "Kinō", "dibudi", "pureya", "o", "katta"],
+      ["he", "bought", "a", "dvd", "player", "yesterday"]
+  ],
+  [
+      ["senpuki", "o", "tsuketara", "heyaju", "ni", "shoru", "ga", "tobichitta"],
+      ["when", "i", "turned", "on", "the", "fan", "my", "papers", "blew", "all", "over", "the", "room"]
+  ],
+  [
+      ["sotozukeshi", "no", "eakon", "wa", "kekko", "yasui"],
+      ["external", "air", "conditioner", "are", "quite", "cheap"]
+  ],
+  [
+      ["denki", "konro", "wa", "anzen", "desu", "ka"],
+      ["is", "an", "electric", "cooking", "stove", "safe?"]
+  ],
+  [
+      ["watashi", "tachi", "ea", "chiisai", "toki", "onaji", "shogakko", "ni", "kayotte", "ita"],
+      ["we", "went", "to", "the", "same", "elementary", "school", "when", "we", "were", "little"]
+  ],
+  [
+      ["ju", "nisai", "no", "ani", "wa", "chugakko", "e", "iite", "imasu"],
+      ["my", "twelve", "year", "old", "brother", "goes", "to", "middle", "school"]
+  ],
+  [
+      ["koko", "wa", "watashi", "no", "jinsei", "de", "saiko", "no", "jikan", "deshita"],
+      ["high", "school", "was", "the", "best", "time", "of", "my", "life"]
+  ],
+  [
+      ["kare", "wa", "yumei", "na", "daigaku", "kara", "zengaku", "kyufu", "no", "shogakukin", "o", "uketotta"],
+      ["he", "recieved", "a", "full", "scholarship", "from", "a", "famous", "university"]
+  ],
+  [
+      ["watashi", "no", "sofu", "wa", "kocho", "o", "shite", "ita"],
+      ["my", "grandfather", "used", "to", "be", "a", "priniciple"]
+  ],
+  [
+      ["kanojo", "wa", "akarui", "iro", "no", "shatsu", "o", "kite", "ita"],
+      ["she", "wore", "a", "bright", "colored", "shirt"]
+  ],
+  [
+      ["noto", "pasokon", "wa", "konpakuto", "desu"],
+      ["laptop", "computers", "are", "compact"]
+  ],
+  [
+      ["pasokon", "no", "mausu", "ga", "kowareta"],
+      ["my", "computer", "mouse", "broke"]
+  ],
+  [
+      ["supika", "no", "Onryo", "ga", "okii"],
+      ["the", "speaker", "volume", "is", "loud"]
+  ],
+  [
+      ["josei", "wa", "beido", "kaigai", "de", "webu", "kamera", "o", "tsukattte", "iru"],
+      ["the", "woman", "is", "using", "", "a", "webcam", "to", "video", "confrence"]
+  ],
+  [
+      ["noto", "pasokan", "de", "desukutoppu", "pasokan", "futatsu", "no", "pasokan", "o", "motte", "imasu"],
+      ["I", "have", "two", "computers", "a", "laptop", "computer", "and", "a", "desktop", "computer"]
+  ],
+  [
+      ["togarashi", "no", "tane", "mo", "tsukau", "to", "yori", "karasa", "ga", "mausu"],
+      ["leaving", "the", "seeds", "in", "a", "chilli", "pepper", "will", "make", "it", "much", "hotter"]
+  ],
+  [
+      ["watashi", "no", "sukina", "na", "yasai", "wa", "jiku", "tsuki", "no", "tomorokshi", "da"],
+      ["my", "favorite", "vegetable", "is", "corn", "on", "the", "cob"]
+  ],
+  [
+      ["araimono", "o", "shite", "iru", "toki", "ni", "sara", "o", "ichimai", "watte", "shimatta"],
+      ["I", "broke", "one", "of", "my", "plates", "while", "washing", "the", "dishes"]
+  ],
+  [
+      ["sono", "senshu", "wa", "ashikubi", "o", "hinetta"],
+      ["the", "athelte", "sparined", "his", "ankle"]
+  ],
+  [
+      ["daidokoro", "yohin", "de", "mottomo", "benri", "na", "no", "wa", "denshi", "renji", "da"],
+      ["the", "most", "convenient", "kitchen", "appliance", "is", "the", "microwave", "oven"]
+  ],
+  [
+      ["reizoko", "wa", "kyujitsu", "no", "tame", "no", "tabemono", "de", "ippai", "da"],
+      ["the", "refrigerator", "is", "full", "of", "food", "for", "the", "holiday"]
+  ],
+  [
+      ["Kapetto", "o", "kirei", "ni", "tamotsu", "tame", "ni", "sokiji", "o", "tsukenasai"],
+      ["use", "the", "vacuum", "cleaner", "to", "keep", "the", "carpets", "clean"]
+  ],
+  [
+      ["totemo", "karai", "mono", "o", "taberu", "to", "kao", "ni", "ase", "o", "kaku"],
+      ["my", "face", "sweats", "when", "I", "eat", "very", "spicy", "foods"]
+  ],
+  [
+      ["chekku", "in", "wa", "nanji", "desu", "ka"],
+      ["what", "time", "is", "check", "in", "?"]
+  ],
+  [
+      ["anata", "no", "heya", "bagno", "wa", "go", "ichi", "yon", "desu"],
+      ["your", "room", "number", "is", "514"]
+  ],
+  [
+      ["funshitsu", "shita", "rumu", "ki", "ni", "no", "torikae", "hiyo", "wa", "hyakudoru", "desu"],
+      ["the", "cost", "of", "replacing", "a", "lost", "room", "key", "is", "one", "hundered", "dollars"]
+  ],
+  [
+      ["moshimoshi", "asa", "rokuji", "jugofun", "mae", "ni", "moningu", "koru", "o", "onegai", "shimasu"],
+      ["hi", "id", "like", "a", "wake", "up", "call", "at", "fifteen", "minutes", "to", "six", "in", "the", "morning"]
+  ],
+  [
+      ["gozen", "juji", "ni", "wa", "chekku", "auto", "o", "onegai", "shimasu"],
+      ["please", "check", "out", "before", "10am"]
+  ],
+  [
+      ["anata", "ni", "wa", "akarui", "iro", "ga", "yoku", "narimasu"],
+      ["light", "colour", "really", "suit", "you", "well"]
+  ],
+  [
+      ["kiniro", "no", "hando", "baggu", "ga", "hoshi"],
+      ["i", "want", "a", "gold", "coloured", "purse"]
+  ],
+  [
+      ["pinku", "no", "kurama", "ga", "hosshii", "desu"],
+      ["i", "want", "a", "pink", "car"]
+  ],
+  [
+      ["giniro", "no", "pen", "wa", "takaso", "ni", "mieru"],
+      ["the", "silver", "colored", "pen", "looks", "expensive"]
+  ],
+  [
+      ["kanojo", "wa", "fudan", "beju", "no", "keshohin", "o", "tsukatta"],
+      ["she", "applied", "beige", "colored", "make", "up", "daily"]
+  ],
+  [
+      ["watashi", "wa", "honto", "ni", "razuberu", "ga", "daisuki", "da"],
+      ["im", "simply", "a", "huge", "fan", "of", "raspberries"]
+  ],
+  [
+      ["ninniku", "o", "tabeta", "node", "iki", "ga", "kusai"],
+      ["i", "ate", "garlic", "so", "my", "breath", "smells"]
+  ],
+  [
+      ["jipu", "ga", "kozui", "no", "naka", "o", "nantoka", "susunde", "iru"],
+      ["the", "jeep", "is", "pushing", "through", "the", "flood"]
+  ],
+  [
+      ["taifu", "ga", "joriku", "shita"],
+      ["the", "typhoon", "has", "hit"]
+  ],
+  [
+      ["hariken", "ga", "umi", "kara", "fukitsukete", "kite", "iru"],
+      ["the", "hurricane", "is", "blowing", "in", "from", "the", "sea"]
+  ],
+  [
+      ["tatsumaki", "ga", "machi", "ni", "chikazuite", "iru"],
+      ["the", "tornadoe", "is", "approaching", "the", "town"]
+  ],
+  [
+      ["hideri", "ga", "tsuzuita", "node", "ine", "ga", "karete", "shimatta"],
+      ["because", "of", "the", "drought", "the", "rice", "plants", "have", "dipped"]
+  ],
+  [
+      ["isuramukyo", "no", "shinko", "wa", "yogensha", "muhanmado", "ni", "yotte", "soshi", "saremashita"],
+      ["islam", "was", "founded", "by", "the", "prophet", "muhammad"]
+  ]
+
+  
+ ];
+
+
+ var colours =  ["red", "green", "blue", "orange", "purple", "pink"]
+ var colorumber = 0;
+var genreclicked = ["vegetable"]
+wordisequaltogenreword = false;
+
+function creategenres() {
+      for(a=0; a<=genre.length+-1; a++) {
+        genrewrd = document.createElement("p");
+        genrewrd.setAttribute("class", "genrewrd");
+        genrewrd.innerText = genre[a];
+
+        function clickgnre(para1) {
+            genrewrd.onclick = function() {
+                genreclicked[0] = this.innerText;
+                document.getElementById("main").innerHTML = "";
+    for(a=0; a<=words.length+-1; a++) {
+        for(b=0; b<=words[a][1].length + -1; b++ ) {
+            if(genreclicked[0] == words[a][1][b]) {
+                crtwrds(words[a][0][0], words[a][0][1])
+                break;
+            }
+        }
+    }
+            //alert(this.innerText)
+            genresentenceclick()
+            }
+          // genresentenceclick()
+        }
+
+        clickgnre(a)
+        goal.appendChild(genrewrd)
+      }
+}
+
+creategenres()
+
+
+wordtolookfor = "";
+function crtwrds(para1, para2) {
+    var paragraph = document.createElement("div");
+        paragraph.setAttribute("class", "paragraph");
+
+        japwrd = document.createElement("p");
+        trnsal = document.createElement("p");
+        engwrd = document.createElement("p");
+        trnsal.setAttribute("class", "trnsal");
+        
+        japwrd.innerText = para1;
+        trnsal.innerText = " // ";
+        engwrd.innerText =  para2;
+
+        japwrd.onclick = function() {
+           // alert(para1)
+            wordtolookfor = para1;
+            sentcwordclicked = para1;
+           sentenceloop(a, b, c) ;
+        }
+
+        engwrd.onclick = function() {
+           // alert(para2)
+            wordtolookfor = para12;
+        }
+        paragraph.appendChild(japwrd);
+        paragraph.appendChild(trnsal);
+        paragraph.appendChild(engwrd);
+
+        main.appendChild(paragraph)
+}
+
+function showallwords() {
+    for(a=0; a<=words.length + -1; a++) {
+        crtwrds(words[a][0][0], words[a][0][1])
+    }
+    
+
+}
+showallwords()
+
+
+search.onclick = function() {
+    document.getElementById("main").innerHTML = "";
+    for(a=0; a<=words.length+-1; a++) {
+        for(b=0; b<=words[a][1].length + -1; b++ ) {
+            if(genreclicked[0] == words[a][1][b]) {
+                crtwrds(words[a][0][0], words[a][0][1])
+                break;
+            }
+        }
+    }
+}
+// <input id="samplesentence" tpye="text" value=""/>
+//             <button id="genratorfunc">Generate</button>
+//             <input id="gnrtsntc" tpye="text" value=""/>
+
+var sentence = ""
+
+
+// body.oninput = function() {
+       
+//     sentence = samplesentence.value;
+
+//     var txtsentce = "";
+
+// txtsentce = samplesentence.value;
+
+// letter = "";
+// firstword = '"';
+// for(a=0; a<=txtsentce.length + -1; a++) {
+// letter = txtsentce.slice(a, a+1);
+// if(letter == " ") {
+
+// firstword = firstword + '", "';
+// } else {
+// firstword = firstword +letter;
+
+// }
+// }
+// firstword = firstword + '"'
+//     samplesentence.value = ""
+//     navigator.clipboard.writeText(firstword);
+//     gnrtsntc.value = firstword;
+   
+// }
+
+
+function colour() {
+    //for()
+}
+
+function showsentence() {
+  
+    for(a=0; a<=sentencex.length + -1; a++) {
+        
+        var parentdiv = document.createElement("div");
+        parentdiv.setAttribute("class", "parentdiv")
+    var japanesediv = document.createElement("div");
+    var engdiv = document.createElement("div");
+    
+    for(b=0; b<=1; b++) {
+        var paragraph = document.createElement("div");
+        paragraph.setAttribute("class", "paragraphtr")
+        for(c=0; c<=sentencex[a][b].length + -1; c++) {
+            var txttr = document.createElement("p");
+           
+          
+            
+
+            
+            mousemove2(txttr, a, b, c)
+             
+            //mousemveout(txttr, a, b, c)
+           
+        mouseooutevent2(txttr, a, b, c)
+             
+            sentenceclck(txttr, a, b, c)
+            
+            
+              txttr.innerText = sentencex[a][b][c]
+               paragraph.appendChild(txttr);
+        }
+        parentdiv.appendChild(paragraph)
+
+        if(b == 1) {
+            function setcolour2(parentdiv, a, b, c){
+           // const myTimeout = setTimeout(setcolors(txttr, a, b, c), 5000);
+
+        //   prntnode = parentdiv.childNodes[0].childNodes[0];
+        //   prntnode.style.backgroundColor = "red"
+           //var prntnode = txttr.parentNode.parentNode
+            //             var prntnode2 = prntnode.childNodes[1];
+         //   parentdiv.childNodes[e].style.color = "#01f3ff"
+        
+            
+   // for(h=0; h<=0; h++) {
+      
+    
+        for(i=0; i<=sentencex[a][0].length + -1; i++) {
+           prntnode = parentdiv.childNodes[0].childNodes[i];
+           // alert(prntnode.innerText)
+       //  prntnode.style.backgroundColor = "red"
+          setcolors(prntnode, a, 0, i)
+       // }
+    }
+    colorumber = 0;
+    
+
+
+            }
+           setcolour2(parentdiv, a)
+        }
+    }
+
+    
+    main2.appendChild(parentdiv)
+   }
+}
+
+showsentence()
+
+sentcwordclicked = "";
+
+function sentenceclck(txtr, a, b, c) {
+         txtr.onclick = function() {
+           //  alert(this.innerText)
+             sentcwordclicked = this.innerText;
+             sentenceloop(a, b, c) ;
+         }
+}
+
+thereisaword = false;
+
+function sentenceloop() {
+    main2.innerHTML = "";
+    
+    
+     for(a=0; a<=sentencex.length + -1; a++) {
+        
+         
+
+        var parentdiv = document.createElement("div");
+        parentdiv.setAttribute("class", "parentdiv")
+    var japanesediv = document.createElement("div");
+    var engdiv = document.createElement("div");
+    
+    for(b=0; b<=1; b++) {
+        var paragraph = document.createElement("div");
+        paragraph.setAttribute("class", "paragraphtr")
+        for(c=0; c<=sentencex[a][b].length + -1; c++) {
+            var txttr = document.createElement("p");
+            if(sentencex[a][b][c] == sentcwordclicked) {
+             thereisaword = true;
+            }
+        }
+        
+    }
+          if(thereisaword == true) {
+            for(b=0; b<=1; b++) {
+        var paragraph = document.createElement("div");
+        paragraph.setAttribute("class", "paragraphtr")
+        for(c=0; c<=sentencex[a][b].length + -1; c++) {
+            var txttr = document.createElement("p");
+
+            mouseooutevent2(txttr, a, b, c)
+        mousemove2(txttr, a, b, c) 
+            
+            txttr.innerText = sentencex[a][b][c];
+           
+            ///alert( sentencex[a][b][c])
+               paragraph.appendChild(txttr);
+             thereisaword = true;
+            
+        }
+        parentdiv.appendChild(paragraph)
+
+        if(b == 1) {
+            function setcolour2(parentdiv, a, b, c){
+
+    
+        for(i=0; i<=sentencex[a][0].length + -1; i++) {
+           prntnode = parentdiv.childNodes[0].childNodes[i];
+
+          setcolors(prntnode, a, 0, i)
+    }
+    colorumber = 0;
+    
+
+
+            }
+           setcolour2(parentdiv, a)
+        }
+    }
+    main2.appendChild(parentdiv)
+
+          }
+    
+          thereisaword = false;
+   }
+}
+
+function setcolors(txttr, a, b, c) {
+   
+             
+                    //alert(txttr.innerText)
+              for(d=0; d<=words.length + -1; d++) {
+                        // txttr
+                
+                       if(sentencex[a][b][c] == words[d][0][0]) {
+                         // alert(words[d][0][1])
+                        var checkspace = false;
+
+                        var arraytr = []
+                        var word = "";
+                           // check if theres space
+                           for(g=0; g<=words[d][0][1].length + -1; g++) {
+                            letter = words[d][0][1].slice(g, g+1);
+                            if(letter == " ") {
+                               // alert("there is space")
+                                checkspace = true;
+                                break;
+                            } 
+                          
+                           }
+                             // if checkspace == true
+                           if(checkspace == true) {
+                            for(g=0; g<=words[d][0][1].length + -1; g++) {
+                            letter = words[d][0][1].slice(g, g+1);
+                          
+                            //alert(word)
+                            if(letter == " ") {
+                               
+                                arraytr[arraytr.length] = word;
+                                word = ""
+                               
+                            } else if(g == (words[d][0][1].length + - 1)) {
+                                 word = word + letter;
+                                 arraytr[arraytr.length] = word;
+                            }  else {
+                                word = word + letter;
+                            }
+                          
+                           }
+
+
+                           var prntnode = txttr.parentNode.parentNode
+                        var prntnode2 = prntnode.childNodes[1];
+                       
+                        
+                       for(e=0; e<=prntnode2.childNodes.length + -1; e++) {
+                           for(h=0; h<=arraytr.length + -1; h++) {
+                           if(prntnode2.childNodes[e].innerText == arraytr[h]) {
+                            //   prntnode2.childNodes[e].style.color = "#01f3ff"
+                               prntnode2.childNodes[e].style.color = colours[colorumber]
+                               prntnode2.childNodes[e].style.textDecoration = "underline"
+                           } else {
+                              
+                           }
+                        }
+                       }
+
+                         // txttr.style.color = "#01f3ff"
+                          txttr.style.color = colours[colorumber]
+                          txttr.style.textDecoration = "underline"
+                          colorumber = colorumber + 1;
+
+                       
+
+                         // if checkspace == true end
+                           } else {
+
+                          // alert(checkspace)
+                          
+                         // alert(txttr.innerText + 88)
+                        var prntnode = txttr.parentNode.parentNode
+                        var prntnode2 = prntnode.childNodes[1];
+                      
+                       // prntnode2.style.backgroundColor = "green";
+                        
+                       for(e=0; e<=prntnode2.childNodes.length + -1; e++) {
+                           if(prntnode2.childNodes[e].innerText == words[d][0][1]) {
+                              // prntnode2.childNodes[e].style.color = "#01f3ff"
+                               prntnode2.childNodes[e].style.color = colours[colorumber]
+                               prntnode2.childNodes[e].style.textDecoration = "underline"
+                         // colorumber = colorumber + 1;
+                           } else {
+                              //alert(prntnode2.childNodes[e].innerText)
+                           }
+                       }
+                      
+
+
+                          //txttr.style.color = "01f3ff"
+                          txttr.style.color = colours[colorumber]
+                          txttr.style.textDecoration = "underline"
+                          colorumber = colorumber + 1;
+                          
+                     // no space ends
+                      } 
+                      // if highlighted jap word == word dictionary
+                    } 
+                    
+                 
+              }
+              
+          
+        }
+
+function mousemve(txttr, a, b, c) {
+              
+                     
+                  for(d=0; d<=words.length + -1; d++) {
+                            // txttr
+                    
+                           if(sentencex[a][b][c] == words[d][0][0]) {
+                             // alert(words[d][0][1])
+                            var checkspace = false;
+
+                            var arraytr = []
+                            var word = "";
+                               // check if theres space
+                               for(g=0; g<=words[d][0][1].length + -1; g++) {
+                                letter = words[d][0][1].slice(g, g+1);
+                                if(letter == " ") {
+                                   // alert("there is space")
+                                    checkspace = true;
+                                    break;
+                                } 
+                              
+                               }
+                                 // if checkspace == true
+                               if(checkspace == true) {
+                                for(g=0; g<=words[d][0][1].length + -1; g++) {
+                                letter = words[d][0][1].slice(g, g+1);
+                              
+                                //alert(word)
+                                if(letter == " ") {
+                                   
+                                    arraytr[arraytr.length] = word;
+                                    word = ""
+                                   
+                                } else if(g == (words[d][0][1].length + - 1)) {
+                                     word = word + letter;
+                                     arraytr[arraytr.length] = word;
+                                }  else {
+                                    word = word + letter;
+                                }
+                              
+                               }
+
+
+                               var prntnode = txttr.parentNode.parentNode
+                            var prntnode2 = prntnode.childNodes[1];
+                           
+                            
+                           for(e=0; e<=prntnode2.childNodes.length + -1; e++) {
+                               for(h=0; h<=arraytr.length + -1; h++) {
+                               if(prntnode2.childNodes[e].innerText == arraytr[h]) {
+                                   prntnode2.childNodes[e].style.color = "#01f3ff"
+                               } else {
+                                  
+                               }
+                            }
+                           }
+                              txttr.style.color = "#01f3ff"
+                                   
+
+                           
+
+                             // if checkspace == true end
+                               } else {
+
+                              // alert(checkspace)
+                            var prntnode = txttr.parentNode.parentNode
+                            var prntnode2 = prntnode.childNodes[1];
+                           // prntnode2.style.backgroundColor = "green";
+                            
+                           for(e=0; e<=prntnode2.childNodes.length + -1; e++) {
+                               if(prntnode2.childNodes[e].innerText == words[d][0][1]) {
+                                   prntnode2.childNodes[e].style.color = "#01f3ff"
+                               } else {
+                                  //alert(prntnode2.childNodes[e].innerText)
+                               }
+                           }
+                              txttr.style.color = "01f3ff"
+                         // no space ends
+                          } 
+                          // if highlighted jap word == word dictionary
+                        } 
+                        
+                     
+                  }
+                  
+              
+            }
+
+
+
+            function mouseooutevent2(txttr, a, b, c) {
+              txttr.onmouseout = function() {
+                  
+              //  mousemveout(txttr, a, b, c)
+            }
+
+            txttr.ontouchend = function() {
+                  
+                 // mousemveout(txttr, a, b, c)
+              }
+
+        }
+
+        function mousemove2(txttr, a, b, c) {
+            
+              txttr.onmousemove = function() {
+              
+              //  mousemve(txttr, a, b, c)
+            }
+
+            txttr.ontouchmove = function() {
+                  
+              //  mousemve(txttr, a, b, c)
+              }
+
+        }
+            function mousemveout(txttr, a, b, c) {
+               /// alert(txttr)
+                // alert(sentencex[a][b][c])
+                 //  function zxc(txttr, a, b, c) {
+                  for(d=0; d<=words.length + -1; d++) {
+                             
+                    
+                           if(sentencex[a][b][c] == words[d][0][0]) {
+                            //  alert(words[d][0][1])
+                            var checkspace = false;
+
+                            var arraytr = []
+                            var word = "";
+                               // check if theres spice
+                               for(g=0; g<=words[d][0][1].length + -1; g++) {
+                                letter = words[d][0][1].slice(g, g+1);
+                                if(letter == " ") {
+                                    //alert("there is space")
+                                    checkspace = true;
+                                    break;
+                                } 
+                              
+                               }
+
+                               if(checkspace == true) {
+                                for(g=0; g<=words[d][0][1].length + -1; g++) {
+                                letter = words[d][0][1].slice(g, g+1);
+                              
+                                //alert(word)
+                                if(letter == " ") {
+                                   
+                                    arraytr[arraytr.length] = word;
+                                    word = ""
+                                   
+                                } else if(g == (words[d][0][1].length + - 1)) {
+                                     word = word + letter;
+                                     arraytr[arraytr.length] = word;
+                                }  else {
+                                    word = word + letter;
+                                }
+                              
+                               }
+
+
+                               var prntnode = txttr.parentNode.parentNode
+                            var prntnode2 = prntnode.childNodes[1];
+                            //prntnode2.style.backgroundColor = "purple";
+                            
+                           for(e=0; e<=prntnode2.childNodes.length + -1; e++) {
+                               for(h=0; h<=arraytr.length + -1; h++) {
+                               if(prntnode2.childNodes[e].innerText == arraytr[h]) {
+                                   prntnode2.childNodes[e].style.color = "black"
+                               } else {
+                                  //alert(prntnode2.childNodes[e].innerText)
+                               }
+                            }
+                           }
+                              txttr.style.color = "black"
+                                   
+
+                              // alert(arraytr + "hey hey")
+                               } else {
+
+                             //  alert(checkspace)
+                            var prntnode = txttr.parentNode.parentNode
+                            var prntnode2 = prntnode.childNodes[1];
+                           // prntnode2.style.backgroundColor = "green";
+                            
+                           for(e=0; e<=prntnode2.childNodes.length + -1; e++) {
+                               if(prntnode2.childNodes[e].innerText == words[d][0][1]) {
+                                   prntnode2.childNodes[e].style.color = "black"
+                               } else {
+                                  //alert(prntnode2.childNodes[e].innerText)
+                               }
+                           }
+                              txttr.style.color = "black"
+                          } 
+                          
+                        }else {
+                              
+                          }
+                        
+                     
+                  }
+                  
+             // }
+            }
+
+    function genresentenceclick() {
+        main2.innerHTML = ""
+        for(a=0; a<=sentencex.length + -1; a++) {
+   
+    for(b=0; b<=0; b++) {     
+        for(c=0; c<=sentencex[a][b].length + -1; c++) {      
+            
+            
+     for(d=0; d<=words.length + -1; d++) {
+    if(words[d][0][0] == sentencex[a][b][c]) {
+                   for(e=0; e<=words[d][1].length + -1; e++) {
+                       if(words[d][1][e] == genreclicked[0]) {
+                        wordisequaltogenreword = true;
+                        showsentenceforgenreclicked(a)
+                            break;
+                       }
+                   }
+                   if(wordisequaltogenreword == true) {
+                       break;
+                   }
+                   // this one will be broken var d
+               }
+         }
+         if(wordisequaltogenreword == true) {
+                       break;
+                   }
+                            }
+     
+        
+    }
+    
+}
+    
+    }
+
+
+    function showsentenceforgenreclicked(a) {
+       
+        
+        var parentdiv = document.createElement("div");
+        parentdiv.setAttribute("class", "parentdiv")
+    var japanesediv = document.createElement("div");
+    var engdiv = document.createElement("div");
+    
+    for(b=0; b<=1; b++) {
+        var paragraph = document.createElement("div");
+        paragraph.setAttribute("class", "paragraphtr")
+        for(c=0; c<=sentencex[a][b].length + -1; c++) {
+            var txttr = document.createElement("p");
+            txttr.innerText = sentencex[a][b][c];
+               paragraph.appendChild(txttr);
+        }
+        parentdiv.appendChild(paragraph)
+        if(b == 1) {
+            function setcolour2(parentdiv, a, b, c){
+
+    
+        for(i=0; i<=sentencex[a][0].length + -1; i++) {
+           prntnode = parentdiv.childNodes[0].childNodes[i];
+
+          setcolors(prntnode, a, 0, i)
+    }
+    colorumber = 0;
+    
+
+
+            }
+           setcolour2(parentdiv, a)
+        }
+      }
+      main2.appendChild(parentdiv)
+    
+}
+        </script>
+    </body>
+</html>

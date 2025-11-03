@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+   div#character {
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    top: 20%;
+    left: 20%;
+    transform-style: preserve-3d;
+    z-index: 88;
+    /* display: none; */
+}
+
+div#controller {
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    z-index: 88;
+    /* display: none; */
+}
+
+    </style>
+</head>
+<body>
+
+    <div id="character"></div>
+    <div id="controller">A</div>
+
+    <script>
+        let lastX, lastY; // Track the last positions to calculate movement
+
+document.addEventListener('mousemove', function(event) {
+    if (lastX && lastY) {
+        let moveX = event.clientX - lastX;
+        let moveY = event.clientY - lastY;
+
+        // Calculate rotation, adjust these factors to control the sensitivity
+        let rotateY = moveX * 0.4;
+        let rotateX = moveY * -0.4;
+
+        let currentTransform = document.getElementById("controller").style.transform;
+        let rotations = currentTransform.match(/rotateX\((.*?)deg\).*?rotateY\((.*?)deg\)/);
+        let currentX = rotations ? parseFloat(rotations[1]) : 0;
+        let currentY = rotations ? parseFloat(rotations[2]) : 0;
+
+        document.getElementById("controller").style.transform = `translate(-50%, -50%) rotateX(${currentX + rotateX}deg) rotateY(${currentY + rotateY}deg)`;
+    }
+
+    lastX = event.clientX;
+    lastY = event.clientY;
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,1636 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EN↔AR (auto-detect + per-word splitter)</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="body_container">
+<div id="canva">
+  <div id="show_arabic">
+    <p id="arabic_text"></p>
+    <p id="arabic_text_romanised"></p>
+    <div id="settings_logo"></div>
+  </div>
+
+  <div id="show_english">
+    <p id="english_text"></p>
+  </div>
+
+  <div id="arabic_splitter"></div>
+</div>
+<div id="send_container">
+  <div id="textinput_container">  
+    <textarea id="input_box" >pass passing blew book books pen teacher teachers city cities here there always energy energies cold coldly vulture vulture ant ant's heart hearts sweater swimsuit swimsuits greeting experience experiencing salad salads okay bye passenger bus</textarea>  
+   </div> 
+      <button id="run">Run</button>
+</div>
+
+<div id="vocabcontainer">
+   <p id="words_written"></p>
+   <div id="split_words_buttons_container"></div>
+   <div id="dictionary_section_view"> </div>
+   <!-- <div class="dictionary_container">
+     <div class="dictionary_word">
+      <p id="word">passing</p>
+    </div> 
+   </div> -->
+
+   <div id="dictionary_list_container">
+
+
+   </div>
+ </div>
+  
+  <audio id="player" controls></audio>
+
+  <div id="settings">
+    <div class="settings_options">
+    <label for="voice">Choose a voice</label>
+    <select id="voice"></select>
+    </div>
+    <p id="close_settings">X</p>
+  </div>
+</div>
+  <script src="total2.js"></script>
+  <script>
+
+
+function searchallthroughThewords() {
+
+
+}
+
+
+var textarea_words_array = 0;
+var textarea_value = "";
+var words_buttons_index_data = 0;
+document.getElementById("input_box").oninput = function(){ 
+ 
+  textarea_value = this.value;
+  document.getElementById("words_written").innerText = textarea_value;
+  textarea_words_array = textarea_value.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
+  document.getElementById("split_words_buttons_container").innerHTML = ""
+  for(a=0; a<=textarea_words_array.length + -1; a++) {
+     var split_words_buttons = document.createElement("button");
+        split_words_buttons.innerText  = textarea_words_array[a];
+        split_words_buttons.setAttribute("class", "split_words_buttons");
+        split_words_buttons.setAttribute("words_buttons_index", a);
+        split_words_buttons.onclick = function(para) {
+        words_buttons_index_data = this.getAttribute("words_buttons_index");
+       alert(words_buttons_index_data)
+        word_check_types = 0;
+        word_check_types = [];
+        virtual_button = this.innerText;
+        func_search_all_a_action(1)
+        func_search_all_b_object(1)
+        func_search_all_c_career(1) 
+        func_search_all_d_environment(1)
+        func_search_all_e_position(1)
+        func_search_all_f_time(1)
+        func_search_all_g_stuff(1);
+        func_search_all_h_description(1);
+        func_search_all_i_animal(1);
+        func_search_all_j_body(1);
+        func_search_all_k_clothing(1);
+        func_search_all_l_feeling(1);
+        func_search_all_m_food(1);
+        func_search_all_n_personal(1)
+        func_search_all_p_transportation(1)
+        func_search_all_q_pronoun(1)
+        createButtontype();
+        traverse();
+        
+        }
+        document.getElementById("split_words_buttons_container").appendChild(split_words_buttons)
+      }
+     
+
+  detect_only(false); 
+
+};
+
+
+
+/////////////////// . m
+//  //
+
+virtual_button = "";
+var word_check_types = [];
+var dictionary_section = [];
+var dictionary = ""
+
+function createButtontype() {
+console.log(dictionary_section)
+document.getElementById("dictionary_section_view").innerHTML = "";
+  for(dt=0; dt<=dictionary_section.length + -1; dt++) {
+      
+
+     var dictionary_types = document.createElement("button");
+        dictionary_types.innerText  = dictionary_section[dt];
+        dictionary_types.setAttribute("class", "dictionary_types");
+        dictionary_types.onclick = function() {
+          
+          dictionary = this.innerText;
+         
+           func_search_all_a_action(1)
+        func_search_all_b_object(1)
+        func_search_all_c_career(1) 
+        func_search_all_d_environment(1) 
+        func_search_all_e_position(1)
+        func_search_all_f_time(1)
+        func_search_all_g_stuff(1);
+        func_search_all_h_description(1);
+        func_search_all_i_animal(1);
+        func_search_all_j_body(1);
+        func_search_all_k_clothing(1);
+        func_search_all_l_feeling(1);
+        func_search_all_m_food(1);
+        func_search_all_n_personal(1)
+        func_search_all_p_transportation(1)
+         func_search_all_q_pronoun(1)
+        createButtontype();
+          traverse();
+         
+        }
+        document.getElementById("dictionary_section_view").appendChild(dictionary_types)
+  }
+
+}
+function traverse(litCheck) {
+
+
+  for(t=0; t<=dictionary_section.length + -1; t++) {    
+
+
+
+   console.log("dictionary_section[t]" + dictionary_section[t]  +" t" + t + " dictionary_section.leng " + dictionary_section.length + " dictionary " + dictionary)
+   console.log("all  " + "dictionary: " + dictionary + "dictionary_section: " + dictionary_section + "word_check_types: " + word_check_types + "virtual_button: " + virtual_button)
+   console.log(dictionary_section)
+   if (dictionary_section[t] == "action") {
+
+     if(dictionary_section.length > 1 ) {
+       console.log(dictionary_section + t + "  " + dictionary_section.length)
+      if(dictionary == "action") {
+
+       
+          callfunction(t, "baseverb", dictionary_section[t],  "_A")    
+          callfunction(t, "presentVerb", dictionary_section[t],  "_c")   
+          callfunction(t, "pastVerb", dictionary_section[t], "_d")   
+          dictionary = ""
+          break;  
+        } else {
+          if (dictionary_section.includes("object")) {
+            alert("yes it is object")
+          continue;
+
+        }
+           callfunction(t, "baseverb", dictionary_section[t],  "_A")   
+        }
+      }
+
+  else {
+    alert(345678)
+        callfunction(t, "baseverb", dictionary_section[t], "_e")
+        callfunction(t, "presentVerb", dictionary_section[t], "_f" )
+        callfunction(t, "pastVerb", dictionary_section[t], "_g")   
+         continue;
+      }
+  }
+
+ 
+
+ if (dictionary_section[t] == "object") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "object") {
+     
+          callfunction(t, "singularNoun", dictionary_section[t], "_h")    
+          callfunction(t, "pluralNoun", dictionary_section[t], "_i")  
+          alert("1objectiscalled") 
+          continue;  
+        }  else {
+          alert("2objectiscalled") 
+            callfunction(t, "singularNoun", dictionary_section[t], "_h")  
+        }
+      }
+
+  else {
+    alert("3objectiscalled") 
+        callfunction(t, "singularNoun", dictionary_section[t], "_j")
+        callfunction(t, "pluralNoun", dictionary_section[t], "_k" )
+         continue;
+      }
+  }
+
+ if (dictionary_section[t] == "career") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "career") {
+     
+          callfunction(t, "singularNounCareer", dictionary_section[t], "_l")    
+          callfunction(t, "pluralNounCareer", dictionary_section[t], "_m")   
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularNounCareer", dictionary_section[t], "_o")
+        callfunction(t, "pluralNounCareer", dictionary_section[t], "_p" )
+         continue;
+      }
+  }
+
+  if (dictionary_section[t] == "environment") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "environment") {
+     
+          callfunction(t, "singularnounEnvironment", dictionary_section[t], "_l")    
+          callfunction(t, "pluralNounCareer", dictionary_section[t], "_m")   
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularnounEnvironment", dictionary_section[t], "_o")
+        callfunction(t, "pluralNounEnvironment", dictionary_section[t], "_p" )
+         continue;
+      }
+  }
+
+   if (dictionary_section[t] == "position") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "position") {
+     
+          callfunction(t, "singularnounPositions", dictionary_section[t], "_l")    
+          
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularnounPositions", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+  if (dictionary_section[t] == "time") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "time") {
+     
+          callfunction(t, "singularnounTime", dictionary_section[t], "_l")    
+          
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularnounTime", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+
+  
+  if (dictionary_section[t] == "stuff") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "stuff") {
+     
+          callfunction(t, "singularStuff", dictionary_section[t], "_l")    
+          callfunction(t, "pluralStuff", dictionary_section[t], "_o")
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularStuff", dictionary_section[t], "_o")
+        callfunction(t, "pluralStuff", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+      if (dictionary_section[t] == "description") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "description") {
+     
+          callfunction(t, "singularDescription", dictionary_section[t], "_l")    
+          callfunction(t, "pluralDescription", dictionary_section[t], "_o")
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularDescription", dictionary_section[t], "_o")
+        callfunction(t, "pluralDescription", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+   if (dictionary_section[t] == "animal") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "animal") {
+     
+          callfunction(t, "singularAnimal", dictionary_section[t], "_l")    
+          callfunction(t, "pluralAnimal", dictionary_section[t], "_o")
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularAnimal", dictionary_section[t], "_o")
+        callfunction(t, "pluralAnimal", dictionary_section[t], "_o")
+        
+         continue;
+      }
+
+  }
+  
+  if (dictionary_section[t] == "body") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "body") {
+        
+     
+          callfunction(t, "singularBody", dictionary_section[t], "_l")    
+          callfunction(t, "pluralBody", dictionary_section[t], "_o")
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularBody", dictionary_section[t], "_o")
+        callfunction(t, "pluralBody", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+  
+
+   if (dictionary_section[t] == "clothing") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "clothing") {
+     
+          callfunction(t, "singularClothing", dictionary_section[t], "_l")    
+          callfunction(t, "pluralClothing", dictionary_section[t], "_o")
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularClothing", dictionary_section[t], "_o")
+        callfunction(t, "pluralClothing", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+
+  if (dictionary_section[t] == "feeling") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "feeling") {
+     
+          callfunction(t, "en_feel_word", dictionary_section[t], "_l")    
+          callfunction(t, "en_feel_present", dictionary_section[t], "_o")
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "en_feel_word", dictionary_section[t], "_o")
+        callfunction(t, "en_feel_present", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+  if (dictionary_section[t] == "food") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "food") {
+     
+          callfunction(t, "singularFood", dictionary_section[t], "_l")    
+          callfunction(t, "pluralFood", dictionary_section[t], "_o")
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "singularFood", dictionary_section[t], "_o")
+        callfunction(t, "pluralFood", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+  if (dictionary_section[t] == "personal") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "personal") {
+     
+          callfunction(t, "personalWord", dictionary_section[t], "_l")    
+          
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "personalWord", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+  if (dictionary_section[t] == "transportation") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "transportation") {
+     
+          callfunction(t, "en_singular_transportation", dictionary_section[t], "_l")    
+          callfunction(t, "en_plural_transportation", dictionary_section[t], "_l")    
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "en_singular_transportation", dictionary_section[t], "_o")
+        callfunction(t, "en_plural_transportation", dictionary_section[t], "_o")
+         continue;
+      }
+  }
+
+  if (dictionary_section[t] == "en_pronoun") {
+     if(dictionary_section.length > 1 ) {
+      if(dictionary == "en_pronoun") {
+     
+          callfunction(t, "en_pronoun", dictionary_section[t], "_l")    
+          
+          continue;  
+        } 
+      }
+
+  else {
+        callfunction(t, "en_pronoun", dictionary_section[t], "_o")
+        
+         continue;
+      }
+  }
+
+  }
+
+  console.log("all  " + " dictionary: " + dictionary + " dictionary_section: " + dictionary_section + " word_check_types: " + word_check_types + " virtual_button: " + virtual_button)
+dictionary_section = 0;
+ dictionary_section = [];
+}
+
+function createVocab(vocabenglish, vocabarabic, vocabtr) {
+
+    var vocab_container = document.createElement("div");
+    var vocabenglish_p = document.createElement("p");
+    vocabenglish_p.innerText = vocabenglish;
+    vocabenglish_p.setAttribute("class", "vocabenglish_p")
+    vocabenglish_p.onclick = function() {
+      
+      textarea_words_array[words_buttons_index_data] = this.innerText;
+      document.getElementById("input_box").value = textarea_words_array.join(" ") 
+      console.log("textarea_words_array" + textarea_words_array + " :")
+    }
+    var vocabarabic_p = document.createElement("p");
+    vocabarabic_p.innerText = vocabarabic;
+    vocabarabic_p.setAttribute("class", "vocabarabic_p")
+
+    var vocabtr_p = document.createElement("p");
+    vocabtr_p.innerText = vocabtr;
+    vocabtr_p.setAttribute("class", "vocabtr_p")
+
+    
+    
+    vocab_container.appendChild(vocabarabic_p)
+    vocab_container.appendChild(vocabtr_p)
+    vocab_container.appendChild(vocabenglish_p)
+      
+    document.getElementById("dictionary_list_container").appendChild(vocab_container)
+
+}
+
+function callfunction(tt, word_check_typesincludes, section_type, tag) {
+
+console.log(tt + word_check_typesincludes + tag)
+  if (word_check_types.includes(word_check_typesincludes)) {
+     if(section_type == "action") {
+     func_search_all_a_action(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "object") {
+    func_search_all_b_object(2, word_check_typesincludes, tag);
+    }  
+          
+    if(section_type == "career") {
+     func_search_all_c_career(2, word_check_typesincludes, tag);
+    } 
+    if(section_type == "environment") {
+     func_search_all_d_environment(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "position") {
+     func_search_all_e_position(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "time") {
+     func_search_all_f_time(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "stuff") {
+     func_search_all_g_stuff(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "description") {
+     func_search_all_h_description(2, word_check_typesincludes, tag);
+    }  
+    if(section_type == "animal") {
+     func_search_all_i_animal(2, word_check_typesincludes, tag);
+    }  
+    if(section_type == "body") {
+     func_search_all_j_body(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "clothing") {
+     func_search_all_k_clothing(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "feeling") {
+     func_search_all_l_feeling(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "food") {
+     func_search_all_m_food(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "personal") {
+     func_search_all_n_personal(2, word_check_typesincludes, tag);
+    }  
+      if(section_type == "transportation") {
+     func_search_all_p_transportation(2, word_check_typesincludes, tag);
+    }  
+
+    if(section_type == "en_pronoun") {
+     func_search_all_q_pronoun(2, word_check_typesincludes, tag);
+    }  
+   }
+
+  } 
+
+function func_search_all_a_action(firstTraverse, wordtype) {
+ //console.log(firstTraverse)
+ document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (let a2 = 0; a2 < a_action.length; a2++) {
+    //////////
+    const baseVerb = a_action[a2]?.base_verb?.en;
+    const baseVerb_ar = a_action[a2]?.base_verb?.ar;
+    const baseVerb_artr = a_action[a2]?.base_verb?.ar_tr;
+    /////////////////
+    const presentVerb = a_action[a2]?.present_participle?.en;
+    const presentVerb_ar = a_action[a2]?.present_participle?.ar;
+    const presentVerb_artr = a_action[a2]?.present_participle?.ar_tr;
+    ///////////////////
+    const pastVerb = a_action[a2]?.past_tense?.en;
+    const pastVerb_ar = a_action[a2]?.past_tense?.ar;
+    const pastVerb_artr = a_action[a2]?.past_tense?.ar_tr;
+    if( firstTraverse == 1) {
+    if (baseVerb === virtual_button) {
+      //console.log(baseVerb);
+      word_check_types[word_check_types.length] = "baseverb";
+      dictionary_section[dictionary_section.length] = "action";
+    }
+    if (presentVerb === virtual_button) {
+      word_check_types[word_check_types.length] = "presentVerb";
+      dictionary_section[dictionary_section.length] = "action"
+    }
+     if (pastVerb === virtual_button) {
+       word_check_types[word_check_types.length] = "pastVerb";
+       dictionary_section[dictionary_section.length] = "action";
+    }
+  } else if(firstTraverse == 2) {
+  
+    if (wordtype == "baseverb" && baseVerb !== undefined) {
+      console.log(baseVerb);     
+      createVocab(baseVerb, baseVerb_ar, baseVerb_artr)
+    }
+
+    if (wordtype == "presentVerb" && presentVerb !== undefined) {
+      console.log(presentVerb);
+      createVocab(presentVerb, presentVerb_ar, presentVerb_artr)
+    }
+    if (wordtype == "pastVerb" && pastVerb !== undefined) {
+      console.log(pastVerb);     
+      createVocab(pastVerb, pastVerb_ar, pastVerb_artr)
+    }
+   }
+ }
+  console.log( word_check_types)
+}
+
+
+function func_search_all_b_object(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= b_object.length - 1; b2++) {  
+    const singularNoun = b_object[b2][0]?.en_singular;
+    const singularNoun_ar = b_object[b2][0]?.ar_singular;
+    const singularNoun_artr = b_object[b2][0]?.ar_tr_singular;
+    /////////
+    const pluralNoun = b_object[b2][1]?.en_plural;
+    const pluralNoun_ar = b_object[b2][1]?.en_plural  
+    const pluralNoun_artr = b_object[b2][1]?.en_plural  
+    //console.log(singularNoun + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+    if (singularNoun === virtual_button) {
+     // console.log(singularNoun);
+      word_check_types[word_check_types.length] = "singularNoun";
+      dictionary_section[dictionary_section.length] = "object"
+    }
+    if (pluralNoun === virtual_button) {
+      //console.log(pluralNoun);
+      word_check_types[word_check_types.length] = "pluralNoun";
+      dictionary_section[dictionary_section.length] = "object"
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    
+    if (wordtype == "singularNoun" && singularNoun !== undefined) {
+      console.log(singularNoun);
+      createVocab(singularNoun, singularNoun_ar, singularNoun_artr)
+    }
+
+    if (wordtype == "pluralNoun" && pluralNoun !== undefined) {
+      console.log(pluralNoun);
+      createVocab(pluralNoun, pluralNoun_ar, pluralNoun_artr)
+    }
+
+  }
+}
+}
+
+
+
+function func_search_all_c_career(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= c_career.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularNounCareer = c_career[c2][0]?.en_singular_career;
+    const singularNounCareer_ar = c_career[c2][0]?.ar_singular;
+    const singularNounCareer_artr = c_career[c2][0]?.ar_tr_singular;
+    ///////////
+      const pluralNounCareer = c_career[c2][1]?.en_plural_career;
+      const pluralNounCareer_ar = c_career[c2][1]?.ar_plural;
+      const pluralNounCareer_artr = c_career[c2][1]?.ar_tr_plural
+   if( firstTraverse == 1) {
+    if (singularNounCareer === virtual_button) {
+     // console.log(singularNounCareer);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "singularNounCareer";
+      dictionary_section[dictionary_section.length] = "career"
+    }
+    if (pluralNounCareer === virtual_button) {
+      //console.log(pluralNounCareer);
+      word_check_types[word_check_types.length] = "pluralNounCareer";
+      dictionary_section[dictionary_section.length] = "career"
+    }
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "singularNounCareer" && singularNounCareer !== undefined) {
+      console.log(singularNounCareer);
+      createVocab(singularNounCareer, singularNounCareer_ar, singularNounCareer_artr)
+    }
+
+    if (wordtype == "pluralNounCareer" && pluralNounCareer !== undefined) {
+      console.log(pluralNounCareer);     
+      createVocab(pluralNounCareer, pluralNounCareer_ar, pluralNounCareer_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+///////////////
+
+
+function func_search_all_d_environment(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= d_environment.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularnounEnvironment = d_environment[c2][0]?.en_singular_environment;
+    const singularnounEnvironment_ar = d_environment[c2][0]?.ar_plural;
+    const singularnounEnvironment_artr = d_environment[c2][0]?.ar_tr_singular;
+    ///////////
+    const pluralNounEnvironment = d_environment[c2][1]?.en_plural_environment;
+    const pluralNounEnvironment_ar = d_environment[c2][1]?.ar_plural;
+    const pluralNounEnvironment_artr = d_environment[c2][1]?.ar_tr_plural;
+   if( firstTraverse == 1) {
+    if (singularnounEnvironment === virtual_button) {
+     // console.log(singularnounEnvironment);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "singularnounEnvironment";
+      dictionary_section[dictionary_section.length] = "environment"
+    }
+    if (pluralNounEnvironment === virtual_button) {
+      //console.log(pluralNounEnvironment);
+      word_check_types[word_check_types.length] = "pluralNounEnvironment";
+      dictionary_section[dictionary_section.length] = "environment"
+    }
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "singularnounEnvironment" && singularnounEnvironment !== undefined) {
+      console.log(singularnounEnvironment);
+      createVocab(singularnounEnvironment, singularnounEnvironment_ar, singularnounEnvironment_artr)
+    }
+
+    if (wordtype == "pluralNounEnvironment" && pluralNounEnvironment !== undefined) {
+      console.log(pluralNounEnvironment);     
+      createVocab(pluralNounEnvironment, pluralNounEnvironment_ar, pluralNounEnvironment_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+
+//////////////////////
+
+function func_search_all_e_position(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= e_position.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularnounPositions = e_position[c2]?.en_position;
+    const singularnounPositions_ar = e_position[c2]?.ar;
+    const singularnounPositions_artr = e_position[c2]?.tr;
+  
+   if( firstTraverse == 1) {
+    if (singularnounPositions === virtual_button) {
+     // console.log(singularnounPositions);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "singularnounPositions";
+      dictionary_section[dictionary_section.length] = "position"
+    }
+    
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "singularnounPositions" && singularnounPositions !== undefined) {
+      console.log(singularnounPositions);
+      createVocab(singularnounPositions, singularnounPositions_ar, singularnounPositions_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+
+
+//////////////////////
+
+
+function func_search_all_f_time(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= f_time.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularnounTime = f_time[c2]?.en_time;
+    const singularnounTime_ar = f_time[c2]?.ar;
+    const singularnounTime_artr = f_time[c2]?.tr;
+  
+   if( firstTraverse == 1) {
+    if (singularnounTime === virtual_button) {
+     // console.log(singularnounTime);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "singularnounTime";
+      dictionary_section[dictionary_section.length] = "time"
+    }
+    
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "singularnounTime" && singularnounTime !== undefined) {
+      console.log(singularnounTime);
+      createVocab(singularnounTime, singularnounTime_ar, singularnounTime_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+
+///////////////////////
+
+function func_search_all_g_stuff(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= g_stuff.length - 1; b2++) {  
+    const singularStuff = g_stuff[b2][0]?.en_singular_stuff;
+    const singularStuff_ar = g_stuff[b2][0]?.ar_singular;
+    const singularStuff_artr = g_stuff[b2][0]?.ar_tr_singular;
+    /////////
+    const pluralStuff = g_stuff[b2][1]?.en_plural_stuff;
+    const pluralStuff_ar = g_stuff[b2][1]?.ar_plural;  
+    const pluralStuff_artr = g_stuff[b2][1]?.ar_tr_plural; 
+    //console.log(singularStuff + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+    
+    if (singularStuff === virtual_button) {
+      console.log(singularStuff);
+      word_check_types[word_check_types.length] = "singularStuff";
+      dictionary_section[dictionary_section.length] = "stuff";
+      break;
+    }
+    if (pluralStuff === virtual_button) {
+      //console.log(pluralStuff);
+      word_check_types[word_check_types.length] = "pluralStuff";
+      dictionary_section[dictionary_section.length] = "stuff"
+      break;
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    console.log("wordtype " + wordtype + "singularStuff " + singularStuff)
+    if (wordtype == "singularStuff" && singularStuff !== undefined) {
+      console.log(singularStuff);
+      createVocab(singularStuff, singularStuff_ar, singularStuff_artr)
+    }
+
+    if (wordtype == "pluralStuff" && pluralStuff !== undefined) {
+      console.log(pluralStuff);
+      createVocab(pluralStuff, pluralStuff_ar, pluralStuff_artr)
+    }
+
+  }
+}
+}
+
+
+///////////////////////
+
+function func_search_all_h_description(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= h_description.length - 1; b2++) {  
+    const singularDescription = h_description[b2][0]?.en_adjective;
+    const singularDescription_ar = h_description[b2][0]?.ar_adjective;
+    const singularDescription_artr = h_description[b2][0]?.ar_tr_adjective;
+    /////////
+    const pluralDescription = h_description[b2][1]?.en_adverb;
+    const pluralDescription_ar = h_description[b2][1]?.ar_adverb;  
+    const pluralDescription_artr = h_description[b2][1]?.ar_tr_adverb; 
+    //console.log(singularDescription + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+      // console.log(singularDescription);
+      // console.log(pluralDescription);
+    if (singularDescription === virtual_button) {
+      console.log(singularDescription);
+      word_check_types[word_check_types.length] = "singularDescription";
+      dictionary_section[dictionary_section.length] = "description";
+      break;
+    }
+    if (pluralDescription === virtual_button) {
+      //console.log(pluralDescription);
+      word_check_types[word_check_types.length] = "pluralDescription";
+      dictionary_section[dictionary_section.length] = "description"
+      break;
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    console.log("wordtype " + wordtype + "singularDescription " + singularDescription)
+    if (wordtype == "singularDescription" && singularDescription !== undefined) {
+      console.log(singularDescription);
+      createVocab(singularDescription, singularDescription_ar, singularDescription_artr)
+    }
+
+    if (wordtype == "pluralDescription" && pluralDescription !== undefined) {
+      console.log(pluralDescription);
+      createVocab(pluralDescription, pluralDescription_ar, pluralDescription_artr)
+    }
+
+  }
+}
+}
+
+
+
+
+///////////////////////
+
+function func_search_all_i_animal(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= i_animal.length - 1; b2++) {  
+    const singularAnimal = i_animal[b2][0]?.en_animal;
+    const singularAnimal_ar = i_animal[b2][0]?.ar_animal;
+    const singularAnimal_artr = i_animal[b2][0]?.ar_tr_animal;
+    /////////
+    const pluralAnimal = i_animal[b2][1]?.en_possessive;
+    const pluralAnimal_ar = i_animal[b2][1]?.ar_possessive;  
+    const pluralAnimal_artr = i_animal[b2][1]?.ar_tr_possessive; 
+    //console.log(singularAnimal + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+      // console.log(singularAnimal);
+      // console.log(pluralAnimal);
+    if (singularAnimal === virtual_button) {
+      console.log(singularAnimal);
+      word_check_types[word_check_types.length] = "singularAnimal";
+      dictionary_section[dictionary_section.length] = "animal";
+      break;
+    }
+    if (pluralAnimal === virtual_button) {
+      //console.log(pluralAnimal);
+      word_check_types[word_check_types.length] = "pluralAnimal";
+      dictionary_section[dictionary_section.length] = "animal"
+      break;
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    console.log("wordtype " + wordtype + "singularAnimal " + singularAnimal)
+    if (wordtype == "singularAnimal" && singularAnimal !== undefined) {
+      console.log(singularAnimal);
+      createVocab(singularAnimal, singularAnimal_ar, singularAnimal_artr)
+    }
+
+    if (wordtype == "pluralAnimal" && pluralAnimal !== undefined) {
+      console.log(pluralAnimal);
+      createVocab(pluralAnimal, pluralAnimal_ar, pluralAnimal_artr)
+    }
+
+  }
+}
+}
+
+
+function func_search_all_j_body(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= j_body.length - 1; b2++) {  
+    const singularBody = j_body[b2][0]?.en_singular_body;
+    const singularBody_ar = j_body[b2][0]?.ar_singular;
+    const singularBody_artr = j_body[b2][0]?.ar_tr_singular;
+    /////////
+    const pluralBody = j_body[b2][1]?.en_plural_body;
+    const pluralBody_ar = j_body[b2][1]?.ar_plural;  
+    const pluralBody_artr = j_body[b2][1]?.ar_tr_plural; 
+    //console.log(singularBody + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+      // console.log(singularBody);
+      // console.log(pluralBody);
+    if (singularBody === virtual_button) {
+      console.log(singularBody);
+      word_check_types[word_check_types.length] = "singularBody";
+      dictionary_section[dictionary_section.length] = "body";
+      break;
+    }
+    if (pluralBody === virtual_button) {
+      //console.log(pluralBody);
+      word_check_types[word_check_types.length] = "pluralBody";
+      dictionary_section[dictionary_section.length] = "body"
+      break;
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    console.log("wordtype " + wordtype + "singularBody " + singularBody)
+    if (wordtype == "singularBody" && singularBody !== undefined) {
+      console.log(singularBody);
+      createVocab(singularBody, singularBody_ar, singularBody_artr)
+    }
+
+    if (wordtype == "pluralBody" && pluralBody !== undefined) {
+      console.log(pluralBody);
+      createVocab(pluralBody, pluralBody_ar, pluralBody_artr)
+    }
+
+  }
+}
+}
+
+
+
+
+function func_search_all_k_clothing(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= k_clothing.length - 1; b2++) {  
+    const singularClothing = k_clothing[b2][0]?.en_singular_clothing;
+    const singularClothing_ar = k_clothing[b2][0]?.ar_singular;
+    const singularClothing_artr = k_clothing[b2][0]?.ar_tr_singular;
+    /////////
+    const pluralClothing = k_clothing[b2][1]?.en_plural_clothing;
+    const pluralClothing_ar = k_clothing[b2][1]?.ar_plural;  
+    const pluralClothing_artr = k_clothing[b2][1]?.ar_tr_plural; 
+    //console.log(singularClothing + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+      // console.log(singularClothing);
+      // console.log(pluralClothing);
+    if (singularClothing === virtual_button) {
+      console.log(singularClothing);
+      word_check_types[word_check_types.length] = "singularClothing";
+      dictionary_section[dictionary_section.length] = "clothing";
+      break;
+    }
+    if (pluralClothing === virtual_button) {
+      //console.log(pluralClothing);
+      word_check_types[word_check_types.length] = "pluralClothing";
+      dictionary_section[dictionary_section.length] = "clothing"
+      break;
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    console.log("wordtype " + wordtype + "singularClothing " + singularClothing)
+    if (wordtype == "singularClothing" && singularClothing !== undefined) {
+      console.log(singularClothing);
+      createVocab(singularClothing, singularClothing_ar, singularClothing_artr)
+    }
+
+    if (wordtype == "pluralClothing" && pluralClothing !== undefined) {
+      console.log(pluralClothing);
+      createVocab(pluralClothing, pluralClothing_ar, pluralClothing_artr)
+    }
+
+  }
+}
+}
+
+
+function func_search_all_l_feeling(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= l_feeling.length - 1; b2++) {  
+    const en_feel_word = l_feeling[b2][0]?.en_feel_word;
+    const en_feel_word_ar = l_feeling[b2][0]?.ar_feel_word;
+    const en_feel_word_artr = l_feeling[b2][0]?.ar_tr_feel_word;
+    /////////
+    const en_feel_present = l_feeling[b2][1]?.en_feel_present;
+    const en_feel_present_ar = l_feeling[b2][1]?.ar_feel_present;  
+    const en_feel_present_artr = l_feeling[b2][1]?.ar_tr_feel_present; 
+    //console.log(en_feel_word + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+      // console.log(en_feel_word);
+      // console.log(en_feel_present);
+    if (en_feel_word === virtual_button) {
+      console.log(en_feel_word);
+      word_check_types[word_check_types.length] = "en_feel_word";
+      dictionary_section[dictionary_section.length] = "feeling";
+      break;
+    }
+    if (en_feel_present === virtual_button) {
+      //console.log(en_feel_present);
+      word_check_types[word_check_types.length] = "en_feel_present";
+      dictionary_section[dictionary_section.length] = "feeling";
+      break;
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    console.log("wordtype " + wordtype + "en_feel_word " + en_feel_word)
+    if (wordtype == "en_feel_word" && en_feel_word !== undefined) {
+      console.log(en_feel_word);
+      createVocab(en_feel_word, en_feel_word_ar, en_feel_word_artr)
+    }
+
+    if (wordtype == "en_feel_present" && en_feel_present !== undefined) {
+      console.log(en_feel_present);
+      createVocab(en_feel_present, en_feel_present_ar, en_feel_present_artr)
+    }
+
+  }
+}
+
+}
+
+
+
+function func_search_all_m_food(firstTraverse, wordtype) {
+  //console.log(firstTraverse)
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (b2 = 0; b2 <= m_food.length - 1; b2++) {  
+    const singularFood = m_food[b2][0]?.en_singular_food;
+    const singularFood_ar = m_food[b2][0]?.ar_singular;
+    const singularFood_artr = m_food[b2][0]?.ar_tr_singular;
+    /////////
+    const pluralFood = m_food[b2][1]?.en_plural_food;
+    const pluralFood_ar = m_food[b2][1]?.ar_plural;  
+    const pluralFood_artr = m_food[b2][1]?.ar_tr_plural; 
+    //console.log(singularFood + virtual_button + firstTraverse)
+    if( firstTraverse == 1) {
+      // console.log(singularFood);
+      // console.log(pluralFood);
+    if (singularFood === virtual_button) {
+      console.log(singularFood);
+      word_check_types[word_check_types.length] = "singularFood";
+      dictionary_section[dictionary_section.length] = "food";
+      break;
+    }
+    if (pluralFood === virtual_button) {
+      //console.log(pluralFood);
+      word_check_types[word_check_types.length] = "pluralFood";
+      dictionary_section[dictionary_section.length] = "food";
+      break;
+    }
+  }
+  
+  else if(firstTraverse == 2) {
+    
+    console.log("wordtype " + wordtype + "singularFood " + singularFood + "pluralFood" + pluralFood)
+    if (wordtype == "singularFood" && singularFood !== undefined) {
+      console.log(singularFood);
+      createVocab(singularFood, singularFood_ar, singularFood_artr)
+    }
+
+    if (wordtype == "pluralFood" && pluralFood !== undefined) {
+      console.log(pluralFood);
+      createVocab(pluralFood, pluralFood_ar, pluralFood_artr)
+    }
+
+  }
+}
+
+}
+
+
+
+
+//////////////////////
+
+function func_search_all_n_personal(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= n_personal.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const personalWord = n_personal[c2]?.en_communication;
+    const personalWord_ar = n_personal[c2]?.ar;
+    const personalWord_artr = n_personal[c2]?.tr;
+  
+   if( firstTraverse == 1) {
+    if (personalWord === virtual_button) {
+     // console.log(personalWord);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "personalWord";
+      dictionary_section[dictionary_section.length] = "personal"
+    }
+    
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "personalWord" && personalWord !== undefined) {
+      console.log(personalWord);
+      createVocab(personalWord, personalWord_ar, personalWord_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+
+
+
+//////////////////////
+
+function func_search_all_p_transportation(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= p_transportation.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const en_singular_transportation = p_transportation[c2][0]?.en_singular_transportation;
+    const en_singular_transportation_ar = p_transportation[c2][0]?.ar_singular;
+    const en_singular_transportation_artr = p_transportation[c2][0]?.ar_tr_singular;
+
+    //////////
+    const en_plural_transportation = p_transportation[c2][1]?.en_plural_transportation;
+    const en_plural_transportation_ar = p_transportation[c2][1]?.ar_plural;
+    const en_plural_transportation_artr = p_transportation[c2][1]?.ar_tr_plural;
+
+
+   if( firstTraverse == 1) {
+   // console.log(en_singular_transportation);
+    if (en_singular_transportation === virtual_button) {
+     console.log(en_singular_transportation);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "en_singular_transportation";
+      dictionary_section[dictionary_section.length] = "transportation"
+    }
+
+    if (en_plural_transportation === virtual_button) {
+     // console.log(en_plural_transportation);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "en_plural_transportation";
+      dictionary_section[dictionary_section.length] = "transportation"
+    }
+    
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "en_singular_transportation" && en_singular_transportation !== undefined) {
+      console.log(en_singular_transportation);
+      createVocab(en_singular_transportation, en_singular_transportation_ar, en_singular_transportation_artr)
+    }
+
+      if (wordtype == "en_plural_transportation" && en_plural_transportation !== undefined) {
+      console.log(en_plural_transportation);
+      createVocab(en_plural_transportation, en_plural_transportation_ar, en_plural_transportation_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+
+
+
+//////////////////////
+
+function func_search_all_n_personal(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= n_personal.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const personalWord = n_personal[c2]?.en_communication;
+    const personalWord_ar = n_personal[c2]?.ar;
+    const personalWord_artr = n_personal[c2]?.tr;
+  
+   if( firstTraverse == 1) {
+    if (personalWord === virtual_button) {
+     // console.log(personalWord);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "personalWord";
+      dictionary_section[dictionary_section.length] = "personal"
+    }
+    
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "personalWord" && personalWord !== undefined) {
+      console.log(personalWord);
+      createVocab(personalWord, personalWord_ar, personalWord_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+
+
+
+//////////////////////
+
+function func_search_all_q_pronoun(firstTraverse, wordtype) {
+  document.getElementById("dictionary_list_container").innerHTML = "" 
+  for (c2 = 0; c2 <= q_pronoun.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const en_pronoun = q_pronoun[c2]?.en_pronoun;
+    const en_pronoun_ar = q_pronoun[c2]?.ar_pronoun;
+    const en_pronoun_artr = q_pronoun[c2]?.ar_tr_pronoun;
+  
+   if( firstTraverse == 1) {
+    if (en_pronoun === virtual_button) {
+     // console.log(en_pronoun);
+     alert(9999907)
+      word_check_types[word_check_types.length] = "en_pronoun";
+      dictionary_section[dictionary_section.length] = "en_pronoun"
+    }
+    
+  }
+
+  else if(firstTraverse == 2) {
+     console.log(wordtype)
+     
+    if (wordtype == "en_pronoun" && en_pronoun !== undefined) {
+      console.log(en_pronoun);
+      createVocab(en_pronoun, en_pronoun_ar, en_pronoun_artr)
+    }
+
+  }
+
+  }
+  console.log(word_check_types)
+
+}
+
+
+
+
+ settings_display  = "none"
+document.getElementById("settings_logo").onclick = function() {
+   if(settings_display == "none") {
+      document.getElementById("settings").style.display = "flex";
+      settings_display = "flex"
+   } else {
+      document.getElementById("settings").style.display = "none";
+      settings_display = "none"
+   }
+}
+  // --- Config ---
+  var API   = "https://quasiquarks.com/api3.php";
+  var STYLE = "google";
+  var VOICE = "ar-XA-Wavenet-A";
+  var RATE  = 1.0;
+  var GAIN  = 0.0;
+
+  // --- Helpers ---
+  function isArabicText(s) {
+    return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(s);
+  }
+  function setText(id, val){ var el=document.getElementById(id); if(el) el.innerText = val || ""; }
+
+  // --- EN -> AR (with transliteration, optional speak) ---
+  async function doEnToAr(text, speakIt) {
+    var r = await fetch(API + "?en2ar=1", {
+      method:"POST", headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ text: text, style: STYLE })
+    });
+    var j = await r.json();
+    if (!r.ok) { console.log("en2ar failed", j); return; }
+
+    var ar = j.ar || "", tr = j.transliteration || "";
+    setText("arabic_text", ar);
+    setText("arabic_text_romanised", tr);
+    setText("english_text", "");
+
+    // Build per-word view (Arabic + translit + per-word EN translation)
+    buildArabicSplitter(ar);
+
+    if (speakIt && ar) {
+      var r2 = await fetch(API + "?speak=1", {
+        method:"POST", headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({ text: ar, voiceName: VOICE, speakingRate: RATE, volumeGainDb: GAIN })
+      });
+      var j2 = await r2.json();
+      if (r2.ok && j2.audioContent) {
+        var player = document.getElementById("player");
+        player.src = "data:audio/mp3;base64," + j2.audioContent;
+        try { await player.play(); } catch(e){}
+      }
+    }
+  }
+
+  // --- AR -> EN (clears splitter) ---
+  async function doArToEn(text) {
+    var r = await fetch(API + "?ar2en=1", {
+      method:"POST", headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ arabic: text })
+    });
+    var j = await r.json();
+    if (!r.ok) { console.log("ar2en failed", j); return; }
+
+    setText("english_text", j.en || "");
+    setText("arabic_text", "");
+    setText("arabic_text_romanised", "");
+    var box = document.getElementById('arabic_splitter');
+    if (box) box.innerHTML = '';
+  }
+
+
+  // --- Auto-detect & route ---
+  async function detect_only(speak) {
+    var text = (document.getElementById("input_box").value || "").trim();
+    if (!text) {
+      setText("arabic_text",""); setText("arabic_text_romanised",""); setText("english_text","");
+      var box = document.getElementById('arabic_splitter'); if (box) box.innerHTML = '';
+      return;
+    }
+
+    if (isArabicText(text)) {
+      await doArToEn(text);
+    } else {
+      //await doEnToAr(text, !!speak);
+    }
+   
+  }
+  // --- Auto-detect & route ---
+  async function detectlanguage(speak) {
+    var text = (document.getElementById("input_box").value || "").trim();
+    if (!text) {
+      setText("arabic_text",""); setText("arabic_text_romanised",""); setText("english_text","");
+      var box = document.getElementById('arabic_splitter'); if (box) box.innerHTML = '';
+      return;
+    }
+    if (isArabicText(text)) {
+      await doArToEn(text);
+    } else {
+      await doEnToAr(text, !!speak);
+    }
+  }
+
+  // Wire up
+  
+  document.getElementById("run").onclick = function(){ detectlanguage(true); };
+
+  // Populate voices
+  function loadVoices(selectId, apiUrl) {
+    var sel = document.getElementById(selectId);
+    if (!sel) return;
+    fetch(apiUrl + '?voices=1')
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if (!j || !j.voices || !j.voices.length) return;
+        sel.innerHTML = '';
+        for (var i = 0; i < j.voices.length; i++) {
+          var v = j.voices[i];
+          var opt = document.createElement('option');
+          opt.value = v.name;
+          var label = v.name.replace('ar-XA-','').replace('Chirp3-HD-','Chirp3-HD ');
+          if (v.ssmlGender) label += ' (' + v.ssmlGender + ')';
+          opt.textContent = label;
+          sel.appendChild(opt);
+        }
+        if (VOICE) sel.value = VOICE;
+      })
+      .catch(function(e){ console.log('voices fetch failed', e); });
+  }
+  document.getElementById('voice').addEventListener('change', function () {
+    VOICE = this.value || VOICE;
+  });
+  loadVoices('voice', API);
+
+  // ===== Splitter: Arabic → (translit + per-word EN) =====
+  // Caches
+  var _wordTranslitCache = {};
+  var _wordEnCache = {};
+
+  var vocab_ui_word = []
+
+  function buildArabicSplitter(arText) {
+    var box = document.getElementById('arabic_splitter');
+    if (!box) return;
+    box.innerHTML = '';
+
+    var words = (arText || '').trim().split(/\s+/).filter(Boolean);
+
+    function cleanEdge(w) {
+      return (w || '').replace(/^[\s\.,!?;:()\[\]«»"“”'،؛…]+|[\s\.,!?;:()\[\]«»"“”'،؛…]+$/g, '');
+    }
+
+    // Build rows
+
+    var colors= ["red", "green", "blue", "orange", "pink", "brown", "purple", "grey", "yellow", "grey", "grey", "grey", "grey", "grey", "grey", "grey", "grey","grey", "grey", "grey", "grey","grey", "grey", "grey", "grey","grey", "grey", "grey", "grey","grey", "grey", "grey", "grey",]
+    for (var i = 0; i < words.length; i++) {
+      var displayAr = words[i];
+      var plainAr   = cleanEdge(displayAr);
+
+      var row = document.createElement('div');
+      //row.style.border = "1.8px solid grey"
+      var pAr = document.createElement('p');
+      pAr.innerText = displayAr;
+      pAr.style.color = colors[i]
+
+      var pTr = document.createElement('p');
+      pTr.innerText = '…';
+      pTr.style.color = colors[i]
+
+      var pEn = document.createElement('p');
+      pEn.innerText = '…';
+      //pEn.style.color = colors[i]
+
+      // Click any cell -> speak this Arabic word
+      pAr.onclick = pTr.onclick = pEn.onclick = (function(word){
+        return function(){ if (word) speakWord(word); };
+      })(plainAr || displayAr);
+
+      row.appendChild(pAr);
+      row.appendChild(pTr);
+      row.appendChild(pEn);
+
+      // stash for fills
+      row._plain = plainAr;
+      row._pTr   = pTr;
+      row._pEn   = pEn;
+
+      box.appendChild(row);
+    }
+
+    // Fill transliteration and per-word English sequentially
+    (async function fillAll(){
+      for (var k = 0; k < box.children.length; k++) {
+        var r = box.children[k];
+        var w = r._plain;
+        if (!w) { r._pTr.innerText = ''; r._pEn.innerText = ''; continue; }
+
+        // transliteration (cached)
+        try {
+          var keyTr = w + '::' + STYLE;
+          if (_wordTranslitCache[keyTr]) {
+            r._pTr.innerText = _wordTranslitCache[keyTr];
+            
+          } else {
+            var t = await romanizeWord(w);
+            _wordTranslitCache[keyTr] = t || '';
+            r._pTr.innerText = t || '';
+          }
+        } catch(_) { r._pTr.innerText = ''; }
+
+        // per-word English (cached)
+        try {
+          if (_wordEnCache[w]) {
+            r._pEn.innerText = _wordEnCache[w];
+          } else {
+            var e = await translateWordToEnglish(w);
+            _wordEnCache[w] = e || '';
+            r._pEn.innerText = e || '';
+            
+          }
+        } catch(_) { r._pEn.innerText = ''; }
+      }
+    })();
+  }
+
+  // Romanize one word
+  async function romanizeWord(word) {
+    var resp = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({ arabic: word, style: STYLE })
+    });
+    var j = await resp.json();
+    return resp.ok ? (j.transliteration || '') : '';
+  }
+
+  // Translate one Arabic word -> English
+  async function translateWordToEnglish(word) {
+    var r = await fetch(API + '?ar2en=1', {
+      method:'POST', headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({ arabic: word })
+    });
+    var j = await r.json();
+    return r.ok ? (j.en || '') : '';
+  }
+
+  // Speak one word
+  async function speakWord(word) {
+    var r = await fetch(API + '?speak=1', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        text: word,
+        voiceName: VOICE,
+        speakingRate: RATE,
+        volumeGainDb: GAIN
+      })
+    });
+    var j = await r.json();
+    if (r.ok && j.audioContent) {
+      var player = document.getElementById('player');
+      player.src = 'data:audio/mp3;base64,' + j.audioContent;
+      try { await player.play(); } catch(_) {}
+    }
+  }
+
+  // kick off once
+  detectlanguage(false);
+
+
+
+  
+  </script>
+</body>
+</html>

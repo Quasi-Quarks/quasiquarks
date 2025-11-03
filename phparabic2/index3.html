@@ -1,0 +1,93 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EN↔AR Demo</title>
+
+<button id="run">Run demo</button>
+<audio id="player" controls></audio>
+
+<script>
+const URLI = "https://arabic-tts-kntnnqwloa-ew.a.run.app";
+
+// simple defaults
+const STYLE = "google";                 // transliteration style
+const VOICE = "ar-XA-Wavenet-A";        // voice
+const RATE  = 1.0;                      // speakingRate
+const GAIN  = 0.0;                      // volumeGainDb
+
+async function runDemo() {
+  const player = document.getElementById('player');
+
+  // ---- English -> Arabic (+ transliteration + speak)
+  const enText = "as salaamu alaykum";
+  console.log("EN input:", enText);
+
+  try {
+    const r1 = await fetch(URLI + "?en2ar=1", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ text: enText, style: STYLE })
+    });
+    const j1 = await r1.json();
+
+    if (!r1.ok) {
+      console.error("en2ar failed:", j1);
+      return;
+    }
+
+    const ar = j1.ar || "";
+    const tr = j1.transliteration || "";
+    console.log("AR output:", ar);
+    console.log("TR output:", tr);
+
+    // Speak Arabic
+    if (ar) {
+      const r2 = await fetch(URLI + "?speak=1", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({
+          text: ar,
+          voiceName: VOICE,
+          speakingRate: RATE,
+          volumeGainDb: GAIN
+        })
+      });
+      const j2 = await r2.json();
+
+      if (r2.ok && j2.audioContent) {
+        player.src = "data:audio/mp3;base64," + j2.audioContent;
+        try { await player.play(); } catch(e) {
+          console.warn("Autoplay blocked—press Play on the audio control.");
+        }
+      } else {
+        console.error("speak failed:", j2);
+      }
+    }
+  } catch (e) {
+    console.error("Error EN->AR step:", e);
+  }
+
+  // ---- Arabic -> English
+  const arText = "وعليكم السلام";
+  console.log("AR input:", arText);
+
+  try {
+    const r3 = await fetch(URLI + "?ar2en=1", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify({ arabic: arText })
+    });
+    const j3 = await r3.json();
+
+    if (r3.ok) {
+      console.log("EN output:", j3.en || "");
+    } else {
+      console.error("ar2en failed:", j3);
+    }
+  } catch (e) {
+    console.error("Error AR->EN step:", e);
+  }
+}
+
+document.getElementById("run").addEventListener("click", runDemo);
+</script>

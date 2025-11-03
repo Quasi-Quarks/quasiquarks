@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>One-Type Finder (supports full schema)</title>
+</head>
+<body>
+
+<input id="checkword" placeholder="Type a word, e.g. pass / passing / passed / book / books / here / afternoon / I" />
+<button id="run">Search</button>
+
+<div id="typeOptions"></div>
+<div id="out"></div>
+
+<script>
+/* Put your real data above this script. The code handles:
+   a_action, b_object, c_career, d_environment, e_position, f_time, g_stuff,
+   h_description, i_animal, j_body, k_clothing, l_feeling, m_food, n_personal,
+   o_sentence, p_transportation, q_pronoun
+*/
+
+/* If any dataset var is missing, default to [] so code still runs. */
+const words_dictionary = [
+  { name: "a_action", data: (typeof a_action !== "undefined" ? a_action : []) },
+  { name: "b_object", data: (typeof b_object !== "undefined" ? b_object : []) },
+  { name: "c_career", data: (typeof c_career !== "undefined" ? c_career : []) },
+  { name: "d_environment", data: (typeof d_environment !== "undefined" ? d_environment : []) },
+  { name: "e_position", data: (typeof e_position !== "undefined" ? e_position : []) },
+  { name: "f_time", data: (typeof f_time !== "undefined" ? f_time : []) },
+  { name: "g_stuff", data: (typeof g_stuff !== "undefined" ? g_stuff : []) },
+  { name: "h_description", data: (typeof h_description !== "undefined" ? h_description : []) },
+  { name: "i_animal", data: (typeof i_animal !== "undefined" ? i_animal : []) },
+  { name: "j_body", data: (typeof j_body !== "undefined" ? j_body : []) },
+  { name: "k_clothing", data: (typeof k_clothing !== "undefined" ? k_clothing : []) },
+  { name: "l_feeling", data: (typeof l_feeling !== "undefined" ? l_feeling : []) },
+  { name: "m_food", data: (typeof m_food !== "undefined" ? m_food : []) },
+  { name: "n_personal", data: (typeof n_personal !== "undefined" ? n_personal : []) },
+  { name: "o_sentence", data: (typeof o_sentence !== "undefined" ? o_sentence : []) },
+  { name: "p_transportation", data: (typeof p_transportation !== "undefined" ? p_transportation : []) },
+  { name: "q_pronoun", data: (typeof q_pronoun !== "undefined" ? q_pronoun : []) },
+];
+
+/* Noun-pair categories for singular/plural */
+const NOUN_PAIR_CATEGORIES = new Set([
+  "b_object","c_career","d_environment","g_stuff","j_body","k_clothing","m_food","p_transportation"
+]);
+
+/* ------------ utils ------------ */
+const equalsCI = (a, b) => String(a).toLowerCase() === String(b).toLowerCase();
+function dedupeTriples(list) {
+  const seen = new Set(), out = [];
+  for (const t of list) {
+    const key = JSON.stringify([t.en || "", t.ar || "", t.ar_tr || ""]);
+    if (!seen.has(key)) { seen.add(key); out.push(t); }
+  }
+  return out;
+}
+function getCat(name) { return words_dictionary.find(c => c.name === name) || { name, data: [] }; }
+function walk(node, fn) {
+  if (!node) return;
+  if (Array.isArray(node)) { for (const v of node) walk(v, fn); return; }
+  if (typeof node === "object") { fn(node); for (const v of Object.values(node)) walk(v, fn); }
+}
+function stripLeadingUnderscore(s) { return s.startsWith("_") ? s.slice(1) : s; }
+function pickArabicForEN(node, enKey) {
+  let label = enKey === "en" ? "" : stripLeadingUnderscore(enKey.slice(2));
+  if (label.startsWith("_")) label = label.slice(1);
+  const bases = [];
+  if (label) {
+    const first = label.split("_")[0]; // singular_career -> singular
+    bases.push(first);
+    bases.push(label);
+  }
+  const arCandidates = [];
+  for (const b of bases) arCandidates.push("ar_" + b);
+  if (label === "" && "ar" in node) arCandidates.push("ar");
+  arCandidates.push("ar");
+  const trCandidates = [];
+  for (const b of bases) trCandidates.push("ar_tr_" + b);
+  trCandidates.push("ar_tr", "tr");
+
+  let ar = "", ar_tr = "";
+  for (const k of arCandidates) if (typeof node[k] === "string") { ar = node[k]; break; }
+  for (const k of trCandidates) if (typeof node[k] === "string") { ar_tr = node[k]; break; }
+  return { ar, ar_tr };
+}
+
+/* ------------ TYPE registry (single-list per search) ------------ */
+/* Each type has: label, detect(query), extractAll() */
+const TYPES = {
+  /* Verbs (a_action) — ONLY these three */
+  "a_action.base_verb": {
+    label: "Base verb (a_action)",
+    detect(q) {
+      const {data} = getCat("a_action");
+      for (const row of data) {
+        const v = row && row.base_verb;
+        if (v && equalsCI(v.en, q)) return true;
+      }
+      return false;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("a_action");
+      for (const row of data) {
+        const v = row && row.base_verb;
+        if (v && typeof v.en === "string") out.push({ en: v.en, ar: v.ar || "", ar_tr: v.ar_tr || "" });
+      }
+      return dedupeTriples(out);
+    }
+  },
+  "a_action.present_participle": {
+    label: "Present participle (a_action)",
+    detect(q) {
+      const {data} = getCat("a_action");
+      for (const row of data) {
+        const v = row && row.present_participle;
+        if (v && equalsCI(v.en, q)) return true;
+      }
+      return false;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("a_action");
+      for (const row of data) {
+        const v = row && row.present_participle;
+        if (v && typeof v.en === "string") out.push({ en: v.en, ar: v.ar || "", ar_tr: v.ar_tr || "" });
+      }
+      return dedupeTriples(out);
+    }
+  },
+  "a_action.past_tense": {
+    label: "Past tense (a_action)",
+    detect(q) {
+      const {data} = getCat("a_action");
+      for (const row of data) {
+        const v = row && row.past_tense;
+        if (v && equalsCI(v.en, q)) return true;
+      }
+      return false;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("a_action");
+      for (const row of data) {
+        const v = row && row.past_tense;
+        if (v && typeof v.en === "string") out.push({ en: v.en, ar: v.ar || "", ar_tr: v.ar_tr || "" });
+      }
+      return dedupeTriples(out);
+    }
+  },
+
+  /* Noun pairs (singular/plural) across defined categories */
+  "singular": {
+    label: "Singular nouns",
+    detect(q) {
+      let hit = false;
+      for (const {name, data} of words_dictionary) {
+        if (!NOUN_PAIR_CATEGORIES.has(name) || !data) continue;
+        walk(data, obj => {
+          for (const k of Object.keys(obj)) {
+            if (/^en_.*singular/i.test(k) && typeof obj[k] === "string") {
+              if (equalsCI(obj[k], q)) hit = true;
+            }
+          }
+        });
+        if (hit) break;
+      }
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      for (const {name, data} of words_dictionary) {
+        if (!NOUN_PAIR_CATEGORIES.has(name) || !data) continue;
+        walk(data, obj => {
+          for (const k of Object.keys(obj)) {
+            if (/^en_.*singular/i.test(k) && typeof obj[k] === "string") {
+              const { ar, ar_tr } = pickArabicForEN(obj, k);
+              out.push({ en: obj[k], ar, ar_tr });
+            }
+          }
+        });
+      }
+      return dedupeTriples(out);
+    }
+  },
+  "plural": {
+    label: "Plural nouns",
+    detect(q) {
+      let hit = false;
+      for (const {name, data} of words_dictionary) {
+        if (!NOUN_PAIR_CATEGORIES.has(name) || !data) continue;
+        walk(data, obj => {
+          for (const k of Object.keys(obj)) {
+            if (/^en_.*plural/i.test(k) && typeof obj[k] === "string") {
+              if (equalsCI(obj[k], q)) hit = true;
+            }
+          }
+        });
+        if (hit) break;
+      }
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      for (const {name, data} of words_dictionary) {
+        if (!NOUN_PAIR_CATEGORIES.has(name) || !data) continue;
+        walk(data, obj => {
+          for (const k of Object.keys(obj)) {
+            if (/^en_.*plural/i.test(k) && typeof obj[k] === "string") {
+              const { ar, ar_tr } = pickArabicForEN(obj, k);
+              out.push({ en: obj[k], ar, ar_tr });
+            }
+          }
+        });
+      }
+      return dedupeTriples(out);
+    }
+  },
+
+  /* Descriptions — restricted to h_description only */
+  "adjective": {
+    label: "Adjectives (h_description)",
+    detect(q) {
+      const {data} = getCat("h_description");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_adjective === "string" && equalsCI(obj.en_adjective, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("h_description");
+      walk(data, obj => {
+        if (typeof obj.en_adjective === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_adjective");
+          out.push({ en: obj.en_adjective, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  },
+  "adverb": {
+    label: "Adverbs (h_description)",
+    detect(q) {
+      const {data} = getCat("h_description");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_adverb === "string" && equalsCI(obj.en_adverb, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("h_description");
+      walk(data, obj => {
+        if (typeof obj.en_adverb === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_adverb");
+          out.push({ en: obj.en_adverb, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  },
+
+  /* Animals — restricted to i_animal only */
+  "animal": {
+    label: "Animals (i_animal)",
+    detect(q) {
+      const {data} = getCat("i_animal");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_animal === "string" && equalsCI(obj.en_animal, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("i_animal");
+      walk(data, obj => {
+        if (typeof obj.en_animal === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_animal");
+          out.push({ en: obj.en_animal, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  },
+  "possessive": {
+    label: "Animal possessives (i_animal)",
+    detect(q) {
+      const {data} = getCat("i_animal");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_possessive === "string" && equalsCI(obj.en_possessive, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("i_animal");
+      walk(data, obj => {
+        if (typeof obj.en_possessive === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_possessive");
+          out.push({ en: obj.en_possessive, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  },
+
+  /* Extra single-type families you asked for */
+  "position": {
+    label: "Positions (e_position)",
+    detect(q) {
+      const {data} = getCat("e_position");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_position === "string" && equalsCI(obj.en_position, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("e_position");
+      walk(data, obj => {
+        if (typeof obj.en_position === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_position");
+          out.push({ en: obj.en_position, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  },
+  "time": {
+    label: "Times (f_time)",
+    detect(q) {
+      const {data} = getCat("f_time");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_time === "string" && equalsCI(obj.en_time, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("f_time");
+      walk(data, obj => {
+        if (typeof obj.en_time === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_time");
+          out.push({ en: obj.en_time, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  },
+  "communication": {
+    label: "Communication (n_personal)",
+    detect(q) {
+      const {data} = getCat("n_personal");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_communication === "string" && equalsCI(obj.en_communication, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("n_personal");
+      walk(data, obj => {
+        if (typeof obj.en_communication === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_communication");
+          out.push({ en: obj.en_communication, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  },
+  "pronoun": {
+    label: "Pronouns (q_pronoun)",
+    detect(q) {
+      const {data} = getCat("q_pronoun");
+      let hit = false;
+      walk(data, obj => {
+        if (typeof obj.en_pronoun === "string" && equalsCI(obj.en_pronoun, q)) hit = true;
+      });
+      return hit;
+    },
+    extractAll() {
+      const out = [];
+      const {data} = getCat("q_pronoun");
+      walk(data, obj => {
+        if (typeof obj.en_pronoun === "string") {
+          const { ar, ar_tr } = pickArabicForEN(obj, "en_pronoun");
+          out.push({ en: obj.en_pronoun, ar, ar_tr });
+        }
+      });
+      return dedupeTriples(out);
+    }
+  }
+};
+
+/* ------------ UI flow ------------ */
+function clearNode(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+
+function renderTriples(title, triples) {
+  const out = document.getElementById("out");
+  clearNode(out);
+
+  const h = document.createElement("h3");
+  h.textContent = title;
+  out.appendChild(h);
+
+  for (const t of triples) {
+    const card = document.createElement("div");
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+    const p3 = document.createElement("p");
+    p1.textContent = t.en || "";
+    p2.textContent = t.ar || "";
+    p3.textContent = t.ar_tr || "";
+    card.appendChild(p1); card.appendChild(p2); card.appendChild(p3);
+    out.appendChild(card);
+  }
+
+  if (!triples.length) {
+    const p = document.createElement("p");
+    p.textContent = "No items for this type.";
+    out.appendChild(p);
+  }
+}
+
+function showTypeChoices(matches) {
+  const box = document.getElementById("typeOptions");
+  clearNode(box);
+  const p = document.createElement("p");
+  p.textContent = "Your word was found in multiple types. Choose one:";
+  box.appendChild(p);
+
+  for (const k of matches) {
+    const btn = document.createElement("button");
+    btn.textContent = TYPES[k].label;
+    btn.addEventListener("click", () => {
+      clearNode(box);
+      const triples = TYPES[k].extractAll();
+      renderTriples(TYPES[k].label, triples);
+    });
+    box.appendChild(btn);
+  }
+}
+
+function runSearch() {
+  const q = document.getElementById("checkword").value.trim();
+  const out = document.getElementById("out");
+  const opts = document.getElementById("typeOptions");
+  clearNode(out); clearNode(opts);
+
+  if (!q) {
+    const p = document.createElement("p");
+    p.textContent = "Type a word above to search.";
+    out.appendChild(p);
+    return;
+  }
+
+  const matchedTypes = [];
+  for (const key of Object.keys(TYPES)) {
+    try { if (TYPES[key].detect(q)) matchedTypes.push(key); } catch (e) {}
+  }
+
+  // Heuristic fallback: guess verb form if nothing matched.
+  if (matchedTypes.length === 0) {
+    if (/ing$/i.test(q)) matchedTypes.push("a_action.present_participle");
+    else if (/ed$/i.test(q)) matchedTypes.push("a_action.past_tense");
+    else matchedTypes.push("a_action.base_verb");
+  }
+
+  if (matchedTypes.length === 1) {
+    const k = matchedTypes[0];
+    const triples = TYPES[k].extractAll();
+    renderTriples(TYPES[k].label, triples);
+  } else {
+    showTypeChoices(matchedTypes);
+  }
+}
+
+document.getElementById("run").addEventListener("click", runSearch);
+document.getElementById("checkword").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") runSearch();
+});
+</script>
+
+</body>
+</html>

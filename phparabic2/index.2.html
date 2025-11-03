@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test PHP POST</title>
+</head>
+<body>
+
+<button onclick="getData()">Send Data</button>
+
+<audio id="arAudio" controls></audio>
+
+<script>
+async function getData() {
+  const url = "https://quasiquarks.com/getarabic.php";
+
+  try {
+    const formData = new FormData();
+    formData.append("english_text", "greetings");
+
+    const response = await fetch(url, { method: "POST", body: formData });
+    if (!response.ok) throw new Error(`Response status: ${response.status}`);
+
+    const result = await response.json();
+    console.log(result);
+
+    if (result.ok && result.audio) {
+      const audio = document.getElementById("arAudio");
+      audio.src = result.audio;      // data:audio/mp3;base64,....
+      await audio.play();            // optional: autoplay
+    } else {
+      console.error("No audio in response", result);
+    }
+  } catch (err) {
+    console.error("Error:", err.message);
+  }
+}
+</script>
+
+</body>
+</html>
