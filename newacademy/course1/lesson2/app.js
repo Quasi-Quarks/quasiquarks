@@ -9,7 +9,7 @@ const AUTO_MAP = [
   // Example:
   ["recording3.json", 1, "https://www.youtube.com/watch?v=1NTKwpAVcHg", "youtube"],
   ["recording3.json", 2, "https://www.youtube.com/watch?v=Tfjd5yzCaxk", "youtube"],
-   ["recording2.json", 3, "audio.mp3", "audio"],
+   ["recording2.json", 3, "", "audio"],
    
 ];
 
