@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Mobile – Multi Mini Editors (Video + Timeline)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Your styles -->
+  <link rel="stylesheet" href="index5.css" />
+  <link rel="stylesheet" href="mobile.css" />
+  <link rel="stylesheet" href="lesson.css" />
+</head>
+<body class="state-compact">
+
+  <main class="mainbody" role="main">
+    <div class="body_container_cover">
+      <div class="body_container">
+
+        <!-- Toggle button (menu.js controls this) -->
+        <button id="menudisplay" aria-label="Toggle menu">☰</button>
+
+        <!-- Left menu (unchanged) -->
+        <nav class="menuBarstdy" aria-label="Study Menu">
+          <div class="menuHeader">
+            <div class="menuTitle">Study Menu</div>
+          </div>
+
+          <div class="menustudycategorycontainer open">
+            <button class="menustudycategory" aria-expanded="true">
+              <span class="menustudytxtheader">Intro</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+            </button>
+            <div class="menustudy" role="region" aria-label="Intro">
+              <a class="menustudytxt" href="../lesson1/index.html">HTML?</a>
+              <a class="menustudytxt" href="../lesson2/index.html">Design</a>
+              <a class="menustudytxt" href="../lesson3Txt/index.html">Text</a>
+              <a class="menustudytxt" href="../lesson4img/index.html">Images</a>
+              <a class="menustudytxt" href="../lesson5div/index.html">Div</a>
+              <a class="menustudytxt" href="../lesson6buttonlinks/index.html">Link</a>
+            </div>
+          </div>
+
+          <div class="menustudycategorycontainer open">
+            <button class="menustudycategory" aria-expanded="true">
+              <span class="menustudytxtheader">Learning</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+            </button>
+            <div class="menustudy" role="region" aria-label="Learning">
+              <a class="menustudytxt" href="../lesson3txt/index.html">Text</a>
+              <a class="menustudytxt" href="../lesson4img/index.html">Images</a>
+              <a class="menustudytxt" href="../lesson5divs/index.html">divs</a>
+              <a class="menustudytxt" href="../lesson6buttonlinks/index.html">Links</a>
+            </div>
+          </div>
+
+          <div class="menustudycategorycontainer">
+            <button class="menustudycategory" aria-expanded="false">
+              <span class="menustudytxtheader">How to learn</span>
+              <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+            </button>
+            <div class="menustudy" role="region" aria-label="How to learn">
+              <a class="menustudytxt" href="#">Roadmap</a>
+              <a class="menustudytxt" href="#">Practice</a>
+              <a class="menustudytxt" href="#">Projects</a>
+              <a class="menustudytxt" href="#">Resources</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- ===== Content / Lessons (unchanged) ===== -->
+     <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Text in HTML</h1>
+            <p>Text is very powerfull in website it can represent information, design, layout and theme of the website </p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Text in different content</h1>
+            <p>Text can be in a menu, in the footer, in the about us, a description about your products </p>
+            </div>
+        </div>
+
+        <div class="lessonContainer">
+            <div class="lessonSection">
+            <h1>Designing the Text</h1>
+            <p>Since text can be in a menu or in a slideshow we need to design the font type, size, color, alignment, background </p>
+            </div>
+        </div>
+
+
+
+        <!-- ================== MINI EDITORS ================== -->
+
+        <!-- ========== MINI EDITOR #1 — VIDEO ==========
+             AUTO_MAP: ["recording1.json", 1, "video1.mp4", "video"]
+        -->
+        <div class="body_container_cover_section_cover menu_editor">
+          <h2>Mini Editor A (Video)</h2>
+
+          <div class="editor_controls">
+            <button class="btnLoad">📂 Load JSON…</button>
+            <input class="fileJson" type="file" accept=".json,application/json" style="display:none">
+            <button class="btnToggle">▶ Play</button>
+            <button class="btnReset">↺ Reset</button>
+
+            <div class="seekWrap" style="display:flex;gap:8px;align-items:center;margin-left:auto;min-width:40%">
+              <input class="seek" type="range" min="0" max="0" step="50" value="0" style="flex:1">
+              <span class="timeLabel" style="font-size:.9rem;opacity:.85;white-space:nowrap">00:00 / 00:00</span>
+            </div>
+          </div>
+
+          <div style="font-size:.9rem; color:#bbb; margin-bottom:6px;">src · play/pause · seek · edit · output</div>
+
+          <!-- Video slot used when mediaType === "video" -->
+          <video class="editorVideo" playsinline controls style="width:100%;max-height:220px;background:#000"></video>
+
+          <!-- Readonly while playing -->
+          <div class="roWrap">
+            <label>Read-only (timeline)</label>
+            <textarea class="txtReadonly" readonly></textarea>
+          </div>
+
+          <!-- Editable while paused -->
+          <div class="editWrap">
+            <label>Editable (your scratch)</label>
+            <textarea class="txtEdit editable"></textarea>
+          </div>
+
+          <div class="editor_output">
+            <iframe class="outputFrame" sandbox="allow-scripts"></iframe>
+          </div>
+
+          <div class="status" style="margin-top:6px;font-size:.9rem;opacity:.85">Waiting for recording…</div>
+        </div>
+
+
+        <!-- ================== /MINI EDITORS ================== -->
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts (defer so DOM is ready) -->
+  <script src="app.js" defer></script>
+  <script src="menu.js" defer></script>
+</body>
+</html>
