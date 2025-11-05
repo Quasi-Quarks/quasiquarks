@@ -1,0 +1,70 @@
+*:not(head, script, html) {
+    background-size: 122% 100%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: 2px solid #2a6599;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    color: black;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 50px;
+}
+
+div#mario {
+    height: 100px;
+    width: 100px;
+    background-image: url(mario.jpg);
+    position: fixed;
+    bottom: 200px;
+    left: 100px;
+}
+
+div#canvasgame {
+    height: 100%;
+    width: 100%;
+}
+
+div#canvasgame2 {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.builing0 {
+    position: absolute;
+    height: 200px;
+    bottom: 0;
+    width: 100%;
+    background-image: url(bricks.jpg);
+    background-size: 120% 310%;
+}
+
+.floating {
+    width: 300px;
+    flex-direction: row;
+    position: fixed;
+    bottom: 350px;
+}
+
+.bricks {
+    height: 100px;
+    width: 100px;
+}
+
+.money {
+    height: 100px;
+    width: 100px;
+}

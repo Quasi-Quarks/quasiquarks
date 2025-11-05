@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div id="mario">
+
+    </div>
+    <div id="canvasgame">
+
+
+    <div id="canvasgame2">
+
+       <div class="floating">
+         <div class="bricks"></div>
+         <div class="money"></div>
+         <div class="bricks"></div>
+
+       </div>
+
+        <div class="builing0">
+
+        </div>
+    </div>    
+
+
+    </div>
+
+</body>
+
+<script>
+
+    alert("WASD for controls Space to jump")
+
+
+var jumpy = 0;
+var jumpAction = false;
+var jumpReverse = "playing";
+    
+keyTravelY = 0;
+keyTravelX = 0;
+
+document.addEventListener('keydown', function(event) {
+    // Normalize the key value to lowercase for consistency
+    const key = event.key.toLowerCase();
+    
+    // Detect which key is pressed
+    switch(key) {
+        case 'w':
+        keyTravelY -= 10; // Move up
+            break;
+        case 'a':
+        keyTravelX -= 10; // Move left
+            break;
+        case 's':
+        keyTravelY += 10; // Move down
+            break;
+        case 'd':
+        keyTravelX += 10; // Move right
+            break;
+        case '1':
+        document.getElementById("gun").style.backgroundImage = "url(gun4.png)"
+            break;1
+            case '2':
+        document.getElementById("gun").style.backgroundImage = "url(hand6.png)"
+            break;
+            
+    }
+
+    // Detect which key is pressed
+    switch(key) {
+        case ' ':
+        jumpAction = true;
+        jumpReverse = "jumpingUp";
+            break;         
+    }
+
+    console.log(key)
+    
+    console.log(keyTravelX)
+
+    // Update player position
+    //updatePlayerPosition();
+});
+
+
+function move() {
+
+
+    document.getElementById("canvasgame2").style.transform = "translate3d("+-keyTravelX+"px, "+jumpy+"px, "+0+"px)";
+  setTimeout(move, 20);
+}
+
+
+move()
+
+
+
+function jump() {
+
+ if(jumpAction == true) {
+      if(jumpReverse == "jumpingUp") {
+            jumpup()
+        } else if (jumpReverse == "jumpingDown") {
+            jumpdown()
+    } 
+
+    else if (jumpReverse == "playing") {
+        jumpreverse()
+    } 
+    
+}
+console.log(jumpAction)
+console.log(jumpReverse)
+console.log(jumpy)
+setTimeout(jump, 25);
+}
+
+jump()
+
+function jumpup() {
+    jumpy = jumpy + 5;
+    if(jumpy >= 350) {
+         jumpReverse = "jumpingDown";
+    } 
+}
+
+function jumpdown() {
+    jumpy = jumpy + -5;
+    if(jumpy < 0) {
+         jumpReverse = "playing";
+    } 
+
+}
+
+function jumpreverse() {
+    jumpAction = false;
+    jumpy = 0;
+}
+</script>
+</html>

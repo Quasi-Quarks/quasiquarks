@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* CSS to make the canvas fill the entire window */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        // Get the canvas element
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size to fill the window
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Camera properties
+        const camera = {
+            x: 0,
+            y: 0,
+            z: 500, // distance from the scene
+            sensitivity: 0.01 // adjust rotation sensitivity
+        };
+
+        // Cube properties
+        const cube = {
+            size: 100,
+            position: {
+                x: canvas.width / 2,
+                y: canvas.height / 2
+            }
+        };
+
+        // Function to draw a cube
+        function drawCube() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw cube
+            ctx.beginPath();
+            ctx.moveTo(cube.position.x, cube.position.y);
+            ctx.lineTo(cube.position.x + cube.size, cube.position.y);
+            ctx.lineTo(cube.position.x + cube.size, cube.position.y + cube.size);
+            ctx.lineTo(cube.position.x, cube.position.y + cube.size);
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+        // Function to handle mouse movement
+        function handleMouseMove(event) {
+            // Calculate change in mouse position
+            const deltaX = event.movementX || event.mozMovementX || event.webkitMovementX || 0;
+            const deltaY = event.movementY || event.mozMovementY || event.webkitMovementY || 0;
+
+            // Adjust camera rotation based on mouse movement
+            camera.x += deltaX * camera.sensitivity;
+            camera.y += deltaY * camera.sensitivity;
+
+            // Redraw the scene with the updated camera position
+            drawScene();
+        }
+
+        // Function to draw the scene (cube + camera)
+        function drawScene() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Apply camera transformations
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate(camera.x);
+            ctx.rotate(camera.y);
+            ctx.translate(-canvas.width / 2, -canvas.height / 2);
+
+            // Draw the cube
+            drawCube();
+        }
+
+        // Attach mousemove event listener
+        document.addEventListener('mousemove', handleMouseMove);
+
+        // Initial draw of the scene
+        drawScene();
+    </script>
+</body>
+</html>

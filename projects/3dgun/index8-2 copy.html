@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div#controller {
+            position: fixed;
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+            z-index: 88;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="controller">A</div>
+
+    <script>
+        // Get the middle of the screen
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', function(event) {
+            // Calculate the difference between the current mouse position and the center of the screen
+            let diffX = event.clientX - centerX;
+            let diffY = event.clientY - centerY;
+
+            // Adjust these values to control the sensitivity and direction of the rotation
+            let rotateY = diffX * 0.5; // Horizontal movement affects Y rotation
+            let rotateX = -diffY * 0.5; // Vertical movement affects X rotation
+
+            // Apply the rotation
+            document.getElementById("controller").style.transform = `translate(-50%, -50%) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+    </script>
+</body>
+</html>

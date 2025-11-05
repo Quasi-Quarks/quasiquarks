@@ -1,0 +1,549 @@
+<html>
+ <head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index5.css">
+ </head>
+
+ <body>
+
+    <div id="devconsole">
+
+    </div>
+
+     <div class="MenuContainer">
+        <div id="menucrtTextInput" class="icons"></div>
+        <div id="addsquare" class="icons"></div>
+        <div id="crtcircle" class="icons"></div>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+        <div id="text_shaddow" class="icons"></div>
+        <div id="border_radius" class="icons"></div>
+        <div id="box_shaddow" class="icons"></div>
+     </div>
+
+     <div id="canvas">
+
+         
+        <div id="range_container_borderRadius">
+            <input type="range" min="0" max="100" value="0" id="range_borderRadius_a" />
+        </div>
+
+        <div id="range_container_boxShadow">
+            <input type="range" min="0" max="100" value="0" id="box_shaddow_a" />
+        </div>
+
+
+     </div>
+
+
+     <script>
+
+
+       document.getElementById("menucrtTextInput").onclick = function() {
+        funccrtTxtInput();
+       }
+
+       document.getElementById("addsquare").onclick = function() {
+        funccrtsqreelement();
+       }
+
+       var ParentContainerElement;
+
+       resizebuttonClicked = false;
+
+       var varresizing = false;
+
+
+       // resize
+       resizeinputbuttonClicked = false;
+       posinputbuttonClicked = false;
+
+       // fucrttxtinput 53
+       // funccrtsqreelement 104
+       // crtResiszebttn 148
+
+
+
+       /// positionin input element
+       // check if input is clicked for position
+       varfuncinpfntpos = false;
+
+
+      varfuncinpposstate = "notresizing";
+
+       // for getting the bug for the input size
+       varfuncinpfntsize = false;
+
+
+
+       // for changing pos of sqre element
+       varfuncsqresize = false;
+
+       // for resizing the square element
+       var resizesqrebuttonClicked = false;
+
+
+       // for position of square element
+       var positionnowmovingclicked = false;
+
+       /////////////////////////////////////////////////////
+       //boxshaddow
+
+       var bx_shaddowy = 0;
+
+       /////////////////////////////////////////////////////
+
+       function funccrtTxtInput() {
+
+              crtInpelemntParent = document.createElement("div")
+              crtInpelemntParent.setAttribute("class", "csscrtInpelemntParent")
+              crtInpelemntParent.setAttribute("data-first-name", "input")
+              crtInpelemntParent.style.position = "absolute"
+              crtInpelemntParent.style.left = 35 + "%";
+              crtInpelemntParent.style.top = 35 + "%";
+
+              crtInpelemntParent.onclick = function () {
+               // alert("clickedonParentElement")
+                this.style.border = "2px solid purple"
+                this.childNodes[1].style.border = "2px solid green";             
+              }
+
+              crtInpelemntParent.oninput = function () {
+                posinputbuttonClicked = false;
+               // this.style.width = this.value.length + "ch";
+              }
+
+
+              crtResiszebttn(crtInpelemntParent)
+         
+              crtInpelemnt = document.createElement("input")
+
+              crtInpelemnt.onclick = function() {
+
+
+                // close input pos if it's moving
+                // if position of input is true
+                
+
+                
+                
+                //check if resiz input is clicked
+                // if not then if it's clicked
+                // click to actiavte position
+                if(resizeinputbuttonClicked == true) {
+                    resizeinputbuttonClicked = false;
+                 } else if(resizeinputbuttonClicked == false) {
+
+
+                posinputbuttonClicked = true;
+                ParentContainerElement = this.parentNode;
+
+                varfuncinpposstate = "resizing";
+
+                
+                    // to deactivate pos
+                    if(varfuncinpfntpos == true) {
+                        posinputbuttonClicked = false;
+                    } else {
+                        // to activate pos
+                        setTimeout(funcinpfntposition, 400);
+                        varfuncinpfntpos = "bug"
+                    function funcinpfntposition() {
+                        varfuncinpfntpos = true;
+                 }
+              
+
+                    }
+                    
+               
+
+                 alert("posinputbuttonClicked"+posinputbuttonClicked)
+                 alert("varfuncinpfntpos"+varfuncinpfntpos)
+
+
+                 }
+
+                //clickedinpforposition = true;
+                // if(varresizing == true) {
+                //     varresizing = false;
+                // }
+
+                // if(resizebuttonClicked == true) {
+                //     ParentContainerElement = this;
+                //     resizebuttonClicked = false;
+                //     varresizing = true;
+                // }
+
+                
+                
+
+
+             
+              }
+              crtInpelemnt.setAttribute("class", "csscrtInpelemnt")
+
+              crtInpelemntParent.appendChild(crtInpelemnt)
+
+              
+              ParentContainerElement = crtInpelemntParent;
+
+           document.getElementById("canvas").appendChild(crtInpelemntParent)
+       }
+
+
+       var varsqrresizing = false;
+
+
+      var varfuncsqreposbug = false;
+       
+
+       function funccrtsqreelement() {
+        crtsqrelemntParent = document.createElement("div")
+        crtsqrelemntParent.setAttribute("class", "csscrtsqrelemntParent")
+        crtsqrelemntParent.setAttribute("data-first-name", "div")
+        crtsqrelemntParent.style.position = "absolute"
+        crtsqrelemntParent.style.left = 35 + "%";
+        crtsqrelemntParent.style.top = 35 + "%";
+
+        crtsqrelemntParent.onclick = function() {
+            //this.style.border = "2px solid orange"
+
+            // if(varsqrresizing == true) {
+            //      varsqrresizing = false;
+            //      resizesqrebuttonClicked = false;
+            // }
+
+            //  if(resizesqrebuttonClicked == true) {
+            //         ParentContainerElement = this;
+            //         // resizebuttonClicked = false;
+            //         varsqrresizing = true;
+            //     }    
+
+              
+        }
+
+        crtsqrelemnt = document.createElement("div")
+        crtsqrelemnt.setAttribute("class", "csscrtsqrelemnt")
+
+        crtsqrelemnt.onclick = function() {
+           
+            if(positionnowmovingclicked == true) {
+                positionnowmovingclicked = false; 
+            } else {
+                positionnowmovingclicked = true; 
+
+
+            }
+
+            setTimeout(funcsqreposition, 400);
+                        varfuncsqreposbug = "bug"
+                    function funcsqreposition() {
+                        varfuncsqreposbug = true;
+                 }
+
+           
+            ParentContainerElement = this.parentNode;
+                      
+            
+
+            //  // to deactivate pos
+            //  if(varfuncinpfntpos == true) {
+            //             posinputbuttonClicked = false;
+            //         } else {
+            //             // to activate pos
+            //             setTimeout(funcinpfntposition, 400);
+            //             varfuncinpfntpos = "bug"
+            //         function funcinpfntposition() {
+            //             varfuncinpfntpos = true;
+            //      }
+            alert("positionnowmovingclicked" + positionnowmovingclicked)
+        }
+
+        crtsqrelemntParent.appendChild(crtsqrelemnt)
+
+        crtResiszebttn(crtsqrelemntParent)
+
+        ParentContainerElement = crtsqrelemntParent;
+
+        document.getElementById("canvas").appendChild(crtsqrelemntParent)
+       }
+
+       
+
+
+       // create resize Button for elements
+       function crtResiszebttn(ParentElement) {
+              sqresize = document.createElement("image");
+              sqresize.setAttribute("class", "sqresize");
+              sqresize.src = "increase.png";
+
+              sqresize.onclick = function () {
+                //alert("clickedonsqresizeelement")
+                this.style.border = "2px solid blue";
+                // resize button
+                this.parentNode.childNodes[1].style.border = "2px solid red";
+                this.parentNode.childNodes[0].style.border = "2px solid yellow";
+                
+
+                //alert(this.parentNode.dataset.firstName)
+
+                 
+                // resize input size
+                // check if it's input
+                if(this.parentNode.dataset.firstName == "input") {
+                    resizeinputbuttonClicked = true;
+                    ParentContainerElement = this.parentNode;
+
+                    // extend above canvas class
+                    setTimeout(funcinpfntsize, 1000);
+                    varfuncinpfntsize = "bug"
+                    function funcinpfntsize() {
+                    varfuncinpfntsize = true;
+                 }
+
+                }
+
+                // resize sqre size
+
+                if(this.parentNode.dataset.firstName == "div") {
+                    resizesqrebuttonClicked = true;
+                    ParentContainerElement = this.parentNode;
+
+                    setTimeout(funcinpfntsize, 1000);
+                    varfuncsqresize = "bug"
+                    function funcinpfntsize() {
+                    varfuncsqresize = true;
+                 }
+                }
+               
+                resizebuttonClicked = true;
+                
+            }
+
+              ParentElement.appendChild(sqresize);
+
+       }
+
+
+       document.getElementById("canvas").onclick = function () {
+     
+       // for input font size
+       // to switch it off
+       if(varfuncinpfntpos == true) {
+        varfuncinpfntpos = false;
+        posinputbuttonClicked = false;
+       }
+
+
+       // to switch of sqre size
+
+       if(varfuncsqresize == true) {
+        varfuncsqresize = false;
+        resizesqrebuttonClicked = false;
+       }
+
+
+        // if(varfuncinpfntsize == true) {
+        //     varfuncinpfntsize
+        // }
+
+        // for disabling input resize
+        if(varfuncinpfntsize == "bug") {
+            // do nothing
+        } else if(varfuncinpfntsize == true) {
+            varfuncinpfntsize = false;
+            resizeinputbuttonClicked = false;
+        }
+
+       
+
+        // if(varsqrresizing == true) {
+        //          varsqrresizing = false;
+        //          resizesqrebuttonClicked = false;
+        //     }
+
+        if(varfuncinpfntsize == "bug") {
+             // do nothing
+        } else if(varfuncinpfntsize == true) {
+
+            resizeinputbuttonClicked = false;
+            varfuncinpfntsize = false;
+        }
+
+
+        // if(resizeinputbuttonClicked == true) {
+        //             resizeinputbuttonClicked = false;
+        //          }
+
+
+        if(varfuncsqreposbug == "bug") {
+            // do nothing
+        } else {
+            varfuncsqreposbug = false;
+            positionnowmovingclicked = false;
+        }
+
+        alert("canvasclicked")
+
+
+
+       }
+
+
+       function chckresizing() {
+
+       }
+
+
+       var X_coor = 0;
+       var Y_coor = 0;
+
+       function resizeElement() {
+        
+           if(varresizing == true) {
+            // ParentContainerElement.childNodes[1].style.fontSize = -ctrlposy + Y_coor;
+           //ParentContainerElement.style.width = -ctrlposy + X_coor;
+           } else {
+
+           }
+
+          
+
+       if(resizeinputbuttonClicked == true) {
+        var ctrlposy = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("top"));
+        var ctrlposx = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("left"));
+           
+        // ParentContainerElement.style.height = -ctrlposy + Y_coor;
+        //      ParentContainerElement.style.width = -ctrlposy + X_coor;
+             ParentContainerElement.childNodes[1].style.fontSize = -ctrlposy + Y_coor;
+       }
+
+
+
+       // size of square element
+       if(resizesqrebuttonClicked == true) {
+        var ctrlposy = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("top"));
+        var ctrlposx = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("left"));
+           
+
+            ParentContainerElement.style.height = -ctrlposy + Y_coor;
+            ParentContainerElement.style.width = -ctrlposy + X_coor;
+       }
+       
+       }
+
+
+       function positionelem() {
+        var ctrlposy = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("top"));
+        var ctrlposx = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("left"));
+        
+        ParentContainerElement.style.left =  X_coor + -200;
+        ParentContainerElement.style.top =  Y_coor + -10;
+
+       // ParentContainerElement.style.border = "2px solid red"
+
+       }
+
+
+
+    document.body.onmousemove = function(event) {
+        myFunction(event)
+     };
+
+    function myFunction(e) {
+        let x = e.clientX;
+        let y = e.clientY;
+
+        X_coor = x;
+        Y_coor = y;
+       if(varresizing == true) {
+        resizeElement()
+       }
+
+      
+
+       if(posinputbuttonClicked == true) {
+        
+        positionelem()
+       }
+
+       console.log(posinputbuttonClicked)
+
+       if(resizeinputbuttonClicked == true) {
+        resizeElement()
+       }
+
+       if(positionnowmovingclicked == true) {
+        positionelem()
+       }
+
+       if(resizesqrebuttonClicked == true) {
+        resizeElement()
+       }
+
+       
+
+    }
+
+
+    // range_borderRadius_a
+
+    // <div id="range_container_borderRadius">
+    //         <input type="range" min="0" max="100" value="0" id="range_borderRadius_a" />
+    //     </div>
+
+    //     <div id="range_container_boxShadow">
+    //         <input type="range" min="0" max="100" value="0" id="box_shaddow_a" />
+    //     </div>
+
+
+    //     <div class="MenuContainer">
+    //     <div id="menucrtTextInput" class="icons"></div>
+    //     <div id="menucrtTextheader" class="icons"></div>
+    //     <div id="addsquare" class="icons"></div>
+    //     <div id="crtcircle" class="icons"></div>
+    //     <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+    //     <div id="text_shaddow" class="icons"></div>
+    //     <div id="border_radius" class="icons"></div>
+    //     <div id="box_shaddow" class="icons"></div>
+    //  </div>
+
+
+
+    document.getElementById("border_radius").onclick = function() {
+        if(range_container_borderRadius.style.display == "flex") {
+            range_container_borderRadius.style.display = "none";
+        } else {
+            range_container_boxShadow.style.display = "none";
+            range_container_borderRadius.style.display = "flex"
+        }
+    }
+
+    document.getElementById("box_shaddow").onclick = function() {
+        if(range_container_boxShadow.style.display == "flex") {
+            range_container_boxShadow.style.display = "none";
+        } else {
+            range_container_borderRadius.style.display = "none";
+            range_container_boxShadow.style.display = "flex"
+        }
+    }
+
+
+
+    document.getElementById("range_borderRadius_a").oninput = function() {
+        console.log(ParentContainerElement)
+        ParentContainerElement.childNodes[0].style.borderRadius = this.value+"px"
+       
+    }
+
+    range_borderRadius_a
+
+    document.getElementById("box_shaddow_a").oninput = function() {
+        console.log(ParentContainerElement)
+        ParentContainerElement.childNodes[0].style.boxShadow = "-20px 19px "+this.value+"px 8px #51515d";
+       
+    }
+
+     </script>
+    </body>
+</html>

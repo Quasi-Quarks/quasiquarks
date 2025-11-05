@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <style>
+div#map {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.slider.slider0 {
+    height: 800px;
+    background-image: linear-gradient(45deg, #f8143c, #1700ff9c);
+    animation: mymove 5s infinite;
+    animation: mymove 3s infinite;
+    background-size: 200% 200%;
+}
+      </style>
+</head>
+<body>
+
+ 
+        <h1>World GDP</h1>
+      <div class="slider slider0" id="sliderworldmap">   
+            <div id="map"></div>
+            <div id="info-box"></div>
+        </div>
+
+<script>
+    function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 0, lng: 0 },
+    zoom: 2,
+  });
+
+}
+</script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcf7rrnocwm0Vxc69ckZB2lfJrvDrzD0I&callback=initMap"
+  async defer></script>
+
+</body>
+
+</html>
+
+  

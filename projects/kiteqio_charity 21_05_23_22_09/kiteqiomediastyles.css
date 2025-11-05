@@ -1,0 +1,80 @@
+.nav {
+    width: 100%;
+    flex-direction: row;
+    background-color: #000000db;
+    justify-content: space-evenly;
+    color: white;
+    /* padding: 14px 0px; */
+}
+
+.country {
+    flex-direction: row;
+}
+
+.orgcountryrow {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.organasationforcountry {
+    width: 100%;
+    background-color: black;
+}
+
+div#titlecontainer {
+    flex-direction: column;
+    /* padding: 10px; */
+}
+
+div#titlecontainer\ row {}
+
+.titlecontainer.row {
+    flex-direction: row;
+}
+
+.donatenewsrow {
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.donatenewscontainer {
+    width: 100%;
+}
+
+p#donatebutton {
+    width: 40%;
+    padding: 9px 7px;
+    margin: 7px;
+    color: pink;
+    background-color: red;
+    border-radius: 35px;
+}
+
+#newsinforColumn h1 {
+    font-size: 23px;
+    color: rebeccapurple;
+}
+
+body {
+    height: 3720px;
+}
+
+body {
+    height: max-content;
+}
+
+body {
+    height: max-content;
+}
+
+body {
+    /* height: 7000px; */
+}
+
+#newsinforColumn .organasations p {
+    color: white;
+    padding: 5px;
+}

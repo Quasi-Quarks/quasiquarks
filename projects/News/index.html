@@ -1,0 +1,1562 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+    *:not(html, script, head, body) {
+      /* border: 2px solid red; */
+      margin: 0;
+      padding: 0;
+      background-size: 100%;
+      font-family: sans-serif;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      text-decoration: none;
+      color: white;
+    }
+
+    body  {
+  background-image: linear-gradient(to bottom, rgb(0 0 0 / 22%), rgb(0 0 0 / 22%)),
+    url(background2.jfif);
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+    .itemparent {
+      height: 230px;
+      margin: 65px 0px;
+      /* border: 2px solid green; */
+      width: 21%;
+      display: inline-flex;
+      flex-direction: column;
+      border-radius: 22px;
+      overflow: hidden;
+      margin: 2%;
+    }
+    .itembackground {
+      height: 100%;
+      width: 95%;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      border-radius: 22px;
+      }
+
+    .itemtxt {
+      /* height: 72px; */
+      width: 93%;
+      display: flex;
+      /* align-self: flex-end; */
+      /* vertical-align: bottom; */
+      display: table;
+      vertical-align: bottom;
+      font-size: 21.8px;
+      text-align: left;
+      /* margin-left: 14px; */
+      padding: 9px;
+    }
+
+    .newsrow {height: 1120px;
+      width: 100%;
+    }
+
+    @media only screen and (orientation: portrait) {
+ .itemparent {
+   width: 95%;
+   margin: 12% auto;
+   /* padding: 20px 13px; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 29%;
+   }
+
+   .itembackground { 
+      }
+}
+
+.menurow {height: 84%;display: flex;justify-content: center;flex-direction: column;align-items: center;margin-top: 21px;}
+
+.keywords {width: 80%;margin: 20px auto;background-image: linear-gradient(82deg, #a0856700, #ffffff61);border-radius: 22px;height: max-content;padding: 12px;}
+
+.keywords p {
+  display:  inline-block;
+  font-size: 26px;
+  margin: 4px 19px;
+  }
+
+
+
+.search {display: flex;flex-direction: column;justify-content: center;align-items: center;text-align: center;}
+
+.search p {
+    
+}
+
+
+
+.searchbutton {
+  margin: 20px 0px 0px 0px;
+  border: none;
+  display: none;
+  background: none;
+  font-size: 38px;
+  /* background-color: cornsilk; */
+  border-radius: 33px;
+  padding: 8px 12px;
+  }
+
+
+.searchkeywords {flex-direction: row;display: flex;margin-top: 32px;}
+
+.searchkeywords h2 {
+  margin: 8px;
+  }
+
+
+.title {display: flex;flex-direction: column;justify-content: center;align-items: center;/* padding: 22px; */}
+
+.title h1 {
+   margin: 0px 0px 4px 2px;
+   }
+
+.title h3 {
+     
+}
+
+
+  </style>
+
+
+</head>
+
+<body>
+ 
+<div class="menurow">
+      <div class="title">
+    <h1>CSN.com</h1>
+        <h3>Combine & Search News</h3>
+        </div>
+      <div id="keywords1" class="keywords">
+        <p>Yemen</p>
+        <p>france</p>
+        <p>UK</p>
+        <p>America</p>
+        <p>Saudi</p>
+        <p>Germany</p>
+        <p>China</p>
+</div>
+
+ <div id="keywords2" class="keywords">
+        <p>Economy</p>
+        <p>Tech</p>
+        <p>Travel</p>
+        <p>Science</p>
+        <p>Market</p>
+        <p>Apple</p>
+        <p>Samsung</p>
+        <p>finance</p>
+</div>
+
+<div class="search">
+  <div id="searchedkeys" class="searchkeywords">
+
+  </div>
+<button id="fetchnews" class="searchbutton" >Search</button>
+      </div>
+     
+</div>
+<div id="newsrow" class="newsrow">
+</div>
+  <script>
+
+
+var searcharray = [""];
+var addkey = "";
+var srchno = 0;
+
+keyloop();
+function keyloop() {
+
+ 
+   for(a=0; a<=keywords1.childNodes.length + -1; a++) {
+    
+       var srchkey = keywords1.childNodes[a];
+         srchkey.onclick = function() {
+          addkey = this.innerText;
+          createsrch()
+            
+         }
+
+
+
+   }
+
+
+for(b=0; b<=keywords2.childNodes.length + -1; b++) {
+    
+       var srchkey2 = keywords2.childNodes[b];
+         srchkey2.onclick = function() {
+          addkey = this.innerText;
+          createsrch()
+            // alert(this.innerText)
+         }
+      }
+
+}
+
+function createsrch() { 
+      var tag = document.createElement("h2");
+      tag.innerText = addkey;
+      searchedkeys.appendChild(tag)
+      searcharray[srchno] = addkey;
+      srchno = srchno + 1;
+      //alert(searcharray);
+      addkey = "";
+      postfetch()
+    }
+
+fetchnews.onclick = function() {
+  alert(88)
+  
+  //createNews()
+    //postfetch()
+    postfetch()
+    
+}
+
+
+function postfetch() {
+//https://neurostatdev.000webhostapp.com/Projects/News/index3.php
+  
+const json = JSON.stringify(searcharray);
+const formData = new FormData(); 
+ 
+formData.append('searcharray', json); 
+formData.append('news', 'andlknaskd'); 
+
+  axios.post('https://neurostatdev.000webhostapp.com/Projects/News/index3.php', formData)
+  .then(function (response) {
+    console.log(response);
+       alert(response + "txtresponse")
+    //console.log(response.data.articles)
+     newsjson = response.data.articles;
+     newsrow.innerHTML = "";
+     createNews();
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+
+}
+
+
+function createNews() {
+
+
+   console.log(newsjson.length);
+   //console.log(newsjson[a].url)
+
+   for(a=0; a<=newsjson.length +-1; a++) {
+    var itemparent = document.createElement("a");
+    var itembackground = document.createElement("div");
+    var itemtxt = document.createElement("p");
+    itemparent.setAttribute("class", "itemparent");
+
+    itembackground.setAttribute("class", "itembackground");
+    itemtxt.setAttribute("class", "itemtxt");
+ 
+    itembackground.style.backgroundImage = "url("+newsjson[a].imageUrl+")";
+   
+    itembackground.style.backgroundImage = "linear-gradient(to bottom, #ffffff00, #00000091), url("+newsjson[a].imageUrl+")"
+    itemtxt.innerText = newsjson[a].title;
+
+    itemparent.setAttribute("href", newsjson[a].url);
+    itemparent.appendChild(itembackground);
+    itembackground.appendChild(itemtxt)
+
+   newsrow.appendChild(itemparent)
+
+   }
+
+}
+
+var newsjson = [{
+    "url": "https://www.business-standard.com/article/technology/saudi-arabia-to-organise-second-edition-of-global-ai-summit-in-sept-122082400107_1.html",
+    "authorsByline": "IANS",
+    "articleId": "bc3baa9f29fa49d89def67f98a616ab0",
+    "clusterId": "566e28f65b18462389f6a196da11ce56",
+    "source": {
+      "domain": "business-standard.com"
+    },
+    "imageUrl": "https://bsmedia.business-standard.com/_media/bs/img/article/2022-03/20/full/1647798220-9844.jpg",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T03:44:00+00:00",
+    "addDate": "2022-08-24T04:04:38.946684+00:00",
+    "refreshDate": "2022-08-24T04:04:38.946687+00:00",
+    "title": "Saudi Arabia to organise second edition of Global AI Summit in Sept",
+    "description": "Saudi Arabia to organise second edition of Global AI Summit in Sept",
+    "content": "will organise the second edition of the Global AI Summit in September. Under the theme \"Artificial Intelligence for the Good of Humanity\", the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, Xinhua news agency reported, citing a report by the Saudi Press Agency. More than 100 speakers specialising in AI will participate in work sessions, panel discussions and accompanying workshops, according to the report. The summit will discuss a number of topics including smart cities, human capacity development, health care, transportation, energy, culture and heritage, environment and economic mobility, with the aim of finding solutions to the current challenges and maximizing the use of the AI technologies, it added.\n\n\n\n Business Standard has always strived hard to provide up-to-date information and commentary on developments that are of interest to you and have wider political and economic implications for the country and the world. Your encouragement and constant feedback on how to improve our offering have only made our resolve and commitment to these ideals stronger. Even during these difficult times arising out of Covid-19, we continue to remain committed to keeping you informed and updated with credible news, authoritative views and incisive commentary on topical issues of relevance.\n\n We, however, have a request. \n\n\n\n As we battle the economic impact of the pandemic, we need your support even more, so that we can continue to offer you more quality content. Our subscription model has seen an encouraging response from many of you, who have subscribed to our online content. More subscription to our online content can only help us achieve the goals of offering you even better and more relevant content. We believe in free, fair and credible journalism. Your support through more subscriptions can help us practise the journalism to which we are committed. \n\n\n\n Support quality journalism and subscribe to Business Standard. \n\n\n\n Digital Editor",
+    "medium": "Article",
+    "links": [
+      "https://www.business-standard.com/article/international/saudi-arabia-s-economy-is-booming-and-this-time-it-isn-t-only-about-oil-122082100187_1.html",
+      "https://www.business-standard.com/article/international/saudi-arabia-signs-deals-worth-2-13-bn-with-local-foreign-defence-firms-122030800146_1.html",
+      "https://www.business-standard.com/article/international/saudi-arabia-is-planning-the-largest-buildings-ever-constructed-at-500-bn-122060101518_1.html",
+      "https://www.business-standard.com/subscription-cart/product?utm_source=BSA&utm_medium=BS&utm_campaign=DE06102020",
+      "https://www.business-standard.com/topic/saudi-arabia",
+      "https://www.business-standard.com/article/international/saudi-arabia-announces-initiative-to-support-civil-aviation-sector-122051000121_1.html",
+      "https://www.business-standard.com/article/international/greece-saudi-arabia-to-explore-further-cooperation-in-several-sectors-122072700098_1.html"
+    ],
+    "labels": [],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "Xinhua news agency",
+        "weight": 0.09789036
+      },
+      {
+        "name": "more quality content",
+        "weight": 0.09078667
+      },
+      {
+        "name": "credible news",
+        "weight": 0.07797193
+      },
+      {
+        "name": "major technology companies",
+        "weight": 0.07718348
+      },
+      {
+        "name": "government agencies",
+        "weight": 0.07503686
+      },
+      {
+        "name": "incisive commentary",
+        "weight": 0.072577894
+      },
+      {
+        "name": "economic mobility",
+        "weight": 0.06948244
+      },
+      {
+        "name": "human capacity development",
+        "weight": 0.066147216
+      },
+      {
+        "name": "topical issues",
+        "weight": 0.06377026
+      },
+      {
+        "name": "relevance",
+        "weight": 0.06250357
+      }
+    ],
+    "topics": [{
+        "name": "AI"
+      },
+      {
+        "name": "Saudi Arabia"
+      }
+    ],
+    "categories": [{
+      "name": "Tech"
+    }],
+    "entities": [{
+        "data": "the Global AI Summit",
+        "type": "EVENT",
+        "mentions": 1
+      },
+      {
+        "data": "Artificial Intelligence for the Good of Humanity",
+        "type": "WORK_OF_ART",
+        "mentions": 1
+      },
+      {
+        "data": "Xinhua news agency",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "the Saudi Press Agency",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "Business Standard",
+        "type": "ORG",
+        "mentions": 2
+      }
+    ],
+    "sentiment": {
+      "positive": 0.7316401,
+      "negative": 0.008019088,
+      "neutral": 0.26034078
+    },
+    "summary": "Under the theme \"Artificial Intelligence for the Good of Humanity\", the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, Xinhua news agency reported, citing a report by the Saudi Press Agency. The summit will discuss a number of topics including smart cities, human capacity development, health care, transportation, energy, culture and heritage, environment and economic mobility, with the aim of finding solutions to the current challenges and maximizing the use of the AI technologies, it added. Even during these difficult times arising out of Covid-19, we continue to remain committed to keeping you informed and updated with credible news, authoritative views and incisive commentary on topical issues of relevance. \n\n\n\n As we battle the economic impact of the pandemic, we need your support even more, so that we can continue to offer you more quality content.",
+    "translation": "",
+    "locations": [],
+    "reprint": false,
+    "reprintGroupId": "5165390e60044693ba439b635318ff34"
+  },
+  {
+    "url": "https://en.trend.az/world/arab/3636231.html",
+    "authorsByline": "",
+    "articleId": "9c0082bb400a4a26b99dd329640c3218",
+    "clusterId": "66171017a1534000b0b53df8caff8c42",
+    "source": {
+      "domain": "en.trend.az"
+    },
+    "imageUrl": "https://cdn.trend.az/2021/04/07/artificial_intelligence_technology_070421.jpg",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T03:41:21+00:00",
+    "addDate": "2022-08-24T03:58:38.694493+00:00",
+    "refreshDate": "2022-08-24T03:58:38.694495+00:00",
+    "title": "Saudi Arabia to hold Global AI Summit in Sept.",
+    "description": "Saudi Arabia to hold Global AI Summit in Sept.",
+    "content": "Saudi Arabia will organize the second edition of the Global AI Summit in September, Trend reports citing Al Arabiya.\n\nUnder the theme \"Artificial Intelligence for the Good of Humanity,\" the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, it said.\n\nMore than 100 speakers specializing in AI will participate in work sessions, panel discussions and accompanying workshops, according to the report.\n\nThe summit will discuss a number of topics including smart cities, human capacity development, health care, transportation, energy, culture and heritage, environment and economic mobility, with the aim of finding solutions to the current challenges and maximizing the use of the AI technologies, it added.",
+    "medium": "Article",
+    "links": [
+      "https://english.alarabiya.net/",
+      "https://en.trend.az/"
+    ],
+    "labels": [],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "major technology companies",
+        "weight": 0.116434954
+      },
+      {
+        "name": "Al Arabiya",
+        "weight": 0.10556664
+      },
+      {
+        "name": "AI",
+        "weight": 0.09325113
+      },
+      {
+        "name": "economic mobility",
+        "weight": 0.090147875
+      },
+      {
+        "name": "accompanying workshops",
+        "weight": 0.08424874
+      },
+      {
+        "name": "human capacity development",
+        "weight": 0.08398993
+      },
+      {
+        "name": "panel discussions",
+        "weight": 0.08033326
+      },
+      {
+        "name": "government agencies",
+        "weight": 0.080300756
+      },
+      {
+        "name": "health care",
+        "weight": 0.080300756
+      },
+      {
+        "name": "work sessions",
+        "weight": 0.07686343
+      }
+    ],
+    "topics": [{
+        "name": "AI"
+      },
+      {
+        "name": "Saudi Arabia"
+      }
+    ],
+    "categories": [{
+      "name": "Tech"
+    }],
+    "entities": [{
+        "data": "Saudi Arabia",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "the Global AI Summit",
+        "type": "EVENT",
+        "mentions": 1
+      },
+      {
+        "data": "Trend",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "Al Arabiya",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "Artificial Intelligence for the Good of Humanity",
+        "type": "WORK_OF_ART",
+        "mentions": 1
+      }
+    ],
+    "sentiment": {
+      "positive": 0.18106917,
+      "negative": 0.010280265,
+      "neutral": 0.8086506
+    },
+    "summary": "Saudi Arabia will organize the second edition of the Global AI Summit in September, Trend reports citing Al Arabiya. \n\nUnder the theme \"Artificial Intelligence for the Good of Humanity,\" the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, it said. \n\nMore than 100 speakers specializing in AI will participate in work sessions, panel discussions and accompanying workshops, according to the report. \n\nThe summit will discuss a number of topics including smart cities, human capacity development, health care, transportation, energy, culture and heritage, environment and economic mobility, with the aim of finding solutions to the current challenges and maximizing the use of the AI technologies",
+    "translation": "",
+    "locations": [],
+    "reprint": true,
+    "reprintGroupId": "ef5a6d0b91ad417fb24e211f06242e66"
+  },
+  {
+    "url": "https://www.japantimes.co.jp/news/2022/08/24/world/saudi-arabia-smart-city-the-line/",
+    "authorsByline": "Menna A. Farouk",
+    "articleId": "56a8aa3199eb49a6a0792768c91991f3",
+    "clusterId": "4b358f63866146f5a1198268ab3b9773",
+    "source": {
+      "domain": "japantimes.co.jp",
+      "paywall": false
+    },
+    "imageUrl": "https://cdn-japantimes.com/wp-content/uploads/2022/08/np_file_178223-870x489.jpeg",
+    "country": "jp",
+    "language": "en",
+    "pubDate": "2022-08-24T03:05:19+00:00",
+    "addDate": "2022-08-24T03:43:34.024598+00:00",
+    "refreshDate": "2022-08-24T03:43:34.024600+00:00",
+    "title": "Saudi Arabia's 'surveillance city': Would you sell your data to The Line?",
+    "description": "Saudi Arabia's 'surveillance city': Would you sell your data to The Line?",
+    "content": "In the desert sands of Saudi Arabia’s deep northwest, thousands of workers are building a futuristic city that the kingdom says will be like no other.\n\nOut of the ancient sands will emerge a high-tech urban center called The Line: zero-carbon with flying drones for taxis, holographs for teachers and even a man-made moon.\n\nThis could be due to a conflict with your ad-blocking or security software. Please add japantimes.co.jp and piano.io to your list of allowed sites. If this does not resolve the issue or you are unable to add the domains to your allowlist, please see this support page. We humbly apologize for the inconvenience.",
+    "medium": "Article",
+    "links": [
+      "https://www.japantimes.co.jp/troubleshooting/"
+    ],
+    "labels": [{
+      "name": "Non-news"
+    }],
+    "matchedAuthors": [{
+      "id": null,
+      "name": "Menna A. Farouk"
+    }],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "flying drones",
+        "weight": 0.10798143
+      },
+      {
+        "name": "allowed sites",
+        "weight": 0.087296836
+      },
+      {
+        "name": "teachers",
+        "weight": 0.087221935
+      },
+      {
+        "name": "holographs",
+        "weight": 0.08566103
+      },
+      {
+        "name": "taxis",
+        "weight": 0.08394233
+      },
+      {
+        "name": "workers",
+        "weight": 0.07188334
+      },
+      {
+        "name": "thousands",
+        "weight": 0.0686973
+      },
+      {
+        "name": "this support page",
+        "weight": 0.060449712
+      },
+      {
+        "name": "Saudi Arabia’s deep northwest",
+        "weight": 0.059003036
+      },
+      {
+        "name": "a futuristic city",
+        "weight": 0.055686854
+      }
+    ],
+    "topics": [{
+        "name": "Saudi Arabia"
+      },
+      {
+        "name": "Security"
+      },
+      {
+        "name": "Security Breach"
+      }
+    ],
+    "categories": [],
+    "entities": [{
+        "data": "Saudi Arabia’s",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "The Line",
+        "type": "FAC",
+        "mentions": 1
+      }
+    ],
+    "sentiment": {
+      "positive": 0.021346645,
+      "negative": 0.51395226,
+      "neutral": 0.4647011
+    },
+    "summary": "In the desert sands of Saudi Arabia’s deep northwest, thousands of workers are building a futuristic city that the kingdom says will be like no other. \n\nOut of the ancient sands will emerge a high-tech urban center called The Line: zero-carbon with flying drones for taxis, holographs for teachers and even a man-made moon. Please add japantimes.co.jp and piano.io to your list of allowed sites. If this does not resolve the issue or you are unable to add the domains to your allowlist, please see this support page.",
+    "translation": "",
+    "locations": [],
+    "reprint": false,
+    "reprintGroupId": "13c559d4caea4e3d9de04ae5a68e219a"
+  },
+  {
+    "url": "https://www.latestly.com/socially/india/news/warning-of-saudi-arabia-weighed-on-fears-of-slowdown-pushing-crude-prices-to-latest-tweet-by-prasar-bharati-news-services-4117360.html",
+    "authorsByline": "Team Latestly",
+    "articleId": "c2a8d50069f740cea58734545b33d5b4",
+    "clusterId": "5e9b7cfb456d4e6594978920ddf76e92",
+    "source": {
+      "domain": "latestly.com"
+    },
+    "imageUrl": "https://st1.latestly.com/wp-content/uploads/2021/06/TW-PBNS-INDIA-2-784x441.png",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T02:22:25+00:00",
+    "addDate": "2022-08-24T02:42:21.816410+00:00",
+    "refreshDate": "2022-08-24T02:42:21.816412+00:00",
+    "title": "Warning of Saudi Arabia Weighed on Fears of Slowdown, Pushing Crude Prices to $ ... - Latest Tweet by",
+    "description": "Warning of Saudi Arabia Weighed on Fears of Slowdown, Pushing Crude Prices to $ ... - Latest Tweet by",
+    "content": "",
+    "medium": "Article",
+    "links": [
+      "https://twitter.com/PBNS_India/status/1562263171515256832?ref_src=twsrc%5Etfw",
+      "https://t.co/dKaxkYwvLg",
+      "https://t.co/JFK660Ibqg"
+    ],
+    "labels": [{
+      "name": "Roundup"
+    }],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [],
+    "topics": [{
+        "name": "Saudi Arabia"
+      },
+      {
+        "name": "Tweets"
+      },
+      {
+        "name": "Twitter"
+      }
+    ],
+    "categories": [],
+    "entities": [],
+    "summary": "",
+    "translation": "",
+    "locations": [],
+    "reprint": false,
+    "reprintGroupId": "fcc9947314814b298d74fb355caea6e6"
+  },
+  {
+    "url": "https://www.canindia.com/saudi-arabia-to-hold-global-ai-summit-in-sept/",
+    "authorsByline": "NewsWire",
+    "articleId": "1865646f1d5242a28807a7be956651ce",
+    "clusterId": "66171017a1534000b0b53df8caff8c42",
+    "source": {
+      "domain": "canindia.com"
+    },
+    "imageUrl": "https://www.canindia.com/wp-content/uploads/2022/03/imageCireplace.png",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T02:20:02+00:00",
+    "addDate": "2022-08-24T03:15:49.456446+00:00",
+    "refreshDate": "2022-08-24T03:15:49.456448+00:00",
+    "title": "Saudi Arabia to hold Global AI Summit in Sept",
+    "description": "Saudi Arabia to hold Global AI Summit in Sept",
+    "content": "Saudi Arabia will organise the second edition of the Global AI Summit in September.\n\nUnder the theme “Artificial Intelligence for the Good of Humanity”, the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, Xinhua news agency reported, citing a report by the Saudi Press Agency.\n\nMore than 100 speakers specialising in AI will participate in work sessions, panel discussions and accompanying workshops, according to the report.\n\nThe summit will discuss a number of topics including smart cities, human capacity development, health care, transportation, energy, culture and heritage, environment and economic mobility, with the aim of finding solutions to the current challenges and maximizing the use of the AI technologies, it added.",
+    "medium": "Article",
+    "links": [],
+    "labels": [],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "Xinhua news agency",
+        "weight": 0.10406098
+      },
+      {
+        "name": "major technology companies",
+        "weight": 0.09978001
+      },
+      {
+        "name": "human capacity development",
+        "weight": 0.095079675
+      },
+      {
+        "name": "AI",
+        "weight": 0.09310251
+      },
+      {
+        "name": "government agencies",
+        "weight": 0.08850247
+      },
+      {
+        "name": "economic mobility",
+        "weight": 0.086117126
+      },
+      {
+        "name": "health care",
+        "weight": 0.08506198
+      },
+      {
+        "name": "smart cities",
+        "weight": 0.08384221
+      },
+      {
+        "name": "accompanying workshops",
+        "weight": 0.08278873
+      },
+      {
+        "name": "panel discussions",
+        "weight": 0.08186767
+      }
+    ],
+    "topics": [{
+        "name": "AI"
+      },
+      {
+        "name": "Saudi Arabia"
+      }
+    ],
+    "categories": [{
+      "name": "Tech"
+    }],
+    "entities": [{
+        "data": "Saudi Arabia",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "the Global AI Summit",
+        "type": "EVENT",
+        "mentions": 1
+      },
+      {
+        "data": "Artificial Intelligence for the Good of Humanity",
+        "type": "WORK_OF_ART",
+        "mentions": 1
+      },
+      {
+        "data": "Xinhua news agency",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "the Saudi Press Agency",
+        "type": "ORG",
+        "mentions": 1
+      }
+    ],
+    "sentiment": {
+      "positive": 0.21470125,
+      "negative": 0.009886212,
+      "neutral": 0.7754125
+    },
+    "summary": "Saudi Arabia will organise the second edition of the Global AI Summit in September. \n\nUnder the theme “Artificial Intelligence for the Good of Humanity”, the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, Xinhua news agency reported, citing a report by the Saudi Press Agency.\n\nMore than 100 speakers specialising in AI will participate in work sessions, panel discussions and accompanying workshops, according to the report.\n\nThe summit will discuss a number of topics including smart cities, human capacity development, health care, transportation, energy, culture and heritage, environment and economic mobility, with the aim of finding solutions to the current challenges and maximizing the use of the AI technologies, it added.",
+    "translation": "",
+    "locations": [],
+    "reprint": true,
+    "reprintGroupId": "ef5a6d0b91ad417fb24e211f06242e66"
+  },
+  {
+    "url": "https://www.socialnews.xyz/2022/08/23/saudi-arabia-to-hold-global-ai-summit-in-sept/",
+    "authorsByline": "",
+    "articleId": "45d3c519c59c4b0cb4a9a0165958d14d",
+    "clusterId": "66171017a1534000b0b53df8caff8c42",
+    "source": {
+      "domain": "socialnews.xyz"
+    },
+    "imageUrl": "https://boxoffice.socialnews.xyz/get_ians_img.php.jpg?id=C-1-1507540&txt=Saudi+Arabia+to+hold+Global+AI+Summit+in+Sept",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T02:16:40+00:00",
+    "addDate": "2022-08-24T02:21:08.791505+00:00",
+    "refreshDate": "2022-08-24T02:21:08.791507+00:00",
+    "title": "Saudi Arabia to hold Global AI Summit in Sept",
+    "description": "Saudi Arabia to hold Global AI Summit in Sept",
+    "content": "Riyadh, Aug 24 (SocialNews.XYZ) Saudi Arabia will organise the second edition of the Global AI Summit in September.\n\nUnder the theme \"Artificial Intelligence for the Good of Humanity\", the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, Xinhua news agency reported, citing a report by the Saudi Press Agency.\n\nMore than 100 speakers specialising in AI will participate in work sessions, panel discussions and accompanying workshops, according to the report.\n\nThe summit will discuss a number of topics including smart cities, human capacity development, health care, transportation, energy, culture and heritage, environment and economic mobility, with the aim of finding solutions to the current challenges and maximizing the use of the AI technologies, it added.\n\nGopi Adusumilli is a Programmer. He is the editor of SocialNews.XYZ and President of AGK Fire Inc. He enjoys designing websites, developing mobile applications and publishing news articles on current events from various authenticated news sources. When it comes to writing he likes to write about current world politics and Indian Movies. His future plans include developing SocialNews.XYZ into a News website that has no bias or judgment towards any. He can be reached at gopi@socialnews.xyz",
+    "medium": "Article",
+    "links": [
+      "https://www.socialnews.xyz/author/gopi/",
+      "https://www.socialnews.xyz",
+      "https://twitter.com/agk4444"
+    ],
+    "labels": [],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "Xinhua news agency",
+        "weight": 0.10523833
+      },
+      {
+        "name": "various authenticated news sources",
+        "weight": 0.09646188
+      },
+      {
+        "name": "current world politics",
+        "weight": 0.09638783
+      },
+      {
+        "name": "current events",
+        "weight": 0.0938407
+      },
+      {
+        "name": "major technology companies",
+        "weight": 0.090498134
+      },
+      {
+        "name": "news articles",
+        "weight": 0.08944989
+      },
+      {
+        "name": "government agencies",
+        "weight": 0.08114127
+      },
+      {
+        "name": "Indian Movies",
+        "weight": 0.078627594
+      },
+      {
+        "name": "AI",
+        "weight": 0.07541739
+      },
+      {
+        "name": "economic mobility",
+        "weight": 0.07387121
+      }
+    ],
+    "topics": [{
+        "name": "AI"
+      },
+      {
+        "name": "Saudi Arabia"
+      }
+    ],
+    "categories": [{
+      "name": "Tech"
+    }],
+    "entities": [{
+        "data": "Riyadh",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Saudi Arabia",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "SocialNews",
+        "type": "ORG",
+        "mentions": 4
+      },
+      {
+        "data": "Xinhua news agency",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "the Saudi Press Agency",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "AGK Fire Inc.",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "XYZ",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "the Global AI Summit",
+        "type": "EVENT",
+        "mentions": 1
+      },
+      {
+        "data": "Artificial Intelligence for the Good of Humanity",
+        "type": "WORK_OF_ART",
+        "mentions": 1
+      },
+      {
+        "data": "Indian Movies",
+        "type": "WORK_OF_ART",
+        "mentions": 1
+      },
+      {
+        "data": "Gopi Adusumilli",
+        "type": "PERSON",
+        "mentions": 1
+      }
+    ],
+    "sentiment": {
+      "positive": 0.055361766,
+      "negative": 0.014370058,
+      "neutral": 0.9302682
+    },
+    "summary": "\n\nUnder the theme \"Artificial Intelligence for the Good of Humanity\", the upcoming event will attract experts and specialists from government agencies and major technology companies around the world, Xinhua news agency reported, citing a report by the Saudi Press Agency. \n\nMore than 100 speakers specialising in AI will participate in work sessions, panel discussions and accompanying workshops, according to the report. He enjoys designing websites, developing mobile applications and publishing news articles on current events from various authenticated news sources. When it comes to writing he likes to write about current world politics and Indian Movies.",
+    "translation": "",
+    "locations": [],
+    "reprint": false,
+    "reprintGroupId": "5c75080c11174af3bae2aef25a409dbe"
+  },
+  {
+    "url": "https://timesofindia.indiatimes.com/city/vadodara/gujarat-nri-teen-in-saudi-arabia-raises-funds-for-blind-school-in-native-place/articleshow/93741578.cms",
+    "authorsByline": "Prashant Rupera",
+    "articleId": "1dc3f6b939264aeab4b916a42743eb3b",
+    "clusterId": "f234df9aea234e1a8ef516e7c1395042",
+    "source": {
+      "domain": "timesofindia.indiatimes.com"
+    },
+    "imageUrl": "https://static.toiimg.com/thumb/msid-93741603,width-1070,height-580,imgsize-1518125,resizemode-75,overlay-toi_sw,pt-32,y_pad-40/photo.jpg",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T02:01:00+00:00",
+    "addDate": "2022-08-24T02:27:54.217047+00:00",
+    "refreshDate": "2022-08-24T02:27:54.217048+00:00",
+    "title": "Gujarat: NRI teen in Saudi Arabia raises funds for blind school in native place",
+    "description": "Gujarat: NRI teen in Saudi Arabia raises funds for blind school in native place",
+    "content": "VADODARA: Moved by a visit to a residential blind school in her native town Amreli, a Gujarati girl has started a campaign in Saudi Arabia to raise funds to install a solar power system at the institute.Megha Varma, a class 12 student at Jubail, the industrial city of Saudi Arabia, has set a target of raising Rs 10 lakh for the Andhjan Talim Kendra in Amreli.Seventeen-year-old Megha had visited Mrs Pushpavati Pranjivandas Valiya Andhjan Talim Kendra (training centre for the blind) at Amreli during her Diwali vacation last year with her father Nilesh Varma.The institute provides training to adult blind men by equipping them with skill sets like braille, music, computer, moulding, bookbinding, and motor rewinding among others along with higher secondary education facilities.But after talking to trustees and the principal, Megha realised that the school's operational expenses were under pressure due to low interest rates, high inflation and after effects of Covid-19 pandemic.\"One of their major expenses is financing electricity. The wish to permanently sort out their electricity bills has driven me to carry out this campaign,\" said Megha, who has already raised Rs 4 lakh through online campaigns and inviting Indian diaspora in Saudi Arabia to contribute to the social cause.Megha, who plans to pursue bioengineering or biomedical engineering next year from any reputed institute in US, Canada or Australia, is also taking help of social media to raise funds for the school.Currently, in Vadodara with her father, a former IPCL and L&T employee, Megha will be meeting some prominent businessmen and traders in Surat, who like her are also natives of Amreli.\"We are hoping to raise the remaining funds this year so that the solar power system is installed by end of this year,\" said Nilesh Varma, who studied chemical engineering from DDIT Nadiad. Speaking about Megha's initiative, the trustee of the residential school Sanjay Gandhi said, \"Our school was established on September 10, 1972 with the consent of Gujarat 's first chief minister Dr Jivraj Mehta. Since, then, we have been training 75-odd blind people annually. They are provided boarding and all other facilities free of cost.\"\"It is very heartening how Megha has started the campaign to raise funds for our school. We get government grants but often there is a gap in the grants we receive and the expenses we incur. If a solar power system is installed, we can save nearly Rs 20,000-25,000 every month which in turn can bridge the gap and help us meet other requirements,\" said Gandhi who is based in Mumbai.",
+    "medium": "Article",
+    "links": [
+      "https://timesofindia.indiatimes.com/topic/saudi-arabia",
+      "https://timesofindia.indiatimes.com/india/gujarat"
+    ],
+    "labels": [],
+    "matchedAuthors": [{
+      "id": "38d7200abb2a49139224ac087b17abf2",
+      "name": "Prashant Rupera"
+    }],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "higher secondary education facilities",
+        "weight": 0.07969845
+      },
+      {
+        "name": "last year",
+        "weight": 0.07763826
+      },
+      {
+        "name": "Saudi Arabia",
+        "weight": 0.07761535
+      },
+      {
+        "name": "Amreli",
+        "weight": 0.07400891
+      },
+      {
+        "name": "next year",
+        "weight": 0.0714697
+      },
+      {
+        "name": "Megha Varma",
+        "weight": 0.0706055
+      },
+      {
+        "name": "Dr Jivraj Mehta",
+        "weight": 0.06985622
+      },
+      {
+        "name": "Mrs Pushpavati Pranjivandas Valiya Andhjan Talim Kendra",
+        "weight": 0.06823897
+      },
+      {
+        "name": "Jivraj Mehta",
+        "weight": 0.06602017
+      },
+      {
+        "name": "Nilesh Varma",
+        "weight": 0.06592921
+      }
+    ],
+    "topics": [{
+      "name": "Saudi Arabia"
+    }],
+    "categories": [],
+    "entities": [{
+        "data": "VADODARA",
+        "type": "GPE",
+        "mentions": 2
+      },
+      {
+        "data": "Amreli",
+        "type": "GPE",
+        "mentions": 4
+      },
+      {
+        "data": "Saudi Arabia",
+        "type": "GPE",
+        "mentions": 3
+      },
+      {
+        "data": "Jubail",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "US",
+        "type": "GPE",
+        "mentions": 2
+      },
+      {
+        "data": "Canada",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Surat",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Gujarat",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Mumbai",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Gujarati",
+        "type": "NORP",
+        "mentions": 1
+      },
+      {
+        "data": "Indian",
+        "type": "NORP",
+        "mentions": 1
+      },
+      {
+        "data": "Megha Varma",
+        "type": "PERSON",
+        "mentions": 8
+      },
+      {
+        "data": "Pushpavati Pranjivandas Valiya",
+        "type": "PERSON",
+        "mentions": 1
+      },
+      {
+        "data": "Nilesh Varma",
+        "type": "PERSON",
+        "mentions": 2
+      },
+      {
+        "data": "Sanjay Gandhi",
+        "type": "PERSON",
+        "mentions": 2
+      },
+      {
+        "data": "Jivraj Mehta",
+        "type": "PERSON",
+        "mentions": 1
+      },
+      {
+        "data": "the Andhjan Talim Kendra",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "IPCL",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "L&T",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "DDIT Nadiad",
+        "type": "ORG",
+        "mentions": 1
+      }
+    ],
+    "sentiment": {
+      "positive": 0.14297803,
+      "negative": 0.016389888,
+      "neutral": 0.8406321
+    },
+    "summary": "Moved by a visit to a residential blind school in her native town Amreli, a Gujarati girl has started a campaign in Saudi Arabia to raise funds to install a solar power system at the institute. Megha Varma, a class 12 student at Jubail, the industrial city of Saudi Arabia, has set a target of raising Rs 10 lakh for the Andhjan Talim Kendra in Amreli. Seventeen-year-old Megha had visited Mrs Pushpavati Pranjivandas Valiya Andhjan Talim Kendra (training centre for the blind) at Amreli during her Diwali vacation last year with her father Nilesh Varma. Speaking about Megha's initiative, the trustee of the residential school Sanjay Gandhi said, \"Our school was established on September 10, 1972 with the consent of Gujarat 's first chief minister Dr Jivraj Mehta.",
+    "translation": "",
+    "locations": [],
+    "reprint": false,
+    "reprintGroupId": "7fdaea0727354bbc862cc65927c5bbdc"
+  },
+  {
+    "url": "https://www.foxnews.com/media/jared-kushner-controversial-trump-first-trip-saudi-arabia",
+    "authorsByline": "Fox News Staff",
+    "articleId": "aa4427de442a49a29fa9ce8b448e13f9",
+    "clusterId": "b78ad263680b4a96b655a8b6969a1d82",
+    "source": {
+      "domain": "foxnews.com",
+      "paywall": false
+    },
+    "imageUrl": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/514f9062-485e-4b3e-90d6-4ddc5481924f/8d48ddfc-24a0-4fc9-bdb7-2b98ac282363/1280x720/match/image.jpg",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T01:39:33+00:00",
+    "addDate": "2022-08-24T01:58:09.962010+00:00",
+    "refreshDate": "2022-08-24T01:58:09.962012+00:00",
+    "title": "Jared Kushner: It was controversial for Trump's first trip to be Saudi Arabia",
+    "description": "Jared Kushner: It was controversial for Trump's first trip to be Saudi Arabia",
+    "content": "Jared Kushner discussed the details of his new book \"Breaking History,\" which follows the story of how he brokered former President Donald Trump's Saudi Arabia trip and salvaged NAFTA on \"Jesse Watters Primetime.\"\n\nJARED KUSHNER: It was at the time a very novel and controversial idea for the president's first trip to be to Saudi Arabia. I wrote in the book about arguments we had with Rex Tillerson, who was secretary of state, and Mattis, who were basically saying that we should go to Canada and cut a ribbon. But Trump said, \"I want to get to work.\"\n\nJESSE WATTERS: THIS IS MAKING THE FBI LOOK SO BAD\n\nThe biggest problem at the time was ISIS had a caliphate the size of Ohio in the Middle East and Iran was flush with cash. And you had all the extremists radicalizing people in America. And Trump went to Saudi Arabia on the trip and basically said, \"You know, Jared, first of all, if this screws up — this is not going to be well for you.\" But the Saudis did a great job of getting the leaders together, and we really were able to combat extremism, and it led to a lot of great success in the Middle East, including the Abraham Accords and the peace deals there.\n\nCLICK HERE TO GET THE FOX NEWS APP",
+    "medium": "Article",
+    "links": [
+      "https://www.foxnews.com/politics/trump-in-saudi-arabia-signs-110b-arms-deal-with-persian-gulf-ally",
+      "https://www.foxnews.com/apps-products?pid=AppArticleLink",
+      "http://video.foxnews.com/v/6311315865112",
+      "https://www.foxnews.com/category/shows/jesse-watters-primetime",
+      "http://video.foxnews.com/v/6311318627112",
+      "https://www.foxnews.com/politics/trump-saudi-arabia-arms-sales-senate-override-veto-votes-fail",
+      "https://www.foxnews.com/media/jesse-watters-making-fbi-look-so-bad"
+    ],
+    "labels": [],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "Saudi Arabia",
+        "weight": 0.106025286
+      },
+      {
+        "name": "Jesse Watters Primetime",
+        "weight": 0.102975994
+      },
+      {
+        "name": "former President Donald Trumps Saudi Arabia trip",
+        "weight": 0.0882883
+      },
+      {
+        "name": "Primetime",
+        "weight": 0.08166039
+      },
+      {
+        "name": "Jesse Watters",
+        "weight": 0.08148795
+      },
+      {
+        "name": "Donald Trump",
+        "weight": 0.079882175
+      },
+      {
+        "name": "great success",
+        "weight": 0.0795092
+      },
+      {
+        "name": "FOX NEWS APP",
+        "weight": 0.07463944
+      },
+      {
+        "name": "cash",
+        "weight": 0.07391626
+      },
+      {
+        "name": "Breaking History",
+        "weight": 0.06529483
+      }
+    ],
+    "topics": [{
+        "name": "Jared Kushner"
+      },
+      {
+        "name": "Saudi Arabia"
+      },
+      {
+        "name": "Donald Trump"
+      }
+    ],
+    "categories": [{
+      "name": "Politics"
+    }],
+    "entities": [{
+        "data": "Jared Kushner",
+        "type": "PERSON",
+        "mentions": 3
+      },
+      {
+        "data": "Donald Trump",
+        "type": "PERSON",
+        "mentions": 3
+      },
+      {
+        "data": "Rex Tillerson",
+        "type": "PERSON",
+        "mentions": 1
+      },
+      {
+        "data": "Mattis",
+        "type": "PERSON",
+        "mentions": 1
+      },
+      {
+        "data": "JESSE WATTERS",
+        "type": "PERSON",
+        "mentions": 1
+      },
+      {
+        "data": "Breaking History",
+        "type": "WORK_OF_ART",
+        "mentions": 1
+      },
+      {
+        "data": "Jesse Watters Primetime",
+        "type": "WORK_OF_ART",
+        "mentions": 1
+      },
+      {
+        "data": "Saudi Arabia",
+        "type": "GPE",
+        "mentions": 3
+      },
+      {
+        "data": "Canada",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Ohio",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Iran",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "America",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "NAFTA",
+        "type": "LAW",
+        "mentions": 1
+      },
+      {
+        "data": "the Abraham Accords",
+        "type": "LAW",
+        "mentions": 1
+      },
+      {
+        "data": "FBI",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "ISIS",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "FOX NEWS APP",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "the Middle East",
+        "type": "LOC",
+        "mentions": 2
+      },
+      {
+        "data": "Saudis",
+        "type": "NORP",
+        "mentions": 1
+      }
+    ],
+    "sentiment": {
+      "positive": 0.126084,
+      "negative": 0.046537045,
+      "neutral": 0.8273789
+    },
+    "summary": "Jared Kushner discussed the details of his new book \"Breaking History,\" which follows the story of how he brokered former President Donald Trump's Saudi Arabia trip and salvaged NAFTA on \"Jesse Watters Primetime.\"\n\n It was at the time a very novel and controversial idea for the president's first trip to be to Saudi Arabia. And Trump went to Saudi Arabia on the trip and basically said, \"You know, Jared, first of all, if this screws up — this is not going to be well for you.\" But the Saudis did a great job of getting the leaders together, and we really were able to combat extremism, and it led to a lot of great success in the Middle East, including the Abraham Accords and the peace deals there.",
+    "translation": "",
+    "locations": [],
+    "reprint": false,
+    "reprintGroupId": "aec671bd85364b65848123fba7b1bd84"
+  },
+  {
+    "url": "https://www.dnaindia.com/business/report-oil-prices-rise-after-saudi-arabia-says-opec-may-cuts-production-2978968",
+    "authorsByline": "DNA Web Team",
+    "articleId": "72b02e917c28496f91671264611b3058",
+    "clusterId": "ca3fc184a3984b408d5cc6afa880ed31",
+    "source": {
+      "domain": "dnaindia.com"
+    },
+    "imageUrl": "https://cdn.dnaindia.com/sites/default/files/styles/half/public/2022/08/24/2532567-untitled-design-44.png",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T01:33:00+00:00",
+    "addDate": "2022-08-24T01:51:45.727538+00:00",
+    "refreshDate": "2022-08-24T01:51:45.727540+00:00",
+    "title": "Oil prices rise after Saudi Arabia says OPEC+ may cuts production",
+    "description": "Oil prices rise after Saudi Arabia says OPEC+ may cuts production",
+    "content": "Oil prices rise after Saudi Arabia says OPEC+ may cuts production\n\nOPEC stands ready to cut output to correct a recent oil price decline driven by poor futures market liquidity and macro-economic fears, which has ignored extremely tight physical crude supply, OPEC's leader Saudi Arabia said on Monday.\n\nSaudi state news agency SPA cited Saudi Arabia's Energy Minister Prince Abdulaziz bin Salman as telling Bloomberg OPEC+ has the means and flexibility to deal with challenges.\n\nOn concerns about a slowdown in the Chinese economy and a possible recession in the West, oil prices have fallen in recent weeks from as high as $120 per barrel to about $95 per barrel.\n\nAfter Russia invaded Ukraine and the West retaliated by imposing harsh sanctions on Moscow, prices surged earlier this year to just below an all-time high of $147 per barrel, sparking concerns about the greatest energy supply crisis since the 1970s.\n\nPrince Abdulaziz was quoted as saying the oil futures market has fallen into \"a self-perpetuating vicious circle of very thin liquidity and extreme volatility\", making the cost of hedging and managing risks for market participants prohibitive.\n\nHe also was quoted as saying prices were falling based on \"unsubstantiated\" information about demand destruction and confusion around sanctions, embargoes and price caps, which have been proposed by the United States on Russian oil.\n\nAccording to Prince Abdulaziz, a new agreement between OPEC+ partners beyond 2022 would be beneficial. However, risks of supply disruptions held true and a global spare capacity cushion was extremely low.\n\n\"Soon we will start working on a new agreement beyond 2022,\" he said, without giving details.\n\nBrent crude prices pared losses on the news and were trading down 1.4% at $95.40 by 1720 GMT, having earlier slipped to as low as $92.36.\n\nThe Organization of the Petroleum Exporting Countries and allies led by Russia, a group known as OPEC+, agreed to increase output by 648,000 bpd in each of July and August as they fully unwind nearly 10 million bpd of cuts implemented in May 2020 to counter the COVID-19 pandemic.\n\nThe group agreed earlier this month to raise production quotas by another 100,000 bpd in September as it faced pressure from major consumers including the United States which are keen to cool prices.\n\nOnly Saudi Arabia and the United Arab Emirates are believed to have spare capacity and the ability to increase production in a meaningful way.\n\nBut Prince Abdulaziz pointed to thin liquidity and extreme volatility taking focus away from the issue of spare capacity.\n\n\"Without sufficient liquidity, markets can’t reflect the realities of the physical fundamentals in a meaningful way and can give a false sense of security at times when spare capacity is severely limited and the risk of severe disruptions remains high,\" he said.",
+    "medium": "Article",
+    "links": [],
+    "labels": [],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "Oil prices",
+        "weight": 0.097075224
+      },
+      {
+        "name": "oil prices",
+        "weight": 0.097075224
+      },
+      {
+        "name": "spare capacity",
+        "weight": 0.08917702
+      },
+      {
+        "name": "price caps",
+        "weight": 0.083796024
+      },
+      {
+        "name": "prices",
+        "weight": 0.08184474
+      },
+      {
+        "name": "poor futures market liquidity",
+        "weight": 0.08102559
+      },
+      {
+        "name": "Brent crude prices",
+        "weight": 0.0741625
+      },
+      {
+        "name": "Russian oil",
+        "weight": 0.067845054
+      },
+      {
+        "name": "Saudi Arabia",
+        "weight": 0.0674494
+      },
+      {
+        "name": "supply disruptions",
+        "weight": 0.06681855
+      }
+    ],
+    "topics": [{
+        "name": "Markets"
+      },
+      {
+        "name": "Oil & Gas"
+      },
+      {
+        "name": "Saudi Arabia"
+      }
+    ],
+    "categories": [{
+        "name": "Business"
+      },
+      {
+        "name": "Finance"
+      }
+    ],
+    "entities": [{
+        "data": "Saudi Arabia",
+        "type": "GPE",
+        "mentions": 4
+      },
+      {
+        "data": "Russia",
+        "type": "GPE",
+        "mentions": 2
+      },
+      {
+        "data": "Ukraine",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "Moscow",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "the United States",
+        "type": "GPE",
+        "mentions": 2
+      },
+      {
+        "data": "the United Arab Emirates",
+        "type": "GPE",
+        "mentions": 1
+      },
+      {
+        "data": "OPEC+",
+        "type": "ORG",
+        "mentions": 4
+      },
+      {
+        "data": "SPA",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "Bloomberg",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "The Organization of the Petroleum Exporting Countries",
+        "type": "ORG",
+        "mentions": 1
+      },
+      {
+        "data": "Saudi",
+        "type": "NORP",
+        "mentions": 1
+      },
+      {
+        "data": "Chinese",
+        "type": "NORP",
+        "mentions": 1
+      },
+      {
+        "data": "Russian",
+        "type": "NORP",
+        "mentions": 1
+      },
+      {
+        "data": "Abdulaziz bin Salman",
+        "type": "PERSON",
+        "mentions": 4
+      },
+      {
+        "data": "West",
+        "type": "LOC",
+        "mentions": 1
+      },
+      {
+        "data": "1720 GMT",
+        "type": "TIME",
+        "mentions": 1
+      }
+    ],
+    "sentiment": {
+      "positive": 0.01271787,
+      "negative": 0.97163796,
+      "neutral": 0.015644195
+    },
+    "summary": "Oil prices rise after Saudi Arabia says OPEC+ may cuts production\n\n OPEC stands ready to cut output to correct a recent oil price decline driven by poor futures market liquidity and macro-economic fears, which has ignored extremely tight physical crude supply, OPEC's leader Saudi Arabia said on Monday. \n\nHe also was quoted as saying prices were falling based on \"unsubstantiated\" information about demand destruction and confusion around sanctions, embargoes and price caps, which have been proposed by the United States on Russian oil. \n\nOnly Saudi Arabia and the United Arab Emirates are believed to have spare capacity and the ability to increase production in a meaningful way.",
+    "translation": "",
+    "locations": [],
+    "reprint": true,
+    "reprintGroupId": "a603a72e05c043aeaf89d8441b577e83"
+  },
+  {
+    "url": "https://www.reddit.com/r/economy/comments/ww6227/saudi_betting_on_ev_batteries_may_prompt_others/",
+    "authorsByline": "",
+    "articleId": "e89d096197cd42f5949e0646e4559303",
+    "clusterId": "66171017a1534000b0b53df8caff8c42",
+    "source": {
+      "domain": "reddit.com"
+    },
+    "imageUrl": "https://external-preview.redd.it/dmEG1v4Alb1izxBIZwW_kJe1kcXi2CIuuT_qMTf5mZs.jpg?auto=webp&s=38a63bcdf2bfd40423cedcb2ee7ccd13662df33a",
+    "country": "us",
+    "language": "en",
+    "pubDate": "2022-08-24T01:29:32+00:00",
+    "addDate": "2022-08-24T01:59:30.233564+00:00",
+    "refreshDate": "2022-08-24T01:59:30.233566+00:00",
+    "title": "Saudi betting on EV batteries may prompt others to announce ambitious plans : r/economy",
+    "description": "Saudi betting on EV batteries may prompt others to announce ambitious plans : r/economy",
+    "content": "Press J to jump to the feed. Press question mark to learn the rest of the keyboard shortcuts",
+    "medium": "Article",
+    "links": [
+      "https://www.reddit.com/"
+    ],
+    "labels": [],
+    "matchedAuthors": [],
+    "claim": "",
+    "verdict": "",
+    "keywords": [{
+        "name": "question mark",
+        "weight": 0.1644361
+      },
+      {
+        "name": "the keyboard shortcuts",
+        "weight": 0.15168971
+      },
+      {
+        "name": "J",
+        "weight": 0.11542202
+      },
+      {
+        "name": "the feed",
+        "weight": 0.08655882
+      },
+      {
+        "name": "the rest",
+        "weight": 0.07519498
+      }
+    ],
+    "topics": [{
+        "name": "Economy"
+      },
+      {
+        "name": "Markets"
+      },
+      {
+        "name": "Saudi Arabia"
+      }
+    ],
+    "categories": [{
+        "name": "Finance"
+      },
+      {
+        "name": "Auto"
+      }
+    ],
+    "entities": [],
+    "sentiment": {
+      "positive": 0.033250716,
+      "negative": 0.024290288,
+      "neutral": 0.942459
+    },
+    "summary": "Press J to jump to the feed. Press question mark to learn the rest of the keyboard shortcuts",
+    "translation": "",
+    "locations": [],
+    "reprint": false,
+    "reprintGroupId": "86356c9a60f34795bf920f9e11d6fd7f"
+  }
+];
+
+createNews()
+  </script>
+    </body>
+</html>

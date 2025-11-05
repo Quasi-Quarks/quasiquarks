@@ -1,0 +1,126 @@
+*:not(head, script, html, style, script, input, .color-picker__controls, .color-picker__control ) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-weight: 100;
+    /* border: 1px solid #cf0b4d; */
+    margin: 0;
+    padding: 0;
+    /* transition: 4s; */
+    text-decoration: none;
+    /* text-align: center; */
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    /* border: 1px solid #0a0adfa3; */
+    /* padding-left: 0px; */
+    /* margin-left: 4px; */
+    /* height: max-content; */
+    /* min-height: max-content; */
+    font-family: system-ui;
+    color: white;
+}
+
+.MenuContainer {
+    position: fixed;
+    left: 38px;
+    height: 80%;
+    background-color: #030024;
+    border-radius: 14px;
+    width: 61px;
+    justify-content: space-around;
+}
+
+.crtsqre {
+    height: 100%;
+    width: 100%;
+    /* position: absolute; */
+    top: 25px;
+    left: 0;
+}
+
+div#canvas {
+    height: 100%;
+    width: 100%;
+}
+
+.sqresize {
+    position: absolute;
+    left: 101%;
+    top: 101%;
+    height: 19px;
+    width: 20px;
+    background-image: url(increase.png);
+    font-size: 0px;
+}
+
+input.crttxt {
+    position: absolute;
+    /* border: none; */
+    font-size: 48px;
+    width: 100%;
+}
+
+.elementclssname {
+    position: absolute;
+    height: max-content;
+    width: max-content;
+    width: max-content;
+    height: 100px;
+    width: 100px;
+}
+
+textarea.sqresizetxt {
+    font-size: 60px;
+    overflow-y: initial;
+    height: 101px;
+    width: 100%;
+    /* border: none; */
+    color: grey;
+    background: none;
+}
+
+input.sqresizetxt {
+    position: absolute;
+}
+
+.inputparentcontainer {
+    position: absolute;
+    /* border: none; */
+    width: 362px;
+}
+
+.elementclssname {
+    background-color: #4f4f4f;
+}
+
+div#devconsole {
+    display: none;
+}
+
+.icons {
+    height: 31px;
+    width: 33px;
+    background-image: url(square.png);
+}
+
+body {
+    background-color: #191a24;
+}
+
+div#crtcircle {
+    background-image: url(circle.png);
+}
+
+div#menucrtText {
+    background-image: url(text.png);
+}
+
+div#text\ shaddow {}
+
+div#text_shaddow {
+    background-image: url(textshadow.png);
+}

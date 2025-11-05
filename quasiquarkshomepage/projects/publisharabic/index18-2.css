@@ -1,0 +1,482 @@
+/* ===========================
+   Modern White + Blue Theme
+   =========================== */
+
+:root{
+  /* Colors */
+  --bg:            #ffffff;
+  --bg-elev:       #f7f8fa;
+  --panel:         #ffffff;
+  --text:          #0b1220;
+  --muted:         #637083;
+  --line:          #e6e9ef;
+  --accent:        #0a84ff;   /* iOS blue */
+  --accent-ink:    #ffffff;
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "SF Pro Text",
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-ar:  "Noto Naskh Arabic", "Amiri", "Geeza Pro", "Arabic Typesetting", serif;
+
+  /* Sizing */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+
+  /* Effects */
+  --shadow-sm: 0 1px 2px rgba(15,23,42,.06), 0 1px 1px rgba(15,23,42,.04);
+  --shadow-md: 0 8px 24px rgba(15,23,42,.08);
+  --shadow-lg: 0 20px 40px rgba(15,23,42,.10);
+}
+
+/* Dark mode polish */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:        #0b0f14;
+    --bg-elev:   #0f141b;
+    --panel:     #121823;
+    --text:      #e7ecf3;
+    --muted:     #9aa6b2;
+    --line:      #223042;
+    --accent:    #2997ff;
+    --accent-ink:#00152a;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.25);
+    --shadow-md: 0 8px 24px rgba(0,0,0,.35);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,.45);
+  }
+}
+
+/* Global reset + rhythm */
+*{ box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elev) 100%);
+}
+
+/* Container */
+#body_container{
+  max-width: 920px;   /* mobile-first: will expand on larger screens */
+  margin: 0 auto;
+  padding: 12px;
+}
+
+/* ===========================
+   Top Canvas: Arabic / English
+   =========================== */
+
+#canva{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Arabic block */
+#show_arabic{
+  position: relative;
+  padding: 8px 36px 4px 12px; /* leave room for settings button */
+  border-bottom: 1px solid var(--line);
+}
+#show_arabic #arabic_text{
+  font-family: var(--font-ar);
+  font-size: 28px;
+  line-height: 1.35;
+  margin: 0 0 4px;
+  text-align: center;
+}
+#show_arabic #arabic_text_romanised{
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0 0 8px;
+  text-align: center;
+  letter-spacing: .2px;
+}
+
+/* Settings button inside Arabic header */
+#settings_logo{
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform .12s ease, background .2s ease;
+}
+#settings_logo:active{ transform: scale(.96); }
+
+/* English block */
+#show_english{
+  padding: 10px 8px 2px;
+}
+#show_english #english_text{
+  font-size: 18px;
+  margin: 0;
+  text-align: center;
+  color: var(--text);
+}
+
+/* ===========================
+   Per-Word Splitter
+   =========================== */
+
+/* Grid of "word-cards" (each direct child div) */
+#arabic_splitter{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+#arabic_splitter > div{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 4px;
+}
+
+/* Arabic word (first p), transliteration (second), English (third) */
+#arabic_splitter > div > p{
+  margin: 0;
+  text-align: center;
+  word-break: break-word;
+  user-select: none;
+  cursor: pointer;
+  transition: transform .06s ease;
+}
+#arabic_splitter > div > p:active{ transform: scale(.98); }
+#arabic_splitter > div > p:nth-child(1){
+  font-family: var(--font-ar);
+  font-size: 24px;
+  line-height: 1.28;
+}
+#arabic_splitter > div > p:nth-child(2){
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: .2px;
+}
+#arabic_splitter > div > p:nth-child(3){
+  font-size: 13px;
+  color: var(--text);
+  opacity: .85;
+}
+
+/* A thin color key bar per card (helps separate words) */
+#arabic_splitter > div{
+  position: relative;
+}
+#arabic_splitter > div::before{
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  background: var(--accent);
+  opacity: .65;
+}
+/* rotate through a palette so each word has distinct stripe */
+#arabic_splitter > div:nth-child(6n+1)::before{ background:#d32f2f; }
+#arabic_splitter > div:nth-child(6n+2)::before{ background:#2e7d32; }
+#arabic_splitter > div:nth-child(6n+3)::before{ background:#1565c0; }
+#arabic_splitter > div:nth-child(6n+4)::before{ background:#f57c00; }
+#arabic_splitter > div:nth-child(6n+5)::before{ background:#6a1b9a; }
+#arabic_splitter > div:nth-child(6n+6)::before{ background:#00838f; }
+
+/* ===========================
+   Input + Run
+   =========================== */
+
+#send_container{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 10px;
+  margin: 12px 0 8px;
+}
+#textinput_container{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 8px;
+}
+#input_box{
+  width: 100%;
+  resize: vertical;
+  min-height: 84px;
+  border: none;
+  outline: none;
+  font: 600 16px/1.4 var(--font-sans);
+  color: var(--text);
+  background: transparent;
+}
+#input_box::placeholder{ color: var(--muted); font-weight: 500; }
+
+#run{
+  align-self: stretch;
+  border: none;
+  padding: 0 16px;
+  border-radius: var(--radius-lg);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .25px;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform .08s ease, filter .2s ease;
+}
+#run:active{ transform: translateY(1px); }
+#run:focus-visible{ outline: 3px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+
+/* ===========================
+   Vocab / Topics / Chips
+   =========================== */
+
+#vocabcontainer{
+  margin-top: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+#vocab_topics{
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 8px;
+  scroll-snap-type: x proximity;
+}
+#vocab_topics p{
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-elev);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: background .15s ease, transform .08s ease, border-color .15s ease;
+}
+#vocab_topics p:active{ transform: scale(.96); }
+#vocab_topics p:hover{ border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
+
+#words_written{
+  margin: 8px 2px 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* English word chips generated under input */
+#split_words_buttons_container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 10px;
+}
+#split_words_buttons_container > button{
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--text);
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s ease, transform .08s ease;
+}
+#split_words_buttons_container > button:active{ transform: scale(.96); }
+
+/* Dictionary grid cards */
+#dictionary_list_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+#dictionary_list_container > div{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+}
+#dictionary_list_container > div:active{ transform: translateY(1px); }
+#dictionary_list_container > div:hover{ box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+
+.vocabarabic_p{
+  font-family: var(--font-ar);
+  font-size: 20px;
+  margin: 0 0 4px;
+  text-align: center;
+}
+.vocabtr_p{
+  font-size: 12px; color: var(--muted);
+  margin: 0 0 2px; text-align: center;
+}
+.vocabenglish_p{
+  font-size: 13px; margin: 0; text-align: center;
+}
+
+/* Sentence suggestions (horizontal chips) */
+#sentencesList_container{
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 2px 2px 4px;
+}
+.sentence_elements_container{ display: contents; } /* enables chips to flow */
+.sentence_elements{
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s ease, transform .08s ease;
+}
+.sentence_elements:active{ transform: scale(.96); }
+
+/* Player */
+#player{
+  width: 100%;
+  margin: 12px 0 2px;
+  accent-color: var(--accent);
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.02));
+}
+
+/* ===========================
+   Settings: bottom sheet
+   =========================== */
+
+#settings[hidden]{ display:none !important; }
+
+#settings{
+  position: fixed;
+  inset: auto 0 0 0; /* bottom sheet */
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  border-radius: 14px 14px 0 0;
+  padding: 14px 16px 16px;
+  z-index: 50;
+}
+
+/* Simple faux-backdrop using an oversized shadow */
+@media (min-width:0px){
+  #settings{ box-shadow: 0 -10px 40px rgba(0,0,0,.15); }
+}
+
+.settings_options{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+#settings label{
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: -2px;
+}
+#settings select,
+#settings input[type="number"]{
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .2s ease;
+}
+#settings select:focus,
+#settings input[type="number"]:focus{
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+#close_settings{
+  margin-top: 6px;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--text);
+  padding: 10px 12px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+/* ===========================
+   Larger screens (progressive)
+   =========================== */
+
+@media (min-width: 640px){
+  #arabic_splitter{
+    grid-template-columns: 1fr 1fr;
+  }
+  #dictionary_list_container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px){
+  #send_container{
+    grid-template-columns: 1fr 120px;
+  }
+  #arabic_splitter{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #dictionary_list_container{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===========================
+   Accessibility & polish
+   =========================== */
+
+button, [role="button"], #vocab_topics p, #arabic_splitter > div > p{
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:focus-visible{
+  outline: 3px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  outline-offset: 2px;
+}
+
+/* Subtle pull-to-refresh handle feel on the top card */
+#canva{
+  position: relative;
+}
+#canva::before{
+  content:"";
+  position:absolute; top:6px; left:50%;
+  transform: translateX(-50%);
+  width: 44px; height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+  opacity: .9;
+}

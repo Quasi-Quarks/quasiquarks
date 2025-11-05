@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+
+    <div class="cubemain" id="cubemain0">
+        <div id="gun"></div>
+        <div id="spark"></div>
+        <div class="cubemain" id="cubemain1">
+            <div class="cubemain" id="cubemain2">
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="chracter">
+    
+    </div>
+
+    <div id="controller">
+
+    </div>
+
+    <script>
+
+  var controllerelem = document.getElementById("controller");
+  var controllerelemposy = parseInt(window.getComputedStyle(controllerelem, null).getPropertyValue("top"));
+  var controllerelemposx = parseInt(window.getComputedStyle(controllerelem, null).getPropertyValue("left"));
+
+
+  mousposClientX = 0;
+  mousposClientY = 0;
+  angle = 0;
+  angle360 = 0;
+
+  cameraAngle = 0;
+  angleY = 0;
+  angleX = 0;
+  distanceposZ = 0;
+  distanceposX = 0;
+  
+  addEventListener('mousemove', function() {
+    mousposClientY =  event.clientY;
+  mousposClientX =  event.clientX;
+
+  distanceposZ = distanceposZ + (angleY/5);
+  distanceposX = distanceposX + (angleX/5);
+
+  control()
+});
+
+
+
+var distanceposX2 = 0;
+var distanceposY2 = 0;
+function control() {
+    
+    angle  = parseInt((Math.atan((-mousposClientY+controllerelemposy)/(-mousposClientX+controllerelemposx))/Math.PI) * 180);  
+  
+  
+    if(mousposClientY >= controllerelemposy) {
+  
+      if(mousposClientX >= controllerelemposx) {
+      controllerelem.style.backgroundColor = "red"
+      angleY = (-angle) / 10;
+      angleX = 9 + -(angle/10);
+      angle360 = 90 + angle;
+    } else  if(mousposClientX <= controllerelemposx) {
+      controllerelem.style.backgroundColor = "green"
+      angleY = angle / 10;
+      angleX = 9 +(angle / 10);
+      angleX = -angleX;
+      angle360 = 270 + angle;
+    } 
+    } else if(mousposClientY <= controllerelemposy) {
+      if(mousposClientX >= controllerelemposx) {
+      controllerelem.style.backgroundColor = "blue"
+      angleY = (-angle) / 10;
+      angleX = ((angle) / 10) + 9;
+      angle360 = -90 + -angle;
+      angle360 = -angle360;
+    } else  if(mousposClientX <= controllerelemposx) {
+      controllerelem.style.backgroundColor = "purple";
+      angleY = angle / 10;
+      angleX = 9 + -(angle / 10);
+      angleX = angleX;
+      angle360 = 270 + angle;
+    } 
+    }
+  
+    angleY = parseInt(angleY);
+    angleX = parseInt(angleX);
+
+    distanceposX2 = distanceposX2 + angleX;
+    distanceposY2 = distanceposY2 + angleY;
+  controllerelem.innerText = distanceposX2  + "angle" + distanceposY2;
+  document.getElementById("controller").style.transform = "rotate("+angle360+"deg)"
+  console.log(angle);
+  
+  }
+
+
+
+  function move() {
+document.getElementById("chracter").style.transform = "rotateY("+angle360+"deg) rotateX("+(0)+"deg)";
+document.getElementById("cubemain1").style.transform = "rotateY("+-distanceposX2+"deg) rotateX("+(-distanceposY2)+"deg)";
+    
+console.log(distanceposX2)
+setTimeout(move, 20);
+}
+
+
+move()
+
+
+
+
+    var chrchcubeposx = [0, 50, 0, -50, 0, 0, 0]
+    var chrchcubeposy = [0, 0, 150, 0, 0, 0, 0]
+    var chrchcubepostz = [50, 0, 100, 0, 50, -50, 0]
+
+    var elerotateY = [0, 90, 0, 90, 0, 0, 0]
+    var elerotateX = [90, 0, 90, 0, 0, 0, 90]
+
+    function chrchcrtCube() {
+    for(a=0; a<=6; a++) {
+          var layers = document.createElement("div");
+          layers.style.backgroundColor = "rgba("+(50*a)+", 150, 200, 0.5)";
+          layers.style.position = "absolute";
+          layers.setAttribute("class", "layers");
+          layers.style.height = 100 + "px";
+          layers.style.width = 100 + "px";
+          layers.style.top = chrchcubeposy[a] + "px";
+          layers.style.left = chrchcubeposx[a] + "px";  
+          layers.innerText = "a"+a;
+          layers.style.transform = "rotateY("+elerotateY[a]+"deg) rotateX("+elerotateX[a]+"deg) translateZ("+chrchcubepostz[a]+"px) ";
+          //layers.style.transform = "rotateY(45deg) rotateX(45deg) translateZ(10px)"
+
+          document.getElementById("chracter").appendChild(layers);
+        
+        }
+        }
+
+        chrchcrtCube()
+
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+*:not(html, script, style, head) {
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: none;
+    /* border: 1px solid #ff0101; */
+    color: #000000;
+   }
+
+ /* tiny readability (remove if you want totally bare) */
+    #arabic_splitter {margin-top: 8px;flex-direction: row-reverse;width: 89%;overflow: hidden;overflow-x: scroll;justify-content: flex-start;height: 100px;/* padding: 2px 35px; *//* background-color: #090059; */}
+    #arabic_splitter > div {
+      /* display: grid; */
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      /* padding: 0px 1px; */
+      border-bottom: 1px solid #eee;
+      /* background-color: #ffe4a8; */
+      min-width: max-content;
+      margin-left: 9px;
+    }
+    #arabic_splitter p { margin: 0; cursor: pointer; }
+    #arabic_splitter p:nth-child(1) {font-size: 1.4rem;/* font-weight: 400; */font-weight: 500;}       /* Arabic */
+    #arabic_splitter p:nth-child(2) {font-size: 12.5px;opacity: .75;font-weight: 700;letter-spacing: 3px;opacity: 0.7;text-decoration: underline;text-underline-offset: 2px;} /* translit */
+    #arabic_splitter p:nth-child(3) {font-size: 20.8px;color:#333;letter-spacing: 0.1px;opacity: 0.7;font-weight: 400;}   /* English */
+
+audio#player {
+    display: none;
+}
+
+div#show_arabic {
+    /* display: none; */
+    /* height: 162px; */
+    justify-content: flex-start;
+    position: relative;
+    /* width: 542px; */
+    /* overflow: hidden; */
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 94%;
+    height: max-content;
+}
+
+p#arabic_text {
+    font-size: 27.3px;
+    font-weight: 400;
+    opacity: 0.8;
+    color: #000000;
+    border-bottom: 1px solid #a21c46;
+    width: 100%;
+    padding-bottom: 6px;
+    min-width: 90px;
+}
+
+p#arabic_text_romanised {
+    font-size: 23.5px;
+    letter-spacing: 1.7px;
+    text-decoration: blink;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 0.6px;
+    font-weight: 400;
+    color: #7d7d7d;
+    min-width: 70px;
+}
+
+input#input_box {}
+
+div#canva {
+    max-height: max-content;
+    width: 80vw;
+}
+
+div#body_container {
+    padding: 10px 9px;
+    background-color: #ffffff;
+    /* justify-content: center; */
+    /* align-items: center; */
+    max-width: 81vw;
+}
+
+textarea#input_box {
+    min-width: 103px;
+    width: 64vw;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: left;
+    /* background-color: #ffffff8f; */
+    color: #cd0000;
+    position: relative;
+    height: 11vh;
+    padding: 5px 2px;
+    border: 2px solid;
+}
+
+div#textinput_container {
+    width: 70vw;
+    padding: 3px 0px;
+    /* background-color: grey; */
+    margin-top: 7px;
+}
+
+div#settings_logo {
+    background-image: url(setting.png);
+    background-size: 100% 100%;
+    position: absolute;
+    right: -15px;
+    height: 26px;
+    width: 26px;
+    top: 130px;
+}
+
+div#settings {
+    display: none;
+    position: relative;
+    padding: 14px;
+    width: 292px;
+}
+
+.settings_options {
+    /* flex-direction: row; */
+    align-items: flex-start;
+}
+
+label {
+    font-size: 23.1px;
+    font-weight: 500;
+}
+
+select#voice {
+    font-size: 12.9px;
+    width: 140px;
+    font-weight: 500;
+}
+
+p#close_settings {
+    font-size: 16.4px;
+    font-weight: 500;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+div#send_container {
+    flex-direction: row;
+    width: 80vw;
+    justify-content: space-around;
+    margin: 8px 0px;
+}
+
+button#run {font-size: 15px;font-weight: 700;}
+
+div#split_words_buttons_container {
+    flex-direction: row;
+    width: 95%;
+    justify-content: space-around;
+    height: max-content;
+    /* display: inline-block; */
+    height: 34px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+button.split_words_buttons {
+    min-width: max-content;
+    display: inline-block;
+    margin: 4px 6px;
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    border-radius: 17px;
+    padding: 2px 8px;
+}
+
+p#words_written {}
+
+div#vocabcontainer {
+    width: 100%;
+}
+
+div#dictionary_list_container {
+    display: inline-block;
+    width: 100%;
+    background: #595959;
+    height: 220px;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 22px;
+}
+
+div#dictionary_list_container div {
+    display: inline-block;
+    margin: 6px;
+    /* padding: 7px; */
+    height: max-content;
+    justify-content: space-around;
+    min-width: max-content;
+    padding: 2px 9px;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+div#dictionary_list_container div p {
+    margin: 4px 0px;
+}
+
+p.vocabarabic_p {
+    font-size: 19.3px;
+    font-weight: 700;
+}
+
+p.vocabarabic_p {}
+
+p.vocabtr_p {
+    font-size: 19.3px;
+    font-weight: 600;
+    color: #000000;
+    opacity: 0.8;
+}
+
+p.vocabenglish_p {
+    font-size: 17.7px;
+    font-weight: 600;
+    color: #202020e0;
+    opacity: 0.8;
+    color: rebeccapurple;
+}
+
+div#sentencesList_container {
+    width: 80%;
+    margin-top: 24px;
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+}
+
+p.sentence_elements {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+div#dictionary_section_view {
+    flex-direction: row;
+    width: 180px;
+    justify-content: space-around;
+    height: 21px;
+}
+
+div#vocab_topics {
+    width: 100%;
+    flex-direction: row;
+    width: 104%;
+    overflow: hidden;
+    overflow-x: scroll;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+div#vocab_topics p {
+    min-width: max-content;
+    margin: 3px 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e1e1eeb;
+    opacity: 0.9;
+}

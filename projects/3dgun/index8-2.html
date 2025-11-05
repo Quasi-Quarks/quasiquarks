@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div#controller {
+            position: fixed;
+            height: 100px;
+            width: 100px;
+            border: 2px solid black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+            z-index: 88;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="controller"></div>
+
+    <script>
+        let lastX, lastY; // Track the last positions to calculate movement
+
+        // Get the middle of the screen
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', function(event) {
+            if (lastX && lastY) {
+                let moveX = event.clientX - lastX;
+                let moveY = event.clientY - lastY;
+
+                // Adjust the mouse position to make the middle of the screen zero for the Y-axis
+                moveY -= centerY;
+
+                // Calculate rotation, adjust these factors to control the sensitivity
+                let rotateY = moveX * 0.1; // Increase the factor from 0.1 to 0.2 for greater sensitivity
+                let rotateX = moveY * -0.1; // Increase the factor from -0.1 to -0.2 for greater sensitivity
+
+                let currentTransform = document.getElementById("controller").style.transform;
+                let rotations = currentTransform.match(/rotateX\((.*?)deg\).*?rotateY\((.*?)deg\)/);
+                let currentX = rotations ? parseFloat(rotations[1]) : 0;
+                let currentY = rotations ? parseFloat(rotations[2]) : 0;
+
+                document.getElementById("controller").style.transform = `translate(-50%, -50%) rotateX(${currentX + rotateX}deg) rotateY(${currentY + rotateY}deg)`;
+            }
+
+            lastX = event.clientX;
+            lastY = event.clientY;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<html>
+ <head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index5.css">
+ </head>
+
+ <body>
+
+    <div id="devconsole">
+
+    </div>
+
+     <div class="MenuContainer">
+        <div id="menucrtTextInput" class="icons"></div>
+        <div id="menucrtTextheader" class="icons"></div>
+        <div id="addsquare" class="icons"></div>
+        <div id="crtcircle" class="icons"></div>
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+        <div id="text_shaddow" class="icons"></div>
+     
+     </div>
+
+     <div id="canvas">
+
+     </div>
+
+
+     <script>
+
+
+       document.getElementById("menucrtTextInput").onclick = function() {
+        funccrtTxtInput();
+       }
+
+       document.getElementById("addsquare").onclick = function() {
+        funccrtsqreelement();
+       }
+
+       var ParentContainerElement;
+
+       resizebuttonClicked = false;
+
+       var varresizing = false;
+
+
+       function funccrtTxtInput() {
+
+              crtInpelemntParent = document.createElement("div")
+              crtInpelemntParent.setAttribute("class", "csscrtInpelemntParent")
+              crtInpelemntParent.setAttribute("data-first-name", "on")
+              crtInpelemntParent.style.position = "absolute"
+              crtInpelemntParent.style.left = 35 + "%";
+              crtInpelemntParent.style.top = 35 + "%";
+              crtInpelemntParent.onclick = function () {
+                alert("clickedonParentElement")
+                this.style.border = "2px solid purple"
+                this.childNodes[1].style.border = "2px solid green";
+               
+
+                if(varresizing == true) {
+                    varresizing = false;
+                }
+
+                if(resizebuttonClicked == true) {
+                    ParentContainerElement = this;
+                    resizebuttonClicked = false;
+                    varresizing = true;
+                }
+              }
+              crtResiszebttn(crtInpelemntParent)
+         
+              crtInpelemnt = document.createElement("input")
+              crtInpelemnt.setAttribute("class", "csscrtInpelemnt")
+
+              crtInpelemntParent.appendChild(crtInpelemnt)
+
+           document.getElementById("canvas").appendChild(crtInpelemntParent)
+       }
+
+
+       var varsqrresizing = false;
+       var resizesqrebuttonClicked = false;
+
+       function funccrtsqreelement() {
+        crtsqrelemntParent = document.createElement("div")
+        crtsqrelemntParent.setAttribute("class", "csscrtsqrelemntParent")
+        crtsqrelemntParent.setAttribute("data-first-name", "div")
+        crtsqrelemntParent.style.position = "absolute"
+        crtsqrelemntParent.style.left = 35 + "%";
+        crtsqrelemntParent.style.top = 35 + "%";
+
+        crtsqrelemntParent.onclick = function() {
+            //this.style.border = "2px solid orange"
+
+            if(varsqrresizing == true) {
+                 varsqrresizing = false;
+                 resizesqrebuttonClicked = false;
+            }
+
+             if(resizesqrebuttonClicked == true) {
+                    ParentContainerElement = this;
+                    // resizebuttonClicked = false;
+                    varsqrresizing = true;
+                }
+
+              
+        }
+
+        crtsqrelemnt = document.createElement("div")
+        crtsqrelemnt.setAttribute("class", "csscrtsqrelemnt")
+
+        crtsqrelemnt.onclick = function() {
+            positionnowmovingclicked = true; 
+
+            alert("positionnowmovingclicked" + positionnowmovingclicked)
+        }
+
+        crtsqrelemntParent.appendChild(crtsqrelemnt)
+
+        crtResiszebttn(crtsqrelemntParent)
+
+        document.getElementById("canvas").appendChild(crtsqrelemntParent)
+       }
+
+       function crtResiszebttn(ParentElement) {
+              sqresize = document.createElement("image");
+              sqresize.setAttribute("class", "sqresize");
+              sqresize.src = "increase.png";
+
+              sqresize.onclick = function () {
+                //alert("clickedonsqresizeelement")
+                this.style.border = "2px solid blue";
+                // resize button
+                this.parentNode.childNodes[1].style.border = "2px solid red";
+                this.parentNode.childNodes[0].style.border = "2px solid yellow";
+                if(this.parentNode.dataset.firstName == "div") {
+                    resizesqrebuttonClicked = true;
+
+                    setTimeout(resizeBugdiv, 1000);
+
+                    function funcresizeBugdiv() {
+                       //  varresizebug = true;
+                   }
+
+                }
+               
+                resizebuttonClicked = true;
+                
+            }
+
+              ParentElement.appendChild(sqresize);
+
+       }
+
+
+       document.getElementById("canvas").onclick = function () {
+     
+
+        // if(varsqrresizing == true) {
+        //          varsqrresizing = false;
+        //          resizesqrebuttonClicked = false;
+        //     }
+
+
+        alert("canvasclicked")
+
+
+
+       }
+
+
+       function chckresizing() {
+
+       }
+
+
+       var X_coor = 0;
+       var Y_coor = 0;
+
+       function resizeElement() {
+           var ctrlposy = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("top"));
+           var ctrlposx = parseInt(window.getComputedStyle(ParentContainerElement, null).getPropertyValue("left"));
+           
+
+           if(varresizing == true) {
+            ParentContainerElement.childNodes[1].style.fontSize = -ctrlposy + Y_coor;
+           //ParentContainerElement.style.width = -ctrlposy + X_coor;
+           } else {
+
+           }
+
+           if(resizesqrebuttonClicked == true) {
+             ParentContainerElement.style.height = -ctrlposy + Y_coor;
+             ParentContainerElement.style.width = -ctrlposy + X_coor;
+       }
+
+       
+       }
+
+
+
+    document.body.onmousemove = function(event) {
+        myFunction(event)
+     };
+
+    function myFunction(e) {
+        let x = e.clientX;
+        let y = e.clientY;
+
+        X_coor = x;
+        Y_coor = y;
+       if(varresizing == true) {
+        resizeElement()
+       }
+
+       if(resizesqrebuttonClicked == true) {
+        resizeElement()
+       }
+    }
+
+
+
+     </script>
+    </body>
+</html>
