@@ -161,7 +161,7 @@
       background: #1e1e1e;
       border-color: #333;
       color: #fff;
-      height: 200vh;
+      height: 145vh;
     }
     .menu_editor h2{
       margin: 0 0 10px; font-size: 1.1rem; color: #ffd54f;
@@ -175,11 +175,16 @@
       display:block; font-size:.9rem; margin:10px 0 4px; color:#ccc;
     }
     .menu_editor textarea{
-      width: 100%; min-height: 120px;
-      border-radius: 6px; border: 1px solid #555;
-      background: #0f172a; color: #eee;
+      width: 100%;
+      min-height: 60vh;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background: #0f172a;
+      color: #eee;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 14px; padding: 8px; resize: vertical;
+      font-size: 14px;
+      padding: 8px;
+      resize: vertical;
     }
     .menu_editor textarea[readonly]{
       background: #121a2c; /* top (read-only) */
@@ -190,7 +195,7 @@
     .editor_output{ margin-top: 12px; }
     .editor_output iframe{
       width: 100%;
-      min-height: 160px;
+      min-height: 35vh;
       border: 1px solid #555;
       border-radius: 6px;
       background: #fff;
