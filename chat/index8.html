@@ -345,53 +345,37 @@ async function auto_login() {
 
 auto_login();
 
+function getYouTubeIdFromUrl(url) {
+  if (!url || typeof url !== "string") return null;
 
-function getFirstYouTubeIdFromText(text) {
-  if (!text) return null;
+  try {
+    // 0) Shorts: https://www.youtube.com/shorts/VIDEOID
+    //            https://m.youtube.com/shorts/VIDEOID?si=...
+    var m = url.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
 
-  // 1) Find all URLs in the text
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
-  let match;
+    // 1) youtu.be/VIDEOID
+    //    https://youtu.be/JGwWNGJdvx8?si=...
+    m = url.match(/youtu\.be\/([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
 
-  while ((match = urlRegex.exec(text)) !== null) {
-    const url = match[1];
+    // 2) youtube.com/watch?v=VIDEOID
+    //    https://www.youtube.com/watch?v=JGwWNGJdvx8&list=...
+    //    https://m.youtube.com/watch?v=JGwWNGJdvx8&...
+    m = url.match(/[?&]v=([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
 
-    try {
-      const u = new URL(url);
+    // 3) youtube.com/embed/VIDEOID (just in case)
+    m = url.match(/youtube\.com\/embed\/([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
 
-      // Normal & mobile YouTube domains
-      if (
-        u.hostname === "www.youtube.com" ||
-        u.hostname === "youtube.com" ||
-        u.hostname === "m.youtube.com" ||
-        u.hostname === "music.youtube.com"
-      ) {
-        // grab v= parameter
-        const v = u.searchParams.get("v");
-        if (v) return v;
-      }
-
-      // Short youtu.be links
-      if (u.hostname === "youtu.be") {
-        const path = u.pathname; // "/VIDEOID"
-        if (path && path.length > 1) {
-          return path.slice(1); // remove leading "/"
-        }
-      }
-
-    } catch (e) {
-      // If URL() fails, skip silently
-      continue;
-    }
+    return null;
+  } catch (e) {
+    console.error("Error parsing YouTube URL:", e);
+    return null;
   }
-
-  // 2) Fallback regex for weird cases (no URL object)
-  // e.g. "watch?v=VIDEOID"
-  const fallback = /watch\?v=([^&\s]+)/.exec(text);
-  if (fallback && fallback[1]) return fallback[1];
-
-  return null;
 }
+
 
 </script>
 </body>
