@@ -1,0 +1,405 @@
+<html>
+ <head>
+  <link rel="stylesheet" href="index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ </head>
+
+ <body>
+
+<div id="bodyContainer">
+
+  <div id="menu">
+    <p id="login">Login</p>
+  </div>
+
+  <div id="loginform">
+    <input type="text" placeholder="username" value="" id="username_login_value">
+    <input type="text" placeholder="password" value="" id="password_login_value">
+    <p id="loginButton">Login</p>
+  </div>
+
+  <div id="users_container">
+    <div id="users"></div>
+  </div>
+
+  <div id="message_container">
+    <div id="messages"></div>
+  </div>
+
+  <div id="sendContainer">
+    <form id="chatForm" enctype="multipart/form-data">
+      <input type="text" name="username" id="username" placeholder="username" value="" required>
+
+      <div id="fileupload_container">
+        <input type="file" name="fileToUpload" id="fileToUpload"
+               accept="image/*,video/*,audio/*">
+      </div>
+
+      <div id="send_container">
+        <textarea name="message" id="message" placeholder="message" required></textarea>
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<script>
+var users_array = [];
+var chat_array  = [];
+
+fetch_getUsers();
+getChat();
+
+async function fetch_getUsers() {
+  const url = "https://quasiquarks.com/chat/index.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const result = await response.json();
+    users_array = result;
+    getUsers();
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+async function getChat() {
+  const url = "https://quasiquarks.com/chat/chat.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const result = await response.json();
+    chat_array = result;
+    create_chat();
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+function getUsers() {
+  for (u = 0; u <= users_array.length - 1; u++) {
+    var userContainer = document.createElement("div");
+    userContainer.setAttribute("class", "userContainer");
+
+    var profile_pic = document.createElement("div");
+    profile_pic.setAttribute("class", "profile_pic");
+    profile_pic.style.backgroundImage =
+      "url(https://quasiquarks.com/chat/profilepic/" + users_array[u][3] + ")";
+
+    var username_text = document.createElement("div");
+    username_text.setAttribute("class", "username_text");
+    username_text.innerText = users_array[u][1];
+
+    userContainer.appendChild(profile_pic);
+    userContainer.appendChild(username_text);
+    document.getElementById("users").appendChild(userContainer);
+  }
+}
+
+function create_chat() {
+  console.log(users_array);
+  console.log(chat_array);
+
+  // clear previous messages (prevents duplicates on refresh)
+  document.getElementById("messages").innerHTML = "";
+
+  for (c = 0; c <= chat_array.length - 1; c++) {
+    for (u = 0; u <= users_array.length - 1; u++) {
+      if (chat_array[c][1] == users_array[u][1]) {
+
+        var messageContainer_message = document.createElement("div");
+        messageContainer_message.setAttribute("class", "messageContainer_message");
+
+        var userContainer_message = document.createElement("div");
+        userContainer_message.setAttribute("class", "userContainer_message");
+
+        var profile_pic_message = document.createElement("div");
+        profile_pic_message.setAttribute("class", "profile_pic_message");
+        profile_pic_message.style.backgroundImage =
+          "url(https://quasiquarks.com/chat/uploads/" + users_array[u][3] + ")";
+
+        var username_text_message = document.createElement("div");
+        username_text_message.setAttribute("class", "username_text_message");
+        username_text_message.innerText = users_array[u][1];
+
+        userContainer_message.appendChild(profile_pic_message);
+        userContainer_message.appendChild(username_text_message);
+
+        var chat_container = document.createElement("div");
+        chat_container.setAttribute("class", "chat_container");
+
+        var chat_text_message = document.createElement("div");
+        chat_text_message.setAttribute("class", "chat_text_message");
+
+        // --- YouTube / text logic (same logic, made robust) ---
+        var msg = chat_array[c][2];
+        if (msg === null || msg === undefined) {
+          msg = "";
+        } else {
+          msg = msg.toString();
+        }
+
+        var ytID = getFirstYouTubeIdFromText(msg);
+
+        if (ytID) {
+          // Build YouTube iframe
+          var iframeWrapper = document.createElement("div");
+          iframeWrapper.setAttribute("class", "chat_youtube_wrapper"); // style in CSS if you want
+
+          var iframe = document.createElement("iframe");
+          iframe.src =
+            "https://www.youtube-nocookie.com/embed/" + ytID + "?rel=0&modestbranding=1";
+          iframe.width = "260";         // adjust to layout
+          iframe.height = "150";        // adjust to layout
+          iframe.frameBorder = "0";
+          iframe.loading = "lazy";
+          iframe.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+          iframe.title = "YouTube video";
+
+          iframeWrapper.appendChild(iframe);
+          chat_text_message.appendChild(iframeWrapper);
+
+          // Remaining text (without URLs) under the video
+          var remainingText = msg.replace(/https?:\/\/[^\s]+/g, "").trim();
+          if (remainingText.length > 0) {
+            var textDiv = document.createElement("div");
+            textDiv.innerText = remainingText;
+            chat_text_message.appendChild(textDiv);
+          }
+        } else {
+          // No YouTube link → plain text
+          chat_text_message.innerText = msg;
+        }
+        // ------------------------------------------------------
+
+        // ------- NEW UPGRADED MEDIA LOGIC (image + video + audio) -------
+        if (chat_array[c][3] !== "") {
+
+          var fileName = chat_array[c][3];
+          var fileUrl  = "https://quasiquarks.com/chat/uploads/" + fileName;
+          var ext      = fileName.split(".").pop().toLowerCase();
+
+          var imageExts = ["jpg", "jpeg", "png", "gif", "webp"];
+          var videoExts = ["mp4", "webm", "ogg"];
+          var audioExts = ["mp3", "wav", "ogg", "m4a"];
+
+          if (imageExts.indexOf(ext) !== -1) {
+            // IMAGE
+            var chat_pic_message = document.createElement("div");
+            chat_pic_message.setAttribute("class", "chat_pic_message");
+            chat_pic_message.style.backgroundImage = "url(" + fileUrl + ")";
+            chat_container.appendChild(chat_pic_message);
+          }
+          else if (videoExts.indexOf(ext) !== -1) {
+            // VIDEO
+            var chat_video_message = document.createElement("video");
+            chat_video_message.setAttribute("class", "chat_video_message");
+            chat_video_message.src = fileUrl;
+            chat_video_message.controls = true;
+            chat_video_message.preload = "metadata";
+            chat_container.appendChild(chat_video_message);
+          }
+          else if (audioExts.indexOf(ext) !== -1) {
+            // AUDIO
+            var chat_audio_message = document.createElement("audio");
+            chat_audio_message.setAttribute("class", "chat_audio_message");
+            chat_audio_message.src = fileUrl;
+            chat_audio_message.controls = true;
+            chat_container.appendChild(chat_audio_message);
+          }
+          else {
+            // UNKNOWN TYPE → simple link
+            var chat_file_link = document.createElement("a");
+            chat_file_link.setAttribute("class", "chat_file_link");
+            chat_file_link.href = fileUrl;
+            chat_file_link.target = "_blank";
+            chat_file_link.innerText = fileName;
+            chat_container.appendChild(chat_file_link);
+          }
+        }
+        // ----------------------------------------------------------------
+
+        chat_container.appendChild(chat_text_message);
+
+        messageContainer_message.appendChild(userContainer_message);
+        messageContainer_message.appendChild(chat_container);
+
+        document.getElementById("messages").appendChild(messageContainer_message);
+
+        break;
+      }
+    }
+  }
+}
+
+document.getElementById("chatForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = document.getElementById("chatForm");
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("https://quasiquarks.com/chat/insert.php", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    getChat();
+
+    if (data.success) {
+      document.getElementById("message").value = "";
+      document.getElementById("fileToUpload").value = "";
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+/// login from the form
+async function fetch_login() {
+  const url = "https://quasiquarks.com/chat/index.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    users_array = result;
+
+    let checkUsername = document.getElementById("username_login_value").value;
+    let checkpassword = document.getElementById("password_login_value").value;
+
+    for (u = 0; u <= users_array.length - 1; u++) {
+      if (checkUsername == users_array[u][1]) {
+        console.log("success Username");
+        if (checkpassword == users_array[u][2]) {
+          console.log("success");
+          document.getElementById("username").value = checkUsername;
+          break;
+        } else {
+          console.log("password fail");
+        }
+      } else {
+        console.log("username fail");
+      }
+    }
+
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+document.getElementById("loginButton").onclick = function () {
+  fetch_login();
+};
+
+/// auto login if url contains parameters e.g. ?username=basaam&pass=123456
+async function auto_login() {
+  const params = new URLSearchParams(window.location.search);
+  const checkUsername = params.get("username");
+  const checkpassword = params.get("pass");
+
+  if (!checkUsername || !checkpassword) {
+    return;
+  }
+
+  const url = "https://quasiquarks.com/chat/index.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    users_array = result;
+
+    for (u = 0; u <= users_array.length - 1; u++) {
+      if (checkUsername == users_array[u][1]) {
+        console.log("auto-login: success Username");
+        if (checkpassword == users_array[u][2]) {
+          console.log("auto-login: success");
+          document.getElementById("username").value = checkUsername;
+          document.getElementById("username_login_value").value = checkUsername;
+          document.getElementById("password_login_value").value = checkpassword;
+          break;
+        } else {
+          console.log("auto-login: password fail");
+        }
+      } else {
+        console.log("auto-login: username fail");
+      }
+    }
+
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+auto_login();
+
+// ---- YouTube helpers ----
+
+// Extract first YouTube ID from full message text (supports multiple URLs)
+function getFirstYouTubeIdFromText(text) {
+  if (!text || typeof text !== "string") return null;
+
+  // find all URLs in the text
+  var urls = text.match(/https?:\/\/[^\s]+/g) || [];
+
+  for (var i = 0; i < urls.length; i++) {
+    var id = getYouTubeIdFromUrl(urls[i]);
+    if (id) return id;
+  }
+
+  return null;
+}
+
+// Extract YouTube video ID from a single URL (watch, youtu.be, embed, shorts)
+function getYouTubeIdFromUrl(url) {
+  if (!url || typeof url !== "string") return null;
+
+  try {
+    // Shorts: https://www.youtube.com/shorts/VIDEOID
+    //         https://m.youtube.com/shorts/VIDEOID?si=...
+    var m = url.match(/youtube\.com\/shorts\/([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
+
+    // youtu.be/VIDEOID
+    // https://youtu.be/JGwWNGJdvx8?si=...
+    m = url.match(/youtu\.be\/([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
+
+    // youtube.com/watch?v=VIDEOID
+    // https://www.youtube.com/watch?v=JGwWNGJdvx8&list=...
+    // https://m.youtube.com/watch?v=JGwWNGJdvx8&...
+    m = url.match(/[?&]v=([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
+
+    // youtube.com/embed/VIDEOID
+    m = url.match(/youtube\.com\/embed\/([A-Za-z0-9_-]{6,})/);
+    if (m && m[1]) return m[1];
+
+    return null;
+  } catch (e) {
+    console.error("Error parsing YouTube URL:", e);
+    return null;
+  }
+}
+</script>
+</body>
+</html>
