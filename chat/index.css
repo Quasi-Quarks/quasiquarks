@@ -270,3 +270,7 @@ div#background_container {
     width: 95vw;
     background-color: #0b276163;
 }
+
+audio.chat_audio_message {
+    width: 82%;
+}
