@@ -30,10 +30,10 @@
     <form id="chatForm" enctype="multipart/form-data">
       <input type="text" name="username" id="username" placeholder="username" value="" required>
       <div id="uploadMenu">
-      <div id="fileupload_container">
-        <input type="file" name="fileToUpload" id="fileToUpload"
-               accept="image/*,video/*,audio/*">
-      </div>
+        <div id="fileupload_container">
+          <input type="file" name="fileToUpload" id="fileToUpload"
+                 accept="image/*,video/*,audio/*">
+        </div>
       </div>
       <div id="send_container">
         <textarea name="message" id="message" placeholder="message" required></textarea>
@@ -47,12 +47,15 @@
 <script>
 var users_array = [];
 var chat_array  = [];
+var lastChatId  = 0;       // track latest message ID
+var chatSource  = null;    // EventSource for SSE
 
 init();
 
 async function init() {
   await fetch_getUsers(); // wait until users_array is ready
-  await getChat();        // then load chat and call create_chat()
+  await getChat();        // load chat and call create_chat()
+  startChatStream();      // start Server-Sent Events listener
 }
 
 async function fetch_getUsers() {
@@ -80,11 +83,58 @@ async function getChat() {
     }
     const result = await response.json();
     chat_array = result;
+
+    // update lastChatId from the latest message
+    if (chat_array.length > 0) {
+      // [0] = id in your chat.php output
+      lastChatId = chat_array[chat_array.length - 1][0];
+    }
+
     create_chat();
     console.log(result);
   } catch (error) {
     console.error(error.message);
   }
+}
+
+function startChatStream() {
+  // Fallback if SSE is not supported
+  if (!("EventSource" in window)) {
+    console.warn("EventSource (SSE) not supported, falling back to polling.");
+    setInterval(getChat, 3000);
+    return;
+  }
+
+  // Close existing stream if any
+  if (chatSource) {
+    chatSource.close();
+  }
+
+  // Start SSE connection from the last known ID
+  var esUrl = "https://quasiquarks.com/chat/chat_stream.php?last_id=" + encodeURIComponent(lastChatId || 0);
+  chatSource = new EventSource(esUrl);
+
+  chatSource.onmessage = function (event) {
+    try {
+      // payload from chat_stream.php: [id, username, chat_id, media_id, time_id]
+      var msg = JSON.parse(event.data);
+      console.log("SSE new message:", msg);
+
+      // update lastChatId and chat_array
+      lastChatId = msg[0];
+      chat_array.push(msg);
+
+      // re-render chat using your existing logic
+      create_chat();
+    } catch (e) {
+      console.error("Error parsing SSE message", e);
+    }
+  };
+
+  chatSource.onerror = function (event) {
+    console.error("SSE error:", event);
+    // browser auto-reconnects by default; you can add custom logic if needed
+  };
 }
 
 function getUsers() {
@@ -176,7 +226,7 @@ function create_chat() {
           var remainingText = msg.replace(/https?:\/\/[^\s]+/g, "").trim();
           if (remainingText.length > 0) {
             var textDiv = document.createElement("div");
-            textDiv.setAttribute("class", "youtube_text")
+            textDiv.setAttribute("class", "youtube_text");
             textDiv.innerText = remainingText;
             chat_text_message.appendChild(textDiv);
           }
@@ -186,7 +236,7 @@ function create_chat() {
         }
         // ------------------------------------------------------
 
-        // ------- NEW UPGRADED MEDIA LOGIC (image + video + audio) -------
+        // ------- MEDIA LOGIC (image + video + audio) -------
         if (chat_array[c][3] !== "") {
 
           var fileName = chat_array[c][3];
@@ -231,7 +281,7 @@ function create_chat() {
             chat_container.appendChild(chat_file_link);
           }
         }
-        // ----------------------------------------------------------------
+        // ----------------------------------------------------
 
         chat_container.appendChild(chat_text_message);
 
@@ -244,6 +294,7 @@ function create_chat() {
       }
     }
   }
+   scrollToLatestMessage();
 }
 
 document.getElementById("chatForm").addEventListener("submit", async function (e) {
@@ -261,7 +312,8 @@ document.getElementById("chatForm").addEventListener("submit", async function (e
     const data = await response.json();
     console.log(data);
 
-    getChat();
+    // Still do a full refresh; SSE will also send the new msg
+    //getChat();
 
     if (data.success) {
       document.getElementById("message").value = "";
@@ -405,6 +457,33 @@ function getYouTubeIdFromUrl(url) {
     return null;
   }
 }
+
+
+function scrollToLatestMessage() {
+  // Use the element that actually scrolls in your layout.
+  // If your scrollbar is on #message_container, keep this:
+  //var container = document.getElementById("message_container");
+
+  // If your CSS scrolls #messages instead, use this line instead:
+   var container = document.getElementById("messages");
+
+  if (!container) return;
+
+  // Small delay to make sure DOM & layout are updated
+  setTimeout(function () {
+    // If browser supports smooth behavior
+    if (typeof container.scrollTo === "function") {
+      container.scrollTo({
+        top: container.scrollHeight,
+        behavior: "smooth"
+      });
+    } else {
+      // Fallback for very old browsers
+      container.scrollTop = container.scrollHeight;
+    }
+  }, 50); // 50ms usually feels good; you can tweak
+}
+
 </script>
 </body>
 </html>

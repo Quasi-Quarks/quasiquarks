@@ -11,19 +11,20 @@
     font-family: system-ui;
     font-weight: 100;
     border: none;
-    border: 1px solid #ff0101;
-    color: white;
+    /* border: 1px solid #ff0101; */
+    color: #000000;
    } 
 
 
 body {
-    background-color: #2bcfc0;
+    background-color: #102d76;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 90vh;
     max-height: 95vh;
+    background-image: url(background1.jpg);
     }
 
 
@@ -37,8 +38,10 @@ div#bodyContainer {
 
 div#users_container {
     width: 95%;
-    height: 14%;
-    min-height: 56px;
+    height: 18%;
+    min-height: 51px;
+    background-color: #2366b670;
+    border-radius: 8px;
 }
 
 div#message_container {
@@ -51,21 +54,25 @@ form#chatForm {
     width: 88%;
     align-items: flex-start;
     height: 90%;
+    margin: 0;
+    justify-content: space-around;
 }
 
 input#fileToUpload {
     width: 15px;
     min-width: 33px;
     min-height: 33px;
-    /* opacity: 0; */
+    opacity: 0;
 }
 
 div#sendContainer {
-    height: 18%;
+    height: 17%;
     width: 95%;
     /* position: fixed; */
-    background: #4e4e4ed1;
+    background: #192166d1;
     /* bottom: 0%; */
+    border-radius: 9px;
+    padding: 2px 0px;
 }
 
 div#users {
@@ -73,12 +80,15 @@ div#users {
     width: 95%;
     flex-direction: row;
     justify-content: space-around;
+    overflow: hidden;
+    overflow-x: scroll;
 }
 
 .profile_pic {
     height: 35px;
     width: 35px;
     border-radius: 100%;
+    min-height: 33px;
 }
 
 .username_text {
@@ -88,7 +98,12 @@ div#users {
 }
 
 .userContainer {
-    width: 25%;
+    width: 42px;
+    /* margin: 2px 5px; */
+    justify-content: flex-start;
+    height: 82px;
+    min-width: 49px;
+    min-height: 82px;
 }
 
 div#messages {
@@ -105,11 +120,12 @@ div#messages {
     height: 100px;
     justify-content: space-around;
     height: max-content;
-    border: 2px solid blue;
+    border: 2px solid #919191;
+    margin: 7px 2px;
 }
 
 .userContainer_message {
-    width: 23%;
+    width: 27%;
     height: 100px;
 }
 
@@ -123,13 +139,15 @@ div#messages {
     word-wrap: break-word;
     word-break: break-all;
     width: 92%;
+    color: white;
+    font-weight: 500;
 }
 
 .chat_container {
     width: 80%;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: flex-end;
 }
 
 .chat_pic_message {
@@ -137,7 +155,17 @@ div#messages {
     width: 95%;
 }
 
-.chat_text_message {}
+.chat_text_message {
+    /* width: 100%; */
+    padding: 7px 8px;
+    margin: 5px 7px;
+    font-weight: 400;
+    font-size: 14.6px;
+    letter-spacing: 0.5px;
+    background-color: white;
+    color: black;
+    border-radius: 11px;
+}
 
 div#loginform {
     display: none;
@@ -148,7 +176,7 @@ div#menu {
 }
 
 input#username {
-    /* display: none; */
+    display: none;
 }
 
 div#upload {
@@ -171,14 +199,74 @@ div#sendMenu {
 }
 
 textarea#message {
-    min-width: 84%;
+    min-width: 88%;
+    background-color: white;
+    border-radius: 4px;
+    text-align: left;
+    padding: 3px 5px;
+    font-size: 15px;
 }
 
 button {
     background-image: url(send.png);
+    width: 10%;
+    background-color: #3bdf7f;
+    border-radius: 100%;
+    background-size: 99% 99%;
+    padding: 6px;
+    font-size: 0px;
+    min-height: 30px;
 }
 
 video.chat_video_message {
-    height: 300px;
-    width: 93%;
+    height: 250px;
+    width: 90%;
+    border-radius: 7px;
+}
+
+iframe {
+    width: 95%;
+    height: 95%;
+}
+
+.chat_youtube_wrapper {
+    height: 90%;
+}
+
+.chat_text_message {
+    color: black;
+    align-items: flex-end;
+}
+
+.youtube_text {
+    padding: 3px;
+}
+
+div#fileupload_container {
+    background-image: url(plus.png);
+    width: 15px;
+    min-width: 27px;
+    min-height: 27px;
+    background-size: 90% 88%;
+    background-color: white;
+    border-radius: 100%;
+}
+
+div#send_container {
+    flex-direction: row;
+    width: 96%;
+    justify-content: space-between;
+}
+
+div#fileupload_container {}
+
+div#uploadMenu {
+    width: 95%;
+    align-items: flex-start;
+}
+
+div#background_container {
+    height: 100vh;
+    width: 95vw;
+    background-color: #0b276163;
 }
