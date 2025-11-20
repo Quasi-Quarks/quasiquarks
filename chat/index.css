@@ -1,0 +1,184 @@
+*:not(html, script, style, head) {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: none;
+    border: 1px solid #ff0101;
+    color: white;
+   } 
+
+
+body {
+    background-color: #2bcfc0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 95vh;
+    }
+
+
+div#bodyContainer {
+    height: 87vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+div#users_container {
+    width: 95%;
+    height: 14%;
+    min-height: 56px;
+}
+
+div#message_container {
+    width: 95%;
+    height: 60%;
+}
+
+form#chatForm {
+    flex-direction: column;
+    width: 88%;
+    align-items: flex-start;
+    height: 90%;
+}
+
+input#fileToUpload {
+    width: 15px;
+    min-width: 33px;
+    min-height: 33px;
+    /* opacity: 0; */
+}
+
+div#sendContainer {
+    height: 18%;
+    width: 95%;
+    /* position: fixed; */
+    background: #4e4e4ed1;
+    /* bottom: 0%; */
+}
+
+div#users {
+    height: 90%;
+    width: 95%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.profile_pic {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+}
+
+.username_text {
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 91%;
+}
+
+.userContainer {
+    width: 25%;
+}
+
+div#messages {
+    height: 90%;
+    width: 95%;
+    justify-content: flex-start;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.messageContainer_message {
+    flex-direction: row;
+    width: 90%;
+    height: 100px;
+    justify-content: space-around;
+    height: max-content;
+    border: 2px solid blue;
+}
+
+.userContainer_message {
+    width: 23%;
+    height: 100px;
+}
+
+.profile_pic_message {
+    height: 36px;
+    width: 33px;
+    border-radius: 100%;
+}
+
+.username_text_message {
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 92%;
+}
+
+.chat_container {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.chat_pic_message {
+    height: 30vh;
+    width: 95%;
+}
+
+.chat_text_message {}
+
+div#loginform {
+    display: none;
+}
+
+div#menu {
+    display: none;
+}
+
+input#username {
+    /* display: none; */
+}
+
+div#upload {
+    width: 15px;
+    min-width: 33px;
+    min-height: 33px;
+    /* background-image: url(send.png); */
+}
+
+div#chatsend_container {
+    flex-direction: row;
+    width: 96%;
+    align-items: end;
+    justify-content: space-between;
+}
+
+div#sendMenu {
+    width: 87%;
+    align-items: flex-start;
+}
+
+textarea#message {
+    min-width: 84%;
+}
+
+button {
+    background-image: url(send.png);
+}
+
+video.chat_video_message {
+    height: 300px;
+    width: 93%;
+}

@@ -1,0 +1,270 @@
+<html>
+ <head>
+  <link rel="stylesheet" href="index.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+ </head>
+
+ <body>
+
+<div id="bodyContainer">
+
+<div id="menu">
+<p id="login">Login</p>
+</div>
+
+<div id="loginform">
+  <input type="text" placeholder="username" value="" id="username_login_value">
+  <input type="text" placeholder="password" value="" id="password_login_value">
+  <p id="loginButton">Login</p>
+</div>
+
+<div id="users_container">
+  <div id="users"></div>
+</div>
+
+<div id="message_container">
+  <div id="messages"></div>
+</div>
+
+<div id="sendContainer">
+  <form id="chatForm" enctype="multipart/form-data">
+      <input type="text" name="username" id="username" placeholder="username" value="" required>
+      <textarea name="message" id="message" rows="4" cols="40" placeholder="message" required></textarea>
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <button type="submit">Send</button>
+  </form>
+</div>
+
+</div>
+
+<script>
+var users_array = [];
+var chat_array = [];
+
+fetch_getUsers();
+getChat();
+
+async function fetch_getUsers() {
+  const url = "https://quasiquarks.com/chat/index.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    users_array = result;
+    getUsers();
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+async function getChat() {
+  const url = "https://quasiquarks.com/chat/chat.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    chat_array = result;
+    create_chat();
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+function getUsers() {
+  for (u = 0; u <= users_array.length - 1; u++) {
+    var userContainer = document.createElement("div");
+    userContainer.setAttribute("class", "userContainer");
+
+    var profile_pic = document.createElement("div");
+    profile_pic.setAttribute("class", "profile_pic");
+    profile_pic.style.backgroundImage =
+      "url(https://quasiquarks.com/chat/profilepic/" + users_array[u][3] + ")";
+
+    var username_text = document.createElement("div");
+    username_text.setAttribute("class", "username_text");
+    username_text.innerText = users_array[u][1];
+
+    userContainer.appendChild(profile_pic);
+    userContainer.appendChild(username_text);
+    document.getElementById("users").appendChild(userContainer);
+  }
+}
+
+function create_chat() {
+  console.log(users_array);
+  console.log(chat_array);
+
+  for (c = 0; c <= chat_array.length - 1; c++) {
+    for (u = 0; u <= users_array.length - 1; u++) {
+      if (chat_array[c][1] == users_array[u][1]) {
+        var messageContainer_message = document.createElement("div");
+        messageContainer_message.setAttribute("class", "messageContainer_message");
+
+        var userContainer_message = document.createElement("div");
+        userContainer_message.setAttribute("class", "userContainer_message");
+
+        var profile_pic_message = document.createElement("div");
+        profile_pic_message.setAttribute("class", "profile_pic_message");
+        profile_pic_message.style.backgroundImage =
+          "url(https://quasiquarks.com/chat/uploads/" + users_array[u][3] + ")";
+
+        var username_text_message = document.createElement("div");
+        username_text_message.setAttribute("class", "username_text_message");
+        username_text_message.innerText = users_array[u][1];
+
+        userContainer_message.appendChild(profile_pic_message);
+        userContainer_message.appendChild(username_text_message);
+
+        var chat_container = document.createElement("div");
+        chat_container.setAttribute("class", "chat_container");
+
+        var chat_text_message = document.createElement("div");
+        chat_text_message.setAttribute("class", "chat_text_message");
+        chat_text_message.innerText = chat_array[c][2];
+
+        if (chat_array[c][3] !== "") {
+          var chat_pic_message = document.createElement("div");
+          chat_pic_message.setAttribute("class", "chat_pic_message");
+          chat_pic_message.style.backgroundImage =
+            "url(https://quasiquarks.com/chat/uploads/" + chat_array[c][3] + ")";
+          chat_container.appendChild(chat_pic_message);
+        }
+
+        chat_container.appendChild(chat_text_message);
+
+        messageContainer_message.appendChild(userContainer_message);
+        messageContainer_message.appendChild(chat_container);
+
+        document.getElementById("messages").appendChild(messageContainer_message);
+
+        break;
+      }
+    }
+  }
+}
+
+document.getElementById("chatForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = document.getElementById("chatForm");
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("https://quasiquarks.com/chat/insert.php", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    getChat();
+
+    if (data.success) {
+      document.getElementById("message").value = "";
+      document.getElementById("fileToUpload").value = "";
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+/// login from the form
+async function fetch_login() {
+  const url = "https://quasiquarks.com/chat/index.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    users_array = result;
+
+    let checkUsername = document.getElementById("username_login_value").value;
+    let checkpassword = document.getElementById("password_login_value").value;
+
+    for (u = 0; u <= users_array.length - 1; u++) {
+      if (checkUsername == users_array[u][1]) {
+        console.log("success Username");
+        if (checkpassword == users_array[u][2]) {
+          console.log("success");
+          document.getElementById("username").value = checkUsername;
+          break;
+        } else {
+          console.log("password fail");
+        }
+      } else {
+        console.log("username fail");
+      }
+    }
+
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+document.getElementById("loginButton").onclick = function () {
+  fetch_login();
+};
+
+/// auto login if url contains parameters e.g. ?username=basaam&pass=123456
+async function auto_login() {
+  // Read query string: ?username=...&pass=...
+  const params = new URLSearchParams(window.location.search);
+  const checkUsername = params.get("username");
+  const checkpassword = params.get("pass");
+
+  // If not provided, do nothing
+  if (!checkUsername || !checkpassword) {
+    return;
+  }
+
+  const url = "https://quasiquarks.com/chat/index.php";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    users_array = result;
+
+    for (u = 0; u <= users_array.length - 1; u++) {
+      if (checkUsername == users_array[u][1]) {
+        console.log("auto-login: success Username");
+        if (checkpassword == users_array[u][2]) {
+          console.log("auto-login: success");
+          document.getElementById("username").value = checkUsername;
+          // Optional: also fill login form fields visually
+          document.getElementById("username_login_value").value = checkUsername;
+          document.getElementById("password_login_value").value = checkpassword;
+          break;
+        } else {
+          console.log("auto-login: password fail");
+        }
+      } else {
+        console.log("auto-login: username fail");
+      }
+    }
+
+    console.log(result);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+// Call auto_login() on page load
+auto_login();
+</script>
+</body>
+</html>
