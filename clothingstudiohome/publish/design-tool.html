@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Studio - Capitol Design & Printing Co.</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/design-tool-style.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+
+    <header id="design-tool-header">
+        
+        <div class="header-left">
+            <h1 class="logo-mini">Capitol Design Studio</h1>
+            <a href="index.html" class="exit-btn">
+                <span class="icon">×</span> Back to Site
+            </a>
+        </div>
+
+        <div class="header-center">
+            <button id="undo-btn" title="Undo Last Action" disabled>Undo</button>
+            <button id="redo-btn" title="Redo Last Action" disabled>Redo</button>
+            <button id="clear-btn" title="Clear All Design Elements">Clear</button>
+        </div>
+
+        <div class="header-right">
+            <button id="get-quote-btn" class="cta-button primary-action">
+                Get Quote & Checkout
+            </button>
+        </div>
+    </header>
+
+    <main id="design-studio">
+        
+        <aside class="control-panel left-panel">
+            <h3>1. Choose Item & Color</h3>
+            <div class="design-control-group">
+                <h4>Select Product</h4>
+                <div class="item-selection">
+                    <button class="item-btn active" data-product="tshirt">T-Shirt</button>
+                    <button class="item-btn" data-product="hoodie">Hoodie</button>
+                    <button class="item-btn" data-product="mug">Mug</button>
+                    <button class="item-btn" data-product="hat">Hat</button>
+                </div>
+            </div>
+            
+            <div class="design-control-group">
+                <h4>Select Base Color</h4>
+                <div class="color-picker" id="color-picker">
+                    <button class="color-swatch active" style="background-color: white;" data-color="white"></button>
+                    <button class="color-swatch" style="background-color: black;" data-color="black"></button>
+                    <button class="color-swatch" style="background-color: navy;" data-color="navy"></button>
+                    <button class="color-swatch" style="background-color: red;" data-color="red"></button>
+                </div>
+            </div>
+
+            <div class="design-control-group">
+                <h4>Select View</h4>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="front">Front View</button>
+                    <button class="view-btn" data-view="back">Back View</button>
+                </div>
+            </div>
+        </aside>
+
+        <section class="mockup-viewer">
+            <h3>Your Design Mockup</h3>
+            <div id="canvas-container">
+                <canvas id="design-canvas" width="600" height="600"></canvas>
+            </div>
+        </section>
+
+        <aside class="control-panel right-panel">
+            <h3>2. Add Your Design</h3>
+            
+            <div class="design-control-group">
+                <h4>Upload Your Logo/Image</h4>
+                <input type="file" id="upload-image" accept="image/*">
+                <p class="note">Accepted formats: PNG, JPG, SVG.</p>
+            </div>
+
+            <div class="design-control-group">
+                <h4>Use Gallery Graphics</h4>
+                <div class="gallery-graphics">
+                    <img src="path/to/icon1.png" class="graphic-thumbnail" alt="Graphic 1">
+                    <img src="path/to/icon2.png" class="graphic-thumbnail" alt="Graphic 2">
+                </div>
+            </div>
+            
+            <div class="design-control-group">
+                <h4>Add Custom Text</h4>
+                <input type="text" id="add-text-input" placeholder="Enter your text here...">
+                <button id="add-text-btn" class="primary-button">Add Text</button>
+                
+                <select id="font-family-select">
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Capitol Design & Printing Co.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+
+    <script src="js/design-tool-script9.js"></script>
+</body>
+</html>
+
+
+al usool min alimil usool
+
+al aqeedah al wasidiyah

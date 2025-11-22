@@ -1,0 +1,337 @@
+/* 📝 REVISED Styles for a CLEANER Design Studio Layout and ORDERED SECTIONS */
+
+/* Enhanced Color Palette */
+:root {
+    /* Primary Brand Colors */
+    --primary-color: #333366;      /* Deep Navy (Main Header/Text) */
+    --secondary-color: #ffaa00;    /* Bright Gold/Orange (Highlight/CTA) */
+    
+    /* New Tonal Colors */
+    --text-color: #212529;         
+    --canvas-bg: #ffffff;          
+    --panel-bg: #f5f7fa;           /* Light Grey-Blue (Control Panel Background) */
+    --control-group-bg: #ffffff;   /* White background for individual control modules */
+    --active-border: #4a90e2;      /* Vibrant blue for active states/selection */
+    --subtle-border: #e9ecef;      /* Light border for division */
+}
+
+/* === NEW DESIGN TOOL HEADER STYLES === */
+
+#design-tool-header {
+    background-color: var(--primary-color); 
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-mini {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.exit-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+    opacity: 0.8;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: opacity 0.2s, background-color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.exit-btn:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.exit-btn .icon {
+    font-size: 1.5em;
+    line-height: 1;
+    margin-right: 5px;
+}
+
+.header-center button {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.header-center button:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.header-center button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.primary-action {
+    background-color: var(--secondary-color);
+    color: var(--primary-color); 
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.primary-action:hover {
+    background-color: #ffc44d; 
+}
+
+
+/* === MAIN LAYOUT CONTAINER === */
+#design-studio {
+    display: flex; 
+    min-height: calc(100vh - 70px); 
+    background-color: var(--canvas-bg); 
+}
+
+/* === CONTROL PANELS (Left and Right) === */
+.control-panel {
+    width: 280px; 
+    padding: 20px 15px; 
+    background-color: var(--panel-bg); 
+    border-right: 1px solid var(--subtle-border);
+    overflow-y: auto; 
+    flex-shrink: 0; 
+}
+
+.right-panel {
+    border-right: none;
+    border-left: 1px solid var(--subtle-border);
+}
+
+.control-panel h3 {
+    color: var(--primary-color);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary-color); 
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    text-align: left; /* Left align for cleaner flow */
+}
+
+/* Control Group Modules */
+.design-control-group {
+    margin-bottom: 20px; 
+    padding: 15px;
+    background-color: var(--control-group-bg); 
+    border: 1px solid var(--subtle-border);
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+}
+
+.design-control-group h4 {
+    margin: 0 0 12px 0; 
+    font-size: 1.05em;
+    color: var(--text-color);
+    font-weight: bold; 
+}
+
+/* === MOCKUP VIEWER (Center) === */
+.mockup-viewer {
+    flex-grow: 1; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    background-color: var(--canvas-bg);
+}
+
+.mockup-viewer h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+#canvas-container {
+    width: 600px;
+    height: 600px;
+    max-width: 90%;
+    border: 2px solid var(--subtle-border); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    background-color: #fff;
+    margin: 20px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#design-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* === INTERACTIVE ELEMENTS STYLING === */
+
+/* Button Groups (Item/View Selection) */
+.item-selection, .view-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+    justify-content: space-between; 
+    margin-bottom: 15px;
+}
+
+.item-selection button, .view-toggle button {
+    flex-grow: 1;
+    flex-basis: 0; 
+    padding: 10px 5px; 
+    border: 1px solid var(--subtle-border);
+    background: var(--control-group-bg);
+    color: var(--text-color);
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.item-selection button.active, .view-toggle button.active {
+    background-color: var(--active-border); 
+    color: white;
+    border-color: var(--active-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Color Swatches */
+.color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    margin-bottom: 15px;
+}
+.color-swatch {
+    width: 35px; 
+    height: 35px;
+    border: 3px solid var(--subtle-border); 
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.color-swatch.active {
+    border-color: var(--active-border); 
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.5); 
+}
+
+/* Inputs (for Text and Selects) */
+#add-text-input, #font-family-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px; 
+    border: 1px solid var(--subtle-border);
+    border-radius: 4px;
+    box-sizing: border-box; 
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#add-text-input:focus, #font-family-select:focus {
+    border-color: var(--active-border); 
+    outline: none;
+    box-shadow: 0 0 0 1px var(--active-border);
+}
+
+.gallery-graphics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.gallery-graphics img {
+    width: 60px; 
+    height: 60px;
+    border: 1px solid var(--subtle-border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.gallery-graphics img:hover {
+    border-color: var(--active-border);
+}
+
+
+/* === MOBILE RESPONSIVENESS === */
+@media (max-width: 768px) {
+    
+    /* Studio Layout Stack */
+    #design-studio {
+        flex-direction: column;
+    }
+    .control-panel {
+        width: 100%;
+        border-right: none;
+        border-left: none;
+        padding: 15px;
+        order: 1; /* Default order for left panel */
+    }
+    .right-panel {
+        border-top: 1px solid var(--subtle-border); 
+        order: 3; /* Move to the bottom */
+    }
+    .mockup-viewer {
+        order: 2; /* Center the viewer */
+        padding: 20px 10px;
+    }
+    
+    .right-panel h3 {
+        display: none; 
+    }
+
+    /* Canvas Sizing */
+    #canvas-container {
+        width: 90%;
+        height: 0; 
+        padding-bottom: 90%; 
+    }
+    #design-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    /* Mobile Header */
+    @media (max-width: 600px) {
+        #design-tool-header {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .header-left, .header-center, .header-right {
+            flex-basis: 100%; 
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        .header-left {
+            order: 1;
+            justify-content: space-between;
+        }
+        .header-center {
+            order: 3; 
+            margin-top: 10px;
+        }
+        .header-right {
+            order: 2;
+        }
+        .logo-mini, .exit-btn {
+            font-size: 1.1em;
+        }
+    }
+}
