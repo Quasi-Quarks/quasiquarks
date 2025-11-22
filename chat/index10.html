@@ -37,7 +37,8 @@
       </div>
       <div id="send_container">
         <textarea name="message" id="message" placeholder="message"></textarea>
-        <button type="submit">Send</button>
+        <button type="submit" id="sendButton">Send</button>
+
       </div>
     </form>
   </div>
@@ -296,12 +297,45 @@ function create_chat() {
   }
    scrollToLatestMessage();
 }
+let isSending = false;
 
 document.getElementById("chatForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
+  if (isSending) {
+    console.log("Already sending, ignoring extra submit");
+    return;
+  }
+
+  const usernameEl = document.getElementById("username");
+  const messageEl  = document.getElementById("message");
+  const fileEl     = document.getElementById("fileToUpload");
+
+  const username = (usernameEl.value || "").trim();
+  const message  = (messageEl.value  || "").trim();
+  const file     = fileEl.files[0];
+
+  // Front-end validation: must have username
+  if (!username) {
+    alert("Please enter a username");
+    return;
+  }
+
+  // Front-end validation: must have message or file (or both)
+  if (!message && !file) {
+    alert("Please type a message or choose a file");
+    return;
+  }
+
+  isSending = true;
+
   const form = document.getElementById("chatForm");
   const formData = new FormData(form);
+
+  const sendBtn = document.getElementById("sendButton");
+  if (sendBtn) {
+    sendBtn.disabled = true;
+  }
 
   try {
     const response = await fetch("https://quasiquarks.com/chat/insert.php", {
@@ -312,17 +346,26 @@ document.getElementById("chatForm").addEventListener("submit", async function (e
     const data = await response.json();
     console.log(data);
 
-    // Still do a full refresh; SSE will also send the new msg
-    //getChat();
-
     if (data.success) {
-      document.getElementById("message").value = "";
-      document.getElementById("fileToUpload").value = "";
+      messageEl.value = "";
+      fileEl.value = "";
+    } else {
+      // Optional: show server error if something went wrong
+      if (data.error) {
+        alert(data.error);
+      }
     }
   } catch (err) {
     console.error(err);
+  } finally {
+    isSending = false;
+    if (sendBtn) {
+      sendBtn.disabled = false;
+    }
   }
 });
+
+
 
 /// login from the form
 async function fetch_login() {

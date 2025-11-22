@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fabric.js Beginner Demo</title>
+
+  <!-- ✅ Load Fabric.js FIRST (correct URL) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    #canvas-wrapper { border: 1px solid #ddd; width: 400px; margin-bottom: 20px; }
+    button { margin: 5px; }
+  </style>
+</head>
+<body>
+
+<h2>Fabric.js Beginner Example</h2>
+
+<div id="canvas-wrapper">
+  <canvas id="c" width="400" height="400"></canvas>
+</div>
+
+<!-- Buttons -->
+<button onclick="addText()">Add Text</button>
+<button onclick="uploadImage()">Upload Image</button>
+<input type="file" id="imgUpload" style="display:none;" />
+
+<br>
+
+<button onclick="makeBigger()">Bigger Text</button>
+<button onclick="makeSmaller()">Smaller Text</button>
+<button onclick="changeColor()">Change Color</button>
+
+<br>
+
+<button onclick="downloadPNG()">Download PNG</button>
+
+<!-- ✅ Your code goes AFTER Fabric.js and AFTER the HTML -->
+<script>
+// 1. CREATE CANVAS
+var canvas = new fabric.Canvas('c');
+
+// 2. ADD TEXT
+function addText() {
+  var txt = new fabric.Textbox("Edit me", {
+    left: 100,
+    top: 100,
+    fontSize: 24,
+    fill: "black"
+  });
+  canvas.add(txt);
+  canvas.setActiveObject(txt);
+}
+
+// 3. UPLOAD IMAGE
+function uploadImage() {
+  document.getElementById("imgUpload").click();
+}
+
+document.getElementById("imgUpload").onchange = function(e) {
+  var file = e.target.files[0];
+  var reader = new FileReader();
+
+  reader.onload = function(f) {
+    fabric.Image.fromURL(f.target.result, function(img) {
+      img.scaleToWidth(200);
+      canvas.add(img);
+      canvas.setActiveObject(img);
+    });
+  };
+
+  reader.readAsDataURL(file);
+};
+
+// 4. TEXT CONTROLS
+function makeBigger() {
+  var obj = canvas.getActiveObject();
+  if (obj && obj.type === 'textbox') {
+    obj.fontSize += 4;
+    canvas.renderAll();
+  }
+}
+
+function makeSmaller() {
+  var obj = canvas.getActiveObject();
+  if (obj && obj.type === 'textbox') {
+    obj.fontSize -= 4;
+    canvas.renderAll();
+  }
+}
+
+function changeColor() {
+  var obj = canvas.getActiveObject();
+  if (obj) {
+    obj.set("fill", getRandomColor());
+    canvas.renderAll();
+  }
+}
+
+function getRandomColor() {
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
+
+// 5. EXPORT PNG
+function downloadPNG() {
+  var dataURL = canvas.toDataURL({ format: "png" });
+
+  var link = document.createElement("a");
+  link.href = dataURL;
+  link.download = "design.png";
+  link.click();
+}
+</script>
+
+</body>
+</html>

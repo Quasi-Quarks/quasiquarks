@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/fabric"></script>
+  <style>
+    #canvas-container {
+      width: 400px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align:center;">T-Shirt Customiser</h2>
+
+<div id="canvas-container">
+  <canvas id="shirtCanvas" width="400" height="500"></canvas>
+</div>
+
+<button onclick="addText()">Add Text</button>
+<button onclick="uploadImage()">Upload Image</button>
+<button onclick="downloadPNG()">Download PNG</button>
+
+<input type="file" id="imageInput" style="display:none" />
+
+<script>
+// Init Fabric canvas
+var canvas = new fabric.Canvas('shirtCanvas');
+
+// Add a default shirt background image (optional)
+fabric.Image.fromURL(
+  "https://i.imgur.com/8IhZ2yL.png",  // Replace with your blank shirt image
+  function(img) {
+    img.scaleToWidth(400);
+    canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+  }
+);
+
+// Add text
+function addText() {
+  var text = new fabric.Textbox("Your Text", {
+    left: 100,
+    top: 200,
+    fontSize: 30,
+    fill: "black"
+  });
+  canvas.add(text).setActiveObject(text);
+}
+
+// Upload image button
+function uploadImage() {
+  document.getElementById("imageInput").click();
+}
+
+// Upload image to canvas
+document.getElementById("imageInput").onchange = function (e) {
+  var file = e.target.files[0];
+  var reader = new FileReader();
+
+  reader.onload = function (f) {
+    fabric.Image.fromURL(f.target.result, function(img) {
+      img.scaleToWidth(150);
+      canvas.add(img);
+    });
+  };
+
+  reader.readAsDataURL(file);
+};
+
+// Download final design
+function downloadPNG() {
+  var dataURL = canvas.toDataURL({
+    format: 'png',
+    quality: 1
+  });
+
+  var link = document.createElement('a');
+  link.href = dataURL;
+  link.download = "shirt-design.png";
+  link.click();
+}
+</script>
+
+</body>
+</html>

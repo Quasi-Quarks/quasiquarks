@@ -1,0 +1,318 @@
+/* ============================================================
+   RESPONSIVE OVERRIDES FOR PHONES & TABLETS
+   (Desktop stays controlled by style.css + design-tool-style.css)
+   ============================================================ */
+
+
+/* ============================================================
+   1) TABLETS & LARGE PHONES  (<= 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #ffffff;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  #design-tool-header {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-left {
+    flex: 1 1 40%;
+  }
+
+  .header-center {
+    flex: 1 1 35%;
+    justify-content: center;
+  }
+
+  .header-right {
+    flex: 1 1 25%;
+    justify-content: flex-end;
+  }
+
+  .header-center button {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+  }
+
+  #get-quote-btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  /* ---------- MAIN LAYOUT STACK ---------- */
+
+  #design-studio {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+  }
+
+  .mockup-viewer {
+    order: 1;
+    width: 100%;
+    max-width: 900px;
+    padding: 16px 12px 20px;
+  }
+
+  .left-panel {
+    order: 2;
+  }
+
+  .right-panel {
+    order: 3;
+  }
+
+  .control-panel {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 12px;
+    border-left: none;
+    border-right: none;
+    padding: 14px 12px;
+  }
+
+  .control-panel h3 {
+    text-align: center;
+  }
+
+  .design-control-group {
+    margin-bottom: 14px;
+  }
+
+  /* ---------- CANVAS AREA ---------- */
+
+  /* Outer wrapper you created in HTML */
+  #canvas-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 16px;
+    border-width: 1px;
+  }
+
+  /* Inner wrapper Fabric.js generates around the canvas */
+  .mockup-viewer .canvas-container {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important; /* keep relative for Fabric’s coordinates */
+    user-select: none;
+  }
+
+  /* Both Fabric canvas layers fill the wrapper width */
+  .mockup-viewer .canvas-container canvas {
+    width: 100% !important;
+    height: auto !important;
+    left: 0 !important;
+    top: 0 !important;
+  }
+}
+
+
+/* ============================================================
+   2) PHONES  (<= 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* ---------- HEADER: 3 ROWS ---------- */
+
+  #design-tool-header {
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    flex-basis: 100%;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+
+  .header-left {
+    justify-content: space-between;
+  }
+
+  .logo-mini {
+    font-size: 1.05rem;
+  }
+
+  .exit-btn {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+  }
+
+  .header-center button {
+    margin: 0 3px;
+    font-size: 0.8rem;
+  }
+
+  #get-quote-btn {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- PANELS ---------- */
+
+  .control-panel {
+    padding: 12px 10px;
+  }
+
+  .control-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .design-control-group {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .design-control-group h4 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .item-selection,
+  .view-toggle {
+    gap: 6px;
+  }
+
+  .item-selection button,
+  .view-toggle button {
+    padding: 8px 4px;
+    font-size: 0.85rem;
+  }
+
+  .color-picker {
+    gap: 8px;
+  }
+
+  .color-swatch {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* ---------- CANVAS ---------- */
+
+  .mockup-viewer {
+    padding: 12px 10px 16px;
+  }
+
+  .mockup-viewer h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  #canvas-container {
+    max-width: 100%;
+    margin: 8px auto 14px;
+  }
+
+  .mockup-viewer .canvas-container {
+    width: 100% !important;
+  }
+
+  .mockup-viewer .canvas-container canvas {
+    width: 100% !important;
+  }
+
+  /* ---------- RIGHT PANEL FIELDS ---------- */
+
+  #add-text-input {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  #font-family-select {
+    padding: 8px;
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+
+  #add-text-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 0.95rem;
+  }
+
+  .gallery-graphics img {
+    width: 50px;
+    height: 50px;
+  }
+
+  footer {
+    padding: 12px 5%;
+    font-size: 0.8rem;
+  }
+}
+
+
+/* ============================================================
+   3) SMALL PHONES  (<= 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
+  .logo-mini {
+    font-size: 0.98rem;
+  }
+
+  .exit-btn {
+    font-size: 0.8rem;
+  }
+
+  .header-center button {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+
+  #get-quote-btn {
+    font-size: 0.9rem;
+    padding: 9px 10px;
+  }
+
+  .design-control-group {
+    padding: 8px;
+  }
+
+  .design-control-group h4 {
+    font-size: 0.9rem;
+  }
+
+  .item-selection button,
+  .view-toggle button {
+    font-size: 0.8rem;
+  }
+
+  .color-swatch {
+    width: 26px;
+    height: 26px;
+  }
+
+  #add-text-input {
+    font-size: 0.9rem;
+  }
+
+  #font-family-select,
+  #add-text-btn {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.75rem;
+  }
+}
