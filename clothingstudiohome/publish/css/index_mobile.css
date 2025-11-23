@@ -1,0 +1,210 @@
+/* ============================================================
+   MOBILE & TABLET RESPONSIVE STYLES FOR INDEX.HTML
+   ============================================================ */
+
+
+/* ============================================================
+   1) TABLETS (<= 1024px)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+
+    header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.3em;
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-basis: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 0.95em;
+    }
+
+    .cta-button {
+        flex-basis: 100%;
+        margin-top: 10px;
+        text-align: center;
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+    .service-list {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+
+/* ============================================================
+   2) PHONES (<= 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    /* ----- HEADER ----- */
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo h1 {
+        font-size: 1.2em;
+    }
+
+    nav ul {
+        gap: 6px;
+    }
+
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .cta-button {
+        padding: 10px 10px;
+        width: 100%;
+        font-size: 1em;
+        display: block;
+    }
+
+    /* ----- HERO ----- */
+    .hero {
+        padding: 40px 5%;
+        min-height: 45vh;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1.1em;
+    }
+
+    /* ----- SERVICES ----- */
+    .service-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    /* ----- GALLERY ----- */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        padding: 20px 0;
+    }
+
+    .gallery-item {
+        padding: 30px;
+        min-height: 160px;
+    }
+
+    /* ----- DESIGN TOOL PROMO ----- */
+    .design-tool p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .design-tool .primary-button {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1.1em;
+    }
+
+    /* ----- CONTACT FORM ----- */
+    .contact-form {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+
+    .contact-form button {
+        font-size: 1.05em;
+        padding: 12px;
+        width: 100%;
+    }
+}
+
+
+/* ============================================================
+   3) SMALL PHONES (<= 480px)
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 10px 10px;
+    }
+
+    .logo h1 {
+        font-size: 1.1em;
+    }
+
+    nav ul li a {
+        padding: 6px 8px;
+        font-size: 0.85em;
+    }
+
+    .cta-button {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+
+    /* HERO */
+    .hero h2 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    /* SERVICES */
+    .service-item {
+        padding: 15px;
+    }
+
+    /* GALLERY */
+    .gallery-item {
+        min-height: 140px;
+        padding: 20px;
+    }
+
+    /* CONTACT */
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 15px 5%;
+    }
+}
