@@ -237,52 +237,39 @@
   </div>
 
 </main>
-
 <script>
 function convertToEmbed(url) {
   try {
-    let videoId = "";
-
     if (!url) return null;
 
-    // Already an embed link
-    if (url.includes("embed/")) {
-      return url;
-    }
+    if (url.includes("embed/")) return url;
 
-    // https://www.youtube.com/watch?v=ID
     if (url.includes("watch?v=")) {
-      videoId = url.split("watch?v=")[1].split("&")[0];
-    }
-    // https://youtu.be/ID
-    else if (url.includes("youtu.be/")) {
-      videoId = url.split("youtu.be/")[1].split("?")[0];
-    }
-    // Fallback
-    else {
-      return url;
+      const videoId = url.split("watch?v=")[1].split("&")[0];
+      return "https://www.youtube.com/embed/" + videoId;
     }
 
-    return "https://www.youtube.com/embed/" + videoId;
+    if (url.includes("youtu.be/")) {
+      const videoId = url.split("youtu.be/")[1].split("?")[0];
+      return "https://www.youtube.com/embed/" + videoId;
+    }
+
+    return url;
   } catch (e) {
     console.error("Invalid YouTube URL:", url);
     return null;
   }
 }
 
-// AUTO RUN ON PAGE LOAD
-window.addEventListener("DOMContentLoaded", () => {
-  const iframes = document.querySelectorAll("iframe");
-
-  iframes.forEach(iframe => {
-    const originalSrc = iframe.getAttribute("src");
-    const newSrc = convertToEmbed(originalSrc);
-
-    if (newSrc && newSrc !== originalSrc) {
-      iframe.src = newSrc;
-      console.log("Converted →", newSrc);
-    }
-  });
+// Run immediately (script is at the bottom, so DOM is already present)
+const iframes = document.querySelectorAll("iframe");
+iframes.forEach(iframe => {
+  const originalSrc = iframe.getAttribute("src");
+  const newSrc = convertToEmbed(originalSrc);
+  if (newSrc && newSrc !== originalSrc) {
+    iframe.src = newSrc;
+    console.log("Converted →", newSrc);
+  }
 });
 </script>
 
