@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My PDF Library</title>
+<link href="style/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="menu">
+    <p>Introduction</p>
+    <p>Tawheed</p>
+    <p>Creed</p>
+    <p>Fiqh</p>
+    <p>Quran</p>
+  </div>
+
+
+
+<div id="pdf_container">
+  <div id="pdf_element">
+
+
+  </div>
+</di>
+  <div class="pdf-list">
+    <div class="pdf-item" onclick="loadPDF('book.pdf')">
+      📄 File 1 – Introduction
+    </div>
+  </div>
+
+  <!-- PDF Viewer inside the page -->
+  <iframe id="pdfViewer"></iframe>
+
+  <script>
+    function loadPDF(path) {
+      document.getElementById('pdfViewer').src = path;
+    }
+  </script>
+
+</body>
+</html>

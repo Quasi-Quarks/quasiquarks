@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* border: 2px solid red;  <-- use this only for debugging */
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui;
+      background: #ffffff;
+      color: #111;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      z-index: 60;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    a {
+      color: #007aff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 16px 0 32px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    p.hero-text {
+      max-width: 600px;
+      margin: auto;
+      opacity: 0.7;
+      padding: 0 12px;
+    }
+
+    /* Horizontal Scroll Section */
+    .scroll-section {
+      margin-top: 20px;
+      text-align: left;
+      padding-left: 16px;
+    }
+
+    .scroll-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .video-row {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      padding: 12px 0 20px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .video-row::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .video-row::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 10px;
+    }
+
+    /* Video Card — huge (80vw × 80vh) */
+    .video-card {
+      flex: 0 0 80vw;
+      max-width: 90vw;
+      min-width: 90vw;
+      scroll-snap-align: start;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      background: #000;
+      display: block;
+    }
+
+    .video-caption {
+      text-align: left;
+      padding: 14px;
+      background: #ffffff;
+      font-size: 1.1rem;
+      color: #333;
+      opacity: 0.9;
+      font-weight: 600;
+    }
+
+    .text-block {
+      max-width: 700px;
+      margin: auto;
+      opacity: 0.8;
+      padding: 0 14px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Dawah Lumen</div>
+  <a href="../index.html">Home</a>
+</header>
+
+<main>
+
+  <h1>Watch. Learn. Explore Islam</h1>
+  <!-- <p class="hero-text">New to Islam</p> -->
+
+  <div class="scroll-section">
+    <div class="scroll-title">Core Pillars of Islam</div>
+
+    <div class="video-row">
+
+      <!-- VIDEO 1 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=hzM3KN6j7kQ"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          5 Pillars of Islam
+        </div>
+      </div>
+
+      <!-- VIDEO 2 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=Xh-x-tVVHQ4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          6 Pillars of Imaan (Faith)
+        </div>
+      </div>
+
+      <!-- VIDEO 3 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=t6kp773M6HE"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          Deeper Dive into Imaan
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="scroll-section">
+    <div class="scroll-title">How to Pray</div>
+
+    <div class="video-row">
+
+      <!-- VIDEO 4 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=iWFMlUyB73A"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          How Do Muslims Shower (Ghusl)
+        </div>
+      </div>
+
+      <!-- VIDEO 5 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=CO5O3JBjgGI"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          How to Make Wudu – Correct Way
+        </div>
+      </div>
+
+      <!-- VIDEO 6 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=4zr6tNgmKSI"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          How Do Muslims Pray? (All 5 Prayers)
+        </div>
+      </div>
+
+      <!-- VIDEO 7 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=zalLv2NY98k"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          How to Pray – Step by Step Guide
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<script>
+function convertToEmbed(url) {
+  try {
+    let videoId = "";
+
+    if (!url) return null;
+
+    // Already an embed link
+    if (url.includes("embed/")) {
+      return url;
+    }
+
+    // https://www.youtube.com/watch?v=ID
+    if (url.includes("watch?v=")) {
+      videoId = url.split("watch?v=")[1].split("&")[0];
+    }
+    // https://youtu.be/ID
+    else if (url.includes("youtu.be/")) {
+      videoId = url.split("youtu.be/")[1].split("?")[0];
+    }
+    // Fallback
+    else {
+      return url;
+    }
+
+    return "https://www.youtube.com/embed/" + videoId;
+  } catch (e) {
+    console.error("Invalid YouTube URL:", url);
+    return null;
+  }
+}
+
+// AUTO RUN ON PAGE LOAD
+window.addEventListener("DOMContentLoaded", () => {
+  const iframes = document.querySelectorAll("iframe");
+
+  iframes.forEach(iframe => {
+    const originalSrc = iframe.getAttribute("src");
+    const newSrc = convertToEmbed(originalSrc);
+
+    if (newSrc && newSrc !== originalSrc) {
+      iframe.src = newSrc;
+      console.log("Converted →", newSrc);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

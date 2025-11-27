@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My PDF Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Top Menu -->
+  <div class="menu">
+    <p>Home</p>
+    <p>Tawheed</p>
+    <p>Introduction</p>
+    <p>Creed</p>
+    <p>Fiqh</p>
+    <p>Seerah</p>
+  </div>
+
+  <!-- PDF Cards Container -->
+  <div id="pdf_container">
+
+    <!-- BOOK 1 – Kitab at-Tawheed (matn + English) -->
+    <article class="pdf_element"
+             data-category="tawheed"
+             data-pdf="1 Kitaab at-Tawheed eng by ibn Abdul-Wahhaab.pdf"
+             data-title="Kitab at-Tawheed – The Book of Monotheism"
+             data-pages="130"
+             data-topic="Tawheed">
+
+      <div class="background tawheed-bg">
+        <div class="bg-inner">
+          <span class="arabic-title">كتاب التوحيد</span>
+          <h1 class="book-title">Kitab at-Tawheed</h1>
+          <p class="book-subtitle">The Book of Islamic Monotheism</p>
+        </div>
+      </div>
+  <div class="button-row">
+        <a class="btn open" onclick="loadPDF('1 Kitaab at-Tawheed eng by ibn Abdul-Wahhaab.pdf')">Open</a>
+        <a href="1 Kitaab at-Tawheed eng by ibn Abdul-Wahhaab.pdf" target="_blank" rel="noopener" class="btn open_tab">
+          Open Tab
+        </a>
+        <a href="1 Kitaab at-Tawheed eng by ibn Abdul-Wahhaab.pdf" download class="btn download">
+          Download
+        </a>
+      </div>
+      <div class="information">
+        <p>Pages: ~130 (varies by edition)</p>
+        <p>Topic: Tawheed (Islamic Monotheism)</p>
+        <p>Level: Core / Beginner–Intermediate</p>
+      </div>
+
+      <div class="context">
+        <div class="whatyouwilllearn">
+          <p class="topic">What you will learn:</p>
+          <p>
+            The foundations of Tawheed as explained by the Imams of the Salaf: 
+            singling out Allah in worship, understanding major and minor shirk, 
+            ruling on graves, amulets and intercession, and how Quranic ayat and 
+            authentic ahadith clarify the nullifiers of Tawheed.
+          </p>
+        </div>
+
+        <div class="author-background">
+          <p class="topic">About the book & author:</p>
+          <p>
+            Authored by Imam Muhammad ibn Abd al-Wahhab (rahimahullah), a scholar
+            of Najd upon the creed of the Salaf, this classic text gathers 
+            evidences on Tawheed al-Uluhiyyah, ar-Ruboobiyyah and al-Asma wa’s-Sifaat,
+            refuting practices of grave-worship, du‘a to the dead and other forms
+            of shirk that contradict pure worship of Allah alone.
+          </p>
+        </div>
+      </div>
+
+    
+    </article>
+
+    <!-- BOOK 2 – Explanation of Kitab at-Tawheed (general) -->
+    <article class="pdf_element"
+             data-category="tawheed"
+             data-pdf="2 Explanation of Kitaab At-Tawheed.pdf"
+             data-title="Explanation of Kitab at-Tawheed"
+             data-pages="600"
+             data-topic="Tawheed">
+
+      <div class="background tawheed-bg">
+        <div class="bg-inner">
+          <span class="arabic-title">شرح كتاب التوحيد</span>
+          <h1 class="book-title">Explanation of Kitab at-Tawheed</h1>
+          <p class="book-subtitle">A Detailed Salafi Commentary on Tawheed</p>
+        </div>
+      </div>
+        <div class="button-row">
+        <a class="btn open" onclick="loadPDF('2 Explanation of Kitaab At-Tawheed.pdf')">Open</a>
+        <a href="2 Explanation of Kitaab At-Tawheed.pdf" target="_blank" rel="noopener" class="btn open_tab">
+          Open Tab
+        </a>
+        <a href="2 Explanation of Kitaab At-Tawheed.pdf" download class="btn download">
+          Download
+        </a>
+      </div>
+      <div class="information">
+        <p>Pages: ~600 (commentary, varies by print)</p>
+        <p>Topic: Detailed Explanation of Tawheed</p>
+        <p>Level: Intermediate–Advanced</p>
+      </div>
+
+      <div class="context">
+        <div class="whatyouwilllearn">
+          <p class="topic">What you will learn:</p>
+          <p>
+            A deeper, chapter-by-chapter explanation of the issues raised in 
+            Kitab at-Tawheed: categories of worship, the meaning of la ilaha 
+            illa Allah, refutation of modern doubts, understanding riyaa’,
+            taweeq (amulets), seeking help from the dead, and practical ways 
+            to protect one’s Tawheed in everyday life.
+          </p>
+        </div>
+
+        <div class="author-background">
+          <p class="topic">About the commentary:</p>
+          <p>
+            This work presents a classical Salafi explanation of Imam Ibn 
+            Abd al-Wahhab’s text, relying on Qur’an, authentic Sunnah and the 
+            statements of the early scholars. It clarifies difficult phrases,
+            expands on key issues of ‘aqeedah and warns against the types of 
+            shirk and innovations that entered into the Ummah after the best
+            generations.
+          </p>
+        </div>
+      </div>
+
+      
+    </article>
+
+    <!-- BOOK 3 – Another print of Kitab at-Tawheed -->
+    <article class="pdf_element"
+             data-category="tawheed"
+             data-pdf="3 Kitaab At-Tauhid Sh. ibn Abdul-Wahhaab.pdf"
+             data-title="Kitab at-Tawheed – Verified Edition"
+             data-pages="130"
+             data-topic="Tawheed">
+
+      <div class="background tawheed-bg">
+        <div class="bg-inner">
+          <span class="arabic-title">كتاب التوحيد</span>
+          <h1 class="book-title">Kitab at-Tawheed (Matn)</h1>
+          <p class="book-subtitle">Core Text of Tawheed with Translation</p>
+        </div>
+      </div>
+        <div class="button-row">
+        <a class="btn open" onclick="loadPDF('3 Kitaab At-Tauhid Sh. ibn Abdul-Wahhaab.pdf')">Open</a>
+        <a href="3 Kitaab At-Tauhid Sh. ibn Abdul-Wahhaab.pdf" target="_blank" rel="noopener" class="btn open_tab">
+          Open Tab
+        </a>
+        <a href="3 Kitaab At-Tauhid Sh. ibn Abdul-Wahhaab.pdf" download class="btn download">
+          Download
+        </a>
+      </div>
+      <div class="information">
+        <p>Pages: ~130 (matn + translation)</p>
+        <p>Topic: Core Text in Tawheed</p>
+        <p>Level: Core / Beginner–Intermediate</p>
+      </div>
+
+      <div class="context">
+        <div class="whatyouwilllearn">
+          <p class="topic">What you will learn:</p>
+          <p>
+            The concise chapters of the original Book of Tawheed, each built 
+            around Qur’anic ayat and sahih ahadith. You will see how the Salaf 
+            understood Tawheed practically: in du‘a, fear, hope, love, slaughtering,
+            vows, seeking barakah and seeking help – all directed only to Allah.
+          </p>
+        </div>
+
+        <div class="author-background">
+          <p class="topic">About the book & author:</p>
+          <p>
+            This is another edition of the famous matn of Imam Muhammad ibn 
+            Abd al-Wahhab (rahimahullah). His writings, as explained by major
+            scholars like Ibn Baz, Ibn ‘Uthaymeen, al-Albani, as-Sa‘di and 
+            others, form a central reference in Salafi ‘aqeedah and da‘wah, 
+            calling Muslims back to pure worship of Allah alone.
+          </p>
+        </div>
+      </div>
+
+      
+    </article>
+
+    <!-- BOOK 4 – Explanation by Imam ‘Abd al-Rahman as-Sa‘di -->
+    <article class="pdf_element"
+             data-category="tawheed"
+             data-pdf="4 Kitaab-at-Tawhid exp sh. Abd-al-Rahman-as-Sadi.pdf"
+             data-title="Explanation of Kitab at-Tawheed – Imam ‘Abd al-Rahman as-Sa‘di"
+             data-pages="289"
+             data-topic="Tawheed">
+
+      <div class="background tawheed-bg">
+        <div class="bg-inner">
+          <span class="arabic-title">شرح كتاب التوحيد</span>
+          <h1 class="book-title">Sharh Kitab at-Tawheed</h1>
+          <p class="book-subtitle">Explanation by Imam ‘Abd al-Rahman as-Sa‘di</p>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <a class="btn open" onclick="loadPDF('4 Kitaab-at-Tawhid exp sh. Abd-al-Rahman-as-Sadi.pdf')">Open</a>
+        <a href="4 Kitaab-at-Tawhid exp sh. Abd-al-Rahman-as-Sadi.pdf" target="_blank" rel="noopener" class="btn open_tab">
+          Open Tab
+        </a>
+        <a href="4 Kitaab-at-Tawhid exp sh. Abd-al-Rahman-as-Sadi.pdf" download class="btn download">
+          Download
+        </a>
+      </div>
+
+      <div class="information">
+        <p>Pages: ~280–300 (varies by file/print)</p>
+        <p>Topic: Detailed Salafi Commentary</p>
+        <p>Level: Intermediate</p>
+      </div>
+
+      <div class="context">
+        <div class="whatyouwilllearn">
+          <p class="topic">What you will learn:</p>
+          <p>
+            A clear, easy-to-read explanation by Imam as-Sa‘di on every chapter 
+            of Kitab at-Tawheed: definitions, benefits, fiqh rulings of Tawheed, 
+            refutation of common doubts, and how Tawheed connects to qalb (heart),
+            manners and daily actions of the Muslim.
+          </p>
+        </div>
+
+        <div class="author-background">
+          <p class="topic">About the book & author:</p>
+          <p>
+            Imam ‘Abd al-Rahman ibn Nasir as-Sa‘di (rahimahullah) was a 
+            well-known Salafi scholar, teacher of Shaykh Ibn ‘Uthaymeen, and 
+            author of the tafsir <em>Taysir al-Karim ar-Rahman</em>. His books 
+            are characterised by clarity, strong evidence and gentle style, 
+            making this one of the most accessible explanations of Kitab at-Tawheed.
+          </p>
+        </div>
+      </div>
+
+      
+    </article>
+
+    <!-- BOOK 5 – Concise Commentary on the Book of Tawhid – Dr Salih al-Fawzan -->
+    <article class="pdf_element"
+             data-category="tawheed"
+             data-pdf="5 Concise Commentary on the Book of Tawhid.pdf"
+             data-title="Concise Commentary on the Book of Tawhid – Dr Salih al-Fawzan"
+             data-pages="493"
+             data-topic="Tawheed">
+
+      <div class="background tawheed-bg">
+        <div class="bg-inner">
+          <span class="arabic-title">التعليق المفيد على كتاب التوحيد</span>
+          <h1 class="book-title">Concise Commentary on Tawhid</h1>
+          <p class="book-subtitle">By Shaykh Dr Salih al-Fawzan</p>
+        </div>
+      </div>
+
+        <div class="button-row">
+        <a class="btn open" onclick="loadPDF('5 Concise Commentary on the Book of Tawhid.pdf')">Open</a>
+        <a href="5 Concise Commentary on the Book of Tawhid.pdf" target="_blank" rel="noopener" class="btn open_tab">
+          Open Tab
+        </a>
+        <a href="5 Concise Commentary on the Book of Tawhid.pdf" download class="btn download">
+          Download
+        </a>
+      </div>
+
+      <div class="information">
+        <p>Pages: ~490–500</p>
+        <p>Topic: Practical Explanation of Tawheed</p>
+        <p>Level: Intermediate–Advanced</p>
+      </div>
+
+      <div class="context">
+        <div class="whatyouwilllearn">
+          <p class="topic">What you will learn:</p>
+          <p>
+            A structured, modern commentary on Kitab at-Tawheed: each chapter 
+            is explained with simple language, practical examples and clear 
+            rulings. You’ll understand how issues like supplicating to graves, 
+            seeking blessings from trees, charms, fortunetelling and sacrificing
+            for other than Allah all oppose Tawheed.
+          </p>
+        </div>
+
+        <div class="author-background">
+          <p class="topic">About the book & author:</p>
+          <p>
+            Written by Shaykh Dr Salih al-Fawzan (hafizhahullah), a senior 
+            scholar of the Kingdom of Saudi Arabia, member of the Council of 
+            Senior Scholars, known for his strong Salafi ‘aqeedah and clear 
+            refutations of shirk and bid‘ah. This commentary is widely used 
+            in institutes and masajid that teach Salafi ‘aqeedah.
+          </p>
+        </div>
+      </div>
+
+      
+    </article>
+
+    <!-- BOOK 6 – Explanation of Kitab at-Tawheed – Shaykh Salih al-Fawzan (larger set) -->
+    <article class="pdf_element"
+             data-category="tawheed"
+             data-pdf="6 Kitab-at-tawheed exp sh. salih al-fawzan.pdf"
+             data-title="Explanation of Kitab at-Tawheed – Shaykh Salih al-Fawzan"
+             data-pages="568"
+             data-topic="Tawheed">
+
+      <div class="background tawheed-bg">
+        <div class="bg-inner">
+          <span class="arabic-title">القول المفيد على كتاب التوحيد</span>
+          <h1 class="book-title">Sharh Kitab at-Tawheed</h1>
+          <p class="book-subtitle">Detailed Explanation by Shaykh Salih al-Fawzan</p>
+        </div>
+      </div>
+
+        <div class="button-row">
+        <a class="btn open" onclick="loadPDF('6 Kitab-at-tawheed exp sh. salih al-fawzan.pdf')">Open</a>
+        <a href="6 Kitab-at-tawheed exp sh. salih al-fawzan.pdf" target="_blank" rel="noopener" class="btn open_tab">
+          Open Tab
+        </a>
+        <a href="6 Kitab-at-tawheed exp sh. salih al-fawzan.pdf" download class="btn download">
+          Download
+        </a>
+      </div>
+
+      <div class="information">
+        <p>Pages: ~550–600 (multi-volume in print)</p>
+        <p>Topic: Detailed Lesson-Style Explanation</p>
+        <p>Level: Advanced Student</p>
+      </div>
+
+      <div class="context">
+        <div class="whatyouwilllearn">
+          <p class="topic">What you will learn:</p>
+          <p>
+            A thorough, lesson-based explanation of every chapter: definition 
+            of Tawheed, types of shirk, categories of people regarding Tawheed, 
+            the connection between Tawheed and al-Qadr, and many contemporary 
+            examples of shirk and superstition. Ideal for serious study circles
+            and note-taking.
+          </p>
+        </div>
+
+        <div class="author-background">
+          <p class="topic">About the book & author:</p>
+          <p>
+            This explanation compiles the classes and writings of Shaykh Salih 
+            al-Fawzan (hafizhahullah) on Kitab at-Tawheed. His approach is
+            firmly Salafi, emphasising adherence to Qur’an and Sunnah on the
+            understanding of the Sahabah, and warning strongly against all 
+            forms of ghuluw (exaggeration) and shirk in the Ummah.
+          </p>
+        </div>
+      </div>
+
+      
+    </article>
+
+  </div>
+
+  <!-- FULLSCREEN PDF VIEWER OVERLAY -->
+  <div id="pdf_overlay">
+    <div id="pdf_topbar">
+      <button id="closeViewer">Exit ✕</button>
+      <a id="openTabBtn" target="_blank" class="top_btn">Open Tab</a>
+      <a id="downloadBtn" download class="top_btn">Download</a>
+    </div>
+    <iframe id="pdfFullscreenViewer"></iframe>
+  </div>
+
+  <script>
+    function loadPDF(path) {
+      document.getElementById('pdf_overlay').style.display = 'flex';
+      document.getElementById('pdfFullscreenViewer').src = path;
+      document.getElementById('openTabBtn').href = path;
+      document.getElementById('downloadBtn').href = path;
+    }
+
+    document.getElementById('closeViewer').onclick = function () {
+      document.getElementById('pdf_overlay').style.display = 'none';
+      document.getElementById('pdfFullscreenViewer').src = "";
+    };
+  </script>
+
+</body>
+</html>

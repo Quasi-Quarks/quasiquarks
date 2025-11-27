@@ -1,0 +1,304 @@
+/* === BASIC RESET & VARIABLES === */
+
+:root {
+  --bg-main: #050816;
+  --bg-soft: #070b18;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #22c55e;
+  --accent-dark: #15803d;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* === HEADER (very simple) === */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(5, 8, 22, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #111827;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+}
+
+.logo-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.nav-link:hover {
+  background: #0b1120;
+  color: var(--text-main);
+}
+
+.nav-link.active {
+  background: #0b1120;
+  color: var(--text-main);
+}
+
+/* === HERO SECTION === */
+
+.hero {
+  /* Big, tall, full-width section (Apple-style) */
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  display: flex;
+  gap: 40px;
+}
+
+/* Two flex columns: text + visual */
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* You can set a full background image for the whole hero section here if you like: */
+/*
+.hero {
+  background-image: url('../images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+*/
+
+.hero-tagline {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 4vw, 42px);
+  margin: 0 0 8px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0 0 20px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Hero image placeholder box */
+
+.hero-image {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  background: #020617;
+  border: 1px solid #1f2937;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Instead of the placeholder, you can put a background image here:
+
+.hero-image {
+  background-image: url('../images/hero-artwork.jpg');
+  background-size: cover;
+  background-position: center;
+  border: none;
+  color: transparent;  // hide the text
+}
+*/
+
+/* === BUTTONS === */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #022c22;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-main);
+  border-color: #1f2937;
+}
+
+/* === TOPICS SECTION === */
+
+.topics {
+  background: var(--bg-soft);
+  padding: 40px 0 50px;
+  border-top: 1px solid #111827;
+}
+
+.topics-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Each row is a simple flex row of big tiles */
+
+.topics-row {
+  display: flex;
+  gap: 16px;
+}
+
+.topics-row-center {
+  justify-content: center;
+}
+
+/* Topic cards: big, simple tiles */
+
+.topic-card {
+  flex: 1;
+  min-height: 150px;
+  border-radius: var(--radius-md);
+  background: #020617;
+  border: 1px solid #1f2937;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* If you want images for each tile, you can put them as background-image here, per topic:
+   e.g. for Quran page:
+
+.topic-card[href*="quran"] {
+  background-image: url('../images/quran-tile.jpg');
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+*/
+
+.topic-card h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.topic-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* === FOOTER === */
+
+.footer {
+  padding: 16px 24px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid #111827;
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column;
+  }
+
+  .hero-visual {
+    width: 100%;
+  }
+
+  .nav {
+    display: none; /* keep it simple for now; you can add a mobile menu later */
+  }
+}
+
+@media (max-width: 640px) {
+  .topics-row {
+    flex-direction: column;
+  }
+}

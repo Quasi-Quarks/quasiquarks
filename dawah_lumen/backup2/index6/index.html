@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dawah Library</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+
+  <!-- SIMPLE HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">Dawah Library</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="introduction.html" class="nav-link">Introduction</a>
+        <a href="tawheed.html" class="nav-link">Tawheed</a>
+        <a href="aqeedah.html" class="nav-link">Aqeedah</a>
+        <a href="fiqh.html" class="nav-link">Fiqh</a>
+        <a href="quran.html" class="nav-link">Quran</a>
+        <a href="hadeeth.html" class="nav-link">Hadeeth</a>
+        <a href="seerah.html" class="nav-link">Seerah</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- SECTION 1: BIG HERO, FULL WIDTH, TALL -->
+    <section class="hero">
+      <!-- You will put the BIG background image in CSS: .hero::before -->
+      <div class="hero-inner">
+        <div class="hero-left">
+          <p class="hero-label">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْم</p>
+          <h1 class="hero-title">Islamic PDFs, organised and simple.</h1>
+          <p class="hero-subtitle">Choose a section and start reading.</p>
+
+          <div class="hero-buttons">
+            <a href="introduction.html" class="btn primary">Start with Introduction</a>
+            <a href="#topics" class="btn ghost">Browse all topics</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- This box is just a visual placeholder.
+               You can replace it with any image or PDF artwork. -->
+          <div class="hero-box">
+            <div class="hero-box-inner">
+              <span class="hero-box-label">Your hero artwork / image here</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TOPIC TILES, VISUAL, FLEXBOX -->
+    <section id="topics" class="topics">
+      <div class="topics-inner">
+
+        <div class="topics-row">
+          <!-- Each card is a flex column. You can add background images in CSS. -->
+          <a href="introduction.html" class="topic-card topic-intro">
+            <div class="topic-overlay">
+              <h2>Introduction</h2>
+              <span>Foundations</span>
+            </div>
+          </a>
+
+          <a href="tawheed.html" class="topic-card topic-tawheed">
+            <div class="topic-overlay">
+              <h2>Tawheed</h2>
+              <span>Oneness of Allah</span>
+            </div>
+          </a>
+
+          <a href="aqeedah.html" class="topic-card topic-aqeedah">
+            <div class="topic-overlay">
+              <h2>Aqeedah</h2>
+              <span>Creed & belief</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="topics-row">
+          <a href="fiqh.html" class="topic-card topic-fiqh">
+            <div class="topic-overlay">
+              <h2>Fiqh</h2>
+              <span>Worship & rulings</span>
+            </div>
+          </a>
+
+          <a href="quran.html" class="topic-card topic-quran">
+            <div class="topic-overlay">
+              <h2>Quran</h2>
+              <span>Tafseer & recitation</span>
+            </div>
+          </a>
+
+          <a href="hadeeth.html" class="topic-card topic-hadeeth">
+            <div class="topic-overlay">
+              <h2>Hadeeth</h2>
+              <span>Collections & شرح</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="topics-row topics-row-center">
+          <a href="seerah.html" class="topic-card topic-seerah">
+            <div class="topic-overlay">
+              <h2>Seerah</h2>
+              <span>Life of the Prophet ﷺ</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Dawah Library • الحمد لله</p>
+  </footer>
+
+</body>
+</html>

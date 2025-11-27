@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dawah Library</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">
+        <span class="brand-mark-inner"></span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">Dawah Library</span>
+        <span class="brand-subtitle">Islamic PDF Collection</span>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="introduction.html" class="nav-link">Introduction</a>
+      <a href="tawheed.html" class="nav-link">Tawheed</a>
+      <a href="aqeedah.html" class="nav-link">Aqeedah</a>
+      <a href="fiqh.html" class="nav-link">Fiqh</a>
+      <a href="quran.html" class="nav-link">Quran</a>
+      <a href="hadeeth.html" class="nav-link">Hadeeth</a>
+      <a href="seerah.html" class="nav-link">Seerah</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO: FULL WIDTH VISUAL SECTION -->
+    <section class="hero">
+      <!-- This overlay + image will fill width 100%. You’ll set the actual image in CSS. -->
+      <div class="hero-bg"></div>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="hero-label">
+            <span class="label-dot"></span>
+            <span class="label-text">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْم</span>
+          </div>
+
+          <h1>Clear, organised Islamic knowledge.</h1>
+
+          <p class="hero-subtitle">
+            A visual library of PDFs across the core topics of the dīn.
+          </p>
+
+          <div class="hero-actions">
+            <a href="introduction.html" class="btn btn-primary">Begin with foundations</a>
+            <a href="#topics" class="btn btn-ghost">Explore all topics</a>
+          </div>
+        </div>
+
+        <!-- Visual stack on the right (you’ll add images to each tile via CSS) -->
+        <div class="hero-visual">
+          <div class="hero-card hero-card--primary">
+            <div class="hero-card-overlay">
+              <span class="hero-card-tag">Tawheed</span>
+              <span class="hero-card-title">Oneness of Allah</span>
+            </div>
+          </div>
+
+          <div class="hero-card hero-card--secondary">
+            <div class="hero-card-overlay">
+              <span class="hero-card-tag">Quran</span>
+              <span class="hero-card-title">Recitation &amp; Tafseer</span>
+            </div>
+          </div>
+
+          <div class="hero-card hero-card--tertiary">
+            <div class="hero-card-overlay">
+              <span class="hero-card-tag">Seerah</span>
+              <span class="hero-card-title">Life of the Prophet ﷺ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPIC TILES: BIG, VISUAL, CLICKABLE -->
+    <section id="topics" class="section-tiles">
+      <div class="section-inner">
+        <div class="section-header-minimal">
+          <h2>Browse the library</h2>
+          <p>Tap a section to see its PDFs.</p>
+        </div>
+
+        <div class="tiles-grid">
+          <!-- Each tile gets its own background image via CSS (.tile--intro, etc.) -->
+
+          <a href="introduction.html" class="tile tile--intro">
+            <div class="tile-overlay">
+              <h3>Introduction</h3>
+              <span class="tile-tag">Start here</span>
+            </div>
+          </a>
+
+          <a href="tawheed.html" class="tile tile--tawheed">
+            <div class="tile-overlay">
+              <h3>Tawheed</h3>
+              <span class="tile-tag">Oneness of Allah</span>
+            </div>
+          </a>
+
+          <a href="aqeedah.html" class="tile tile--aqeedah">
+            <div class="tile-overlay">
+              <h3>Aqeedah</h3>
+              <span class="tile-tag">Core creed</span>
+            </div>
+          </a>
+
+          <a href="fiqh.html" class="tile tile--fiqh">
+            <div class="tile-overlay">
+              <h3>Fiqh</h3>
+              <span class="tile-tag">Rulings &amp; worship</span>
+            </div>
+          </a>
+
+          <a href="quran.html" class="tile tile--quran">
+            <div class="tile-overlay">
+              <h3>Quran</h3>
+              <span class="tile-tag">Tafseer &amp; tilawah</span>
+            </div>
+          </a>
+
+          <a href="hadeeth.html" class="tile tile--hadeeth">
+            <div class="tile-overlay">
+              <h3>Hadeeth</h3>
+              <span class="tile-tag">Collections &amp; شرح</span>
+            </div>
+          </a>
+
+          <a href="seerah.html" class="tile tile--seerah">
+            <div class="tile-overlay">
+              <h3>Seerah</h3>
+              <span class="tile-tag">Life of the Prophet ﷺ</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Dawah Library • Built for study and benefit • الحمد لله</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,354 @@
+/* === BASIC RESET & TOKENS === */
+
+:root {
+  --bg-main: #040715;
+  --bg-soft: #060a1b;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --accent: #22c55e;
+  --accent-dark: #15803d;
+  --border-soft: #111827;
+  --radius-lg: 26px;
+  --radius-md: 18px;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* === TOP NAV BAR === */
+
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(4, 7, 21, 0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-main);
+}
+
+.nav-logo-symbol {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+}
+
+.nav-logo-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-item {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.nav-item:hover {
+  background: #0b1120;
+  color: var(--text-main);
+}
+
+.nav-item.active {
+  background: #0b1120;
+  color: var(--text-main);
+}
+
+/* === PAGE WRAPPER === */
+
+.page {
+  min-height: 100vh;
+}
+
+/* === HERO BLOCK (TALL SECTION) === */
+
+.hero-block {
+  position: relative;
+  width: 100%;
+  min-height: 85vh; /* big tall section */
+  display: flex;
+  align-items: center;
+}
+
+/* full-width background image area */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(4, 7, 21, 0.85), rgba(4, 7, 21, 0.97)),
+    radial-gradient(circle at top left, rgba(34, 197, 94, 0.35), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.35), transparent 55%);
+  /* you can replace this with your own image, e.g.:
+     background-image:
+       linear-gradient(to bottom, rgba(4,7,21,0.8), rgba(4,7,21,0.96)),
+       url('../images/hero-background.jpg');
+     background-size: cover;
+     background-position: center;
+  */
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+  display: flex;
+  gap: 40px;
+}
+
+/* two columns: text + art */
+
+.hero-text-block {
+  flex: 1;
+}
+
+.hero-art-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Islamic touch: Bismillah line */
+
+.hero-bismillah {
+  display: inline-block;
+  font-size: 14px;
+  margin: 0 0 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(4, 7, 21, 0.85);
+  direction: rtl;
+}
+
+.hero-heading {
+  font-size: clamp(32px, 4vw, 42px);
+  margin: 0 0 10px;
+}
+
+.hero-subheading {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0 0 22px;
+}
+
+.hero-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.hero-button.primary {
+  background: var(--accent);
+  color: #022c22;
+}
+
+.hero-button.secondary {
+  background: transparent;
+  color: var(--text-main);
+  border-color: #1f2937;
+}
+
+/* hero art frame */
+
+.hero-art-frame {
+  width: 100%;
+  max-width: 430px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  background: #020617;
+  border: 1px solid #1f2937;
+  overflow: hidden;
+}
+
+.hero-art-slot {
+  width: 100%;
+  height: 100%;
+  /* If you want, set a background image here instead of using text:
+     background-image: url('../images/hero-art.jpg');
+     background-size: cover;
+     background-position: center;
+     color: transparent;
+  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* === SECTIONS / TOPIC TILES BLOCK === */
+
+.sections-block {
+  background: var(--bg-soft);
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.sections-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sections-header h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.sections-header p {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* big grid of tiles */
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.section-tile {
+  position: relative;
+  min-height: 140px;
+  border-radius: var(--radius-md);
+  background: #020617;
+  border: 1px solid #1f2937;
+  text-decoration: none;
+  color: var(--text-main);
+  overflow: hidden;
+}
+
+/* inner content */
+
+.section-tile-inner {
+  position: absolute;
+  inset: 0;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to top, rgba(4, 7, 21, 0.8), transparent 40%);
+}
+
+/* subtle Islamic “colour codes” per topic
+   (you can replace with background-images instead) */
+
+.tile-intro {
+  background: linear-gradient(135deg, #4b5563, #020617);
+}
+
+.tile-tawheed {
+  background: linear-gradient(135deg, #16a34a, #020617);
+}
+
+.tile-aqeedah {
+  background: linear-gradient(135deg, #0ea5e9, #020617);
+}
+
+.tile-fiqh {
+  background: linear-gradient(135deg, #eab308, #020617);
+}
+
+.tile-quran {
+  background: linear-gradient(135deg, #2563eb, #020617);
+}
+
+.tile-hadeeth {
+  background: linear-gradient(135deg, #ef4444, #020617);
+}
+
+.tile-seerah {
+  background: linear-gradient(135deg, #ec4899, #020617);
+}
+
+.section-tile-inner h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.section-tile-inner p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* === FOOTER === */
+
+.page-footer {
+  padding: 14px 20px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-soft);
+}
+
+/* === RESPONSIVE === */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none; /* keep desktop nav only for now */
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-art-block {
+    width: 100%;
+  }
+}

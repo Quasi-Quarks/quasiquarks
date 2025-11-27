@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog - Lorem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        system-ui, -system-ui, "Segoe UI", sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.86);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.75);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 16px 60px;
+    }
+
+    /* Hero / Intro */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5.2vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      opacity: 0.78;
+    }
+
+    /* Blog Layout */
+    .blog-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      margin-top: 40px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .post-card {
+      background: #f5f5f7;
+      border-radius: 22px;
+      padding: 20px 18px 20px;
+      text-align: left;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+    }
+
+    .post-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.65;
+      margin-bottom: 4px;
+    }
+
+    .post-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .post-meta {
+      font-size: 0.78rem;
+      opacity: 0.6;
+      margin-bottom: 10px;
+    }
+
+    .post-excerpt {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 14px;
+    }
+
+    .post-actions {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.18s ease,
+                  color 0.18s ease,
+                  border-color 0.18s ease,
+                  transform 0.12s ease;
+    }
+
+    .btn-primary {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #111111;
+      border-color: rgba(0,0,0,0.22);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      filter: brightness(0.96);
+    }
+
+    /* Footer */
+    footer {
+      padding: 22px 18px 28px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.55);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    /* Larger screens */
+    @media (min-width: 800px) {
+      main {
+        padding: 50px 40px 70px;
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .post-card {
+        padding: 24px 22px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">LOREM</div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="videos.html" class="nav-link">Videos</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <h1 class="hero-title">God is one</h1>
+        <p class="hero-subtitle">
+          Dawah Blogs
+        </p>
+      </section>
+
+      <!-- Blog posts -->
+      <section class="blog-wrapper">
+        <div class="blog-grid">
+          <!-- Post 1 -->
+          <article class="post-card">
+            <div class="post-label">Featured</div>
+            <h2 class="post-title">God is one</h2>
+            <div class="post-meta">January 10, 2025 • 4 min read</div>
+            <p class="post-excerpt">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse euismod, orci sit amet luctus aliquet, lorem nisl
+              convallis lectus, id dictum purus augue a lorem.
+            </p>
+            <div class="post-actions">
+              <a href="jesus_not_god.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="post-card">
+            <div class="post-label">Article</div>
+            <h2 class="post-title">Consectetur adipiscing elit</h2>
+            <div class="post-meta">January 6, 2025 • 3 min read</div>
+            <p class="post-excerpt">
+              Consectetur adipiscing elit. Aenean rhoncus velit vitae felis
+              cursus bibendum. Sed consequat, magna ut dapibus sodales, ligula
+              urna accumsan nisl, sed sodales mi massa vel mi.
+            </p>
+            <div class="post-actions">
+              <a href="page.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="post-card">
+            <div class="post-label">Update</div>
+            <h2 class="post-title">Sed do eiusmod tempor</h2>
+            <div class="post-meta">December 28, 2024 • 5 min read</div>
+            <p class="post-excerpt">
+              Sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Vitae semper quis lectus nulla at volutpat diam ut.
+            </p>
+            <div class="post-actions">
+              <a href="page.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="post-card">
+            <div class="post-label">Story</div>
+            <h2 class="post-title">Ut enim ad minim veniam</h2>
+            <div class="post-meta">December 15, 2024 • 6 min read</div>
+            <p class="post-excerpt">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate.
+            </p>
+            <div class="post-actions">
+              <a href="page.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. © 2025
+    </footer>
+  </div>
+</body>
+</html>

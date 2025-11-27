@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dawah Library – Horizontal Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ==== BASE ==== */
+    :root {
+      --bg-page: #f5f5f7;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --shadow-soft: 0 26px 70px rgba(15, 23, 42, 0.25);
+      --radius-xl: 32px;
+      --radius-pill: 999px;
+      --transition-fast: 180ms ease-out;
+      --transition-med: 260ms ease;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden; /* we control scroll on the main gallery */
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-page);
+      color: var(--text-main);
+    }
+
+    /* ==== TOP CHROME (LOGO + HINT) ==== */
+
+    .chrome {
+      position: fixed;
+      inset-inline: 0;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 22px;
+      pointer-events: none;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      pointer-events: auto;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 20% 0, #e5e7eb, transparent 55%),
+        radial-gradient(circle at 80% 100%, #d1d5db, transparent 60%),
+        #111827;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .scroll-hint {
+      pointer-events: auto;
+      font-size: 11px;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #111827;
+    }
+
+    /* ==== HORIZONTAL GALLERY WRAPPER ==== */
+
+    .gallery {
+      position: absolute;
+      inset: 0;
+      padding-top: 54px; /* space for chrome */
+      background: #f5f5f7;
+    }
+
+    .strip {
+      display: flex;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .strip::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .strip::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .strip::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.7);
+      border-radius: 999px;
+    }
+
+    /* ==== PANELS (SLIDES) ==== */
+
+    .panel {
+      position: relative;
+      flex: 0 0 100vw; /* full viewport width */
+      height: calc(100vh - 54px); /* below chrome */
+      scroll-snap-align: start;
+      padding: 34px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .panel-inner {
+      max-width: 1040px;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+      background-color: #000; /* fallback before you add images */
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 38px 42px;
+    }
+
+    /* BACKGROUND IMAGE AREA: you will set background-image on .panel-inner via topic classes */
+
+    .panel-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.94;
+      z-index: 0;
+    }
+
+    /* OVERLAYS for readability */
+
+    .panel-inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.72),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.24)
+      );
+      z-index: 0;
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 1;
+      color: #f9fafb;
+      max-width: 420px;
+    }
+
+    .panel-tag {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(249, 250, 251, 0.7);
+      background: rgba(0, 0, 0, 0.36);
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .panel-tag-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: #f9fafb;
+    }
+
+    .panel-title {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .panel-sub {
+      font-size: 14px;
+      opacity: 0.86;
+      margin-bottom: 16px;
+    }
+
+    .panel-meta {
+      font-size: 12px;
+      opacity: 0.8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .panel-pill {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(249, 250, 251, 0.4);
+    }
+
+    /* ==== TOPIC-SPECIFIC BACKGROUNDS (YOU PLUG IMAGES HERE) ==== */
+
+    /* Example:
+       background-image: url('images/hero-intro.jpg');
+       Replace the placeholder gradients with your own images.
+    */
+
+    .panel.hero .panel-inner::before {
+      background-image: radial-gradient(circle at 10% 0, #f3f4f6, transparent 55%),
+        linear-gradient(135deg, #0f172a, #111827 40%, #020617 100%);
+    }
+
+    .panel.introduction .panel-inner::before {
+      background-image: linear-gradient(135deg, #111827, #4b5563);
+    }
+
+    .panel.tawheed .panel-inner::before {
+      background-image: linear-gradient(135deg, #022c22, #047857);
+    }
+
+    .panel.aqeedah .panel-inner::before {
+      background-image: linear-gradient(135deg, #0f172a, #1f2937);
+    }
+
+    .panel.fiqh .panel-inner::before {
+      background-image: linear-gradient(135deg, #7c2d12, #b45309);
+    }
+
+    .panel.quran .panel-inner::before {
+      background-image: linear-gradient(135deg, #0f172a, #1d4ed8);
+    }
+
+    .panel.hadeeth .panel-inner::before {
+      background-image: linear-gradient(135deg, #111827, #991b1b);
+    }
+
+    .panel.seerah .panel-inner::before {
+      background-image: linear-gradient(135deg, #111827, #4b5563);
+    }
+
+    /* ==== RESPONSIVE ==== */
+
+    @media (max-width: 768px) {
+      body {
+        overflow: auto; /* allow vertical scroll on small screens */
+      }
+
+      .gallery {
+        position: relative;
+        height: auto;
+      }
+
+      .strip {
+        flex-direction: column;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+      }
+
+      .panel {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        padding: 18px 16px 32px;
+      }
+
+      .panel-inner {
+        height: 420px;
+        padding: 26px 24px;
+      }
+
+      .chrome {
+        position: static;
+        padding: 10px 16px 0;
+      }
+
+      .gallery {
+        padding-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED TOP CHROME -->
+  <div class="chrome">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <span class="brand-title">Dawah Library</span>
+        <span class="brand-subtitle">Islamic PDF Collection</span>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-dot"></span>
+      <span>Scroll sideways (trackpad or shift + scroll)</span>
+    </div>
+  </div>
+
+  <!-- HORIZONTAL GALLERY -->
+  <div class="gallery">
+    <div class="strip">
+
+      <!-- PANEL 1: HERO -->
+      <section class="panel hero">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Dawah Library</span>
+            </div>
+            <h1 class="panel-title">
+              Discover Islamic knowledge.<br>
+              Calm, focused, organised.
+            </h1>
+            <p class="panel-sub">
+              A sideways journey through your topics: Introduction, Tawheed, Aqeedah, Fiqh,
+              Quran, Hadeeth and Seerah. Each one a dedicated space with its own PDFs.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Scroll → to explore topics</span>
+              <span class="panel-pill">Built for reading, not noise</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 2: INTRODUCTION -->
+      <section class="panel introduction">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Introduction</span>
+            </div>
+            <h2 class="panel-title">
+              Start with the basics.
+            </h2>
+            <p class="panel-sub">
+              Overview PDFs that introduce Islam, core beliefs and main pillars — perfect for
+              new Muslims, family, or da&#39;wah material.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Foundations</span>
+              <span class="panel-pill">Clear summaries</span>
+              <span class="panel-pill">Gentle starting point</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 3: TAWHEED -->
+      <section class="panel tawheed">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Tawheed</span>
+            </div>
+            <h2 class="panel-title">
+              Pure monotheism.
+            </h2>
+            <p class="panel-sub">
+              PDFs focused on the oneness of Allah, His rights, types of Tawheed, and refuting
+              common forms of shirk.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Usool Ath-Thalatha</span>
+              <span class="panel-pill">Kitaab At-Tawheed</span>
+              <span class="panel-pill">Foundations of belief</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 4: AQEEDAH -->
+      <section class="panel aqeedah">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Aqeedah</span>
+            </div>
+            <h2 class="panel-title">
+              Creed in detail.
+            </h2>
+            <p class="panel-sub">
+              Creed-related PDFs: pillars of Eemaan, Names and Attributes of Allah, belief in
+              Qadar, the unseen, and the hereafter.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Core belief</span>
+              <span class="panel-pill">Classical explanations</span>
+              <span class="panel-pill">Clarity over confusion</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 5: FIQH -->
+      <section class="panel fiqh">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Fiqh</span>
+            </div>
+            <h2 class="panel-title">
+              Worship and daily rulings.
+            </h2>
+            <p class="panel-sub">
+              Purification, prayer, zakah, fasting, hajj and everyday matters — organised as
+              simple manuals and study texts.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Step-by-step rulings</span>
+              <span class="panel-pill">Practical worship</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 6: QURAN -->
+      <section class="panel quran">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Quran</span>
+            </div>
+            <h2 class="panel-title">
+              Tafseer and recitation.
+            </h2>
+            <p class="panel-sub">
+              Short tafseer PDFs, memorisation guides, tajweed notes and reflections organised
+              for regular reading.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Tafseer notes</span>
+              <span class="panel-pill">Memorisation helpers</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 7: HADEETH -->
+      <section class="panel hadeeth">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Hadeeth</span>
+            </div>
+            <h2 class="panel-title">
+              Words of the Prophet ﷺ.
+            </h2>
+            <p class="panel-sub">
+              Collections, explanations and small compilations — easy to read, revise and share
+              in classes or reminders.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Core collections</span>
+              <span class="panel-pill">Brief explanations</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 8: SEERAH -->
+      <section class="panel seerah">
+        <div class="panel-inner">
+          <div class="panel-content">
+            <div class="panel-tag">
+              <span class="panel-tag-dot"></span>
+              <span>Seerah</span>
+            </div>
+            <h2 class="panel-title">
+              Life of the Prophet ﷺ.
+            </h2>
+            <p class="panel-sub">
+              Timeline-style PDFs, story-based summaries and more detailed seerah works for
+              deeper study.
+            </p>
+            <div class="panel-meta">
+              <span class="panel-pill">Events & lessons</span>
+              <span class="panel-pill">Chronological study</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+</html>

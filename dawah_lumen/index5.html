@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lorem Ipsum – Article</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        system-ui, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.86);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.75);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    /* Layout */
+    main {
+      flex: 1;
+      padding: 40px 18px 60px;
+    }
+
+    .article-shell {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Article header */
+    .article-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.6;
+      margin-bottom: 6px;
+    }
+
+    .article-title {
+      font-size: clamp(2.1rem, 5vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .article-meta {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-bottom: 24px;
+    }
+
+    .article-hero {
+      background: #f5f5f7;
+      border-radius: 24px;
+      padding: 22px 20px;
+      margin-bottom: 28px;
+    }
+
+    .article-hero-text {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    /* Article content */
+    .article-body {
+      font-size: 0.98rem;
+      color: #111111;
+    }
+
+    .article-body p {
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .article-body h2 {
+      font-size: 1.4rem;
+      margin: 28px 0 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-body h3 {
+      font-size: 1.15rem;
+      margin: 22px 0 8px;
+    }
+
+    .article-body ul,
+    .article-body ol {
+      padding-left: 1.1rem;
+      margin: 10px 0 16px;
+    }
+
+    .article-body li {
+      margin-bottom: 6px;
+    }
+
+    /* Pull quote / highlight */
+    .pull-quote {
+      margin: 26px 0;
+      padding: 16px 18px;
+      border-left: 3px solid #111111;
+      background: #fafafa;
+      border-radius: 0 18px 18px 0;
+      font-size: 0.96rem;
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    /* Back link */
+    .article-footer-nav {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #111111;
+      cursor: pointer;
+      transition: background-color 0.18s ease,
+                  border-color 0.18s ease,
+                  transform 0.12s ease;
+    }
+
+    .btn-pill:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-pill:active {
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      padding: 22px 18px 28px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.55);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (min-width: 900px) {
+      main {
+        padding: 50px 40px 80px;
+      }
+
+      .article-hero {
+        padding: 28px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">LOREM</div>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </header>
+
+    <main>
+      <article class="article-shell">
+        <!-- Article header -->
+        <div class="article-label">Article</div>
+        <h1 class="article-title">Lorem Ipsum Dolor Sit Amet</h1>
+        <div class="article-meta">
+          January 10, 2025 • 4 min read • By Lorem Ipsum
+        </div>
+
+        <!-- Hero / intro block -->
+        <div class="article-hero">
+          <p class="article-hero-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+            habitant morbi tristique senectus et netus et malesuada fames ac
+            turpis egestas. In hac habitasse platea dictumst.
+          </p>
+        </div>
+
+        <!-- Article body -->
+        <div class="article-body">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+            finibus, massa in consectetur fermentum, nulla augue condimentum
+            ligula, ac pellentesque lorem odio sit amet ipsum. Integer tempor
+            fringilla ante, vel suscipit dolor interdum in. Cras vulputate
+            auctor ex, sit amet gravida ipsum pulvinar non.
+          </p>
+
+          <p>
+            Aliquam vel nibh auctor, iaculis lorem non, fermentum dui. Aenean
+            efficitur eros ut elit consequat, at maximus lacus dictum. Mauris
+            ligula enim, dictum non faucibus ac, ultricies et mauris.
+          </p>
+
+          <h2>Lorem ipsum as a starting point</h2>
+
+          <p>
+            Cras nec lacus in ligula iaculis mattis. Proin tempor magna eget
+            lorem tincidunt, eget egestas arcu sodales. Ut pulvinar tellus
+            lacus, sed aliquet lorem lobortis sed. Sed consequat dapibus nulla,
+            in venenatis lacus interdum ac.
+          </p>
+
+          <ul>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+            <li>Integer feugiat arcu eu justo congue, id bibendum ex posuere.</li>
+            <li>Nam viverra magna et sodales dapibus.</li>
+            <li>Donec ac urna non urna sagittis faucibus.</li>
+          </ul>
+
+          <div class="pull-quote">
+            “Lorem ipsum is not just filler text; it is a quiet space where
+            layout and typography can speak before content arrives.”
+          </div>
+
+          <h3>Creating a calm reading experience</h3>
+
+          <p>
+            Maecenas tellus lorem, dignissim vitae efficitur nec, lacinia nec
+            mi. Aliquam erat volutpat. Nulla molestie, purus et tristique
+            gravida, metus lectus vulputate risus, non luctus erat turpis id
+            neque. Integer posuere laoreet justo, id finibus sapien facilisis
+            at.
+          </p>
+
+          <p>
+            Pellentesque nec dui eu mi pulvinar dictum. Integer finibus metus
+            vel lectus dapibus, non ultrices lectus molestie. Sed vestibulum
+            sapien eget orci bibendum, nec luctus odio sollicitudin. Sed at
+            odio ligula. Integer lobortis rhoncus eros, non faucibus ante
+            vulputate et.
+          </p>
+
+          <h2>Bringing everything together</h2>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            malesuada urna id felis molestie, at gravida ipsum facilisis.
+            Vestibulum ullamcorper nisl sit amet dolor pretium, nec pulvinar
+            magna finibus. Duis at nibh nec sapien dictum commodo.
+          </p>
+
+          <ol>
+            <li>Start with a clear, simple layout.</li>
+            <li>Use whitespace to give every paragraph room to breathe.</li>
+            <li>Keep typography consistent and calm.</li>
+            <li>Let content sit at the centre of the experience.</li>
+          </ol>
+
+          <p>
+            Vivamus vel ligula quis justo consequat sodales. In vel purus
+            ligula. Suspendisse placerat pretium eros, a tristique tortor
+            ultrices non. Sed fermentum mattis purus quis fermentum. Curabitur
+            tincidunt cursus justo, eget efficitur ligula porttitor nec.
+          </p>
+        </div>
+
+        <!-- Article navigation -->
+        <div class="article-footer-nav">
+          <a href="blog.html" class="btn-pill">← Back to blog</a>
+          <a href="index.html" class="btn-pill">Home</a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. © 2025
+    </footer>
+  </div>
+</body>
+</html>

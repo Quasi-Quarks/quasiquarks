@@ -1,0 +1,533 @@
+/* ====== BASE & THEME ====== */
+
+:root {
+  --bg-page: #ffffff;
+  --bg-soft: #f5f5f7;
+  --bg-soft-alt: #f9fafb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border-subtle: #e5e7eb;
+  --accent: #111827;
+  --accent-soft: rgba(17, 24, 39, 0.04);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 999px;
+  --shadow-soft: 0 24px 70px rgba(15, 23, 42, 0.1);
+  --shadow-card: 0 18px 50px rgba(15, 23, 42, 0.08);
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  --transition-fast: 160ms ease-out;
+  --transition-med: 240ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-main);
+  background-color: var(--bg-page);
+}
+
+/* ====== HEADER / NAV ====== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background:
+    radial-gradient(circle at 20% 0, #e5e7eb, transparent 55%),
+    radial-gradient(circle at 80% 100%, #d1d5db, transparent 60%),
+    #111827;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 999px;
+  background: #111827;
+  transform: scaleX(0);
+  opacity: 0;
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+  background: rgba(15, 23, 42, 0.04);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: var(--text-main);
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* ====== HERO SECTION ====== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background-color: var(--bg-soft);
+  overflow: hidden;
+}
+
+/* 👉 Add your hero background image here */
+.hero {
+  /* Example:
+  background-image: url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.94),
+    rgba(255, 255, 255, 0.86),
+    rgba(255, 255, 255, 0.8)
+  );
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-text-block {
+  max-width: 540px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(243, 244, 246, 0.9);
+  border: 1px solid #e5e7eb;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 420px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ====== BUTTONS ====== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--transition-med),
+    color var(--transition-med),
+    box-shadow var(--transition-med),
+    transform var(--transition-fast),
+    border-color var(--transition-med);
+}
+
+.btn-primary {
+  background: #111827;
+  color: #f9fafb;
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+.btn-ghost:hover {
+  background: rgba(17, 24, 39, 0.04);
+}
+
+/* ====== TOPICS SECTION ====== */
+
+.topics-section {
+  width: 100%;
+  background: var(--bg-page);
+  padding: 40px 0 24px;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.section-heading p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Topic grid (big, visual tiles) */
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.topic-tile {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--bg-soft);
+  box-shadow: var(--shadow-card);
+  transform-origin: center;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+/* 👉 You add background images per topic class */
+.topic-intro {
+  /* background-image: url('../images/topic-intro.jpg'); */
+}
+.topic-tawheed {
+  /* background-image: url('../images/topic-tawheed.jpg'); */
+}
+.topic-aqeedah {
+  /* background-image: url('../images/topic-aqeedah.jpg'); */
+}
+.topic-fiqh {
+  /* background-image: url('../images/topic-fiqh.jpg'); */
+}
+.topic-quran {
+  /* background-image: url('../images/topic-quran.jpg'); */
+}
+.topic-hadeeth {
+  /* background-image: url('../images/topic-hadeeth.jpg'); */
+}
+.topic-seerah {
+  /* background-image: url('../images/topic-seerah.jpg'); */
+}
+
+/* Common background behaviour */
+.topic-tile {
+  background-size: cover;
+  background-position: center;
+}
+
+.topic-tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.topic-tile-content {
+  position: relative;
+  padding: 24px 24px 20px;
+  color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.topic-label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.topic-line {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.topic-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.25);
+  filter: saturate(1.02);
+}
+
+/* ====== FEATURED PDFs SECTION ====== */
+
+.featured-section {
+  width: 100%;
+  background: var(--bg-soft-alt);
+  padding: 40px 0 48px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+/* PDF cards: visual, big tiles */
+
+.pdf-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #e5e5e5;
+  height: 220px;
+  box-shadow: var(--shadow-card);
+  transform-origin: center;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+/* 👉 Add background images for featured PDFs */
+.pdf-card-1 {
+  /* background-image: url('../images/pdf-usool.jpg'); */
+}
+.pdf-card-2 {
+  /* background-image: url('../images/pdf-intro.jpg'); */
+}
+.pdf-card-3 {
+  /* background-image: url('../images/pdf-quran.jpg'); */
+}
+
+.pdf-card {
+  background-size: cover;
+  background-position: center;
+}
+
+.pdf-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.25)
+  );
+}
+
+.pdf-card-content {
+  position: relative;
+  padding: 20px 18px;
+  color: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 4px;
+}
+
+.pdf-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
+}
+
+.pdf-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.pdf-small {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.pdf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.3);
+  filter: saturate(1.05);
+}
+
+/* ====== FOOTER ====== */
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  background: #ffffff;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px 22px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-dot {
+  font-size: 8px;
+}
+
+/* ====== RESPONSIVE ====== */
+
+@media (max-width: 880px) {
+  .main-nav {
+    display: none; /* simple for now; you can add a mobile menu later */
+  }
+
+  .header-inner {
+    justify-content: center;
+  }
+
+  .hero-inner {
+    padding-top: 72px;
+    padding-bottom: 56px;
+  }
+
+  .hero-text-block {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-inner {
+    padding-inline: 16px;
+  }
+
+  .section-inner {
+    padding-inline: 16px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+}

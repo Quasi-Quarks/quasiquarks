@@ -1,0 +1,571 @@
+/* ========== ROOT / RESET ========== */
+
+:root {
+  --bg-main: #020617;              /* deep night */
+  --bg-soft: #020c18;
+  --bg-card: #020b16;
+  --accent-main: #16a34a;          /* emerald */
+  --accent-gold: #fbbf24;          /* gold */
+  --accent-soft: rgba(22, 163, 74, 0.18);
+  --accent-soft-gold: rgba(251, 191, 36, 0.16);
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-subtle: rgba(148, 163, 184, 0.35);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-soft: 0 24px 70px rgba(15, 23, 42, 0.9);
+  --shadow-card: 0 18px 50px rgba(15, 23, 42, 0.95);
+  --transition-fast: 160ms ease-out;
+  --transition-med: 220ms ease;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* You can optionally load an Arabic/Islamic-friendly font like Cairo or Noto Kufi in <head> */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-main);
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(22, 163, 74, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(251, 191, 36, 0.18), transparent 55%),
+    repeating-conic-gradient(
+      from 45deg,
+      #020617 0deg 30deg,
+      #020617 30deg 60deg
+    );
+  background-color: var(--bg-main);
+}
+
+/* Add a subtle geometric overlay to evoke Islamic patterns */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.8) 0, transparent 55%),
+    radial-gradient(circle at 100% 0, rgba(15, 23, 42, 0.8) 0, transparent 55%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.6), transparent 55%);
+  mix-blend-mode: soft-light;
+  z-index: -1;
+}
+
+/* ========== HEADER / NAV ========== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.96),
+    rgba(15, 23, 42, 0.94)
+  );
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 2px;
+  background:
+    radial-gradient(circle at 20% 0%, var(--accent-gold), transparent 60%),
+    radial-gradient(circle at 80% 100%, #22c55e, transparent 60%),
+    #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 1px rgba(15, 23, 42, 1),
+    0 16px 40px rgba(22, 163, 74, 0.6);
+}
+
+.brand-mark-inner {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(248, 250, 252, 0.6);
+  background-image:
+    conic-gradient(
+      from 45deg,
+      rgba(251, 191, 36, 0.7),
+      rgba(34, 197, 94, 0.8),
+      rgba(56, 189, 248, 0.7),
+      rgba(251, 191, 36, 0.7)
+    );
+  mask-image: radial-gradient(circle at center, transparent 42%, black 44%);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 3px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--accent-gold), var(--accent-main));
+  transform: scaleX(0);
+  opacity: 0;
+  transition:
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+  background: rgba(15, 23, 42, 0.9);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: var(--text-main);
+  background: rgba(22, 163, 74, 0.15);
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
+}
+
+.nav-link.active::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+/* ========== MAIN LAYOUT ========== */
+
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 26px 18px 40px;
+}
+
+/* ========== HERO ========== */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.hero-text h1 {
+  margin: 18px 0 12px;
+  font-size: clamp(28px, 4vw, 34px);
+  line-height: 1.25;
+}
+
+.hero-lead {
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  font-size: 14px;
+  max-width: 34rem;
+}
+
+.hero-bismillah {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.8);
+}
+
+.bismillah-ar {
+  font-size: 16px;
+  direction: rtl;
+  text-align: right;
+  color: var(--accent-gold);
+}
+
+.bismillah-en {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hero-points {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hero-points li + li {
+  margin-top: 4px;
+}
+
+/* ========== BUTTONS ========== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--transition-med),
+    border-color var(--transition-med),
+    color var(--transition-med),
+    box-shadow var(--transition-med),
+    transform var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-main), #22c55e);
+  color: #022c22;
+  box-shadow:
+    0 10px 30px rgba(22, 163, 74, 0.7),
+    0 0 0 1px rgba(22, 163, 74, 0.7);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 40px rgba(22, 163, 74, 0.9),
+    0 0 0 1px rgba(34, 197, 94, 0.9);
+}
+
+.btn-outline {
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-main);
+  border-color: rgba(148, 163, 184, 0.65);
+}
+
+.btn-outline:hover {
+  background: rgba(15, 23, 42, 0.98);
+  border-color: var(--accent-main);
+}
+
+/* ========== HERO SIDE PANEL ========== */
+
+.hero-panel {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top left, rgba(22, 163, 74, 0.2), transparent 70%),
+    radial-gradient(circle at bottom right, rgba(251, 191, 36, 0.22), transparent 70%),
+    linear-gradient(to bottom right, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.98));
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  overflow: hidden;
+}
+
+.hero-card-header {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.hero-card-body {
+  padding: 14px 18px 10px;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.hero-card-body p {
+  margin: 0 0 8px;
+  color: var(--text-muted);
+}
+
+.hero-card-footer {
+  padding: 10px 16px 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card-badge {
+  font-size: 11px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.7);
+  background: rgba(15, 23, 42, 0.96);
+  color: var(--accent-gold);
+}
+
+/* ========== SECTIONS COMMON ========== */
+
+.section {
+  margin-bottom: 36px;
+}
+
+.section-header h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.section-header p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ========== INTRO SECTION ========== */
+
+.section-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.intro-block {
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background:
+    radial-gradient(circle at top left, var(--accent-soft), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+  box-shadow: var(--shadow-card);
+  padding: 14px 16px;
+  font-size: 13px;
+}
+
+.intro-block h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.intro-block p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* ========== TOPICS GRID ========== */
+
+.section-topics {
+  margin-top: 10px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.topic-card {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-main);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transform-origin: center;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+/* Base decoration */
+.topic-frame {
+  position: relative;
+  padding: 14px 16px 16px;
+  border-radius: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.topic-frame::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  pointer-events: none;
+}
+
+/* Topic-specific subtle colours (you can adjust later) */
+.topic-intro .topic-frame {
+  background:
+    radial-gradient(circle at top left, rgba(148, 163, 184, 0.18), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.topic-tawheed .topic-frame {
+  background:
+    radial-gradient(circle at top left, rgba(22, 163, 74, 0.22), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.topic-aqeedah .topic-frame {
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.topic-fiqh .topic-frame {
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.22), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.topic-quran .topic-frame {
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.topic-hadeeth .topic-frame {
+  background:
+    radial-gradient(circle at top left, rgba(239, 68, 68, 0.22), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+.topic-seerah .topic-frame {
+  background:
+    radial-gradient(circle at top left, rgba(244, 114, 182, 0.22), transparent 60%),
+    rgba(15, 23, 42, 0.96);
+}
+
+/* Hover state */
+.topic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+}
+
+.topic-card h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.topic-card p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ========== FOOTER ========== */
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 14px 18px 18px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: rgba(15, 23, 42, 0.96);
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 880px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .hero-panel {
+    order: -1;
+  }
+
+  .hero-card {
+    max-width: 100%;
+  }
+
+  .main-nav {
+    display: none; /* keep it simple on mobile for now; you can add a burger menu later */
+  }
+
+  .site-header {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding-inline: 14px;
+  }
+
+  .hero-bismillah {
+    border-radius: 14px;
+  }
+}
