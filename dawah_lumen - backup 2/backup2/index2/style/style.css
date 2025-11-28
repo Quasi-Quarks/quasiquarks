@@ -1,0 +1,509 @@
+/* ==== ROOT & RESET ==== */
+
+:root {
+  --bg-main: #020617;
+  --bg-elevated: #02091c;
+  --bg-elevated-soft: #020f26;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.16);
+  --accent-strong: #0ea5e9;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-subtle: rgba(148, 163, 184, 0.3);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 999px;
+  --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.9);
+  --shadow-card: 0 16px 40px rgba(15, 23, 42, 0.8);
+  --nav-height: 64px;
+  --transition-fast: 160ms ease-out;
+  --transition-med: 220ms ease;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-main);
+  background:
+    radial-gradient(circle at top left, #1f2937 0, transparent 55%),
+    radial-gradient(circle at bottom right, #0f172a 0, transparent 50%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+/* ==== HEADER / NAV ==== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(16px);
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 10% 0%, var(--accent-strong), #1d4ed8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #0b1120;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.75);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 2px;
+  height: 2px;
+  border-radius: 999px;
+  background: radial-gradient(circle, var(--accent), transparent);
+  opacity: 0;
+  transform: scaleX(0.6);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-main);
+  background: rgba(15, 23, 42, 0.7);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  color: var(--text-main);
+  background: var(--accent-soft);
+}
+
+.nav-link.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* ==== LAYOUT ==== */
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 26px 18px 36px;
+}
+
+/* ==== HERO ==== */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.hero-text h1 {
+  font-size: clamp(28px, 4vw, 34px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.hero-lead {
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  font-size: 14px;
+  max-width: 32rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+/* ==== BUTTONS ==== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-med), color var(--transition-med), transform var(--transition-fast), box-shadow var(--transition-med), border-color var(--transition-med);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #0b1120;
+  box-shadow: 0 14px 40px rgba(56, 189, 248, 0.6);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 45px rgba(56, 189, 248, 0.75);
+}
+
+.btn-ghost {
+  background: rgba(15, 23, 42, 0.8);
+  color: var(--text-main);
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+.btn-ghost:hover {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: var(--accent);
+}
+
+.btn-subtle {
+  background: rgba(15, 23, 42, 0.7);
+  color: var(--text-muted);
+  border-color: rgba(51, 65, 85, 0.8);
+}
+
+.btn-subtle:hover {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-main);
+}
+
+.btn-xs {
+  padding: 6px 11px;
+  font-size: 11px;
+}
+
+/* ==== VIEWER PANEL ==== */
+
+.hero-preview {
+  display: flex;
+  justify-content: center;
+}
+
+.viewer-shell {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 24px;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 60%),
+              linear-gradient(to bottom right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+}
+
+.viewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.96));
+}
+
+.viewer-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+}
+
+.viewer-filename {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 70%;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.viewer-body {
+  position: relative;
+  height: 320px;
+  background: radial-gradient(circle at top, #020617, #020617 30%, #020617 60%);
+}
+
+.viewer-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.viewer-body iframe {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+/* Hide placeholder once a PDF is loaded (we toggle .is-empty in JS) */
+.viewer-body:not(.is-empty) .viewer-placeholder {
+  display: none;
+}
+
+/* ==== SECTIONS ==== */
+
+.section {
+  margin-bottom: 38px;
+}
+
+.section-header h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.section-header p {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ==== FEATURED CARDS ==== */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.pdf-card {
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), transparent 50%),
+              rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-med), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.pdf-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+  border-color: rgba(56, 189, 248, 0.75);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%),
+              rgba(15, 23, 42, 0.98);
+}
+
+.pdf-thumb {
+  position: relative;
+  height: 120px;
+  background:
+    linear-gradient(135deg, rgba(56, 189, 248, 0.32), rgba(30, 64, 175, 0.9)),
+    radial-gradient(circle at 80% 10%, rgba(248, 250, 252, 0.15), transparent 60%);
+  /* You can override this with a real cover image per card */
+  /* Example per card: .pdf-card:nth-child(1) .pdf-thumb { background-image: url('../covers/usool-ath-thalatha.jpg'); } */
+}
+
+.pdf-tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  color: var(--text-main);
+}
+
+.pdf-body {
+  padding: 12px 14px 8px;
+}
+
+.pdf-title {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.pdf-meta {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.pdf-desc {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 10px 12px;
+}
+
+/* ==== TOPICS SECTION ==== */
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.topic-card {
+  display: block;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.9);
+  text-decoration: none;
+  color: var(--text-main);
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.topic-card:hover {
+  border-color: var(--accent);
+  background: rgba(15, 23, 42, 0.97);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.9);
+}
+
+.topic-card h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.topic-card p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ==== FOOTER ==== */
+
+.site-footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 12px 18px 18px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ==== RESPONSIVE ==== */
+
+@media (max-width: 880px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .hero-preview {
+    order: -1;
+  }
+
+  .viewer-shell {
+    max-width: 100%;
+  }
+
+  .main-nav {
+    display: none; /* keep it simple for now; we can make a mobile menu later */
+  }
+
+  .site-header {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding-inline: 14px;
+  }
+
+  .hero-meta span {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .viewer-body {
+    height: 260px;
+  }
+}

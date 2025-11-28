@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos - Minimal Apple-Style Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        system-ui, -system-ui, "Segoe UI", sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.86);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.7);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    main {
+      flex: 1;
+      padding: 32px 16px 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    section {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      opacity: 0.78;
+    }
+
+    /* Text Block */
+    .text-block {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    .text-block + .text-block {
+      margin-top: 24px;
+    }
+
+    /* Video Rows */
+    .video-section {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .video-row-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .video-row {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 10px 2px 14px;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+
+    .video-row::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .video-row::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .video-row::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.18);
+      border-radius: 999px;
+    }
+
+    .video-card {
+      flex: 0 0 280px;
+      max-width: 320px;
+      scroll-snap-align: start;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f5f5f7;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .video-frame-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-frame-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-caption {
+      padding: 10px 12px 12px;
+      font-size: 0.82rem;
+      opacity: 0.75;
+    }
+
+    /* Footer */
+    footer {
+      padding: 20px 18px 26px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.55);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: auto;
+    }
+
+    /* Larger screens */
+    @media (min-width: 900px) {
+      header {
+        padding: 18px 60px;
+      }
+
+      main {
+        padding: 48px 36px 60px;
+        gap: 60px;
+      }
+
+      .video-card {
+        flex: 0 0 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">LOREM</div>
+      <!-- Link back to your main page (index.html) -->
+      <a href="index.html" class="nav-link">Home</a>
+    </header>
+
+    <main>
+      <!-- Hero / Intro -->
+      <section>
+        <h1 class="hero-title">Videos that speak for themselves.</h1>
+        <p class="hero-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+          placerat, urna et feugiat gravida, turpis dui tempor nibh, at
+          hendrerit magna lorem in risus.
+        </p>
+      </section>
+
+      <!-- First text + video row -->
+      <section>
+        <div class="text-block">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+          consequat, eros ut sagittis cursus, quam turpis ultricies justo,
+          vitae volutpat nisl nulla a orci. Donec at lorem aliquet, interdum
+          ipsum sed, tristique magna.
+        </div>
+
+        <div class="video-section">
+          <div class="video-row-title">Lorem ipsum video row 1</div>
+          <div class="video-row">
+            <!-- Video 1 -->
+            <div class="video-card">
+              <div class="video-frame-wrapper">
+                <iframe
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hzM3KN6j7kQ?si=T322-EFsc7_bsenx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="video-caption">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-card">
+              <div class="video-frame-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/oHg5SJYRHA0"
+                  title="YouTube video 2"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-caption">
+                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card">
+              <div class="video-frame-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/ysz5P8qQhsk"
+                  title="YouTube video 3"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-caption">
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Second text + video row -->
+      <section>
+        <div class="text-block">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut
+          tellus sem. Phasellus ut lorem nibh. Donec elementum dui at magna
+          consequat dapibus. Mauris commodo purus nec mi consequat, id
+          auctor mauris finibus.
+        </div>
+
+        <div class="video-section">
+          <div class="video-row-title">Lorem ipsum video row 2</div>
+          <div class="video-row">
+            <!-- Video 4 -->
+            <div class="video-card">
+              <div class="video-frame-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/jNQXAC9IVRw"
+                  title="YouTube video 4"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-caption">
+                Duis aute irure dolor in reprehenderit in voluptate velit esse.
+              </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="video-card">
+              <div class="video-frame-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/kXYiU_JCYtU"
+                  title="YouTube video 5"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-caption">
+                Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.
+              </div>
+            </div>
+
+            <!-- Video 6 -->
+            <div class="video-card">
+              <div class="video-frame-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/flexvqQfYwI"
+                  title="YouTube video 6"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="video-caption">
+                Cupidatat non proident, sunt in culpa qui officia deserunt.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. © 2025
+    </footer>
+  </div>
+</body>
+</html>

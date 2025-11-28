@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dawah PDF Library</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">DL</div>
+      <div class="brand-text">
+        <span class="brand-title">Dawah Library</span>
+        <span class="brand-subtitle">Authentic Islamic PDFs</span>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="introduction.html" class="nav-link">Introduction</a>
+      <a href="tawheed.html" class="nav-link">Tawheed</a>
+      <a href="creed.html" class="nav-link">Creed</a>
+      <a href="fiqh.html" class="nav-link">Fiqh</a>
+      <a href="quran.html" class="nav-link">Quran</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Study with clarity and structure.</h1>
+        <p class="hero-lead">
+          A curated library of Islamic PDFs – organised by topic, readable in your browser,
+          and ready to download for offline study.
+        </p>
+
+        <div class="hero-actions">
+          <a href="introduction.html" class="btn btn-primary">Start with Introduction</a>
+          <a href="#featured" class="btn btn-ghost">Browse featured books</a>
+        </div>
+
+        <div class="hero-meta">
+          <span>✓ Read inside the page</span>
+          <span>✓ Open in new tab</span>
+          <span>✓ Download and share</span>
+        </div>
+      </div>
+
+      <div class="hero-preview">
+        <div class="viewer-shell">
+          <div class="viewer-header">
+            <span class="viewer-label">Live preview</span>
+            <span class="viewer-filename" id="viewerFilename">Select a book below</span>
+          </div>
+          <div class="viewer-body is-empty" id="viewerBody">
+            <div class="viewer-placeholder">
+              Choose a book from “Featured” to preview it here.
+            </div>
+            <!-- PDF Viewer inside the page -->
+            <iframe
+              id="pdfViewer"
+              title="PDF preview"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED BOOKS -->
+    <section id="featured" class="section section-featured">
+      <header class="section-header">
+        <h2>Featured books</h2>
+        <p>Some recommended starting points. You can change all of these later.</p>
+      </header>
+
+      <div class="cards-grid">
+        <!-- CARD 1 -->
+        <article class="pdf-card"
+                 data-pdf="pdfs/tawheed/Explanation-of-Usool-Ath-Thalatha.pdf"
+                 data-title="Explanation of Usool Ath-Thalatha">
+          <div class="pdf-thumb">
+            <!-- Add your own cover image as a background-image in CSS or inline style -->
+            <span class="pdf-tag">Tawheed</span>
+          </div>
+
+          <div class="pdf-body">
+            <h3 class="pdf-title">Explanation of Usool Ath-Thalatha</h3>
+            <p class="pdf-meta">~120 pages · Aqeedah</p>
+            <p class="pdf-desc">
+              A foundational explanation of the three fundamental principles of Tawheed,
+              ideal for structured study and teaching.
+            </p>
+          </div>
+
+          <div class="pdf-actions">
+            <button class="btn btn-xs btn-primary js-open">Open here</button>
+            <button class="btn btn-xs btn-ghost js-open-tab">New tab</button>
+            <button class="btn btn-xs btn-subtle js-download">Download</button>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="pdf-card"
+                 data-pdf="pdfs/introduction/Basic-Islamic-Introduction.pdf"
+                 data-title="Basic Islamic Introduction">
+          <div class="pdf-thumb">
+            <span class="pdf-tag">Introduction</span>
+          </div>
+
+          <div class="pdf-body">
+            <h3 class="pdf-title">Basic Islamic Introduction</h3>
+            <p class="pdf-meta">~60 pages · Overview</p>
+            <p class="pdf-desc">
+              A clear introduction to the core beliefs and practices in Islam,
+              suitable for new Muslims and those exploring Islam.
+            </p>
+          </div>
+
+          <div class="pdf-actions">
+            <button class="btn btn-xs btn-primary js-open">Open here</button>
+            <button class="btn btn-xs btn-ghost js-open-tab">New tab</button>
+            <button class="btn btn-xs btn-subtle js-download">Download</button>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="pdf-card"
+                 data-pdf="pdfs/fiqh/Short-Fiqh-Manual.pdf"
+                 data-title="Short Fiqh Manual">
+          <div class="pdf-thumb">
+            <span class="pdf-tag">Fiqh</span>
+          </div>
+
+          <div class="pdf-body">
+            <h3 class="pdf-title">Short Fiqh Manual</h3>
+            <p class="pdf-meta">~80 pages · Worship</p>
+            <p class="pdf-desc">
+              A concise manual on purification, prayer, and core acts of worship,
+              organised for quick reference.
+            </p>
+          </div>
+
+          <div class="pdf-actions">
+            <button class="btn btn-xs btn-primary js-open">Open here</button>
+            <button class="btn btn-xs btn-ghost js-open-tab">New tab</button>
+            <button class="btn btn-xs btn-subtle js-download">Download</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TOPICS SECTION -->
+    <section class="section section-topics">
+      <header class="section-header">
+        <h2>Browse by topic</h2>
+        <p>Each topic has its own page with more books and detail.</p>
+      </header>
+
+      <div class="topics-grid">
+        <a class="topic-card" href="introduction.html">
+          <h3>Introduction</h3>
+          <p>Starting points, overviews, and basic foundations of Islam.</p>
+        </a>
+
+        <a class="topic-card" href="tawheed.html">
+          <h3>Tawheed</h3>
+          <p>Pure monotheism and the rights of Allah alone.</p>
+        </a>
+
+        <a class="topic-card" href="creed.html">
+          <h3>Creed (Aqeedah)</h3>
+          <p>Detailed belief, orthodoxy, and explanations of the pillars of Imaan.</p>
+        </a>
+
+        <a class="topic-card" href="fiqh.html">
+          <h3>Fiqh</h3>
+          <p>Practical rulings related to worship and daily life.</p>
+        </a>
+
+        <a class="topic-card" href="quran.html">
+          <h3>Quran</h3>
+          <p>Tafseer, memorisation guides, and rules of recitation.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Dawah Library. All rights reserved.</p>
+  </footer>
+
+  <!-- Minimal JS for viewer + buttons -->
+  <script>
+    // Update year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const viewer = document.getElementById('pdfViewer');
+    const viewerBody = document.getElementById('viewerBody');
+    const viewerFilename = document.getElementById('viewerFilename');
+    const cards = document.querySelectorAll('.pdf-card');
+
+    cards.forEach(card => {
+      const pdfPath = card.dataset.pdf;
+      const pdfTitle = card.dataset.title ||
+        (card.querySelector('.pdf-title') ? card.querySelector('.pdf-title').textContent.trim() : 'PDF');
+
+      const openBtn = card.querySelector('.js-open');
+      const openTabBtn = card.querySelector('.js-open-tab');
+      const downloadBtn = card.querySelector('.js-download');
+
+      if (openBtn) {
+        openBtn.addEventListener('click', () => {
+          viewer.src = pdfPath;
+          viewerBody.classList.remove('is-empty');
+          viewerFilename.textContent = pdfTitle;
+        });
+      }
+
+      if (openTabBtn) {
+        openTabBtn.addEventListener('click', () => {
+          window.open(pdfPath, '_blank', 'noopener');
+        });
+      }
+
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+          const a = document.createElement('a');
+          a.href = pdfPath;
+          a.download = pdfTitle.replace(/[^\w\-]+/g, '_') + '.pdf';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

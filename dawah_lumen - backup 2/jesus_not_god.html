@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>God Is Not a Man – Why Jesus Is Not God</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        system-ui, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.86);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.75);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    /* Layout */
+    main {
+      flex: 1;
+      padding: 40px 18px 60px;
+    }
+
+    .article-shell {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Top title area */
+    .article-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.6;
+      margin-bottom: 6px;
+    }
+
+    .article-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .article-meta {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-bottom: 26px;
+    }
+
+    .article-intro {
+      font-size: 0.98rem;
+      opacity: 0.85;
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    /* Repeated sections */
+    .section-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-block {
+      background: #f5f5f7;
+      border-radius: 22px;
+      padding: 18px 18px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      opacity: 0.88;
+    }
+
+    .section-body p {
+      margin-bottom: 10px;
+    }
+
+    /* Subtle divider text between blocks (optional) */
+    .section-divider {
+      text-align: center;
+      font-size: 0.78rem;
+      opacity: 0.5;
+      margin: 4px 0;
+    }
+
+    /* Footer nav */
+    .article-footer-nav {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #111111;
+      cursor: pointer;
+      transition: background-color 0.18s ease,
+                  border-color 0.18s ease,
+                  transform 0.12s ease;
+    }
+
+    .btn-pill:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-pill:active {
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      padding: 22px 18px 28px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.55);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        padding: 50px 40px 80px;
+      }
+
+      .section-block {
+        padding: 22px 24px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">TAWHEED</div>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </header>
+
+    <main>
+      <article class="article-shell">
+        <!-- Main title area -->
+        <div class="article-label">Article</div>
+        <h1 class="article-title">God Is Not a Man – Why Jesus Is Not God (From the Bible)</h1>
+        <div class="article-meta">
+          January 14, 2025 • 10 min read • By Lorem Ipsum
+        </div>
+
+        <p class="article-intro">
+          This article argues directly from the Bible that God is one, that He is not a man, cannot become a weak human, cannot die, and cannot be powerless – and therefore that Jesus, who was a man that ate, slept, prayed and died, is not God but a servant of God.
+        </p>
+
+        <!-- Repeated section blocks -->
+        <div class="section-list">
+
+          <!-- Section 1: One God -->
+          <div class="section-block">
+            <div class="section-title">1. One God Only – No Partners, No “Persons” Beside Him</div>
+            <div class="section-body">
+              <p>
+                The foundation of the Bible is uncompromising monotheism. God is one, unique, and alone in His Godhood. No “second person” or “third person” shares His status.
+              </p>
+              <p>
+                <strong>Deuteronomy 6:4</strong> – “Hear, O Israel: The LORD our God is one LORD.”
+              </p>
+              <p>
+                <strong>Isaiah 44:6</strong> – “I am the first, and I am the last; and beside me there is no God.”
+              </p>
+              <p>
+                <strong>Isaiah 45:5</strong> – “I am the LORD, and there is none else, there is no God beside me.”
+              </p>
+              <p>
+                <strong>1 Corinthians 8:4</strong> – “There is none other God but one.”
+              </p>
+              <p>
+                <strong>1 Timothy 2:5</strong> – “For there is one God, and one mediator between God and men, the man Christ Jesus.”
+              </p>
+              <p>
+                These verses crush the idea of multiple “co-equal divine persons.” God says there is no other God beside Him. Jesus is clearly described as a <em>man</em> and as a <em>mediator</em> between men and the one God – not as God Himself.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <!-- Section 2: God is not a man -->
+          <div class="section-block">
+            <div class="section-title">2. God Is Not a Man – Jesus Was</div>
+            <div class="section-body">
+              <p>
+                The Bible draws a sharp line: God is not a human being. Jesus, on the other hand, is called a man and “son of man” again and again.
+              </p>
+              <p>
+                <strong>Numbers 23:19</strong> – “God is not a man, that he should lie; neither the son of man, that he should repent.”
+              </p>
+              <p>
+                <strong>Hosea 11:9</strong> – “For I am God, and not man; the Holy One in the midst of thee.”
+              </p>
+              <p>
+                <strong>1 Samuel 15:29</strong> – “The Strength of Israel will not lie nor repent: for he is not a man, that he should repent.”
+              </p>
+              <p>
+                These are not vague poetic lines. They explicitly deny that God is “a man” or “son of man.” Jesus is constantly called “son of man” (for example, Matthew 12:8, Mark 2:10, Luke 9:22). The Bible says God is <em>not</em> that.
+              </p>
+              <p>
+                To say “God became a man” directly flips these verses. The Scripture says God is not a man; later theology says God did become a man. You cannot make both true at the same time.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <!-- Section 3: God is spirit, not flesh -->
+          <div class="section-block">
+            <div class="section-title">3. God Is Spirit – Not Flesh and Blood</div>
+            <div class="section-body">
+              <p>
+                God’s nature is spirit, not flesh. Spirit is not a Jewish male body walking in Galilee. Jesus had flesh and blood, ate food, and grew tired.
+              </p>
+              <p>
+                <strong>John 4:24</strong> – “God is a Spirit: and they that worship him must worship him in spirit and in truth.”
+              </p>
+              <p>
+                <strong>Luke 24:39</strong> – Jesus says: “Behold my hands and my feet, that it is I myself: handle me, and see; for a spirit hath not flesh and bones, as ye see me have.”
+              </p>
+              <p>
+                Jesus himself makes the distinction: a <em>spirit</em> does not have flesh and bones. God is a spirit. Jesus openly shows that he has flesh and bones. Therefore Jesus is not God. To claim “God became flesh” is to tear apart Jesus’ own words.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <!-- Section 4: God cannot die -->
+          <div class="section-block">
+            <div class="section-title">4. God Alone Is Immortal – He Does Not Die</div>
+            <div class="section-body">
+              <p>
+                The Bible describes God as eternal and immortal. Death belongs to created, limited beings – not to the One who gives life to all.
+              </p>
+              <p>
+                <strong>1 Timothy 6:16</strong> – God “only hath immortality, dwelling in the light which no man can approach unto.”
+              </p>
+              <p>
+                <strong>1 Timothy 1:17</strong> – “Now unto the King eternal, immortal, invisible, the only wise God, be honour and glory for ever and ever. Amen.”
+              </p>
+              <p>
+                <strong>Habakkuk 1:12</strong> – “Art thou not from everlasting, O LORD my God, mine Holy One? we shall not die.”
+              </p>
+              <p>
+                <strong>Psalm 102:27</strong> – “But thou art the same, and thy years shall have no end.”
+              </p>
+              <p>
+                Immortal means not subject to death. Yet Jesus was killed and died on the cross, then was buried. If you say “Jesus is God,” you are forced to say “God died” – which clashes head-on with “God only hath immortality” and “thy years shall have no end.”
+              </p>
+              <p>
+                Christians try to escape this by saying “only his human nature died.” But that means it was <em>a man</em> dying, not the immortal God. You cannot honestly claim “God died for your sins” while also insisting that God cannot die.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <!-- Section 5: God cannot be powerless -->
+          <div class="section-block">
+            <div class="section-title">5. God Is All-Powerful – Never Weak or Powerless</div>
+            <div class="section-body">
+              <p>
+                Scripture presents God as absolutely powerful. No one can overpower Him, defeat Him, or force Him.
+              </p>
+              <p>
+                <strong>Job 42:2</strong> – “I know that thou canst do every thing, and that no thought can be withholden from thee.”
+              </p>
+              <p>
+                <strong>Jeremiah 32:17</strong> – “Ah Lord GOD! behold, thou hast made the heaven and the earth by thy great power and stretched out arm, and there is nothing too hard for thee.”
+              </p>
+              <p>
+                <strong>Luke 1:37</strong> – “For with God nothing shall be impossible.”
+              </p>
+              <p>
+                <strong>Matthew 19:26</strong> – “With men this is impossible; but with God all things are possible.”
+              </p>
+              <p>
+                Yet Jesus is clearly limited and weak: he becomes hungry, thirsty, tired; he is arrested, beaten, mocked, and finally killed by his enemies. He cries out and prays for rescue.
+              </p>
+              <p>
+                A being who can be overpowered, beaten, and killed is not the Almighty God of Job 42:2 and Jeremiah 32:17. It is a dependent servant of God, relying on the true Almighty above him.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <!-- Section 6: Son of God as title -->
+          <div class="section-block">
+            <div class="section-title">6. “Son of God” Is a Title – Not a Literal Divine Offspring</div>
+            <div class="section-body">
+              <p>
+                The Bible itself uses “son of God” in a broad, non-divine way. It is a title of honour, covenant and closeness, not a biological or metaphysical “second God.”
+              </p>
+              <p>
+                <strong>Exodus 4:22</strong> – “Israel is my son, even my firstborn.”
+              </p>
+              <p>
+                <strong>Hosea 11:1</strong> – “When Israel was a child, then I loved him, and called my son out of Egypt.”
+              </p>
+              <p>
+                <strong>2 Samuel 7:14</strong> – God about the king: “I will be his father, and he shall be my son.”
+              </p>
+              <p>
+                <strong>Psalm 2:7</strong> – “Thou art my Son; this day have I begotten thee.”
+              </p>
+              <p>
+                <strong>Romans 8:14</strong> – “For as many as are led by the Spirit of God, they are the sons of God.”
+              </p>
+              <p>
+                If “son of God” automatically meant “this person <em>is</em> God,” then Israel would be God, David would be God, and every believer led by the Spirit would be God. Clearly that is not the meaning.
+              </p>
+              <p>
+                The phrase “Son of God” for Jesus means he is the chosen Messiah and honoured servant of God – not that he <em>is</em> the one God of Deuteronomy 6:4.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <!-- Section 7: Jesus distinguishes between himself and God -->
+          <div class="section-block">
+            <div class="section-title">7. Jesus Himself Separates Between Himself and God</div>
+            <div class="section-body">
+              <p>
+                If anyone had the right to say “I am God, worship me,” it would be Jesus. Instead, he constantly points to “God” as someone <em>above</em> him.
+              </p>
+              <p>
+                <strong>John 20:17</strong> – Jesus says: “I ascend unto my Father, and your Father; and to my God, and your God.”
+              </p>
+              <p>
+                <strong>John 14:28</strong> – “My Father is greater than I.”
+              </p>
+              <p>
+                <strong>Mark 13:32</strong> – About the Last Day: “Neither the Son, but the Father.”
+              </p>
+              <p>
+                <strong>Luke 6:12</strong> – “He went out into a mountain to pray, and continued all night in prayer to God.”
+              </p>
+              <p>
+                <strong>Acts 2:22</strong> – “Jesus of Nazareth, a <em>man</em> approved of God among you by miracles and wonders and signs, which God did by him.”
+              </p>
+              <p>
+                <strong>Acts 2:36</strong> – “God hath made that same Jesus… both Lord and Christ.”
+              </p>
+              <p>
+                <strong>1 Corinthians 8:6</strong> – “But to us there is but one God, the Father… and one Lord Jesus Christ.”
+              </p>
+              <p>
+                Jesus has a God above him. He prays to that God. He says that God is greater than him. He is described openly as a <em>man approved of God</em> and as someone whom <em>God made</em> Lord and Christ. This is not how the Bible speaks about the one Almighty God – this is how it speaks about a prophet, servant, and Messiah.
+              </p>
+              <p>
+                Therefore the honest conclusion from these verses is simple and sharp: Jesus is not God, and God is not Jesus. The one true God is the One whom Jesus worshipped, obeyed, and called “my God and your God.”
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer nav -->
+        <div class="article-footer-nav">
+          <a href="blog.html" class="btn-pill">← Back to blog</a>
+          <a href="index.html" class="btn-pill">Home</a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      God is one, without partner. Worship the God whom Jesus worshipped. © 2025
+    </footer>
+  </div>
+</body>
+</html>

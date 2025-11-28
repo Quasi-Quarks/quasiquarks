@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog - Lorem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        system-ui, -system-ui, "Segoe UI", sans-serif;
+      background-color: #dedede;
+      color: #111111;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.86);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.75);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 16px 60px;
+    }
+
+    /* Hero / Intro */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5.2vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      font-size: xxx-large;
+    }
+
+    .hero-subtitle {
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      opacity: 0.78;
+    }
+
+    /* Blog Layout */
+    .blog-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      margin-top: 40px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .post-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 20px 18px 20px;
+      text-align: left;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+    }
+
+    .post-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.65;
+      margin-bottom: 4px;
+    }
+
+    .post-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .post-meta {
+      font-size: 0.78rem;
+      opacity: 0.6;
+      margin-bottom: 10px;
+    }
+
+    .post-excerpt {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 14px;
+    }
+
+    .post-actions {
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.18s ease,
+                  color 0.18s ease,
+                  border-color 0.18s ease,
+                  transform 0.12s ease;
+    }
+
+    .btn-primary {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #111111;
+      border-color: rgba(0,0,0,0.22);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      filter: brightness(0.96);
+    }
+
+    /* Footer */
+    footer {
+      padding: 22px 18px 28px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.55);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    /* Larger screens */
+    @media (min-width: 800px) {
+      main {
+        padding: 50px 40px 70px;
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .post-card {
+        padding: 24px 22px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">LOREM</div>
+      <div class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="videos.html" class="nav-link">Videos</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <h1 class="hero-title">Contraditions</h1>
+        <p class="hero-subtitle">
+          Dawah Blogs
+        </p>
+      </section>
+
+      <!-- Blog posts -->
+      <section class="blog-wrapper">
+        <div class="blog-grid">
+          <!-- Post 1: Trinity vs One God -->
+          <article class="post-card">
+            <div class="post-label">Featured</div>
+            <h2 class="post-title">Trinity vs One God</h2>
+            <div class="post-meta">January 10, 2025 • 4 min read</div>
+            <p class="post-excerpt">
+              From an Islamic perspective, the Trinity concept breaks true tawheed and mixes the Creator with the creation, so their belief about God is wrong.
+            </p>
+            <div class="post-actions">
+              <a href="jesus_not_god.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 2: Judas Death -->
+          <article class="post-card">
+            <div class="post-label">Article</div>
+            <h2 class="post-title">Judas Death – Two Different Stories</h2>
+            <div class="post-meta">January 6, 2025 • 3 min read</div>
+            <p class="post-excerpt">
+              One passage says Judas hanged himself and the priests bought the field, another says Judas fell and burst open and he bought the field, so the story cannot be perfectly reliable.
+            </p>
+            <div class="post-actions">
+              <a href="judas_death.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 3: Two Creation Orders -->
+          <article class-name="post-card" class="post-card">
+            <div class="post-label">Article</div>
+            <h2 class="post-title">Two Creation Stories in Genesis</h2>
+            <div class="post-meta">January 3, 2025 • 4 min read</div>
+            <p class="post-excerpt">
+              Genesis 1 and Genesis 2 give a different order of creation for humans, animals and plants, showing that the Bible text has internal disagreement.
+            </p>
+            <div class="post-actions">
+              <a href="creation_accounts.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 4: How many animals on the ark -->
+          <article class="post-card">
+            <div class="post-label">Update</div>
+            <h2 class="post-title">How Many Animals on the Ark?</h2>
+            <div class="post-meta">December 28, 2024 • 5 min read</div>
+            <p class="post-excerpt">
+              One text says two of every kind went into the ark, another says seven pairs of clean animals and birds, giving a clear contradiction in the numbers.
+            </p>
+            <div class="post-actions">
+              <a href="animals_on_ark.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 5: Genealogies of Jesus -->
+          <article class="post-card">
+            <div class="post-label">Article</div>
+            <h2 class="post-title">Conflicting Genealogies of Jesus</h2>
+            <div class="post-meta">December 20, 2024 • 6 min read</div>
+            <p class="post-excerpt">
+              Matthew and Luke list different ancestors for Jesus and even give different fathers for Joseph, so both family trees cannot be literally correct at the same time.
+            </p>
+            <div class="post-actions">
+              <a href="genealogies_of_jesus.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 6: Time of crucifixion -->
+          <article class="post-card">
+            <div class="post-label">Study</div>
+            <h2 class="post-title">What Time Was Jesus Crucified?</h2>
+            <div class="post-meta">December 15, 2024 • 4 min read</div>
+            <p class="post-excerpt">
+              Mark says Jesus was crucified at the third hour while John places him before Pilate about the sixth hour, so the timelines in their scriptures clash.
+            </p>
+            <div class="post-actions">
+              <a href="crucifixion_time.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 7: Last words on the cross -->
+          <article class="post-card">
+            <div class="post-label">Article</div>
+            <h2 class="post-title">Different Last Words on the Cross</h2>
+            <div class="post-meta">December 10, 2024 • 5 min read</div>
+            <p class="post-excerpt">
+              Each Gospel reports different final words of Jesus on the cross, so Christianity cannot claim a perfectly preserved, single exact last statement.
+            </p>
+            <div class="post-actions">
+              <a href="last_words_on_cross.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 8: Women at the tomb & angels -->
+          <article class="post-card">
+            <div class="post-label">Story</div>
+            <h2 class="post-title">Who Went to the Tomb and How Many Angels?</h2>
+            <div class="post-meta">December 5, 2024 • 6 min read</div>
+            <p class="post-excerpt">
+              The resurrection accounts disagree about which women went to the tomb and whether there was one angel or two, showing serious differences in the basic story.
+            </p>
+            <div class="post-actions">
+              <a href="women_at_tomb.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 9: David's census -->
+          <article class="post-card">
+            <div class="post-label">Analysis</div>
+            <h2 class="post-title">Who Incited David to Number Israel?</h2>
+            <div class="post-meta">November 30, 2024 • 5 min read</div>
+            <p class="post-excerpt">
+              One book blames the Lord and another blames Satan for pushing David to count Israel, and they also differ on the length of the punishment, exposing a major contradiction.
+            </p>
+            <div class="post-actions">
+              <a href="david_census.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 10: Solomon's stalls -->
+          <article class="post-card">
+            <div class="post-label">Article</div>
+            <h2 class="post-title">Solomon’s Horse Stalls: 40,000 or 4,000?</h2>
+            <div class="post-meta">November 25, 2024 • 3 min read</div>
+            <p class="post-excerpt">
+              Kings says Solomon had forty thousand stalls for horses, while Chronicles says four thousand, a ten-fold difference that cannot both be historically exact.
+            </p>
+            <div class="post-actions">
+              <a href="solomons_stalls.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 11: Paul's companions -->
+          <article class="post-card">
+            <div class="post-label">Study</div>
+            <h2 class="post-title">Paul’s Companions at Damascus</h2>
+            <div class="post-meta">November 20, 2024 • 4 min read</div>
+            <p class="post-excerpt">
+              One passage states Paul’s companions heard the voice but saw no one, another says they saw the light but did not hear the voice, so the details clearly conflict.
+            </p>
+            <div class="post-actions">
+              <a href="paul_companions.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+
+          <!-- Post 12: Overview article -->
+          <article class="post-card">
+            <div class="post-label">Overview</div>
+            <h2 class="post-title">Top 10 Bible Contradictions at a Glance</h2>
+            <div class="post-meta">November 15, 2024 • 7 min read</div>
+            <p class="post-excerpt">
+              This summary gathers the main contradictions in Christian scripture to show that their book is not perfect or preserved, while Islam calls back to pure, clear tawheed.
+            </p>
+            <div class="post-actions">
+              <a href="overview_contradictions.html" class="btn btn-primary">Read article</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. © 2025
+    </footer>
+  </div>
+</body>
+</html>

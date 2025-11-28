@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dev Hub — Learn • Build • Ship</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0f1a" />
+    <!-- CSS (coming next message) -->
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="homemobile.css" />
+    <link rel="icon" href="icons/html.png" />
+  </head>
+
+  <body>
+
+    <div id="menu">
+
+    </div>
+<div class="scrolltopic_container">
+  <h1 id="scrolltopic">Five pillars of Islam</h1>
+</div>
+  
+<div class="section">
+    <div class="scroll_container">
+
+
+       <div class="scrollElement">
+             <!-- VIDEO 1 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=hzM3KN6j7kQ"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          5 Pillars of Islam
+        </div>
+      </div>
+       </div>
+
+       <div class="scrollElement">
+             <!-- VIDEO 1 -->
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/watch?v=hzM3KN6j7kQ"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        <div class="video-caption">
+          5 Pillars of Islam
+        </div>
+      </div>
+       </div>
+
+
+       <div class="scrollElement pdfElement_container">
+        <!-- BOOK 5 – Concise Commentary on the Book of Tawhid – Dr Salih al-Fawzan -->
+    <article class="pdf_element">
+
+      <div class="background tawheed-bg">
+        <div class="bg-inner">
+          <span class="arabic-title">التعليق المفيد على كتاب التوحيد</span>
+          <h1 class="book-title">Concise Commentary on Tawhid</h1>
+          <p class="book-subtitle">By Shaykh Dr Salih al-Fawzan</p>
+        </div>
+      </div>
+
+        <div class="button-row">
+        <a class="btn open" onclick="loadPDF('book.pdf')">Open</a>
+        <a href="book.pdf" target="_blank" rel="noopener" class="btn open_tab">
+          Open Tab
+        </a>
+        <a href="book.pdf" download class="btn download">
+          Download
+        </a>
+      </div>
+
+      <div class="information">
+        <p>Pages: ~490–500</p>
+        <p>Topic: Practical Explanation of Tawheed</p>
+        <p>Level: Intermediate–Advanced</p>
+      </div>
+
+      <div class="context">
+        <div class="whatyouwilllearn">
+          <p class="topic">What you will learn:</p>
+          <p>
+            A structured, modern commentary on Kitab at-Tawheed: each chapter 
+            is explained with simple language, practical examples and clear 
+            rulings. You’ll understand how issues like supplicating to graves, 
+            seeking blessings from trees, charms, fortunetelling and sacrificing
+            for other than Allah all oppose Tawheed.
+          </p>
+        </div>
+
+        <div class="author-background">
+          <p class="topic">About the book & author:</p>
+          <p>
+            Written by Shaykh Dr Salih al-Fawzan (hafizhahullah), a senior 
+            scholar of the Kingdom of Saudi Arabia, member of the Council of 
+            Senior Scholars, known for his strong Salafi ‘aqeedah and clear 
+            refutations of shirk and bid‘ah. This commentary is widely used 
+            in institutes and masajid that teach Salafi ‘aqeedah.
+          </p>
+        </div>
+      </div>
+
+      
+    </article>
+       </div>
+
+
+
+    </div>
+</div>
+
+
+  <!-- FULLSCREEN PDF VIEWER OVERLAY -->
+  <div id="pdf_overlay">
+    <div id="pdf_topbar">
+      <button id="closeViewer">Exit ✕</button>
+      <a id="openTabBtn" target="_blank" class="top_btn">Open Tab</a>
+      <a id="downloadBtn" download class="top_btn">Download</a>
+    </div>
+    <iframe id="pdfFullscreenViewer"></iframe>
+  </div>
+
+  <script>
+    function loadPDF(path) {
+      document.getElementById('pdf_overlay').style.display = 'flex';
+      document.getElementById('pdfFullscreenViewer').src = path;
+      document.getElementById('openTabBtn').href = path;
+      document.getElementById('downloadBtn').href = path;
+    }
+
+    document.getElementById('closeViewer').onclick = function () {
+      document.getElementById('pdf_overlay').style.display = 'none';
+      document.getElementById('pdfFullscreenViewer').src = "";
+    };
+
+
+
+    function convertToEmbed(url) {
+  try {
+    if (!url) return null;
+
+    if (url.includes("embed/")) return url;
+
+    if (url.includes("watch?v=")) {
+      const videoId = url.split("watch?v=")[1].split("&")[0];
+      return "https://www.youtube.com/embed/" + videoId;
+    }
+
+    if (url.includes("youtu.be/")) {
+      const videoId = url.split("youtu.be/")[1].split("?")[0];
+      return "https://www.youtube.com/embed/" + videoId;
+    }
+
+    return url;
+  } catch (e) {
+    console.error("Invalid YouTube URL:", url);
+    return null;
+  }
+}
+
+// Run immediately (script is at the bottom, so DOM is already present)
+const iframes = document.querySelectorAll("iframe");
+iframes.forEach(iframe => {
+  const originalSrc = iframe.getAttribute("src");
+  const newSrc = convertToEmbed(originalSrc);
+  if (newSrc && newSrc !== originalSrc) {
+    iframe.src = newSrc;
+    console.log("Converted →", newSrc);
+  }
+});
+  </script>
+
+  </body>
+</html>

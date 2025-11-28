@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Islamic Knowledge Library</title>
+
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-soft: #030712;
+      --card-bg: #0b1120;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --accent-2: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 52%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout shell */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 16px;
+      background: linear-gradient(90deg, rgba(15,23,42,0.95), rgba(15,23,42,0.6));
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      background: radial-gradient(circle at 30% 0%, rgba(74, 222, 128, 0.9), transparent 55%),
+                  radial-gradient(circle at 70% 100%, rgba(56, 189, 248, 0.75), transparent 55%),
+                  #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #e5e7eb;
+    }
+
+    .brand-text-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .brand-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .nav-link {
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(148, 163, 184, 0.45);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .nav-link.active {
+      border-color: rgba(34, 197, 94, 0.7);
+      color: #e5e7eb;
+      background: radial-gradient(circle at 0 0, rgba(74, 222, 128, 0.3), transparent 60%);
+    }
+
+    .nav-cta {
+      font-size: 12px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.8);
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.95));
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .nav-cta span.icon {
+      font-size: 16px;
+    }
+
+    /* Main content */
+    main {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-wrap: wrap;
+        border-radius: 20px;
+        align-items: flex-start;
+      }
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .nav-links {
+        justify-content: flex-start;
+      }
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding-inline: 12px;
+      }
+      header {
+        padding-inline: 12px;
+      }
+      .hero-title {
+        font-size: 26px !important;
+      }
+    }
+
+    /* Hero section */
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.12), transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      padding: 24px 22px 24px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--accent);
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .hero-badge span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22c55e, transparent);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-title {
+      font-size: 30px;
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 33rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.85);
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.45);
+      color: #022c22;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary span.icon {
+      font-size: 16px;
+    }
+
+    .btn-ghost {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-main);
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-item span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+    }
+
+    /* Decorative mosque silhouette */
+    .hero-mosque {
+      position: absolute;
+      inset: auto 8px 10px auto;
+      width: 160px;
+      height: 90px;
+      opacity: 0.28;
+      background:
+        radial-gradient(circle at 12% 100%, transparent 55%, rgba(15, 23, 42, 0.9)),
+        linear-gradient(to top, rgba(15, 23, 42, 0.4), transparent 55%);
+      mask-image: radial-gradient(circle at 50% 50%, black, transparent 70%);
+    }
+
+    .hero-mosque svg {
+      width: 100%;
+      height: 100%;
+      fill: rgba(15, 23, 42, 0.95);
+      stroke: rgba(148, 163, 184, 0.45);
+      stroke-width: 0.6;
+    }
+
+    /* Right side: category cards */
+    .panel {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .panel-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .pill-muted {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 430px) {
+      .categories-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .category-card {
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      padding: 10px 10px 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.14), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+
+    .category-card:hover::before {
+      opacity: 1;
+    }
+
+    .category-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .category-title {
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .category-tag {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(34, 197, 94, 0.6);
+    }
+
+    .category-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .category-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    .category-meta span.strong {
+      color: var(--accent-2);
+      font-weight: 500;
+    }
+
+    .category-arrow {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px dashed rgba(55, 65, 81, 0.7);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--accent-2);
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header / Menu -->
+    <header>
+      <div class="brand">
+        <div class="brand-icon">﷽</div>
+        <div>
+          <div class="brand-text-title">Islamic Knowledge Library</div>
+          <div class="brand-text-sub">Tawheed • Qur’an • Sunnah • Fiqh</div>
+        </div>
+      </div>
+
+      <nav>
+        <div class="nav-links">
+          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link" href="introduction.html">Introduction</a>
+          <a class="nav-link" href="tawheed.html">Tawheed</a>
+          <a class="nav-link" href="aqeedah-creed.html">Creed (ʿAqeedah)</a>
+          <a class="nav-link" href="fiqh.html">Fiqh</a>
+          <a class="nav-link" href="quran.html">Qur’an</a>
+          <a class="nav-link" href="hadith.html">Hadeeth</a>
+          <a class="nav-link" href="seerah.html">Seerah</a>
+        </div>
+      </nav>
+
+      <button class="nav-cta">
+        <span class="icon">📚</span>
+        Enter Library
+      </button>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <!-- Hero / Intro -->
+      <section class="hero-card">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Ahl al-Sunnah • Qur’an & Authentic Sunnah
+        </div>
+
+        <h1 class="hero-title">
+          A curated library of <span>authentic Islamic knowledge</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+          A central place to read and organise trusted books and notes in
+          <strong>Tawheed, ʿAqeedah, Fiqh, Qur’an, Hadeeth, and Seerah</strong> —
+          with clear structure, simple access, and a focus on beneficial learning.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary">
+            <span class="icon">▶</span>
+            Start with Introduction
+          </button>
+          <button class="btn-ghost">
+            Explore all categories
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="dot"></span>
+            Built for students & families
+          </div>
+          <div class="hero-meta-item">
+            <span class="dot"></span>
+            Focus on understanding & practice
+          </div>
+          <div class="hero-meta-item">
+            <span class="dot"></span>
+            Easy to extend with more PDFs
+          </div>
+        </div>
+
+        <!-- Decorative mosque silhouette -->
+        <div class="hero-mosque" aria-hidden="true">
+          <svg viewBox="0 0 200 100" preserveAspectRatio="xMidYMax meet">
+            <path d="M0 80 L40 80 L40 60 Q50 50 60 60 L60 80 L85 80 L85 45 Q100 30 115 45 L115 80 L140 80 L140 55 Q150 42 160 55 L160 80 L200 80 L200 100 L0 100 Z"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Categories / Quick links -->
+      <aside class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">Main paths of study</div>
+            <div class="panel-sub">Choose an area to begin. Each section will later link to its own PDFs and notes.</div>
+          </div>
+          <div class="pill-muted">Landing page only for now</div>
+        </div>
+
+        <div class="categories-grid">
+          <a href="introduction.html" class="category-card">
+            <div class="category-topline">
+              <div class="category-title">Introduction</div>
+              <div class="category-tag">Start here</div>
+            </div>
+            <div class="category-desc">
+              Overview of the project, how to use the library, and the foundations of seeking knowledge.
+            </div>
+            <div class="category-meta">
+              <span><span class="strong">Onboarding</span> • Vision & structure</span>
+              <span class="category-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="tawheed.html" class="category-card">
+            <div class="category-topline">
+              <div class="category-title">Tawheed</div>
+              <div class="category-tag">Core belief</div>
+            </div>
+            <div class="category-desc">
+              The oneness of Allah: Ruboobiyyah, Uloohiyyah, and Asmaa wa Sifaat. Pure worship with no partners.
+            </div>
+            <div class="category-meta">
+              <span><span class="strong">Aqeedah</span> • Foundations of faith</span>
+              <span class="category-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="aqeedah-creed.html" class="category-card">
+            <div class="category-topline">
+              <div class="category-title">ʿAqeedah / Creed</div>
+              <div class="category-tag">Belief</div>
+            </div>
+            <div class="category-desc">
+              Detailed belief of Ahl al-Sunnah: Imaan, Qadr, angels, books, messengers, and the Last Day.
+            </div>
+            <div class="category-meta">
+              <span><span class="strong">Belief</span> • Clarifying misguidance</span>
+              <span class="category-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="fiqh.html" class="category-card">
+            <div class="category-topline">
+              <div class="category-title">Fiqh</div>
+              <div class="category-tag">Worship</div>
+            </div>
+            <div class="category-desc">
+              Practical rulings: purification, prayer, fasting, zakah, Hajj and everyday dealings according to evidence.
+            </div>
+            <div class="category-meta">
+              <span><span class="strong">Practice</span> • Daily life</span>
+              <span class="category-arrow">↗</span>
+            </div>
+          </a>
+
+          <a href="quran.html" class="category-card">
+            <div class="category-topline">
+              <div class="category-title">Qur’an</div>
+              <div class="category-tag">Revelation</div>
+            </div>
+            <div class="category-desc">
+              Surah study, tafseer notes, themes of the Qur’an, and verses related to creed, worship and manners.
+            </div>
+            <div class="category-meta">
+              <span><span class="strong">Tafseer</span> • Refl

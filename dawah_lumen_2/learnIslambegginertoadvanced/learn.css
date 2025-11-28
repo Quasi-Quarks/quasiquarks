@@ -1,0 +1,222 @@
+*:not(html, script, style, head, iframe) {
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: system-ui;
+    font-weight: 100;
+    border: none;
+    /* border: 1px solid #ff0101; */
+    color: #000000;
+   } 
+
+
+body {
+    background-color: #ffffff;
+    }
+
+
+
+.scroll_container {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 90vw;
+    overflow: hidden;
+    overflow-x: scroll;
+    align-items: flex-start;
+}
+
+.section {
+    flex-direction: row;
+}
+
+.scrollElement {
+    min-height: 82vh;
+    height: 58vh;
+    min-width: 90vw;
+    margin-top: 0px;
+    margin: 0px 10px;
+    justify-content: flex-start;
+}
+
+.button-row {
+    flex-direction: row;
+    width: 88%;
+    justify-content: space-around;
+    padding: 5px 0px;
+}
+
+.information {
+    width: 100%;
+}
+
+.pdfElement_container {
+    min-height: 80vh;
+    /* max-height: 70vh; */
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    /* background-color: #d9d9d9; */
+    /* border-radius: 12px; */
+}
+
+.information p {
+    font-weight: 500;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.information {
+    width: 90%;
+    align-items: flex-start;
+    padding: 8px 0px;
+}
+
+p.topic {
+    font-size: 15px;
+    font-weight: 700;
+    font-size: 1.7rem;
+    font-weight: 500;
+    padding: 16px 0px;
+}
+
+.whatyouwilllearn {
+    padding: 19px 0px;
+    justify-content: space-around;
+    width: 90%;
+    padding: 7px 5px;
+}
+
+h1.book-title {
+    width: 91%;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.author-background {
+    padding: 0px 0px 0px 0px;
+    width: 96%;
+}
+
+.context {
+    justify-content: space-between;
+}
+
+a.btn {
+    padding: 7px;
+    font-weight: 500;
+    border-radius: 38px;
+    background-color: #000000;
+    color: white;
+}
+
+h1 {}
+
+#pdf_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000d9;
+    backdrop-filter: blur(4px);
+    display: none;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+#pdf_topbar {
+    width: 100%;
+    height: 60px;
+    background: #111;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    padding: 0 20px;
+    flex-direction: row;
+}
+
+#closeViewer {
+    background: red;
+    color: white;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+#pdfFullscreenViewer {
+    width: 100%;
+    height: calc(100% - 60px);
+    border: none;
+    background: white;
+}
+
+.video-card {
+    height: 100%;
+    width: 99%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.video-card iframe {
+    height: 100%;
+    width: 98%;
+    border-radius: 16px;
+}
+
+h1#scrolltopic {
+    color: black;
+    font-weight: 500;
+}
+
+p {
+    /* font-size: 1.4rem; */
+    font-weight: 500;
+}
+
+.author-background p {
+    padding: 11px 13px;
+}
+
+.bg-inner {
+    padding: 16px 0px;
+    min-height: 35vh;
+    justify-content: space-around;
+}
+
+span.arabic-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.section_container {
+    height: 97vh;
+    justify-content: space-evenly;
+}
+
+article.pdf_element {
+    border-radius: 12px;
+    width: 100%;
+    height: 94%;
+    justify-content: flex-start;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    padding: 7px 0px;
+    overflow-y: scroll;
+}
+
+.scrolltopic_container {
+    height: 66px;
+}
