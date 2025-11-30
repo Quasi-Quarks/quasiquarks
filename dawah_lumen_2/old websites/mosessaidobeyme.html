@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moses’ “Obey Me” Verses in Judaism and Christianity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        system-ui, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.86);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.75);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    /* Layout */
+    main {
+      flex: 1;
+      padding: 40px 18px 60px;
+    }
+
+    .article-shell {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Top title area */
+    .article-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.6;
+      margin-bottom: 6px;
+    }
+
+    .article-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .article-meta {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-bottom: 16px;
+    }
+
+    .article-intro {
+      font-size: 0.95rem;
+      opacity: 0.88;
+      max-width: 640px;
+      margin-bottom: 24px;
+    }
+
+    /* Font size controls */
+    .font-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .font-label {
+      font-weight: 500;
+    }
+
+    .font-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.2);
+      background: #ffffff;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background-color 0.15s ease,
+                  border-color 0.15s ease,
+                  transform 0.1s ease;
+    }
+
+    .font-btn:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.35);
+      transform: translateY(-1px);
+    }
+
+    .font-btn.active {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      transform: translateY(-1px);
+    }
+
+    /* Repeated sections */
+    .section-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-block {
+      background: #f5f5f7;
+      border-radius: 22px;
+      padding: 18px 18px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      opacity: 0.88;
+    }
+
+    .section-body p {
+      margin-bottom: 10px;
+    }
+
+    .section-divider {
+      text-align: center;
+      font-size: 0.78rem;
+      opacity: 0.5;
+      margin: 4px 0;
+    }
+
+    /* Verse refs */
+    .verse-ref {
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(0,0,0,0.4);
+      padding-bottom: 1px;
+    }
+
+    .verse-ref:hover {
+      border-bottom-style: solid;
+    }
+
+    /* Footer nav */
+    .article-footer-nav {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #111111;
+      cursor: pointer;
+      transition: background-color 0.18s ease,
+                  border-color 0.18s ease,
+                  transform 0.12s ease;
+    }
+
+    .btn-pill:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-pill:active {
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      padding: 22px 18px 28px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.55);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        padding: 50px 40px 80px;
+      }
+
+      .section-block {
+        padding: 22px 24px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">LOREM</div>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </header>
+
+    <main>
+      <article class="article-shell">
+        <!-- Main title area -->
+        <div class="article-label">Article</div>
+        <h1 class="article-title">Moses’ “Obey Me” Verses in Judaism and Christianity</h1>
+        <div class="article-meta">
+          January 14, 2025 • 5 min read • By Lorem Ipsum
+        </div>
+
+        <p class="article-intro">
+          Below is a clean, accurate list of the strongest “Obey me / Hear me / Follow my commands”
+          statements attributed to Moses, from Judaism and Christianity, separated into:
+          (1) Hebrew Bible / Tanakh (Judaism), (2) Old Testament (Christian Bibles),
+          and (3) New Testament references about Moses’ authority. These are the top, clearest verses
+          where Moses commands obedience.
+        </p>
+
+        <!-- Font size controls -->
+        <div class="font-controls">
+          <span class="font-label">Text size:</span>
+          <button class="font-btn" data-size="normal">Normal</button>
+          <button class="font-btn" data-size="medium">Medium</button>
+          <button class="font-btn" data-size="large">Large</button>
+          <button class="font-btn" data-size="xl">XL</button>
+          <button class="font-btn" data-size="xxl">2XL</button>
+          <button class="font-btn" data-size="xxxl">3XL</button>
+          <button class="font-btn" data-size="4xl">4XL</button>
+          <button class="font-btn" data-size="5xl">5XL</button>
+          <button class="font-btn" data-size="6xl">6XL</button>
+        </div>
+
+        <!-- Sections -->
+        <div class="section-list">
+
+          <!-- SECTION 1: JUDAISM (TANAKH) -->
+          <div class="section-block">
+            <div class="section-title">
+              1. Judaism (Tanakh / Hebrew Bible) — Moses Saying “Obey Me / My Commands”
+            </div>
+            <div class="section-body">
+              <p>
+                These verses are exactly the same as the Christian Old Testament, just arranged differently.
+                These are the strongest “obey me” statements directly from Moses’ mouth.
+              </p>
+
+              <p><strong>1. Exodus 15:26</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Exodus 15:26</a><br>
+                “If you will diligently listen to the voice of YHWH your God and do what is right in His eyes,
+                and give ear to His commandments, and keep all His statutes, I will put none of the diseases on you
+                which I have brought on the Egyptians.”
+              </p>
+              <p>➡️ Moses commands Israel to OBEY.</p>
+
+              <p><strong>2. Exodus 19:5</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Exodus 19:5</a><br>
+                “Now therefore, if you will indeed obey My voice and keep My covenant,
+                then you shall be My treasured possession…”
+              </p>
+              <p>Moses relays this command.</p>
+
+              <p><strong>3. Exodus 24:7</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Exodus 24:7</a><br>
+                “We will do and obey all that YHWH has spoken.”
+              </p>
+              <p>This is Moses presenting the covenant book and Israel promising obedience.</p>
+
+              <p><strong>4. Deuteronomy 4:1</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 4:1</a><br>
+                “Now, O Israel, listen to the statutes and to the judgments which I teach you to do…”
+              </p>
+              <p>➡️ Moses explicitly says: listen to what I teach.</p>
+
+              <p><strong>5. Deuteronomy 5:1</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 5:1</a><br>
+                “Hear, O Israel, the statutes and judgments which I speak in your hearing today,
+                that you may learn them and keep them and do them.”
+              </p>
+
+              <p><strong>6. Deuteronomy 6:1–2</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 6:1–2</a><br>
+                “These are the commandments… which YHWH your God commanded me to teach you,
+                that you might do them…”
+              </p>
+              <p>➡️ Moses is commanding obedience to what he teaches.</p>
+
+              <p><strong>7. Deuteronomy 11:27</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 11:27</a><br>
+                “The blessing, if you obey the commandments of YHWH your God which I command you this day.”
+              </p>
+
+              <p><strong>8. Deuteronomy 13:4</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 13:4</a><br>
+                “You shall walk after YHWH your God… keep His commandments, obey His voice, serve Him, and cling to Him.”
+              </p>
+              <p>Moses speaking.</p>
+
+              <p><strong>9. Deuteronomy 27:10</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 27:10</a><br>
+                “You shall obey the voice of YHWH your God, and do His commandments and His statutes which I command you today.”
+              </p>
+
+              <p><strong>10. Deuteronomy 30:11–12</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 30:11–12</a><br>
+                “This commandment which I command you today is not too hard for you…”
+              </p>
+
+              <p>
+                These are the top 10 clearest direct obedience commands spoken by Moses in Judaism.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">⸻</div>
+
+          <!-- SECTION 2: CHRISTIANITY — OLD TESTAMENT -->
+          <div class="section-block">
+            <div class="section-title">
+              2. Christianity — Old Testament (Moses’ Direct Commands)
+            </div>
+            <div class="section-body">
+              <p>
+                Christian Bibles have the same Book of Moses, so the same verses apply.
+                But here are the top 10, chosen specifically for Christian theological relevance:
+              </p>
+
+              <p><strong>1. Deuteronomy 4:1</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 4:1</a><br>
+                “Listen to the statutes and judgments which I teach you.”
+              </p>
+
+              <p><strong>2. Deuteronomy 5:1</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 5:1</a><br>
+                “Hear, O Israel, the statutes and judgments which I speak in your hearing.”
+              </p>
+
+              <p><strong>3. Deuteronomy 6:1–2</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 6:1–2</a><br>
+                “God commanded me to teach you… that you may keep all His statutes.”
+              </p>
+
+              <p><strong>4. Deuteronomy 11:27–28</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 11:27–28</a><br>
+                “A blessing if you obey… a curse if you do not obey the commandments which I command you.”
+              </p>
+
+              <p><strong>5. Deuteronomy 12:32</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 12:32</a><br>
+                “Whatever I command you, be careful to observe it; you shall not add to it nor take from it.”
+              </p>
+
+              <p><strong>6. Deuteronomy 26:16</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 26:16</a><br>
+                “This day YHWH commands you to do these statutes… therefore you shall keep and do them with all your heart.”
+              </p>
+
+              <p><strong>7. Deuteronomy 27:10</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 27:10</a><br>
+                “You shall obey… the commandments and statutes which I command you today.”
+              </p>
+
+              <p><strong>8. Deuteronomy 30:15–16</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 30:15–16</a><br>
+                “I command you today to love YHWH your God, to walk in His ways, and keep His commandments.”
+              </p>
+
+              <p><strong>9. Deuteronomy 30:19–20</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Deuteronomy 30:19–20</a><br>
+                “I call heaven and earth to witness… therefore choose life.”
+              </p>
+
+              <p><strong>10. Exodus 24:3</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Exodus 24:3</a><br>
+                “Moses came and told the people all the words of YHWH… and the people said,
+                ‘All the words which YHWH has said we will do.’”
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">⸻</div>
+
+          <!-- SECTION 3: CHRISTIANITY — NEW TESTAMENT REFERENCES -->
+          <div class="section-block">
+            <div class="section-title">
+              3. Christianity — New Testament References to Obeying Moses
+            </div>
+            <div class="section-body">
+              <p>
+                Moses does not speak directly in the New Testament, but the New Testament commands obedience
+                to Moses or acknowledges that people were supposed to obey him.
+              </p>
+
+              <p><strong>1. Matthew 23:2–3</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Matthew 23:2–3</a><br>
+                “The scribes and Pharisees sit in Moses’ seat. Therefore whatever they tell you to observe,
+                that observe and do.”
+              </p>
+              <p>➡️ Jesus commands obedience to Moses’ authority.</p>
+
+              <p><strong>2. John 5:46–47</strong></p>
+              <p>
+                <a href="#" class="verse-ref">John 5:46–47</a><br>
+                “If you believed Moses, you would believe Me… but if you do not believe his writings,
+                how will you believe My words?”
+              </p>
+              <p>➡️ Obeying Moses = obeying Jesus.</p>
+
+              <p><strong>3. Acts 3:22</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Acts 3:22</a><br>
+                “Moses said: ‘The Lord your God will raise up for you a Prophet like me…
+                you must listen to Him in everything.’”
+              </p>
+              <p>This quotes Moses commanding obedience to the coming Prophet.</p>
+
+              <p><strong>4. Acts 15:21</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Acts 15:21</a><br>
+                “For Moses has been preached… and is read in the synagogues every Sabbath.”
+              </p>
+              <p>Implying his laws are to be obeyed.</p>
+
+              <p><strong>5. Acts 26:22</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Acts 26:22</a><br>
+                Paul testifies that he is preaching “nothing except what Moses and the Prophets said” —
+                affirming obedience.
+              </p>
+
+              <p><strong>6. Hebrews 10:28</strong></p>
+              <p>
+                <a href="#" class="verse-ref">Hebrews 10:28</a><br>
+                “Anyone who rejected Moses’ law died without mercy…”
+              </p>
+              <p>➡️ You were expected to obey Moses.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer nav -->
+        <div class="article-footer-nav">
+          <a href="blog.html" class="btn-pill">← Back to blog</a>
+          <a href="index.html" class="btn-pill">Home</a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. © 2025
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const sizeMap = {
+        normal: '100%',
+        medium: '105%',
+        large: '115%',
+        xl: '125%',
+        xxl: '135%',
+        xxxl: '145%',
+        '4xl': '155%',
+        '5xl': '165%',
+        '6xl': '175%'
+      };
+
+      const buttons = document.querySelectorAll('.font-btn');
+
+      function setFontSize(sizeKey) {
+        const size = sizeMap[sizeKey] || sizeMap.normal;
+        document.documentElement.style.fontSize = size;
+
+        buttons.forEach(btn => {
+          if (btn.dataset.size === sizeKey) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+      }
+
+      // Click handler
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sizeKey = btn.dataset.size;
+          setFontSize(sizeKey);
+        });
+      });
+
+      // Set default size
+      setFontSize('normal');
+    })();
+  </script>
+</body>
+</html>

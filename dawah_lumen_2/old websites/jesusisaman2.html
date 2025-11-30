@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jesus in the Bible – Prophet and Man</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        system-ui, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.86);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: rgba(0,0,0,0.75);
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid transparent;
+      transition: background-color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      background-color: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.06);
+    }
+
+    /* Layout */
+    main {
+      flex: 1;
+      padding: 40px 18px 60px;
+    }
+
+    .article-shell {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Top title area */
+    .article-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.6;
+      margin-bottom: 6px;
+    }
+
+    .article-title {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .article-meta {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-bottom: 12px;
+    }
+
+    .article-intro {
+      font-size: 0.98rem;
+      opacity: 0.85;
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    /* Font size controls */
+    .font-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      opacity: 0.95;
+    }
+
+    .font-label {
+      font-weight: 500;
+    }
+
+    .font-btn {
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.2);
+      background: #ffffff;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background-color 0.15s ease,
+                  border-color 0.15s ease,
+                  transform 0.1s ease;
+    }
+
+    .font-btn:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.35);
+      transform: translateY(-1px);
+    }
+
+    .font-btn.active {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      transform: translateY(-1px);
+    }
+
+    /* Repeated sections */
+    .section-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .section-block {
+      background: #f5f5f7;
+      border-radius: 22px;
+      padding: 18px 18px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      opacity: 0.88;
+    }
+
+    .section-body p {
+      margin-bottom: 10px;
+    }
+
+    /* Subtle divider text between blocks (optional) */
+    .section-divider {
+      text-align: center;
+      font-size: 0.78rem;
+      opacity: 0.5;
+      margin: 4px 0;
+    }
+
+    /* Footer nav */
+    .article-footer-nav {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #111111;
+      cursor: pointer;
+      transition: background-color 0.18s ease,
+                  border-color 0.18s ease,
+                  transform 0.12s ease;
+    }
+
+    .btn-pill:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-pill:active {
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      padding: 22px 18px 28px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.55);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin-top: auto;
+      text-align: center;
+    }
+
+    @media (min-width: 900px) {
+      main {
+        padding: 50px 40px 80px;
+      }
+
+      .section-block {
+        padding: 22px 24px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo">LOREM</div>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </header>
+
+    <main>
+      <article class="article-shell">
+        <!-- Main title area -->
+        <div class="article-label">Bible Study</div>
+        <h1 class="article-title">Verses Where Jesus Is Called a Prophet and a Man</h1>
+        <div class="article-meta">
+          November 30, 2025 • 6 min read • By Lorem Ipsum
+        </div>
+
+        <!-- Font size controls -->
+        <div class="font-controls">
+          <span class="font-label">Text size:</span>
+          <button class="font-btn" data-size="normal">Normal</button>
+          <button class="font-btn" data-size="medium">Medium</button>
+          <button class="font-btn" data-size="large">Large</button>
+          <button class="font-btn" data-size="xlarge">Extra Large</button>
+          <button class="font-btn" data-size="xxl">XXL</button>
+        </div>
+
+        <p class="article-intro">
+          The New Testament repeatedly records people speaking about Jesus as a prophet
+          and as a man. These descriptions reflect how ordinary people, crowds, and
+          even some of his disciples understood him during his earthly ministry. While
+          Christian theology later develops doctrines about his divinity, these verses
+          show the way he was recognized in real time: as a messenger of God, powerful
+          in word and deed, and as a human being who walked, spoke, and lived among
+          his people.
+        </p>
+
+        <!-- Repeated section blocks -->
+        <div class="section-list">
+
+          <div class="section-block">
+            <div class="section-title">1. Jesus Recognized as a Prophet – Witness from Matthew</div>
+            <div class="section-body">
+              <p>
+                In the Gospel of Matthew, the crowds surrounding Jesus clearly identify
+                him in prophetic terms. They do not call him “God” or “a divine being,”
+                but “the prophet from Nazareth,” placing him in continuity with the
+                prophets of the Old Testament.
+              </p>
+              <p>
+                <strong>Matthew 21:11</strong><br>
+                “And the crowds answered, ‘This is Jesus, the prophet from Nazareth in Galilee.’”
+              </p>
+              <p>
+                Here the people give Jesus a very specific title: <em>the prophet</em>.
+                He is known by name, by hometown, and by role. This is a public
+                confession from the crowd, not a private or hidden belief.
+              </p>
+              <p>
+                <strong>Matthew 21:46</strong><br>
+                “They looked for a way to arrest him, but they were afraid of the crowd
+                because the people held that he was a prophet.”
+              </p>
+              <p>
+                The leaders wanted to arrest Jesus, but the people’s conviction that he
+                was a prophet protected him, at least for a time. Again, Jesus is
+                viewed as a <em>prophet</em> – a servant of God – not as God Himself.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <div class="section-block">
+            <div class="section-title">2. “One of the Prophets” – Testimonies from Mark and Luke</div>
+            <div class="section-body">
+              <p>
+                Other Gospels add more voices from the crowds, showing that many people
+                placed Jesus among the ranks of earlier prophets like Elijah and John
+                the Baptist. They recognise a holy man sent by God, continuing the
+                prophetic tradition.
+              </p>
+              <p>
+                <strong>Mark 6:15</strong><br>
+                “Others said, ‘He is Elijah.’ And still others claimed, ‘He is a
+                prophet, like one of the prophets of long ago.’”
+              </p>
+              <p>
+                Here Jesus is compared to Elijah and to the prophets “of long ago.”
+                This language connects him to familiar prophetic figures – men chosen
+                by God, but still human servants of God.
+              </p>
+              <p>
+                <strong>Mark 8:28</strong><br>
+                “They replied, ‘Some say John the Baptist; others say Elijah; and still
+                others, one of the prophets.’”
+              </p>
+              <p>
+                When Jesus asks what people are saying about him, the answers are all
+                within the category of prophet. The options people give – John the
+                Baptist, Elijah, or “one of the prophets” – show that his mission is
+                understood as prophetic, not as God walking among them.
+              </p>
+              <p>
+                <strong>Luke 7:16</strong><br>
+                “They were all filled with awe and praised God. ‘A great prophet has
+                appeared among us,’ they said. ‘God has come to help his people.’”
+              </p>
+              <p>
+                After witnessing one of Jesus’ miracles, the people glorify God and say,
+                “A great prophet has appeared among us.” Jesus’ miracle leads them to
+                praise God above, while identifying Jesus himself as a <em>great
+                prophet</em> sent by that same God.
+              </p>
+              <p>
+                <strong>Luke 24:19</strong> (disciples on the road to Emmaus)<br>
+                “He was a prophet, powerful in word and deed before God and all the
+                people.”
+              </p>
+              <p>
+                Even after the crucifixion, the disciples on the road to Emmaus describe
+                Jesus in the past tense as “a prophet, powerful in word and deed.”
+                Again, his status as a prophet, acting <em>before God</em>, is
+                emphasised.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <div class="section-block">
+            <div class="section-title">3. “Surely This Is the Prophet” – Prophetic Titles in John</div>
+            <div class="section-body">
+              <p>
+                The Gospel of John preserves several powerful statements where different
+                people recognise Jesus explicitly as a prophet. These confessions come
+                from a Samaritan woman, crowds who witnessed miracles, and a man healed
+                from blindness.
+              </p>
+              <p>
+                <strong>John 4:19</strong> (Samaritan woman)<br>
+                “Sir,” the woman said, “I can see that you are a prophet.”
+              </p>
+              <p>
+                The Samaritan woman, after her conversation with Jesus and his
+                knowledge of her life, moves naturally to the conclusion that he is “a
+                prophet” – someone who receives knowledge from God.
+              </p>
+              <p>
+                <strong>John 6:14</strong><br>
+                “After the people saw the sign Jesus performed, they began to say,
+                ‘Surely this is the Prophet who is to come into the world.’”
+              </p>
+              <p>
+                Many Jews were expecting “the Prophet” foretold in the scriptures.
+                After witnessing a miracle, the crowd identifies Jesus with this figure
+                – a promised prophet, not a member of the Trinity.
+              </p>
+              <p>
+                <strong>John 7:40</strong><br>
+                “On hearing his words, some of the people said, ‘Surely this man is the
+                Prophet.’”
+              </p>
+              <p>
+                Once again, Jesus is called “the Prophet.” The phrase “this man” keeps
+                the focus on his visible, human presence, while the title “Prophet”
+                marks his role as God’s spokesman.
+              </p>
+              <p>
+                <strong>John 9:17</strong> (the man born blind, after being healed)<br>
+                “He is a prophet.”
+              </p>
+              <p>
+                The man who was healed reaches his own conclusion about Jesus: “He is a
+                prophet.” Jesus’ miracle leads him to recognise Jesus as a man sent
+                by God, not God Himself.
+              </p>
+            </div>
+          </div>
+
+          <div class="section-divider">· · ·</div>
+
+          <div class="section-block">
+            <div class="section-title">4. Jesus Described as a Man – Human Language in John and Scholarly Reflections</div>
+            <div class="section-body">
+              <p>
+                Alongside the prophetic titles, the New Testament also uses very clear
+                language about Jesus as a <em>man</em>. These verses highlight his
+                humanity. In Christian theology this does not necessarily deny claims of
+                divinity, but they show how people around him understood him: as a
+                human being who spoke the truth he heard from God.
+              </p>
+              <p>
+                <strong>John 7:27</strong><br>
+                “But we know where this man is from; when the Christ comes, no one will
+                know where he is from.”
+              </p>
+              <p>
+                The people call Jesus “this man” and speak about his known origin. They
+                contrast their knowledge of his background with their expectations about
+                the Christ, again emphasising his visible humanity.
+              </p>
+              <p>
+                <strong>John 7:46</strong> (officers sent to arrest Jesus)<br>
+                “No one ever spoke the way this man does.”
+              </p>
+              <p>
+                Even those sent to arrest Jesus are impressed by him and refer to him
+                simply as “this man.” His speech is unique and powerful, yet he is
+                still described with normal human language.
+              </p>
+              <p>
+                <strong>John 8:40</strong><br>
+                “But now you are trying to kill me, a man who has told you the truth
+                that I heard from God.”
+              </p>
+              <p>
+                Here Jesus speaks about himself directly: “a man who has told you the
+                truth that I heard from God.” He clearly distinguishes himself from God
+                by presenting himself as the human messenger who conveys God’s truth.
+              </p>
+              <p>
+                <strong>John 9:11</strong><br>
+                “The man they call Jesus made some mud and put it on my eyes…”
+              </p>
+              <p>
+                The healed man again uses ordinary human language: “the man they call
+                Jesus.” The miracle is great, but the one performing it is still
+                described as “the man” Jesus.
+              </p>
+              <p>
+                <strong>John 10:33</strong><br>
+                “We are not stoning you for any good work,” they replied, “but for
+                blasphemy, because you, a mere man, claim to be God.”
+              </p>
+              <p>
+                Jesus’ opponents accuse him of blasphemy precisely because they see him
+                as “a mere man” who is making exalted claims. Their words show clearly
+                how they perceived him: human, not divine.
+              </p>
+              <p>
+                These human and prophetic descriptions have led some modern Christian
+                scholars to re-examine the so-called “deification texts” – the passages
+                where Jesus appears to be called “God.” For example, the New Testament
+                scholar <strong>James Dunn</strong> observes that when each piece of
+                evidence is examined closely, serious textual and translational
+                questions arise. He notes that in almost all of the places in the New
+                Testament where Jesus seems to be directly called “God,” there are
+                problems: either issues in the manuscript tradition, or difficulties in
+                how the text should be translated.
+              </p>
+              <p>
+                According to this kind of analysis, many of the strongest “divinity
+                texts” are not as straightforward as they may first appear. Dunn points
+                out that this way of explicitly calling Jesus “God” does not occur in
+                the first three Gospels (Matthew, Mark, and Luke) at all. Instead,
+                those Gospels consistently present him as God’s servant, a prophet, and
+                a man empowered by God – which harmonises with the verses listed above,
+                where Jesus is repeatedly recognised as a prophet and as a human being.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer nav -->
+        <div class="article-footer-nav">
+          <a href="blog.html" class="btn-pill">← Back to blog</a>
+          <a href="index.html" class="btn-pill">Home</a>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. © 2025
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const sizeMap = {
+        normal: '100%',
+        medium: '105%',
+        large: '115%',
+        xlarge: '125%',
+        xxl: '135%'
+      };
+
+      const buttons = document.querySelectorAll('.font-btn');
+
+      function setFontSize(sizeKey) {
+        const size = sizeMap[sizeKey] || sizeMap.normal;
+        document.documentElement.style.fontSize = size;
+
+        buttons.forEach(btn => {
+          if (btn.dataset.size === sizeKey) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+      }
+
+      // Click handler
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const sizeKey = btn.dataset.size;
+          setFontSize(sizeKey);
+        });
+      });
+
+      // Set default
+      setFontSize('normal');
+    })();
+  </script>
+</body>
+</html>

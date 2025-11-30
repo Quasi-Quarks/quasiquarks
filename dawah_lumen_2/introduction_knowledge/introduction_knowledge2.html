@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dev Hub — Learn • Build • Ship</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0c0f1a" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="introduction_knowledge.css" />
+    <link rel="stylesheet" href="homemobile.css" />
+    <link rel="icon" href="icons/html.png" />
+  </head>
+
+  <body>
+
+    <div id="menu"></div>
+
+    <div class="section_container">
+
+      <div class="scrolltopic_container">
+        <h1 id="scrolltopic">Foundations of Islam</h1>
+      </div>
+      
+      <div class="section">
+        <div class="scroll_container">
+
+          <!-- 1. How to convert – Sh. Haytham Sarhan -->
+          <div class="scrollElement pdfElement_container">
+            <article class="pdf_element">
+
+              <div class="background tawheed-bg">
+                <div class="bg-inner">
+                  <span class="arabic-title">كيف أدخل في الإسلام؟</span>
+                  <h1 class="book-title">How to Convert to Islam</h1>
+                  <p class="book-subtitle">By: Shaykh Dr. Haytham Sarhān</p>
+                </div>
+              </div>
+
+              <div class="button-row">
+                <a class="btn open" onclick="loadPDF('../newpdfs/1 How to convert haytham sarhaan.pdf')">Open</a>
+                <a href="../newpdfs/1 How to convert haytham sarhaan.pdf" target="_blank" rel="noopener" class="btn open_tab">
+                  Open Tab
+                </a>
+                <a href="../newpdfs/1 How to convert haytham sarhaan.pdf" download class="btn download">
+                  Download
+                </a>
+              </div>
+
+              <div class="information">
+                <p>Topic: How to become a Muslim & first steps after accepting Islam</p>
+                <p>Level: Entry level</p>
+              </div>
+
+              <div class="context">
+                <div class="whatyouwilllearn">
+                  <p class="topic">What you will learn:</p>
+                  <p>
+                    How to enter Islam correctly, the meaning of the Shahādah, what a new Muslim should do
+                    in their early days, and the most important beliefs and basic acts of worship a new Muslim
+                    needs to learn gradually.
+                  </p>
+                </div>
+
+                <div class="author-background">
+                  <p class="topic">About the book & author:</p>
+                  <p>
+                    A question-and-answer style booklet by Shaykh Dr. Haytham Sarhān, a teacher in the
+                    Prophet’s Mosque in Madinah, focusing on clear evidence and practical guidance for
+                    new Muslims.
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          
+
+        </div>
+      </div>
+    </div>
+
+    <!-- FULLSCREEN PDF VIEWER OVERLAY -->
+    <div id="pdf_overlay">
+      <div id="pdf_topbar">
+        <button id="closeViewer">Exit ✕</button>
+        <a id="openTabBtn" target="_blank" class="top_btn">Open Tab</a>
+        <a id="downloadBtn" download class="top_btn">Download</a>
+      </div>
+      <iframe id="pdfFullscreenViewer"></iframe>
+    </div>
+
+    <script>
+      function loadPDF(path) {
+        document.getElementById('pdf_overlay').style.display = 'flex';
+        document.getElementById('pdfFullscreenViewer').src = path;
+        document.getElementById('openTabBtn').href = path;
+        document.getElementById('downloadBtn').href = path;
+      }
+
+      document.getElementById('closeViewer').onclick = function () {
+        document.getElementById('pdf_overlay').style.display = 'none';
+        document.getElementById('pdfFullscreenViewer').src = "";
+      };
+
+      function convertToEmbed(url) {
+        try {
+          if (!url) return null;
+
+          if (url.includes("embed/")) return url;
+
+          if (url.includes("watch?v=")) {
+            const videoId = url.split("watch?v=")[1].split("&")[0];
+            return "https://www.youtube.com/embed/" + videoId;
+          }
+
+          if (url.includes("youtu.be/")) {
+            const videoId = url.split("youtu.be/")[1].split("?")[0];
+            return "https://www.youtube.com/embed/" + videoId;
+          }
+
+          return url;
+        } catch (e) {
+          console.error("Invalid YouTube URL:", url);
+          return null;
+        }
+      }
+
+      // Run immediately (script is at the bottom, so DOM is already present)
+      const iframes = document.querySelectorAll("iframe");
+      iframes.forEach(iframe => {
+        const originalSrc = iframe.getAttribute("src");
+        const newSrc = convertToEmbed(originalSrc);
+        if (newSrc && newSrc !== originalSrc) {
+          iframe.src = newSrc;
+          console.log("Converted →", newSrc);
+        }
+      });
+    </script>
+
+  </body>
+</html>
