@@ -215,8 +215,30 @@ article.pdf_element {
     overflow: hidden;
     padding: 7px 0px;
     overflow-y: scroll;
+    padding: 8px 3px;
 }
 
 .scrolltopic_container {
     height: 66px;
+}
+
+.scrollElement.pdfElement_container {}
+
+.yscroll {
+    width: 95%;
+    min-height: 77vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+}
+
+.yscroll {}
+
+.scroll .video-card {
+    min-height: 33vh;
+}
+
+.video-card.yscrollvideo {
+    min-height: 71vh;
+    margin: 11px 0px;
 }
