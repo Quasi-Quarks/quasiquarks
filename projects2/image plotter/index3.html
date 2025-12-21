@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Coordinate Array (No Canvas)</title>
+</head>
+<body>
+  <h1>Pixel Coordinates Array (No Canvas)</h1>
+
+  <input type="file" id="fileInput" accept="image/*">
+  <img id="img" style="display:none">
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const img = document.getElementById("img");
+
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        img.onload = () => {
+          const width = img.naturalWidth;
+          const height = img.naturalHeight;
+
+          // Create array to store all (x, y)
+          const coords = [];
+
+          for (let y = 0; y < height; y++) {
+            for (let x = 0; x < width; x++) {
+              coords.push({ x, y });
+            }
+          }
+
+          console.log("Total pixels:", coords.length);
+          console.log(coords); // This is your array of coordinate objects
+        };
+
+        img.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

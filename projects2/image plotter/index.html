@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Pixel XY Demo</title>
+</head>
+<body>
+  <h1>Image Pixel (x, y) Reader</h1>
+
+  <!-- 1) Choose an image from your computer -->
+  <input type="file" id="fileInput" accept="image/*">
+  <p>Open the console (F12 → Console) to see some (x, y, color) logs.</p>
+
+  <!-- 2) Canvas (can be hidden if you want) -->
+  <canvas id="canvas" style="border:1px solid #ccc; max-width: 100%;"></canvas>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const img = new Image();
+      img.onload = () => {
+        const width = img.naturalWidth;
+        const height = img.naturalHeight;
+
+        // Resize canvas to match image
+        canvas.width = width;
+        canvas.height = height;
+
+        // Draw image onto canvas
+        ctx.drawImage(img, 0, 0, width, height);
+
+        // Get pixel data
+        const imageData = ctx.getImageData(0, 0, width, height);
+        const data = imageData.data; // [R,G,B,A, R,G,B,A, ...]
+
+        console.log(`Image size: ${width} x ${height}`);
+
+        // Loop over every pixel
+        for (let y = 0; y < height; y++) {
+          for (let x = 0; x < width; x++) {
+            const index = (y * width + x) * 4;
+
+            const r = data[index + 0];
+            const g = data[index + 1];
+            const b = data[index + 2];
+            const a = data[index + 3];
+
+            // (x, y) are the pixel coordinates
+            // (r, g, b, a) are the pixel colour values
+
+            // To avoid spamming, only log every 50th pixel in each direction
+            if (x % 50 === 0 && y % 50 === 0) {
+              console.log(
+                `Pixel at (${x}, ${y}) -> RGBA(${r}, ${g}, ${b}, ${a})`
+              );
+            }
+          }
+        }
+
+        console.log("Finished scanning all pixels.");
+      };
+
+      // Read the file as a data URL and set as image source
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

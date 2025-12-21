@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Pixel Coordinates (No Canvas)</title>
+</head>
+<body>
+  <h1>Image Pixel (x, y) Coordinates (No Canvas)</h1>
+
+  <!-- Pick an image -->
+  <input type="file" id="fileInput" accept="image/*">
+
+  <!-- Hidden image element to load the file -->
+  <img id="img" alt="preview" style="max-width: 200px; display:none;">
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const img = document.getElementById("img");
+
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        img.onload = () => {
+          const width  = img.naturalWidth;
+          const height = img.naturalHeight;
+
+          console.log(`Image size: ${width} x ${height}`);
+
+          // Now we know all possible (x, y) coords
+          // Example: just log some of them
+          for (let y = 0; y < height; y += Math.max(1, Math.floor(height / 10))) {
+            for (let x = 0; x < width; x += Math.max(1, Math.floor(width / 10))) {
+              console.log(`Pixel coordinate: (${x}, ${y})`);
+            }
+          }
+
+          console.log("Done listing sample coordinates.");
+        };
+
+        img.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Div Plot</title>
+
+<style>
+  #plotArea {
+    width: 400px;
+    height: 300px;
+    border: 2px solid black;
+    position: relative;
+    background: #f5f5f5;
+    overflow: hidden;
+  }
+
+  .dot {
+    width: 4px;
+    height: 7px;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(0%, 0%);
+    /* margin-left: 10px; */
+  }
+</style>
+
+</head>
+<body>
+
+<h2>Plot With Divs (from plots.js)</h2>
+<div id="plotdiv"> 
+<div id="plotArea"></div>
+</div>
+<!-- 1) Load the generated array -->
+<script src="plots.js"></script>
+
+<!-- 2) Then plot it -->
+<script>
+  const plot = document.getElementById("plotArea");
+
+  // Find max x,y so we can scale to plotArea size
+  let maxX = 0, maxY = 0;
+  points.forEach(p => {
+    if (p.x > maxX) maxX = p.x;
+    if (p.y > maxY) maxY = p.y;
+  });
+
+  const plotWidth  = plot.clientWidth;
+  const plotHeight = plot.clientHeight;
+
+  points.forEach(p => {
+    const dot = document.createElement("div");
+    dot.className = "dot";
+
+    // scale coordinates to fit plotArea
+    const sx = (p.x / maxX) * plotWidth;
+    const sy = (p.y / maxY) * plotHeight;
+
+    dot.style.left = sx + "px";
+    dot.style.top  = sy + "px";
+    dot.style.transform  = "translateZ("+sx+"px)"
+        
+
+    // Use the colour from points.js
+    dot.style.backgroundColor = p.color;
+
+    plot.appendChild(dot);
+  });
+</script>
+
+</body>
+</html>

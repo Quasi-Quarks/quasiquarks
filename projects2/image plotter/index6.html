@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image → points.js Generator</title>
+  <style>
+    body { font-family: sans-serif; }
+    canvas { border: 1px solid #ccc; max-width: 100%; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Generate points.js from an Image</h2>
+  <p>
+    1. Choose an image<br>
+    2. Open DevTools → Console<br>
+    3. Copy the printed <code>const points = [...]</code> into <strong>plots.js</strong>
+  </p>
+
+  <input type="file" id="fileInput" accept="image/*">
+  <br><br>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const img = new Image();
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        img.onload = () => {
+          const imgWidth  = img.naturalWidth;
+          const imgHeight = img.naturalHeight;
+
+          // Resize canvas to image
+          canvas.width  = imgWidth;
+          canvas.height = imgHeight;
+          ctx.drawImage(img, 0, 0);
+
+          const imageData = ctx.getImageData(0, 0, imgWidth, imgHeight);
+          const data = imageData.data;
+
+          const points = [];
+
+          // To reduce size, we can sample every N pixels
+          // Set stepX/stepY = 1 if you want every pixel (can be huge!)
+          const stepX = Math.max(1, Math.floor(imgWidth  / 100));
+          const stepY = Math.max(1, Math.floor(imgHeight / 75));
+
+          for (let y = 0; y < imgHeight; y += stepY) {
+            for (let x = 0; x < imgWidth; x += stepX) {
+              const index = (y * imgWidth + x) * 4;
+              const r = data[index + 0];
+              const g = data[index + 1];
+              const b = data[index + 2];
+              const a = data[index + 3];
+
+              // ignore fully transparent pixels if you like
+              if (a === 0) continue;
+
+              points.push({
+                x: x,
+                y: y,
+                color: `rgb(${r}, ${g}, ${b})`
+              });
+            }
+          }
+
+          console.log("Total points:", points.length);
+
+          // Print as JS code so you can paste into plots.js
+          const jsCode = "const points = " + JSON.stringify(points, null, 2) + ";";
+          console.log(jsCode);
+        };
+
+        img.src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
