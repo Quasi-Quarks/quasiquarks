@@ -204,3 +204,8 @@ div#run_container button {
 div#jp {
     display: none;
 }
+
+divs.speech_display_textright p {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
