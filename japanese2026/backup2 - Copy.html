@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>English → Japanese Translator + Voice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    background: #0b0e14;
+    color: #e6e6e6;
+    padding: 24px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #222;
+    background: #121826;
+    color: white;
+  }
+
+  button, select {
+    margin-top: 10px;
+    padding: 10px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #1c2541;
+    color: white;
+    cursor: pointer;
+  }
+
+  button.primary {
+    background: #7aa2ff;
+    color: #000;
+    border: none;
+  }
+
+  .box {
+    background: #121826;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 16px;
+  }
+
+  .label {
+    font-size: 14px;
+    color: #9aa0a6;
+    margin-bottom: 6px;
+  }
+
+  audio {
+    width: 100%;
+    margin-top: 8px;
+  }
+</style>
+</head>
+
+<body>
+
+<h2>English → Japanese Translator</h2>
+
+<textarea id="input">this is a fish from the market</textarea>
+
+<br>
+<button class="primary" onclick="translateText()">Translate</button>
+
+<div class="box">
+  <div class="label">Japanese</div>
+  <div id="jp">—</div>
+</div>
+
+<div class="box">
+  <div class="label">Romaji</div>
+  <div id="romaji">—</div>
+</div>
+
+<hr style="margin: 24px 0; border-color:#222">
+
+<h3>🔊 Browser Voice (Web Speech API)</h3>
+
+<select id="voiceSelect"></select>
+<br>
+<button onclick="speakJapanese()">Speak</button>
+<button onclick="stopSpeaking()">Stop</button>
+
+<hr style="margin: 24px 0; border-color:#222">
+
+<h3>🎧 Google Translate MP3 (Fallback)</h3>
+
+<button onclick="playMp3()">Play MP3</button>
+<audio id="audio" controls></audio>
+
+<script>
+/* =========================
+   TRANSLATION (EN → JA)
+========================= */
+
+async function translateText() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",
+    tl: "ja",
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm");
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+
+  document.getElementById("jp").textContent =
+    sentences.map(s => s.trans).join("");
+
+  document.getElementById("romaji").textContent =
+    sentences.map(s => s.translit || "").join(" ").trim();
+}
+
+/* =========================
+   WEB SPEECH API (VOICES)
+========================= */
+
+let voices = [];
+
+function loadVoices() {
+  voices = speechSynthesis.getVoices();
+  const select = document.getElementById("voiceSelect");
+  select.innerHTML = "";
+
+  voices.forEach(v => {
+    const opt = document.createElement("option");
+    opt.value = v.voiceURI;
+    opt.textContent = `${v.name} — ${v.lang}`;
+    select.appendChild(opt);
+  });
+
+  // auto-select Japanese voice
+  const jp = voices.find(v => v.lang.startsWith("ja"));
+  if (jp) select.value = jp.voiceURI;
+}
+
+speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
+
+function speakJapanese() {
+  const text =
+    document.getElementById("romaji").textContent !== "—"
+      ? document.getElementById("romaji").textContent
+      : document.getElementById("jp").textContent;
+
+  if (!text) return;
+
+  const u = new SpeechSynthesisUtterance(text);
+  const voiceURI = document.getElementById("voiceSelect").value;
+  const v = voices.find(v => v.voiceURI === voiceURI);
+  if (v) u.voice = v;
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function stopSpeaking() {
+  speechSynthesis.cancel();
+}
+
+/* =========================
+   GOOGLE MP3 FALLBACK
+========================= */
+
+function playMp3() {
+  const text =
+    document.getElementById("romaji").textContent !== "—"
+      ? document.getElementById("romaji").textContent
+      : document.getElementById("jp").textContent;
+
+  if (!text) return;
+
+  const url =
+    "https://translate.googleapis.com/translate_tts?" +
+    new URLSearchParams({
+      ie: "UTF-8",
+      q: text,
+      tl: "ja",
+      client: "gtx"
+    });
+
+  const audio = document.getElementById("audio");
+  audio.src = url;
+  audio.play();
+}
+
+// initial demo
+translateText();
+</script>
+
+</body>
+</html>

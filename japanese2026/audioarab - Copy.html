@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Unofficial Google Translate + Pronunciation</title>
+<style>
+  :root { --bg:#0b0e14; --card:#121826; --ink:#e6e6e6; --muted:#9aa0a6; --accent:#7aa2ff; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background:linear-gradient(180deg,#0b0e14,#0e1320); color:var(--ink); }
+  header { padding:24px 16px; text-align:center; }
+  header h1{ margin:0 0 6px; font-size:1.25rem; font-weight:700;}
+  header p{ margin:0; color:var(--muted); font-size:.95rem;}
+  .container{ max-width: 980px; margin:0 auto; padding:16px; display:grid; gap:16px;}
+  .grid{ display:grid; gap:16px; grid-template-columns:1fr;}
+  @media (min-width: 980px){ .grid{ grid-template-columns:1fr 1fr; } }
+  .card{ background:var(--card); border:1px solid #1c2333; border-radius:16px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.35);}
+  .card h2{ margin:0 0 12px; font-size:1rem; color:#cbd5e1; letter-spacing:.3px;}
+  label{ display:block; font-size:.9rem; color:#cbd5e1; margin:8px 0 6px;}
+  textarea,select,input[type="text"]{ width:100%; background:#0f1422; color:var(--ink); border:1px solid #1c2333; border-radius:12px; padding:12px 14px; font-size:1rem; outline:none;}
+  textarea{ min-height:120px; resize:vertical;}
+  .row{ display:grid; gap:12px; grid-template-columns:1fr 1fr;}
+  .btns{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
+  button{ background:#162036; color:var(--ink); border:1px solid #21304f; border-radius:12px; padding:10px 14px; font-weight:600; cursor:pointer;}
+  button.primary{ background:var(--accent); color:#0b0e14; border:none;}
+  button:disabled{ opacity:.6; cursor:not-allowed;}
+  .out{ font-family: ui-monospace, Menlo, Consolas, monospace; background:#0b1222; border:1px solid #1c2333; border-radius:12px; padding:12px;}
+  .muted{ color:var(--muted);}
+  .small{ font-size:.9rem;}
+  .pill{ display:inline-block; padding:4px 10px; border-radius:999px; background:#0f1730; border:1px solid #22335c;}
+  .kbd{ font-family: ui-monospace, Menlo, Consolas, monospace; background:#0c1426; border:1px solid #1b2743; padding:2px 6px; border-radius:6px;}
+  details{ background:#0e1527; border:1px solid #1b2743; border-radius:12px; padding:12px;}
+  summary{ cursor:pointer; font-weight:600;}
+  footer{ text-align:center; color:var(--muted); padding:30px 16px; font-size:.9rem;}
+  .audio-row{ display:grid; gap:12px; grid-template-columns:1fr 1fr;}
+</style>
+</head>
+<body>
+<header>
+  <h1>Unofficial Google Translate JSON + Pronunciation</h1>
+  <p>Translation + transliteration via <span class="kbd">translate.googleapis.com/translate_a/single</span> • Speech via Web Speech API</p>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>Input</h2>
+    <label for="text">Text</label>
+    <textarea id="text" placeholder="Type something…">this is a fish from the market</textarea>
+
+    <div class="row">
+      <div>
+        <label for="from">From (source)</label>
+        <select id="from">
+          <option value="auto" selected>Auto-detect</option>
+          <option value="en">English (en)</option>
+          <option value="ja">Japanese (ja)</option>
+          <option value="ar">Arabic (ar)</option>
+          <option value="fr">French (fr)</option>
+          <option value="es">Spanish (es)</option>
+          <option value="zh-CN">Chinese Simplified (zh-CN)</option>
+          <option value="ko">Korean (ko)</option>
+          <option value="ru">Russian (ru)</option>
+          <option value="de">German (de)</option>
+          <option value="hi">Hindi (hi)</option>
+        </select>
+      </div>
+      <div>
+        <label for="to">To (target)</label>
+        <select id="to">
+          <option value="ja" selected>Japanese (ja)</option>
+          <option value="en">English (en)</option>
+          <option value="ar">Arabic (ar)</option>
+          <option value="fr">French (fr)</option>
+          <option value="es">Spanish (es)</option>
+          <option value="zh-CN">Chinese Simplified (zh-CN)</option>
+          <option value="ko">Korean (ko)</option>
+          <option value="ru">Russian (ru)</option>
+          <option value="de">German (de)</option>
+          <option value="hi">Hindi (hi)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btns">
+      <button id="translate" class="primary">Translate</button>
+      <button id="swap">Swap ↔️</button>
+      <button id="copyTrans">Copy Translation</button>
+      <button id="copyTranslit">Copy Transliteration</button>
+    </div>
+    <p class="small muted">Tip: Press <span class="kbd">Ctrl</span>+<span class="kbd">Enter</span> (or ⌘Enter) to translate.</p>
+    <p id="status" class="small muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>Output</h2>
+    <p class="muted small">Detected source: <span id="detected">—</span></p>
+
+    <label>Translation</label>
+    <div id="translation" class="out" style="min-height:48px">—</div>
+
+    <label style="margin-top:12px">Transliteration (Romaji, Pinyin, etc.)</label>
+    <div id="transliteration" class="out" style="min-height:48px">—</div>
+
+    <details style="margin-top:12px">
+      <summary>Raw JSON (debug)</summary>
+      <pre id="raw" class="out" style="white-space: pre-wrap; word-break: break-word; max-height: 300px; overflow:auto;">—</pre>
+    </details>
+
+    <h2 style="margin-top:18px">Pronunciation</h2>
+
+    <div class="audio-row">
+      <div>
+        <label>Voice (source)</label>
+        <select id="voiceSource"></select>
+        <div class="btns" style="margin-top:8px">
+          <button id="speakSource">🔊 Speak (source)</button>
+          <button id="stopSpeakSource">⏹ Stop</button>
+          <button id="srcTTSmp3">MP3 fallback</button>
+        </div>
+        <audio id="audioSrc" controls style="width:100%; margin-top:8px"></audio>
+      </div>
+      <div>
+        <label>Voice (translation)</label>
+        <select id="voiceTarget"></select>
+        <div class="btns" style="margin-top:8px">
+          <button id="speakTarget">🔊 Speak (translation)</button>
+          <button id="stopSpeakTarget">⏹ Stop</button>
+          <button id="tgtTTSmp3">MP3 fallback</button>
+        </div>
+        <audio id="audioTgt" controls style="width:100%; margin-top:8px"></audio>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Unofficial translate endpoints are for demos; for production use Google Cloud Translation + a TTS service.
+</footer>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+
+  // Elements
+  const textEl = $('#text'), fromEl = $('#from'), toEl = $('#to');
+  const btnTranslate = $('#translate'), btnSwap = $('#swap');
+  const btnCopyTrans = $('#copyTrans'), btnCopyTranslit = $('#copyTranslit');
+  const outTranslation = $('#translation'), outTranslit = $('#transliteration');
+  const outDetected = $('#detected'), outRaw = $('#raw'), statusEl = $('#status');
+
+  const speakSourceBtn = $('#speakSource'), stopSourceBtn = $('#stopSpeakSource');
+  const speakTargetBtn = $('#speakTarget'), stopTargetBtn = $('#stopSpeakTarget');
+  const voiceSourceSel = $('#voiceSource'), voiceTargetSel = $('#voiceTarget');
+  const audioSrc = $('#audioSrc'), audioTgt = $('#audioTgt');
+  const srcMp3Btn = $('#srcTTSmp3'), tgtMp3Btn = $('#tgtTTSmp3');
+
+  function setStatus(m){ statusEl.textContent = m || ''; }
+  function escapeHTML(s){ return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c])); }
+
+  // --- Translation (unofficial JSON) ---
+  async function gtxTranslate(text, { from='auto', to='ja', hl='en' } = {}) {
+    const params = new URLSearchParams({
+      client:'gtx', sl:from, tl:to, hl, dj:'1', ie:'UTF-8', oe:'UTF-8', source:'input', q:text
+    });
+    params.append('dt','t');   // translation
+    params.append('dt','rm');  // transliteration
+    const url = 'https://translate.googleapis.com/translate_a/single?' + params.toString();
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    return res.json();
+  }
+  function parseResult(data){
+    const s = data?.sentences || [];
+    return {
+      translation: s.map(x=>x.trans||'').join(''),
+      transliteration: s.map(x=>x.translit||x.src_translit||'').filter(Boolean).join(' ').trim(),
+      detectedSource: data?.src || '—',
+      raw: data
+    };
+  }
+  async function doTranslate(){
+    const text = textEl.value.trim();
+    if(!text){ setStatus('Please enter text.'); return; }
+    btnTranslate.disabled = true; setStatus('Translating…');
+    try{
+      const data = await gtxTranslate(text, { from: fromEl.value, to: toEl.value });
+      const { translation, transliteration, detectedSource, raw } = parseResult(data);
+      outTranslation.innerHTML = translation ? escapeHTML(translation) : '—';
+      outTranslit.innerHTML = transliteration ? escapeHTML(transliteration) : '—';
+      outDetected.textContent = detectedSource || '—';
+      outRaw.textContent = JSON.stringify(raw, null, 2);
+      setStatus('Done.');
+    }catch(e){
+      console.error(e); setStatus('Error: '+(e?.message||'Failed to translate.'));
+    }finally{ btnTranslate.disabled = false; }
+  }
+
+  // UI wiring
+  btnTranslate.addEventListener('click', doTranslate);
+  textEl.addEventListener('keydown', e => { if ((e.ctrlKey||e.metaKey) && e.key==='Enter') doTranslate(); });
+  btnSwap.addEventListener('click', ()=>{
+    const oldFrom = fromEl.value;
+    fromEl.value = toEl.value;
+    toEl.value = oldFrom === 'auto' ? 'en' : oldFrom; // avoid target=auto
+  });
+  async function copyEl(el){
+    const t = el.textContent.trim();
+    if(!t || t==='—'){ setStatus('Nothing to copy.'); return; }
+    try{ await navigator.clipboard.writeText(t); setStatus('Copied to clipboard.'); }
+    catch{ setStatus('Copy failed.'); }
+  }
+  btnCopyTrans.addEventListener('click', ()=>copyEl(outTranslation));
+  btnCopyTranslit.addEventListener('click', ()=>copyEl(outTranslit));
+
+  // --- Speech Synthesis (Web Speech API) ---
+  let voices = [];
+  function loadVoices(){
+    voices = window.speechSynthesis.getVoices();
+    populateVoiceSelects();
+  }
+  function populateVoiceSelects(){
+    const makeOption = (v)=> {
+      const o = document.createElement('option');
+      o.value = v.voiceURI;
+      o.textContent = `${v.name} — ${v.lang}${v.default ? ' (default)' : ''}`;
+      return o;
+    };
+    [voiceSourceSel, voiceTargetSel].forEach(sel => { sel.innerHTML = ''; });
+    voices.forEach(v => {
+      voiceSourceSel.appendChild(makeOption(v));
+      voiceTargetSel.appendChild(makeOption(v));
+    });
+    // Try to preselect by language
+    preselectVoice(voiceSourceSel, (fromEl.value==='auto' ? outDetected.textContent : fromEl.value) || 'en');
+    preselectVoice(voiceTargetSel, toEl.value);
+  }
+  function preselectVoice(selectEl, langCode){
+    if(!langCode) return;
+    // pick first voice whose lang starts with langCode (case-insensitive)
+    const idx = voices.findIndex(v => v.lang.toLowerCase().startsWith(langCode.toLowerCase()));
+    if(idx >= 0) selectEl.value = voices[idx].voiceURI;
+  }
+  window.speechSynthesis.onvoiceschanged = loadVoices;
+  loadVoices();
+
+  function speakText(text, selectEl){
+    if(!('speechSynthesis' in window)){ setStatus('Speech not supported in this browser.'); return; }
+    if(!text){ setStatus('Nothing to speak.'); return; }
+    const u = new SpeechSynthesisUtterance(text);
+    const v = voices.find(v => v.voiceURI === selectEl.value);
+    if(v) u.voice = v;
+    // Optional: tweak rate/pitch if desired
+    // u.rate = 1; u.pitch = 1;
+    window.speechSynthesis.cancel(); // stop anything currently speaking
+    window.speechSynthesis.speak(u);
+  }
+  function stopSpeaking(){ if('speechSynthesis' in window) window.speechSynthesis.cancel(); }
+
+  speakSourceBtn.addEventListener('click', ()=>{
+    const sourceLang = (fromEl.value==='auto' ? outDetected.textContent : fromEl.value) || 'en';
+    // Prefer transliteration if source is non-Latin and transliteration exists
+    const text = textEl.value.trim();
+    speakText(text, voiceSourceSel);
+  });
+  stopSourceBtn.addEventListener('click', stopSpeaking);
+
+  speakTargetBtn.addEventListener('click', ()=>{
+    const spoken = outTranslit.textContent.trim() && outTranslit.textContent.trim()!=='—'
+      ? outTranslit.textContent.trim()   // often easier to follow (e.g., romaji/pinyin)
+      : outTranslation.textContent.trim(); // fallback to native script
+    speakText(spoken, voiceTargetSel);
+  });
+  stopTargetBtn.addEventListener('click', stopSpeaking);
+
+  // Re-pick voices when language selection changes
+  fromEl.addEventListener('change', ()=> preselectVoice(voiceSourceSel, fromEl.value==='auto' ? 'en' : fromEl.value));
+  toEl.addEventListener('change', ()=> preselectVoice(voiceTargetSel, toEl.value));
+
+  // --- Optional MP3 fallback (Unofficial) ---
+  // Uses translate_tts (may hit CORS or ToS issues; OK for quick tests)
+  function buildTTSUrl(q, lang){
+    const params = new URLSearchParams({
+      ie:'UTF-8', q, tl:lang, client:'gtx' // historically 'tw-ob' or 'gtx' work; may change
+    });
+    return 'https://translate.googleapis.com/translate_tts?' + params.toString();
+  }
+  srcMp3Btn.addEventListener('click', ()=>{
+    const lang = (fromEl.value==='auto' ? (outDetected.textContent || 'en') : fromEl.value);
+    const q = textEl.value.trim();
+    if(!q){ setStatus('Nothing to speak.'); return; }
+    audioSrc.src = buildTTSUrl(q, lang);
+    audioSrc.play().catch(()=> setStatus('Autoplay blocked; press play.'));
+  });
+  tgtMp3Btn.addEventListener('click', ()=>{
+    const lang = toEl.value || 'en';
+    // prefer transliteration audio (native script TTS may mispronounce romanization)
+    const spoken = outTranslit.textContent.trim() && outTranslit.textContent.trim()!=='—'
+      ? outTranslit.textContent.trim()
+      : outTranslation.textContent.trim();
+    if(!spoken){ setStatus('Nothing to speak.'); return; }
+    audioTgt.src = buildTTSUrl(spoken, lang);
+    audioTgt.play().catch(()=> setStatus('Autoplay blocked; press play.'));
+  });
+
+  // Initial demo
+  doTranslate();
+})();
+</script>
+</body>
+</html>

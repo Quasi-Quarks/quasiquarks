@@ -1,0 +1,67 @@
+<html>
+    <head>
+
+      <style>
+            .right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      
+            }
+      </style>
+
+    </head>
+     
+      <body>
+
+            <div id="speech_container">
+
+            </div>
+
+            <input id="input" value="" />
+            <button id="left">Left</button>
+            <button id="right">Right</button>
+       <script>
+
+            var input_value = ""
+           var array_speech = [
+            ["right", "Hi how are you"],
+            ["left", "Hi I'm okay"]
+           ]
+           
+           function create_speech() {
+            document.getElementById("speech_container").innerHTML  = "";
+            for(a=0; a<=array_speech.length+-1; a++) {
+            var speech_display_container = document.createElement("divs")
+            speech_display_container.setAttribute("class", array_speech[a][0])
+            var p =  document.createElement("p")
+                p.innerText = array_speech[a][1]
+
+                speech_display_container.appendChild(p);
+                document.getElementById("speech_container").appendChild(speech_display_container)
+           }
+
+      }
+
+      right.onclick = function() {
+            array_speech[array_speech.length] = ["right", input_value];
+            document.getElementById("input").value = ""
+            create_speech()
+      }
+
+      left.onclick = function() {
+            array_speech[array_speech.length] = ["left", input_value];
+            document.getElementById("input").value = ""
+            create_speech()
+      }
+
+           document.getElementById("input").oninput = function() {
+
+            input_value = this.value;
+
+           }
+
+       </script>
+    </body>
+
+</html>
