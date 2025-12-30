@@ -127,7 +127,7 @@ textarea#input_box {
 
 div#text_response_container {
     width: 80%;
-    display: none;
+    /* display: none; */
 }
 
 textarea#input {
@@ -144,6 +144,7 @@ select#voiceSelect {
 div#romaji {
     font-size: 1.6rem;
     font-weight: 700;
+    display: none;
 }
 
 div#run_container {
@@ -198,4 +199,8 @@ divs.left {
 div#run_container button {
     font-size: 1.1rem;
     font-weight: 400;
+}
+
+div#jp {
+    display: none;
 }
