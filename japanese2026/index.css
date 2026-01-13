@@ -13,7 +13,7 @@
     font-family: system-ui;
     font-weight: 100;
     /* border: none; */
-    border: 1px solid #ffffff;
+    border: 1px solid #ca6262;
     color: #000000;
    }
 
@@ -32,7 +32,7 @@ div#word_row {
 p.word_container {
     min-width: 90px;
     width: max-content;
-    height: 139px;
+    height: max-content;
     justify-content: space-evenly;
     background-color: #bd5656;
 }
@@ -144,7 +144,7 @@ select#voiceSelect {
 div#romaji {
     font-size: 1.6rem;
     font-weight: 700;
-    display: none;
+    /* display: none; */
 }
 
 div#run_container {
@@ -208,4 +208,58 @@ div#jp {
 divs.speech_display_textright p {
     font-weight: 600;
     font-size: 1.1rem;
+}
+
+divs.speech_display_textleft p {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.vertical_sentence_display_container {
+    width: 80vw;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* width: 80vw; */
+    min-height: 60px;
+}
+
+div#sentence_container {
+    overflow: hidden;
+    overflow-y: scroll;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 31vh;
+}
+
+.vertical_sentence_chldtwo_display_container {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 48px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-width: 54vw;
+    padding: 2px 2px;
+}
+
+.p_sentence_eng {
+    /* min-width: 80vw; */
+    /* height: 42px; */
+}
+
+.vertical_sentence_chldthree {
+    background-color: white;
+    max-width: 70vw;
+    margin: 5px 3px;
+    border-radius: 8px;
+}
+
+.speech_display_textright {
+    background-color: #00e6ff;
+}
+
+.speech_display_textleft {
+    background: white;
 }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arabic Letters with Harakat</title>
+
+  <style>
+    :root {
+      --letter-size: 3rem;
+      --gap-size: 1rem;
+      --base-color: #1e88e5;
+      --active-color: #ff9800;
+    }
+
+    body {
+      font-family: "Arial", "Noto Naskh Arabic", sans-serif;
+      direction: rtl;
+      text-align: center;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      min-height: 3.5rem;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .row span {
+      font-size: var(--letter-size);
+      font-weight: 700;
+      margin: 0 var(--gap-size);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease, text-shadow 0.2s ease, color 0.2s ease;
+    }
+
+    /* Base letter = first span in each row */
+    .row span:first-child {
+      color: var(--base-color);
+    }
+
+    /* Click highlight */
+    .active {
+      color: var(--active-color);
+      text-shadow: 0 0 10px rgba(255, 152, 0, 0.9);
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --letter-size: 2.2rem;
+        --gap-size: 0.6rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 id="view"></h1>
+  <button onclick="resetText()">Reset</button>
+
+  <div class="row"><span>ا</span><span>اَ</span><span>اِ</span><span>اُ</span></div>
+  <div class="row"><span>ب</span><span>بَ</span><span>بِ</span><span>بُ</span></div>
+  <div class="row"><span>ت</span><span>تَ</span><span>تِ</span><span>تُ</span></div>
+  <div class="row"><span>ث</span><span>ثَ</span><span>ثِ</span><span>ثُ</span></div>
+  <div class="row"><span>ج</span><span>جَ</span><span>جِ</span><span>جُ</span></div>
+  <div class="row"><span>ح</span><span>حَ</span><span>حِ</span><span>حُ</span></div>
+  <div class="row"><span>خ</span><span>خَ</span><span>خِ</span><span>خُ</span></div>
+  <div class="row"><span>د</span><span>دَ</span><span>دِ</span><span>دُ</span></div>
+  <div class="row"><span>ذ</span><span>ذَ</span><span>ذِ</span><span>ذُ</span></div>
+  <div class="row"><span>ر</span><span>رَ</span><span>رِ</span><span>رُ</span></div>
+  <div class="row"><span>ز</span><span>زَ</span><span>زِ</span><span>زُ</span></div>
+  <div class="row"><span>س</span><span>سَ</span><span>سِ</span><span>سُ</span></div>
+  <div class="row"><span>ش</span><span>شَ</span><span>شِ</span><span>شُ</span></div>
+  <div class="row"><span>ص</span><span>صَ</span><span>صِ</span><span>صُ</span></div>
+  <div class="row"><span>ض</span><span>ضَ</span><span>ضِ</span><span>ضُ</span></div>
+  <div class="row"><span>ط</span><span>طَ</span><span>طِ</span><span>طُ</span></div>
+  <div class="row"><span>ظ</span><span>ظَ</span><span>ظِ</span><span>ظُ</span></div>
+  <div class="row"><span>ع</span><span>عَ</span><span>عِ</span><span>عُ</span></div>
+  <div class="row"><span>غ</span><span>غَ</span><span>غِ</span><span>غُ</span></div>
+  <div class="row"><span>ف</span><span>فَ</span><span>فِ</span><span>فُ</span></div>
+  <div class="row"><span>ق</span><span>قَ</span><span>قِ</span><span>قُ</span></div>
+  <div class="row"><span>ك</span><span>كَ</span><span>كِ</span><span>كُ</span></div>
+  <div class="row"><span>ل</span><span>لَ</span><span>لِ</span><span>لُ</span></div>
+  <div class="row"><span>م</span><span>مَ</span><span>مِ</span><span>مُ</span></div>
+  <div class="row"><span>ن</span><span>نَ</span><span>نِ</span><span>نُ</span></div>
+  <div class="row"><span>ه</span><span>هَ</span><span>هِ</span><span>هُ</span></div>
+  <div class="row"><span>و</span><span>وَ</span><span>وِ</span><span>وُ</span></div>
+  <div class="row"><span>ي</span><span>يَ</span><span>يِ</span><span>يُ</span></div>
+
+  <script>
+    const letters = document.querySelectorAll(".row span");
+
+    letters.forEach(letter => {
+      letter.addEventListener("click", function () {
+
+        // remove previous highlight
+       // letters.forEach(l => l.classList.remove("active"));
+
+        // highlight clicked
+        this.classList.add("active");
+
+        // append text
+        document.getElementById("view").innerText += this.innerText;
+      });
+    });
+
+    function resetText() {
+      document.getElementById("view").innerText = "";
+      letters.forEach(l => l.classList.remove("active"));
+    }
+  </script>
+
+</body>
+</html>
