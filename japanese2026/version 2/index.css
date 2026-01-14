@@ -13,8 +13,10 @@
     font-family: system-ui;
     font-weight: 100;
     /* border: none; */
-    border: 1px solid #ca6262;
+    /* border: 1px solid #ca6262; */
     color: #000000;
+    font-weight: 600;
+    /* font-size: 1.2rem; */
    }
 
 
@@ -70,6 +72,7 @@ div#body {
     height: 90vh;
     justify-content: flex-start;
     flex-direction: row;
+    align-items: flex-start;
 }
 
 div#word_row_container {
@@ -141,9 +144,10 @@ textarea#input_box {
 }
 
 div#text_response_container {
-    width: 80%;
+    width: 90%;
     /* display: none; */
     flex-direction: row;
+    justify-content: space-around;
 }
 
 textarea#input {
@@ -151,6 +155,7 @@ textarea#input {
     text-align: left;
     font-size: 1.1rem;
     font-weight: 400;
+    border-radius: 7px;
 }
 
 select#voiceSelect {
@@ -173,12 +178,13 @@ audio#audio {
 }
 
 div#speech_container {
-    width: 80%;
-    height: 50vh;
+    width: 92%;
+    height: 84%;
     overflow: hidden;
     overflow-y: scroll;
     justify-content: flex-start;
     align-items: flex-start;
+    font-size: 1.3rem;
 }
 
 divs.\[object.HTMLUnknownElement\] {}
@@ -188,7 +194,7 @@ divs.right {
     justify-content: flex-end;
     align-items: flex-end;
     /* background-color: white; */
-    margin: 5px 0px;
+    margin: 11px 0px;
 }
 
 divs.speech_display_text {
@@ -277,22 +283,42 @@ div#sentence_container {
 .speech_display_textright {
     background-color: #f4f4f4;
     border-radius: 8px;
+    max-width: 126px;
 }
 
 .speech_display_textleft {
-    background: white;
+    background: #a6a6a6;
+    border-radius: 9px;
+    max-width: 126px;
 }
 
 div#chat_display_buttons {
+    /* max-width: 20vw; */
+    /* background-color: #f9f9f9; */
+    /* height: 100%; */
+    flex-direction: column-reverse;
+}
+
+input.chatRooms {
+    width: 100%;
+    border: none;
+}
+
+div#page {
+    max-width: 70vw;
+    height: 90vh;
+    background: beige;
+}
+
+div#chat_room_container {
+    /* height: 88%; */
     max-width: 20vw;
     background-color: #f9f9f9;
     height: 100%;
 }
 
-input.chatRooms {
-    width: 100%;
-}
+button {}
 
-div#page {
-    max-width: 70vw;
+div#chat_room_container button {
+    border: none;
 }
