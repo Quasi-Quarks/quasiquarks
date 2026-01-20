@@ -1,0 +1,1624 @@
+<html>
+    <head>
+
+      <style>
+
+            .chat-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  /* padding: 8px 0; */
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow: hidden;
+  width: 100%;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.bubble {
+  min-width: 120px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #f2f2f2;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.bubble .en { font-weight: bold; }
+.bubble .jp { font-size: 1.1em; }
+.bubble .rm { font-size: 0.85em; color: #555; }
+
+      </style>
+
+        <link href="index.css" rel="stylesheet">
+        <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Basaam Qasem">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>EN↔AR (auto-detect + per-word splitter)</title>
+    </head>
+      <div id="menu">
+        <p>Words</p>
+        <p>Sentences</p>
+        <p>Dialouge</p>
+        <p>generator</p>
+        <p>Rules</p>
+      </div>
+        <body>
+
+            <div id="body_container">
+                <div id="body">
+                  <div id="chat_room_container">
+                        <button onclick="plus()">Plus</button>
+                  <div id="chat_display_buttons">
+                        
+                    </div>
+                    </div>
+                 <div id="page">
+
+                  <div id="sentence_container">
+
+                  </div>
+
+                   <div id="speech_container">
+
+                        </div>
+    <div id="input_buttons_container">
+
+                    </div>
+                  
+                    <div id="text_response_container">
+                        <button onclick="display_hide()">Hide</button>
+                  <div id="romaji">—</div>
+                  <div id="jp">—</div>    
+                  <textarea id="input">Hi there</textarea>  
+                  <div>
+                  <button class="primary" id="translateButton" onclick="translateText()">Translate</button>     
+                  <button id="edit">edit</button>        
+                  
+            </div>
+            </div>
+
+            <div id="speaking_container">
+                                    
+                        
+                      
+                        
+                        
+                  </div>
+                
+                    <div id="verbs_row">
+                       
+                    </div>
+
+                    <div id="send_container">
+                        <div id="textinput_container">  
+                            <!-- <textarea id="input_box" >This is a book </textarea>   -->
+                        </div> 
+                        <div id="run_container">
+                              <button class="primary" onclick="translateText()">Translate</button>
+                              <button onclick="speakJapanese()">Speak</button>
+                              <button onclick="stopSpeaking()">Stop</button>
+                              <button id="left">Left</button>
+                              <button id="right">Right</button>
+                              
+                              <button onclick="playMp3()">MP3</button>
+                              
+                              <select id="voiceSelect"></select>
+                              <audio id="audio" controls></audio>
+                        </div>
+                    </div>
+                    <!-- <div id="chat_display_buttons">
+
+                    </div> -->
+                
+                  <div id="word_row_container">
+                    <div id="word_row">
+
+                    </div>
+                  </div>
+
+                 </div>
+                </div>
+            </div>
+            <script src="totaljapanese2.js"></script>
+            <script src="sentences2026.js"></script>
+    <script>
+
+     
+
+
+var display_dictionary = false;
+
+ function display_hide() {
+       if(display_dictionary == false) {
+             document.getElementById("verbs_row").style.display = "none";
+            document.getElementById("input_buttons_container").style.display = "none";
+            document.getElementById("word_row_container").style.display = "none";
+             
+             display_dictionary = true;
+       } else {
+             document.getElementById("verbs_row").style.display = "flex";
+             document.getElementById("input_buttons_container").style.display = "flex";
+            document.getElementById("word_row_container").style.display = "flex";
+             display_dictionary = false;
+       }
+ }
+
+
+
+
+
+
+
+      
+
+      var hardcoded_sentence_array = [logic, time, communication, action, description, makeUseful, place, shape, connection, environment, environment2, control, running, passTookHave, comparison, position, question, emotions, sentences, position2]
+
+
+      function crt_hrd_coded_sentences() { 
+            for(s=0; s<=hardcoded_sentence_array.length+-1; s++) {
+                   var vertical_sentence_display_container = document.createElement("div")
+                   vertical_sentence_display_container.setAttribute("class", "vertical_sentence_display_container")
+
+                   for(ss=0; ss<=hardcoded_sentence_array[s].length+-1; ss++) {
+                   var vertical_sentence_chldtwo_display_container = document.createElement("div")
+                   vertical_sentence_chldtwo_display_container.setAttribute("class", "vertical_sentence_chldtwo_display_container")
+                   
+                 for(sss=0; sss<=hardcoded_sentence_array[s][ss].length+-1; sss++) {
+                   var vertical_sentence_chldthree = document.createElement("div")
+                   vertical_sentence_chldthree.setAttribute("class", "vertical_sentence_chldthree")
+                  
+                  var p_sentence_eng = document.createElement("p")
+                   p_sentence_eng.setAttribute("class", "p_sentence_eng")
+                   p_sentence_eng.innerText = hardcoded_sentence_array[s][ss][sss][0]
+                   
+                   p_sentence_eng.onclick = function() {
+
+                        document.getElementById("input").value = this.innerText;
+                   }
+                    var p_sentence_ja = document.createElement("p")
+                   p_sentence_ja.setAttribute("class", "p_sentence_eng")
+                   p_sentence_ja.innerText = hardcoded_sentence_array[s][ss][sss][1]
+                   
+                    var p_sentence_ro = document.createElement("p")
+                   p_sentence_ro.setAttribute("class", "p_sentence_eng")
+                   p_sentence_ro.innerText = hardcoded_sentence_array[s][ss][sss][2]
+
+                  vertical_sentence_chldthree.appendChild(p_sentence_eng)
+                  vertical_sentence_chldthree.appendChild(p_sentence_ja)
+                  vertical_sentence_chldthree.appendChild(p_sentence_ro)
+                  vertical_sentence_chldtwo_display_container.appendChild(vertical_sentence_chldthree)
+                  }
+
+                  vertical_sentence_display_container.appendChild(vertical_sentence_chldtwo_display_container)
+             }
+             document.getElementById("sentence_container").appendChild(vertical_sentence_display_container)
+
+            }
+
+      }
+
+      crt_hrd_coded_sentences()
+
+
+
+
+
+
+
+
+
+function save_storage() {
+  if (typeof Storage !== "undefined") {
+    localStorage.setItem(
+      "array_speech_storage",
+      JSON.stringify(list_array_speech)
+    );
+
+    localStorage.setItem(
+      "data_room_no",
+      chat_room_no
+    );
+
+    localStorage.setItem(
+  "chat_room_name_store",
+  JSON.stringify(chatroom_name)
+);
+  }
+}
+
+function get_storage() {
+  if (typeof Storage !== "undefined") {
+    const stored = localStorage.getItem("array_speech_storage");
+    const stored_room_no = localStorage.getItem("data_room_no");
+    const chat_room_name_store = localStorage.getItem("chat_room_name_store");
+    if (stored) {
+      list_array_speech = JSON.parse(stored);
+     chatroom_name = JSON.parse(chat_room_name_store);
+      create_speech();
+      display()
+    }
+  }
+}
+
+
+
+var chat_room_no = 0;
+
+ 
+
+
+var list_array_speech = [];
+
+var chatroom_name = [];
+  
+ get_storage()
+ 
+function plus() {
+      list_array_speech[list_array_speech.length] = []
+      chatroom_name[chatroom_name.length] = "Room " + chatroom_name.length
+      display()
+      create_speech()
+}
+
+
+
+
+function display() {
+document.getElementById("chat_display_buttons").innerHTML = ""
+       for(let z=0; z<=chatroom_name.length+-1; z++) {
+      var chat_buttons = document.createElement("input")
+      chat_buttons.setAttribute("class", "chatRooms");
+      chat_buttons.value = chatroom_name[z]
+      chat_buttons.onclick = function () {
+            chat_room_no = z;
+            create_speech()
+      }
+
+      chat_buttons.oninput = function () {
+           
+            this.value = this.value;
+            chatroom_name[z] = this.value;
+            save_storage();
+        
+      }
+      document.getElementById("chat_display_buttons").appendChild(chat_buttons)
+    }
+
+}
+
+
+
+            var speech_jp = ""
+            var speech_jptr = ""
+            var edit_no = 0;
+            var plus_edit_no = 0;
+      right.onclick = function() {
+           input_value =  document.getElementById("input").value;
+           
+           var placement = list_array_speech[chat_room_no].length;
+            list_array_speech[chat_room_no][placement] = ["right", input_value, speech_jp, speech_jptr];
+     
+           // document.getElementById("input").value = ""
+       
+           console.log("lthe array itself ==="+list_array_speech[chat_room_no])
+           console.log("placement== "+placement)
+           console.log("listelength =" + list_array_speech[list_array_speech[chat_room_no].length])
+            create_speech()
+      }
+
+      left.onclick = function() {
+             input_value =  document.getElementById("input").value;
+             var placement = list_array_speech[chat_room_no].length;
+            list_array_speech[chat_room_no][placement] = ["left", input_value, speech_jp, speech_jptr];
+       
+            create_speech()
+      }
+
+      edit.onclick = function () {
+            
+            translateText_edit()
+           
+      };
+
+       var direction_array = ["right", "left"]
+
+       var switch_direction = true;
+
+      function call() { 
+            input_value =  document.getElementById("input").value;
+             console.log(list_array_speech)
+            var placement = list_array_speech[chat_room_no].length;
+            console.log("placement"+placement)
+            //if(placement == 0) {
+                   list_array_speech[chat_room_no][placement] = []
+           // }
+
+            plus_placement = list_array_speech[chat_room_no][placement].length;
+      
+
+            const isOdd = (num) => num % 2 !== 0;
+
+            var bitwise = isOdd(placement);
+
+            alert("bitwise"+bitwise)
+
+            if(bitwise == false) { 
+            list_array_speech[chat_room_no][placement][plus_placement] = ["right", input_value, speech_jp, speech_jptr];
+            switch_direction = false;
+            
+            }  else if (bitwise == true) { 
+             list_array_speech[chat_room_no][placement][plus_placement] = ["left", input_value, speech_jp, speech_jptr];
+            switch_direction = true;
+            }
+             create_speech()
+
+             console.log(list_array_speech)
+      }
+
+
+
+       function create_speech() {
+            document.getElementById("speech_container").innerHTML  = "";
+            
+            for(let a=0; a<=list_array_speech[chat_room_no].length+-1; a++) {
+
+                  var speech_display_container_class = document.createElement("div")
+                   speech_display_container_class.setAttribute("class", "class"+ list_array_speech[chat_room_no][a][0][0])
+
+                  var speech_display_container = document.createElement("div")
+                   speech_display_container.setAttribute("class", list_array_speech[chat_room_no][a][0][0])
+
+           
+                  for(let b=0; b<=list_array_speech[chat_room_no][a].length+-1; b++) {
+
+            var plus_new_speech_display_text = document.createElement("div")
+            plus_new_speech_display_text.setAttribute("class", "plus_new_speech_display_text")
+            var p_eng =  document.createElement("p")
+                p_eng.innerText = list_array_speech[chat_room_no][a][b][1]
+                p_eng.onclick = function() {
+                  alert(a)
+                  input_value =  document.getElementById("input").value = this.innerText
+                  edit_no = a;
+                  plus_edit_no = b;
+                  document.getElementById("edit").style.display = "flex"
+                  document.getElementById("translateButton").style.display = "none"
+                  alert(3456789)
+                }
+
+                 var p_jp =  document.createElement("p")
+                p_jp.innerText = list_array_speech[chat_room_no][a][b][2]
+
+                 var p_jptr =  document.createElement("p")
+                p_jptr.innerText = list_array_speech[chat_room_no][a][b][3]
+
+                var plus_element =  document.createElement("p")
+                plus_element.setAttribute("class", "plus_element")
+                plus_element.innerText = "+"
+
+                plus_element.onclick = function() {
+                   input_value =  document.getElementById("input").value;
+             console.log(list_array_speech)
+            var placement = list_array_speech[chat_room_no].length;
+          
+            console.log(list_array_speech)
+            plus_placement = list_array_speech[chat_room_no][a].length;
+            console.log("plus_placement"+plus_placement + " == " + "placement " + placement)
+           
+                  list_array_speech[chat_room_no][a][plus_placement] = ["plus_text", "click here to edit text", speech_jp, speech_jptr]
+                  create_speech()
+                }
+
+
+
+                var plus_breakdown=  document.createElement("p")
+                plus_breakdown.setAttribute("class", "plus_breakdown")
+                plus_breakdown.innerText = "-"
+
+               plus_breakdown.onclick = async function () {
+                        let item = list_array_speech[chat_room_no][a][b];
+
+                        // Toggle
+                        item[4] = !item[4];
+
+                        // Re-render only this speech block
+                        render_single_speech(a, b, this.closest(".plus_new_speech_display_text"));
+              };
+
+           
+                plus_new_speech_display_text.appendChild(p_eng)
+                plus_new_speech_display_text.appendChild(p_jp)
+                plus_new_speech_display_text.appendChild(p_jptr)
+                plus_new_speech_display_text.appendChild(plus_element)
+                plus_new_speech_display_text.appendChild(plus_breakdown)
+                  
+                speech_display_container.appendChild(plus_new_speech_display_text)
+                speech_display_container_class.appendChild(speech_display_container)
+                  }
+          document.getElementById("speech_container").appendChild(speech_display_container_class)
+               }
+               save_storage()
+               console.log(list_array_speech)
+            }
+
+
+            async function render_single_speech(a, b, container) {
+  const item = list_array_speech[chat_room_no][a][b];
+
+  const en = item[1];
+  const jp = item[2];
+  const rm = item[3];
+  const isBreakdown = item[4];
+
+  container.innerHTML = "";
+
+  if (!isBreakdown) {
+    // NORMAL VIEW
+    container.appendChild(makeP(en, "en"));
+    container.appendChild(makeP(jp, "jp"));
+    container.appendChild(makeP(rm, "rm"));
+    container.appendChild(makePlusControls(a, b));
+    return;
+  }
+
+  // BREAKDOWN VIEW
+  const row = document.createElement("div");
+  row.className = "chat-row";
+
+  const words = en.split(/\s+/);
+
+  for (const word of words) {
+    const { jp, rm } = await translateWord(word);
+
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.innerHTML = `
+      <div class="en">${word}</div>
+      <div class="jp">${jp}</div>
+      <div class="rm">${rm}</div>
+    `;
+
+    row.appendChild(bubble);
+    row.scrollLeft = row.scrollWidth;
+
+    await sleep(time_secs * 1000);
+  }
+
+  container.appendChild(row);
+  container.appendChild(makePlusControls(a, b));
+}
+
+
+function makeP(text, cls) {
+  const p = document.createElement("p");
+  p.className = cls;
+  p.innerText = text;
+  return p;
+}
+
+function makePlusControls(a, b) {
+  const wrap = document.createElement("div");
+  wrap.className = "controls";
+
+  const plus = document.createElement("p");
+  plus.innerText = "+";
+  plus.className = "plus_element";
+
+  const minus = document.createElement("p");
+  minus.innerText = "-";
+  minus.className = "plus_breakdown";
+
+  minus.onclick = function () {
+    list_array_speech[chat_room_no][a][b][4] = false;
+    create_speech();
+  };
+
+  wrap.appendChild(plus);
+  wrap.appendChild(minus);
+  return wrap;
+}
+
+
+
+            // bublle row
+
+            /* ==============================
+   CONFIGURABLE DELAY (SECONDS)
+   ============================== */
+let time_secs = 2; // 👈 adjust freely
+
+/* ==============================
+   TRANSLATE + ROMAJI
+   ============================== */
+async function translateWord(word) {
+  const url =
+    "https://translate.googleapis.com/translate_a/single" +
+    "?client=gtx&sl=en&tl=ja&dt=t&dt=rm&q=" +
+    encodeURIComponent(word);
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  let jp = "";
+  let rm = "";
+
+  if (data && data[0]) {
+    // Japanese text
+    jp = data[0][0]?.[0] || "";
+
+    // Romaji (sometimes missing, so guard it)
+    rm = data[0][1]?.[2] || "";
+  }
+
+  return { jp, rm };
+}
+
+
+/* ==============================
+   MAIN FLOW
+   ============================== */
+async function startTranslation() {
+  const input = document.getElementById("inputText");
+  const text = input.value.trim();
+  if (!text) return;
+
+  const words = text.split(/\s+/);
+
+  const row = document.createElement("div");
+  row.className = "chat-row";
+  document.getElementById("chatArea").appendChild(row);
+
+  for (const word of words) {
+    const { jp, rm } = await translateWord(word);
+
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.innerHTML = `
+      <div class="en">${word}</div>
+      <div class="jp">${jp}</div>
+      <div class="rm">${rm}</div>
+    `;
+
+    row.appendChild(bubble);
+    row.scrollLeft = row.scrollWidth;
+
+    await sleep(time_secs * 1000);
+  }
+
+  input.value = "";
+}
+
+/* ==============================
+   UTILITY
+   ============================== */
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
+            // bubble row
+
+// show all the words
+
+textarea_words_array = [] 
+
+var let_index_input = 0;
+document.getElementById("input").oninput = function(){ 
+ 
+  textarea_value = this.value;
+  textarea_words_array = textarea_value.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
+  console.log(textarea_words_array)
+
+  crtwords_from_input()
+
+};
+
+
+document.getElementById("input").onclick = function(){ 
+ 
+  textarea_value = this.value;
+  textarea_words_array = textarea_value.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
+  console.log(textarea_words_array)
+
+  crtwords_from_input()
+
+};
+
+function crtwords_from_input() {
+    document.getElementById("input_buttons_container").innerHTML = ""
+  for(let a=0; a<=textarea_words_array.length + -1; a++) {
+     var input_buttons = document.createElement("button");
+     input_buttons.innerText = textarea_words_array[a];
+     input_buttons.setAttribute("class", "input_buttons")
+
+     input_buttons.onclick = function() {
+         let_index_input = a;
+         virtual_button = this.innerText
+         callfunctions()
+     }
+     document.getElementById("input_buttons_container").appendChild(input_buttons)
+  }
+
+}
+
+virtual_button = "i";
+
+var arrayVerbs = [
+    [["baseverb", false, false, func_search_all_a_action], ["presentverb", false, false, func_search_all_a_action], ["pastverb", false, false, func_search_all_a_action] ],
+    [["singularNoun", false, false,func_search_all_b_object], ["pluralNoun", false, false, func_search_all_b_object]],
+    [["singularNounCareer", false, false,func_search_all_c_career], ["pluralNounCareer_jatr", false, false, func_search_all_c_career]],
+    [["singularnounEnvironment", false, false,func_search_all_d_environment], ["pluralNounEnvironment", false, false, func_search_all_d_environment]],
+    [["singularnounPositions", false, false,func_search_all_e_position]],
+    [["singularnounTime", false, false, func_search_all_f_time]],
+    [["singularStuff", false, false, func_search_all_g_stuff], ["pluralStuff", false, false, func_search_all_g_stuff]],
+    [["singularDescription", false, false, func_search_all_h_description], ["pluralDescription", false, false, func_search_all_h_description]],
+    [["singularAnimal", false, false, func_search_all_i_animal], ["pluralAnimal", false, false, func_search_all_i_animal]],
+    [["singularBody", false, false, func_search_all_j_body], ["pluralBody", false, false, func_search_all_j_body]],
+    [["singularClothing", false, false, func_search_all_k_clothing], ["pluralClothing", false, false, func_search_all_k_clothing], ["possessivelClothing", false, false, func_search_all_k_clothing]],
+    [["en_feel_word", false, false, func_search_all_l_feeling], ["en_feel_present", false, false, func_search_all_l_feeling]],
+    [["singularFood", false, false, func_search_all_m_food], ["pluralFood", false, false, func_search_all_m_food]],
+    [["personalWord", false, false, func_search_all_n_personal]],
+    [["en_singular_transportation", false, false, func_search_all_p_transportation], ["en_plural_transportation", false, false, func_search_all_p_transportation]],
+    [["en_pronoun", false, false, func_search_all_q_pronoun]],
+]
+
+    function crtwords(engword_para, romajiword_para, japword_para) {
+
+        var engword = document.createElement("p");
+        engword.setAttribute("class", "word engword")
+        engword.innerText = engword_para;
+
+        engword.onclick = function() { 
+         textarea_words_array[let_index_input] = this.innerText;
+         crtwords_from_input()
+         document.getElementById("input").value = textarea_words_array.join(" ")
+        }
+
+        var romajiword = document.createElement("p");
+        romajiword.setAttribute("class", "word romajiword");
+        romajiword.innerText = romajiword_para;
+
+        var japword = document.createElement("p");
+        japword.setAttribute("class", "word japword");
+        japword.innerText = japword_para;
+
+        var word_container = document.createElement("p");
+        word_container.setAttribute("class", "word_container")
+      
+       
+        word_container.appendChild(engword)
+        word_container.appendChild(romajiword)
+        word_container.appendChild(japword)
+        document.getElementById("word_row").appendChild(word_container)
+    }
+
+   
+
+
+
+    function callfunctions() {
+         func_search_all_a_action("para_automatic")
+         func_search_all_b_object("para_automatic")
+         func_search_all_c_career("para_automatic2")
+         func_search_all_d_environment("para_automatic3")
+        func_search_all_e_position("para_automatic4")
+        func_search_all_f_time("para_automatic5")
+        func_search_all_g_stuff("para_automatic6_stuff")
+        func_search_all_h_description("para_automatic_description_7")
+        func_search_all_i_animal("paraautomatic8")
+        func_search_all_j_body("paraautomatic9")
+        func_search_all_k_clothing("paraautomaitc10")
+        func_search_all_l_feeling("paraautomaitc11");
+        func_search_all_m_food("paraautomatic12")
+        func_search_all_n_personal("paraautomatic13")
+        func_search_all_p_transportation("paraautomatic14")
+        func_search_all_q_pronoun("paraautomatic15")
+         seart_func()
+    }
+
+function seart_func() {
+      document.getElementById("verbs_row").innerHTML = ""
+    for(let b=0; b<=arrayVerbs.length + -1; b++) {
+     for(let c=0; c<=arrayVerbs[b].length+-1; c++) {
+         
+        console.log(arrayVerbs[b][c][1])
+       const fn = arrayVerbs[b][c][3];
+        if(arrayVerbs[b][c][1] == true) {
+            var array_verb_p_element = document.createElement("p")
+            array_verb_p_element.innerText = arrayVerbs[b][c][0]
+           array_verb_p_element.onclick = function() {
+             alert(this.innerText)
+             document.getElementById("word_row").innerHTML = ""
+             fn("para1clicked", "traverse");
+             console.log(arrayVerbs)
+             console.log("b"+b+"c"+c)
+             arrayVerbs[b][c][1] = false;
+             console.log(arrayVerbs)
+           }
+           document.getElementById("verbs_row").appendChild(array_verb_p_element)
+           arrayVerbs[b][c][1] = false;
+           console.log(arrayVerbs)
+        }
+ 
+     }
+    } 
+}
+
+function func_search_all_a_action(para, para2) {
+ //console.log(firstTraverse)
+
+ alert("xx??=="+para)
+ alert("xx??=="+para2)
+  for (let a2 = 0; a2 < a_action.length; a2++) {
+    //////////
+    const baseVerb = a_action[a2]?.base_verb?.en;
+    const baseVerb_ja = a_action[a2]?.base_verb?.ja;
+    const baseVerb_jatr = a_action[a2]?.base_verb?.ja_tr;
+
+     
+//     /////////////////
+       const presentVerb = a_action[a2]?.present_participle?.en;
+       const presentVerb_ja = a_action[a2]?.present_participle?.ja
+       const presentVerb_jatr = a_action[a2]?.present_participle?.ja_tr;
+
+       
+//     ///////////////////
+        const pastVerb = a_action[a2]?.past_tense?.en;
+        const pastVerb_ja = a_action[a2]?.past_tense?.ja;
+        const pastVerb_jatr = a_action[a2]?.past_tense?.ja_tr;
+
+       // console.log(pastVerb_ja)
+
+        if (baseVerb === virtual_button && arrayVerbs[0][0][1] == false) {
+              console.log(baseVerb)
+              arrayVerbs[0][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (presentVerb === virtual_button && arrayVerbs[0][1][1] == false) {
+              console.log(presentVerb)
+              arrayVerbs[0][1][1] = true
+        }
+
+        if (pastVerb === virtual_button && arrayVerbs[0][2][1] == false) {
+              arrayVerbs[0][2][1] = true
+              console.log(pastVerb)       
+        }   
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[0][0][1] == true) {
+                  console.log(baseVerb);
+                  crtwords(baseVerb, baseVerb_ja, baseVerb_jatr)
+            }
+            if(arrayVerbs[0][1][1] == true) {
+                  console.log(presentVerb)
+                  crtwords(presentVerb, presentVerb_ja, presentVerb_jatr)
+            }
+            if(arrayVerbs[0][2][1] == true) {
+                  console.log(pastVerb)
+                  crtwords(pastVerb, pastVerb_ja, pastVerb_jatr)
+            }
+        }
+ }
+  
+}
+
+
+function func_search_all_b_object(para, para2) {
+  //console.log(firstTraverse)
+  
+  for (b2 = 0; b2 <= b_object.length - 1; b2++) {  
+    const singularNoun = b_object[b2][0]?.en_singular;
+    const singularNoun_ar = b_object[b2][0]?.ja_singular;
+    const singularNoun_artr = b_object[b2][0]?.ja_tr_singular;
+    /////////
+
+  //  console.log(singularNoun)
+    const pluralNoun = b_object[b2][1]?.en_plural;
+    const pluralNoun_ar = b_object[b2][1]?.ja_plural  
+    const pluralNoun_artr = b_object[b2][1]?.ja_tr_plural  
+ 
+
+    // console.log(pastVerb_ja)
+
+        if (singularNoun === virtual_button && arrayVerbs[1][0][1] == false) {
+              console.log(singularNoun)
+              arrayVerbs[1][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralNoun === virtual_button && arrayVerbs[1][1][1] == false) {
+              console.log(pluralNoun)
+              arrayVerbs[1][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[1][0][1] == true) {
+                  console.log(singularNoun);
+                  crtwords(singularNoun, singularNoun_ar, singularNoun_artr)
+            }
+            if(arrayVerbs[1][1][1] == true) {
+                  console.log(pluralNoun)
+                  crtwords(pluralNoun, pluralNoun_ar, pluralNoun_artr)
+            }
+            
+        }
+  
+}
+}
+
+
+
+function func_search_all_c_career(para, para2) {
+
+  for (c2 = 0; c2 <= c_career.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularNounCareer = c_career[c2][0]?.en_singular_career;
+    const singularNounCareer_ja = c_career[c2][0]?.jp_singular;
+    const singularNounCareer_jatr = c_career[c2][0]?.jp_tr_singular;
+    ///////////
+      const pluralNounCareer = c_career[c2][1]?.en_plural_career;
+      const pluralNounCareer_ja = c_career[c2][1]?.jp_plural;
+      const pluralNounCareer_jatr = c_career[c2][1]?.jp_tr_plural;
+   // console.log(singularNounCareer)
+
+
+       if (singularNounCareer === virtual_button && arrayVerbs[2][0][1] == false) {
+              console.log(singularNounCareer)
+              arrayVerbs[2][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralNounCareer === virtual_button && arrayVerbs[2][1][1] == false) {
+              console.log(pluralNounCareer)
+              arrayVerbs[2][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[2][0][1] == true) {
+                  console.log(singularNounCareer);
+                  crtwords(singularNounCareer, singularNounCareer_ja, singularNounCareer_jatr)
+            }
+            if(arrayVerbs[2][1][1] == true) {
+                  console.log(pluralNounCareer)
+                  crtwords(pluralNounCareer, pluralNounCareer_ja, pluralNounCareer_jatr)
+            }
+            
+        }
+  }
+
+}
+
+
+function func_search_all_d_environment(para, para2) {
+
+   for (c2 = 0; c2 <= d_environment.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularnounEnvironment = d_environment[c2][0]?.en_singular_environment;
+    const singularnounEnvironment_ja = d_environment[c2][0]?.ja_singular;
+    const singularnounEnvironment_jatr = d_environment[c2][0]?.ja_tr_singular;
+    ///////////
+    const pluralNounEnvironment = d_environment[c2][1]?.en_plural_environment;
+    const pluralNounEnvironment_ja = d_environment[c2][1]?.ja_plural;
+    const pluralNounEnvironment_jatr = d_environment[c2][1]?.ja_tr_plural;
+
+
+       if (singularnounEnvironment === virtual_button && arrayVerbs[3][0][1] == false) {
+              console.log(singularnounEnvironment)
+              arrayVerbs[3][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralNounEnvironment === virtual_button && arrayVerbs[3][1][1] == false) {
+              console.log(pluralNounEnvironment)
+              arrayVerbs[3][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[3][0][1] == true) {
+                  console.log(singularnounEnvironment);
+                  crtwords(singularnounEnvironment, singularnounEnvironment_ja, singularnounEnvironment_jatr)
+            }
+            if(arrayVerbs[3][1][1] == true) {
+                  console.log(pluralNounEnvironment)
+                  crtwords(pluralNounEnvironment, pluralNounEnvironment_ja, pluralNounEnvironment_jatr)
+            }
+            
+        }
+  }
+
+}
+ 
+
+function func_search_all_e_position(para, para2) {
+
+   for (c2 = 0; c2 <= e_position.length - 1; c2++) {
+
+    const singularnounPositions = e_position[c2]?.en_position;
+    const singularnounPositions_ja = e_position[c2]?.ja;
+    const singularnounPositions_jatr = e_position[c2]?.ja_tr;
+
+       if (singularnounPositions === virtual_button && arrayVerbs[4][0][1] == false) {
+              console.log(singularnounPositions)
+              arrayVerbs[4][0][1] = true
+             //console.log(a2)
+        }
+     
+       // console.log(singularnounPositions)
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[4][0][1] == true) {
+                  console.log(singularnounPositions);
+                  crtwords(singularnounPositions, singularnounPositions_ja, singularnounPositions_jatr)
+            }
+        
+            
+        }
+  }
+
+}
+
+
+
+function func_search_all_f_time(para, para2) {
+
+   for (c2 = 0; c2 <= f_time.length - 1; c2++) {
+
+    const singularnounTime = f_time[c2]?.en_time;
+    const singularnounTime_ja = f_time[c2]?.ja;
+    const singularnounTime_jatr = f_time[c2]?.ja_tr;
+
+       if (singularnounTime === virtual_button && arrayVerbs[5][0][1] == false) {
+              console.log(singularnounTime)
+              arrayVerbs[5][0][1] = true
+             //console.log(a2)
+        }
+     
+       // console.log(singularnounTime)
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[5][0][1] == true) {
+                  console.log(singularnounTime);
+                  crtwords(singularnounTime, singularnounTime_ja, singularnounTime_jatr)
+            }
+        
+            
+        }
+  }
+
+}
+
+
+
+
+
+function func_search_all_g_stuff(para, para2) {
+
+   for (b2 = 0; b2 <= g_stuff.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+     const singularStuff = g_stuff[b2][0]?.en_singular_stuff;
+    const singularStuff_ja = g_stuff[b2][0]?.ja_singular;
+    const singularStuff_jatr = g_stuff[b2][0]?.ja_tr_singular;
+    /////////
+    const pluralStuff = g_stuff[b2][1]?.en_plural_stuff;
+    const pluralStuff_ja = g_stuff[b2][1]?.ja_plural;  
+    const pluralStuff_jatr = g_stuff[b2][1]?.ja_tr_plural; 
+
+
+       if (singularStuff === virtual_button && arrayVerbs[6][0][1] == false) {
+              console.log(singularStuff)
+              arrayVerbs[6][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralStuff === virtual_button && arrayVerbs[6][1][1] == false) {
+              console.log(pluralStuff)
+              arrayVerbs[6][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[6][0][1] == true) {
+                  console.log(singularStuff);
+                  crtwords(singularStuff, singularStuff_ja, singularStuff_jatr)
+            }
+            if(arrayVerbs[6][1][1] == true) {
+                  console.log(pluralStuff)
+                  crtwords(pluralStuff, pluralStuff_ja, pluralStuff_jatr)
+            }
+            
+        }
+  }
+
+}
+
+
+
+
+function func_search_all_h_description(para, para2) {
+
+   for (b2 = 0; b2 <= h_description.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+     const singularDescription = h_description[b2][0]?.en_adjective;
+    const singularDescription_ja = h_description[b2][0]?.ja_adjective;
+    const singularDescription_jatr = h_description[b2][0]?.ja_tr_adjective;
+    /////////
+    const pluralDescription = h_description[b2][1]?.en_adverb;
+    const pluralDescription_ja = h_description[b2][1]?.ja_adverb;  
+    const pluralDescription_jatr = h_description[b2][1]?.ja_tr_adverb;  
+
+
+       if (singularDescription === virtual_button && arrayVerbs[7][0][1] == false) {
+              console.log(singularDescription)
+              arrayVerbs[7][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralDescription === virtual_button && arrayVerbs[7][1][1] == false) {
+              console.log(pluralDescription)
+              arrayVerbs[7][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[7][0][1] == true) {
+                  console.log(singularDescription);
+                  crtwords(singularDescription, singularDescription_ja, singularDescription_jatr)
+            }
+            if(arrayVerbs[7][1][1] == true) {
+                  console.log(pluralDescription)
+                  crtwords(pluralDescription, pluralDescription_ja, pluralDescription_jatr)
+            }
+            
+        }
+  }
+
+}
+
+
+
+function func_search_all_i_animal(para, para2) {
+
+   for (b2 = 0; b2 <= h_description.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularAnimal = i_animal[b2][0]?.en_animal;
+    const singularAnimal_ja = i_animal[b2][0]?.ja_animal;
+    const singularAnimal_jatr = i_animal[b2][0]?.ja_tr_animal;
+    /////////
+    const pluralAnimal = i_animal[b2][1]?.en_possessive;
+    const pluralAnimal_ja = i_animal[b2][1]?.ja_possessive;  
+    const pluralAnimal_jatr = i_animal[b2][1]?.ja_tr_possessive;  
+
+
+       if (singularAnimal === virtual_button && arrayVerbs[8][0][1] == false) {
+              console.log(singularAnimal)
+              arrayVerbs[8][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralAnimal === virtual_button && arrayVerbs[8][1][1] == false) {
+              console.log(pluralAnimal)
+              arrayVerbs[8][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[8][0][1] == true) {
+                 // console.log(singularAnimal);
+                  crtwords(singularAnimal, singularAnimal_ja, singularAnimal_jatr)
+            }
+            if(arrayVerbs[8][1][1] == true) {
+                  console.log(pluralAnimal)
+                  crtwords(pluralAnimal, pluralAnimal_ja, pluralAnimal_jatr)
+            }
+            
+        }
+  }
+
+}
+
+
+function func_search_all_j_body(para, para2) {
+
+   for (b2 = 0; b2 <= h_description.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularBody = j_body[b2][0]?.en_singular_body;
+    const singularBody_ja = j_body[b2][0]?.ja_singular_body;
+    const singularBody_jatr = j_body[b2][0]?.ja_tr_singular;
+    /////////
+    const pluralBody = j_body[b2][1]?.en_plural_body;
+    const pluralBody_ja = j_body[b2][1]?.ja_plural_body;  
+    const pluralBody_jatr = j_body[b2][1]?.ja_tr_plural;  
+
+
+       if (singularBody === virtual_button && arrayVerbs[9][0][1] == false) {
+              console.log(singularBody)
+              arrayVerbs[9][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralBody === virtual_button && arrayVerbs[9][1][1] == false) {
+              console.log(pluralBody)
+              arrayVerbs[9][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[9][0][1] == true) {
+                  console.log(singularBody);
+                  crtwords(singularBody, singularBody_ja, singularBody_jatr)
+            }
+            if(arrayVerbs[9][1][1] == true) {
+                  console.log(pluralBody)
+                  crtwords(pluralBody, pluralBody_ja, pluralBody_jatr)
+            }
+            
+        }
+  }
+
+}
+
+
+function func_search_all_k_clothing(para, para2) {
+
+   for (b2 = 0; b2 <= k_clothing.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularClothing = k_clothing[b2][0]?.en_singular_clothing;
+    const singularClothing_ja = k_clothing[b2][0]?.ja_singular;
+    const singularClothing_jatr= k_clothing[b2][0]?.ja_tr_singular;
+    /////////
+    const pluralClothing = k_clothing[b2][1]?.en_plural_clothing;
+    const pluralClothing_ja = k_clothing[b2][1]?.ja_plural;  
+    const pluralClothing_jatr = k_clothing[b2][1]?.ja_tr_plural;  
+
+    const possessivelClothing = k_clothing[b2][1]?.en_possessive;
+    const possessiveClothing_ja = k_clothing[b2][1]?.ja_possessive;  
+    const possessiveClothing_jatr = k_clothing[b2][1]?.ja_tr_possessive;  
+
+
+       if (singularClothing === virtual_button && arrayVerbs[10][0][1] == false) {
+              console.log(singularClothing)
+              arrayVerbs[10][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralClothing === virtual_button && arrayVerbs[10][1][1] == false) {
+              console.log(pluralClothing)
+              arrayVerbs[10][1][1] = true
+        }
+
+         if (possessivelClothing === virtual_button && arrayVerbs[10][2][1] == false) {
+              console.log(possessivelClothing)
+              arrayVerbs[10][2][1] = true
+        }
+
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[10][0][1] == true) {
+                  console.log(singularClothing);
+                  crtwords(singularClothing, singularClothing_ja, singularClothing_jatr)
+            }
+            if(arrayVerbs[10][1][1] == true) {
+                  console.log(pluralClothing)
+                  crtwords(pluralClothing, pluralClothing_ja, pluralClothing_jatr)
+            }
+            if(arrayVerbs[10][2][1] == true) {
+                  console.log(possessivelClothing)
+                  crtwords(possessivelClothing, possessiveClothing_ja, possessiveClothing_jatr)
+            }
+            
+        }
+  }
+
+}
+
+
+function func_search_all_l_feeling(para, para2) {
+
+   for (b2 = 0; b2 <= l_feeling.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const en_feel_word = l_feeling[b2][0]?.en_feel_word;
+    const en_feel_word_ja = l_feeling[b2][0]?.ja_feel_word;
+    const en_feel_word_jatr = l_feeling[b2][0]?.ja_tr_feel_word;
+    /////////
+    const en_feel_present = l_feeling[b2][1]?.en_feel_present;
+    const en_feel_present_ja= l_feeling[b2][1]?.ja_feel_present;  
+    const en_feel_present_jatr = l_feeling[b2][1]?.ja_tr_feel_present;  
+
+
+       if (en_feel_word === virtual_button && arrayVerbs[11][0][1] == false) {
+              console.log(en_feel_word)
+              arrayVerbs[11][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (en_feel_present === virtual_button && arrayVerbs[11][1][1] == false) {
+              console.log(en_feel_present)
+              arrayVerbs[11][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[11][0][1] == true) {
+                  console.log(en_feel_word);
+                  crtwords(en_feel_word, en_feel_word_ja, en_feel_word_jatr)
+            }
+            if(arrayVerbs[11][1][1] == true) {
+                  console.log(en_feel_present)
+                  crtwords(en_feel_present, en_feel_present_ja, en_feel_present_jatr)
+            }
+            
+        }
+  }
+
+}
+
+
+function func_search_all_m_food(para, para2) {
+
+   for (b2 = 0; b2 <= m_food.length - 1; b2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const singularFood = m_food[b2][0]?.en_singular_food;
+    const singularFood_ja = m_food[b2][0]?.ja_singular;
+    const singularFood_jatr = m_food[b2][0]?.ja_tr_singular;
+    /////////
+    const pluralFood = m_food[b2][1]?.en_plural_food;
+    const pluralFood_ja = m_food[b2][1]?.ja_plural;  
+    const pluralFood_jatr = m_food[b2][1]?.ja_tr_plural;
+
+
+       if (singularFood === virtual_button && arrayVerbs[12][0][1] == false) {
+              console.log(singularFood)
+              arrayVerbs[12][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (pluralFood === virtual_button && arrayVerbs[12][1][1] == false) {
+              console.log(pluralFood)
+              arrayVerbs[12][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[12][0][1] == true) {
+                  console.log(singularFood);
+                  crtwords(singularFood, singularFood_ja, singularFood_jatr)
+            }
+            if(arrayVerbs[12][1][1] == true) {
+                  console.log(pluralFood)
+                  crtwords(pluralFood, pluralFood_ja, pluralFood_jatr )
+            }
+            
+        }
+  }
+
+}
+
+
+function func_search_all_n_personal(para, para2) {
+
+   for (c2 = 0; c2 <= n_personal.length - 1; c2++) {
+
+    const personalWord = n_personal[c2]?.en_communication;
+    const personalWord_ja = n_personal[c2]?.ja;
+    const personalWord_jatr = n_personal[c2]?.ja_tr;
+
+       if (personalWord === virtual_button && arrayVerbs[13][0][1] == false) {
+              console.log(personalWord)
+              arrayVerbs[13][0][1] = true
+             //console.log(a2)
+        }
+     
+       // console.log(singularnounTime)
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[13][0][1] == true) {
+                  console.log(personalWord);
+                  crtwords(personalWord, personalWord_ja, personalWord_jatr)
+            }
+        
+            
+        }
+  }
+
+}
+
+
+function func_search_all_p_transportation(para, para2) {
+
+   for (c2 = 0; c2 <= m_food.length - 1; c2++) {
+   // const baseVerb = b_object[a2]?.base_verb?.en;
+   //////////
+    const en_singular_transportation = p_transportation[c2][0]?.en_singular_transportation;
+    const en_singular_transportation_ja = p_transportation[c2][0]?.ja_singular;
+    const en_singular_transportation_jatr = p_transportation[c2][0]?.ja_tr_singular;
+
+    //console.log(en_singular_transportation)
+    //////////
+    const en_plural_transportation = p_transportation[c2][1]?.en_plural_transportation;
+    const en_plural_transportation_ja = p_transportation[c2][1]?.ja_plural;
+    const en_plural_transportation_jatr = p_transportation[c2][1]?.ja_tr_plural;
+
+
+       if (en_singular_transportation === virtual_button && arrayVerbs[14][0][1] == false) {
+              console.log(en_singular_transportation)
+              arrayVerbs[14][0][1] = true
+             //console.log(a2)
+        }
+
+       // console.log(arrayVerbs[0][1][2])
+        if (en_plural_transportation === virtual_button && arrayVerbs[14][1][1] == false) {
+              console.log(en_plural_transportation)
+              arrayVerbs[14][1][1] = true
+        }
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[14][0][1] == true) {
+                  console.log(en_singular_transportation);
+                  crtwords(en_singular_transportation, en_singular_transportation_ja, en_singular_transportation_jatr)
+            }
+            if(arrayVerbs[14][1][1] == true) {
+                  console.log(en_plural_transportation)
+                  crtwords(en_plural_transportation, en_plural_transportation_ja, en_plural_transportation_jatr )
+            }
+            
+        }
+  }
+
+}
+
+
+function func_search_all_q_pronoun(para, para2) {
+
+   for (c2 = 0; c2 <= q_pronoun.length - 1; c2++) {
+
+    const en_pronoun = q_pronoun[c2]?.en_pronoun;
+    const en_pronoun_ja = q_pronoun[c2]?.ja_pronoun;
+    const en_pronoun_jatr = q_pronoun[c2]?.ja_tr_pronoun;
+
+       if (en_pronoun === virtual_button && arrayVerbs[15][0][1] == false) {
+              console.log(en_pronoun)
+              arrayVerbs[15][0][1] = true
+             //console.log(a2)
+        }
+     
+       // console.log(singularnounTime)
+
+        if(para2 == "traverse") {
+            if(arrayVerbs[15][0][1] == true) {
+                  console.log(en_pronoun);
+                  crtwords(en_pronoun, en_pronoun_ja, en_pronoun_jatr)
+            }
+        
+            
+        }
+  }
+
+}
+
+
+/* =========================
+   TRANSLATION (EN → JA)
+========================= */
+
+async function translateText() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",
+    tl: "ja",
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm");
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+
+  document.getElementById("jp").textContent =
+    sentences.map(s => s.trans).join("");
+
+    speech_jp = sentences.map(s => s.trans).join("");
+    
+
+  document.getElementById("romaji").textContent =
+    sentences.map(s => s.translit || "").join(" ").trim();
+
+      speech_jptr = 
+    sentences.map(s => s.translit || "").join(" ").trim();
+
+    call()
+    playMp3()
+}
+
+async function translateText_edit() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",
+    tl: "ja",
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm");
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+
+  document.getElementById("jp").textContent =
+    sentences.map(s => s.trans).join("");
+
+    speech_jp = sentences.map(s => s.trans).join("");
+    
+
+  document.getElementById("romaji").textContent =
+    sentences.map(s => s.translit || "").join(" ").trim();
+
+      speech_jptr = 
+    sentences.map(s => s.translit || "").join(" ").trim();
+
+
+    let input_value = document.getElementById("input").value;
+         
+            list_array_speech[chat_room_no][edit_no][plus_edit_no] = [
+            list_array_speech[chat_room_no][edit_no][plus_edit_no][0],
+            input_value,
+            speech_jp,
+            speech_jptr
+            ];
+
+            create_speech();
+document.getElementById("edit").style.display = "none"
+document.getElementById("translateButton").style.display = "flex"
+    playMp3()
+}
+
+
+/* =========================
+   WEB SPEECH API (VOICES)
+========================= */
+
+let voices = [];
+
+function loadVoices() {
+  voices = speechSynthesis.getVoices();
+  const select = document.getElementById("voiceSelect");
+  select.innerHTML = "";
+
+  voices.forEach(v => {
+    const opt = document.createElement("option");
+    opt.value = v.voiceURI;
+    opt.textContent = `${v.name} — ${v.lang}`;
+    select.appendChild(opt);
+  });
+
+  // auto-select Japanese voice
+  const jp = voices.find(v => v.lang.startsWith("ja"));
+  if (jp) select.value = jp.voiceURI;
+}
+
+speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
+
+function speakJapanese() {
+  const text =
+    document.getElementById("romaji").textContent !== "—"
+      ? document.getElementById("romaji").textContent
+      : document.getElementById("jp").textContent;
+
+  if (!text) return;
+
+  const u = new SpeechSynthesisUtterance(text);
+  const voiceURI = document.getElementById("voiceSelect").value;
+  const v = voices.find(v => v.voiceURI === voiceURI);
+  if (v) u.voice = v;
+
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+}
+
+function stopSpeaking() {
+  speechSynthesis.cancel();
+}
+
+/* =========================
+   GOOGLE MP3 FALLBACK
+========================= */
+
+function playMp3() {
+  const text =
+    document.getElementById("romaji").textContent !== "—"
+      ? document.getElementById("romaji").textContent
+      : document.getElementById("jp").textContent;
+
+  if (!text) return;
+
+  const url =
+    "https://translate.googleapis.com/translate_tts?" +
+    new URLSearchParams({
+      ie: "UTF-8",
+      q: text,
+      tl: "ja",
+      client: "gtx"
+    });
+
+  const audio = document.getElementById("audio");
+  audio.src = url;
+  audio.play();
+}
+
+// initial demo
+//translateText();
+
+
+function start_check() {
+     
+    if (list_array_speech.length === 0) {
+  plus();
+}
+  
+}
+
+start_check()
+
+
+
+
+
+
+
+
+
+
+    </script>
+    </body>
+
+</html>
+
+

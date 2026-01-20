@@ -1,0 +1,151 @@
+<html>
+    <head>
+
+        <style>
+           <style>
+#sentence_splitter {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#sentence_splitter > div {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  min-width: 80px;
+}
+
+#sentence_splitter p {
+  margin: 2px 0;
+  text-align: center;
+}
+</style>
+
+        </style>
+
+  <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <title>EN↔AR (auto-detect + per-word splitter)</title>
+    </head>
+
+
+    
+      <body>
+
+        <input id="input">
+        <button id="start"> Split</button>
+
+        <p id="jp"> jp</p>
+
+        <p id="romaji"> romaji</p>
+
+        <div id="sentence_splitter">
+
+
+        </div>
+          <script>
+
+const colors = [
+  "red", "green", "blue", "orange",
+  "purple", "brown", "pink", "teal",
+  "gold", "grey"
+];
+
+document.getElementById("start").onclick = function() {
+
+    translateText_edit()
+}
+
+async function translateText_edit() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",
+    tl: "ja",
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm");
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+
+  document.getElementById("jp").textContent =
+    sentences.map(s => s.trans).join("");
+
+    speech_jp = sentences.map(s => s.trans).join("");
+    
+
+  document.getElementById("romaji").textContent =
+    sentences.map(s => s.translit || "").join(" ").trim();
+
+      speech_jptr = 
+    sentences.map(s => s.translit || "").join(" ").trim();
+
+splitSentence(
+  text,
+  speech_jptr,
+  sentences.map(s => s.trans).join("")
+);
+
+
+
+}
+
+
+function splitSentence(source, romaji, english) {
+  const container = document.getElementById("sentence_splitter");
+  container.innerHTML = "";
+
+  const srcWords = source.split(/\s+/);
+  const romajiWords = romaji.split(/\s+/);
+  const engWords = english.split(/\s+/);
+
+  const max = Math.max(srcWords.length, engWords.length);
+
+  for (let i = 0; i < max; i++) {
+    const color = colors[i % colors.length];
+
+    const block = document.createElement("div");
+
+    const pSrc = document.createElement("p");
+    pSrc.style.color = color;
+    pSrc.textContent = srcWords[i] || "";
+
+    const pRomaji = document.createElement("p");
+    pRomaji.style.color = color;
+    pRomaji.textContent = romajiWords[i] || "";
+
+    const pEng = document.createElement("p");
+    pEng.textContent = engWords[i] || "";
+
+    block.appendChild(pSrc);
+    block.appendChild(pRomaji);
+    block.appendChild(pEng);
+
+    container.appendChild(block);
+  }
+}
+
+
+
+    </script>
+    </body>
+
+</html>
+
+

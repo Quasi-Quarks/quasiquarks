@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EN ↔ JA Word Splitter</title>
+
+<style>
+  body {
+    font-family: system-ui, Arial;
+    padding: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px 16px;
+    font-size: 16px;
+  }
+
+  #sentence_splitter > div {
+    display: flex;
+    gap: 16px;
+    margin: 8px 0;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #sentence_splitter p {
+    margin: 0;
+    cursor: pointer;
+    min-width: 90px;
+  }
+
+  .jp { font-size: 20px; }
+  .ro { opacity: 0.75; }
+</style>
+</head>
+
+<body>
+
+<input id="input" placeholder="Type English or Japanese">
+<button id="start">Translate & Split</button>
+
+<h3>Japanese</h3>
+<p id="jp"></p>
+
+<h3>Romaji</h3>
+<p id="romaji"></p>
+
+<h3>Word Breakdown</h3>
+<div id="sentence_splitter"></div>
+
+<audio id="player"></audio>
+
+<script>
+/* ---------------- CONFIG ---------------- */
+const COLORS = ["red","green","blue","orange","purple","brown","teal","pink"];
+const VOICE_LANG = "ja-JP";
+
+/* ---------------- HELPERS ---------------- */
+function setText(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val || "";
+}
+
+function speak(text) {
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = VOICE_LANG;
+  speechSynthesis.speak(u);
+}
+
+/* ---------------- TRANSLATE ---------------- */
+document.getElementById("start").onclick = translateAndSplit;
+
+async function translateAndSplit() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "auto",
+    tl: "ja",
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+  params.append("dt", "t");
+  params.append("dt", "rm");
+
+  const url = "https://translate.googleapis.com/translate_a/single?" + params;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+  const jp = sentences.map(s => s.trans).join("");
+  const romaji = sentences.map(s => s.translit || "").join(" ").trim();
+
+  setText("jp", jp);
+  setText("romaji", romaji);
+
+  buildJapaneseSplitter(data);
+}
+
+/* ---------------- SPLITTER ---------------- */
+function buildJapaneseSplitter(data) {
+  const box = document.getElementById("sentence_splitter");
+  box.innerHTML = "";
+
+  const tokens = data[1] || [];
+
+  tokens.forEach((t, i) => {
+    const jp = t[0];
+    const en = t[1] || "";
+
+    if (!jp) return;
+
+    const row = document.createElement("div");
+    const color = COLORS[i % COLORS.length];
+
+    const pJp = document.createElement("p");
+    pJp.textContent = jp;
+    pJp.className = "jp";
+    pJp.style.color = color;
+
+    const pRo = document.createElement("p");
+    pRo.textContent = toRomaji(jp);
+    pRo.className = "ro";
+    pRo.style.color = color;
+
+    const pEn = document.createElement("p");
+    pEn.textContent = en;
+
+    pJp.onclick = pRo.onclick = pEn.onclick = () => speak(jp);
+
+    row.append(pJp, pRo, pEn);
+    box.appendChild(row);
+  });
+}
+
+/* ---------------- SIMPLE ROMAJI (fallback) ---------------- */
+/* This is intentionally lightweight.
+   You can replace later with a real tokenizer if you want. */
+function toRomaji(jp) {
+  const map = {
+    "は":"wa","を":"o","が":"ga","に":"ni","で":"de","です":"desu",
+    "これ":"kore","それ":"sore","あれ":"are","本":"hon"
+  };
+  return map[jp] || jp;
+}
+</script>
+
+</body>
+</html>
