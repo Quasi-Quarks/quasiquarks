@@ -13,7 +13,7 @@
     font-family: system-ui;
     font-weight: 100;
     /* border: none; */
-    /* border: 1px solid #ca6262; */
+    border: 1px solid #ca6262;
     color: #000000;
     font-weight: 600;
     /* font-size: 1.2rem; */
@@ -321,4 +321,59 @@ button {}
 
 div#chat_room_container button {
     border: none;
+}
+
+.right\,Hi.there\,やあ\,Yā {}
+
+.right {
+    width
+Specifies the width of the content area, padding area or border area (depending on 'box-sizing') of certain boxes.
+
+Widely available across major browsers (Baseline since January 2018)
+Learn more
+
+Don't show: 70%;';
+    flex-direction
+Specifies how flex items are placed in the flex container, by setting the direction of the flex container's main axis.
+
+Widely available across major browsers (Baseline since March 2018)
+Learn more
+
+Don't show: row;
+    overflow: hidden;
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 70%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.left {
+    flex-direction: row;
+    overflow: hidden;
+    overflow-x: scroll;
+    width: 70%;
+}
+
+.classright {width: 100%;justify-content: flex-end;align-items: flex-end;height: 241px;}
+
+.classleft {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 241px;
+}
+
+.right .plus_new_speech_display_text {
+    background-color: grey;
+    margin: 0px 9px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.left .plus_new_speech_display_text {
+    background-color: white;
+    margin: 0px 9px;
+    border-radius: 20px;
 }
