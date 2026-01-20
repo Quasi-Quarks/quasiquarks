@@ -38,15 +38,19 @@
                    <div id="speech_container">
 
                         </div>
+    <div id="input_buttons_container">
 
+                    </div>
+                  
                     <div id="text_response_container">
+                        <button onclick="display_hide()">Hide</button>
                   <div id="romaji">—</div>
                   <div id="jp">—</div>    
                   <textarea id="input">Hi there</textarea>  
                   <div>
-                  <button class="primary" onclick="translateText()">Translate</button>     
+                  <button class="primary" id="translateButton" onclick="translateText()">Translate</button>     
                   <button id="edit">edit</button>        
-                  <button onclick="display_hide()">Hide</button>
+                  
             </div>
             </div>
 
@@ -82,10 +86,7 @@
                     <!-- <div id="chat_display_buttons">
 
                     </div> -->
-                    <div id="input_buttons_container">
-
-                    </div>
-                  
+                
                   <div id="word_row_container">
                     <div id="word_row">
 
@@ -356,6 +357,9 @@ document.getElementById("chat_display_buttons").innerHTML = ""
                   input_value =  document.getElementById("input").value = this.innerText
                   edit_no = a;
                   plus_edit_no = b;
+                  document.getElementById("edit").style.display = "flex"
+                  document.getElementById("translateButton").style.display = "none"
+                  alert(3456789)
                 }
 
                  var p_jp =  document.createElement("p")
@@ -365,7 +369,8 @@ document.getElementById("chat_display_buttons").innerHTML = ""
                 p_jptr.innerText = list_array_speech[chat_room_no][a][b][3]
 
                 var plus_element =  document.createElement("p")
-                plus_element.innerText = "Plus_Element"
+                plus_element.setAttribute("class", "plus_element")
+                plus_element.innerText = "+"
 
                 plus_element.onclick = function() {
                    input_value =  document.getElementById("input").value;
@@ -376,7 +381,7 @@ document.getElementById("chat_display_buttons").innerHTML = ""
             plus_placement = list_array_speech[chat_room_no][a].length;
             console.log("plus_placement"+plus_placement + " == " + "placement " + placement)
            
-                  list_array_speech[chat_room_no][a][plus_placement] = ["plus_text", "hello world", speech_jp, speech_jptr]
+                  list_array_speech[chat_room_no][a][plus_placement] = ["plus_text", "click here to edit text", speech_jp, speech_jptr]
                   create_speech()
                 }
 
@@ -400,6 +405,17 @@ textarea_words_array = []
 
 var let_index_input = 0;
 document.getElementById("input").oninput = function(){ 
+ 
+  textarea_value = this.value;
+  textarea_words_array = textarea_value.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
+  console.log(textarea_words_array)
+
+  crtwords_from_input()
+
+};
+
+
+document.getElementById("input").onclick = function(){ 
  
   textarea_value = this.value;
   textarea_words_array = textarea_value.split(/\s+/).filter(function(w){ return w.trim() !== ""; });
@@ -1291,7 +1307,8 @@ async function translateText_edit() {
             ];
 
             create_speech();
-
+document.getElementById("edit").style.display = "none"
+document.getElementById("translateButton").style.display = "flex"
     playMp3()
 }
 
