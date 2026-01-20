@@ -7,6 +7,9 @@
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <meta name="author" content="Basaam Qasem">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
   <title>EN↔AR (auto-detect + per-word splitter)</title>
     </head>
       <div id="menu">
@@ -307,12 +310,19 @@ document.getElementById("chat_display_buttons").innerHTML = ""
            // }
 
             plus_placement = list_array_speech[chat_room_no][placement].length;
-            alert(plus_placement)
-            if(switch_direction == true) { 
+      
+
+            const isOdd = (num) => num % 2 !== 0;
+
+            var bitwise = isOdd(placement);
+
+            alert("bitwise"+bitwise)
+
+            if(bitwise == false) { 
             list_array_speech[chat_room_no][placement][plus_placement] = ["right", input_value, speech_jp, speech_jptr];
             switch_direction = false;
             
-            }  else if (switch_direction == false) { 
+            }  else if (bitwise == true) { 
              list_array_speech[chat_room_no][placement][plus_placement] = ["left", input_value, speech_jp, speech_jptr];
             switch_direction = true;
             }
@@ -1386,3 +1396,5 @@ start_check()
     </body>
 
 </html>
+
+
