@@ -354,7 +354,7 @@ div#chat_room_container button {
 
 .right\,Hi.there\,やあ\,Yā {}
 
-.right {overflow: hidden;flex-direction: row;overflow: hidden;overflow-x: scroll;width: 79%;justify-content: flex-start;align-items: flex-start;min-height: max-content;height: 236px;}
+.right {overflow: hidden;flex-direction: row;overflow: hidden;overflow-x: scroll;width: 79%;justify-content: flex-start;align-items: flex-start;min-height: max-content;/* height: 236px; */}
 
 
 .left {
