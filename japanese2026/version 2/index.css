@@ -354,7 +354,7 @@ div#chat_room_container button {
 
 .right\,Hi.there\,やあ\,Yā {}
 
-.right {overflow: hidden;flex-direction: row;overflow: hidden;overflow-x: scroll;width: 79%;justify-content: flex-start;align-items: flex-start;min-height: max-content;}
+.right {overflow: hidden;flex-direction: row;overflow: hidden;overflow-x: scroll;width: 79%;justify-content: flex-start;align-items: flex-start;min-height: max-content;height: 236px;}
 
 
 .left {
@@ -370,7 +370,7 @@ div#chat_room_container button {
     min-height: max-content;
 }
 
-.classright {width: 100%;justify-content: flex-end;align-items: flex-end;height: 241px;margin: 17px 0px;}
+.classright {width: 100%;justify-content: flex-end;align-items: flex-end;/* height: 241px; */margin: 17px 0px;}
 
 .classleft {
     width: 100%;
@@ -399,6 +399,9 @@ div#chat_room_container button {
     border-radius: 20px;
     min-height: max-content;
     min-width: 200px;
+    /* z-index: 8766876; */
+    /* position: fixed; */
+    /* top: 69px; */
 }
 
 button#edit {
@@ -414,4 +417,20 @@ p.plus_element {
     align-items: center;
     text-align: center;
     margin: 0px;
+}
+
+p.en {
+    flex-direction: row;
+    display: inline-block;
+}
+
+p span {
+    margin-left: 9px;
+    display: inline-block;
+    display: inline-block;
+}
+
+p.rm {
+    flex-direction: row;
+    display: inline-block;
 }
