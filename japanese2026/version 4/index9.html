@@ -1,0 +1,331 @@
+<html>
+    <head>
+        <link href="index.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Basaam Qasem">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+<body>
+
+        <div id="app_container">
+
+            <div id="choose_lang_page">
+
+        </div>
+        
+            <div id="app_translator">
+                <div id="left_bar"> 
+                    <button onclick="createRoom()">Create Room</button>
+                    <div id="room_section">
+
+                    </div>
+                </div>
+                <div id="main_translator">
+                    <div id="chat_Page"></div>
+                    <div id="send_container">
+                    <input id="input_box" value="hello world">
+                    <button id="new_chat_input">New Button</button>
+                    <p id="jp"></p>
+                    <p id="romaji"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="totaljapanese2.js"></script>
+<script>
+  var app_chat_data = {};
+
+  var languages_array = ["english", "japanese", "arabic", "chinese"];
+
+    const languageMap = {
+  english: "en",
+  japanese: "ja",
+  arabic: "ar",
+  chinese: "zh",
+  french: "fr",
+  spanish: "es",
+  german: "de"
+};
+
+
+  var chatroom_language = "";
+
+  var chatroom_number = "";
+
+  function choose_language() {
+  for (let l = 0; l < languages_array.length; l++) {
+    let language = languages_array[l];
+
+    var btn = document.createElement("button");
+    btn.innerText = language;
+
+    btn.onclick = function () {
+      chatroom_language = language;
+
+      // create language if not exists
+      if (!app_chat_data[language]) {
+        app_chat_data[language] = {};
+        var roomCount = Object.keys(app_chat_data[chatroom_language]).length;
+        if (roomCount == 0) {
+            alert("there is no room")
+            const roomName = "room" + (roomCount + 1);
+            app_chat_data[chatroom_language][roomName] = [];
+            chatroom_number = roomName;
+            show_room(app_chat_data[chatroom_language][chatroom_number])
+            navbar_rooms()
+        } 
+      } else {
+            alert("there is is a room")
+            // choose the first room
+            var room_key = Object.keys(app_chat_data[chatroom_language]);
+            var default_room = room_key[0];
+            chatroom_number = default_room;
+            console.log("First room:", default_room);
+            console.log(app_chat_data[chatroom_language][default_room]);
+            show_room(app_chat_data[chatroom_language][default_room]);
+            
+        }
+
+
+
+
+      console.log("Language selected:", chatroom_language);
+      console.log(app_chat_data);
+    };
+
+    document.getElementById("choose_lang_page").appendChild(btn);
+  }
+}
+
+choose_language();
+
+
+async function translateText(text_data, para, r) {
+  const text = text_data.trim();
+  if (!text) return;
+
+  const targetLang = languageMap[chatroom_language];
+
+  if (!targetLang) {
+    alert("Unsupported language");
+    return;
+  }
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",                 // always English
+    tl: targetLang,           // dynamic target
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm"); // transliteration if available
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+
+  const translated = sentences.map(s => s.trans).join("");
+  const translit = sentences.map(s => s.translit || "").join(" ").trim();
+
+  // UI output (rename ids later if you want)
+  document.getElementById("jp").textContent = translated;
+  document.getElementById("romaji").textContent = translit;
+
+  const data_input = [
+    text,        // English
+    translated,  // Target language
+    translit     // Transliteration (if any)
+  ];
+
+  if (para === "edit") {
+    app_chat_data[chatroom_language][chatroom_number][r] = data_input;
+  } else {
+    app_chat_data[chatroom_language][chatroom_number].push(data_input);
+  }
+
+  show_room(app_chat_data[chatroom_language][chatroom_number]);
+}
+
+
+function navbar_rooms() {
+  const roomSection = document.getElementById("room_section");
+  roomSection.innerHTML = ""; // ✅ clear old buttons
+
+  const rooms = Object.keys(app_chat_data[chatroom_language]);
+
+  for (let r_no = 0; r_no < rooms.length; r_no++) {
+    const roomName = rooms[r_no];
+
+    const button_room = document.createElement("p");
+    button_room.innerText = roomName;
+
+    button_room.onclick = function () {
+      chatroom_number = roomName;
+      show_room(app_chat_data[chatroom_language][roomName]);
+    };
+
+    roomSection.appendChild(button_room);
+  }
+}
+
+
+var toggle = ""
+
+function show_room(room_id) {
+    
+    document.getElementById("chat_Page").innerHTML = ""
+     for(let r=0; r<=room_id.length + -1; r++) {
+     
+        
+          if (r % 2 === 0) {
+            console.log(r + " is Even");
+            toggle = "chat_container chat__right"
+          } else {
+            console.log(r + " is Odd");
+            toggle = "chat_container chat__left"
+          }
+        
+
+         console.log(room_id[r])
+
+          var chat_container = document.createElement("div");
+          chat_container.setAttribute("class", toggle)
+
+          var output_english = document.createElement("p");
+          output_english.setAttribute("class", "output_english")
+          output_english.innerText = room_id[r][0];
+
+          output_english.onclick = async function() {
+              var input_box_data = document.getElementById("input_box").value;
+              this.innerText = input_box_data;
+              
+              await translateText(document.getElementById("input_box").value);
+              alert(r)
+          }
+
+          var edit_english = document.createElement("p");
+          edit_english.setAttribute("class", "edit_english")
+          edit_english.innerText = "edit_text"
+
+          edit_english.onclick = function() {
+              var input_box_data = document.getElementById("input_box").value;
+              app_chat_data[chatroom_language][chatroom_number][r][0] = input_box_data;
+              
+              func_edit_container(r)
+              //show_room(room_id)
+              alert(r)
+          }
+
+          function func_edit_container(r_edit) {
+             var edit_container = document.createElement("div");
+          edit_container.setAttribute("class", "edit_container");
+
+          var edit_input_data = document.createElement("input");
+          edit_input_data.setAttribute("class", "edit_input_data");
+          edit_input_data.setAttribute("value", app_chat_data[chatroom_language][chatroom_number][r_edit][0]);
+
+          var send_edit = document.createElement("button");
+          send_edit.setAttribute("class", "send_edit");
+          send_edit.innerText = "Send";
+
+          send_edit.onclick = async function() {
+            alert(edit_input_data.value)
+            await translateText(edit_input_data.value, "edit", r_edit);
+          }
+
+          var cancel_edit = document.createElement("button");
+          cancel_edit.innerText = "Cancel";
+          cancel_edit.setAttribute("class", "cancel_edit");
+
+          cancel_edit.onclick = async function() {
+            const nodeList = document.querySelectorAll(".chat_container");
+            edit_container.style.display = "none"
+          }
+
+          edit_container.appendChild(edit_input_data)
+          edit_container.appendChild(send_edit);
+          edit_container.appendChild(cancel_edit);
+
+          const nodeList = document.querySelectorAll(".chat_container");
+          nodeList[r_edit].appendChild(edit_container);
+          }
+
+          var output_jp = document.createElement("p");
+          output_jp.setAttribute("class", "output_jp")
+          output_jp.innerText = room_id[r][1];
+
+          var output_jptr = document.createElement("p");
+          output_jptr.setAttribute("class", "output_jptr")
+          output_jptr.innerText = room_id[r][2];
+          
+       
+         
+          console.log(toggle)
+
+          chat_container.appendChild(output_english)
+          chat_container.appendChild(output_jp)
+          chat_container.appendChild(output_jptr)
+          chat_container.appendChild(edit_english)
+          
+          document.getElementById("chat_Page").appendChild(chat_container)
+     }
+ }
+
+
+
+  function createRoom() {
+  if (!chatroom_language) {
+    alert("Select a language first");
+    return;
+  }
+
+  var roomCount = Object.keys(app_chat_data[chatroom_language]).length + 1;
+  var roomName = "room" + roomCount;
+
+  app_chat_data[chatroom_language][roomName] = [];
+  chatroom_number = roomName;
+
+  navbar_rooms()
+  console.log("Room created:", roomName);
+  console.log(app_chat_data);
+}
+
+
+
+
+
+document.getElementById("new_chat_input").onclick = async function () {
+  if (!chatroom_language || !chatroom_number) {
+    alert("Select language and room first");
+    return;
+  }
+
+  await translateText(document.getElementById("input_box").value); // wait for fetch + push
+  console.log(app_chat_data);
+};
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

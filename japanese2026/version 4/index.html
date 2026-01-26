@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <link href="index.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Basaam Qasem">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+<body>
+
+<script src="totaljapanese2.js"></script>
+<script>
+var dictionary = [
+  a_action, b_object, c_career, d_environment, e_position,
+  f_time, g_stuff, h_description, i_animal, j_body,
+  k_clothing, l_feeling, m_food, n_personal,
+  o_sentence, p_transportation, q_pronoun
+];
+
+var a_action_check = ["base_verb", "present_participle", "past_tense"];
+function loop_word() {
+
+
+// loop through all categories
+//for (let x = 0; x < dictionary.length; x++) {
+  for (let x = 1; x < 2; x++) {
+  let category = dictionary[x];
+
+
+
+  for (let i = 0; i < category.length; i++) {
+    let entry = category[i];
+
+    if (x === 0) {
+      // a_action: only specific keys
+      for (let j = 0; j < a_action_check.length; j++) {
+        let key = a_action_check[j];
+        if (entry[key]?.en) {
+          console.log(entry[key].en);
+ 
+        }
+      }
+    } else {
+      // other categories: any key containing "en"
+      for (let key in entry) {
+        if (key.toLowerCase().includes("") && entry[key] != null) {
+          // if the value itself is a string, log it directly
+          if (typeof entry[key] === "string") {
+            console.log(entry[key]);
+          } 
+          // if the value is an object with .en, log that
+          else if (entry[key]?.en) {
+            console.log(entry[key].en);
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+}
+
+
+
+loop_word()
+
+
+</script>
+
+
+
+</body>
+</html>

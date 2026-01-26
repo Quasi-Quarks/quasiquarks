@@ -1,0 +1,256 @@
+<html>
+    <head>
+        <link href="index.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Basaam Qasem">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+<body>
+
+   
+
+        <div id="welcome_page">
+         <!-- 
+            Hi user
+            What language would you like to learn
+            Show the languagges
+         -->
+        </div>
+
+
+        
+        
+
+        <div id="app_container">
+
+            <div id="choose_lang_page">
+
+        </div>
+        
+            <div id="app_translator">
+                <div id="left_bar"> 
+                    <button onclick="createRoom()">Create Room</button>
+                </div>
+                <div id="main_translator">
+                    <div id="chat_Page"></div>
+                    <div id="send_container">
+                    <button id="new_chat_input">hello world</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="totaljapanese2.js"></script>
+<script>
+  var app_chat_data = [];
+
+  var languages_array = ["english", "japanese", "arabic", "chinese"];
+
+
+  var chatroom_language = "";
+
+  chatroom_number = "";
+
+  function choose_language() {
+  for (let l = 0; l < languages_array.length; l++) {
+    let language = languages_array[l];
+
+    var btn = document.createElement("button");
+    btn.innerText = language;
+
+    btn.onclick = function () {
+      chatroom_language = language;
+
+      // create language if not exists
+      if (!app_chat_data[language]) {
+        app_chat_data[language] = {};
+        var roomCount = Object.keys(app_chat_data[chatroom_language]).length;
+        if (roomCount == 0) {
+            alert("there is no room")
+            var roomName = "room" + roomCount;
+            app_chat_data[chatroom_language][roomName] = [];
+            chatroom_number = roomName;
+            show_room(app_chat_data[chatroom_language][chatroom_number])
+        } 
+      } else {
+            alert("there is is a room")
+            // choose the first room
+            var room_key = Object.keys(app_chat_data[chatroom_language]);
+            var default_room = room_key[0];
+            chatroom_number = default_room;
+            console.log("First room:", default_room);
+            console.log(app_chat_data[chatroom_language][default_room]);
+            show_room(app_chat_data[chatroom_language][default_room])
+        }
+
+
+
+
+      console.log("Language selected:", chatroom_language);
+      console.log(app_chat_data);
+    };
+
+    document.getElementById("choose_lang_page").appendChild(btn);
+  }
+}
+
+choose_language();
+
+
+function show_room(room_id) {
+    document.getElementById("chat_Page").innerHTML = ""
+     for(r=0; r<=room_id.length + -1; r++) {
+         console.log(room_id[r])
+        var chat_data = document.createElement("p");
+        chat_data.innerText = room_id[r]
+         document.getElementById("chat_Page").appendChild(chat_data)
+     }
+ }
+
+
+
+  function createRoom() {
+  if (!chatroom_language) {
+    alert("Select a language first");
+    return;
+  }
+
+  var roomCount = Object.keys(app_chat_data[chatroom_language]).length + 1;
+  var roomName = "room" + roomCount;
+
+  app_chat_data[chatroom_language][roomName] = [];
+  chatroom_number = roomName;
+
+  console.log("Room created:", roomName);
+  console.log(app_chat_data);
+}
+
+
+
+document.getElementById("new_chat_input").onclick = function () {
+    if (!chatroom_language || !chatroom_number) {
+        alert("Select language and room first");
+        return;
+    }
+
+    app_chat_data[chatroom_language][chatroom_number].push("Hello World");
+
+        show_room(app_chat_data[chatroom_language][chatroom_number])
+    console.log(app_chat_data);
+};
+
+
+ 
+
+
+       // language_room
+
+    //         room
+    //             chat 
+
+
+var dictionary = [
+  a_action, b_object, c_career, d_environment, e_position,
+  f_time, g_stuff, h_description, i_animal, j_body,
+  k_clothing, l_feeling, m_food, n_personal,
+  o_sentence, p_transportation, q_pronoun
+];
+
+var a_action_check = ["base_verb", "present_participle", "past_tense"];
+
+var selected_word = "eating";
+var keyword = "";
+function loop_words(situation) {
+
+  for (let x = 0; x < dictionary.length; x++) {
+    let category = dictionary[x];
+
+    for (let i = 0; i < category.length; i++) {
+      let entry = category[i];
+
+      // Handle arrays nested inside array (like b_object, c_career)
+      if (Array.isArray(entry)) {
+        for (let sub of entry) {
+          for (let key in sub) {
+            if (key.includes("en_") && sub[key]) {
+                // console.log(sub[key]);
+            if(situation == "search_traverse_1") {
+             if(selected_word == sub[key]) { 
+                 console.log(sub[key]);
+             keyword = key;
+
+             }
+            }  else if( situation == "searching_traverse_2" && key == keyword ) {
+               console.log(sub[key]);
+            }
+            }
+          }
+        }
+      } else {
+        // a_action special case
+        if (x === 0) {
+          for (let j = 0; j < a_action_check.length; j++) {
+            let key = a_action_check[j];
+            if (entry[key]?.en) {
+              //console.log(entry[key].en);
+
+              if(situation == "search_traverse_1") {
+             if(selected_word == entry[key]?.en) { 
+                 console.log(entry[key]?.en);
+             keyword = key;
+             
+             }
+            }  else if( situation == "searching_traverse_2" && key == keyword ) {
+               console.log(entry[key]?.en);
+            }
+            }
+          }
+        } else {
+          // other categories: object with keys containing "en_"
+          for (let key in entry) {
+            if (key.includes("en_") && entry[key]) {
+             // console.log(entry[key]);
+
+             if(situation == "search_traverse_1") {
+             if(selected_word == entry[key]) { 
+                 console.log(entry[key]);
+             keyword = key;
+             
+             }
+            }  else if( situation == "searching_traverse_2" && key == keyword ) {
+               console.log(entry[key]);
+            }
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+
+
+  if(keyword !== "") {
+      //alert(keyword)
+    if(situation == "searching_traverse_2") {
+        keyword = ""
+    } else {
+    loop_words("searching_traverse_2")
+  
+    }
+
+}
+
+}
+
+loop_words("search_traverse_1");
+</script>
+
+
+
+
+
+</body>
+</html>

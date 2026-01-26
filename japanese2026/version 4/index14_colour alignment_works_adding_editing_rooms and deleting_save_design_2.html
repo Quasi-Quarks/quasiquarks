@@ -1,0 +1,625 @@
+<html>
+    <head>
+        <link href="index.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="Basaam Qasem">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+<body>
+
+        <div id="app_container">
+
+            <div id="choose_lang_page">
+
+        </div>
+        
+            <div id="app_translator">
+                <div id="left_bar">
+                    <div id="menufeauture">
+                    <button id="toggleMenu"></button>
+                    <button id="newchat" onclick="createRoom()"><img id="imgnewchat" src="edit.png"/><p>New Chat</p></button>
+                    </div>
+                    <div id="room_section">
+
+                    </div>
+                </div>
+                <p id="jp"></p>
+                    <p id="romaji"></p>
+                <div id="main_translator">
+                    <div id="chat_Page"></div>
+                    <div id="send_container">
+                        <div id="send_container designer">
+                    <input id="input_box" value="hello world">
+                    <button id="new_chat_input">Send</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="totaljapanese2.js"></script>
+<script>
+  var app_chat_data = {};
+
+  var languages_array = ["english", "japanese", "arabic", "chinese", "french"];
+
+    const languageMap = {
+  english: "en",
+  japanese: "ja",
+  arabic: "ar",
+  chinese: "zh",
+  french: "fr",
+  spanish: "es",
+  german: "de"
+};
+
+
+  var chatroom_language = "";
+
+  var chatroom_number = "";
+
+  function save_storage() {
+  if (typeof Storage === "undefined") return;
+
+  localStorage.setItem(
+    "app_chat_data",
+    JSON.stringify(app_chat_data)
+  );
+
+  localStorage.setItem(
+    "chatroom_language",
+    chatroom_language || ""
+  );
+
+  localStorage.setItem(
+    "chatroom_number",
+    chatroom_number || ""
+  );
+}
+
+function get_storage() {
+  if (typeof Storage === "undefined") return;
+
+  const data = localStorage.getItem("app_chat_data");
+  const lang = localStorage.getItem("chatroom_language");
+  const room = localStorage.getItem("chatroom_number");
+
+  if (data) {
+    app_chat_data = JSON.parse(data);
+  }
+
+  if (lang && app_chat_data[lang]) {
+    chatroom_language = lang;
+
+    const rooms = Object.keys(app_chat_data[lang]);
+
+    if (room && app_chat_data[lang][room]) {
+      chatroom_number = room;
+    } else if (rooms.length) {
+      chatroom_number = rooms[0];
+    }
+
+    show_room(app_chat_data[chatroom_language][chatroom_number]);
+    navbar_rooms();
+  }
+}
+
+get_storage()
+
+
+
+  function choose_language() {
+  for (let l = 0; l < languages_array.length; l++) {
+    let language = languages_array[l];
+
+    var btn = document.createElement("button");
+    btn.innerText = language;
+
+    btn.onclick = function () {
+      chatroom_language = language;
+
+      // create language if not exists
+      if (!app_chat_data[language]) {
+        app_chat_data[language] = {};
+        var roomCount = Object.keys(app_chat_data[chatroom_language]).length;
+        if (roomCount == 0) {
+            alert("there is no room")
+            const roomName = "room" + (roomCount + 1);
+            app_chat_data[chatroom_language][roomName] = [];
+            chatroom_number = roomName;
+            show_room(app_chat_data[chatroom_language][chatroom_number])
+            navbar_rooms()
+            save_storage()
+        } 
+      } else {
+            alert("there is is a room")
+            // choose the first room
+            var room_key = Object.keys(app_chat_data[chatroom_language]);
+            var default_room = room_key[0];
+            chatroom_number = default_room;
+            console.log("First room:", default_room);
+            console.log(app_chat_data[chatroom_language][default_room]);
+            show_room(app_chat_data[chatroom_language][default_room]);
+            navbar_rooms()
+            save_storage()
+        }
+
+
+
+
+      console.log("Language selected:", chatroom_language);
+      console.log(app_chat_data);
+    };
+
+    document.getElementById("choose_lang_page").appendChild(btn);
+  }
+}
+
+choose_language();
+
+
+function needsRomanization(lang) {
+  return ["japanese", "chinese", "arabic"].includes(lang);
+}
+
+function usesRomanization(lang) {
+  return ["japanese", "chinese", "arabic"].includes(lang);
+}
+async function translateText(text_data, para, r) {
+  const text = text_data.trim();
+  if (!text) return;
+
+  const targetLang = languageMap[chatroom_language];
+
+  if (!targetLang) {
+    alert("Unsupported language");
+    return;
+  }
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",                 // always English
+    tl: targetLang,           // dynamic target
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm"); // transliteration if available
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+const translated = sentences.map(s => s.trans).join("");
+  const translit = needsRomanization(chatroom_language)
+  ? sentences.map(s => s.translit || "").join(" ").trim()
+  : translated; // 👈 KEY LINE
+
+  // UI output (rename ids later if you want)
+  document.getElementById("jp").textContent = translated;
+  document.getElementById("romaji").textContent = translit;
+
+  const data_input = [
+    text,        // English
+    translated,  // Target language
+    translit     // Transliteration (if any)
+  ];
+
+  if (para === "edit") {
+    app_chat_data[chatroom_language][chatroom_number][r] = data_input;
+  } else {
+    app_chat_data[chatroom_language][chatroom_number].push(data_input);
+  }
+
+  show_room(app_chat_data[chatroom_language][chatroom_number]);
+  save_storage()
+}
+
+function navbar_rooms() {
+  const roomSection = document.getElementById("room_section");
+  roomSection.innerHTML = "";
+
+  Object.entries(app_chat_data[chatroom_language]).forEach(
+    ([roomName, roomData]) => {
+
+      const container = document.createElement("div");
+      container.className = "button_room_container";
+
+      const label = document.createElement("p");
+      label.innerText = roomName;
+
+      label.onclick = () => {
+        chatroom_number = roomName;
+        show_room(roomData);
+      };
+
+      const menuText = document.createElement("div");
+      menuText.className = "menuText";
+      
+
+      const room_edit_container = document.createElement("div");
+      room_edit_container.className = "room_edit_container";
+      
+      const input = document.createElement("textarea");
+      input.className = "edit_input";
+      input.value = roomName;
+
+      input.onblur = () => {
+        const newName = input.value.trim();
+        renameRoom(chatroom_language, roomName, newName);
+        navbar_rooms();
+        save_storage()
+        room_edit_container.style.display = "none"
+      };
+
+      const delete_room = document.createElement("button");
+      delete_room.className = "delete_room";
+      delete_room.innerText = "Delete";
+
+      delete_room.onclick = () => {
+        deleteRoom(chatroom_language, roomName);
+        navbar_rooms();
+        console.log(app_chat_data);
+        save_storage()
+      };
+
+      menuText.onclick = function() {
+        if(room_edit_container.style.display == "flex") {
+          room_edit_container.style.display = "none"
+        } else { 
+            room_edit_container.style.display = "flex"
+        }
+         
+      }
+      
+
+      const return_edit_menu = document.createElement("button");
+      return_edit_menu.className = "return_edit_menu";
+      return_edit_menu.innerText = "Back";
+
+      return_edit_menu.onclick = function() {
+         room_edit_container.style.display = "none"
+      }
+
+      const edite_buttons_container = document.createElement("div");
+      edite_buttons_container.className = "edite_buttons_container";
+      
+
+
+      room_edit_container.appendChild(input)
+      edite_buttons_container.appendChild(delete_room)
+      edite_buttons_container.appendChild(return_edit_menu)
+      room_edit_container.appendChild(edite_buttons_container)
+      container.appendChild(label);
+      container.appendChild(room_edit_container);
+      container.appendChild(menuText);
+      roomSection.appendChild(container);
+    }
+  );
+}
+
+function createRoom() {
+  if (!chatroom_language) {
+    alert("Select a language first");
+    return;
+  }
+
+  const rooms = Object.keys(app_chat_data[chatroom_language]);
+
+  let n = 1;
+  while (rooms.includes("room" + n)) {
+    n++;
+  }
+
+  const roomName = "room" + n;
+
+  app_chat_data[chatroom_language][roomName] = [];
+  chatroom_number = roomName;
+
+  navbar_rooms();
+  show_room(app_chat_data[chatroom_language][roomName]);
+  save_storage()
+  console.log("Room created:", roomName);
+  console.log(app_chat_data);
+}
+
+
+
+
+
+function renameRoom(language, oldName, newName) {
+  if (!newName || newName === oldName) return;
+  if (app_chat_data[language][newName]) {
+    alert("Room name already exists");
+    return;
+  }
+
+  app_chat_data[language][newName] =
+    app_chat_data[language][oldName];
+
+  delete app_chat_data[language][oldName];
+
+  // update selected room if needed
+  if (chatroom_number === oldName) {
+    chatroom_number = newName;
+    alert(88)
+  }
+}
+
+function deleteRoom(language, roomName) {
+  const rooms = Object.keys(app_chat_data[language]);
+
+  // Safety: don't allow deleting the last room
+  if (rooms.length === 1) {
+    alert("You must have at least one room");
+    return;
+  }
+
+  delete app_chat_data[language][roomName];
+
+  // If deleted room was active, switch to another one
+  if (chatroom_number === roomName) {
+    const remainingRooms = Object.keys(app_chat_data[language]);
+    chatroom_number = remainingRooms[0];
+    show_room(app_chat_data[language][chatroom_number]);
+  }
+}
+
+
+
+
+var toggle = ""
+
+const COLORS = [
+  "red", "green", "blue", "orange", "purple",
+  "brown", "teal", "pink", "grey", "black"
+];
+
+
+
+async function show_room(room_data) {
+    const chatPage = document.getElementById("chat_Page");
+    chatPage.innerHTML = "";
+
+    for (let r = 0; r < room_data.length; r++) {
+        const isEven = r % 2 === 0;
+        const toggleClass = isEven ? "chat_container chat__right" : "chat_container chat__left";
+
+        const chatContainer = document.createElement("div");
+        chatContainer.className = toggleClass;
+
+        const [enText, jpText, rmText] = room_data[r];
+
+        // -------------------------------
+        // Color Highlight + Display
+        // -------------------------------
+        const highlightContainer = document.createElement("div");
+        highlightContainer.className = "highlight_container";
+
+        await render_colour_highlight_pure(enText, rmText, highlightContainer);
+
+        chatContainer.appendChild(highlightContainer);
+
+        // -------------------------------
+        // Edit Button
+        // -------------------------------
+        const chat_button_container = document.createElement("div");
+        chat_button_container.className = "chat_button_container";
+
+        const editBtn = document.createElement("button");
+        editBtn.className = "edit_english";
+        editBtn.innerText = "Edit";
+
+        editBtn.onclick = () => openEditContainer(r, chatContainer);
+        chat_button_container.appendChild(editBtn);
+
+        // -------------------------------
+        // Append Japanese text (if needed)
+        // -------------------------------
+        const jpP = document.createElement("p");
+        jpP.className = "output_jp";
+        jpP.innerText = jpText;
+        chatContainer.appendChild(jpP);
+
+        const rmP = document.createElement("p");
+        rmP.className = "output_jptr";
+        rmP.innerText = rmText;
+        chatContainer.appendChild(rmP);
+
+                const deleteBtn = document.createElement("button");
+deleteBtn.className = "delete_message";
+deleteBtn.innerText = "Delete";
+
+deleteBtn.onclick = () => {
+  deleteMessage(r);
+  console.log("message deleted:", r);
+  save_storage()
+};
+
+chat_button_container.appendChild(deleteBtn);
+chatContainer.appendChild(chat_button_container);
+
+
+        // -------------------------------
+        // Append to main chat page
+        // -------------------------------
+        chatPage.appendChild(chatContainer);
+    }
+
+    // -------------------------------
+    // Edit Container Function
+    // -------------------------------
+    function openEditContainer(r_index, chatContainer) {
+        // Avoid multiple edit boxes
+        if (chatContainer.querySelector(".edit_container")) return;
+
+        const editContainer = document.createElement("div");
+        editContainer.className = "edit_container";
+
+        const input = document.createElement("textarea");
+        input.className = "edit_input_data";
+        input.value = app_chat_data[chatroom_language][chatroom_number][r_index][0];
+        
+
+        const edit_button_container = document.createElement("div");
+        edit_button_container.className = "edit_button_container";
+
+        const sendBtn = document.createElement("button");
+        sendBtn.className = "send_edit";
+        sendBtn.innerText = "Send";
+
+        sendBtn.onclick = async () => {
+            await translateText(input.value, "edit", r_index);
+            editContainer.remove();
+        };
+
+        const cancelBtn = document.createElement("button");
+        cancelBtn.className = "cancel_edit";
+        cancelBtn.innerText = "Cancel";
+
+        cancelBtn.onclick = () => editContainer.remove();
+
+        
+        edit_button_container.appendChild(cancelBtn)
+        edit_button_container.appendChild(sendBtn)
+        editContainer.appendChild(input);
+        editContainer.appendChild(edit_button_container);
+  
+
+
+
+        chatContainer.appendChild(editContainer);
+    }
+}
+
+
+function deleteMessage(r_index) {
+  app_chat_data[chatroom_language][chatroom_number].splice(r_index, 1);
+  show_room(app_chat_data[chatroom_language][chatroom_number]);
+}
+
+
+ async function render_colour_highlight_pure(enText, rmText, container) {
+    const COLORS = ["red","green","blue","orange","purple","brown","teal","pink","grey","black"];
+    let colorIndex = 0;
+
+    const enWords = enText.trim().split(/\s+/);
+    const rmWords = rmText.trim().split(/\s+/);
+
+    const enP = document.createElement("p");
+    const rmP = document.createElement("p");
+
+    // Build RM spans first, preserve order
+    const rmSpans = rmWords.map(word => {
+        const span = document.createElement("span");
+        span.innerText = word + " ";
+        rmP.appendChild(span);
+        return span;
+    });
+
+    const rmUsed = new Array(rmWords.length).fill(false);
+
+    for (let i = 0; i < enWords.length; i++) {
+        const enWord = enWords[i];
+        const spanEn = document.createElement("span");
+        spanEn.innerText = enWord + " ";
+
+        // Call translation API for English word
+        let apiRm = "";
+        try {
+            const { translated, rm } = await translateWord(enWord);
+
+const apiToken = usesRomanization(chatroom_language)
+  ? rm
+  : translated;
+
+apiRm = apiToken.toLowerCase();
+        } catch(e) {
+            console.error("API error:", e);
+        }
+
+        let matchedIndex = -1;
+        for (let j = 0; j < rmWords.length; j++) {
+            if (rmUsed[j]) continue;
+            const rmLower = rmWords[j].toLowerCase();
+            if (apiRm && (rmLower.includes(apiRm) || apiRm.includes(rmLower))) {
+                matchedIndex = j;
+                break;
+            }
+        }
+
+        if (matchedIndex !== -1) {
+            const color = COLORS[colorIndex % COLORS.length];
+            colorIndex++;
+            spanEn.style.color = color;
+            spanEn.style.fontWeight = "bold";
+            rmSpans[matchedIndex].style.color = color;
+            rmSpans[matchedIndex].style.fontWeight = "bold";
+            rmUsed[matchedIndex] = true;
+        }
+
+        enP.appendChild(spanEn);
+    }
+
+    container.innerHTML = "";
+    container.appendChild(enP);
+    container.appendChild(rmP);
+}
+
+// Minimal API wrapper
+async function translateWord(word) {
+  const targetLang = languageMap[chatroom_language] || "ja";
+
+  const url =
+    `https://translate.googleapis.com/translate_a/single` +
+    `?client=gtx&sl=en&tl=${targetLang}&dt=t&dt=rm&q=${encodeURIComponent(word)}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const translated = data[0][0]?.[0] || "";
+  const rm = data[0][1]?.[2] || "";
+
+  return { translated, rm };
+}
+
+
+ 
+
+
+
+
+
+
+document.getElementById("new_chat_input").onclick = async function () {
+  if (!chatroom_language || !chatroom_number) {
+    alert("Select language and room first");
+    return;
+  }
+
+  await translateText(document.getElementById("input_box").value); // wait for fetch + push
+  console.log(app_chat_data);
+};
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
