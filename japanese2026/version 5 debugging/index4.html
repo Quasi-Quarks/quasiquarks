@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Word-for-Word Highlight</title>
+
+<style>
+  .row { margin: 8px 0; }
+  .label { font-weight: bold; margin-right: 6px; }
+  .word {
+    padding: 3px 6px;
+    margin: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    color: white;
+  }
+</style>
+</head>
+
+<body>
+
+<input id="input" value="hello world">
+<button onclick="translateText()">Translate</button>
+
+<div id="app"></div>
+
+<script >
+
+  const COLORS = [
+  "red", "green", "blue",
+  "orange", "purple", "teal"
+];
+
+const languageMap = {
+  japanese: "ja",
+  arabic: "ar",
+  chinese: "zh",
+  french: "fr"
+};
+
+const targetLang = "japanese";
+
+function needsRomanization(lang) {
+  return ["japanese", "arabic", "chinese"].includes(lang);
+}
+
+async function translateText() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",
+    tl: languageMap[targetLang],
+    dj: "1",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm");
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const translated = data.sentences.map(s => s.trans).join(" ");
+  const translit = needsRomanization(targetLang)
+    ? data.sentences.map(s => s.translit || "").join(" ")
+    : translated;
+
+  wordAlignRender(text, translated, translit);
+}
+
+function wordAlignRender(enText, trText, tlText) {
+  const enWords = enText.split(/\s+/);
+  const trWords = trText.split(/\s+/);
+  const tlWords = tlText.split(/\s+/);
+
+  const count = Math.min(
+    enWords.length,
+    trWords.length,
+    tlWords.length
+  );
+
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+
+  app.append(
+    makeRow("English", enWords, count),
+    makeRow("Translation", trWords, count),
+    makeRow("Transliteration", tlWords, count)
+  );
+}
+
+function makeRow(label, words, limit) {
+  const div = document.createElement("div");
+  div.className = "row";
+  div.innerHTML = `<span class="label">${label}:</span>`;
+
+  words.forEach((word, i) => {
+    const span = document.createElement("span");
+    span.className = "word";
+    span.textContent = word;
+
+    if (i < limit) {
+      span.style.background = COLORS[i % COLORS.length];
+    } else {
+      span.style.background = "#999"; // unaligned
+    }
+
+    div.appendChild(span);
+  });
+
+  return div;
+}
+
+</script>
+</body>
+</html>

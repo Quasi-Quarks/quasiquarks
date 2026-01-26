@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    p { margin: 8px 0; }
+    span {
+      padding: 2px 4px;
+      margin: 2px;
+      display: inline-block;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="app_container"></div>
+
+<input id="input" value="hello world">
+<button onclick="runApp()">Translate</button>
+
+<script>
+/* ===================== CONFIG ===================== */
+
+const COLORS = [
+  "red","green","blue","orange","purple",
+  "brown","teal","pink","grey","black"
+];
+
+const languageMap = {
+  english: "en",
+  japanese: "ja",
+  arabic: "ar",
+  chinese: "zh",
+  french: "fr",
+  spanish: "es",
+  german: "de",
+  russian: "ru"
+};
+
+let chatroom_language = "japanese";
+
+/* ===================== HELPERS ===================== */
+
+function usesRomanization(lang) {
+  return ["japanese","arabic","chinese","russian"].includes(lang);
+}
+
+/* ===================== MAIN ===================== */
+
+async function runApp() {
+  console.log("▶ runApp() called");
+
+  const text = document.getElementById("input").value.trim();
+  console.log("Input text:", text);
+
+  if (!text) {
+    console.warn("❌ No input text");
+    return;
+  }
+
+  const targetLang = languageMap[chatroom_language];
+  console.log("Target language code:", targetLang);
+
+  const url =
+    `https://translate.googleapis.com/translate_a/single` +
+    `?client=gtx&sl=en&tl=${targetLang}&dt=t&dt=rm&q=${encodeURIComponent(text)}`;
+
+  console.log("Sentence API URL:", url);
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  console.log("Sentence API raw response:", data);
+
+  const translated = data[0].map(x => x[0]).join(" ");
+  const translit = data[0].map(x => x[3]).filter(Boolean).join(" ");
+
+  console.log("Sentence translation:", translated);
+  console.log("Sentence transliteration:", translit);
+
+  render_colour_highlight_pure(
+    text,
+    usesRomanization(chatroom_language) ? translit : translated,
+    document.getElementById("app_container")
+  );
+}
+
+/* ===================== WORD ALIGN ===================== */
+
+async function render_colour_highlight_pure(enText, rmText, container) {
+  console.log("▶ render_colour_highlight_pure()");
+  console.log("English text:", enText);
+  console.log("RM text:", rmText);
+
+  let colorIndex = 0;
+
+  const enWords = enText.trim().split(/\s+/);
+  const rmWords = rmText.trim().split(/\s+/);
+
+  console.log("English words:", enWords);
+  console.log("RM words:", rmWords);
+
+  const enP = document.createElement("p");
+  const rmP = document.createElement("p");
+
+  const rmSpans = rmWords.map((word, i) => {
+    const span = document.createElement("span");
+    span.textContent = word + " ";
+    rmP.appendChild(span);
+    console.log(`RM span[${i}]:`, word);
+    return span;
+  });
+
+  const rmUsed = new Array(rmWords.length).fill(false);
+  const cache = {};
+
+  for (let i = 0; i < enWords.length; i++) {
+    const enWord = enWords[i];
+    const spanEn = document.createElement("span");
+    spanEn.textContent = enWord + " ";
+
+    console.log(`\n🔍 Processing EN word [${i}]:`, enWord);
+
+    let apiToken = "";
+
+    try {
+      if (!cache[enWord]) {
+        console.log("→ calling translateWord():", enWord);
+        cache[enWord] = await translateWord(enWord);
+      }
+
+      console.log("Word cache:", cache[enWord]);
+
+      const { translated, rm } = cache[enWord];
+
+      apiToken = usesRomanization(chatroom_language)
+        ? rm
+        : translated;
+
+      apiToken = apiToken.toLowerCase().trim();
+      console.log("API token used for matching:", apiToken);
+
+    } catch (e) {
+      console.error("❌ translateWord failed:", e);
+    }
+
+    let matchedIndex = -1;
+
+    for (let j = 0; j < rmWords.length; j++) {
+      if (rmUsed[j]) continue;
+
+      const rmLower = rmWords[j].toLowerCase();
+      console.log(`Compare EN[${i}] → RM[${j}]`, apiToken, "vs", rmLower);
+
+      if (apiToken && (rmLower === apiToken || rmLower.includes(apiToken))) {
+        matchedIndex = j;
+        console.log("✅ MATCH at RM index:", j);
+        break;
+      }
+    }
+
+    if (matchedIndex !== -1) {
+      const color = COLORS[colorIndex % COLORS.length];
+      colorIndex++;
+
+      console.log("🎨 Assign color:", color);
+
+      spanEn.style.color = color;
+      spanEn.style.fontWeight = "bold";
+      rmSpans[matchedIndex].style.color = color;
+      rmSpans[matchedIndex].style.fontWeight = "bold";
+
+      rmUsed[matchedIndex] = true;
+    } else {
+      console.warn("⚠️ No match for:", enWord);
+    }
+
+    enP.appendChild(spanEn);
+  }
+
+  container.innerHTML = "";
+  container.appendChild(enP);
+  container.appendChild(rmP);
+
+  console.log("✅ Rendering complete");
+}
+
+/* ===================== PER WORD API ===================== */
+
+async function translateWord(word) {
+  const targetLang = languageMap[chatroom_language];
+
+  const url =
+    `https://translate.googleapis.com/translate_a/single` +
+    `?client=gtx&sl=en&tl=${targetLang}&dt=t&dt=rm&q=${encodeURIComponent(word)}`;
+
+  console.log("Word API URL:", url);
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  console.log("Word API response:", word, data);
+
+  return {
+    translated: data[0][0]?.[0] || "",
+    rm: data[0][0]?.[3] || ""
+  };
+}
+</script>
+
+</body>
+</html>

@@ -11,13 +11,10 @@
 <body>
 
         <div id="app_container">
-        
-            <div id="Welcome_Page">
-                <h1>Welcome</h1>
+
             <div id="choose_lang_page">
 
-            </div>
-            </div>
+        </div>
         
             <div id="app_translator">
                 <div id="left_bar">
@@ -46,133 +43,18 @@
 <script>
   var app_chat_data = {};
 
- var languages_array = [
-  "english",
-  "japanese",
-  "arabic",
-  "chinese",
-  "french",
-  "spanish",
-  "german",
-  "italian",
-  "portuguese",
-  "russian",
-  "korean",
-  "hindi",
-  "urdu",
-  "persian",
-  "turkish",
-  "dutch",
-  "swedish",
-  "norwegian",
-  "danish",
-  "finnish",
-  "polish",
-  "czech",
-  "slovak",
-  "hungarian",
-  "romanian",
-  "bulgarian",
-  "greek",
-  "hebrew",
-  "thai",
-  "vietnamese",
-  "indonesian",
-  "malay",
-  "tagalog",
-  "swahili",
-  "amharic",
-  "somali",
-  "bengali",
-  "tamil",
-  "telugu",
-  "marathi",
-  "punjabi",
-  "gujarati",
-  "kannada",
-  "malayalam",
-  "sinhala",
-  "nepali",
-  "lao",
-  "khmer",
-  "burmese"
-];
+  var languages_array = ["english", "japanese", "arabic", "chinese", "french"];
 
-const languageMap = {
+    const languageMap = {
   english: "en",
   japanese: "ja",
   arabic: "ar",
   chinese: "zh",
   french: "fr",
   spanish: "es",
-  german: "de",
-  italian: "it",
-  portuguese: "pt",
-  russian: "ru",
-  korean: "ko",
-  hindi: "hi",
-  urdu: "ur",
-  persian: "fa",
-  turkish: "tr",
-  dutch: "nl",
-  swedish: "sv",
-  norwegian: "no",
-  danish: "da",
-  finnish: "fi",
-  polish: "pl",
-  czech: "cs",
-  slovak: "sk",
-  hungarian: "hu",
-  romanian: "ro",
-  bulgarian: "bg",
-  greek: "el",
-  hebrew: "iw",
-  thai: "th",
-  vietnamese: "vi",
-  indonesian: "id",
-  malay: "ms",
-  tagalog: "tl",
-  swahili: "sw",
-  amharic: "am",
-  somali: "so",
-  bengali: "bn",
-  tamil: "ta",
-  telugu: "te",
-  marathi: "mr",
-  punjabi: "pa",
-  gujarati: "gu",
-  kannada: "kn",
-  malayalam: "ml",
-  sinhala: "si",
-  nepali: "ne",
-  lao: "lo",
-  khmer: "km",
-  burmese: "my"
+  german: "de"
 };
 
-
-function toggleMenu() {
-    document.getElementById("toggleMenu").onclick = function() { 
-        document.getElementById("Welcome_Page").style.display = "flex";
-    }
-}
-
- toggleMenu()
-
-function needsRomanization(lang) {
-  return ["japanese", "chinese", "arabic"].includes(lang);
-}
-
-function usesRomanization(lang) {
-  return [
-    "japanese",
-    "chinese",
-    "arabic",
-    "korean",
-    "thai",
-    "vietnamese"
-  ].includes(lang);
-}
 
   var chatroom_language = "";
 
@@ -269,9 +151,6 @@ get_storage()
 
       console.log("Language selected:", chatroom_language);
       console.log(app_chat_data);
-
-        document.getElementById("Welcome_Page").style.display = "none"
-
     };
 
     document.getElementById("choose_lang_page").appendChild(btn);
@@ -341,7 +220,8 @@ const translated = sentences.map(s => s.trans).join("");
     app_chat_data[chatroom_language][chatroom_number].push(data_input);
   }
 
-  
+  show_room(app_chat_data[chatroom_language][chatroom_number]);
+  save_storage()
 }
 
 function navbar_rooms() {
@@ -525,7 +405,8 @@ async function show_room(room_data) {
         const highlightContainer = document.createElement("div");
         highlightContainer.className = "highlight_container";
 
-        await render_colour_highlight_pure(enText, rmText, highlightContainer);
+        await render_colour_highlight_pure(enText, jpText, rmText, highlightContainer);
+
 
         chatContainer.appendChild(highlightContainer);
 
@@ -628,17 +509,19 @@ function deleteMessage(r_index) {
 }
 
 
- async function render_colour_highlight_pure(enText, rmText, container) {
+ async function render_colour_highlight_pure(enText, jpText, rmText, container) {
     const COLORS = ["red","green","blue","orange","purple","brown","teal","pink","grey","black"];
     let colorIndex = 0;
 
     const enWords = enText.trim().split(/\s+/);
     const rmWords = rmText.trim().split(/\s+/);
+    const jpWords = jpText.trim().split(/\s+/); // display only
 
     const enP = document.createElement("p");
+    const jpP = document.createElement("p");
     const rmP = document.createElement("p");
 
-    // Build RM spans first, preserve order
+    // RM spans (SOURCE OF TRUTH)
     const rmSpans = rmWords.map(word => {
         const span = document.createElement("span");
         span.innerText = word + " ";
@@ -646,44 +529,51 @@ function deleteMessage(r_index) {
         return span;
     });
 
+    // JP spans (DISPLAY ONLY)
+    const jpSpans = jpWords.map(word => {
+        const span = document.createElement("span");
+        span.innerText = word + " ";
+        jpP.appendChild(span);
+        return span;
+    });
+
     const rmUsed = new Array(rmWords.length).fill(false);
 
     for (let i = 0; i < enWords.length; i++) {
-        const enWord = enWords[i];
         const spanEn = document.createElement("span");
-        spanEn.innerText = enWord + " ";
+        spanEn.innerText = enWords[i] + " ";
 
-        // Call translation API for English word
-        let apiRm = "";
+        let apiToken = "";
         try {
-            const { translated, rm } = await translateWord(enWord);
-
-const apiToken = usesRomanization(chatroom_language)
-  ? rm
-  : translated;
-
-apiRm = apiToken.toLowerCase();
-        } catch(e) {
-            console.error("API error:", e);
-        }
+            const { translated, rm } = await translateWord(enWords[i]);
+            apiToken = (rm || translated).toLowerCase();
+        } catch {}
 
         let matchedIndex = -1;
         for (let j = 0; j < rmWords.length; j++) {
             if (rmUsed[j]) continue;
             const rmLower = rmWords[j].toLowerCase();
-            if (apiRm && (rmLower.includes(apiRm) || apiRm.includes(rmLower))) {
+            if (apiToken && (rmLower.includes(apiToken) || apiToken.includes(rmLower))) {
                 matchedIndex = j;
                 break;
             }
         }
 
         if (matchedIndex !== -1) {
-            const color = COLORS[colorIndex % COLORS.length];
-            colorIndex++;
+            const color = COLORS[colorIndex++ % COLORS.length];
+
             spanEn.style.color = color;
             spanEn.style.fontWeight = "bold";
+
             rmSpans[matchedIndex].style.color = color;
             rmSpans[matchedIndex].style.fontWeight = "bold";
+
+            // 🔒 SAFE JP coloring
+            if (jpSpans[matchedIndex]) {
+                jpSpans[matchedIndex].style.color = color;
+                jpSpans[matchedIndex].style.fontWeight = "bold";
+            }
+
             rmUsed[matchedIndex] = true;
         }
 
@@ -691,9 +581,11 @@ apiRm = apiToken.toLowerCase();
     }
 
     container.innerHTML = "";
-    container.appendChild(enP);
-    container.appendChild(rmP);
+    container.appendChild(enP); // English
+    container.appendChild(jpP); // Translation
+    container.appendChild(rmP); // Transliteration
 }
+
 
 // Minimal API wrapper
 async function translateWord(word) {

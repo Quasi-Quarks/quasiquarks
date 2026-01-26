@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aligned Translation + Transliteration</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+
+  .row {
+    margin-bottom: 10px;
+  }
+
+  .label {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+
+  .word {
+    padding: 3px 6px;
+    margin: 2px;
+    border-radius: 4px;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<input id="input" value="hello world" style="width:300px;">
+<button onclick="translateText()">Translate</button>
+
+<div id="app_container"></div>
+
+<script>
+const COLORS = [
+  "red", "green", "blue", "orange",
+  "purple", "brown", "teal", "pink"
+];
+
+const languageMap = {
+  english: "en",
+  japanese: "ja",
+  arabic: "ar",
+  chinese: "zh",
+  french: "fr",
+  spanish: "es",
+  german: "de",
+  russian: "ru"
+};
+
+// 🔧 Change target language here
+let chatroom_language = "japanese";
+
+function needsRomanization(lang) {
+  return ["japanese", "chinese", "arabic", "russian"].includes(lang);
+}
+
+async function translateText() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const targetLang = languageMap[chatroom_language];
+  if (!targetLang) {
+    alert("Unsupported language");
+    return;
+  }
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",
+    tl: targetLang,
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm");
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const segments = data.sentences || [];
+
+  // 🔑 aligned arrays
+  const english = segments.map(s => s.orig);
+  const translated = segments.map(s => s.trans);
+  const translit = needsRomanization(chatroom_language)
+    ? segments.map(s => s.translit || s.trans)
+    : translated;
+
+  renderAligned(english, translated, translit);
+}
+
+function renderAligned(en, tr, tl) {
+  const container = document.getElementById("app_container");
+  container.innerHTML = "";
+
+  container.append(
+    makeRow("English", en),
+    makeRow("Translation", tr),
+    makeRow("Transliteration", tl)
+  );
+}
+
+function makeRow(label, words) {
+  const row = document.createElement("div");
+  row.className = "row";
+
+  const labelSpan = document.createElement("span");
+  labelSpan.className = "label";
+  labelSpan.textContent = label + ":";
+
+  row.appendChild(labelSpan);
+
+  words.forEach((w, i) => {
+    const span = document.createElement("span");
+    span.className = "word";
+    span.textContent = w;
+    span.style.backgroundColor = COLORS[i % COLORS.length];
+    span.dataset.index = i;
+
+    row.appendChild(span);
+  });
+
+  return row;
+}
+</script>
+
+</body>
+</html>

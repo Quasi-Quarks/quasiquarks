@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="index.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    p { margin: 8px 0; }
+    span {
+      padding: 2px 4px;
+      margin: 2px;
+      display: inline-block;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="app_container"></div>
+
+<input id="input" value="hello world">
+<button onclick="runApp()">Translate</button>
+
+<script>
+/* ===================== CONFIG ===================== */
+
+const COLORS = [
+  "red","green","blue","orange","purple",
+  "brown","teal","pink","grey","black"
+];
+
+const languageMap = {
+  english: "en",
+  japanese: "ja",
+  arabic: "ar",
+  chinese: "zh",
+  french: "fr",
+  spanish: "es",
+  german: "de",
+  russian: "ru"
+};
+
+let chatroom_language = "japanese";
+
+/* ===================== HELPERS ===================== */
+
+function usesRomanization(lang) {
+  return ["japanese","arabic","chinese","russian"].includes(lang);
+}
+
+/* ===================== MAIN ===================== */
+
+async function runApp() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const targetLang = languageMap[chatroom_language];
+
+  const url =
+    `https://translate.googleapis.com/translate_a/single` +
+    `?client=gtx&sl=en&tl=${targetLang}&dt=t&dt=rm&q=${encodeURIComponent(text)}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const translated = data[0].map(x => x[0]).join(" ");
+  const translit = data[0].map(x => x[3]).filter(Boolean).join(" ");
+
+  const data_input = [
+    text,        // English
+    translated,  // Target language
+    translit     // Transliteration
+  ];
+
+  render_colour_highlight_pure(
+    data_input[0],
+    usesRomanization(chatroom_language) ? data_input[2] : data_input[1],
+    document.getElementById("app_container")
+  );
+}
+
+/* ===================== WORD ALIGN ===================== */
+
+async function render_colour_highlight_pure(enText, rmText, container) {
+  let colorIndex = 0;
+
+  const enWords = enText.trim().split(/\s+/);
+  const rmWords = rmText.trim().split(/\s+/);
+
+  const enP = document.createElement("p");
+  const rmP = document.createElement("p");
+
+  // build RM spans
+  const rmSpans = rmWords.map(word => {
+    const span = document.createElement("span");
+    span.textContent = word + " ";
+    rmP.appendChild(span);
+    return span;
+  });
+
+  const rmUsed = new Array(rmWords.length).fill(false);
+  const cache = {};
+
+  for (let i = 0; i < enWords.length; i++) {
+    const enWord = enWords[i];
+    const spanEn = document.createElement("span");
+    spanEn.textContent = enWord + " ";
+
+    let apiToken = "";
+
+    try {
+      if (!cache[enWord]) {
+        cache[enWord] = await translateWord(enWord);
+      }
+
+      const { translated, rm } = cache[enWord];
+
+      apiToken = usesRomanization(chatroom_language)
+        ? rm
+        : translated;
+
+      apiToken = apiToken.toLowerCase().trim();
+    } catch (e) {
+      console.error(e);
+    }
+
+    let matchedIndex = -1;
+
+    for (let j = 0; j < rmWords.length; j++) {
+      if (rmUsed[j]) continue;
+      const rmLower = rmWords[j].toLowerCase();
+      if (apiToken && (rmLower === apiToken || rmLower.includes(apiToken))) {
+        matchedIndex = j;
+        break;
+      }
+    }
+
+    if (matchedIndex !== -1) {
+      const color = COLORS[colorIndex % COLORS.length];
+      colorIndex++;
+
+      spanEn.style.color = color;
+      spanEn.style.fontWeight = "bold";
+      rmSpans[matchedIndex].style.color = color;
+      rmSpans[matchedIndex].style.fontWeight = "bold";
+
+      rmUsed[matchedIndex] = true;
+    }
+
+    enP.appendChild(spanEn);
+  }
+
+  container.innerHTML = "";
+  container.appendChild(enP);
+  container.appendChild(rmP);
+}
+
+/* ===================== PER-WORD API ===================== */
+
+async function translateWord(word) {
+  const targetLang = languageMap[chatroom_language];
+
+  const url =
+    `https://translate.googleapis.com/translate_a/single` +
+    `?client=gtx&sl=en&tl=${targetLang}&dt=t&dt=rm&q=${encodeURIComponent(word)}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return {
+    translated: data[0][0]?.[0] || "",
+    rm: data[0][0]?.[3] || ""
+  };
+}
+</script>
+
+</body>
+</html>

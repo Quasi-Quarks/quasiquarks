@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Word Alignment Translator</title>
+  <style>
+    span {
+      padding: 2px 4px;
+      margin: 2px;
+      display: inline-block;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+<input id="input" value="hello world" />
+<button onclick="translateText()">Translate</button>
+
+<div id="app_container"></div>
+
+<script>
+const COLORS = [
+  "red", "green", "blue", "orange",
+  "purple", "brown", "teal", "pink"
+];
+
+const languageMap = {
+  english: "en",
+  japanese: "ja",
+  arabic: "ar",
+  chinese: "zh",
+  french: "fr",
+  spanish: "es",
+  german: "de",
+  russian: "ru"
+};
+
+const TARGET_LANG = languageMap.japanese;
+
+async function translateText() {
+  const text = document.getElementById("input").value.trim();
+  if (!text) return;
+
+  const url =
+    `https://translate.googleapis.com/translate_a/single?` +
+    `client=gtx&sl=en&tl=${TARGET_LANG}&dt=t&dt=rm&q=` +
+    encodeURIComponent(text);
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  /**
+   * data[0] structure:
+   * [
+   *   [translated, original, null, null],
+   *   ...
+   * ]
+   */
+  const translatedSentence = data[0].map(x => x[0]).join(" ");
+  const transliteration = data[0]
+    .map(x => x[3])
+    .filter(Boolean)
+    .join(" ");
+
+  render(text, translatedSentence, transliteration);
+}
+
+function render(original, translated, translit) {
+  const container = document.getElementById("app_container");
+  container.innerHTML = "";
+
+  const engWords = original.split(" ");
+  const trgWords = translated.split(" ");
+  const trlWords = translit ? translit.split(" ") : [];
+
+  container.append(
+    createRow("English", engWords),
+    createRow("Translation", trgWords),
+    trlWords.length ? createRow("Transliteration", trlWords) : ""
+  );
+}
+
+function createRow(label, words) {
+  const div = document.createElement("div");
+  div.innerHTML = `<strong>${label}:</strong> `;
+
+  words.forEach((word, i) => {
+    const span = document.createElement("span");
+    span.textContent = word;
+    span.style.backgroundColor = COLORS[i % COLORS.length];
+    span.style.color = "white";
+    div.appendChild(span);
+  });
+
+  return div;
+}
+</script>
+
+</body>
+</html>

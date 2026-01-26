@@ -525,7 +525,8 @@ async function show_room(room_data) {
         const highlightContainer = document.createElement("div");
         highlightContainer.className = "highlight_container";
 
-        await render_colour_highlight_pure(enText, rmText, highlightContainer);
+        await render_colour_highlight_pure(enText, jpText, rmText, highlightContainer);
+
 
         chatContainer.appendChild(highlightContainer);
 
@@ -628,17 +629,27 @@ function deleteMessage(r_index) {
 }
 
 
- async function render_colour_highlight_pure(enText, rmText, container) {
+ async function render_colour_highlight_pure(enText, jpText, rmText, container) {
     const COLORS = ["red","green","blue","orange","purple","brown","teal","pink","grey","black"];
     let colorIndex = 0;
 
     const enWords = enText.trim().split(/\s+/);
+    const jpWords = jpText.trim().split(/\s+/);
     const rmWords = rmText.trim().split(/\s+/);
 
     const enP = document.createElement("p");
+    const jpP = document.createElement("p");
     const rmP = document.createElement("p");
 
-    // Build RM spans first, preserve order
+    // Build JP spans
+    const jpSpans = jpWords.map(word => {
+        const span = document.createElement("span");
+        span.innerText = word + " ";
+        jpP.appendChild(span);
+        return span;
+    });
+
+    // Build RM spans
     const rmSpans = rmWords.map(word => {
         const span = document.createElement("span");
         span.innerText = word + " ";
@@ -646,32 +657,25 @@ function deleteMessage(r_index) {
         return span;
     });
 
-    const rmUsed = new Array(rmWords.length).fill(false);
+    const jpUsed = new Array(jpWords.length).fill(false);
 
     for (let i = 0; i < enWords.length; i++) {
         const enWord = enWords[i];
         const spanEn = document.createElement("span");
         spanEn.innerText = enWord + " ";
 
-        // Call translation API for English word
-        let apiRm = "";
+        let apiToken = "";
         try {
-            const { translated, rm } = await translateWord(enWord);
-
-const apiToken = usesRomanization(chatroom_language)
-  ? rm
-  : translated;
-
-apiRm = apiToken.toLowerCase();
-        } catch(e) {
+            const { jp } = await translateWord(enWord);
+            apiToken = jp;
+        } catch (e) {
             console.error("API error:", e);
         }
 
         let matchedIndex = -1;
-        for (let j = 0; j < rmWords.length; j++) {
-            if (rmUsed[j]) continue;
-            const rmLower = rmWords[j].toLowerCase();
-            if (apiRm && (rmLower.includes(apiRm) || apiRm.includes(rmLower))) {
+        for (let j = 0; j < jpWords.length; j++) {
+            if (jpUsed[j]) continue;
+            if (apiToken && jpWords[j].includes(apiToken)) {
                 matchedIndex = j;
                 break;
             }
@@ -680,11 +684,19 @@ apiRm = apiToken.toLowerCase();
         if (matchedIndex !== -1) {
             const color = COLORS[colorIndex % COLORS.length];
             colorIndex++;
+
             spanEn.style.color = color;
             spanEn.style.fontWeight = "bold";
-            rmSpans[matchedIndex].style.color = color;
-            rmSpans[matchedIndex].style.fontWeight = "bold";
-            rmUsed[matchedIndex] = true;
+
+            jpSpans[matchedIndex].style.color = color;
+            jpSpans[matchedIndex].style.fontWeight = "bold";
+
+            if (rmSpans[matchedIndex]) {
+                rmSpans[matchedIndex].style.color = color;
+                rmSpans[matchedIndex].style.fontWeight = "bold";
+            }
+
+            jpUsed[matchedIndex] = true;
         }
 
         enP.appendChild(spanEn);
@@ -692,8 +704,10 @@ apiRm = apiToken.toLowerCase();
 
     container.innerHTML = "";
     container.appendChild(enP);
+    container.appendChild(jpP);
     container.appendChild(rmP);
 }
+
 
 // Minimal API wrapper
 async function translateWord(word) {

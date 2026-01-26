@@ -281,68 +281,6 @@ get_storage()
 choose_language();
 
 
-function needsRomanization(lang) {
-  return ["japanese", "chinese", "arabic"].includes(lang);
-}
-
-function usesRomanization(lang) {
-  return ["japanese", "chinese", "arabic"].includes(lang);
-}
-async function translateText(text_data, para, r) {
-  const text = text_data.trim();
-  if (!text) return;
-
-  const targetLang = languageMap[chatroom_language];
-
-  if (!targetLang) {
-    alert("Unsupported language");
-    return;
-  }
-
-  const params = new URLSearchParams({
-    client: "gtx",
-    sl: "en",                 // always English
-    tl: targetLang,           // dynamic target
-    dj: "1",
-    ie: "UTF-8",
-    oe: "UTF-8",
-    q: text
-  });
-
-  params.append("dt", "t");
-  params.append("dt", "rm"); // transliteration if available
-
-  const url =
-    "https://translate.googleapis.com/translate_a/single?" +
-    params.toString();
-
-  const res = await fetch(url);
-  const data = await res.json();
-
-  const sentences = data.sentences || [];
-const translated = sentences.map(s => s.trans).join("");
-  const translit = needsRomanization(chatroom_language)
-  ? sentences.map(s => s.translit || "").join(" ").trim()
-  : translated; // 👈 KEY LINE
-
-  // UI output (rename ids later if you want)
-  document.getElementById("jp").textContent = translated;
-  document.getElementById("romaji").textContent = translit;
-
-  const data_input = [
-    text,        // English
-    translated,  // Target language
-    translit     // Transliteration (if any)
-  ];
-
-  if (para === "edit") {
-    app_chat_data[chatroom_language][chatroom_number][r] = data_input;
-  } else {
-    app_chat_data[chatroom_language][chatroom_number].push(data_input);
-  }
-
-  
-}
 
 function navbar_rooms() {
   const roomSection = document.getElementById("room_section");
@@ -496,6 +434,68 @@ function deleteRoom(language, roomName) {
 
 
 
+function needsRomanization(lang) {
+  return ["japanese", "chinese", "arabic"].includes(lang);
+}
+
+function usesRomanization(lang) {
+  return ["japanese", "chinese", "arabic"].includes(lang);
+}
+async function translateText(text_data, para, r) {
+  const text = text_data.trim();
+  if (!text) return;
+
+  const targetLang = languageMap[chatroom_language];
+
+  if (!targetLang) {
+    alert("Unsupported language");
+    return;
+  }
+
+  const params = new URLSearchParams({
+    client: "gtx",
+    sl: "en",                 // always English
+    tl: targetLang,           // dynamic target
+    dj: "1",
+    ie: "UTF-8",
+    oe: "UTF-8",
+    q: text
+  });
+
+  params.append("dt", "t");
+  params.append("dt", "rm"); // transliteration if available
+
+  const url =
+    "https://translate.googleapis.com/translate_a/single?" +
+    params.toString();
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const sentences = data.sentences || [];
+const translated = sentences.map(s => s.trans).join("");
+  const translit = needsRomanization(chatroom_language)
+  ? sentences.map(s => s.translit || "").join(" ").trim()
+  : translated; // 👈 KEY LINE
+
+  // UI output (rename ids later if you want)
+  document.getElementById("jp").textContent = translated;
+  document.getElementById("romaji").textContent = translit;
+
+  const data_input = [
+    text,        // English
+    translated,  // Target language
+    translit     // Transliteration (if any)
+  ];
+
+  if (para === "edit") {
+    app_chat_data[chatroom_language][chatroom_number][r] = data_input;
+  } else {
+    app_chat_data[chatroom_language][chatroom_number].push(data_input);
+  }
+
+  
+}
 
 var toggle = ""
 
@@ -525,7 +525,8 @@ async function show_room(room_data) {
         const highlightContainer = document.createElement("div");
         highlightContainer.className = "highlight_container";
 
-        await render_colour_highlight_pure(enText, rmText, highlightContainer);
+        await render_colour_highlight_pure(enText, jpText, rmText, highlightContainer);
+
 
         chatContainer.appendChild(highlightContainer);
 
@@ -628,7 +629,7 @@ function deleteMessage(r_index) {
 }
 
 
- async function render_colour_highlight_pure(enText, rmText, container) {
+ async function render_colour_highlight_pure(enText, jpText, rmText, container) {
     const COLORS = ["red","green","blue","orange","purple","brown","teal","pink","grey","black"];
     let colorIndex = 0;
 
@@ -636,15 +637,26 @@ function deleteMessage(r_index) {
     const rmWords = rmText.trim().split(/\s+/);
 
     const enP = document.createElement("p");
+    const jpP = document.createElement("p");
     const rmP = document.createElement("p");
 
-    // Build RM spans first, preserve order
+    // Build RM spans (SOURCE OF TRUTH)
     const rmSpans = rmWords.map(word => {
         const span = document.createElement("span");
         span.innerText = word + " ";
         rmP.appendChild(span);
         return span;
     });
+
+    // Build JP spans USING SAME TOKENS (IMPORTANT)
+    const jpWords = jpText.trim().split(/\s+/);
+
+const jpSpans = jpWords.map(word => {
+    const span = document.createElement("span");
+    span.innerText = word + " ";
+    jpP.appendChild(span);
+    return span;
+});
 
     const rmUsed = new Array(rmWords.length).fill(false);
 
@@ -653,17 +665,17 @@ function deleteMessage(r_index) {
         const spanEn = document.createElement("span");
         spanEn.innerText = enWord + " ";
 
-        // Call translation API for English word
-        let apiRm = "";
+        let apiToken = "";
         try {
             const { translated, rm } = await translateWord(enWord);
 
-const apiToken = usesRomanization(chatroom_language)
-  ? rm
-  : translated;
+            // KEEP STRONG LOGIC
+            apiToken = usesRomanization(chatroom_language)
+                ? (rm || translated)
+                : translated;
 
-apiRm = apiToken.toLowerCase();
-        } catch(e) {
+            apiToken = apiToken.toLowerCase();
+        } catch (e) {
             console.error("API error:", e);
         }
 
@@ -671,7 +683,7 @@ apiRm = apiToken.toLowerCase();
         for (let j = 0; j < rmWords.length; j++) {
             if (rmUsed[j]) continue;
             const rmLower = rmWords[j].toLowerCase();
-            if (apiRm && (rmLower.includes(apiRm) || apiRm.includes(rmLower))) {
+            if (apiToken && (rmLower.includes(apiToken) || apiToken.includes(rmLower))) {
                 matchedIndex = j;
                 break;
             }
@@ -680,10 +692,20 @@ apiRm = apiToken.toLowerCase();
         if (matchedIndex !== -1) {
             const color = COLORS[colorIndex % COLORS.length];
             colorIndex++;
+
             spanEn.style.color = color;
             spanEn.style.fontWeight = "bold";
+
             rmSpans[matchedIndex].style.color = color;
             rmSpans[matchedIndex].style.fontWeight = "bold";
+
+            
+            if (jpSpans[matchedIndex]) {
+            jpSpans[matchedIndex].style.color = color;
+            jpSpans[matchedIndex].style.fontWeight = "bold";
+            }
+
+
             rmUsed[matchedIndex] = true;
         }
 
@@ -691,9 +713,11 @@ apiRm = apiToken.toLowerCase();
     }
 
     container.innerHTML = "";
-    container.appendChild(enP);
-    container.appendChild(rmP);
+    container.appendChild(enP); // English
+    container.appendChild(jpP); // Translation (visual)
+    container.appendChild(rmP); // Transliteration / sentence tokens
 }
+
 
 // Minimal API wrapper
 async function translateWord(word) {

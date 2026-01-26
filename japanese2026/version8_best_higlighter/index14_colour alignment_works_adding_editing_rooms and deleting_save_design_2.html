@@ -11,13 +11,10 @@
 <body>
 
         <div id="app_container">
-        
-            <div id="Welcome_Page">
-                <h1>Welcome</h1>
+
             <div id="choose_lang_page">
 
-            </div>
-            </div>
+        </div>
         
             <div id="app_translator">
                 <div id="left_bar">
@@ -46,133 +43,18 @@
 <script>
   var app_chat_data = {};
 
- var languages_array = [
-  "english",
-  "japanese",
-  "arabic",
-  "chinese",
-  "french",
-  "spanish",
-  "german",
-  "italian",
-  "portuguese",
-  "russian",
-  "korean",
-  "hindi",
-  "urdu",
-  "persian",
-  "turkish",
-  "dutch",
-  "swedish",
-  "norwegian",
-  "danish",
-  "finnish",
-  "polish",
-  "czech",
-  "slovak",
-  "hungarian",
-  "romanian",
-  "bulgarian",
-  "greek",
-  "hebrew",
-  "thai",
-  "vietnamese",
-  "indonesian",
-  "malay",
-  "tagalog",
-  "swahili",
-  "amharic",
-  "somali",
-  "bengali",
-  "tamil",
-  "telugu",
-  "marathi",
-  "punjabi",
-  "gujarati",
-  "kannada",
-  "malayalam",
-  "sinhala",
-  "nepali",
-  "lao",
-  "khmer",
-  "burmese"
-];
+  var languages_array = ["english", "japanese", "arabic", "chinese", "french"];
 
-const languageMap = {
+    const languageMap = {
   english: "en",
   japanese: "ja",
   arabic: "ar",
   chinese: "zh",
   french: "fr",
   spanish: "es",
-  german: "de",
-  italian: "it",
-  portuguese: "pt",
-  russian: "ru",
-  korean: "ko",
-  hindi: "hi",
-  urdu: "ur",
-  persian: "fa",
-  turkish: "tr",
-  dutch: "nl",
-  swedish: "sv",
-  norwegian: "no",
-  danish: "da",
-  finnish: "fi",
-  polish: "pl",
-  czech: "cs",
-  slovak: "sk",
-  hungarian: "hu",
-  romanian: "ro",
-  bulgarian: "bg",
-  greek: "el",
-  hebrew: "iw",
-  thai: "th",
-  vietnamese: "vi",
-  indonesian: "id",
-  malay: "ms",
-  tagalog: "tl",
-  swahili: "sw",
-  amharic: "am",
-  somali: "so",
-  bengali: "bn",
-  tamil: "ta",
-  telugu: "te",
-  marathi: "mr",
-  punjabi: "pa",
-  gujarati: "gu",
-  kannada: "kn",
-  malayalam: "ml",
-  sinhala: "si",
-  nepali: "ne",
-  lao: "lo",
-  khmer: "km",
-  burmese: "my"
+  german: "de"
 };
 
-
-function toggleMenu() {
-    document.getElementById("toggleMenu").onclick = function() { 
-        document.getElementById("Welcome_Page").style.display = "flex";
-    }
-}
-
- toggleMenu()
-
-function needsRomanization(lang) {
-  return ["japanese", "chinese", "arabic"].includes(lang);
-}
-
-function usesRomanization(lang) {
-  return [
-    "japanese",
-    "chinese",
-    "arabic",
-    "korean",
-    "thai",
-    "vietnamese"
-  ].includes(lang);
-}
 
   var chatroom_language = "";
 
@@ -269,9 +151,6 @@ get_storage()
 
       console.log("Language selected:", chatroom_language);
       console.log(app_chat_data);
-
-        document.getElementById("Welcome_Page").style.display = "none"
-
     };
 
     document.getElementById("choose_lang_page").appendChild(btn);
@@ -341,7 +220,8 @@ const translated = sentences.map(s => s.trans).join("");
     app_chat_data[chatroom_language][chatroom_number].push(data_input);
   }
 
-  
+  show_room(app_chat_data[chatroom_language][chatroom_number]);
+  save_storage()
 }
 
 function navbar_rooms() {
