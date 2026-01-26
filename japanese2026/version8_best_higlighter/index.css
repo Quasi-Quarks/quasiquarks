@@ -345,7 +345,7 @@ div#send_container\ designer {
     border-radius: 37px;
     flex-direction: row;
     height: 39px;
-    width: 84%;
+    width: 89%;
     box-shadow: -2px 5px 10px 0px #7474ac;
 }
 
@@ -360,6 +360,8 @@ button#new_chat_input {
 
 input#input_box {
     text-align: left;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 div#choose_lang_page button {
@@ -394,4 +396,8 @@ div#Welcome_Page h1 {
 .rtl-language .highlight_container p:nth-child(2) {
   direction: rtl;
   text-align: right;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
