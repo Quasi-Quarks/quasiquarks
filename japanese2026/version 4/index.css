@@ -53,12 +53,9 @@ div#send_container {
 
 div#choose_lang_page {
     width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 50px;
-    overflow: hidden;
-    overflow-x: scroll;
-    justify-content: flex-start;
+    height: 88%;
+    /* position: fixed; */
+    display: inline-block;
 }
 
 #chat_Page {
@@ -368,4 +365,22 @@ div#choose_lang_page button {
     padding: 5px 15px;
     font-weight: 600;
     font-size: 15px;
+    display: inline-block;
+    margin: 6px;
+}
+
+div#Welcome\ Page {}
+
+div#Welcome_Page {
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    background: #ffffff;
+    width: 100%;
+}
+
+h1 {}
+
+div#Welcome_Page h1 {
+    font-size: 2.7rem;
 }
