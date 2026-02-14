@@ -1,139 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arabic Letters with Harakat</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arabic Letters with Transliteration</title>
 
-  <style>
-    :root {
-      --letter-size: 3rem;
-      --gap-size: 1rem;
-      --base-color: #1e88e5;
-      --active-color: #ff9800;
-    }
+<style>
+:root {
+  --letter-size: 3rem;
+  --gap-size: 1rem;
+  --base-color: #1e88e5;
+  --active-color: #ff9800;
+}
 
-    body {
-      font-family: "Arial", "Noto Naskh Arabic", sans-serif;
-      direction: rtl;
-      text-align: center;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+body {
+  font-family: "Arial", "Noto Naskh Arabic", sans-serif;
+  direction: rtl;
+  margin: 0;
+  background: #f9f9f9;
+}
 
-    h1 {
-      min-height: 3.5rem;
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      word-break: break-word;
-    }
+/* Fixed Header */
+#viewcontainer {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  z-index: 1000;
+}
 
-    button {
-      padding: 8px 16px;
-      margin-bottom: 20px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
+#view, #separateView {
+  min-height: 2.5rem;
+  font-size: 2rem;
+  margin: 10px 0;
+}
 
-    .row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
+#separateView span {
+  margin-left: 15px;
+  display: inline-block;
+  text-align: center;
+}
 
-    .row span {
-      font-size: var(--letter-size);
-      font-weight: 700;
-      margin: 0 var(--gap-size);
-      cursor: pointer;
-      user-select: none;
-      transition: transform 0.2s ease, text-shadow 0.2s ease, color 0.2s ease;
-    }
+.translit {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  direction: ltr;
+}
 
-    /* Base letter = first span in each row */
-    .row span:first-child {
-      color: var(--base-color);
-    }
+button {
+  padding: 6px 14px;
+  cursor: pointer;
+}
 
-    /* Click highlight */
-    .active {
-      color: var(--active-color);
-      text-shadow: 0 0 10px rgba(255, 152, 0, 0.9);
-      transform: scale(1.15);
-    }
+/* Letters section */
+#lettersContainer {
+  margin-top: 200px;
+  padding: 20px;
+  text-align: center;
+}
 
-    @media (max-width: 480px) {
-      :root {
-        --letter-size: 2.2rem;
-        --gap-size: 0.6rem;
-      }
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
 
-      h1 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+.row span {
+  font-size: var(--letter-size);
+  font-weight: bold;
+  margin: 0 var(--gap-size);
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s ease;
+}
+
+.row span:first-child {
+  color: var(--base-color);
+}
+
+.active {
+  color: var(--active-color);
+  text-shadow: 0 0 10px rgba(255,152,0,0.9);
+  transform: scale(1.15);
+}
+
+@media (max-width: 480px) {
+  :root {
+    --letter-size: 2.2rem;
+    --gap-size: 0.6rem;
+  }
+
+  #view, #separateView {
+    font-size: 1.6rem;
+  }
+
+  #lettersContainer {
+    margin-top: 230px;
+  }
+}
+
+#separateView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#separateArabic {
+  font-size: 2rem;
+  direction: rtl;
+}
+
+#separateArabic span {
+  margin-left: 15px;
+}
+
+#separateTranslit {
+  font-size: 1.2rem;
+  direction: ltr;
+  color: #555;
+  letter-spacing: 2px;
+}
+
+
+#separateArabic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.letterBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arabicLetter {
+  font-size: 2rem;
+  direction: rtl;
+}
+
+.englishLetter {
+  font-size: 1rem;
+  direction: ltr;
+  color: #555;
+}
+
+</style>
 </head>
 
 <body>
 
+<div id="viewcontainer">
   <h1 id="view"></h1>
   <button onclick="resetText()">Reset</button>
+  <div id="separateView">
+  <div id="separateArabic"></div>
+  <div id="separateTranslit"></div>
+</div>
 
-  <div class="row"><span>ا</span><span>اَ</span><span>اِ</span><span>اُ</span></div>
-  <div class="row"><span>ب</span><span>بَ</span><span>بِ</span><span>بُ</span></div>
-  <div class="row"><span>ت</span><span>تَ</span><span>تِ</span><span>تُ</span></div>
-  <div class="row"><span>ث</span><span>ثَ</span><span>ثِ</span><span>ثُ</span></div>
-  <div class="row"><span>ج</span><span>جَ</span><span>جِ</span><span>جُ</span></div>
-  <div class="row"><span>ح</span><span>حَ</span><span>حِ</span><span>حُ</span></div>
-  <div class="row"><span>خ</span><span>خَ</span><span>خِ</span><span>خُ</span></div>
-  <div class="row"><span>د</span><span>دَ</span><span>دِ</span><span>دُ</span></div>
-  <div class="row"><span>ذ</span><span>ذَ</span><span>ذِ</span><span>ذُ</span></div>
-  <div class="row"><span>ر</span><span>رَ</span><span>رِ</span><span>رُ</span></div>
-  <div class="row"><span>ز</span><span>زَ</span><span>زِ</span><span>زُ</span></div>
-  <div class="row"><span>س</span><span>سَ</span><span>سِ</span><span>سُ</span></div>
-  <div class="row"><span>ش</span><span>شَ</span><span>شِ</span><span>شُ</span></div>
-  <div class="row"><span>ص</span><span>صَ</span><span>صِ</span><span>صُ</span></div>
-  <div class="row"><span>ض</span><span>ضَ</span><span>ضِ</span><span>ضُ</span></div>
-  <div class="row"><span>ط</span><span>طَ</span><span>طِ</span><span>طُ</span></div>
-  <div class="row"><span>ظ</span><span>ظَ</span><span>ظِ</span><span>ظُ</span></div>
-  <div class="row"><span>ع</span><span>عَ</span><span>عِ</span><span>عُ</span></div>
-  <div class="row"><span>غ</span><span>غَ</span><span>غِ</span><span>غُ</span></div>
-  <div class="row"><span>ف</span><span>فَ</span><span>فِ</span><span>فُ</span></div>
-  <div class="row"><span>ق</span><span>قَ</span><span>قِ</span><span>قُ</span></div>
-  <div class="row"><span>ك</span><span>كَ</span><span>كِ</span><span>كُ</span></div>
-  <div class="row"><span>ل</span><span>لَ</span><span>لِ</span><span>لُ</span></div>
-  <div class="row"><span>م</span><span>مَ</span><span>مِ</span><span>مُ</span></div>
-  <div class="row"><span>ن</span><span>نَ</span><span>نِ</span><span>نُ</span></div>
-  <div class="row"><span>ه</span><span>هَ</span><span>هِ</span><span>هُ</span></div>
-  <div class="row"><span>و</span><span>وَ</span><span>وِ</span><span>وُ</span></div>
-  <div class="row"><span>ي</span><span>يَ</span><span>يِ</span><span>يُ</span></div>
+</div>
 
-  <script>
-    const letters = document.querySelectorAll(".row span");
+<div id="lettersContainer">
 
-    letters.forEach(letter => {
-      letter.addEventListener("click", function () {
+<!-- LETTERS -->
 
-        // remove previous highlight
-       // letters.forEach(l => l.classList.remove("active"));
+<div class="row"><span data-trans="a">ا</span><span data-trans="a">اَ</span><span data-trans="i">اِ</span><span data-trans="u">اُ</span></div>
+<div class="row"><span data-trans="b">ب</span><span data-trans="ba">بَ</span><span data-trans="bi">بِ</span><span data-trans="bu">بُ</span></div>
+<div class="row"><span data-trans="t">ت</span><span data-trans="ta">تَ</span><span data-trans="ti">تِ</span><span data-trans="tu">تُ</span></div>
+<div class="row"><span data-trans="th">ث</span><span data-trans="tha">ثَ</span><span data-trans="thi">ثِ</span><span data-trans="thu">ثُ</span></div>
+<div class="row"><span data-trans="j">ج</span><span data-trans="ja">جَ</span><span data-trans="ji">جِ</span><span data-trans="ju">جُ</span></div>
+<div class="row"><span data-trans="h">ح</span><span data-trans="ha">حَ</span><span data-trans="hi">حِ</span><span data-trans="hu">حُ</span></div>
+<div class="row"><span data-trans="kh">خ</span><span data-trans="kha">خَ</span><span data-trans="khi">خِ</span><span data-trans="khu">خُ</span></div>
+<div class="row"><span data-trans="d">د</span><span data-trans="da">دَ</span><span data-trans="di">دِ</span><span data-trans="du">دُ</span></div>
+<div class="row"><span data-trans="dh">ذ</span><span data-trans="dha">ذَ</span><span data-trans="dhi">ذِ</span><span data-trans="dhu">ذُ</span></div>
+<div class="row"><span data-trans="r">ر</span><span data-trans="ra">رَ</span><span data-trans="ri">رِ</span><span data-trans="ru">رُ</span></div>
+<div class="row"><span data-trans="z">ز</span><span data-trans="za">زَ</span><span data-trans="zi">زِ</span><span data-trans="zu">زُ</span></div>
+<div class="row"><span data-trans="s">س</span><span data-trans="sa">سَ</span><span data-trans="si">سِ</span><span data-trans="su">سُ</span></div>
+<div class="row"><span data-trans="sh">ش</span><span data-trans="sha">شَ</span><span data-trans="shi">شِ</span><span data-trans="shu">شُ</span></div>
+<div class="row"><span data-trans="s">ص</span><span data-trans="sa">صَ</span><span data-trans="si">صِ</span><span data-trans="su">صُ</span></div>
+<div class="row"><span data-trans="d">ض</span><span data-trans="da">ضَ</span><span data-trans="di">ضِ</span><span data-trans="du">ضُ</span></div>
+<div class="row"><span data-trans="t">ط</span><span data-trans="ta">طَ</span><span data-trans="ti">طِ</span><span data-trans="tu">طُ</span></div>
+<div class="row"><span data-trans="z">ظ</span><span data-trans="za">ظَ</span><span data-trans="zi">ظِ</span><span data-trans="zu">ظُ</span></div>
+<div class="row"><span data-trans="‘">ع</span><span data-trans="‘a">عَ</span><span data-trans="‘i">عِ</span><span data-trans="‘u">عُ</span></div>
+<div class="row"><span data-trans="gh">غ</span><span data-trans="gha">غَ</span><span data-trans="ghi">غِ</span><span data-trans="ghu">غُ</span></div>
+<div class="row"><span data-trans="f">ف</span><span data-trans="fa">فَ</span><span data-trans="fi">فِ</span><span data-trans="fu">فُ</span></div>
+<div class="row"><span data-trans="q">ق</span><span data-trans="qa">قَ</span><span data-trans="qi">قِ</span><span data-trans="qu">قُ</span></div>
+<div class="row"><span data-trans="k">ك</span><span data-trans="ka">كَ</span><span data-trans="ki">كِ</span><span data-trans="ku">كُ</span></div>
+<div class="row"><span data-trans="l">ل</span><span data-trans="la">لَ</span><span data-trans="li">لِ</span><span data-trans="lu">لُ</span></div>
+<div class="row"><span data-trans="m">م</span><span data-trans="ma">مَ</span><span data-trans="mi">مِ</span><span data-trans="mu">مُ</span></div>
+<div class="row"><span data-trans="n">ن</span><span data-trans="na">نَ</span><span data-trans="ni">نِ</span><span data-trans="nu">نُ</span></div>
+<div class="row"><span data-trans="h">ه</span><span data-trans="ha">هَ</span><span data-trans="hi">هِ</span><span data-trans="hu">هُ</span></div>
+<div class="row"><span data-trans="w">و</span><span data-trans="wa">وَ</span><span data-trans="wi">وِ</span><span data-trans="wu">وُ</span></div>
+<div class="row"><span data-trans="y">ي</span><span data-trans="ya">يَ</span><span data-trans="yi">يِ</span><span data-trans="yu">يُ</span></div>
 
-        // highlight clicked
-        this.classList.add("active");
+</div>
 
-        // append text
-        document.getElementById("view").innerText += this.innerText;
-      });
-    });
+<script>
+const letters = document.querySelectorAll(".row span");
+const view = document.getElementById("view");
+const separateArabic = document.getElementById("separateArabic");
 
-    function resetText() {
-      document.getElementById("view").innerText = "";
-      letters.forEach(l => l.classList.remove("active"));
-    }
-  </script>
+letters.forEach(letter => {
+  letter.addEventListener("click", function () {
+
+    letters.forEach(l => l.classList.remove("active"));
+    this.classList.add("active");
+
+    const arabic = this.innerText;
+    const transliteration = this.dataset.trans;
+
+    /* Joined Arabic word (top) */
+    view.textContent += arabic;
+
+    /* Create vertical block */
+    const block = document.createElement("div");
+    block.classList.add("letterBlock");
+
+    const arabicSpan = document.createElement("span");
+    arabicSpan.classList.add("arabicLetter");
+    arabicSpan.textContent = arabic;
+
+    const englishSpan = document.createElement("span");
+    englishSpan.classList.add("englishLetter");
+    englishSpan.textContent = transliteration;
+
+    block.appendChild(arabicSpan);
+    block.appendChild(englishSpan);
+
+    separateArabic.appendChild(block);
+  });
+});
+
+function resetText() {
+  view.textContent = "";
+  separateArabic.innerHTML = "";
+  letters.forEach(l => l.classList.remove("active"));
+}
+</script>
+
+
+
 
 </body>
 </html>

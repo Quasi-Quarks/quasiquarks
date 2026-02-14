@@ -347,8 +347,10 @@ function navbar_rooms() {
   const roomSection = document.getElementById("room_section");
   roomSection.innerHTML = "";
 
+  console.log(app_chat_data[chatroom_language])
   Object.entries(app_chat_data[chatroom_language]).forEach(
     ([roomName, roomData]) => {
+      console.log(roomName)
 
       const container = document.createElement("div");
       container.className = "button_room_container";

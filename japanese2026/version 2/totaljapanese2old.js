@@ -2273,11 +2273,10 @@ a_action = [
 b_object = 
 [
   [{"en_singular": "book", "ja_singular": "本", "ja_tr_singular": "hon"}, {"en_plural": "books", "ja_plural": "本", "ja_tr_plural": "hon"}],
-  [{"en_singular": "roof", "ja_singular": "屋根", "ja_tr_singular": "yane"}, {"en_plural": "roofs", "ja_plural": "屋根", "ja_tr_plural": "yane"}],
-  [{"en_singular": "bookcase", "ja_singular": "本棚", "ja_tr_singular": "hondana"}, {"en_plural": "bookcases", "ja_plural": "本棚", "ja_tr_plural": "hondana"}],
   [{"en_singular": "tissue", "ja_singular": "ティッシュ", "ja_tr_singular": "tisshu"}, {"en_plural": "tissues", "ja_plural": "ティッシュ", "ja_tr_plural": "tisshu"}],
   [{"en_singular": "door", "ja_singular": "ドア", "ja_tr_singular": "doa"}, {"en_plural": "doors", "ja_plural": "ドア", "ja_tr_plural": "doa"}],
-  
+  [{"en_singular": "roof", "ja_singular": "屋根", "ja_tr_singular": "yane"}, {"en_plural": "roofs", "ja_plural": "屋根", "ja_tr_plural": "yane"}],
+  [{"en_singular": "bookcase", "ja_singular": "本棚", "ja_tr_singular": "hondana"}, {"en_plural": "bookcases", "ja_plural": "本棚", "ja_tr_plural": "hondana"}],
   [{"en_singular": "calculator", "ja_singular": "電卓", "ja_tr_singular": "dentaku"}, {"en_plural": "calculators", "ja_plural": "電卓", "ja_tr_plural": "dentaku"}],
   [{"en_singular": "cigar", "ja_singular": "葉巻", "ja_tr_singular": "hamaki"}, {"en_plural": "cigars", "ja_plural": "葉巻", "ja_tr_plural": "hamaki"}],
   [{"en_singular": "kettle", "ja_singular": "やかん", "ja_tr_singular": "yakan"}, {"en_plural": "kettles", "ja_plural": "やかん", "ja_tr_plural": "yakan"}],

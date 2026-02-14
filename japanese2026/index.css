@@ -223,7 +223,7 @@ divs.speech_display_textleft p {
     justify-content: flex-start;
     align-items: flex-start;
     /* width: 80vw; */
-    min-height: 60px;
+    min-height: 143px;
 }
 
 div#sentence_container {
@@ -232,12 +232,15 @@ div#sentence_container {
     justify-content: flex-start;
     align-items: flex-start;
     height: 31vh;
+    position: fixed;
+    min-height: 100%;
+    background-color: grey;
 }
 
 .vertical_sentence_chldtwo_display_container {
     overflow: hidden;
     overflow-y: scroll;
-    height: 48px;
+    height: 110px;
     justify-content: flex-start;
     align-items: flex-start;
     min-width: 54vw;

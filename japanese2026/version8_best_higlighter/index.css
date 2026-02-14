@@ -66,6 +66,8 @@ div#choose_lang_page {
   height: 100%;
   justify-content: flex-start;
   padding: 28px 0px 0px 0px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* shared */
@@ -80,6 +82,7 @@ div#choose_lang_page {
   /* justify-content: flex-start; */
   /* align-items: flex-start; */
   margin: 8px 0px;
+  min-height: max-content;
 }
 
 /* LEFT */
