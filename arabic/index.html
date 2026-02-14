@@ -153,20 +153,44 @@ button {
   color: #555;
 }
 
+#tools {
+  margin-bottom: 10px;
+}
+
+#shaddahBtn {
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+#sukunBtn {
+  padding: 5px 12px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+
 </style>
 </head>
 
 <body>
 
 <div id="viewcontainer">
-  <h1 id="view"></h1>
-  <button onclick="resetText()">Reset</button>
-  <div id="separateView">
-  <div id="separateArabic"></div>
-  <div id="separateTranslit"></div>
+
+ <div id="tools">
+  <button id="shaddahBtn">ّ Shaddah</button>
+  <button id="sukunBtn">ْ Sukūn</button>
 </div>
 
+
+  <h1 id="view"></h1>
+  <button onclick="resetText()">Reset</button>
+
+  <div id="separateView">
+    <div id="separateArabic"></div>
+  </div>
+
 </div>
+
 
 <div id="lettersContainer">
 
@@ -202,11 +226,14 @@ button {
 <div class="row"><span data-trans="y">ي</span><span data-trans="ya">يَ</span><span data-trans="yi">يِ</span><span data-trans="yu">يُ</span></div>
 
 </div>
-
 <script>
 const letters = document.querySelectorAll(".row span");
 const view = document.getElementById("view");
 const separateArabic = document.getElementById("separateArabic");
+const shaddahBtn = document.getElementById("shaddahBtn");
+const sukunBtn = document.getElementById("sukunBtn");
+
+let letterBlocks = [];
 
 letters.forEach(letter => {
   letter.addEventListener("click", function () {
@@ -217,10 +244,10 @@ letters.forEach(letter => {
     const arabic = this.innerText;
     const transliteration = this.dataset.trans;
 
-    /* Joined Arabic word (top) */
+    // Add to joined Arabic word
     view.textContent += arabic;
 
-    /* Create vertical block */
+    // Create vertical block
     const block = document.createElement("div");
     block.classList.add("letterBlock");
 
@@ -234,17 +261,77 @@ letters.forEach(letter => {
 
     block.appendChild(arabicSpan);
     block.appendChild(englishSpan);
-
     separateArabic.appendChild(block);
+
+    letterBlocks.push({ block, arabicSpan, englishSpan });
   });
 });
 
+/* ===========================
+   SHADDAH FUNCTION
+=========================== */
+shaddahBtn.addEventListener("click", function () {
+  if (letterBlocks.length === 0) return;
+  const last = letterBlocks[letterBlocks.length - 1];
+  let text = last.arabicSpan.textContent;
+  if (text.includes("ّ")) return; // prevent double shaddah
+
+  const SHADDAH = "ّ";
+  const harakat = ["َ","ِ","ُ"];
+  let base = text[0], vowel = text.slice(1);
+
+  if (harakat.includes(vowel)) {
+    text = base + SHADDAH + vowel;
+  } else {
+    text = text + SHADDAH;
+  }
+
+  last.arabicSpan.textContent = text;
+  rebuildJoinedWord();
+});
+
+/* ===========================
+   SUKUN FUNCTION
+=========================== */
+sukunBtn.addEventListener("click", function () {
+  if (letterBlocks.length === 0) return;
+  const last = letterBlocks[letterBlocks.length - 1];
+  let text = last.arabicSpan.textContent;
+  if (text.includes("ْ")) return; // prevent double sukun
+
+  const SUKUN = "ْ";
+  const harakat = ["َ","ِ","ُ","ّ"];
+  let base = text[0], rest = text.slice(1);
+
+  // If letter has harakah or shaddah, sukun goes at the end
+  text = base + rest + SUKUN;
+
+  last.arabicSpan.textContent = text;
+  rebuildJoinedWord();
+});
+
+/* ===========================
+   REBUILD JOINED WORD
+=========================== */
+function rebuildJoinedWord() {
+  view.textContent = "";
+  letterBlocks.forEach(l => {
+    view.textContent += l.arabicSpan.textContent;
+  });
+}
+
+/* ===========================
+   RESET
+=========================== */
 function resetText() {
   view.textContent = "";
   separateArabic.innerHTML = "";
+  letterBlocks = [];
   letters.forEach(l => l.classList.remove("active"));
 }
 </script>
+
+
 
 
 
