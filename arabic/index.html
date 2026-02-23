@@ -24,9 +24,10 @@ body {
 #viewcontainer {
   position: fixed;
   top: 0;
+  left: 0px;
   width: 100%;
   background: white;
-  padding: 15px;
+  /* padding: 15px; */
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   text-align: center;
   z-index: 1000;
@@ -59,15 +60,21 @@ button {
 /* Letters section */
 #lettersContainer {
   margin-top: 200px;
-  padding: 20px;
+  /* padding: 20px; */
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .row {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  min-height: 230px;
 }
 
 .row span {
@@ -168,6 +175,77 @@ button {
   margin-left: 5px;
 }
 
+/* */
+
+/* ===========================
+   WORDS PARENT CONTAINER STYLING
+=========================== */
+.words_parent_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  /* padding: 20px; */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.words {
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: max-content;
+}
+
+.words:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Mobile-first: hide Arabic and transliteration by default */
+.words .arabic,
+.words .transliteration {
+  display: none;
+}
+
+.words .english {
+  /* font-size: 1rem; */
+  color: #333;
+}
+
+/* Responsive tweaks */
+@media (min-width: 480px) {
+  .words_parent_container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .words {
+    width: 200px;
+  }
+}
+
+
+p.word.arabic {
+    font-weight: 800;
+}
+
+p.word {
+    font-size: 1.3rem;
+    margin: 10px 0px;
+}
 
 </style>
 </head>
@@ -224,6 +302,172 @@ button {
 <div class="row"><span data-trans="h">ه</span><span data-trans="ha">هَ</span><span data-trans="hi">هِ</span><span data-trans="hu">هُ</span></div>
 <div class="row"><span data-trans="w">و</span><span data-trans="wa">وَ</span><span data-trans="wi">وِ</span><span data-trans="wu">وُ</span></div>
 <div class="row"><span data-trans="y">ي</span><span data-trans="ya">يَ</span><span data-trans="yi">يِ</span><span data-trans="yu">يُ</span></div>
+
+</div>
+
+<div class="words_parent_container">
+
+<div class="words">
+<p class="word arabic">كَتَبَ</p>
+<p class="word transliteration">kataba</p>
+<p class="word english">he wrote</p>
+</div>
+
+<div class="words">
+<p class="word arabic">ذَهَبَ</p>
+<p class="word transliteration">dhahaba</p>
+<p class="word english">he went</p>
+</div>
+
+<div class="words">
+<p class="word arabic">جَلَسَ</p>
+<p class="word transliteration">jalasa</p>
+<p class="word english">he sat</p>
+</div>
+
+<div class="words">
+<p class="word arabic">سَمِعَ</p>
+<p class="word transliteration">sami'a</p>
+<p class="word english">he heard</p>
+</div>
+
+<div class="words">
+<p class="word arabic">رَكِبَ</p>
+<p class="word transliteration">rakiba</p>
+<p class="word english">he rode</p>
+</div>
+
+<div class="words">
+<p class="word arabic">ضَرَبَ</p>
+<p class="word transliteration">daraba</p>
+<p class="word english">he hit</p>
+</div>
+
+<div class="words">
+<p class="word arabic">فَهِمَ</p>
+<p class="word transliteration">fahima</p>
+<p class="word english">he understood</p>
+</div>
+
+<div class="words">
+<p class="word arabic">عَبَدَ</p>
+<p class="word transliteration">'abada</p>
+<p class="word english">he worshipped</p>
+</div>
+
+<div class="words">
+<p class="word arabic">حَمَلَ</p>
+<p class="word transliteration">hamala</p>
+<p class="word english">he carried</p>
+</div>
+
+<div class="words">
+<p class="word arabic">نَزَلَ</p>
+<p class="word transliteration">nazala</p>
+<p class="word english">he descended</p>
+</div>
+
+<!-- To keep this readable in chat, continuing same pattern -->
+
+<div class="words">
+<p class="word arabic">خَرَجَ</p>
+<p class="word transliteration">kharaja</p>
+<p class="word english">he exited</p>
+</div>
+
+<div class="words">
+<p class="word arabic">دَخَلَ</p>
+<p class="word transliteration">dakhala</p>
+<p class="word english">he entered</p>
+</div>
+
+<div class="words">
+<p class="word arabic">قَتَلَ</p>
+<p class="word transliteration">qatala</p>
+<p class="word english">he killed</p>
+</div>
+
+<div class="words">
+<p class="word arabic">سَجَدَ</p>
+<p class="word transliteration">sajada</p>
+<p class="word english">he prostrated</p>
+</div>
+
+<div class="words">
+<p class="word arabic">شَرِبَ</p>
+<p class="word transliteration">shariba</p>
+<p class="word english">he drank</p>
+</div>
+
+<div class="words">
+<p class="word arabic">فَتَحَ</p>
+<p class="word transliteration">fataha</p>
+<p class="word english">he opened</p>
+</div>
+
+<div class="words">
+<p class="word arabic">رَجَعَ</p>
+<p class="word transliteration">raja'a</p>
+<p class="word english">he returned</p>
+</div>
+
+<div class="words">
+<p class="word arabic">سَكَتَ</p>
+<p class="word transliteration">sakatha</p>
+<p class="word english">he was silent</p>
+</div>
+
+<div class="words">
+<p class="word arabic">سَكَنَ</p>
+<p class="word transliteration">sakana</p>
+<p class="word english">he lived</p>
+</div>
+
+<div class="words">
+<p class="word arabic">لَبِسَ</p>
+<p class="word transliteration">labisa</p>
+<p class="word english">he wore</p>
+</div>
+
+<!-- For space efficiency, I will now continue compactly but complete -->
+
+<div class="words"><p class="word arabic">طَبَخَ</p><p class="word transliteration">tabakha</p><p class="word english">he cooked</p></div>
+<div class="words"><p class="word arabic">غَسَلَ</p><p class="word transliteration">ghasala</p><p class="word english">he washed</p></div>
+<div class="words"><p class="word arabic">حَفَرَ</p><p class="word transliteration">hafara</p><p class="word english">he dug</p></div>
+<div class="words"><p class="word arabic">نَفَخَ</p><p class="word transliteration">nafakha</p><p class="word english">he blew</p></div>
+<div class="words"><p class="word arabic">قَفَزَ</p><p class="word transliteration">qafaza</p><p class="word english">he jumped</p></div>
+<div class="words"><p class="word arabic">لَعِبَ</p><p class="word transliteration">la'iba</p><p class="word english">he played</p></div>
+
+<div class="words"><p class="word arabic">كَلْب</p><p class="word transliteration">kalb</p><p class="word english">dog</p></div>
+<div class="words"><p class="word arabic">قَلْب</p><p class="word transliteration">qalb</p><p class="word english">heart</p></div>
+<div class="words"><p class="word arabic">نَفْس</p><p class="word transliteration">nafs</p><p class="word english">soul</p></div>
+<div class="words"><p class="word arabic">جَبَل</p><p class="word transliteration">jabal</p><p class="word english">mountain</p></div>
+<div class="words"><p class="word arabic">بَحْر</p><p class="word transliteration">bahr</p><p class="word english">sea</p></div>
+<div class="words"><p class="word arabic">نَهْر</p><p class="word transliteration">nahr</p><p class="word english">river</p></div>
+<div class="words"><p class="word arabic">قَمَر</p><p class="word transliteration">qamar</p><p class="word english">moon</p></div>
+<div class="words"><p class="word arabic">شَمْس</p><p class="word transliteration">shams</p><p class="word english">sun</p></div>
+<div class="words"><p class="word arabic">وَلَد</p><p class="word transliteration">walad</p><p class="word english">boy</p></div>
+<div class="words"><p class="word arabic">بِنْت</p><p class="word transliteration">bint</p><p class="word english">girl</p></div>
+
+<!-- Continuing remaining words -->
+
+<div class="words"><p class="word arabic">رَجُل</p><p class="word transliteration">rajul</p><p class="word english">man</p></div>
+<div class="words"><p class="word arabic">طِفْل</p><p class="word transliteration">tifl</p><p class="word english">child</p></div>
+<div class="words"><p class="word arabic">لَحْم</p><p class="word transliteration">lahm</p><p class="word english">meat</p></div>
+<div class="words"><p class="word arabic">خُبْز</p><p class="word transliteration">khubz</p><p class="word english">bread</p></div>
+<div class="words"><p class="word arabic">لَبَن</p><p class="word transliteration">laban</p><p class="word english">milk</p></div>
+
+<!-- Skipping explanation, finishing verbs list -->
+
+<div class="words"><p class="word arabic">نَجَحَ</p><p class="word transliteration">najaha</p><p class="word english">he succeeded</p></div>
+<div class="words"><p class="word arabic">رَسَبَ</p><p class="word transliteration">rasaba</p><p class="word english">he failed</p></div>
+<div class="words"><p class="word arabic">جَمَعَ</p><p class="word transliteration">jama'a</p><p class="word english">he gathered</p></div>
+<div class="words"><p class="word arabic">حَمِدَ</p><p class="word transliteration">hamida</p><p class="word english">he praised</p></div>
+<div class="words"><p class="word arabic">شَكَرَ</p><p class="word transliteration">shakara</p><p class="word english">he thanked</p></div>
+<div class="words"><p class="word arabic">صَبَرَ</p><p class="word transliteration">sabara</p><p class="word english">he was patient</p></div>
+<div class="words"><p class="word arabic">عَدَلَ</p><p class="word transliteration">'adala</p><p class="word english">he was just</p></div>
+<div class="words"><p class="word arabic">فَرِحَ</p><p class="word transliteration">fariha</p><p class="word english">he was happy</p></div>
+<div class="words"><p class="word arabic">حَزِنَ</p><p class="word transliteration">hazina</p><p class="word english">he was sad</p></div>
 
 </div>
 <script>
@@ -329,6 +573,48 @@ function resetText() {
   letterBlocks = [];
   letters.forEach(l => l.classList.remove("active"));
 }
+
+// ===========================
+// WORDS TOGGLE FUNCTION
+// ===========================
+// ===========================
+// WORDS CYCLE FUNCTION
+// ===========================
+const wordBlocks = document.querySelectorAll('.words');
+
+wordBlocks.forEach(block => {
+  let state = 0; // 0=definition only, 1=definition+translit, 2=definition+translit+arabic
+
+  const arabic = block.querySelector('.arabic');
+  const translit = block.querySelector('.transliteration');
+  const english = block.querySelector('.english');
+
+  // Initialize: show only English
+  arabic.style.display = 'none';
+  translit.style.display = 'none';
+  english.style.display = 'block';
+
+  block.addEventListener('click', () => {
+    state = (state + 1) % 3; // 0 → 1 → 2 → 0
+
+    if (state === 0) {
+      // Definition only
+      arabic.style.display = 'none';
+      translit.style.display = 'none';
+      english.style.display = 'block';
+    } else if (state === 1) {
+      // Definition + transliteration
+      arabic.style.display = 'none';
+      translit.style.display = 'block';
+      english.style.display = 'block';
+    } else if (state === 2) {
+      // Definition + transliteration + arabic
+      arabic.style.display = 'block';
+      translit.style.display = 'block';
+      english.style.display = 'block';
+    }
+  });
+});
 </script>
 
 
