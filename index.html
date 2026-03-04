@@ -190,6 +190,7 @@ li{ margin:8px 0; }
   .video-row{
     overflow: visible;
     flex-wrap: wrap;
+    /* flex-direction: row; */
   }
   .video-card{
     flex: 1 1 calc(50% - 14px);
@@ -238,6 +239,12 @@ li{ margin:8px 0; }
 
 .video-row.youtube_none {
     display: none;
+}
+
+a.book_A {
+    font-size: xx-large;
+    width: 100%;
+    text-align: center;
 }
 </style>
 </head>
@@ -397,9 +404,10 @@ li{ margin:8px 0; }
   <div class="homework">
     <h4 class="homework-title">Homework</h4>
     <p class="homework-sub">Watch these videos before the next lesson.</p>
-    <a href="https://jalisulquran.com/wp-content/uploads/2022/01/4_5780705661755066286.pdf">Green Book.pdf</a>
+    <a class="book_A" href="https://jalisulquran.com/wp-content/uploads/2022/01/4_5780705661755066286.pdf">Green Book.pdf</a>
     <div  class="video-row ">
       <!-- Replace the VIDEO ID in the src (after /embed/) -->
+       <!-- 1 -->
       <div class="video-card">
         <div class="video-frame">
           <iframe
@@ -416,6 +424,7 @@ GreenBook Visual Audiobook Intro</p>
         </div>
       </div>
 
+      <!-- 2 -->
       <div class="video-card">
         <div class="video-frame">
           <iframe
@@ -431,6 +440,7 @@ GreenBook Visual Audiobook Intro</p>
         </div>
       </div>
 
+      <!-- 3 -->
       <div class="video-card">
         <div class="video-frame">
           <iframe
@@ -446,7 +456,37 @@ GreenBook Visual Audiobook Intro</p>
         </div>
       </div>
 
+      <!-- 4 -->
+       <div class="video-card">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/V84QafGpzOY"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Page 6 - Speed Reading</p>
+          <p class="video-notes">Focus on initial/medial/final/isolated forms. Pause and copy.</p>
+        </div>
+      </div>
 
+      <!-- 5 -->
+       <div class="video-card">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/EWJg20c7ThU"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Page 8 - Fatha</p>
+          <p class="video-notes">Focus on initial/medial/final/isolated forms. Pause and copy.</p>
+        </div>
+      </div>
 
     </div>
   </div>
