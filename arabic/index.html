@@ -247,6 +247,18 @@ p.word {
     margin: 10px 0px;
 }
 
+#view {
+  width: 90%;
+  font-size: 2rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  direction: rtl;
+  font-family: inherit;
+  border: 1px solid black;
+}
+
 </style>
 </head>
 
@@ -260,7 +272,7 @@ p.word {
 </div>
 
 
-  <h1 id="view"></h1>
+  <input type="text" id="view" />
   <button onclick="resetText()">Reset</button>
 
   <div id="separateView">
@@ -489,7 +501,7 @@ letters.forEach(letter => {
     const transliteration = this.dataset.trans;
 
     // Add to joined Arabic word
-    view.textContent += arabic;
+    view.value += arabic;
 
     // Create vertical block
     const block = document.createElement("div");
@@ -558,9 +570,9 @@ sukunBtn.addEventListener("click", function () {
    REBUILD JOINED WORD
 =========================== */
 function rebuildJoinedWord() {
-  view.textContent = "";
+  view.value = "";
   letterBlocks.forEach(l => {
-    view.textContent += l.arabicSpan.textContent;
+    view.value += l.arabicSpan.textContent;
   });
 }
 
@@ -568,7 +580,7 @@ function rebuildJoinedWord() {
    RESET
 =========================== */
 function resetText() {
-  view.textContent = "";
+  view.value = "";
   separateArabic.innerHTML = "";
   letterBlocks = [];
   letters.forEach(l => l.classList.remove("active"));
